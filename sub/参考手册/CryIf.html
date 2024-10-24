@@ -1,0 +1,2764 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryIf 产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Crypto驱动产品参考手册" href="Crypto.html" />
+    <link rel="prev" title="CRC产品参考手册" href="CRC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CryIf 产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">缩写词注解</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.1 参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2 功能描述</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.1 基本功能</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3 源文件描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">4 API 接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">4.1 类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">4.2 输入函数描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">4.3 静态接口函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">4.4 可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">5 配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cryifgeneralconfig">CryIfGeneralConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cryifchannelconfig">CryIfChannelConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cryifkeyconfig">CryIfKeyConfig</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CryIf 产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/CryIf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cryif">
+<h1>CryIf 产品参考手册<a class="headerlink" href="#cryif" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>缩写词注解<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>HSM</p></td>
+<td><p>Hardware Security
+Module</p></td>
+<td><p>硬件安全模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>SHE</p></td>
+<td><p>Security Hardware
+Extension</p></td>
+<td><p>安全硬件扩展</p></td>
+</tr>
+<tr class="row-even"><td><p>SW</p></td>
+<td><p>Software</p></td>
+<td><p>软件加密算法</p></td>
+</tr>
+<tr class="row-odd"><td><p>HW</p></td>
+<td><p>Hardware</p></td>
+<td><p>硬件加密算法</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD</p></td>
+<td><p>Complex Device Driver</p></td>
+<td><p>复杂驱动</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSM</p></td>
+<td><p>Crypto Service Manager</p></td>
+<td><p>AUTOSAR
+中的加密服务管理 模块</p></td>
+</tr>
+<tr class="row-even"><td><p>CRYIF</p></td>
+<td><p>Crypto Interface</p></td>
+<td><p>AUTOSAR
+中的加密接口模块</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id2">
+<h3>1 简介<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>CryIf 模块位于底层密码解决方案(Crypto Driver 和基于 sw 的 CDD)和上层
+服务层(CSM)之间。它表示到上层服务层的密码驱动程序服务的接口。CryIf
+模块 提供了一个独特的接口来管理不同的密码 HW 和 SW 解决方案，如
+HSM、SHE 或基于 SW 的 CDD。因此，基于 Crypto
+接口维护的映射方案，Crypto 服务管理
+模块可以利用多种底层的内部和外部加密 HW 以及 SW 解决方案。</p>
+<p><a class="reference internal" href="../../_images/image221.png"><img alt="image1" src="../../_images/image221.png" style="width: 5.7974in; height: 3.3125in;" /></a></p>
+<p>图 1-1 AUTOSAR 加密栈</p>
+<p>CryIf 模块的主要功能为：</p>
+<p>1、接收 CSM 传输的数据并传输给 Crypto Driver。 2、接收 Crypto Driver
+返回的信息并返回给 CSM。</p>
+</div></blockquote>
+<section id="id3">
+<h4>1.1 参考资料<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>[1] AUTOSAR_SWS_CryptoInterface.pdf，R19-11</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id4">
+<h3>2 功能描述<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>2.1 基本功能<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>CryIf 位于 CSM 和 Crypto Driver 之间，是访问所有上层(BSW)密码操作的
+唯一接口。密码接口也是密码驱动程序的唯一用户，并提供了一个独特的接口
+来管理不同的密码硬件和软件解决方案。抽象层封装了不同的硬件和软件访问
+机制，因此加密接口的实现独立于底层的加密驱动程序，可以在硬件或软件中
+实现。它还保证了对加密服务的并发访问，使同时处理多个加密任务成为可
+能。</p>
+<p>除此之外，CryIf 支持多驱动，当需要支持多驱动时，打开
+CryIfMulDriverSupport
+开关，并填写不同驱动接口的前缀，即可根据接口名使 用不同的驱动。</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id6">
+<h3>3 源文件描述<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>表 3-1 CryIf 文件描述</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CryIf.c</p></td>
+<td><p>CryIf 模块源文件，包含了 API 函数的实现。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CryIf.h</p></td>
+<td><p>CryIf 模块头文件，包含了 API
+函数的扩展声明并定义了配置的</p>
+<p>数据结构。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CryIf_Cfg.h</p></td>
+<td><p>定义 CryIf 模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CryIf_cfg.c</p></td>
+<td><p>CryIf 模块配置生成文件。</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image314.png"><img alt="image2" src="../../_images/image314.png" style="width: 5.74618in; height: 4.70042in;" /></a></p>
+<p>图 3-1 CryIf 文件交互关系图</p>
+</div></blockquote>
+</section>
+<section id="api">
+<h3>4 API 接口<a class="headerlink" href="#api" title="Link to this heading"></a></h3>
+<section id="id7">
+<h4>4.1 类型定义<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<section id="cryif-configtype">
+<h5>4.1.1 CryIf_ConfigType 类型定义<a class="headerlink" href="#cryif-configtype" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CryIf_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>CryIf 模块配置数据结构</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id8">
+<h4>4.2 输入函数描述<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSM</p></td>
+<td><p>Csm_CallbackNotification</p></td>
+</tr>
+<tr class="row-even"><td><p>Crypto Driver</p></td>
+<td><blockquote>
+<div><p>Crypto_&lt;vi&gt;_&lt;ai&gt;_ProcessJob()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_CancelJob()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_KeyElementSet()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_KeySetValid()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_KeyElementGet()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_KeyElementCopy()
+Cry</p>
+</div></blockquote>
+<dl class="simple">
+<dt>pto_&lt;vi&gt;_&lt;ai&gt;_KeyElementCopyPartial()</dt><dd><p>Crypto_&lt;vi&gt;_&lt;ai&gt;_KeyCopy()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_RandomSeed()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_KeyGenerate()
+Crypto_&lt;vi&gt;_&lt;ai&gt;_KeyDerive()
+Cry</p>
+</dd>
+</dl>
+<p>pto_&lt;vi&gt;_&lt;ai&gt;_KeyExchangeCalcPubVal()</p>
+<blockquote>
+<div><p>Cry</p>
+</div></blockquote>
+<p>pto_&lt;vi&gt;_&lt;ai&gt;_KeyExchangeCalcSecret()</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h4>4.3 静态接口函数定义<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<section id="cryif-init">
+<h5>CryIf_Init<a class="headerlink" href="#cryif-init" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUNC(void,
+CRYIF_CODE)</p>
+<p>CryIf_Init(</p>
+<p>P2CONST(</p>
+</div></blockquote>
+<dl>
+<dt>CryIf_ConfigType,</dt><dd><blockquote>
+<div><p>AUTOMATIC,</p>
+</div></blockquote>
+<p>CRYIF_APPL_DATA)</p>
+<blockquote>
+<div><p>configPtr</p>
+<p>)</p>
+</div></blockquote>
+</dd>
+</dl>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>configPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化 CRYIF
+模块</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-getversioninfo">
+<h5>CryIf_GetVersionInfo<a class="headerlink" href="#cryif-getversioninfo" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_GetVersionInfo</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(void, CRYIF_CODE)</p>
+<p>CryIf_GetVersionInfo(</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>P2VAR(<a href="#id12"><span class="problematic" id="id13">Std_</span></a></p>
+</div></blockquote>
+<dl class="simple">
+<dt>VersionInfoType,</dt><dd><p>AUTOMATIC,
+<a href="#id14"><span class="problematic" id="id15">CRYIF_APPL_</span></a></p>
+</dd>
+</dl>
+<p>DATA)versioninfo</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数：</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>获取版本信息</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-processjob">
+<h5>CryIf_ProcessJob<a class="headerlink" href="#cryif-processjob" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><blockquote>
+<div><p><a href="#id16"><span class="problematic" id="id17">CryIf_</span></a></p>
+</div></blockquote>
+<p>ProcessJob</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(Std_R
+eturnType,</p>
+<blockquote>
+<div><p>C</p>
+</div></blockquote>
+<dl class="simple">
+<dt>RYIF_CODE)</dt><dd><p>CryIf_P</p>
+</dd>
+</dl>
+<p>rocessJob(</p>
+<blockquote>
+<div><p>uint32</p>
+</div></blockquote>
+<p>channelId,</p>
+<blockquote>
+<div><p>P</p>
+</div></blockquote>
+<p>2VAR(Crypt
+o_JobType,</p>
+<p>AUTOMATIC,</p>
+<blockquote>
+<div><p>CRYIF_APP</p>
+</div></blockquote>
+<p>L_DATA)job</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>channelId</p></td>
+<td><blockquote>
+<div><p>值</p>
+</div></blockquote>
+<p>域：</p>
+</td>
+<td><p>CRYIF_CHANNELS_MAX_CONFIGURED</p></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>job</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK</p>
+</div></blockquote>
+<p>：请求成功</p>
+<blockquote>
+<div><p>E_NOT_OK</p>
+</div></blockquote>
+<p>：请求失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>CRYPTO_E_BUSY：请求失败，Crypro 驱动对象忙
+CRYPTO_E_KEY_NOT_VALID：请求失败，密钥无效
+C</p>
+</div></blockquote>
+<dl>
+<dt>RYPTO_E_KEY_SIZE_MISMATCH：请求失败，一个密钥元素的大</dt><dd><blockquote>
+<div><p>小错误，请求失败，队列已满</p>
+</div></blockquote>
+<dl class="simple">
+<dt>CRYPTO_E_KEY_READ_FAIL：服务请求失败，因为不允许提取</dt><dd><p>key 元素
+CR</p>
+</dd>
+</dl>
+</dd>
+<dt>YPTO_E_KEY_WRITE_FAIL：服务请求失败，因为写入访问失败</dt><dd><p>C</p>
+</dd>
+<dt>RYPTO_E_KEY_NOT_AVAILABLE：服务请求失败，因为密钥不可</dt><dd><p>用</p>
+<p>CRYPTO_E_SMALL_BUFFER：提供的存储结果缓冲区太小
+C</p>
+</dd>
+<dt>RYPTO_E_JOB_CANCELLED：服务请求失败，因为同步作业已被</dt><dd><p>取消</p>
+<p>CRYPTO_E_KEY_EMPTY：请求失败，因为未初始化的源 key
+元素</p>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将接收到的 Job 分派给配置的加密驱动程序对象</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-canceljob">
+<h5>CryIf_CancelJob<a class="headerlink" href="#cryif-canceljob" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_CancelJob</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl>
+<dt>C(Std_ReturnType,</dt><dd><blockquote>
+<div><p>CRYIF_CODE)</p>
+</div></blockquote>
+<p>CryIf_CancelJob(</p>
+<blockquote>
+<div><p>uint32
+channelId,</p>
+<p>P2VA</p>
+</div></blockquote>
+</dd>
+<dt>R(Crypto_JobType,</dt><dd><p>AUTOMATIC,
+CR</p>
+</dd>
+</dl>
+<p>YIF_APPL_DATA)job</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>channelId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_CHANNELS_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>job</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：请求成功，作业已被删除</p>
+<p>E_NOT_OK：请求失败，无法删除作业</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将 Job 取消函数分派给配置的加密驱动程序对象</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyelementset">
+<h5>CryIf_KeyElementSet<a class="headerlink" href="#cryif-keyelementset" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><blockquote>
+<div><p>CryIf</p>
+</div></blockquote>
+<p>_KeyElementSet</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUNC(S</p>
+</div></blockquote>
+<dl class="simple">
+<dt>td_ReturnType,</dt><dd><p>CRYIF_CODE)
+<a href="#id18"><span class="problematic" id="id19">CryIf_</span></a></p>
+</dd>
+</dl>
+<p>KeyElementSet(</p>
+<blockquote>
+<div><blockquote>
+<div><p>uint32
+cryIfKeyId,
+uint32</p>
+</div></blockquote>
+<p>keyElementId,</p>
+</div></blockquote>
+<dl class="simple">
+<dt>P2CONST(uint8,</dt><dd><p>AUTOMATIC,
+CRYIF_APP</p>
+</dd>
+</dl>
+<p>L_DATA)keyPtr,</p>
+<blockquote>
+<div><p>uint32
+keyLength</p>
+<p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>CRYIF_KEYELEMENT_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>keyPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>E_OK：请求成功</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK：请求失败</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将把 set key element 函数分配给配置好的 crypto
+driver 对象</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keysetvalid">
+<h5>CryIf_KeySetValid<a class="headerlink" href="#cryif-keysetvalid" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_KeySetValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl class="simple">
+<dt>C(Std_ReturnType,</dt><dd><p>CRYIF_CODE)
+C</p>
+</dd>
+</dl>
+<p>ryIf_KeySetValid(</p>
+<blockquote>
+<div><p>uint32
+cryIfKeyId</p>
+<p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK：请求成功
+E</p>
+</div></blockquote>
+<p>_NOT_OK：请求失败</p>
+<blockquote>
+<div><p>CRYPTO_E_BUSY：</p>
+</div></blockquote>
+<dl class="simple">
+<dt>请求失败，Crypro</dt><dd><p>驱动对象忙</p>
+</dd>
+</dl>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>把</p>
+</div></blockquote>
+<p>设置的密钥有效函
+数分派给配置的密
+码驱动程序对象。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyelementget">
+<h5>CryIf_KeyElementGet<a class="headerlink" href="#cryif-keyelementget" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_KeyElementGet</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(Std_ReturnType, CRYIF_CODE)
+CryIf_KeyElementGet(</p>
+<p>uint32 cryIfKeyId,</p>
+<p>uint32 keyElementId,</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>P2VAR(uint8,
+AUTOMATIC,</p>
+</div></blockquote>
+<dl class="simple">
+<dt>CRYIF_APPL_DATA)</dt><dd><p>resultPtr,
+P2VAR(uint32,
+AUTOMATIC,</p>
+</dd>
+</dl>
+<p>CRYIF_APPL_DATA)</p>
+<blockquote>
+<div><p>resultLengthPtr</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>CRYIF_KEYELEMENT_MAX_</p>
+<blockquote>
+<div><p>CONFIGURED</p>
+</div></blockquote>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><dl class="simple">
+<dt>E_OK：请求成功</dt><dd><p><a href="#id20"><span class="problematic" id="id21">E_NOT_</span></a></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>OK：请求加密失败</p>
+<blockquote>
+<div><p><a href="#id22"><span class="problematic" id="id23">CRYPTO_</span></a></p>
+</div></blockquote>
+<p>E_BUSY：请求失败
+，密码驱动对象忙</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_NOT_AVAIL
+ABLE：请求失败，
+被请求的密钥元素</p>
+<blockquote>
+<div><p>不可用</p>
+<p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_READ_FAIL
+：请求失败，因为</p>
+<blockquote>
+<div><p>readaccess
+被拒绝
+CRYPT</p>
+</div></blockquote>
+<p>O_E_SMALL_BUFFER
+：提供的缓冲区太
+小，无法存储结果</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_EMPTY：由
+于未初始化源密钥
+元素而导致请求失</p>
+<blockquote>
+<div><p>败</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>把 get
+密钥元素函</p>
+</div></blockquote>
+<p>数分派给已配置的
+密码驱动程序对象</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyelementcopy">
+<h5>CryIf_KeyElementCopy<a class="headerlink" href="#cryif-keyelementcopy" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_KeyElementCopy</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(Std_ReturnType, CRYIF_CODE)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>CryIf_Ke</p>
+</div></blockquote>
+<dl>
+<dt>yElementCopy(</dt><dd><blockquote>
+<div><p>uint32</p>
+</div></blockquote>
+<dl class="simple">
+<dt>cryIfKeyId,</dt><dd><p>uint32</p>
+</dd>
+</dl>
+</dd>
+<dt>keyElementId,</dt><dd><p>uint32
+targ</p>
+</dd>
+</dl>
+<p>etCryIfKeyId,</p>
+<blockquote>
+<div><p>uint32
+targe</p>
+</div></blockquote>
+<p>tKeyElementId</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号：</p></td>
+<td><p>0x0f</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>同</p>
+</div></blockquote>
+<p>步/异步：</p>
+</td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><blockquote>
+<div><p>值</p>
+</div></blockquote>
+<p>域：</p>
+</td>
+<td><p>CRYIF_KEY_MAX_CONFIGURED</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>CRYIF_KEYELEMENT_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>tar</p>
+</div></blockquote>
+<p>getCryIfKeyId</p>
+</td>
+<td></td>
+<td><p>CRYIF_KEY_MAX_CONFIGURED</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><blockquote>
+<div><p>targe</p>
+</div></blockquote>
+<p>tKeyElementId</p>
+</td>
+<td></td>
+<td><p>CRYIF_KEYELEMENT_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输 入
+输 出
+参</p>
+<p>数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E</p>
+</div></blockquote>
+<dl class="simple">
+<dt>_OK：请求成功</dt><dd><p>E_NOT</p>
+</dd>
+</dl>
+<p>_OK：请求失败</p>
+<blockquote>
+<div><p>CR</p>
+</div></blockquote>
+<p>YPTO_E_BUSY：
+请求失败，密
+码驱动对象忙</p>
+<blockquote>
+<div><p>CRYP</p>
+</div></blockquote>
+<p><a href="#id24"><span class="problematic" id="id25">TO_E_KEY_NOT_</span></a>
+AVAILABLE：请
+求失败，请求
+的密钥元素不</p>
+<blockquote>
+<div><p>可用</p>
+<p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_READ_F
+AIL：请求失败
+，不允许提取</p>
+<blockquote>
+<div><p>key 元素
+CRY</p>
+</div></blockquote>
+<p>PTO_E_KEY_WRI
+TE_FAIL：请求
+失败，不允许
+写入密钥元素</p>
+<blockquote>
+<div><p>CR</p>
+</div></blockquote>
+<p>YPTO_E_KEY_SI
+ZE_MISMATCH：
+请求失败，key</p>
+<blockquote>
+<div><p>元</p>
+</div></blockquote>
+<p>素大小不兼容</p>
+<blockquote>
+<div><p><a href="#id26"><span class="problematic" id="id27">CRYPTO_</span></a></p>
+</div></blockquote>
+<p>E_KEY_EMPTY：
+由于未初始化
+源密钥元素而
+导致请求失败</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>将一个 key 元素从一个 key 复制到一个目标 key</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyelementcopypartial">
+<h5>CryIf_KeyElementCopyPartial<a class="headerlink" href="#cryif-keyelementcopypartial" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><blockquote>
+<div><p>CryIf_KeyE</p>
+</div></blockquote>
+<p>lementCopyPartial</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl class="simple">
+<dt>C(Std_ReturnType,</dt><dd><p>CRYIF_CODE)
+CryIf_KeyEl</p>
+</dd>
+</dl>
+<p>ementCopyPartial(</p>
+<blockquote>
+<div><p>uint32
+cryIfKeyId,
+uint32
+keyElementId,</p>
+<p>uint32
+keyEle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>mentSourceOffset,</dt><dd><p>uint32
+keyEle</p>
+</dd>
+<dt>mentTargetOffset,</dt><dd><p>uint32
+keyE</p>
+</dd>
+<dt>lementCopyLength,</dt><dd><p>uint32</p>
+</dd>
+</dl>
+<p>targetCryIfKeyId,</p>
+<blockquote>
+<div><p>uint32
+t</p>
+</div></blockquote>
+<p>argetKeyElementId</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>同</p>
+</div></blockquote>
+<p>步/异步：</p>
+</td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>CRYIF_KEYELEMENT_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><blockquote>
+<div><p>keyEl</p>
+</div></blockquote>
+<p>ementSourceOffset</p>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>keyEl</p>
+</div></blockquote>
+<p>ementTargetOffset</p>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><blockquote>
+<div><p>key</p>
+</div></blockquote>
+<p>ElementCopyLength</p>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>targetCryIfKeyId</p></td>
+<td></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><blockquote>
+<div><p>t</p>
+</div></blockquote>
+<p>argetKeyElementId</p>
+</td>
+<td></td>
+<td><p>CRYIF_KEYELEMENT_MAX_</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>CONFIGURED</p></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK：请求成功
+E</p>
+</div></blockquote>
+<p>_NOT_OK：请求失败</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_BUSY：请求失败
+，密码驱动对象忙</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_NOT_AVAILA
+BLE：请求失败，请
+求的密钥元素不可</p>
+<blockquote>
+<div><p>用</p>
+<p>CRYPTO_E_KE</p>
+</div></blockquote>
+<p>Y_READ_FAIL：请求
+失败，不允许提取</p>
+<blockquote>
+<div><p>key 元素
+CRY</p>
+</div></blockquote>
+<p>PTO_E_KEY_WRITE_F
+AIL：请求失败，不
+允许写入密钥元素</p>
+<blockquote>
+<div><p><a href="#id28"><span class="problematic" id="id29">CRYPTO_</span></a></p>
+</div></blockquote>
+<p>E_KEY_SIZE_MISMAT
+CH：请求失败，key</p>
+<blockquote>
+<div><p>元素大小不兼容</p>
+<p><a href="#id30"><span class="problematic" id="id31">CRYPTO_</span></a></p>
+</div></blockquote>
+<p>E_KEY_EMPTY：由于
+未初始化源密钥元
+素而导致请求失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>将 一 个 键 元
+素 复 制 到 另
+一 个 键 元 素
+。</p>
+</div></blockquote>
+<dl>
+<dt>keyElementOffsets</dt><dd><p>和</p>
+<p>key</p>
+</dd>
+<dt>ElementCopyLength</dt><dd><p>只允许将</p>
+</dd>
+</dl>
+<p>源键元素的一部分
+复制到目标键元素</p>
+<blockquote>
+<div><p>中。</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keycopy">
+<h5>CryIf_KeyCopy<a class="headerlink" href="#cryif-keycopy" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_KeyCopy</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl>
+<dt>C(Std_ReturnType,</dt><dd><blockquote>
+<div><p>CRYIF_CODE)
+CryIf_KeyCopy(</p>
+<p>uint32
+cryIfKeyId,
+uint32</p>
+</div></blockquote>
+<p>targetCryIfKeyId</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</dd>
+</dl>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>CONFIGURED</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>targetCryIfKeyId</p></td>
+<td></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><dl class="simple">
+<dt>E_OK：请求成功</dt><dd><p><a href="#id32"><span class="problematic" id="id33">E_</span></a></p>
+</dd>
+</dl>
+</div></blockquote>
+<p>NOT_OK：请求失败</p>
+<blockquote>
+<div><p><a href="#id34"><span class="problematic" id="id35">CRYPTO_</span></a></p>
+</div></blockquote>
+<p>E_BUSY：请求失败
+，密码驱动对象忙</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_NOT_AVAIL
+ABLE：请求失败，
+请求的密钥元素不</p>
+<blockquote>
+<div><p>可用</p>
+<p>CRYPTO_E_KEY</p>
+</div></blockquote>
+<p>_READ_FAIL：请求
+失败，不允许提取</p>
+<blockquote>
+<div><p>key 元素
+CRYPT</p>
+</div></blockquote>
+<p>O_E_KEY_WRITE_FA
+IL：请求失败，不
+允许写入密钥元素</p>
+<blockquote>
+<div><p><a href="#id36"><span class="problematic" id="id37">CRYPTO_E_</span></a></p>
+</div></blockquote>
+<p>KEY_SIZE_MISMATC
+H：请求失败，key</p>
+<blockquote>
+<div><p>元素大小不兼
+容
+CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_EMPTY：由
+于未初始化源密钥
+元素而导致请求失</p>
+<blockquote>
+<div><p>败</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><dl class="simple">
+<dt>将源密钥中的所有</dt><dd><p>key
+元素</p>
+</dd>
+</dl>
+<p>复制到目标密钥中</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-randomseed">
+<h5>CryIf_RandomSeed<a class="headerlink" href="#cryif-randomseed" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_RandomSeed</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType CryIf_RandomSeed( uint32 cryIfKeyId，</p>
+<p>const uint8* seedPtr，</p>
+<p>uint32 seedLength)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>同</p>
+</div></blockquote>
+<p>步/异步：</p>
+</td>
+<td><p>同步或异步，取决于配置</p></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><blockquote>
+<div><p>输</p>
+</div></blockquote>
+<p>入参数：</p>
+</td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><blockquote>
+<div><p>seed</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Ptr：保存一个指</dt><dd><p>向内</p>
+</dd>
+<dt>存位置的指针，</dt><dd><p>该</p>
+</dd>
+<dt>内存位置包含为</dt><dd><p>种</p>
+</dd>
+</dl>
+<p>子提供数据的指</p>
+<blockquote>
+<div><p>针。</p>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>see</p>
+</div></blockquote>
+<dl class="simple">
+<dt>dLength：包含种</dt><dd><p>子的</p>
+</dd>
+</dl>
+<p>长度，以字节为</p>
+<blockquote>
+<div><p>单位</p>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>uint32</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输 入
+输 出
+参</p>
+<p>数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输</p>
+</div></blockquote>
+<p>出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK：请求成功</p>
+<blockquote>
+<div><p>E_N</p>
+</div></blockquote>
+</div></blockquote>
+<p>OT_OK：请求失败</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>功</p>
+</div></blockquote>
+<p>能概述：</p>
+</td>
+<td><blockquote>
+<div><p>该函</p>
+</div></blockquote>
+<p>数将随机种子函
+数分配给配置好
+的密码驱动对象</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keygenerate">
+<h5>CryIf_KeyGenerate<a class="headerlink" href="#cryif-keygenerate" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_KeyGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl class="simple">
+<dt>C(Std_ReturnType,</dt><dd><p>CRYIF_CODE)
+C</p>
+</dd>
+</dl>
+<p>ryIf_KeyGenerate(</p>
+<blockquote>
+<div><p>uint32
+cryIfKeyId</p>
+<p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>CONFIGURED</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK：请求成功</p>
+<blockquote>
+<div><p><a href="#id38"><span class="problematic" id="id39">E_</span></a></p>
+</div></blockquote>
+</div></blockquote>
+<p>NOT_OK：请求失败</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>将随机种</p>
+</div></blockquote>
+<p>子函数分配给配置
+好的密码驱动对象</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyderive">
+<h5>CryIf_KeyDerive<a class="headerlink" href="#cryif-keyderive" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CryIf_KeyDerive</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl>
+<dt>C(Std_ReturnType,</dt><dd><blockquote>
+<div><p>CRYIF_CODE)</p>
+</div></blockquote>
+<p>CryIf_KeyDerive(</p>
+<blockquote>
+<div><p>uint32
+cryIfKeyId,
+uint32</p>
+</div></blockquote>
+<p>targetCryIfKeyId</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</dd>
+</dl>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>targetCryIfKeyId</p></td>
+<td></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK：请求成功
+E</p>
+</div></blockquote>
+<p>_NOT_OK：请求失败</p>
+<blockquote>
+<div><p>CRYPT</p>
+</div></blockquote>
+<p>O_E_KEY_EMPTY：由
+于未初始化源密钥
+元素而导致请求失</p>
+<blockquote>
+<div><p>败</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>将密钥派生函数分配给已配置的密码驱动程序对象</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyexchangecalcpubval">
+<h5>CryIf_KeyExchangeCalcPubVal<a class="headerlink" href="#cryif-keyexchangecalcpubval" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><blockquote>
+<div><p>CryIf_KeyE</p>
+</div></blockquote>
+<p>xchangeCalcPubVal</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUN</p>
+</div></blockquote>
+<dl class="simple">
+<dt>C(Std_ReturnType,</dt><dd><p>CRYIF_CODE)
+CryIf_KeyEx</p>
+</dd>
+</dl>
+<p>changeCalcPubVal(</p>
+<blockquote>
+<div><p>uint32
+cryIfKeyId,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,</p>
+<p>CRYIF_APPL_DAT</p>
+</div></blockquote>
+<p>A)publicValuePtr,</p>
+<blockquote>
+<div><p>P2VAR(uint32,
+AUTOMATIC,</p>
+<p>CR</p>
+</div></blockquote>
+<p>YIF_APPL_DATA)pub
+licValueLengthPtr</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><blockquote>
+<div><p>pub</p>
+</div></blockquote>
+<p>licValueLengthPtr</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>publicValuePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><p>E_OK：请求成功
+E</p>
+</div></blockquote>
+<p>_NOT_OK：请求失败</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_BUSY：请求失败
+，密码驱动对象忙</p>
+<blockquote>
+<div><p>CRY</p>
+</div></blockquote>
+<p>PTO_E_SMALL_BUFFE
+R：提供的缓冲区太
+小，无法存储结果</p>
+<blockquote>
+<div><p><a href="#id40"><span class="problematic" id="id41">CRYPTO_E_KEY_</span></a></p>
+</div></blockquote>
+<p>EMPTY：请求失败，
+因为没有初始化源</p>
+<blockquote>
+<div><p>key 元素</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>将</p>
+</div></blockquote>
+<p>密钥交换公共值计
+算函数分配给配置
+好的密码驱动对象</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keyexchangecalcsecret">
+<h5>CryIf_KeyExchangeCalcSecret<a class="headerlink" href="#cryif-keyexchangecalcsecret" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><blockquote>
+<div><p>CryIf_K</p>
+</div></blockquote>
+<p>eyExchangeCalcSecret</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><dl class="simple">
+<dt>FUNC(Std_ReturnType,</dt><dd><p>CRYIF_CODE)
+CryIf_Ke</p>
+</dd>
+</dl>
+<p>yExchangeCalcSecret(</p>
+<blockquote>
+<div><blockquote>
+<div><p>uint32
+cryIfKeyId,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,</p>
+</div></blockquote>
+<p>CRYIF_APPL_DATA)pa</p>
+</div></blockquote>
+<dl class="simple">
+<dt>rtnerPublicValuePtr,</dt><dd><p>uint32
+part</p>
+</dd>
+</dl>
+<p>nerPublicValueLength</p>
+<blockquote>
+<div><p>)</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>cryIfKeyId</p></td>
+<td><p>值域：</p></td>
+<td><p>CRYIF_KEY_MAX_</p>
+<p>CONFIGURED</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><blockquote>
+<div><p>p</p>
+</div></blockquote>
+<p>artnerPublicValuePtr</p>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><blockquote>
+<div><p>part</p>
+</div></blockquote>
+<p>nerPublicValueLength</p>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>E_OK：请求成功</p>
+</div></blockquote>
+<p>E_NOT_OK：请求失败</p>
+</div></blockquote>
+<p>CRYPTO_E_BUSY：请求</p>
+</div></blockquote>
+<dl class="simple">
+<dt>失败，密码驱动对象忙</dt><dd><p>CRYPTO_E_SMAL</p>
+</dd>
+</dl>
+<p>L_BUFFER：提供的缓冲
+区太小，无法存储结果</p>
+<blockquote>
+<div><p>CRYPTO</p>
+</div></blockquote>
+<p>_E_KEY_EMPTY：请求失
+败，因为没有初始化源</p>
+<blockquote>
+<div><p>key 元素</p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>将密钥交换公共共</p>
+</div></blockquote>
+<p>享秘密计算函数分配给
+配置好的密码驱动对象</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-callbacknotification">
+<h5>CryIf_CallbackNotification<a class="headerlink" href="#cryif-callbacknotification" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><blockquote>
+<div><p>CryIf_Cal</p>
+</div></blockquote>
+<p>lbackNotification</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><blockquote>
+<div><p>FUNC(void,
+CRYIF_CODE)</p>
+<p>CryIf_Call</p>
+</div></blockquote>
+<p>backNotification(</p>
+<blockquote>
+<div><p>P2VA</p>
+</div></blockquote>
+<dl>
+<dt>R(Crypto_JobType,</dt><dd><p>AUTOMATIC,CRY</p>
+</dd>
+<dt>IF_APPL_DATA)job,</dt><dd><p>Std_ReturnType
+result</p>
+<p>)</p>
+</dd>
+</dl>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>是</p>
+</div></blockquote>
+<p>否可重入：</p>
+</td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>job</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>result</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>输入</p>
+</div></blockquote>
+<p>输出参数：</p>
+</td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><blockquote>
+<div><p>通知 CRYIF
+关于密码操作</p>
+</div></blockquote>
+<p>结果的请求的完成</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id10">
+<h4>4.4 可配置函数定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id11">
+<h3>5 配置<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="cryifgeneralconfig">
+<h4>CryIfGeneralConfig<a class="headerlink" href="#cryifgeneralconfig" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image410.png"><img alt="image3" src="../../_images/image410.png" style="width: 4.71875in; height: 2.61458in;" /></a></p>
+<p>图 5-1 CryIfGeneralConfig 容器配置图</p>
+<p>表 5-1 CryIfGeneralConfig 属性描述</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>CryI</p>
+</div></blockquote>
+<dl class="simple">
+<dt>fDevErrorD</dt><dd><p>etect</p>
+</dd>
+</dl>
+</td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><blockquote>
+<div><p>打开或关闭开</p>
+</div></blockquote>
+<p>发错误检测和通知。</p>
+<blockquote>
+<div><p>tru</p>
+</div></blockquote>
+<dl class="simple">
+<dt>e：启用检测和通知。</dt><dd><p>false：</p>
+</dd>
+</dl>
+<p>检测和通知被禁用。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>CryIfV</p>
+</div></blockquote>
+<dl class="simple">
+<dt>ersionInfo</dt><dd><p>Api</p>
+</dd>
+</dl>
+</td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><blockquote>
+<div><p>如预处理程</p>
+</div></blockquote>
+<dl>
+<dt>序切换以启用和禁用</dt><dd><p>API 的可用性</p>
+<p>C</p>
+</dd>
+<dt>ryIf_GetVersionInfo</dt><dd><p>()。</p>
+<p>True： API
+CryIf_GetVe</p>
+</dd>
+<dt>rsionInfo()是可用的</dt><dd><p>错误：API
+CryIf_GetVe</p>
+</dd>
+</dl>
+<p>rsionInfo()不可用。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryifchannelconfig">
+<h4>CryIfChannelConfig<a class="headerlink" href="#cryifchannelconfig" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image510.png"><img alt="image4" src="../../_images/image510.png" style="width: 5.72839in; height: 3.01146in;" /></a></p>
+<p>图 5-2 CryIfChannelConfig 容器配置图</p>
+<p>表 5-2 CryIfChannelConfig 属性描述</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>CryI</p>
+</div></blockquote>
+<p>fChannelId</p>
+</td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><blockquote>
+<div><p>密码通道的标识符。</p>
+<blockquote>
+<div><p>指定 CSM
+队列连</p>
+</div></blockquote>
+</div></blockquote>
+<p>接到哪个加密通道。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>创建后自动生成
+ID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>CryIf</p>
+</div></blockquote>
+<dl class="simple">
+<dt>DriverObje</dt><dd><p>ctRef</p>
+</dd>
+</dl>
+</td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><blockquote>
+<div><p>此参数引用</p>
+</div></blockquote>
+<dl class="simple">
+<dt>加密驱动程序对象。</dt><dd><p>指</p>
+</dd>
+</dl>
+<p>定密码通道连接到哪
+个密码驱动程序对象</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于 Crypto
+Driver 中配置的
+Channel</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryifkeyconfig">
+<h4>CryIfKeyConfig<a class="headerlink" href="#cryifkeyconfig" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image610.png"><img alt="image5" src="../../_images/image610.png" style="width: 5.76875in; height: 2.875in;" /></a></p>
+<p>图 5-3 CryIfKeyConfig 容器配置图</p>
+<p>表 5-3 CryIfKeyConfig 属性描述</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CryIfKeyId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CryIfkey
+的标识符。</p>
+<p>指定 CSM
+密钥映射到哪个
+CryIf 密钥。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>创建后自动生成
+ID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><blockquote>
+<div><p>C</p>
+</div></blockquote>
+<p>ryIfKeyRef</p>
+</td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><blockquote>
+<div><p>此参数引用</p>
+</div></blockquote>
+<p>密码驱动程序密钥。</p>
+<blockquote>
+<div><p>指定 CryIf
+密钥映射到哪个</p>
+</div></blockquote>
+<p>加密驱动程序密钥。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于 Crypto
+Driver 中配置的
+Key</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="CRC.html" class="btn btn-neutral float-left" title="CRC产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Crypto.html" class="btn btn-neutral float-right" title="Crypto驱动产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

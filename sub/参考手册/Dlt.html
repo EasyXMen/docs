@@ -1,0 +1,7169 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DLT产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DoIP产品参考手册" href="DoIP.html" />
+    <link rel="prev" title="DET产品参考手册" href="Det.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DLT产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">DLT功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">DLT功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">DLT功能实现</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">DLT组件交互</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">DLT控制命令集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dltapplicationidcontextid">DLT模块注册或注销ApplicationID和ContextId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">DLT日志与跟踪消息发送</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-messagetracetype">Dlt_MessageTraceType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-extheadmsginfotype">Dlt_ExtHeadMsgInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-messagenetworktype">Dlt_MessageNetworkType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-messagecontroltype">Dlt_MessageControlType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-filterinfotype">Dlt_FilterInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-runtimetype">Dlt_RunTimeType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-headertype">Dlt_HeaderType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-datatypeinfotype">Dlt_DataTypeInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-messageformattype">Dlt_MessageFormatType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-standardheadertype">Dlt_StandardHeaderType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-messageinfotype">Dlt_MessageInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-extendedheadertype">Dlt_ExtendedHeaderType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-nonverboselogmessagetype">Dlt_NonVerboseLogMessageType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-verboselogmessagetype">Dlt_VerboseLogMessageType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-nonverbosetracemessagetype">Dlt_NonVerboseTraceMessageType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-verbosetracemessagetype">Dlt_VerboseTraceMessageType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-nonverbosedetlogmsgtype">Dlt_NonVerboseDetLogMsgType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-verbosedetlogmsgtype">Dlt_VerboseDetLogMsgType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-logchannelinfotype">Dlt_LogChannelInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-tracestatusinfotype">Dlt_TraceStatusInfoType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-init">Dlt_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-getversioninfo">Dlt_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-sendtracemessage">Dlt_SendTraceMessage函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-sendlogmessage">Dlt_SendLogMessage函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-detforwarderrortrace">Dlt_DetForwardErrorTrace函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-registercontext">Dlt_RegisterContext函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-unregistercontext">Dlt_UnRegisterContext函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-setlogleve">Dlt_SetLogLeve函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-settracestatus">Dlt_SetTraceStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-getloginfo">Dlt_GetLogInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-getdefaultloglevel">Dlt_GetDefaultLogLevel函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-storeconfiguration">Dlt_StoreConfiguration函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-resettofactorydefault">Dlt_ResetToFactoryDefault函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-setmessagefiltering">Dlt_SetMessageFiltering函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-setdefaultloglevel">Dlt_SetDefaultLogLevel函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-setdefaulttracestatus">Dlt_SetDefaultTraceStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-getdefaulttracestatus">Dlt_GetDefaultTraceStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-getlogchannelnames">Dlt_GetLogChannelNames函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-gettracestatus">Dlt_GetTraceStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-setlogchannelassignment">Dlt_SetLogChannelAssignment函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-setlogchannelthreshold">Dlt_SetLogChannelThreshold函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-getlogchannelthreshold">Dlt_GetLogChannelThreshold函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-txfunction">Dlt_TxFunction函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">通信回调接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-rxindication">Dlt_RxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-triggertransmit">Dlt_TriggerTransmit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-txconfirmation">Dlt_TxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-tptxconfirmation">Dlt_TpTxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-copytxdata">Dlt_CopyTxData函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-startofreception">Dlt_StartOfReception函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-tprxindication">Dlt_TpRxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-copyrxdata">Dlt_CopyRxData函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">可配置函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-injectioncallback-user">Dlt_InjectionCallback_&lt;User&gt;函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-loglevelchangednotification-user">Dlt_LogLevelChangedNotification_&lt;User&gt;函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlt-tracestatuschangednotification-user">Dlt_TraceStatusChangedNotification_&lt;User&gt;函数定义</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dltgeneral">DltGeneral配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dltconfigset">DltConfigSet配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">新建DltConfigSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">DltConfigSet配置容器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dltloglevelsettings">DltLogLevelSettings配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dltlogoutputs">DltLogOutputs配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dltprotocols">DltProtocols配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dltrxpdus">DltRxPdus配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dlttracestatussettings">DltTraceStatusSettings配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#dltswc">DltSwc配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id34">新建DltSwc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">DltSwc配置容器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dltswccontext">DltSwcContext配置容器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DLT产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/Dlt.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dlt">
+<h1>DLT产品参考手册<a class="headerlink" href="#dlt" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>API</p></td>
+<td><p>Application Programming
+Interface</p></td>
+<td><p>应用编程接口</p></td>
+</tr>
+<tr class="row-odd"><td><p>DLT</p></td>
+<td><p>Diagnostic Log and Trace</p></td>
+<td><p>诊断日志与跟踪</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>默认错误跟踪</p></td>
+</tr>
+<tr class="row-odd"><td><p>APID</p></td>
+<td><p>Application ID</p></td>
+<td><p>应用标识符</p></td>
+</tr>
+<tr class="row-even"><td><p>CTID</p></td>
+<td><p>Context ID</p></td>
+<td><p>上下文标识符</p></td>
+</tr>
+<tr class="row-odd"><td><p>MCNT</p></td>
+<td><p>Message Counter</p></td>
+<td><p>消息计数器</p></td>
+</tr>
+<tr class="row-even"><td><p>MSBF</p></td>
+<td><p>Most Significant Byte First</p></td>
+<td><p>最有效字节优先</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSBI</p></td>
+<td><p>Message Bus Info</p></td>
+<td><p>消息总线信息</p></td>
+</tr>
+<tr class="row-even"><td><p>MSCI</p></td>
+<td><p>Message Control Info</p></td>
+<td><p>消息控制信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSLI</p></td>
+<td><p>Message Log Info</p></td>
+<td><p>消息日志信息</p></td>
+</tr>
+<tr class="row-even"><td><p>MSTP</p></td>
+<td><p>Message Type</p></td>
+<td><p>消息类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>MSTI</p></td>
+<td><p>Message Trace Info</p></td>
+<td><p>消息跟踪信息</p></td>
+</tr>
+<tr class="row-even"><td><p>NOAR</p></td>
+<td><p>Number of Arguments</p></td>
+<td><p>参数个数</p></td>
+</tr>
+<tr class="row-odd"><td><p>STMS</p></td>
+<td><p>Timestamp</p></td>
+<td><p>时间戳</p></td>
+</tr>
+<tr class="row-even"><td><p>UEH</p></td>
+<td><p>Use Extended Header</p></td>
+<td><p>使用扩展消息头</p></td>
+</tr>
+<tr class="row-odd"><td><p>VERB</p></td>
+<td><p>Verbose</p></td>
+<td><p>冗余</p></td>
+</tr>
+<tr class="row-even"><td><p>VERS</p></td>
+<td><p>Version Number</p></td>
+<td><p>版本编号</p></td>
+</tr>
+<tr class="row-odd"><td><p>WEID</p></td>
+<td><p>With ECU ID</p></td>
+<td><p>携带ECU标识符</p></td>
+</tr>
+<tr class="row-even"><td><p>WSID</p></td>
+<td><p>With Session ID</p></td>
+<td><p>携带会话标识符</p></td>
+</tr>
+<tr class="row-odd"><td><p>WTMS</p></td>
+<td><p>With Timestamp</p></td>
+<td><p>携带时间戳</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><img alt="image1" src="../../_images/image159.png" /></p>
+<p>图1-1 AUTOSAR软件架构图</p>
+<p>本文档是AUTOSAR架构中诊断日志与跟踪
+DLT模块的用户参考手册。旨在指导使用DLT模块的用户能够清晰地了解诊断日志与跟踪的功能，以及如何去配置和使用DLT模块。</p>
+<p>DLT模块为使用者提供了通用的日志和跟踪记录消息功能。本参考文档的主要重点如何将指定格式数据或本地缓冲数据通过通信接口发往网络总线。</p>
+<p>AUTOSAR日志与跟踪诊断协议栈处于BSW基础软件层，包括DLT、DET等系统服务。如图1-1所示，橙色区域标注的所有模块都归属于AUTOSAR软件架构中日志与跟踪诊断协议栈的管理范畴，基础软件层还提供系统服务，网络通信服务，I/O服务以及复杂设备驱动。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SRS_DiagnosticLogAndTrace.pdf</p>
+<p>[2] AUTOSAR_PRS_LogAndTraceProtocol.pdf</p>
+<p>[3] AUTOSAR_SWS_DiagnosticLogAndTrace.pdf</p>
+<p>[4] AUTOSAR_SWS_DefaultErrorTracer.pdf</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>DLT功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>DLT功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>描述AUTOSAR软件架构中的基础软件模块DLT的功能设计和配置说明；它可以收集来自DET和DLT使用者的日志与跟踪信息；DLT模块通过通信总线转发诊断日志与跟踪消息，使这些信息可以在ECU外部可见；为此，DLT模块定义了在总线上发送和接收专用日志/跟踪信息的API；此外，可以选择使用NvM模块持久地存储DLT模块的更新过滤设置。这使ECU能够以所需的级别发送日志/跟踪信息，而不需要每次在ECU启动时通过外部客户端工具在通信总线上发出显式设置请求。</p>
+<p><a class="reference internal" href="../../_images/image228.png"><img alt="image2" src="../../_images/image228.png" style="width: 5.76458in; height: 4.80278in;" /></a></p>
+<p>图2-1 模块间交互关系</p>
+</section>
+<section id="id6">
+<h4>DLT功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image323.png"><img alt="image3" src="../../_images/image323.png" style="width: 5.60972in; height: 6.58542in;" /></a></p>
+<p>图2‑2 基于AUTOSAR的DLT软件架构</p>
+<p>如图所示展示了AUTOSAR诊断日志与跟踪消息记录DLT模块的软件分层架构。可以看到DLT模块处于BSW基础软件的系统服务层，与DET模块处于并列关系，并且当DET模块检测到错误信息时会通过API接口向DLT模块进行汇报；DLT模块也可以将收集到的标准格式的诊断日志与跟踪消息封装成特定格式的Pdu数据，然后转发给通信协议栈的PduR模块，选择一种通信协议将组装好的Pdu数据发送到网络总线上，由外部客户端的上位机软件对网络总线上的诊断日志与跟踪消息进行录取；通信协议栈可以接收来自外部客户端的DLT控制命令消息，由PduR模块从网络总线上获取Pdu数据，然后PduR模块将解析好的数据提交给DLT模块，由DLT模块提取出控制命令消息并根据DLT命令字来设置相应的DLT用户中的配置信息。</p>
+</section>
+<section id="id7">
+<h4>DLT组件交互<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image417.png"><img alt="image4" src="../../_images/image417.png" style="width: 5.46319in; height: 5.61806in;" /></a></p>
+<p>图2-3 DLT在AUTOSAR分层架构中的位置</p>
+<p>DLT模块应该提供以下功能：</p>
+<ul class="simple">
+<li><p>日志信息记录</p>
+<ul>
+<li><p>记录来自AUTOSAR软架构中应用程序组件DLT用户的错误、警告和信息等消息，并提供一个标准化的AUTOSAR接口；在BSW的一个系统集中子服务组件(DLT)中收集来自所有AUTOSAR软件架构中DLT用户的所有日志和跟踪消息；来自DET模块的日志消息。</p></li>
+</ul>
+</li>
+<li><p>跟踪信息记录</p>
+<ul>
+<li><p>实现用于跟踪软件组件变量、函数调用，函数返回，状态机的状态等事件的实时更新情况。</p></li>
+</ul>
+</li>
+<li><p>控制命令请求与响应</p>
+<ul>
+<li><p>使能/禁止每个通道的日志与跟踪消息，并通过反馈控制每一个通道的日志级别与跟踪状态。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id8">
+<h4>DLT控制命令集<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>表3-1 DLT控制命令集描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>服务
+标识符</strong></p></td>
+<td><p><strong>DLT命令名称</strong></p></td>
+<td><p><strong>命令详细描述</strong></p></td>
+<td><p><strong>是否
+支持</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>0x00</p></td>
+<td><p>NotSupported</p></td>
+<td><p>不支持命令</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x01</p></td>
+<td><p>SetLogLevel</p></td>
+<td><p>设置日志级别</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x02</p></td>
+<td><p>SetTraceStatus</p></td>
+<td><p>设置跟踪状态</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x03</p></td>
+<td><p>GetLogInfo</p></td>
+<td><p>获取已注册的日志信息</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x04</p></td>
+<td><p>GetDefautlogLevel</p></td>
+<td><p>获取默认日志级别</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x05</p></td>
+<td><p>StoreConfiguration</p></td>
+<td><p>存储当前配置信息到NvM</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x06</p></td>
+<td><p>Re
+setToFactoryDefault</p></td>
+<td><p>将配置信息恢复到默认值</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x07</p></td>
+<td><p>Se
+tComInterfaceStatus</p></td>
+<td><p>设置通信接口的状态</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x08</p></td>
+<td><p>S
+etComIfMaxBandwidth</p></td>
+<td><p>设置通信接口的最大带宽</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x09</p></td>
+<td><p>SetVerboseMode</p></td>
+<td><p>设置冗余模式</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x0A</p></td>
+<td><p>SetMessageFiltering</p></td>
+<td><p>设置DLT消息过滤状态</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x0B</p></td>
+<td><p>Reversed</p></td>
+<td><p>预留</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x0C</p></td>
+<td><p>GetLocalTime</p></td>
+<td><p>获取本地时间</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x0D</p></td>
+<td><p>SetUseECUID</p></td>
+<td><p>设置用户ECU标识符</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x0E</p></td>
+<td><p>SetUseSessionID</p></td>
+<td><p>设置用户会话标识符</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x0F</p></td>
+<td><p>SetUseTimestamp</p></td>
+<td><p>设置用户时间错</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x10</p></td>
+<td><p>S
+etUseExtendedHeader</p></td>
+<td><p>设置用户扩展头</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x11</p></td>
+<td><p>SetDefaultLogLevel</p></td>
+<td><p>设置默认日志级别</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x12</p></td>
+<td><p>Se
+tDefaultTraceStatus</p></td>
+<td><p>使能/禁止默认跟踪状态</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x13</p></td>
+<td><p>GetSoftwareVersion</p></td>
+<td><p>获取软件版本信息</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x14</p></td>
+<td><p>Me
+ssageBufferOverflow</p></td>
+<td><p>消息缓冲区溢出通知</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x15</p></td>
+<td><p>Ge
+tDefaultTraceStatus</p></td>
+<td><p>获取默认跟踪状态</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x16</p></td>
+<td><p>Get
+ComInterfacelStatus</p></td>
+<td><p>获取通信接口状态</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x17</p></td>
+<td><p>GetLogChannelNames</p></td>
+<td><p>获取日志通道的名称</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x18</p></td>
+<td><p>G
+etComIfMaxBandwidth</p></td>
+<td><p>获取通信接口的最大带宽</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x19</p></td>
+<td><p>G
+etVerboseModeStatus</p></td>
+<td><p>获取冗余模式状态</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x1A</p></td>
+<td><p>GetMes
+sageFilteringStatus</p></td>
+<td><p>获取DLT消息过滤状态</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x1B</p></td>
+<td><p>GetUseECUID</p></td>
+<td><p>获取用户ECU标识符</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x1C</p></td>
+<td><p>GetUseSessionID</p></td>
+<td><p>获取用户会话标识符</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x1D</p></td>
+<td><p>GetUseTimestamp</p></td>
+<td><p>获取用户时间戳</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-even"><td><p>0x1E</p></td>
+<td><p>G
+etUseExtendedHeader</p></td>
+<td><p>获取用户扩展头</p></td>
+<td><p>×</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x1F</p></td>
+<td><p>GetTraceStatus</p></td>
+<td><p>获取当前跟踪状态</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x20</p></td>
+<td><p>SetL
+ogChannelAssignment</p></td>
+<td><p>设置
+给定日志通道的映射路径</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x21</p></td>
+<td><p>Set
+LogChannelThreshold</p></td>
+<td><p>设置
+给定日志通道的过滤阈值</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x22</p></td>
+<td><p>Get
+LogChannelThreshold</p></td>
+<td><p>获取
+给定日志通道的过滤阈值</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x23</p></td>
+<td><p>BufferO
+verflowNotification</p></td>
+<td><p>DLT缓冲区溢出的指示通知</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>0x24</p></td>
+<td><p>SyncTimeStamp</p></td>
+<td><p>同步时间戳的指示</p></td>
+<td><p>√</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltapplicationidcontextid">
+<h4>DLT模块注册或注销ApplicationID和ContextId<a class="headerlink" href="#dltapplicationidcontextid" title="Link to this heading"></a></h4>
+<p>DLT模块能够通知日志级别的变化，DLT模块只有注册相应的ApplicationId /
+ContextId，才能在运行时使用ApplicationId/ContextId的元组，并存储到本地进行全局管理。如果参数DltGeneralRegisterContextNotification设置为TRUE，那么每次调用Dlt_RegisterContext时，Dlt模块将发送包含所提供的ApplicationId
+/ ContextId的DLT消息。</p>
+<p>DLT模块可以从已注册的用户列表中删除所有软件组件对应元组的应用程序ApplicationId和上下文ContextId标识符。</p>
+<p>如果参数DltGeneralRegisterContextNotification设置为TRUE，那么每次调用Dlt_UnregisterContext时，Dlt模块都将发送包含所提供的ApplicationId
+/ ContextId的DLT消息。</p>
+</section>
+<section id="id9">
+<h4>DLT日志与跟踪消息发送<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>Dlt消息发送路径描述Dlt日志和跟踪消息从源到接收的流程。源可以是DLT用户，而PDU路由通信栈表示接收端。</p>
+<p>在调用Dlt_SendLogMessage或Dlt_SendTraceMessage的上下文中，如图所示描述用于描述在通信总线上发送Dlt消息的各个步骤。</p>
+<ul class="simple">
+<li><p>产生时间戳</p></li>
+<li><p>设置消息过滤</p></li>
+<li><p>选择目标日志通道</p></li>
+<li><p>检查消息长度</p></li>
+<li><p>根据日志通道阈值过滤消息</p></li>
+<li><p>拷贝Dlt 消息到指定日志通道的目标缓冲区</p></li>
+</ul>
+<p><img alt="image5" src="../../_images/image516.png" /></p>
+<p>图2-4 DLT日志与跟踪消息发送路径流程</p>
+</section>
+</section>
+</section>
+<section id="id10">
+<h2>源文件描述<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>表3-1 DLT组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Dlt_Cfg.h</p></td>
+<td><p>定义DLT模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt_Cfg.c</p></td>
+<td><p>定义DLT模块中连接时用到的配置参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>Dlt.h</p></td>
+<td><p>DLT模块头文
+件，包含了API函数的扩展声明并定义了端口的数据结构。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt.c</p></td>
+<td><p>DLT模块源文件，包含了API函数的实现。</p></td>
+</tr>
+<tr class="row-even"><td><p>Dlt_Cbk.c</p></td>
+<td><p>用于实现Dlt模块供PduR调用的回调函数接口</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt_Cbk.h</p></td>
+<td><p>用于声明Dlt模块供PduR调用的回调函数接口</p></td>
+</tr>
+<tr class="row-even"><td><p>Dlt_internal.h</p></td>
+<td><p>Dlt模块内部接口的引用声明定义</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt_Types.h</p></td>
+<td><p>Dlt模块类型定义头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_Dlt_Type.h</p></td>
+<td><p>Dlt模块与RTE模块交互的类型定义头文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt_MemMap.h</p></td>
+<td><p>包含Dlt模块的内存抽象</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image615.png"><img alt="image6" src="../../_images/image615.png" style="width: 5.76736in; height: 4.95417in;" /></a></p>
+<p>图3-1 DLT组件文件交互关系图</p>
+<p>Dlt模块的文件结构如图所示。Dlt功能模块由10个文件组成，其中Dlt.c，Dlt.h两个文件中实现了Dlt的主要功能
+，这两个文件是每个Dlt模块必须实现的。</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id11">
+<h3>类型定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="dlt-messagetracetype">
+<h4>Dlt_MessageTraceType类型定义<a class="headerlink" href="#dlt-messagetracetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_MessageTraceType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>DLT_TRACE_VARIABLE = 1U</p>
+<p>DLT_TRACE_FUNCTION_IN = 2U</p>
+<p>DLT_TRACE_FUNCTION_OUT = 3U</p>
+<p>DLT_TRACE_STATE = 4U</p>
+<p>DLT_TRACE_VFB = 5U</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块跟踪消息的枚举类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-extheadmsginfotype">
+<h4>Dlt_ExtHeadMsgInfoType类型定义<a class="headerlink" href="#dlt-extheadmsginfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_ExtHeadMsgInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>DLT_TYPE_LOG = 0U</p>
+<p>DLT_TYPE_APP_TRACE = 1U</p>
+<p>DLT_TYPE_NW_TRACE = 2U</p>
+<p>DLT_TYPE_CONTROL = 3U</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的消息信息的枚举类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-messagenetworktype">
+<h4>Dlt_MessageNetworkType类型定义<a class="headerlink" href="#dlt-messagenetworktype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_MessageNetworkType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>DLT_NW_TRACE_IPC = 1U</p>
+<p>DLT_NW_TRACE_CAN = 2U</p>
+<p>DLT_NW_TRACE_FLEXRAY = 3U</p>
+<p>DLT_NW_TRACE_MOST = 4U</p>
+<p>DLT_NW_TRACE_ETHERNET = 5U</p>
+<p>DLT_NW_TRACE_SOMEIP = 6U</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的跟踪消息的枚举类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-messagecontroltype">
+<h4>Dlt_MessageControlType类型定义<a class="headerlink" href="#dlt-messagecontroltype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_MessageControlType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>DLT_CONTROL_REQUEST = 1U</p>
+<p>DLT_CONTROL_RESPONSE = 2U</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的控制消息的枚举类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-filterinfotype">
+<h4>Dlt_FilterInfoType类型定义<a class="headerlink" href="#dlt-filterinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_FilterInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_MessageTypeType message_type;</p>
+<p>Dlt_SessionIDType session_id;</p>
+<p>Dlt_MessageLogInfoType log_info;</p>
+<p>Dlt_MessageTraceInfoType trace_info;</p>
+<p>} Dlt_FilterInfoType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的过滤信息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-runtimetype">
+<h4>Dlt_RunTimeType类型定义<a class="headerlink" href="#dlt-runtimetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_RunTimeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>boolean MessageFilterEnable;</p>
+<p>boolean MessageFilterPass;</p>
+<p>Dlt_MessageLogLevelType DefaultLogLevel;</p>
+<p>boolean DefaultTraceStatus;</p>
+<p>Dlt_SwcInfoType SwcInfo[DLT_SWC_NUM];</p>
+<p>Dlt_ChannelInfoType ChannelInfo[DLT_CHANNEL_NUM];</p>
+<p>} Dlt_RunTimeType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述Dlt模块的运行状态</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-headertype">
+<h4>Dlt_HeaderType类型定义<a class="headerlink" href="#dlt-headertype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_HeaderType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>union</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef union</p>
+<p>{</p>
+<p>uint8 AllBits;</p>
+<p>struct</p>
+<p>{</p>
+<p>uint8 UseExtendedHeader : 1;</p>
+<p>uint8 MostSignificantByteFirst : 1;</p>
+<p>uint8 WithEcuId : 1;</p>
+<p>uint8 WithSessionId : 1;</p>
+<p>uint8 WithTimestamp : 1;</p>
+<p>uint8 VersionNumber : 3;</p>
+<p>} Dlt_Bits;</p>
+<p>} Dlt_HeaderType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的消息报文头信息的联合体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-datatypeinfotype">
+<h4>Dlt_DataTypeInfoType类型定义<a class="headerlink" href="#dlt-datatypeinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_DataTypeInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>union</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef union</p>
+<p>{</p>
+<p>uint32 AllBits;</p>
+<p>struct</p>
+<p>{</p>
+<p>uint32 Type_Length : 4;</p>
+<p>uint32 Type_Bool : 1;</p>
+<p>uint32 Type_Signed : 1;</p>
+<p>uint32 Type_Unsigned : 1;</p>
+<p>uint32 Type_Float : 1;</p>
+<p>uint32 Type_Array : 1;</p>
+<p>uint32 Type_String : 1;</p>
+<p>uint32 Type_Raw : 1;</p>
+<p>uint32 Variable_Info : 1;</p>
+<p>uint32 Fixed_Point : 1;</p>
+<p>uint32 Trace_Info : 1;</p>
+<p>uint32 Type_Struct : 1;</p>
+<p>uint32 String_Coding : 3;</p>
+<p>uint32 Reserved : 14;</p>
+<p>} Dlt_Bits;</p>
+<p>} Dlt_DataTypeInfoType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的负载数据信息的联合体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-messageformattype">
+<h4>Dlt_MessageFormatType类型定义<a class="headerlink" href="#dlt-messageformattype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_MessageFormatType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_DataTypeInfoType Type_Info;</p>
+<p>const uint8 *Data_Payload;</p>
+<p>} Dlt_MessageFormatType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的消息格式的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-standardheadertype">
+<h4>Dlt_StandardHeaderType类型定义<a class="headerlink" href="#dlt-standardheadertype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_StandardHeaderType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_HeaderType Header;</p>
+<p>uint8 MessageCounter;</p>
+<p>uint16 Length;</p>
+<p>uint32 Ecu_Id;</p>
+<p>Dlt_SessionIDType Session_Id;</p>
+<p>uint32 Timestamp;</p>
+<p>} Dlt_StandardHeaderType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的标准消息头格式的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-messageinfotype">
+<h4>Dlt_MessageInfoType类型定义<a class="headerlink" href="#dlt-messageinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_MessageInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>union</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef union</p>
+<p>{</p>
+<p>uint8 AllBits;</p>
+<p>struct</p>
+<p>{</p>
+<p>uint8 Verbose_Mode : 1;</p>
+<p>uint8 MessageType : 3;</p>
+<p>uint8 MessageTypeInfo : 4;</p>
+<p>} Dlt_Bits;</p>
+<p>} Dlt_MessageInfoType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的消息信息格式的联合体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-extendedheadertype">
+<h4>Dlt_ExtendedHeaderType类型定义<a class="headerlink" href="#dlt-extendedheadertype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_ExtendedHeaderType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_MessageInfoType MessageInfo;</p>
+<p>uint8 NumberOfArguments;</p>
+<p>Dlt_ApplicationIDType ApplicationId;</p>
+<p>Dlt_ContextIDType ContextId;</p>
+<p>} Dlt_ExtendedHeaderType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的扩展消息头格式的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-nonverboselogmessagetype">
+<h4>Dlt_NonVerboseLogMessageType类型定义<a class="headerlink" href="#dlt-nonverboselogmessagetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_NonVerboseLogMessageType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_StandardHeaderType Standard_Header;</p>
+<p>Dlt_ExtendedHeaderType Extended_Header;</p>
+<p>Dlt_MessageIDType Message_Id;</p>
+<p>const uint8 *logData;</p>
+<p>} Dlt_NonVerboseLogMessageType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的非冗余模式日志消息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-verboselogmessagetype">
+<h4>Dlt_VerboseLogMessageType类型定义<a class="headerlink" href="#dlt-verboselogmessagetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_VerboseLogMessageType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_StandardHeaderType Standard_Header;</p>
+<p>Dlt_ExtendedHeaderType Extended_Header;</p>
+<p>Dlt_MessageFormatType Log_Data[10];</p>
+<p>} Dlt_VerboseLogMessageType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的冗余模式日志消息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-nonverbosetracemessagetype">
+<h4>Dlt_NonVerboseTraceMessageType类型定义<a class="headerlink" href="#dlt-nonverbosetracemessagetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_NonVerboseTraceMessageType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_StandardHeaderType Standard_Header;</p>
+<p>Dlt_ExtendedHeaderType Extended_Header;</p>
+<p>Dlt_MessageIDType Message_Id;</p>
+<p>const uint8 *traceData;</p>
+<p>} Dlt_NonVerboseTraceMessageType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的非冗余模式跟踪消息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-verbosetracemessagetype">
+<h4>Dlt_VerboseTraceMessageType类型定义<a class="headerlink" href="#dlt-verbosetracemessagetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_VerboseTraceMessageType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_StandardHeaderType Standard_Header;</p>
+<p>Dlt_ExtendedHeaderType Extended_Header;</p>
+<p>Dlt_MessageFormatType Trace_Data[10];</p>
+<p>} Dlt_VerboseTraceMessageType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的冗余模式跟踪消息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-nonverbosedetlogmsgtype">
+<h4>Dlt_NonVerboseDetLogMsgType类型定义<a class="headerlink" href="#dlt-nonverbosedetlogmsgtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_NonVerboseDetLogMsgType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_StandardHeaderType Standard_Header;</p>
+<p>Dlt_ExtendedHeaderType Extended_Header;</p>
+<p>Dlt_MessageIDType Message_Id;</p>
+<p>uint16 Module_Id;</p>
+<p>uint8 Instance_Id;</p>
+<p>uint8 App_Id;</p>
+<p>uint8 Error_Id;</p>
+<p>} Dlt_NonVerboseDetLogMsgType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的非冗余模式Det日志消息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-verbosedetlogmsgtype">
+<h4>Dlt_VerboseDetLogMsgType类型定义<a class="headerlink" href="#dlt-verbosedetlogmsgtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_VerboseDetLogMsgType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Dlt_StandardHeaderType Standard_Header;</p>
+<p>Dlt_ExtendedHeaderType Extended_Header;</p>
+<p>Dlt_MessageIDType Message_Id;</p>
+<p>uint16 Module_Id;</p>
+<p>uint32 Ex_Instance_Id;</p>
+<p>uint8 Instance_Id;</p>
+<p>uint32 Ex_App_Id;</p>
+<p>uint8 App_Id;</p>
+<p>uint8 Ex_Error_Id;</p>
+<p>uint8 Error_Id;</p>
+<p>} Dlt_VerboseDetLogMsgType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的冗余模式Det日志消息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-logchannelinfotype">
+<h4>Dlt_LogChannelInfoType类型定义<a class="headerlink" href="#dlt-logchannelinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_LogChannelInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>uint16 LogChannelId;</p>
+<p>uint32 LogChannelName;</p>
+<p>Dlt_LogLevelType DefaultLogLevel;</p>
+<p>Dlt_LogLevelType LogChannelThreshold;</p>
+<p>uint16 ApplicationIdCount;</p>
+<p>Dlt_ApplicationIdInfoType ApplicationIdInfo[5];</p>
+<p>} Dlt_LogChannelInfoType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的日志通道信息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-tracestatusinfotype">
+<h4>Dlt_TraceStatusInfoType类型定义<a class="headerlink" href="#dlt-tracestatusinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Dlt_TraceStatusInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>boolean DefaultTraceStatus;</p>
+<p>Dlt_TraceStatusType TraceStatus;</p>
+<p>Dlt_ApplicationIDType SwcApplicationId;</p>
+<p>Dlt_ContextIDType SwcContextId;</p>
+<p>} Dlt_TraceStatusInfoType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于定义Dlt模块的跟踪状态信息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id12">
+<h3>输入函数描述<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入
+模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PduR</p></td>
+<td><p>Std_ReturnType PduR_DltTransmit(PduIdType id, const
+PduInfoType *info);</p></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Std_ReturnType Det_ReportError</p>
+<p>(</p>
+<p>uint16 ModuleId,</p>
+<p>uint8 InstanceId,</p>
+<p>uint8 ApiId,</p>
+<p>uint8 ErrorId</p>
+<p>);</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>GPT</p></td>
+<td><p>void Gpt_StartTimer(Gpt_ChannelType channel, Gpt_ValueType
+value);</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void Gpt_StopTimer(Gpt_ChannelType channel);</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>void Gpt_EnableNotification(Gpt_ChannelType channel);</p></td>
+</tr>
+<tr class="row-odd"><td><p>StbM</p></td>
+<td><p>Std_ReturnType StbM_GetCurrentTime</p>
+<p>(</p>
+<p>StbM_SynchronizedTimeBaseType timeBaseId,</p>
+<p>StbM_TimeStampType *timeStamp,</p>
+<p>StbM_UserDataType *userData</p>
+<p>);</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Std_ReturnType StbM_GetCurrentTimeExtended</p>
+<p>(</p>
+<p>StbM_SynchronizedTimeBaseType timeBaseId,</p>
+<p>StbM_TimeStampExtendedType *timeStamp,</p>
+<p>StbM_UserDataType *userData</p>
+<p>);</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NvM</p></td>
+<td><p>Std_ReturnType NvM_ReadBlock</p>
+<p>(</p>
+<p>NvM_BlockIdType BlockId,</p>
+<p>void *NvM_DstPtr</p>
+<p>);</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Std_ReturnType NvM_WriteBlock</p>
+<p>(</p>
+<p>NvM_BlockIdType BlockId,</p>
+<p>const void *NvM_SrcPtr</p>
+<p>);</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Std_ReturnType NvM_EraseNvBlock(NvM_BlockIdType BlockId);</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id13">
+<h3>静态接口函数定义<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="dlt-init">
+<h4>Dlt_Init函数定义<a class="headerlink" href="#dlt-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_Init(const Dlt_CfgType
+*ConfigPtr);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr：指向Dlt模块配置结构的指针</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>完成对Dlt模块的初始化处理；</p>
+<p>如Dlt的配置
+需要使用NVRamManager非易失数据存储，在
+ECU 启动阶段非常晚才初始化；</p>
+<p>Dlt_Init()函数应该在初始化
+NVRamManager 之后调用；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-getversioninfo">
+<h4>Dlt_GetVersionInfo函数定义<a class="headerlink" href="#dlt-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Dlt_GetVersionInfo(Std_VersionInfoType
+*VersionInfo);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versioninfo：保存版本信息的结构体地址</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取DLT模块的软件版本信息。</p>
+<p>备注：
+需要将相应编译宏定义开关设置为开启功能</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-sendtracemessage">
+<h4>Dlt_SendTraceMessage函数定义<a class="headerlink" href="#dlt-sendtracemessage" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SendTraceMessage</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SendTraceMessage</p>
+<p>(</p>
+<p>Dlt_SessionIDType session_id,</p>
+<p>const Dlt_MessageTraceInfoType
+*traceInfo,</p>
+<p>const uint8 *traceData,</p>
+<p>uint16 traceDataLength</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>session_id：会话标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>traceInfo：跟踪信息参数</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>traceData：跟踪数据缓冲区</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>traceDataLength：跟踪数据长度</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>用于VFB虚拟功能总线模块向D
+lt模块转发跟踪信息的服务接口，Dl
+t模块收集到来自虚拟功能总线VFB的
+跟踪信息以后，先存储到本地的消息
+缓冲区中，然后发送到网络总线上。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-sendlogmessage">
+<h4>Dlt_SendLogMessage函数定义<a class="headerlink" href="#dlt-sendlogmessage" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SendLogMessage</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SendLogMessage</p>
+<p>(</p>
+<p>Dlt_SessionIDType session_id,</p>
+<p>const Dlt_MessageLogInfoType
+*logInfo,</p>
+<p>const uint8 *logData,</p>
+<p>uint16 logDataLength</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>session_id：会话标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>logInfo：日志信息参数</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>logData：日志数据缓冲区</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>logDataLength：日志数据长度</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>用于SW
+C模块向Dlt模块转发日志信息的服务
+接口，Dlt模块收集到来自SWC模块的
+日志信息以后，先存储到本地的消息
+缓冲区中，然后发送到网络总线上。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-detforwarderrortrace">
+<h4>Dlt_DetForwardErrorTrace函数定义<a class="headerlink" href="#dlt-detforwarderrortrace" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_DetForwardErrorTrace</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_DetForwardErrorTrace</p>
+<p>(</p>
+<p>uint16 moduleId,</p>
+<p>uint8 instanceId,</p>
+<p>uint8 apiId,</p>
+<p>uint8 errorId</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>moduleId：模块标识符ID</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>instanceId：实例标识符ID</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>apiId：接口标识符ID</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>errorId：错误标识符 ID</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-255</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>用于Det模块向Dl
+t模块转发错误信息的服务接口，Dlt
+模块收集到来自Det模块的
+日志信息以后，先存储到本地的消息
+缓冲区中，然后发送到网络总线上。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-registercontext">
+<h4>Dlt_RegisterContext函数定义<a class="headerlink" href="#dlt-registercontext" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_RegisterContext</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_RegisterContext</p>
+<p>(</p>
+<p>Dlt_SessionIDType session_id,</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId,</p>
+<p>const uint8 *appDescription,</p>
+<p>uint8 lenAppDescription,</p>
+<p>const uint8
+*contextDescription,</p>
+<p>uint8 lenContextDescription</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>session_id：会话标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>contextId：下文标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>appDescription：应用描述信息</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>len
+AppDescription：应用描述信息长度</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>co
+ntextDescription：上下文描述信息</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>lenContex
+tDescription：上下文描述信息长度</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>用于SWC软件组件模块向
+Dlt模块注册应用程序的上下文信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-unregistercontext">
+<h4>Dlt_UnRegisterContext函数定义<a class="headerlink" href="#dlt-unregistercontext" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_UnRegisterContext</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_UnRegisterContext</p>
+<p>(</p>
+<p>Dlt_SessionIDType session_id,</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x16</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>session_id：会话标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>contextId：下文标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>用于SWC软件组件模块向
+Dlt模块注销应用程序的上下文信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-setlogleve">
+<h4>Dlt_SetLogLeve函数定义<a class="headerlink" href="#dlt-setlogleve" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetLogLeve</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType Dlt_SetLogLevel</p>
+<p>(</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId,</p>
+<p>Dlt_LogMessageLevelType
+newLogLevel</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>contextId：下文标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>newLogLevel： 新的日志级别</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_LOG_OFF</p>
+<p>DLT_LOG_FATAL</p>
+<p>DLT_LOG_ERROR</p>
+<p>DLT_LOG_WARN</p>
+<p>DLT_LOG_INFO</p>
+<p>DLT_LOG_DEBUG</p>
+<p>DLT_LOG_VERBOSE</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块
+请求设置日志级别的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-settracestatus">
+<h4>Dlt_SetTraceStatus函数定义<a class="headerlink" href="#dlt-settracestatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetTraceStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SetTraceStatus</p>
+<p>(</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId,</p>
+<p>boolean newTraceStatus</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>contextId：下文标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>newTraceStatus： 新的跟踪状态</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_TRACE_ON</p>
+<p>DLT_TRACE_OFF</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请
+求设置当前跟踪状态的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-getloginfo">
+<h4>Dlt_GetLogInfo函数定义<a class="headerlink" href="#dlt-getloginfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetLogInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType Dlt_GetLogInfo</p>
+<p>(</p>
+<p>uint8 options,</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId,</p>
+<p>uint8 *status,</p>
+<p>Dlt_LogInfoType *logInfo</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>options：选项字</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0-255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>contextId：下文标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>status：运行时执行状态</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>logInfo：返回当前日志信息</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请
+求获取当前日志信息的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-getdefaultloglevel">
+<h4>Dlt_GetDefaultLogLevel函数定义<a class="headerlink" href="#dlt-getdefaultloglevel" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetDefaultLogLevel</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_GetDefaultLogLevel</p>
+<p>(</p>
+<p>Dlt_MessageLogLevelType
+*defaultLogLevel</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x18</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>def
+aultLogLevel：当前的默认日志级别</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt
+模块请求获
+取当前默认日志级别的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-storeconfiguration">
+<h4>Dlt_StoreConfiguration函数定义<a class="headerlink" href="#dlt-storeconfiguration" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_StoreConfiguration</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType Dlt_StoreConfiguration(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1A</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求存储配置的服务调用，即通过调
+用NvM_WriteBlock()函数接口，将当前Dlt配置复制到NvRAM。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-resettofactorydefault">
+<h4>Dlt_ResetToFactoryDefault函数定义<a class="headerlink" href="#dlt-resettofactorydefault" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_ResetToFactoryDefault</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType Dlt_ResetToFactoryDefault(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向DLT模块请
+求将日志级别和跟踪状态设置为非易失性存储的默认值。如果
+特性NvMRAM支持被启用，所有存储在NvM中的Dlt值将被删除。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-setmessagefiltering">
+<h4>Dlt_SetMessageFiltering函数定义<a class="headerlink" href="#dlt-setmessagefiltering" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetMessageFiltering</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SetMessageFiltering(boolean
+status);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1B</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>status：新的消息过滤使能状态</p></td>
+<td><p>值
+域：</p></td>
+<td><p>TRUE-FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向DLT模块请
+求使能/禁止Dlt模块的消息过滤功能</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-setdefaultloglevel">
+<h4>Dlt_SetDefaultLogLevel函数定义<a class="headerlink" href="#dlt-setdefaultloglevel" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetDefaultLogLevel</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SetDefaultLogLevel</p>
+<p>(</p>
+<p>Dlt_MessageLogLevelType
+newLogLevel</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>newLogLevel：新的默认日志级别</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_LOG_OFF</p>
+<p>DLT_LOG_FATAL</p>
+<p>DLT_LOG_ERROR</p>
+<p>DLT_LOG_WARN</p>
+<p>DLT_LOG_INFO</p>
+<p>DLT_LOG_DEBUG</p>
+<p>DLT_LOG_VERBOSE</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求设置
+当前默认日志级别的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-setdefaulttracestatus">
+<h4>Dlt_SetDefaultTraceStatus函数定义<a class="headerlink" href="#dlt-setdefaulttracestatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetDefaultTraceStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SetDefaultTraceStatus</p>
+<p>(</p>
+<p>boolean newTraceStatus,</p>
+<p>Dlt_LogChannelNameType
+logChannelName</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>newTraceStatus：新的默认跟踪状态</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_TRACE_OFF</p>
+<p>DLT_TRACE_ON</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>logChannelName：日志通道名称</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求设
+置当前默认跟踪状态的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-getdefaulttracestatus">
+<h4>Dlt_GetDefaultTraceStatus函数定义<a class="headerlink" href="#dlt-getdefaulttracestatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetDefaultTraceStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_GetDefaultTraceStatus</p>
+<p>(</p>
+<p>Dlt_LogChannelNameType
+logChannelName,</p>
+<p>boolean *traceStatus,</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x19</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>logChannelName：日志通道名称</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>traceStatus：当前默认跟踪状态</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求设
+置当前默认跟踪状态的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-getlogchannelnames">
+<h4>Dlt_GetLogChannelNames函数定义<a class="headerlink" href="#dlt-getlogchannelnames" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetLogChannelNames</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_GetLogChannelNames</p>
+<p>(</p>
+<p>uint8 *numberOfLogChannel,</p>
+<p>Dlt_LogChannelNameType
+*logChannelName</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x17</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>nu
+mberOfLogChannel：日志通道的数量</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>logChannelName：日志通道名称</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请
+求获取日志通道名称的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-gettracestatus">
+<h4>Dlt_GetTraceStatus函数定义<a class="headerlink" href="#dlt-gettracestatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetTraceStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_GetTraceStatus</p>
+<p>(</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId,</p>
+<p>boolean *traceStatus,</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1F</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>contextId：上下文标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-4294967295</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>traceStatus：当前的跟踪状态</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请
+求获取当前跟踪状态的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-setlogchannelassignment">
+<h4>Dlt_SetLogChannelAssignment函数定义<a class="headerlink" href="#dlt-setlogchannelassignment" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetLogChannelAssignment</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SetLogChannelAssignment</p>
+<p>(</p>
+<p>Dlt_ApplicationIDType appId,</p>
+<p>Dlt_ContextIDType contextId,</p>
+<p>Dlt_LogChannelNameType
+LogChannelName,</p>
+<p>Dlt_AssignmentOperationType
+addRemoveOp</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x20</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>appId：应用程序标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>contextId：上下文标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LogChannelName：日志通道名称</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>addRemoveOp：追加或移除操作</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_OP_ADD</p>
+<p>DLT_OP_REMOVE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求
+设置日志通道映射的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-setlogchannelthreshold">
+<h4>Dlt_SetLogChannelThreshold函数定义<a class="headerlink" href="#dlt-setlogchannelthreshold" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_SetLogChannelThreshold</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_SetLogChannelThreshold</p>
+<p>(</p>
+<p>Dlt_LogChannelNameType
+LogChannelName,</p>
+<p>Dlt_LogLevelType newThreshold,</p>
+<p>Dlt_TraceStatusType
+newTraceStatus</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>LogChannelName：日志通道名称</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>newThreshold：新的日志通道阈值</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_LOG_OFF</p>
+<p>DLT_LOG_FATAL</p>
+<p>DLT_LOG_ERROR</p>
+<p>DLT_LOG_WARN</p>
+<p>DLT_LOG_INFO</p>
+<p>DLT_LOG_DEBUG</p>
+<p>DLT_LOG_VERBOSE</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>newTraceStatus：新的跟踪状态</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_TRACE_OFF</p>
+<p>DLT_TRACE_ON</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求
+设置日志通道阈值的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-getlogchannelthreshold">
+<h4>Dlt_GetLogChannelThreshold函数定义<a class="headerlink" href="#dlt-getlogchannelthreshold" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_GetLogChannelThreshold</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Dlt_GetLogChannelThreshold</p>
+<p>(</p>
+<p>Dlt_LogChannelNameType
+LogChannelName,</p>
+<p>Dlt_LogLevelType
+*newThreshold,</p>
+<p>Dlt_TraceStatusType
+*newTraceStatus</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>LogChannelName：日志通道名称</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>contextId：上下文标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LogChannelName：</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>addRemoveOp</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>DLT_OP_ADD</p>
+<p>DLT_OP_REMOVE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>newThreshold：新的日志通道阈值</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>newTraceStatus：新的跟踪状态</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>向Dlt模块请求
+返回日志通道阈值的服务控制接口</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-txfunction">
+<h4>Dlt_TxFunction函数定义<a class="headerlink" href="#dlt-txfunction" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_TxFunction</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_MainFunction(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x80</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用于实现周期调度发送处理功能函数，用于Dlt
+模块的异步操作逻辑处理，以及消息处理机制的发送任务处理</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id14">
+<h3>通信回调接口函数定义<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<section id="dlt-rxindication">
+<h4>Dlt_RxIndication函数定义<a class="headerlink" href="#dlt-rxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_RxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_RxIndication</p>
+<p>(</p>
+<p>PduIdType DltRxPduId,</p>
+<p>const PduInfoType *PduInfoPtr,</p>
+<p>Std_ReturnType Result</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x42</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重载</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>DltRxPduId：Dlt模块的接收PDU标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr：包含接收到的 PDU
+的长度(SduLength)，一个指向包含 PDU
+的
+缓冲区(SduDataPtr)的指针，以及与这个
+PDU 相关的元数据。</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Result：N-PDU接收的结果</p>
+<p>E_OK：PDU接收成功</p>
+<p>E_NOT_OK：PDU接收失败</p>
+</td>
+<td><p>值
+域
+：</p></td>
+<td><p>E_OK</p>
+<p>E_NOT_OK</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Dlt模块以IF的方
+式，从下层PduR模块接收总线上的PDU数据</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-triggertransmit">
+<h4>Dlt_TriggerTransmit函数定义<a class="headerlink" href="#dlt-triggertransmit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_TriggerTransmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType Dlt_TriggerTransmit</p>
+<p>(</p>
+<p>PduIdType TxPduId,</p>
+<p>const PduInfoType *PduInfoPtr</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x41</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入
+不同的PduId；对于相同的PduId不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TxPduId：被请求被发送的SDU的标识符ID</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr：包含一个指向要复制SDU数据
+的缓冲区(SduDataPtr)的指针，以及SduLe
+ngh中可用的缓冲区大小。返回时，服务将
+在SduLength中指示复制的SDU数据的长度</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E_OK: API接口请求被接受</p>
+<p>E_NOT_OK: API接口请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>在这个API中，上层模块(称为模块)将
+检查可用数据是否符合PduInfoPtr-&gt;SduL
+ength报告的缓冲区大小。如果符合，则将
+其数据复制到PduInfoPtr-&gt;SduDataPtr提
+供的缓冲区中，并在PduInfoPtr-&gt;SduLen
+gth中更新实际复制数据的长度。如果没有
+，它返回E_NOT_OK而不改变PduInfoPtr。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-txconfirmation">
+<h4>Dlt_TxConfirmation函数定义<a class="headerlink" href="#dlt-txconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_TxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_TxConfirmation</p>
+<p>(</p>
+<p>PduIdType TxPduId,</p>
+<p>Std_ReturnType Result</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x40</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入
+不同的PduId；对于相同的PduId不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TxPduId：已发送的PDU的标识符ID</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Result：N-PDU发送的结果</p>
+<p>E_OK：PDU被发送成功</p>
+<p>E_NOT_OK：PDU发送失败</p>
+</td>
+<td><p>值
+域
+：</p></td>
+<td><p>E_OK</p>
+<p>E_NOT_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>下层通信接口模块确认发送P
+DU数据成功，或发送PDU数据失败的通知。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-tptxconfirmation">
+<h4>Dlt_TpTxConfirmation函数定义<a class="headerlink" href="#dlt-tptxconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_TpTxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_TpTxConfirmation</p>
+<p>(</p>
+<p>PduIdType id,</p>
+<p>Std_ReturnType Result</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x48</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id：被发送I-PDU的标识符ID</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Result：I-PDU发送的结果</p>
+<p>E_OK：PDU被发送成功</p>
+<p>E_NOT_OK：PDU发送失败</p>
+</td>
+<td><p>值
+域
+：</p></td>
+<td><p>E_OK</p>
+<p>E_NOT_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>这个函数在I-PDU在其网络上
+发送之后被调用，结果表明发送是否成功</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-copytxdata">
+<h4>Dlt_CopyTxData函数定义<a class="headerlink" href="#dlt-copytxdata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_CopyTxData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType Dlt_CopyTxData</p>
+<p>(</p>
+<p>PduIdType id,</p>
+<p>const PduInfoType *info,</p>
+<p>const RetryInfoType *retry,</p>
+<p>PduLengthType *availableDataPtr</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x43</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id：被发送I-PDU的标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Info：提供目标缓冲区(SduDataPtr)和要
+复制的字节数(SduLength)。如果没有足够
+的发送数据可用，上层模块不会复制数据
+，并返回BUFREQ_E_BUSY。下层模块可以重
+试调用。SduLength为0可用于指示重试参
+数中的状态变化或查询上层模块中当前可
+用数据的数量。在本例中，SduDataPtr可
+能 是 一 个NULL_PTR。</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Retry：此参数用于确认已发送
+数据或在发送出现问题后重新发送数据。</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>availableDataPt
+r：指示上层模块的Tx缓冲区中可用的剩余
+字节数。availableDataPtr可被支持动态
+负载长度的TP模块用于确定以下CF的大小</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>BufReq_ReturnType：</p>
+<p>BUFREQ_OK：</p>
+<p>数
+据已经完全按照请求复制到发送缓冲区。</p>
+<p>BUFREQ_E_BUSY：</p>
+<p>由于 Tx
+数据量不够，请求无法完成。下层模块可
+能稍后重试此调用。没有复制任何数据。</p>
+<p>BUFREQ_E_NOT_OK：</p>
+<p>没有复制数据， 请求失败。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>这个函数在I-PDU在其网络上
+发送之后被调用，结果表明发送是否成功</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-startofreception">
+<h4>Dlt_StartOfReception函数定义<a class="headerlink" href="#dlt-startofreception" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_StartOfReception</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType
+Dlt_StartOfReception</p>
+<p>(</p>
+<p>PduIdType id,</p>
+<p>const PduInfoType *info,</p>
+<p>PduLengthType TpSduLength,</p>
+<p>PduLengthType *bufferSizePtr</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x46</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id：I-PDU的标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info：一个PduIn
+foType结构的指针，它包含传输协议I-PDU
+接收的首帧或单帧的有效负载数据(没有协
+议信息)和有效负载长度，以及与这个PDU
+相关的元数据。如果首帧/单帧数据或元数
+据都不可用，则此参数设置为NULL_PTR。</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TpSduLength：要接收的N-SDU的总长度</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>bufferSize
+Ptr：接收模块中可用的接收缓冲区。此参
+数将用于计算传输协议模块中的块大小。</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>BufReq_ReturnType：</p>
+<p>BUFREQ_OK：</p>
+<p>连接已被接受。b
+ufferSizePtr表示可用的接收缓冲区;接待
+继续。如果没有所需大小的缓冲区可用，
+则bufferSizePtr将表示接收缓冲区大小为
+0。</p>
+<p>BUFREQ_E_NOT_OK：</p>
+<p>连接被拒绝;
+招待会将中止。bufferSizePtr保持不变。</p>
+<p>BUFREQ_E_OVFL：</p>
+<p>不能提供所需长度的缓冲区
+;接收将中止。bufferSizePtr保持不变。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>这个函数在接收N-SDU
+开始时被调用。N-SDU可能被分割成多个N-
+PDU(带有一个或多个后续CF的FF)，或者可
+能由单个N-PDU(SF)组成。当TpSduLength
+为0时
+，服务将提供当前可用的最大缓冲区大小</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-tprxindication">
+<h4>Dlt_TpRxIndication函数定义<a class="headerlink" href="#dlt-tprxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_TpRxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Dlt_TpRxIndication</p>
+<p>(</p>
+<p>PduIdType id,</p>
+<p>Std_ReturnType Result</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x45</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id：接收到的I-PDU的标识符</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Result：PDU数据接收的结果</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>E_OK</p>
+<p>E_NOT_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过TP形式的API接口接收到
+I-PDU后被调用，结果表明传输是否成功</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-copyrxdata">
+<h4>Dlt_CopyRxData函数定义<a class="headerlink" href="#dlt-copyrxdata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_CopyRxData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType Dlt_CopyRxData</p>
+<p>(</p>
+<p>PduIdType id,</p>
+<p>const PduInfoType *info,</p>
+<p>PduLengthType *bufferSizePtr</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x44</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id：接收到的I-PDU的标识符</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0
+-65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info：提供
+源缓冲区(SduDataPtr)和要复制的字节数
+(SduLength)。SduLength为0可以用来查询
+上层模块中可用缓冲区的当前数量。在本
+例中，SduDataPtr可能是一个NULL_PTR。</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>buff
+erSizePtr：数据复制后可用的接收缓冲区</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>BufReq_ReturnType：</p>
+<p>BUFREQ_OK：数据复制成功</p>
+<p>BUFREQ_E_N
+OT_OK：数据未被复制，因为发生了错误。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>调用这个
+函数是为了将I-PDU段(N-PDU)接收到的数
+据提供给上层。对这个函数的每次调用都
+会提供I-PDU数据的下一部分。剩余缓冲区
+的大小写入bufferSizePtr所指示的位置。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id15">
+<h3>可配置函数定义<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<section id="dlt-injectioncallback-user">
+<h4>Dlt_InjectionCallback_&lt;User&gt;函数定义<a class="headerlink" href="#dlt-injectioncallback-user" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_Injec
+tCallback_&lt;User&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：操作成功</p>
+<p><a href="#id38"><span class="problematic" id="id39">DLT_</span></a>
+E_ERROR：操作失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>用于注入控制
+的可配置回调函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-loglevelchangednotification-user">
+<h4>Dlt_LogLevelChangedNotification_&lt;User&gt;函数定义<a class="headerlink" href="#dlt-loglevelchangednotification-user" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_L
+ogLevelChangedNot
+ification_&lt;User&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：操作成功</p>
+<p><a href="#id40"><span class="problematic" id="id41">DLT_</span></a>
+E_ERROR：操作失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>用于
+日志/跟踪会话控制
+的可配置回调函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlt-tracestatuschangednotification-user">
+<h4>Dlt_TraceStatusChangedNotification_&lt;User&gt;函数定义<a class="headerlink" href="#dlt-tracestatuschangednotification-user" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Dlt_Trac
+eStatusChangedNot
+ification_&lt;User&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：操作成功</p>
+<p><a href="#id42"><span class="problematic" id="id43">DLT_E_MSG_</span></a>
+TOO_LARGE：内部DL
+T缓冲区的消息太长</p>
+<p>DLT_E_CONTEXT_AL
+READY_REG：软件模
+块上下文已被注册</p>
+<p>DLT_E_UNKNOWN
+_SESSION_ID：提供
+的会话ID是未知的</p>
+<p>DLT_E_NO_B
+UFFER：缓冲区溢出</p>
+<p>D
+<a href="#id44"><span class="problematic" id="id45">LT_E_CONTEXT_NOT_</span></a>
+YET_REG：软件模块
+上下文没有被注册</p>
+<p><a href="#id46"><span class="problematic" id="id47">DLT_</span></a>
+E_ERROR：操作失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>用于SWC消息服务
+的可配置回调函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="id16">
+<h2>配置<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<p>主要介绍DLT模块的配置参数，列举配置项在配置界面显示的名称，对应的标准、可能的取值、默认的取值、参数描述及依赖关系，旨在指导用户如何使用配置工具进行DLT模块参数的配置。</p>
+<p>表5-1 属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>该配置项在配置工具界面显示的名称</p></td>
+</tr>
+<tr class="row-even"><td><p>取值范围</p></td>
+<td><p>该配置项允许的取值区间</p></td>
+</tr>
+<tr class="row-odd"><td><p>默认取值</p></td>
+<td><p>该配置项默认的配置值</p></td>
+</tr>
+<tr class="row-even"><td><p>参数描述</p></td>
+<td><p>该配置项在标准的AUTOSAR_EcucParamDef.arxml文件中的描述</p></td>
+</tr>
+<tr class="row-odd"><td><p>依赖关系</p></td>
+<td><p>该配置项与其他模块或配置项的关系</p></td>
+</tr>
+</tbody>
+</table>
+<section id="dltgeneral">
+<h3>DltGeneral配置<a class="headerlink" href="#dltgeneral" title="Link to this heading"></a></h3>
+<p><a href="#id36"><span class="problematic" id="id37">|C:\\Users\\Administrator\\Desktop\\Dlt\\DltMGeneral.PNG|</span></a></p>
+<p>图5-1 Dlt模块的General容器配置图</p>
+<p>表5-2 Dlt模块的General配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltGen
+eralDe
+vError
+Detect</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td><p>S
+T
+D
+_
+O
+F
+F</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是
+否开启配置出错检测。
+若开启，一旦检测到配
+置出错，则代码停留在
+故障出错位置。量产用
+代码，需关闭该配置。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于DET模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dl
+tGener
+alInje
+ctionS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使能或禁止Dl
+t模块应用程序注入功能</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于SWC模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltG
+eneral
+NvRAMS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使能或禁止Dlt模块对
+非易失性RAM数据的支持</p>
+<p>备注：</p>
+<p>如果Dlt模块在运行时
+能够持久地存储修改过
+的参数，则应该设置该
+引用并指向NvmBlock。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于NvRAM模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltGene
+ralReg
+isterC
+ontext
+Notifi
+cation</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使能或禁止Dlt模块对
+注册上下文通知的支持</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于SWC模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltGene
+ralReg
+isterC
+ontext
+Notifi
+cation</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果此参数设置为T
+RUE，则每次SWC注册和/
+在Dlt模块/从Dlt模块注
+销时发送Dlt控制消息。
+否则，此通知将不发送</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于SWC模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt
+Genera
+lRxDat
+aPathS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用或禁用Rx数
+据路径来控制Dlt模块。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+通信协议栈模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltTa
+skTime</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于配置Dlt模
+块周期调度的时间基准</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于O
+S或系统环境模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt
+Genera
+lStart
+UpDela
+yTimer</p></td>
+<td><p>取值范围</p></td>
+<td><p>1…10000</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Dlt模块初始
+化后启动日志和跟踪消
+息传输的s中可配置延迟</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于O
+S或系统环境模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dl
+tGener
+alTime
+StampS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果要在Dlt消
+息中添加时间戳，则此
+配置参数应设置为TRUE</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于GPT或STBM模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltGene
+ralTra
+fficSh
+apingS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用或
+禁用流量成形特性以限
+制Dlt消息的最大带宽。</p>
+<p>如
+果启用，可以为每个日
+志通道配置最大带宽。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+通信协议栈模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+Genera
+lGetLo
+gInfoS
+tatusS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用或禁用Dlt模块对获
+取日志信息状态的支持</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltGene
+ralVer
+sionIn
+foApiv</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于使能或禁
+止版本信息API接口支持
+的预处理宏编译开关。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltGe
+neralG
+ptChan
+nelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉菜单</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果使用TimeStam
+pSupport，那么Dlt模块
+将通过使用此处引用的G
+ptChannel调用Gpt_GetT
+imeElapsed从Gpt模块获
+取时间。滴答持续时间
+可以从GptChannelConf
+iguration容器的GptCha
+nnelTickFrequency参数
+推导出来。这对于计算
+Dlt消息中的微秒分辨率
+时间戳输出是必要的。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于GPT模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltGen
+eralGp
+tChann
+elInfo</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉菜单</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于DLT模块
+GPT通道信息引用的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于GPT模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltBuf
+ferMax
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于描述
+DLT模块缓冲区最大长度
+的配置用于描述DLT模块
+缓冲区最大长度的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltGen
+eralNv
+RAMRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉菜单</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于DLT模块对
+非易失性RAM引用的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于NvRAM模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltGene
+ralStb
+MTimeB
+aseRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果
+使用TimeStampSupport,
+Dlt模块
+将通过调用StbM_GetCu
+rrentTime从StbM模块获
+取时间，此处引用StbMS
+ynchronizedTimeBase。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于STBM模块的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltconfigset">
+<h3>DltConfigSet配置<a class="headerlink" href="#dltconfigset" title="Link to this heading"></a></h3>
+<section id="id17">
+<h4>新建DltConfigSet<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<p>DltConfigSet添加步骤为：鼠标选中DltConfigSets—单击右键—New—DltConfigSet。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image813.png"><img alt="image7" src="../../_images/image813.png" style="width: 5.76736in; height: 4.81042in;" /></a></p>
+<p>图5-2 Dlt模块新建ConfigSet配置容器界面</p>
+</section>
+<section id="id18">
+<h4>DltConfigSet配置容器<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image913.png"><img alt="image8" src="../../_images/image913.png" style="width: 5.76736in; height: 4.34444in;" /></a></p>
+<p>图5-3 Dlt模块ConfigSet配置容器界面</p>
+<p>表5-3 Dlt模块的ConfigSet配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltCon
+figSet</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个容器列出
+了在预编译时可以启用
+或禁用的所有全局Dlt功
+能，以优化资源消耗。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltLogL
+evelSe
+ttings</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含
+Dlt日志级别阈值的设置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltLogO
+utputs</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含日
+志/跟踪消息输出的设置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltPro
+tocols</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于处理特
+定协议变体的配置参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+RxPdus</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含用于Dlt控制
+消息接收的Pdu标识符ID</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dltt
+raceSt
+atusSe
+ttings</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含Dlt跟踪状态的设置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltloglevelsettings">
+<h4>DltLogLevelSettings配置<a class="headerlink" href="#dltloglevelsettings" title="Link to this heading"></a></h4>
+<section id="id19">
+<h5>新建DltLogLevelSettings<a class="headerlink" href="#id19" title="Link to this heading"></a></h5>
+<p>DltLogLevelSettings添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltLogLevelSettings。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image1013.png"><img alt="image9" src="../../_images/image1013.png" style="width: 5.76736in; height: 4.63889in;" /></a></p>
+<p>图5-4 Dlt模块新建LogLevelSetting容器界面</p>
+</section>
+<section id="id20">
+<h5>DltLogLevelSettings配置容器<a class="headerlink" href="#id20" title="Link to this heading"></a></h5>
+<p>为Dlt模块设置初始默认日志级别，在DltLogLevelSettings选项卡中点击默认日志级别设置按钮DltDefaultLogLevel，从下拉菜单中选中一个配置作为默认日志级别。默认情况，该配置项设置为DLT_LOG_OFF。</p>
+<p><a class="reference internal" href="../../_images/image1117.png"><img alt="image10" src="../../_images/image1117.png" style="width: 5.76736in; height: 3.48542in;" /></a></p>
+<p>图5-5 Dlt模块LogLevelSetting配置容器界面</p>
+</section>
+<section id="dltloglevelthreshold">
+<h5>新建DltLogLevelThreshold<a class="headerlink" href="#dltloglevelthreshold" title="Link to this heading"></a></h5>
+<p>DltLogLevelThreshold添加步骤为：鼠标选中DltLogLevelSetting—单击右键—New—DltLogLevelThreshold。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image1214.png"><img alt="image11" src="../../_images/image1214.png" style="width: 5.76736in; height: 3.50556in;" /></a></p>
+<p>图5-6 Dlt模块新建LogLevelThreshold容器界面</p>
+</section>
+<section id="id21">
+<h5>DltLogLevelThreshold配置容器<a class="headerlink" href="#id21" title="Link to this heading"></a></h5>
+<p>为Dlt模块设置初始日志级别，在DltLogLevelThreshold选项卡中点击日志级别阈值设置按钮Threshold，从下拉菜单中选中一个配置作为初始日志级别阈值。默认情况，该配置项设置为DLT_LOG_OFF。</p>
+<p><a class="reference internal" href="../../_images/image1312.png"><img alt="image12" src="../../_images/image1312.png" style="width: 5.76736in; height: 3.34028in;" /></a></p>
+<p>图5-7 Dlt模块的LogLevelThreshold配置容器界面</p>
+</section>
+<section id="dltloglevelthresholdswccontextref">
+<h5>DltLogLevelThresholdSwcContextRef配置容器<a class="headerlink" href="#dltloglevelthresholdswccontextref" title="Link to this heading"></a></h5>
+<p>为Dlt模块对应的日志级别阈值挂接SWC上下文注册的参考配置信息，在DltLogLevelThreshold选项卡中点击日志级别阈值SWC上下文引用挂接设置按钮LogLevelThresholdSwcContextRef，从下拉菜单中选中一个配置作为相应日志级别阈值的上下文配置信息。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image1411.png"><img alt="image13" src="../../_images/image1411.png" style="width: 5.76736in; height: 3.50625in;" /></a></p>
+<p>图5-8 Dlt模块的LogLevelThresholdSwcContextRef配置容器界面</p>
+</section>
+<section id="dltloglevelsetting">
+<h5>DltLogLevelSetting配置容器的属性描述<a class="headerlink" href="#dltloglevelsetting" title="Link to this heading"></a></h5>
+<p>表5-4 Dlt模块的LogLevelSetting配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltDef
+aultLo
+gLevel</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是在没有过
+滤器匹配给定的Appica
+tionId和context时使用
+的有效日志级别。这可
+以看作是一个贯穿过滤
+器定义，带有Appicatio
+nId和contexts的通配符
+，当没有其他过滤器匹
+配时，将使用通配符。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Thr
+eshold</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于为给定Appication
+Id和context的元组配置
+初始的的日志级别阈值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>LogLev
+elThre
+sholdS
+wcCont
+extRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用
+于为日志级别阈值挂接
+对应的上下文配置信息</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于DltSwc的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="dltlogoutputs">
+<h4>DltLogOutputs配置<a class="headerlink" href="#dltlogoutputs" title="Link to this heading"></a></h4>
+<section id="id22">
+<h5>新建DltLogOutputs<a class="headerlink" href="#id22" title="Link to this heading"></a></h5>
+<p>DltLogOutputs添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltLogOutputs。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image1510.png"><img alt="image14" src="../../_images/image1510.png" style="width: 5.76736in; height: 4.55486in;" /></a></p>
+<p>图5-9 Dlt模块新建LogOutput容器界面</p>
+</section>
+<section id="dltlogoutput">
+<h5>DltLogOutput配置容器<a class="headerlink" href="#dltlogoutput" title="Link to this heading"></a></h5>
+<p>引用默认日志通道，如果没有找到其他匹配项，则必须将其用于日志/跟踪输出。在DltLogOutput选项卡中点击默认日志通道引用设置按钮。</p>
+<p>DltDefaultLogChannelRef，从下拉菜单中选中一个配置作为默认日志通道。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image168.png"><img alt="image15" src="../../_images/image168.png" style="width: 5.76736in; height: 3.59653in;" /></a></p>
+<p>图5-10 Dlt模块DefaultLogChannelRef配置容器界面</p>
+<p>表5-5 Dlt模块的LogOutput配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltLog
+Output</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含日
+志/跟踪消息输出的设置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltDe
+faultL
+ogChan
+nelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用默认
+日志通道，如果没有找
+到其他匹配项，则必须
+将其用于日志/跟踪输出</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltLogC
+hannel</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含日
+志/跟踪消息输出的设置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltLo
+gChann
+elAssi
+gnment</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这
+个容器包含Applicatio
+nId/ContextId对及其分
+配的日志通道的预配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltlogchannel">
+<h5>新建DltLogChannel<a class="headerlink" href="#dltlogchannel" title="Link to this heading"></a></h5>
+<p>DltLogChannel添加步骤为：鼠标选中DltLogOutput—单击右键—New—DltLogChannel。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image178.png"><img alt="image16" src="../../_images/image178.png" style="width: 5.76736in; height: 3.53472in;" /></a></p>
+<p>图5-11 Dlt模块新建LogChannel容器界面</p>
+</section>
+<section id="id23">
+<h5>DltLogChannel配置容器<a class="headerlink" href="#id23" title="Link to this heading"></a></h5>
+<p>为Dlt模块设置日志通道指定发生缓冲区溢出时重置缓冲区溢出标志的周期时间；为日志通道特定消息缓冲区设置缓冲区大小；为日志通道配置索引名称；为Dlt日志或跟踪消息设置长限制；为日志通道设置日志级别阈值；为日志通道设置通信带宽；为日志通道的传输功能指定周期时间；打开/关闭对应日志通道。</p>
+<p>默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image186.png"><img alt="image17" src="../../_images/image186.png" style="width: 5.76736in; height: 2.93125in;" /></a></p>
+<p>图5-12 Dlt模块LogChannel配置容器界面</p>
+<p>表5-6 Dlt模块的LogChannel配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dl
+tLogCh
+annelB
+ufferO
+verflo
+wTimer</p></td>
+<td><p>取值范围</p></td>
+<td><p>0.001…1</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指
+定发生缓冲区溢出时重
+置缓冲区溢出标志的周
+期时间(以秒为单位)。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltLo
+gChann
+elBuff
+erSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>日志通道特定消
+息缓冲区的缓冲区大小</p>
+<p>备注：以字节为单位</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+LogCha
+nnelId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是日志通道的4
+个ASCII字符长的名称，
+在Dlt控制消息中作为参
+数名Dlt_interface使用</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltLo
+gChann
+elMaxM
+essage
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Dlt日
+志通道的最大消息长度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于S
+WC或VFB发送消息的大小</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltL
+ogChan
+nelMax
+NumOfR
+etries</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Dlt日
+志通道的最大尝试次数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于S
+WC或VFB发送消息的大小</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltL
+ogChan
+nelThr
+eshold</p></td>
+<td><p>取值范围</p></td>
+<td><p>DLT_LOG_OFF</p>
+<p>DLT_LOG_FATAL</p>
+<p>DLT_LOG_ERROR</p>
+<p>DLT_LOG_WARN</p>
+<p>DLT_LOG_INFO</p>
+<p>DLT_LOG_DEBUG</p>
+<p>DLT_LOG_VERBOSE</p>
+</td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>DL
+T_LOG_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于为日志
+通道设置日志级别阈值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltLog
+Channe
+lTraff
+icShap
+ingBan
+dwidth</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…</p>
+<p>18446744073709551615</p>
+</td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以位/秒为
+单位设置最大可能带宽</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于通信总线的速率</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dl
+tLogCh
+annelT
+ransmi
+tCycle</p></td>
+<td><p>取值范围</p></td>
+<td><p>0.001…1</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指定
+此日志通道传输功能的
+周期时间(以秒为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+LogTra
+ceStat
+usFlag</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON/STD_OFF</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参数来完
+全打开/关闭此日志通道</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlttxpdu">
+<h5>新建DltTxPdu<a class="headerlink" href="#dlttxpdu" title="Link to this heading"></a></h5>
+<p>DltTxPdu添加步骤为：鼠标选中DltLogChannel—单击右键—New—DltTxPdu。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image195.png"><img alt="image18" src="../../_images/image195.png" style="width: 5.76736in; height: 2.95069in;" /></a></p>
+<p>图5-13 Dlt模块新建TxPdu容器界面</p>
+</section>
+<section id="id24">
+<h5>DltTxPdu配置容器<a class="headerlink" href="#id24" title="Link to this heading"></a></h5>
+<p>将相应日志通道的发送PDU与ECU模块的PDU信号关联起来，并对相应配置项进行设置，如DltTxPduHandleId、DltTxPduUseTp和DltTxPduIdRef等参数设置。</p>
+<p><a class="reference internal" href="../../_images/image204.png"><img alt="image19" src="../../_images/image204.png" style="width: 5.76736in; height: 2.93125in;" /></a></p>
+<p>图5-14 Dlt模块TxPdu配置容器界面</p>
+<p>表5-7 Dlt模块的TxPdu配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dl
+tTxPdu</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含AUTOSAR中Dlt模块
+的Tx发送Pdu的配置参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltIT
+xPduHa
+ndleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作这个I-PDU
+ID的数值。</p>
+<p>这个处理
+Id用于api调用Dlt_TxCo
+nfirmation、Dlt_Trigg
+erTransmit、Dlt_Trigg
+erIPDUSend或Dlt_Trigg
+erIPDUSendWithMetaDat
+a,Dlt_CopyTxData和Dlt
+_TpTxConfirmation传输
+IPDU分别确认传输,以及
+PduId传递到Tx-I-PDU-
+callout配置了DltIPduC
+allout和/或DltIPduTri
+ggerTransmitCallout。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ECU和PDUR的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+ITxPdu
+UsesTp</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果
+设置为TRUE，则使用TP
+API传输PDU。</p>
+<p>如果为FALSE，则使用IF
+API。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ECU和PDUR的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltTxPd
+uIdRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用全局的Pd
+u结构，以允许在通信堆
+栈中协调句柄标识符ID</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ECU和PDUR的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltlogchannelassignment">
+<h5>新建DltLogChannelAssignment<a class="headerlink" href="#dltlogchannelassignment" title="Link to this heading"></a></h5>
+<p>DltLogChannelAssignment添加步骤为：鼠标选中DltLogOutput—单击右键—New—DltLogChannelAssignment。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image2112.png"><img alt="image20" src="../../_images/image2112.png" style="width: 5.76736in; height: 2.95486in;" /></a></p>
+<p>图5-15 Dlt模块新建LogChannelAssignment容器界面</p>
+</section>
+<section id="id25">
+<h5>DltLogChannelAssignment配置容器<a class="headerlink" href="#id25" title="Link to this heading"></a></h5>
+<p>为Dlt模块的日志通道分配挂接相应的上下文配置ContextRef信息，在DltLogChannelAssignment项卡中点击日志通道阈值设置按钮Assignment，从下拉菜单中选中一个配置作为日志通道分配的信息。</p>
+<p><a class="reference internal" href="../../_images/image229.png"><img alt="image21" src="../../_images/image229.png" style="width: 5.76736in; height: 3.24514in;" /></a></p>
+<p>图5-16 Dlt模块的LogChannelAssignment配置容器界面</p>
+<p>表5-8 Dlt模块的LogChannelAssignment配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltLo
+gChann
+elAssi
+gnment</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个容器包
+含ApplicationId/Cont
+extId对应元组及其分配
+的日志通道的预配置。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltLog
+Channe
+lAssig
+nmentS
+wcCont
+extRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用分
+配给Dlt日志通道的Appl
+icationId/ContextId对</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于DltSwc的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltL
+ogChan
+nelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对分配给Applicat
+ionId/ContextId对应元
+组的Dlt日志通道的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于日志通道的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="dltprotocols">
+<h4>DltProtocols配置<a class="headerlink" href="#dltprotocols" title="Link to this heading"></a></h4>
+<section id="id26">
+<h5>新建DltProtocols<a class="headerlink" href="#id26" title="Link to this heading"></a></h5>
+<p>DltProtocols添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltProtocols。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image233.png"><img alt="image22" src="../../_images/image233.png" style="width: 5.76736in; height: 4.55833in;" /></a></p>
+<p>图5-17 Dlt模块新建Protocol配置容器界面</p>
+</section>
+<section id="id27">
+<h5>DltProtocols配置容器<a class="headerlink" href="#id27" title="Link to this heading"></a></h5>
+<p>用于处理特定协议变体的配置参数，如Dlt标准消息报文头中是否使用EcuId，SessionId、TimeStamp等参数的配置，在非Verbose模式中是否使用扩展消息报文头的参数配置，Verbose模式的参数配置，Dlt消息过滤的状态配置。</p>
+<p><a class="reference internal" href="../../_images/image243.png"><img alt="image23" src="../../_images/image243.png" style="width: 5.76736in; height: 4.52014in;" /></a></p>
+<p>图5-18 Dlt模块Protocols配置容器界面</p>
+<p>表5-9 Dlt模块的Protocols配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltPr
+otocol</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于处理特
+定协议变体的配置参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltHe
+aderUs
+eEcuId</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对应字
+段WEID(携带有ECU标识
+符ID)。如果设置了ECU
+ID，则应放在标准消
+息头中，否则不需要。</p>
+<p>如果使用参数D
+ltGeneralNvRamRef，该
+参数将为对应的NVRam条
+目定义初始值。如果没
+有设置参数DltGeneralN
+vRamRef，则链接时或构
+建后配置应该被使用。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+Header
+UseSes
+sionID</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对应于
+字段WSID(携带有会话标
+识符ID)。如果设置了，
+会话ID应该放在标准消
+息头中，否则不需要。</p>
+<p>如果使用参数D
+ltGeneralNvRamRef，该
+参数将为对应的NVRam条
+目定义初始值。如果没
+有设置参数DltGeneralN
+vRamRef，则链接时或构
+建后配置应该被使用。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt
+Header
+UseTim
+estamp</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对应于字段WTMS(携带
+有时间戳)。如果设置了
+时间戳，应该放在标准
+消息头，否则不需要。</p>
+<p>如果使用参数D
+ltGeneralNvRamRef，该
+参数将为对应的NVRam条
+目定义初始值。如果没
+有设置参数DltGeneralN
+vRamRef，则链接时或构
+建后配置应该被使用。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltU
+seExtH
+eaderI
+nNonVe
+rbMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>非冗长Verbose消息(
+相对于冗长消息)不需要
+扩展头。如果将此标志
+设置为true，则扩展头
+也应用于非冗长消息。</p>
+<p>如果启
+用了DltGeneralNvRAMSu
+pport，则此参数是对应
+NVRam条目的初始值。如
+果没有设置DltGeneralN
+vRAMSupport，则链接时
+或构建后配置应使用。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltUs
+eVerbo
+seMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如
+果此标志设置为TRUE，
+则有效负载将以详细模
+式传输，否则有效负载
+将以非详细模式传输。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dl
+tEcuId</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是一个选择
+容器，用于在一个EcuId
+值和一个callout之间进
+行选择，以获得EcuId。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltecuid">
+<h5>新建DltEcuId<a class="headerlink" href="#dltecuid" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image253.png"><img alt="image24" src="../../_images/image253.png" style="width: 5.76736in; height: 3.30903in;" /></a></p>
+<p>图5-19 Dlt模块新建EcuId配置容器界面</p>
+</section>
+<section id="id28">
+<h5>DltEcuId配置容器<a class="headerlink" href="#id28" title="Link to this heading"></a></h5>
+<p>表5-10 Dlt模块的EcuId配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dl
+tEcuId</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是一个选择
+容器，用于在一个EcuId
+值和一个callout之间进
+行选择，以获得EcuId。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt
+EcuIdC
+allout
+Choice</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EcuId的配置通过
+Callout回调函数来获取</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltEcuI
+dValue
+Choice</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EcuId的配
+置直接通过数值来获取</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltecuidvaluechoice">
+<h5>新建DltEcuIdValueChoice<a class="headerlink" href="#dltecuidvaluechoice" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image263.png"><img alt="image25" src="../../_images/image263.png" style="width: 5.76736in; height: 3.52569in;" /></a></p>
+<p>图5-20 Dlt模块新建EcuIdValueChoice配置容器界面</p>
+</section>
+<section id="id29">
+<h5>DltEcuIdValueChoice配置容器<a class="headerlink" href="#id29" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image273.png"><img alt="image26" src="../../_images/image273.png" style="width: 5.76736in; height: 2.78194in;" /></a></p>
+<p>图5-21 Dlt模块新建EcuIdValueChoice配置容器界面</p>
+<p>表5-11 Dlt模块的EcuIdValueChoice配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltEcuI
+dValue
+Choice</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EcuId的配
+置直接通过数值来获取</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltEcuI
+dValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>字符串：uint8 []</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果使用此选项，则
+应从配置的字符串中获
+取EcuId。这是在Dlt协
+议中使用的ECU的名称。
+如果你想使用一个数字
+表示类型，这是字符。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltecuidcalloutchoice">
+<h5>DltEcuIdCalloutChoice配置容器<a class="headerlink" href="#dltecuidcalloutchoice" title="Link to this heading"></a></h5>
+<p>表5-12 Dlt模块的EcuIdCalloutChoice配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+EcuIdC
+allout
+Choice</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EcuId的配置通过
+Callout回调函数来获取</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltEcuI
+dValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>回调函数</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如
+果使用此选项，则应通
+过调用此处配置的callo
+ut函数来获取该EcuId。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="dltrxpdus">
+<h4>DltRxPdus配置<a class="headerlink" href="#dltrxpdus" title="Link to this heading"></a></h4>
+<section id="id30">
+<h5>新建DltRxPdus<a class="headerlink" href="#id30" title="Link to this heading"></a></h5>
+<p>DltRxPdus添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltRxPdus。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image283.png"><img alt="image27" src="../../_images/image283.png" style="width: 5.76736in; height: 4.75972in;" /></a></p>
+<p>图5-22 Dlt模块新建RxPdu配置容器界面</p>
+</section>
+<section id="id31">
+<h5>DltRxPdus配置容器<a class="headerlink" href="#id31" title="Link to this heading"></a></h5>
+<p>为Dlt模块通信机制的接收链路配置PDU参数，如DltIRxPduHandleId、DltIRxPduUsesTp和DltRxPduIdRef等参数的设置。</p>
+<p><a class="reference internal" href="../../_images/image293.png"><img alt="image28" src="../../_images/image293.png" style="width: 5.76736in; height: 2.71042in;" /></a></p>
+<p>图5-23 Dlt模块RxPdus配置容器界面</p>
+<p>表5-13 Dlt模块的RxPdus配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dl
+tRxPdu</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含用于Dlt控制
+消息接收的Pdu标识符ID</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于ECUC和PDUR的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DltIR
+xPduHa
+ndleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65536</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作这个I-PDU
+ID的数值。
+API调用Dlt_RxIndicat
+ion、Dlt_TpRxIndicati
+on、Dlt_StartOfRecept
+ion和Dlt_CopyRxData时
+需要DltRxPduHandleId
+来接收来自PduR的I-PDU
+(DltIPduDirection:
+r
+eceive)，以及传递给Rx
+IPDU-callout的PduId。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于ECUC和PDUR的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+IRxPdu
+UsesTp</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果
+设置为TRUE，则使用TP
+API接收PDU。</p>
+<p>如果为FALSE，则使用IF
+API。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于ECUC和PDUR的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltRxPd
+uIdRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用全局的Pd
+u结构，以允许在通信堆
+栈中协调句柄标识符ID</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于ECUC和PDUR的配置项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="dlttracestatussettings">
+<h4>DltTraceStatusSettings配置<a class="headerlink" href="#dlttracestatussettings" title="Link to this heading"></a></h4>
+<section id="id32">
+<h5>新建DltTraceStatusSettings<a class="headerlink" href="#id32" title="Link to this heading"></a></h5>
+<p>DlttraceStatusSettings添加步骤为：鼠标选中DltConfigSet—单击右键—New—DlttraceStatusSettings。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image303.png"><img alt="image29" src="../../_images/image303.png" style="width: 5.76736in; height: 4.74931in;" /></a></p>
+<p>图5-24 Dlt模块新建TraceStatusSetting配置容器界面</p>
+</section>
+<section id="id33">
+<h5>DltTraceStatusSettings配置容器<a class="headerlink" href="#id33" title="Link to this heading"></a></h5>
+<p>为Dlt模块设置初始默认跟踪状态，在DltTraceStatusSettings选项卡中点击默认跟踪状态设置按钮DltDefaultTraceStatus，从下拉菜单中选中一个配置作为默认跟踪状态。默认情况，该配置项设置为FALSE。</p>
+<p><a class="reference internal" href="../../_images/image3110.png"><img alt="image30" src="../../_images/image3110.png" style="width: 5.76736in; height: 3.16597in;" /></a></p>
+<p>图5-25 Dlt模块TraceStatusSettings配置容器界面</p>
+<p>表5-14 Dlt模块的TraceStatusSettings配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+TraceS
+tatusS
+etting</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含跟踪状态的设置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt
+Defaul
+tTrace
+Status</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是在没有过
+滤器匹配给定的Applica
+tionId和ContextId时使
+用的有效跟踪状态。这
+可以看作是一个带有通
+配符ApplicationId和Co
+ntextId的穿透过滤器定
+义，当没有其他过滤器
+匹配时，将使用通配符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltTra
+ceStat
+usAssi
+gnment</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这
+个容器包含Applicatio
+nId/ContextId对及其分
+配的跟踪状态的预配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dlttracestatussettingsswccontext">
+<h5>DltTraceStatusSettingsSwcContext配置容器<a class="headerlink" href="#dlttracestatussettingsswccontext" title="Link to this heading"></a></h5>
+<div class="line-block">
+<div class="line"><a class="reference internal" href="../../_images/image324.png"><img alt="image31" src="../../_images/image324.png" style="width: 5.76736in; height: 2.75347in;" /></a></div>
+<div class="line">图5-26 Dlt模块TraceStatusAssignmentSwcContext配置容器界面</div>
+</div>
+<p>表5-15 Dlt模块的TraceStatusAssignmentSwcContext配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltTra
+ceStat
+usAssi
+gnment</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td><ul class="simple">
+<li></li>
+<li></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个
+容器包含ApplicationI
+d/ContextId对及其分配
+的跟踪状态的预配置。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dl
+tTrace
+Status</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>跟
+踪给定的ApplicationI
+d/ContextId元组的状态</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltTrac
+eStatu
+sAssig
+nmentS
+wcCont
+extRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对已分配Dlt跟踪状
+态的ApplicationId/Co
+ntextId对应元组的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="dltswc">
+<h3>DltSwc配置<a class="headerlink" href="#dltswc" title="Link to this heading"></a></h3>
+<section id="id34">
+<h4>新建DltSwc<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
+<p>DltSwc添加步骤为：鼠标选中DltConfigSets—单击右键—New—DltConfigSet。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image333.png"><img alt="image32" src="../../_images/image333.png" style="width: 5.76736in; height: 3.77014in;" /></a></p>
+<p>图5-27 Dlt模块新建Swc配置容器图</p>
+</section>
+<section id="id35">
+<h4>DltSwc配置容器<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
+<p>为Dlt模块的SWC上下文配置表设置会话标识符、是否支持日志级别更新通知、日志消息最大长度和跟踪消息最大长度等参数的配置。</p>
+<p>默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image343.png"><img alt="image33" src="../../_images/image343.png" style="width: 5.76736in; height: 3.35139in;" /></a></p>
+<p>图5-28 Dlt模块Swc配置容器界面</p>
+<p>表5-16 Dlt模块的Swc配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DltSwc</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>包含AUTOSAR
+Dlt模块与S
+WCs交互所需的配置参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dlt
+SwcSes
+sionId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>一个ECU范围的
+唯一标识符ID，用于标
+识SWC(实例)使用的端口</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+SwcSup
+portLo
+gLevel
+Change
+Notifi
+cation</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE，FALSE</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标志指示Dlt是否必须
+提供一个R-Port来通知
+SWC关于日志级别的更改</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>MaxS
+wcLogM
+essage
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义日
+志消息允许的最大长度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>MaxSwc
+TraceM
+essage
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义跟
+踪消息允许的最大长度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltSwcC
+ontext</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个容器包含SWC所支
+持的ApplicationId/Co
+ntextId对应元组的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dltswccontext">
+<h4>DltSwcContext配置容器<a class="headerlink" href="#dltswccontext" title="Link to this heading"></a></h4>
+<p>为Dlt模块的SWC上下文配置表设置应用程序标识符和上下文标识符。默认情况，无该配置项。</p>
+<p><a class="reference internal" href="../../_images/image353.png"><img alt="image34" src="../../_images/image353.png" style="width: 5.76736in; height: 3.47639in;" /></a></p>
+<p>图5-29 Dlt模块SwcContext配置容器界面</p>
+<p>表5-17 Dlt模块的SwcContext配置属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>D
+ltSwcC
+ontext</p></td>
+<td><p>取值范围</p></td>
+<td><p>下拉选项</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个容器包含
+SWC所支持的Applicatio
+nId/ContextId对的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ltSwcA
+pplica
+tionId</p></td>
+<td><p>取值范围</p></td>
+<td><p>字符串：uint8 []</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于描述SWC应
+用程序标识符的字符串</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dlt
+SwcCon
+textId</p></td>
+<td><p>取值范围</p></td>
+<td><p>字符串：uint8 []</p></td>
+<td></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于描述SW
+C上下文标识符的字符串</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Det.html" class="btn btn-neutral float-left" title="DET产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DoIP.html" class="btn btn-neutral float-right" title="DoIP产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

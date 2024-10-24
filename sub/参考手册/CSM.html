@@ -1,0 +1,9268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSM产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DCM产品参考手册" href="DCM.html" />
+    <link rel="prev" title="Crypto驱动产品参考手册" href="Crypto.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CSM产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">基本功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">一般功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#job">Job状态</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">同步Job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">异步Job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queue">Queue相关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key">Key管理功能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#csm-configtype">Csm_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-inputoutputredirectionconfigtype">Crypto_InputOutputRedirectionConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-jobtype">Crypto_JobType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-jobstatetype">Crypto_JobStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-jobprimitiveinputoutputtype">Crypto_JobPrimitiveInputOutputType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-jobinfotype">Crypto_JobInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-jobprimitiveinfotype">Crypto_JobPrimitiveInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-jobredirectioninfotype">Crypto_JobRedirectionInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-algorithminfotype">Crypto_AlgorithmInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-processingtype">Crypto_ProcessingType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crypto-primitiveinfotype">Crypto_PrimitiveInfoType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-configidtype">Csm_ConfigIdType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#csm-init">Csm_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-getversioninfo">Csm_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-hash">Csm_Hash函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-macgenerate">Csm_MacGenerate函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-macverify">Csm_MacVerify函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-encrypt">Csm_Encrypt函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-decrypt">Csm_Decrypt函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-aeadencrypt">Csm_AEADEncrypt函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-aeaddecrypt">Csm_AEADDecrypt函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-signaturegenerate">Csm_SignatureGenerate函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-signatureverify">Csm_ SignatureVerify函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-randomgenerate">Csm_RandomGenerate函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyelementset">Csm_KeyElementSet函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keysetvalid">Csm_KeySetValid函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyelementget">Csm_KeyElementGet函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyelementcopy">Csm_KeyElementCopy函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keycopy">Csm_KeyCopy函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyelementcopypartial">Csm_KeyElementCopyPartial函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-randomseed">Csm_RandomSeed函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cryif-keygenerate">CryIf_KeyGenerate函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyderive">Csm_KeyDerive函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyexchangecalcpubval">Csm_KeyExchangeCalcPubVal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-keyexchangecalcsecret">Csm_KeyExchangeCalcSecret函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-jobkeysetvalid">Csm_JobKeySetValid函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-jobrandomseed">Csm_JobRandomSeed函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-jobkeygenerate">Csm_JobKeyGenerate函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-jobkeyderive">Csm_JobKeyDerive函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-jobkeyexchangecalcpubval">Csm_JobKeyExchangeCalcPubVal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-jobkeyexchangecalcsecret">Csm_JobKeyExchangeCalcSecret函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-canceljob">Csm_CancelJob函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-callbacknotification">Csm_CallbackNotification函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csm-mainfunction">Csm_MainFunction函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">可配置函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#csminclude">CsmInclude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csmjob">CsmJob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csmkey">CsmKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csmqueue">CsmQueue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csminoutredirection">CsmInOutRedirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csmprimitives">CsmPrimitives</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#csmhashconfig">CsmHashConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmmacgenerateconfig">CsmMacGenerateConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmmacverifyconfig">CsmMacVerifyConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmencryptconfig">CsmEncryptConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmaeaddecryptconfig">CsmAEADDecryptConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmsignaturegenerateconfig">CsmSignatureGenerateConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmsignatureverifyconfig">CsmSignatureVerifyConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmrandomgenerateconfig">CsmRandomGenerateConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csmjobkeysetvalid">CsmJobKeySetValid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#csmcallback">CsmCallback</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CSM产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/CSM.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="csm">
+<h1>CSM产品参考手册<a class="headerlink" href="#csm" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>**
+缩写词**</p></td>
+<td><p><strong>解释/描述</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CSM</p></td>
+<td><p>Crypto Service Manager</p></td>
+<td><p>加密服务管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRYIF</p></td>
+<td><p>Crypto Interface</p></td>
+<td><p>加密接口层</p></td>
+</tr>
+<tr class="row-even"><td><p>CRYPTO</p></td>
+<td><p>Crypto Driver</p></td>
+<td><p>加密驱
+动（硬件驱动或者软件驱动）</p></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>开发错误检测模块</p></td>
+</tr>
+<tr class="row-even"><td><p>HSM</p></td>
+<td><p>Hardware Security Module</p></td>
+<td><p>硬件中用于计算加密算法
+的模块（相当于另外一块CPU）</p></td>
+</tr>
+<tr class="row-odd"><td><p>Job</p></td>
+<td><p>CsmJob</p></td>
+<td><p>CSM模块中的
+一个加密处理任务，一般每个J
+ob会引用到一个cryptographic
+primitive</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>CSM应提供同步或异步服务，以支持对所有软件模块的基本密码功能的唯一访问。CSM应该提供一个抽象层，它为更高的软件层提供一个标准化的接口来访问这些功能。软件模块所需的功能可能与其他软件模块所需的功能不同。因此，应该可以为每个软件模块单独配置和初始化CSM提供的服务。此配置还包括对CSM服务的同步或异步处理的选择。CSM模块的构建遵循通用方法。如果结构和接口的详细规范限制了CSM的可用性范围，则以通用方式定义接口和结构。这为将来的扩展提供了机会。</p>
+<p><a class="reference internal" href="../../_images/image111.png"><img alt="image1" src="../../_images/image111.png" style="width: 5.75972in; height: 3.29097in;" /></a></p>
+<p>图1-1 Crypto架构图</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_CryptoServiceManager.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>基本功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>CSM是一种提供加密功能的服务，它基于一个依赖于软件库或硬件模块的加密驱动程序。此外，混合设置与多个密码驱动程序是可能的。CSM通过CRYIF访问不同的加密驱动程序。</p>
+</section>
+<section id="id5">
+<h3>一般功能<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>CSM通过引入Job的概念来处理加密工作。</p>
+<p>Job是已配置的密码原语的实例，对于每个Job，CSM每次只能处理一个实例，但允许不同Job的并行处理，如果一个服务请求正被相应的Job处理，此时来了另一个相同Job的要求，CSM应当返回CRYPTO_E_BUSY。</p>
+<p><a href="#id6"><span class="problematic" id="id7">:mark:`注意`</span></a>：Job正在被处理意味着相应的加密驱动程序对象正在积极地处理这个Job。当一个Job没有完成，但是加密驱动程序对象没有被激活，这并不意味着这个Job正在被处理。如果配置了异步接口，则CSM模块应提供一个主函数Csm_MainFunction()，该主函数被循环调用，以通过状态机控制Job的处理。</p>
+<section id="job">
+<h4>Job状态<a class="headerlink" href="#job" title="Link to this heading"></a></h4>
+<p>将单一的调用函数与加密Job的流方式相结合，需要模式参数，它决定了加密Job的运行模式。此服务操作是一个标志字段，指示操作模式启动、更新或完成，它显式地声明应该执行什么操作。这些操作模式可以混合使用，并同时执行。状态的实际事务是在与这些状态一起工作的层中进行的，即在加密驱动程序中。</p>
+<p><a class="reference internal" href="../../_images/image211.png"><img alt="image2" src="../../_images/image211.png" style="width: 5.76181in; height: 6.19514in;" /></a></p>
+<p>图2-1 Job状态图</p>
+<p>单调用方法不需要多次调用显式API，只需要调用一次即可。由于单调用的开销小，可以提高性能，所以多用于需要快速处理的小数据输入过程中。当使用流方法(启动、更新、完成)操作时，专用的加密驱动程序对象正在等待进一步的输入(更新)，直到到达完成状态。同时，不能在此加密驱动程序实例上处理其他Job。</p>
+</section>
+<section id="id8">
+<h4>同步Job<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>如果使用同步接口，则接口函数将必要的信息传递给底层加密堆栈模块并等待返回结果。</p>
+<p><a class="reference internal" href="../../_images/image34.png"><img alt="image3" src="../../_images/image34.png" style="width: 5.71667in; height: 5.84167in;" /></a></p>
+<p>图2-2 同步任务执行流程图</p>
+</section>
+<section id="id9">
+<h4>异步Job<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>如果使用异步接口，则接口函数只能将必要的信息传递给底层加密堆栈模块，然后等待底层处理完成调用回调函数通知CSM。</p>
+<p><a class="reference internal" href="../../_images/image41.png"><img alt="image4" src="../../_images/image41.png" style="width: 5.76389in; height: 3.83472in;" /></a></p>
+<p>图2-3 异步任务执行流程图</p>
+</section>
+<section id="queue">
+<h4>Queue相关<a class="headerlink" href="#queue" title="Link to this heading"></a></h4>
+<p>Quene，即队列，为CSM内部针对Job设置的一个功能，CSM应在内部完成对其的操作。</p>
+<p>CSM可能有多个队列，其中的Job根据其优先级排列，以处理多个加密请求。从CSM队列通过CryIf到加密驱动程序对象的路径称为通道。CSM的每个队列都映射到一个通道，以访问crypto驱动程序对象的crypto原语。队列的大小是可配置的。为了优化加密驱动程序对象的硬件使用，加密驱动程序中还有一个可选的队列。加密驱动程序对象表示独立加密设备(硬件或软件，如AES加速器)的实例。对于具有高优先级的Job，HSM上可以有一个用于快速AES和CMAC计算的通道，该通道在加密驱动程序中的本地AES计算服务上结束。但同时，加密驱动程序对象也可能是软件，例如用于RSA计算，用户能够加密、解密、签名或验证数据。</p>
+<p>在同步Job处理中，队列将不起作用。因此，如果选择同步Job处理，则队列大小应该为0。但是，也可以将通道(包括队列)与同步和异步Job一起使用。可以在Csm_MainFunction()中将排队的Job传递给CRYIF。如果Job的状态是活动的，则CSM应假定映射的加密驱动程序实例当前正在处理该Job，而调用者希望继续操作(例如，使用update提供更多数据)，必须在加密驱动程序实例中执行可信性检查。</p>
+</section>
+<section id="key">
+<h4>Key管理功能<a class="headerlink" href="#key" title="Link to this heading"></a></h4>
+<p>Key，即对应的keyid具有配置给出的符号名称。Crypto堆栈API使用来自CSM模块的以下关键元素索引定义：</p>
+<p><a class="reference internal" href="../../_images/image51.png"><img alt="image5" src="../../_images/image51.png" style="width: 5.76181in; height: 5.41111in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image61.png"><img alt="image6" src="../../_images/image61.png" style="width: 5.76042in; height: 6.14653in;" /></a></p>
+<p>图2-4 KeyElement示意图</p>
+<p>对于包含加密密钥材料的每个密钥元素，应在用于数据交换的配置中指定所提供密钥的格式，例如Csm_KeyElementGet()或Csm_KeyElementSet()。特定密码驱动程序支持的密钥格式是随密码驱动程序一起提供的预配置信息的一部分。</p>
+<p>特定于供应商的keyelementid应该启动1000来避免对未来扩展版本的加密堆栈的干扰。关键元素CRYPTO_KE_[…]_ALGORITHM用于配置密钥管理函数的行为，因为它们独立于Job，因此不能像原语那样进行配置。</p>
+</section>
+</section>
+</section>
+<section id="id10">
+<h2>源文件描述<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>表3-1 CSM组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CSM.c</p></td>
+<td><p>CSM模块源文件，包含了API函数的实现。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSM.h</p></td>
+<td><p>CSM模块头文件，包
+含了API函数的扩展声明并定义了配置的数据结构体。</p></td>
+</tr>
+<tr class="row-even"><td><p>CSM_Cfg.h</p></td>
+<td><p>定义CSM模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSM_Cfg.c</p></td>
+<td><p>CSM模块配置生成文件。</p></td>
+</tr>
+<tr class="row-even"><td><p>CSM_Cbk.h</p></td>
+<td><p>包含CSM供上层调用的API函数的声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSM_Internal.h</p></td>
+<td><p>包含CSM内部的变量和数据结构体的定义</p></td>
+</tr>
+<tr class="row-even"><td><p>CSM_MemMap.h</p></td>
+<td><p>CSM编译抽象文件</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id11">
+<h3>类型定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="csm-configtype">
+<h4>Csm_ConfigType类型定义<a class="headerlink" href="#csm-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Csm_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Csm模块的配置数据结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-inputoutputredirectionconfigtype">
+<h4>Crypto_InputOutputRedirectionConfigType类型定义<a class="headerlink" href="#crypto-inputoutputredirectionconfigtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_InputO
+utputRedirectionConfigType</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>CRYPTO_RED
+IRECT_CONFIG_PRIMARY_INPUT</p></td>
+<td><p>0x01</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CRYPTO_REDIR
+ECT_CONFIG_SECONDARY_INPUT</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CRYPTO_REDI
+RECT_CONFIG_TERTIARY_INPUT</p></td>
+<td><p>0x04</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CRYPTO_REDI
+RECT_CONFIG_PRIMARY_OUTPUT</p></td>
+<td><p>0x10</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CRYPTO_REDIRE
+CT_CONFIG_SECONDARY_OUTPUT</p></td>
+<td><p>0x20</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Csm模块的配置数据结构体</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-jobtype">
+<h4>Crypto_JobType类型定义<a class="headerlink" href="#crypto-jobtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_JobType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Csm模块执行的Job结构类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-jobstatetype">
+<h4>Crypto_JobStateType类型定义<a class="headerlink" href="#crypto-jobstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_JobStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>当前job状态的枚举</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-jobprimitiveinputoutputtype">
+<h4>Crypto_JobPrimitiveInputOutputType类型定义<a class="headerlink" href="#crypto-jobprimitiveinputoutputtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_JobPrimitiveInputOutputType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>包含依赖于job和密码原语的输入和输出信息的结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-jobinfotype">
+<h4>Crypto_JobInfoType类型定义<a class="headerlink" href="#crypto-jobinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_JobInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>包含job信息(jobID和job优先级)的结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-jobprimitiveinfotype">
+<h4>Crypto_JobPrimitiveInfoType类型定义<a class="headerlink" href="#crypto-jobprimitiveinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_JobPrimitiveInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>包含进一步的信息，这取决于job和密码原语的结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-jobredirectioninfotype">
+<h4>Crypto_JobRedirectionInfoType类型定义<a class="headerlink" href="#crypto-jobredirectioninfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_JobRedirectionInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>包含依赖于job和密码原语的输入和输出信息的结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-algorithminfotype">
+<h4>Crypto_AlgorithmInfoType类型定义<a class="headerlink" href="#crypto-algorithminfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_AlgorithmInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>决定了精确的算法的结构体。注意，
+不是每个算法都需要指定所有字段。AUTOSAR只允许有效的组合</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-processingtype">
+<h4>Crypto_ProcessingType类型定义<a class="headerlink" href="#crypto-processingtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_ProcessingType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>同步或者异步</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>决定了Job的处理方式（同步或者异步）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crypto-primitiveinfotype">
+<h4>Crypto_PrimitiveInfoType类型定义<a class="headerlink" href="#crypto-primitiveinfotype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Crypto_PrimitiveInfoType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>包含有关密码原语的基本信息的结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-configidtype">
+<h4>Csm_ConfigIdType类型定义<a class="headerlink" href="#csm-configidtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Csm_ConfigIdType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>0..65535</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>通过在服务中唯一的数字标识符标识CSM服务配置</p>
+<p>CSM服务配置的名称，即容器的名称</p>
+<p>Csm_&lt;Service&gt;Config，作为该参数的符号名</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id12">
+<h3>输入函数描述<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>CryIf</p></td>
+<td><p>CryIf_ProcessJob</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CryIf_CancelJob</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CryIf_KeyElementSet</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CryIf_KeySetValid</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CryIf_KeyElementGet</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CryIf_KeyElementCopy</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CryIf_KeyCopy</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CryIf_RandomSeed</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CryIf_KeyGenerate</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CryIf_KeyExchangeCalcSecret</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CryIf_CertificateParse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CryIf_CertificateVerify</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id13">
+<h3>静态接口函数定义<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="csm-init">
+<h4>Csm_Init函数定义<a class="headerlink" href="#csm-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(void,
+CSM_CODE)</p>
+<p>Csm_Init(</p>
+<p>P2CONS
+T(Csm_ConfigType,
+AUTOMATIC,
+CSM_APPL_DATA)
+configPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>configPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化CSM模块</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-getversioninfo">
+<h4>Csm_GetVersionInfo函数定义<a class="headerlink" href="#csm-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+sm_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(void,
+CSM_CODE)</p>
+<p>Cs
+m_GetVersionInfo(</p>
+<p>P2VAR(Std
+_VersionInfoType,
+AUTOMATIC,
+CSM_APPL_DATA)
+versioninfo</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x3b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versioninfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>返回版本信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-hash">
+<h4>Csm_Hash函数定义<a class="headerlink" href="#csm-hash" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_Hash</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_Hash(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id16"><span class="problematic" id="id17">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x5d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>执行哈
+希计算并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-macgenerate">
+<h4>Csm_MacGenerate函数定义<a class="headerlink" href="#csm-macgenerate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_MacGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_MacGenerate(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id18"><span class="problematic" id="id19">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+macPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+macLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x60</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>macLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>macPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>执行
+mac计算并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-macverify">
+<h4>Csm_MacVerify函数定义<a class="headerlink" href="#csm-macverify" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_MacVerify</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_MacVerify(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id20"><span class="problematic" id="id21">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+macPtr,</p>
+<p>uint32 macLength,</p>
+<p>P2VAR(<a href="#id22"><span class="problematic" id="id23">Crypto_</span></a>
+VerifyResultType,
+AUTOMATIC,
+CSM_APPL_DATA)
+verifyPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x61</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>macPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>macLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>verifyPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>执行mac验证计
+算并存储验证结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-encrypt">
+<h4>Csm_Encrypt函数定义<a class="headerlink" href="#csm-encrypt" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_Encrypt</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_Encrypt(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id24"><span class="problematic" id="id25">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x5e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>执行加
+密计算并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-decrypt">
+<h4>Csm_Decrypt函数定义<a class="headerlink" href="#csm-decrypt" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_Decrypt</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_Decrypt(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id26"><span class="problematic" id="id27">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x5f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>执行解
+密计算并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-aeadencrypt">
+<h4>Csm_AEADEncrypt函数定义<a class="headerlink" href="#csm-aeadencrypt" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_AEADEncrypt</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_AEADEncrypt(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id28"><span class="problematic" id="id29">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+plaintextPtr,</p>
+<p>uint32
+plaintextLength,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+a
+ssociatedDataPtr,</p>
+<p>uint32
+asso
+ciatedDataLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+ciphertextPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+cip
+hertextLengthPtr,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+tagPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+tagLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x62</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>plaintextPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>plaintextLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>associatedDataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ass
+ociatedDataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>ci
+phertextLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tagLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>ciphertextPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tagPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>执行AEAD加
+密计算并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-aeaddecrypt">
+<h4>Csm_AEADDecrypt函数定义<a class="headerlink" href="#csm-aeaddecrypt" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_AEADDecrypt</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_AEADDecrypt(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id30"><span class="problematic" id="id31">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+ciphertextPtr,</p>
+<p>uint32
+ciphertextLength,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+a
+ssociatedDataPtr,</p>
+<p>uint32
+asso
+ciatedDataLength,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+tagPtr,</p>
+<p>uint32 tagLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+plaintextPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+pl
+aintextLengthPtr,</p>
+<p>P2VAR(<a href="#id32"><span class="problematic" id="id33">Crypto_</span></a>
+VerifyResultType,
+AUTOMATIC,
+CSM_APPL_DATA)
+verifyPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x63</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ciphertextPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ciphertextLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>associatedDataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ass
+ociatedDataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>tagPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tagLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>plaintextPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>p
+laintextLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>verifyPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>执行AEAD解
+密计算并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-signaturegenerate">
+<h4>Csm_SignatureGenerate函数定义<a class="headerlink" href="#csm-signaturegenerate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id34"><span class="problematic" id="id35">Csm_</span></a>
+SignatureGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_S
+ignatureGenerate(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id36"><span class="problematic" id="id37">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x76</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>生
+成签名并存储结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-signatureverify">
+<h4>Csm_ SignatureVerify函数定义<a class="headerlink" href="#csm-signatureverify" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Cs
+m_SignatureVerify</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm
+_SignatureVerify(</p>
+<p>uint32 jobId,</p>
+<p><a href="#id38"><span class="problematic" id="id39">Crypto_</span></a>
+OperationModeType
+mode,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+dataPtr,</p>
+<p>uint32
+dataLength,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+signaturePtr,</p>
+<p>uint32
+signatureLength,</p>
+<p>P2VAR(<a href="#id40"><span class="problematic" id="id41">Crypto_</span></a>
+VerifyResultType,
+AUTOMATIC,
+CSM_APPL_DATA)
+verifyPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x64</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mode</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dataPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dataLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>signaturePtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>signatureLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>verifyPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>验证签
+名并存储验证结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-randomgenerate">
+<h4>Csm_RandomGenerate函数定义<a class="headerlink" href="#csm-randomgenerate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+sm_RandomGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Cs
+m_RandomGenerate(</p>
+<p>uint32 jobId,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+resultLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x72</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>jobId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>resultLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>resultPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>随机
+数生成并储存结果</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementset">
+<h4>Csm_KeyElementSet函数定义<a class="headerlink" href="#csm-keyelementset" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeyElementSet</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>C
+sm_KeyElementSet(</p>
+<p>uint32 keyId,</p>
+<p>uint32
+keyElementId,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+keyPtr,</p>
+<p>uint32 keyLength</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x78</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>keyPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>将给定的密
+钥元素字节设置为
+由keyId标识的密钥</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keysetvalid">
+<h4>Csm_KeySetValid函数定义<a class="headerlink" href="#csm-keysetvalid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeySetValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_KeySetValid(</p>
+<p>uint32 keyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x67</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将ke
+yId标识的密钥的密
+钥状态设置为valid</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementget">
+<h4>Csm_KeyElementGet函数定义<a class="headerlink" href="#csm-keyelementget" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeyElementGet</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>C
+sm_KeyElementGet(</p>
+<p>uint32 keyId,</p>
+<p>uint32
+keyElementId,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+keyPtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+keyLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x68</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>keyLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>keyPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>获取指定的key元素</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementcopy">
+<h4>Csm_KeyElementCopy函数定义<a class="headerlink" href="#csm-keyelementcopy" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+sm_KeyElementCopy</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Cs
+m_KeyElementCopy(</p>
+<p>CONST(uint32,
+CSM_APPL_DATA)
+keyId,</p>
+<p>CONST(uint32,
+CSM_APPL_DATA)
+keyElementId,</p>
+<p>CONST(uint32,
+CSM_APPL_DATA)
+targetKeyId,</p>
+<p>CONST(uint32,
+CSM_APPL_DATA)
+t
+argetKeyElementId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x71</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>targetKeyId</p></td>
+<td></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>t
+argetKeyElementId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>将一个key
+Element从keyId-&gt;
+keyElementId复
+制到targetKeyId-&gt;
+t
+argetKeyElementId</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keycopy">
+<h4>Csm_KeyCopy函数定义<a class="headerlink" href="#csm-keycopy" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeyCopy</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_KeyCopy(</p>
+<p>CONST(uint32,
+CSM_APPL_DATA)
+keyId,</p>
+<p>CONST(uint32,
+CSM_APPL_DATA)
+targetKeyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x73</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>targetKeyId</p></td>
+<td></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>将一个Key的
+所有元素从一个键
+复制到一个目标键</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementcopypartial">
+<h4>Csm_KeyElementCopyPartial函数定义<a class="headerlink" href="#csm-keyelementcopypartial" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_Key
+ElementCopyPartial</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FU
+NC(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_KeyE
+lementCopyPartial(</p>
+<p>uint32 keyId,</p>
+<p>uint32
+keyElementId,</p>
+<p>uint32
+keyEl
+ementSourceOffset,</p>
+<p>uint32
+keyEl
+ementTargetOffset,</p>
+<p>uint32
+key
+ElementCopyLength,</p>
+<p>uint32
+targetKeyId,</p>
+<p>uint32
+targetKeyElementId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x79</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyElementId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>keyE
+lementSourceOffset</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>keyE
+lementTargetOffset</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ke
+yElementCopyLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>targetKeyId</p></td>
+<td></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>targetKeyElementId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将密钥元素复制
+到同一加密驱动程序
+中的另一个密钥元素</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-randomseed">
+<h4>Csm_RandomSeed函数定义<a class="headerlink" href="#csm-randomseed" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_RandomSeed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_RandomSeed(</p>
+<p>uint32 keyId,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+seedPtr,</p>
+<p>uint32 seedLength</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x69</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>seedPtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>seedLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>提供随机数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cryif-keygenerate">
+<h4>CryIf_KeyGenerate函数定义<a class="headerlink" href="#cryif-keygenerate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeyGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_KeyGenerate(</p>
+<p>uint32 keyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x6a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将密钥生成函
+数分配给已配置的
+密码驱动程序对象</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyderive">
+<h4>Csm_KeyDerive函数定义<a class="headerlink" href="#csm-keyderive" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeyDerive</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_KeyDerive(</p>
+<p>uint32 keyId,</p>
+<p>uint32
+targetKeyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x6b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>targetKeyId</p></td>
+<td></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过使用由ke
+yId标识的给定键中
+的键元素派生新key</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyexchangecalcpubval">
+<h4>Csm_KeyExchangeCalcPubVal函数定义<a class="headerlink" href="#csm-keyexchangecalcpubval" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_KeyE
+xchangeCalcPubVal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_KeyEx
+changeCalcPubVal(</p>
+<p>uint32 keyId,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+publicValuePtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+pub
+licValueLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x6c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>pub
+licValueLengthPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>publicValuePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将
+密钥交换公共值计
+算函数分配给配置
+好的密码驱动对象</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyexchangecalcsecret">
+<h4>Csm_KeyExchangeCalcSecret函数定义<a class="headerlink" href="#csm-keyexchangecalcsecret" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_K
+eyExchangeCalcSecret</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_Ke
+yExchangeCalcSecret(</p>
+<p>uint32 keyId,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+pa
+rtnerPublicValuePtr,</p>
+<p>uint32
+part
+nerPublicValueLength</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x6d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>p
+artnerPublicValuePtr</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>part
+nerPublicValueLength</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>使用密钥id和伙伴
+公钥标识的密钥材料计
+算密钥交换的共享密钥</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeysetvalid">
+<h4>Csm_JobKeySetValid函数定义<a class="headerlink" href="#csm-jobkeysetvalid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+sm_JobKeySetValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Cs
+m_JobKeySetValid(</p>
+<p>uint32 jobId,</p>
+<p>uint32 keyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x7a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>jobId</p></td>
+<td></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>将ke
+yId标识的密钥的密
+钥状态设置为valid</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobrandomseed">
+<h4>Csm_JobRandomSeed函数定义<a class="headerlink" href="#csm-jobrandomseed" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+sm_JobKeyGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Cs
+m_JobKeyGenerate(</p>
+<p>uint32 jobId,</p>
+<p>uint32 keyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x7c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>jobId</p></td>
+<td></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>生成新的密钥
+材料并将其存储在
+keyId标识的密钥中</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeygenerate">
+<h4>Csm_JobKeyGenerate函数定义<a class="headerlink" href="#csm-jobkeygenerate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+sm_JobKeyGenerate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Cs
+m_JobKeyGenerate(</p>
+<p>uint32 jobId,</p>
+<p>uint32 keyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x7c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>jobId</p></td>
+<td></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>生成新的密钥
+材料并将其存储在
+keyId标识的密钥中</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeyderive">
+<h4>Csm_JobKeyDerive函数定义<a class="headerlink" href="#csm-jobkeyderive" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_JobKeyDerive</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_JobKeyDerive(</p>
+<p>uint32 jobId,</p>
+<p>uint32 keyId,</p>
+<p>uint32
+targetKeyId</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x7d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>jobId</p></td>
+<td></td>
+<td><p>0-CSM_JOB_NUM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>targetKeyId</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>使用由ke
+yId标识的给定键中
+的键元素派生新键</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeyexchangecalcpubval">
+<h4>Csm_JobKeyExchangeCalcPubVal函数定义<a class="headerlink" href="#csm-jobkeyexchangecalcpubval" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_JobKeyE
+xchangeCalcPubVal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_JobKeyEx
+changeCalcPubVal(</p>
+<p>uint32 jobId,</p>
+<p>uint32 keyId,</p>
+<p>P2VAR(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+publicValuePtr,</p>
+<p>P2VAR(uint32,
+AUTOMATIC,
+CSM_APPL_DATA)
+pub
+licValueLengthPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x7e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>计算
+密钥交换的当前用
+户的公钥，并将公
+钥存储在公钥指针
+所指向的内存位置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeyexchangecalcsecret">
+<h4>Csm_JobKeyExchangeCalcSecret函数定义<a class="headerlink" href="#csm-jobkeyexchangecalcsecret" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_JobKeyE
+xchangeCalcSecret</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_JobKeyEx
+changeCalcSecret(</p>
+<p>uint32 jobId,</p>
+<p>uint32 keyId,</p>
+<p>P2CONST(uint8,
+AUTOMATIC,
+CSM_APPL_DATA)
+partn
+erPublicValuePtr,</p>
+<p>uint32
+partner
+PublicValueLength</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x7f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>使用密钥
+id和伙伴公钥标识
+的密钥材料计算密
+钥交换的共享密钥</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-canceljob">
+<h4>Csm_CancelJob函数定义<a class="headerlink" href="#csm-canceljob" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_CancelJob</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUN
+C(Std_ReturnType,
+CSM_CODE)</p>
+<p>Csm_CancelJob(</p>
+<p>uint32 Job,</p>
+<p><a href="#id42"><span class="problematic" id="id43">Crypto_</span></a>
+OperationModeType
+mode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x6f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>keyId</p></td>
+<td><p>值域：</p></td>
+<td><p>0-CSM_KEY_NUM</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>取消job</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-callbacknotification">
+<h4>Csm_CallbackNotification函数定义<a class="headerlink" href="#csm-callbacknotification" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_Cal
+lbackNotification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Csm_Cal
+lbackNotification
+(
+Crypto_JobType*
+Job,
+Crypto_ResultType
+result
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x70</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>result</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Job</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通知CSM
+Job已
+经完成，这个函数
+由底层(CRYIF)使用</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-mainfunction">
+<h4>Csm_MainFunction函数定义<a class="headerlink" href="#csm-mainfunction" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Csm_MainFunction</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>FUNC(void,
+CSM_CODE)</p>
+<p>Csm_MainFunction(</p>
+<p>void</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>取决于配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>循环调用API来
+处理请求的job。C
+sm_MainFunction将
+检查要传递给底层
+CRYIF的job的队列</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id14">
+<h3>可配置函数<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id15">
+<h2>配置<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>CsmGeneral</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image71.png"><img alt="image7" src="../../_images/image71.png" style="width: 5.37433in; height: 1.8956in;" /></a></p>
+<p>图5-1 CsmGeneral容器配置图</p>
+<p>表5-1 CsmGeneral属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmAsy
+mPrivateKe
+yMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 ..
+4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>所有算法的
+非对称公钥的
+最大长度(以
+字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAs
+ymPublicKe
+yMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 ..
+4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>所有算法的
+非对称密钥的
+最大长度(以
+字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmDevE
+rrorDetect</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>打开
+或关闭开发错
+误检测和通知</p>
+<p>true：启用
+检测和通知。</p>
+<p>false：禁
+用检测和通知</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+smMainFunc
+tionPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指定主函数C
+sm_MainFunct
+ion的周期(以
+秒为单位)。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmUse
+Deprecated</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>F
+A
+L
+S
+E</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>决定不
+支持的接口是
+否为应使用。</p>
+<p>true：使用不
+赞成的接口。</p>
+<p>false：使
+用普通接口。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmVers
+ionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>F
+A
+L
+S
+E</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>切换以启用
+和禁用Csm_Ge
+tVersionInfo
+()</p>
+<p>True： API
+Csm_Ge
+tVersionInfo
+()是可用的。</p>
+<p>False：<a href="#id44"><span class="problematic" id="id45">Csm_</span></a>
+GetVersionIn
+fo()不可用。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="csminclude">
+<h3>CsmInclude<a class="headerlink" href="#csminclude" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image81.png"><img alt="image8" src="../../_images/image81.png" style="width: 5.23893in; height: 0.86448in;" /></a></p>
+<p>图5-2 CsmInclude容器配置图</p>
+<p>表5-2 CsmInclude属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>I
+ncludeName</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用户包含外部头文
+件，主要包含CallCal
+lBack函数的声明文件</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmjob">
+<h3>CsmJob<a class="headerlink" href="#csmjob" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image91.png"><img alt="image9" src="../../_images/image91.png" style="width: 5.34308in; height: 3.23918in;" /></a></p>
+<p>图5-3 CsmJob容器配置图</p>
+<p>表5-3 CsmJob属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmJobId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CSMjob的标
+识符。实际配
+置的标识符集
+应该是连续的
+、无间隙的。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cs
+mJobInterf
+aceUsePort</p></td>
+<td><p>取值范围</p></td>
+<td><p>CR
+YPTO_USE_FNC</p>
+<p>CRY
+PTO_USE_PORT</p>
+<p>C
+RYPTO_USE_PO
+RT_OPTIMIZED</p>
+</td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>job是否
+需要RTE接口</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+smJobPrimi
+tiveCallba
+ckUpdateNo
+tification</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参
+数指示，如果
+更新操作已完
+成，是否应调
+用回调函数。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmJ
+obPriority</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>j
+ob的优先级。</p>
+<p>值
+越高，job的
+优先级越高。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmProc
+essingMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_PROC
+ESSING_ASYNC</p>
+<p>CRYPTO_PRO
+CESSING_SYNC</p>
+</td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定
+该job的接口
+应使用的方式
+。同步处理返
+回结果，而异
+步处理返回而
+不处理job。
+相应的回调将
+通知调用者。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cs
+mInOutRedi
+rectionRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数引用
+使用的重定向</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmInOut
+Redirections</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mJobKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这
+个参数指的是
+CsmPrimitive
+的应使用键。</p>
+<p>可
+以为不同的j
+ob使用CsmKey</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmJob
+PrimitiveC
+allbackRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数
+引用使用的C
+smCallback。</p>
+<p>当加密job
+完成时，将调
+用所引用的C
+smCallback。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当
+CsmProcessi
+ngMode配置为
+ASYN异步模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmJobPr
+imitiveRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数引
+用所使用的Cs
+mPrimitive。</p>
+<p>不同的
+job可以引用
+一个CsmPrimi
+tive。所引用
+的CsmPrimiti
+ve提供了关于
+实际密码例程
+的详细信息。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>C
+smPrimitives</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmJ
+obQueueRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个参数
+指的是队列。</p>
+<p>如果底
+层加密驱动程
+序对象忙，则
+使用该队列。
+队列也引用所
+使用的通道。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmQueue</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmkey">
+<h3>CsmKey<a class="headerlink" href="#csmkey" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image101.png"><img alt="image10" src="../../_images/image101.png" style="width: 5.2181in; height: 1.18735in;" /></a></p>
+<p>图5-4 CsmKey容器配置图</p>
+<p>表5-4 CsmKey属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmKeyId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Csm
+Key的标识符。实际配
+置的标识符集应该是
+连续的、无间隙的。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+KeyUsePort</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td><p>F
+A
+L
+S
+E</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Key需要RTE接口吗?</p>
+<p>True
+：此键使用的RTE接口</p>
+<p>False：
+此键没有使用RTE接口</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数引用所
+使用的CryIfKey。底
+层的CryIfKey指的是
+加密驱动程序中的一
+个特定的加密密钥。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CryIfKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmqueue">
+<h3>CsmQueue<a class="headerlink" href="#csmqueue" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image112.png"><img alt="image11" src="../../_images/image112.png" style="width: 5.23893in; height: 0.96863in;" /></a></p>
+<p>图5-5 CsmQueue容器配置图</p>
+<p>表5-5 CsmQueue属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mQueueSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CsmQueue的
+大小。如果由于硬件
+繁忙而无法由底层硬
+件处理job，则job将
+保留在优先队列中。</p>
+<p>如果队列已满，
+则将拒绝下一个job。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+ChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指
+底层的密码接口通道</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CryIfChannel</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csminoutredirection">
+<h3>CsmInOutRedirection<a class="headerlink" href="#csminoutredirection" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image121.png"><img alt="image12" src="../../_images/image121.png" style="width: 5.46807in; height: 3.29126in;" /></a></p>
+<p>图5-6 CsmInOutRedirection容器配置图</p>
+<p>表5-6 CsmInOutRedirection属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmInputKe
+yElementId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作输入的键
+元素的标识符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+smOutputKe
+yElementId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作输出的键
+元素的标识符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmSecond
+aryInputKe
+yElementId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作
+辅助输入的键
+元素的标识符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSeconda
+ryOutputKe
+yElementId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作
+辅助输出的键
+元素的标识符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmTerti
+aryInputKe
+yElementId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..
+4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用作第三
+级输入的关键
+元素的标识符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmI
+nputKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个
+参数指的是用
+作输入的key</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmOu
+tputKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数引用
+用作输出的键</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+SecondaryI
+nputKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个参
+数指的是用作
+辅助输入的键</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmS
+econdaryOu
+tputKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个参数
+指的是用作辅
+助输出的键。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cs
+mTertiaryI
+nputKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个参数
+指的是用作第
+三级输入的键</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmprimitives">
+<h3>CsmPrimitives<a class="headerlink" href="#csmprimitives" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image131.png"><img alt="image13" src="../../_images/image131.png" style="width: 5.76736in; height: 5.29028in;" /></a></p>
+<p>图5-7 CsmPrimitives容器配置图</p>
+<p>表5-7 CsmPrimitives属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+Primitives</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于配置
+CsmPrimitives的容器</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>包含内容</p></td>
+<td><p>CsmAEA
+DDecrypt</p>
+<p>CsmAEA
+DEncrypt</p>
+<p>Cs
+mDecrypt</p>
+<p>Cs
+mEncrypt</p>
+<p>CsmHash</p>
+<p>CsmJob
+Certific
+ateParse</p>
+<p>CsmJobC
+ertifica
+teVerify</p>
+<p>CsmJobK
+eyDerive</p>
+<p>Cs
+mJobKeyE
+xchangeC
+alcPubVa</p>
+<p>Csm
+JobKeyEx
+changeCa
+lcSecret</p>
+<p>C
+smJobKey
+Generate</p>
+<p>C
+smJobKey
+SetValid</p>
+<p>CsmJobRa
+ndomSeed</p>
+<p>CsmMac
+Generate</p>
+<p>CsmM
+acVerify</p>
+<p>C
+smRandom
+Generate</p>
+<p>CsmS
+ignature
+Generate</p>
+<p>Cs
+mSignatu
+reVerify</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="csmhashconfig">
+<h4>CsmHashConfig<a class="headerlink" href="#csmhashconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mHashAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CR
+YPTO_ALGOFAM
+_BLAKE_1_256
+0x0F</p>
+<p>CR
+YPTO_ALGOFAM
+_BLAKE_1_512
+0x10</p>
+<p>CRY
+<a href="#id46"><span class="problematic" id="id47">PTO_ALGOFAM_</span></a>
+BLAKE_2s_256
+0x11</p>
+<p>CRY
+<a href="#id48"><span class="problematic" id="id49">PTO_ALGOFAM_</span></a>
+BLAKE_2s_512
+0x12</p>
+<p>CRYPTO_AL
+GOFAM_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGOF
+AM_RIPEMD160
+0x0E</p>
+<p><a href="#id50"><span class="problematic" id="id51">CRYPTO_</span></a>
+ALGOFAM_SHA1
+0x01</p>
+<p>CRYPTO_ALGO
+FAM_SHA2_224
+0x02</p>
+<p>CRYPTO_ALGO
+FAM_SHA2_256
+0x03</p>
+<p>CRYPTO_ALGO
+FAM_SHA2_384
+0x04</p>
+<p>CRYPTO_ALGO
+FAM_SHA2_512
+0x05</p>
+<p>CRY
+<a href="#id52"><span class="problematic" id="id53">PTO_ALGOFAM_</span></a>
+SHA2_512_224
+0x06</p>
+<p>CRY
+<a href="#id54"><span class="problematic" id="id55">PTO_ALGOFAM_</span></a>
+SHA2_512_256
+0x07</p>
+<p>CRYPTO_ALGO
+FAM_SHA3_224
+0x08</p>
+<p>CRYPTO_ALGO
+FAM_SHA3_256
+0x09</p>
+<p>CRYPTO_ALGO
+FAM_SHA3_384
+0x0A</p>
+<p>CRYPTO_ALGO
+FAM_SHA3_512
+0x0B</p>
+<p>CRYP
+TO_ALGOFAM_S
+HA3_SHAKE128
+0x0C</p>
+<p>CRYP
+TO_ALGOFAM_S
+HA3_SHAKE256
+0x0D</p>
+</td>
+<td></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于
+加密服务的算
+法族。这个参
+数定义了算法
+最重要的部分</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmHashA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是自定义
+算法族的名称</p>
+<p>CRYPT
+O_ALGOFAM_CU
+STOM被用作cs
+mhashalg族。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmHashAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALG
+OMODE_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGO
+MODE_NOT_SET
+0x00</p>
+</td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>0
+x
+0
+0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定加密服务使
+用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmHas
+hAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>自定义原
+语模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+smHashAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALG
+OMODE_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGO
+MODE_NOT_SET
+0x00</p>
+</td>
+<td></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于加密
+服务的算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmHash
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是
+自定义算法族
+的第二个名字</p>
+<p>将CRY
+<a href="#id56"><span class="problematic" id="id57">PTO_ALGOFAM_</span></a>
+CUSTOM设置为</p>
+<p>CsmHashAl
+gorithmSecon
+daryFamily。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmHashDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 ..
+4294967295</p></td>
+<td></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输
+入数据长度的
+最大大小(以
+字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmHashRe
+sultLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 ..
+4294967295</p></td>
+<td></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出哈希长
+度的大小(以
+字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmmacgenerateconfig">
+<h4>CsmMacGenerateConfig<a class="headerlink" href="#csmmacgenerateconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmMacGen
+erateAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_256
+0x0F</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_512
+0x10</p>
+<p>C
+RYPTO_ALGOFAM_BLAKE_2s_256
+0x11</p>
+<p>C
+RYPTO_ALGOFAM_BLAKE_2s_512
+0x12</p>
+<p>CRYPTO_ALGOFAM_CHACHA 0x15</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOFAM_RIPEMD160
+0x0E</p>
+<p>CRYPTO_ALGOFAM_RNG 0x1B</p>
+<p>CRYPTO_ALGOFAM_SHA1 0x01</p>
+<p>CRYPTO_ALGOFAM_SHA2_224
+0x02</p>
+<p>CRYPTO_ALGOFAM_SHA2_256
+0x03</p>
+<p>CRYPTO_ALGOFAM_SHA2_384
+0x04</p>
+<p>CRYPTO_ALGOFAM_SHA2_512
+0x05</p>
+<p>C
+RYPTO_ALGOFAM_SHA2_512_224
+0x06</p>
+<p>C
+RYPTO_ALGOFAM_SHA2_512_256
+0x07</p>
+<p>CRYPTO_ALGOFAM_SHA3_224
+0x08</p>
+<p>CRYPTO_ALGOFAM_SHA3_256
+0x09</p>
+<p>CRYPTO_ALGOFAM_SHA3_384
+0x0A</p>
+<p>CRYPTO_ALGOFAM_SHA3_512
+0x0B</p>
+<p>CR
+YPTO_ALGOFAM_SHA3_SHAKE128
+0x0C</p>
+<p>CR
+YPTO_ALGOFAM_SHA3_SHAKE256
+0x0D</p>
+<p>CRYPTO_ALGOFAM_SIPHASH
+0x1C</p>
+</td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用
+于加密服务的算法族。这个参
+数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMa
+cGenerateA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果使用的
+是CRYPTO_ALGOFAM_CUSTOM，
+那么这是自定义算法族的名称</p>
+<p>Csm
+MacGenerateAlgorithmFamily</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mMacGenera
+teAlgorith
+mKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMacG
+enerateAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CMAC 0x10</p>
+<p>CRYPTO_ALGOMODE_CTRDRBG
+0x12</p>
+<p>CRYPTO_ALGOMODE_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGOMODE_GMAC 0x11</p>
+<p>CRYPTO_ALGOMODE_HMAC 0x0f</p>
+<p>CRYPTO_ALGOMODE_NOT_SET
+0x00</p>
+<p>C
+RYPTO_ALGOMODE_SIPHASH_2_4
+0x17</p>
+<p>C
+RYPTO_ALGOMODE_SIPHASH_4_8
+0x18</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+MacGenerat
+eAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密
+服务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMacGe
+nerateAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_NOT_SET
+0x00</p>
+<p>CRYPTO_ALGOMODE_CUSTOM
+0xFF</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定用于加密服务的辅助算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmM
+acGenerate
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这
+是自定义算法族的第二个名字</p>
+<p>将C
+RYPTO_ALGOFAM_CUSTOM设置为</p>
+<p>CsmHashAlgori
+thmSecondaryFamilyCustom。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMacG
+enerateDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入数据长
+度的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmMac
+GenerateRe
+sultLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出M
+AC长度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmmacverifyconfig">
+<h4>CsmMacVerifyConfig<a class="headerlink" href="#csmmacverifyconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmMacV
+erifyAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_256
+0x0F</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_512
+0x10</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_256
+0x11</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_512
+0x12</p>
+<p>CRYPTO_ALGOFAM_CHACHA 0x15</p>
+<p>CRYPTO_ALGOFAM_RIPEMD160
+0x0E</p>
+<p>CRYPTO_ALGOFAM_RNG 0x1B</p>
+<p>CRYPTO_ALGOFAM_SHA1 0x01</p>
+<p>CRYPTO_ALGOFAM_SHA2_224
+0x02</p>
+<p>CRYPTO_ALGOFAM_SHA2_256
+0x03</p>
+<p>CRYPTO_ALGOFAM_SHA2_384
+0x04</p>
+<p>CRYPTO_ALGOFAM_SHA2_512
+0x05</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_224
+0x06</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_256
+0x07</p>
+<p>CRYPTO_ALGOFAM_SHA3_224
+0x08</p>
+<p>CRYPTO_ALGOFAM_SHA3_256
+0x09</p>
+<p>CRYPTO_ALGOFAM_SHA3_384
+0x0A</p>
+<p>CRYPTO_ALGOFAM_SHA3_512
+0x0B</p>
+<p>C
+RYPTO_ALGOFAM_SHA3_SHAKE128
+0x0C</p>
+<p>C
+RYPTO_ALGOFAM_SHA3_SHAKE256
+0x0D</p>
+<p>CRYPTO_ALGOFAM_SIPHASH 0x1C</p>
+<p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+</td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用
+于加密服务的算法族。这个参
+数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+MacVerifyA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义算法族的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmMacVeri
+fyAlgorith
+mKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>MAC密钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMa
+cVerifyAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CMAC 0x10</p>
+<p>CRYPTO_ALGOMODE_CTRDRBG
+0x12</p>
+<p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOMODE_GMAC 0x11</p>
+<p>CRYPTO_ALGOMODE_HMAC 0x0f</p>
+<p>CRYPTO_ALGOMODE_NOT_SET
+0x00</p>
+<p>CRYPTO_ALGOMODE_SIPHASH_2_4
+0x17</p>
+<p>CRYPTO_ALGOMODE_SIPHASH_4_8
+0x18</p>
+</td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+smMacVerif
+yAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密
+服务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMac
+VerifyAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_NOT_SET 0x00</p>
+<p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+</td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定用于加密服务的辅助算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mMacVerify
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这
+是自定义算法族的第二个名字</p>
+<p>将
+CRYPTO_ALGOFAM_CUSTOM设置为</p>
+<p>CsmHashAlgor
+ithmSecondaryFamilyCustom。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmMa
+cVerifyCom
+pareLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入数据长
+度的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmMa
+cVerifyDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出
+MAC长度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmencryptconfig">
+<h4>CsmEncryptConfig<a class="headerlink" href="#csmencryptconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmEn
+cryptAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_CHACHA
+0x15</p>
+<p>CRYPTO_ALGOFAM_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGOFAM_ECIES 0x1D</p>
+<p>CRYPTO_ALGOFAM_RSA 0x16</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于加
+密服务的算法族。这个参数
+定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+smEncryptA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这是自定义算法族的名称</p>
+<p>使用CRYPTO_ALGOFAM_CUSTO
+M作为csmencryptalgmfamily</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmEncry
+ptAlgorith
+mKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>加密
+密钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+EncryptAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_12ROUNDS
+0x0d</p>
+<p>CRYPTO_ALGOMODE_20ROUNDS
+0x0e</p>
+<p>CRYPTO_ALGOMODE_8ROUNDS
+0x0c</p>
+<p>CRYPTO_ALGOMODE_CBC 0x02</p>
+<p>CRYPTO_ALGOMODE_CFB 0x03</p>
+<p>CRYPTO_ALGOMODE_CTR 0x05</p>
+<p>CRYPTO_ALGOMODE_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGOMODE_ECB 0x01</p>
+<p>CRYPTO_ALGOMODE_NOT_SET
+0x00</p>
+<p>CRYPTO_ALGOMODE_OFB 0x04</p>
+<p>C
+RYPTO_ALGOMODE_RSAES_OAEP
+0x08</p>
+<p><a href="#id58"><span class="problematic" id="id59">CRYPTO_</span></a>
+ALGOMODE_RSAES_PKCS1_v1_5</p>
+<p>0x09</p>
+<p>CRYPTO_ALGOMODE_XTS 0x06</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmEncryp
+tAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密服
+务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmE
+ncryptAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_NOT_SET
+0x00</p>
+<p>CRYPTO_ALGOMODE_CUSTOM
+0xFF</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定
+用于加密服务的辅助算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmEncrypt
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密服务
+的自定义辅助算法族的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+EncryptDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入数据长度
+的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmEn
+cryptResul
+tMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输输出密码长度
+的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>CsmDecryptConfig</p>
+</div></blockquote>
+<hr class="docutils" />
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmDe
+cryptAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_CHACHA 0x15</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOFAM_ECIES 0x1D</p>
+<p>CRYPTO_ALGOFAM_RSA 0x16</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于加密服务的算法族。这
+个参数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+smDecryptA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果使用CRYPTO_A
+LGOFAM_CUSTOM作为csmdecryptalg
+family，则自定义算法组的名称。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmDecry
+ptAlgorith
+mKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>加密密钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+DecryptAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_12ROUNDS 0x0d</p>
+<p>CRYPTO_ALGOMODE_20ROUNDS 0x0e</p>
+<p>CRYPTO_ALGOMODE_8ROUNDS 0x0c</p>
+<p>CRYPTO_ALGOMODE_CBC 0x02</p>
+<p>CRYPTO_ALGOMODE_CFB 0x03</p>
+<p>CRYPTO_ALGOMODE_CTR 0x05</p>
+<p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOMODE_ECB 0x01</p>
+<p>CRYPTO_ALGOMODE_OFB 0x04</p>
+<p>CRYPTO_ALGOMODE_RSAES_OAEP
+0x08</p>
+<p>CR
+YPTO_ALGOMODE_RSAES_PKCS1_v1_5</p>
+<p>0x09</p>
+<p>CRYPTO_ALGOMODE_XTS 0x06</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmDecryp
+tAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于
+加密服务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmD
+ecryptAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_NOT_SET 0x00</p>
+<p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于加密服务的辅助算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmDecrypt
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="4"><p>默 | 无 |  |
+认 |  |   |
+取 |  |   |
+值 |  |   |</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义辅助算法族的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+DecryptDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入数
+据长度的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmDe
+cryptResul
+tMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输输出密
+码长度的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>CsmAEADEncryptConfig</p>
+</div></blockquote>
+<hr class="docutils" />
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmAEADEn
+cryptAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES
+0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_CUSTOM
+0xFF</p>
+</td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于加密服
+务的算法族。这个参数定
+义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAE
+ADEncryptA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果使用CRYPTO_ALG
+OFAM_CUSTOM作为CsmAEADE
+ncryptAlgorithmFamily，
+则自定义算法组的名称。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mAEADEncry
+ptAlgorith
+mKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>AEAD加密密
+钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAEAD
+EncryptAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CUSTOM
+0xFF</p>
+<p>CRYPTO_ALGOMODE_GCM
+0x07</p>
+</td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定
+加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+AEADEncryp
+tAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密服务
+的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAEAD
+EncryptAss
+ociatedDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用
+于加密服务的辅助算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+AEADEncryp
+tCiphertex
+tMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出密文长度的
+最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cs
+mAEADEncry
+ptPlaintex
+tMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入明文长度的
+最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+AEADEncryp
+tTagLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出标记长
+度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAEADEnc
+ryptKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数引
+用用于该加密原语的密钥</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mAEADEncry
+ptQueueRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参数引
+用用于该加密原语的队列</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmQueue</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmaeaddecryptconfig">
+<h4>CsmAEADDecryptConfig<a class="headerlink" href="#csmaeaddecryptconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmAEADDe
+cryptAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+</td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用
+于加密服务的算法族。这个参
+数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAE
+ADDecryptA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果使
+用CRYPTO_ALGOFAM_CUSTOM作为
+CsmAEADDecryptAlgorithmFam
+ily，则自定义算法组的名称。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mAEADDecry
+ptAlgorith
+mKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>AEAD解
+密密钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAEAD
+DecryptAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOMODE_GCM 0x07</p>
+</td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定解密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+AEADDecryp
+tAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密
+服务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAEAD
+DecryptAss
+ociatedDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入相关数据长
+度的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+AEADDecryp
+tCiphertex
+tMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入密
+文的最大大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cs
+mAEADDecry
+ptPlaintex
+tMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出明
+文长度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+AEADDecryp
+tTagLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入
+标记长度的大小(以位为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmAEADDec
+ryptKeyRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参
+数引用用于该解密原语的密钥</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmKey</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mAEADDecry
+ptQueueRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此参
+数引用用于该解密原语的队列</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CsmQueue</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmsignaturegenerateconfig">
+<h4>CsmSignatureGenerateConfig<a class="headerlink" href="#csmsignaturegenerateconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmSi
+gnatureGen
+erateAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_BRAINPOOL 0x15</p>
+<p>CRYPTO_ALGOFAM_ECCNIST 0x16</p>
+<p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定用于加密服务的算法族。这个
+参数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+smSignatur
+eGenerateA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义算法族的名称。</p>
+<p>这是自定义算法族的名称</p>
+<p>这里
+使用的是CRYPTO_ALGOFAM_CUSTOM</p>
+<p>CsmSig
+natureGenerateAlgorithmFamily</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+SignatureG
+enerateAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOMODE_NOT_SET 0x00</p>
+<p>CRYP
+TO_ALGOMODE_RSASSA_PKCS1_v1_5
+0x0b</p>
+<p>CRYPTO_ALGOMODE_RSASSA_PSS
+0x0a</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSignat
+ureGenerat
+eAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmS
+ignatureGe
+nerateAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_BLAKE_1_256
+0x0F</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_512
+0x10</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_256
+0x11</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_512
+0x12</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOFAM_NOT_SET 0x00</p>
+<p>CRYPTO_ALGOFAM_RIPEMD160 0x0E</p>
+<p>CRYPTO_ALGOFAM_SHA1 0x01</p>
+<p>CRYPTO_ALGOFAM_SHA2_224 0x02</p>
+<p>CRYPTO_ALGOFAM_SHA2_256 0x03</p>
+<p>CRYPTO_ALGOFAM_SHA2_384 0x04</p>
+<p>CRYPTO_ALGOFAM_SHA2_512 0x05</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_224
+0x06</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_256
+0x07</p>
+<p>CRYPTO_ALGOFAM_SHA3_224 0x08</p>
+<p>CRYPTO_ALGOFAM_SHA3_256 0x09</p>
+<p>CRYPTO_ALGOFAM_SHA3_384 0x0A</p>
+<p>CRYPTO_ALGOFAM_SHA3_512 0x0B</p>
+<p>CRYPTO_ALGOFAM_SHA3_SHAKE128
+0x0C</p>
+<p>CRYPTO_ALGOFAM_SHA3_SHAKE256
+0x0D</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSignatu
+reGenerate
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密服
+务的自定义辅助算法族的名称。
+这是自定义算法族的第二个名字</p>
+<p>将CRYPTO_ALGOFAM_CUSTOM设置为</p>
+<p>CsmSignatureGener
+ateAlgorithmSecondaryFamily。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+SignatureG
+enerateDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="4"><p>默 | 无 |  |
+认 |  |   |
+取 |  |   |
+值 |  |   |</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入
+数据长度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSignat
+ureGenerat
+eKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>S
+ign的大小以字节为单位生成密钥</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mSignature
+GenerateRe
+sultLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输出
+签名长度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmsignatureverifyconfig">
+<h4>CsmSignatureVerifyConfig<a class="headerlink" href="#csmsignatureverifyconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Csm
+SignatureV
+erifyAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_BRAINPOOL 0x15</p>
+<p>CRYPTO_ALGOFAM_ECCNIST 0x16</p>
+<p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定用于加密服务的算法族。这个
+参数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSignat
+ureVerifyA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义算法族的名称。</p>
+<p>这是自定义算法族的名称</p>
+<p>这里
+使用的是CRYPTO_ALGOFAM_CUSTOM</p>
+<p>CsmS
+ignatureVerifyAlgorithmFamily</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+smSignatur
+eVerifyAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOMODE_NOT_SET 0x00</p>
+<p>CRYP
+TO_ALGOMODE_RSASSA_PKCS1_v1_5
+0x0b</p>
+<p>CRYPTO_ALGOMODE_RSASSA_PSS
+0x0a</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSign
+atureVerif
+yAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义算法模式的名称</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mSignature
+VerifyAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_BLAKE_1_256
+0x0F</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_512
+0x10</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_256
+0x11</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_512
+0x12</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOFAM_NOT_SET 0x00</p>
+<p>CRYPTO_ALGOFAM_RIPEMD160 0x0E</p>
+<p>CRYPTO_ALGOFAM_SHA1 0x01</p>
+<p>CRYPTO_ALGOFAM_SHA2_224 0x02</p>
+<p>CRYPTO_ALGOFAM_SHA2_256 0x03</p>
+<p>CRYPTO_ALGOFAM_SHA2_384 0x04</p>
+<p>CRYPTO_ALGOFAM_SHA2_512 0x05</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_224
+0x06</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_256
+0x07</p>
+<p>CRYPTO_ALGOFAM_SHA3_224 0x08</p>
+<p>CRYPTO_ALGOFAM_SHA3_256 0x09</p>
+<p>CRYPTO_ALGOFAM_SHA3_384 0x0A</p>
+<p>CRYPTO_ALGOFAM_SHA3_512 0x0B</p>
+<p>CRYPTO_ALGOFAM_SHA3_SHAKE128
+0x0C</p>
+<p>CRYPTO_ALGOFAM_SHA3_SHAKE256
+0x0D</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmSigna
+tureVerify
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密服
+务的自定义辅助算法族的名称。
+这是自定义算法族的第二个名字</p>
+<p>将CRYPTO_ALGOFAM_CUSTOM设置为</p>
+<p>CsmSig
+natureVerifyAlgorithmFamily。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+smSignatur
+eVerifyCom
+pareLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="4"><p>默 | 无 |  |
+认 |  |   |
+取 |  |   |
+值 |  |   |</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>输入
+数据长度的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+smSignatur
+eVerifyDat
+aMaxLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>S
+ign的大小以字节为单位生成密钥</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmSign
+atureVerif
+yKeyLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Sig
+n验证密钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmrandomgenerateconfig">
+<h4>CsmRandomGenerateConfig<a class="headerlink" href="#csmrandomgenerateconfig" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cs
+mRandomGen
+erateAlgor
+ithmFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_3DES 0x13</p>
+<p>CRYPTO_ALGOFAM_AES 0x14</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_256
+0x0F</p>
+<p>CRYPTO_ALGOFAM_BLAKE_1_512
+0x10</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_256
+0x11</p>
+<p>CRYPTO_ALGOFAM_BLAKE_2s_512
+0x12</p>
+<p>CRYPTO_ALGOFAM_CHACHA 0x15</p>
+<p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOFAM_RIPEMD160 0x0E</p>
+<p>CRYPTO_ALGOFAM_RNG 0x1B</p>
+<p>CRYPTO_ALGOFAM_SHA1 0x01</p>
+<p>CRYPTO_ALGOFAM_SHA2_224 0x02</p>
+<p>CRYPTO_ALGOFAM_SHA2_256 0x03</p>
+<p>CRYPTO_ALGOFAM_SHA2_384 0x04</p>
+<p>CRYPTO_ALGOFAM_SHA2_512 0x05</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_224
+0x06</p>
+<p>CRYPTO_ALGOFAM_SHA2_512_256
+0x07</p>
+<p>CRYPTO_ALGOFAM_SHA3_224 0x08</p>
+<p>CRYPTO_ALGOFAM_SHA3_256 0x09</p>
+<p>CRYPTO_ALGOFAM_SHA3_384 0x0A</p>
+<p>CRYPTO_ALGOFAM_SHA3_512 0x0B</p>
+<p>CRYPTO_ALGOFAM_SHA3_SHAKE128
+0x0C</p>
+<p>CRYPTO_ALGOFAM_SHA3_SHAKE256
+0x0D</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确
+定用于加密服务的算法族。这个
+参数定义了算法最重要的部分。</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmRando
+mGenerateA
+lgorithmFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加
+密服务的自定义算法族的名称。</p>
+<p>这是自定义算法族的名称</p>
+<p>这里
+使用的是CRYPTO_ALGOFAM_CUSTOM</p>
+<p>CsmRandomAlgorithmFamily</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmRandomG
+enerateAlg
+orithmMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOMODE_CMAC 0x10</p>
+<p>CRYPTO_ALGOMODE_CTRDRBG 0x12</p>
+<p>CRYPTO_ALGOMODE_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOMODE_GMAC 0x11</p>
+<p>CRYPTO_ALGOMODE_HMAC 0x0f</p>
+<p>CRYPTO_ALGOMODE_NOT_SET 0x00</p>
+<p>CRYPTO_ALGOMODE_SIPHASH_2_4
+0x17</p>
+<p>CRYPTO_ALGOMODE_SIPHASH_4_8
+0x18</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定加密服务使用的算法模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmRan
+domGenerat
+eAlgorithm
+ModeCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用
+于加密服务的自定义算法模式的
+名称。这是自定义算法族的名称</p>
+<p>这里
+使用的是CRYPTO_ALGOFAM_CUSTOM</p>
+<p>CsmRa
+ndomGenerateAlgorithmFamily。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+smRandomGe
+nerateAlgo
+rithmSecon
+daryFamily</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRYPTO_ALGOFAM_CUSTOM 0xFF</p>
+<p>CRYPTO_ALGOFAM_NOT_SET 0x00</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>确定用于加密服务的算法族</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CsmRand
+omGenerate
+AlgorithmS
+econdaryFa
+milyCustom</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于加密服
+务的自定义辅助算法族的名称。
+这是自定义算法族的第二个名字</p>
+<p>将CRYPTO_ALGOFAM_CUSTOM设置为</p>
+<p>CsmRan
+domAlgorithmSecondaryFamily。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmRandom
+GenerateRe
+sultLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td colspan="4"><p>默 | 无 |  |
+认 |  |   |
+取 |  |   |
+值 |  |   |</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>随机
+生成密钥的大小(以字节为单位)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csmjobkeysetvalid">
+<h4>CsmJobKeySetValid<a class="headerlink" href="#csmjobkeysetvalid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmJobK
+eySetValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认
+取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>KeySetValid原语的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="csmcallback">
+<h3>CsmCallback<a class="headerlink" href="#csmcallback" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image141.png"><img alt="image14" src="../../_images/image141.png" style="width: 5.43682in; height: 0.93738in;" /></a></p>
+<p>图5-8 CsmPCallback容器配置图</p>
+<p>表5-8 CsmPCallback属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CsmCa
+llbackFunc</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认
+取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在异
+步操作完成时调用的回调函数。</p>
+<p>必
+须将相应的job配置为异步处理。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Csm
+CallbackId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认
+取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>回调
+函数的标识符。实际配置的标识
+符集应该是连续的、无间隙的。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>此ID是按照0开始按升序方式自动
+生成，需要保证配置的CallBack
+函数个数必须小于异步Job的个数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Crypto.html" class="btn btn-neutral float-left" title="Crypto驱动产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DCM.html" class="btn btn-neutral float-right" title="DCM产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

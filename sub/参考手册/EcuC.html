@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcuC产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="EcuM产品参考手册" href="EcuM.html" />
+    <link rel="prev" title="EA产品参考手册" href="Ea.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EcuC产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pdu">Pdu基本属性配置功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Pdu基本属性配置功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Pdu基本属性配置功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Pdu传递路径确定功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Pdu传递路径确定功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Pdu传递路径确定功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">类型定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">静态接口函数定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ecucpducollection">EcucPduCollection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Pdu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadataitem">MetaDataItem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EcuC产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/EcuC.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ecuc">
+<h1>EcuC产品参考手册<a class="headerlink" href="#ecuc" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ECUC</p></td>
+<td><p>ECUConfiguration</p></td>
+<td><p>ECU配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDU</p></td>
+<td><p>Protocol Data Unit</p></td>
+<td><p>协议数据单元</p></td>
+</tr>
+<tr class="row-even"><td><p>BSW</p></td>
+<td><p>Basic Software</p></td>
+<td><p>基础软件</p></td>
+</tr>
+<tr class="row-odd"><td><p>SW-C</p></td>
+<td><p>Software Component</p></td>
+<td><p>软件组件</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>EcuC模块用于对Ecu属性进行配置。</p>
+<p>当前EcuC模块只实现Pdu的配置，除配置Pdu的基本属性（Pdu长度，MetaDataType）外，主要用于确定通信栈、诊断栈、网络管理功能栈等通过PduRef来实现Pdu在各个模块间的传递关系，实现ComStack_Cfg.h文件生成。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_TPS_ECUConfiguration.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_CommunicationStackTypes.pdf，R19_11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="pdu">
+<h3>Pdu基本属性配置功能<a class="headerlink" href="#pdu" title="Link to this heading"></a></h3>
+<section id="id4">
+<h4>Pdu基本属性配置功能介绍<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<p>在EcuC中对工程所需的所有Pdu进行配置，每个Pdu的配置属性为：MetaDataTypeRef、PduLength。</p>
+<p>MetaDataType中涉及1-N个MetaDataItem的配置，每个MetaDataItem中配置参数为MetaDataItemLength和MetaDataItemType。</p>
+<p>以及Pdu关联数据类型的配置：PduIdTypeEnum和PduLengthTypeEnum，这两个配置项决定ComStack_Cfg.h文件的生成。</p>
+</section>
+<section id="id5">
+<h4>Pdu基本属性配置功能实现<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>配置说明详见第5章节。</p>
+</section>
+</section>
+<section id="id6">
+<h3>Pdu传递路径确定功能<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<section id="id7">
+<h4>Pdu传递路径确定功能介绍<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p>两个模块间通过Pdu配置项PduRef关联到EcuC中配置的同一个Pdu，从而确定Pdu在这两个模块间的传递关系。</p>
+<p>这里以Com中TxPdu经过PduR路由到CanIf模块进行发送为例，参照下图2-1所示：</p>
+<p><a class="reference internal" href="../../_images/image189.png"><img alt="image1" src="../../_images/image189.png" style="width: 4.49318in; height: 3.66326in;" /></a></p>
+<p>图2-1 Pdu传递关系</p>
+</section>
+<section id="id8">
+<h4>Pdu传递路径确定功能实现<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>配置时在Com中添加ComIPdu，其PduIdRef关联到EcuC中Pdu0；在PduR中添加一个路由路径，其PduRSrcPdu本地PduId为23，其SrcPduRef关联到EcuC中Pdu0，其PduRDestPdu通过配置项DestPduRef关联到EcuC中Pdu1；在CanIf中添加CanIfTxPdu，其本地PduId为6，其PduIdRef关联到EcuC中Pdu1。</p>
+<p>当Com模块调用PduR_ComTransmit进行Pdu发送时，PduId参数为23，PduR经过路由调用CanIf_Transmit进行Pdu发送，PduId为6。</p>
+</section>
+</section>
+</section>
+<section id="id9">
+<h2>源文件描述<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<p>无。</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id10">
+<h3>类型定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="id11">
+<h3>输入函数描述<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="id12">
+<h3>静态接口函数定义<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="id13">
+<h3>可配置函数定义<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id14">
+<h2>配置<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<section id="ecucpducollection">
+<h3>EcucPduCollection<a class="headerlink" href="#ecucpducollection" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image238.png"><img alt="image2" src="../../_images/image238.png" style="width: 5.76736in; height: 2.02153in;" /></a></p>
+<p>图5-1 Pdu</p>
+<p>表5-1 Pdu</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduIdTypeEnum</p></td>
+<td><p>取值范围</p></td>
+<td><p>UINT8/UINT16</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Pdu的Index数据类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EcuC中配置Pdu的总数;
+P
+duIdTypeEnum需要与配
+置的Pdu数目进行校验</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Pdu
+LengthTypeEnum</p></td>
+<td><p>取值范围</p></td>
+<td><p>UINT8/UINT16/UINT32</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Pdu的长度类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于EcuC
+中配置Pdu的最大长度;
+PduLength
+TypeEnum需要与配置的
+Pdu最大长度进行校验</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Pdu<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image328.png"><img alt="image3" src="../../_images/image328.png" style="width: 5.76736in; height: 2.00833in;" /></a></p>
+<p>图5-2 Pdu</p>
+<p>表5-2 Pdu</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Pdu的长度/最大
+长度（动态长度Pdu）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M
+etaDataTypeRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>[索引MetaDataType]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联Pdu的MetaDataTy
+pe，选择MetaData类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metadataitem">
+<h3>MetaDataItem<a class="headerlink" href="#metadataitem" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image423.png"><img alt="image4" src="../../_images/image423.png" style="width: 5.76736in; height: 1.77361in;" /></a></p>
+<p>图5-3 MetaDataItem</p>
+<p>表5-3 MetaDataItem</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Met
+aDataItemLength</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>1..8</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示MetaData长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>根据M
+etaData类型选择，自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>M
+etaDataItemType</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>ADDRESS_EXTENSION_8/</p>
+<p>CAN_ID_32/</p>
+<p>ETHERNET_MAC_64/</p>
+<p>LIN_NAD_8/</p>
+<p>PRIORITY_8/</p>
+<p>SOCKET_CONNECTION_ID_16/</p>
+<p>SOURCE_ADDRESS_16/</p>
+<p>TARGET_ADDRESS_16</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示MetaData类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Ea.html" class="btn btn-neutral float-left" title="EA产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="EcuM.html" class="btn btn-neutral float-right" title="EcuM产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7601 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BswM产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CanIf产品参考手册" href="CanIf.html" />
+    <link rel="prev" title="小满EasyXMen技术文档" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BswM产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">模式仲裁</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">仲裁功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">仲裁功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">模式控制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">模式控制介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">模式控制实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-configtype">BswM_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-modetype">BswM_ModeType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-usertype">BswM_UserType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-bswmpartitionrestarted">BswM_BswMPartitionRestarted函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-cansm-currenticomconfiguration">BswM_CanSM_CurrentIcomConfiguration函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-cansm-currentstate">BswM_CanSM_CurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-comm-currentmode">BswM_ComM_CurrentMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-comm-currentpncmode">BswM_ComM_CurrentPNCMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-comm-initiatereset">BswM_ComM_InitiateReset函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-dcm-applicationupdated">BswM_Dcm_ApplicationUpdated函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-dcm-communicationmode-currentstate">BswM_Dcm_CommunicationMode_CurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-deinit">BswM_Deinit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-ecum-currentstate">BswM_EcuM_CurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-ecum-currentwakeup">BswM_EcuM_CurrentWakeup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-ecum-requestedstate">BswM_EcuM_RequestedState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-ethif-portgrouplinkstatechg">BswM_EthIf_PortGroupLinkStateChg函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-ethsm-currentstate">BswM_EthSM_CurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-frsm-currentstate">BswM_FrSM_CurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-getversioninfo">BswM_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-init">BswM_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-j1939dcmbroadcaststatus">BswM_J1939DcmBroadcastStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-j1939nm-statechangenotification">BswM_J1939Nm_StateChangeNotification函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-linsm-currentschedule">BswM_LinSM_CurrentSchedule函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-linsm-currentstate">BswM_LinSM_CurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-lintp-requestmode">BswM_LinTp_RequestMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-nm-carwakeupindication">BswM_Nm_CarWakeUpIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-nvm-currentblockmode">BswM_NvM_CurrentBlockMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-nvm-currentjobmode">BswM_NvM_CurrentJobMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-requestmode">BswM_RequestMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-sd-clientservicecurrentstate">BswM_Sd_ClientServiceCurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-sd-consumedeventgroupcurrentstate">BswM_Sd_ConsumedEventGroupCurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-sd-eventhandlercurrentstate">BswM_Sd_EventHandlerCurrentState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bswm-wdgm-requestpartitionreset">BswM_WdgM_RequestPartitionReset函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bswmgeneral">BswMGeneral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmuserincludefiles">BswMUserIncludeFiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmconfigs">BswMConfigs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmlogicalexpression">BswMLogicalExpression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmmodecondition">BswMModeCondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmmoderequestport">BswMModeRequestPort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmmodeinitvalue">BswMModeInitValue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmmoderequestsource">BswMModeRequestSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmeventrequestsource">BswMEventRequestSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmrule">BswMRule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmdatatypemappingsets">BswMDataTypeMappingSets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmaction">BswMAction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmactionlist">BswMActionList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmactionlistitem">BswMActionListItem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmrtemoderequestport">BswMRteModeRequestPort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bswmswitchport">BswMSwitchPort</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BswM产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/BswM.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bswm">
+<h1>BswM产品参考手册<a class="headerlink" href="#bswm" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>解释/描述</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>BswM</p></td>
+<td><p>Basic Software Mode
+Manager</p></td>
+<td><p>基础软件模式管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTE</p></td>
+<td><p>Runtime Environment</p></td>
+<td><p>运行时环境</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM</p></td>
+<td><p>ECU State Manager</p></td>
+<td><p>ECU状态管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wakeup Source</p></td>
+<td><p>The peripheral or ECU
+component which deals
+with wakeup events is
+called a wakeup source</p></td>
+<td><p>唤醒源</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>模式管理属于系统服务栈，在AutoSar R19-11软件层级架构如下图：</p>
+<p><a class="reference internal" href="../../_images/image1.png"><img alt="image1" src="../../_images/image1.png" style="width: 5.76736in; height: 3.87153in;" /></a></p>
+<p>图1-1 模式管理协议栈简介</p>
+<p>模式管理由BswM与EcuM组成，这两个模块对于Bsw中不同协议栈的串联与Ecu的整体把控紧密相关，其中BswM可以通过配置高度自由实现Bsw中模块的串联工作，EcuM则对Mcu的睡眠唤醒提供支持。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_ECUStateManager.pdf，R19-11</p>
+<p>[3] AUTOSAR_SWS_BSWModeManager.pdf，R19-11</p>
+<p>[4] AUTOSAR_EXP_ModeManagementGuide.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>BSWM模块主要有如下两个功能：</p>
+<p>1.模式仲裁。</p>
+<p>2.模式控制。</p>
+<section id="id4">
+<h3>模式仲裁<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>仲裁功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>模式仲裁是接收来自SWC或其他BSW模块的模式请求和通知，根据简单的规则作出模式切换。</p>
+<p>Bsw或SW-C通知BswM进入模式仲裁，可以配置不同的Bsw模块给BswM的通知端口匹配的输入值；这些输入值可以根据具体需求组合成逻辑表达式；逻辑表达式决定了BswM执行的动作列表，动作列表是一系列Bsw或RTE模块操作接口。</p>
+</section>
+<section id="id6">
+<h4>仲裁功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p><strong>模式仲裁</strong>：每个模式仲裁的规则都有一个逻辑表达式，逻辑表达式的条件来源与Bsw模块的请求或Swc的请求，而逻辑表达式可以对多个请求的输入源使用逻辑运算符（与，或，异或，与非）进行连接。</p>
+<p><a class="reference internal" href="../../_images/image2.png"><img alt="image2" src="../../_images/image2.png" style="width: 5.77222in; height: 3.48264in;" /></a></p>
+<p>图2-1 模式仲裁示意图</p>
+<p>实现仲裁需要配置BswMRule、BswMLogicalExpression、BswMModeCondition以及BswMModeRequestPort（或者BswMEventRequestPort）如下图所示：其中BswMRule指需要仲裁的规则，BswMLogicalExpression提供仲裁逻辑表达式，逻辑表达式的条件由RequestPort和BswMModeCondition构成。</p>
+<p><a class="reference internal" href="../../_images/image3.png"><img alt="image3" src="../../_images/image3.png" style="width: 3.875in; height: 4.79167in;" /></a></p>
+<p>图2-2 模式仲裁配置项示意图</p>
+</section>
+</section>
+<section id="id7">
+<h3>模式控制<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="id8">
+<h4>模式控制介绍<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>模式控制是以模式仲裁得到的结果，执行相应的动作。BswM执行流程如下：</p>
+<p><img alt="image4" src="../../_images/image4.png" /></p>
+<p>图2-3 模式控制执行流程</p>
+</section>
+<section id="id9">
+<h4>模式控制实现<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>BswM可以配置一系列行为作为仲裁结果需要执行的动作，这些行为可以是操作Bsw模块或Rte，或另外的一个仲裁规则，典型示例如下：</p>
+<p><a class="reference internal" href="../../_images/image5.png"><img alt="image5" src="../../_images/image5.png" style="width: 5.77222in; height: 3.38819in;" /></a></p>
+<p>图2-4 ActionList引用示意图</p>
+<p>对于BswM而言，配置项决定了串联的实施的具有功能，需要根据实际项目中的需求来调整BswM配置以满足应用场景。实现模式控制主要是通过BSWM调用其他BSW模块的函数来达到控制其模块的目的（如请求网络调用ComM_RequestComMode）。</p>
+<p>实现模式控制需要配置BswMActionList以及BswMAction，其中BswMActionList会被BswMRule引用：</p>
+<p><a class="reference internal" href="../../_images/image6.png"><img alt="image6" src="../../_images/image6.png" style="width: 5.76736in; height: 2.04861in;" /></a></p>
+<p>图2-5 模式控制配置示意图</p>
+<p>在BswMActionList中配置需要具体执行的Action：</p>
+<p><a class="reference internal" href="../../_images/image7.png"><img alt="image7" src="../../_images/image7.png" style="width: 5.76458in; height: 1.925in;" /></a></p>
+<p>图2-6 ActionList配置示意图</p>
+<p>在Action中会选择需要关联的具体BSW模块需要执行的动作：</p>
+<p><a class="reference internal" href="../../_images/image8.png"><img alt="image8" src="../../_images/image8.png" style="width: 5.7625in; height: 3.5375in;" /></a></p>
+<p>图2-7 Action配置示意图</p>
+</section>
+</section>
+</section>
+<section id="id10">
+<h2>源文件描述<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>表3-1 BswM文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>BswM.c</p></td>
+<td><p>BswM模块提供的API（不
+与其他模块交互），以及内部函数等</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM.h</p></td>
+<td><p>LC配置数据类型，以及通用API的声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Bsw.c</p></td>
+<td><p>BswMModeRequestPor
+t中BswMBswModeNotification对应API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Bsw.h</p></td>
+<td><p>BswM_Bsw.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_CanSM.c</p></td>
+<td><p>BSWM与CANSM模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_CanSM.h</p></td>
+<td><p>BswM_CanSM.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_ComM.c</p></td>
+<td><p>BSWM与ComM模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_ComM.h</p></td>
+<td><p>BswM_ComM.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Dcm.c</p></td>
+<td><p>BSWM与Dcm模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Dcm.h</p></td>
+<td><p>BswM_Dcm.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_EcuM.c</p></td>
+<td><p>BSWM与EcuM模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_EcuM.h</p></td>
+<td><p>BswM_EcuM.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_EthSM.c</p></td>
+<td><p>BSWM与EthSM模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_EthSM.h</p></td>
+<td><p>BswM_EthSM.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_FrSM.c</p></td>
+<td><p>BSWM与FrSM模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_FrSM.h</p></td>
+<td><p>BswM_FrSM.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Internal.h</p></td>
+<td><p>BswM中PC配置
+数据结构类型定义以及内部函数声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_J1939Dcm.c</p></td>
+<td><p>BSWM与J1939Dcm模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_J1939Dcm.h</p></td>
+<td><p>BswM_J1939Dcm.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_J1939Nm.c</p></td>
+<td><p>BSWM与J1939Nm模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_J1939Nm.h</p></td>
+<td><p>BswM_J1939Nm.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Lcfg.h</p></td>
+<td><p>LC配置数据结构</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_LinSM.c</p></td>
+<td><p>BSWM与LinSM模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_LinSM.h</p></td>
+<td><p>BswM_LinSM.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_LinTp.c</p></td>
+<td><p>BSWM与LinTp模块交互API</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_LinTp.h</p></td>
+<td><p>BswM_LinTp.c中API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_MemMap.h</p></td>
+<td><p>BswM所有变量
+、函数用到的MemMap机制包含头文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Nm.c</p></td>
+<td><p>BSWM与Nm模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Nm.h</p></td>
+<td><p>BswM_Nm.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_NvM.c</p></td>
+<td><p>BSWM与NvM模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_NvM.h</p></td>
+<td><p>BswM_NvM.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_PBcfg.h</p></td>
+<td><p>PB配置数据结构</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_RuleArbitrate.c</p></td>
+<td><p>Rule仲裁函数</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Sd.c</p></td>
+<td><p>BSWM与Sd模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Sd.h</p></td>
+<td><p>BswM_Sd.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Swc.c</p></td>
+<td><p>BSWM与Swc模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Swc.h</p></td>
+<td><p>BswM_Swc.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_TimerControl.c</p></td>
+<td><p>BswM中timer control相关API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Types.h</p></td>
+<td><p>BswM定义的通用数据类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_WdgM.c</p></td>
+<td><p>BSWM与WdgM模块交互API</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_WdgM.h</p></td>
+<td><p>BswM_WdgM.c中API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM_BswM.h</p></td>
+<td><p>定义BswM_MainFunction函
+数声明，已经某些关键区域保护机制</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM_Cfg.c</p></td>
+<td><p>BswM中所有PC配置数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM_Cfg.h</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswM_LCfg.c</p></td>
+<td><p>BswM中所有Link time配置数据</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image9.png"><img alt="image9" src="../../_images/image9.png" style="width: 5.75in; height: 5.16458in;" /></a></p>
+<p>图3-1 BSWM文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id11">
+<h3>类型定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="bswm-configtype">
+<h4>BswM_ConfigType类型定义<a class="headerlink" href="#bswm-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>BswM_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>BswM模块中PB配置数据类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-modetype">
+<h4>BswM_ModeType类型定义<a class="headerlink" href="#bswm-modetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>BswM_ModeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>提供给BswM user请求的模式</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-usertype">
+<h4>BswM_UserType类型定义<a class="headerlink" href="#bswm-usertype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>BswM_UserType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>BswM user类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id12">
+<h3>输入函数描述<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Com</p></td>
+<td><p>Com_SetIpduGroup</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_ReceptionDMControl</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Com_IpduGroupControl</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_SwitchIpduTxMode</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM</p></td>
+<td><p>ComM_CommunicationAllowed</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ComM_LimitChannelToNoComMode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ComM_RequestComMode</p></td>
+</tr>
+<tr class="row-odd"><td><p>OS</p></td>
+<td><p>ControlIdle</p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM</p></td>
+<td><p>EcuM_AL_DriverInitBswM_&lt;x&gt;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_GoDownHaltPoll</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_SetState</p></td>
+</tr>
+<tr class="row-even"><td><p>J1939Dcm</p></td>
+<td><p>J1939Dcm_SetState</p></td>
+</tr>
+<tr class="row-odd"><td><p>J1939Rm</p></td>
+<td><p>J1939Rm_SetState</p></td>
+</tr>
+<tr class="row-even"><td><p>LinSM</p></td>
+<td><p>LinSM_ScheduleRequest</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nm</p></td>
+<td><p>Nm_DisableCommunication</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Nm_EnableCommunication</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sd</p></td>
+<td><p>Sd_ClientServiceSetState</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Sd_ConsumedEventGroupSetState</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Sd_ServerServiceSetState</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id13">
+<h3>静态接口函数定义<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="bswm-bswmpartitionrestarted">
+<h4>BswM_BswMPartitionRestarted函数定义<a class="headerlink" href="#bswm-bswmpartitionrestarted" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_BswMP
+artitionRestarted</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_BswMP
+artitionRestarted
+(</p>
+<p>void</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>多分区的
+情况下，当前分区
+bswm接收另一个分
+区的bswm复位指示</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-cansm-currenticomconfiguration">
+<h4>BswM_CanSM_CurrentIcomConfiguration函数定义<a class="headerlink" href="#bswm-cansm-currenticomconfiguration" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>B
+swM_CanSM_Current
+IcomConfiguration</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+B
+swM_CanSM_Current
+IcomConfiguration
+(</p>
+<p>NetworkHandleType
+Network,</p>
+<p>IcomConfigIdType
+Act
+iveConfiguration,</p>
+<p>Ico
+mSwitch_ErrorType
+Error</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Ac
+tiveConfiguration</p></td>
+<td></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Error</p></td>
+<td></td>
+<td><p>ICOM_SWITCH_E_OK,</p>
+<p>ICOM_SWITCH_E_FAILED</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>CanSm通知Bsw
+M关于Icom配置状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-cansm-currentstate">
+<h4>BswM_CanSM_CurrentState函数定义<a class="headerlink" href="#bswm-cansm-currentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id16"><span class="problematic" id="id17">BswM_</span></a>
+CanSM_Cur
+rentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id18"><span class="problematic" id="id19">BswM_</span></a>
+CanSM_Cur
+rentState
+(</p>
+<p>NetworkH
+andleType
+Network,</p>
+<p>CanSM_Bs
+wMCurrent
+StateType
+Cur
+rentState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cur
+rentState</p></td>
+<td></td>
+<td><p>CANSM_BSWM_NO_COMMUNICATION,</p>
+<p>CANSM_BSWM_SILENT_COMMUNICATION,</p>
+<p>CANSM_BSWM_FULL_COMMUNICATION,</p>
+<p>CANSM_BSWM_BUS_OFF,</p>
+<p>CANSM_BSWM_CHANGE_BAUDRATE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>Can
+Sm通知Bsw
+M当前状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-comm-currentmode">
+<h4>BswM_ComM_CurrentMode函数定义<a class="headerlink" href="#bswm-comm-currentmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_C
+omM_CurrentMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_C
+omM_CurrentMode
+(</p>
+<p>Ne
+tworkHandleType
+Network,</p>
+<p>ComM_ModeType
+RequestedMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RequestedMode</p></td>
+<td></td>
+<td><p>COMM_NO_COMMUNICATION</p>
+<p>COMM_SILENT_COMMUNICATION</p>
+<p>COMM_FULL_COMMUNICATION</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>ComM通
+知BswM当前模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-comm-currentpncmode">
+<h4>BswM_ComM_CurrentPNCMode函数定义<a class="headerlink" href="#bswm-comm-currentpncmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_ComM_Cu
+rrentPNCMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_ComM_Cu
+rrentPNCMode
+(</p>
+<p>P
+NCHandleType
+PNC,</p>
+<p>ComM
+_PncModeType
+Cu
+rrentPncMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x15</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>PNC</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cu
+rrentPncMode</p></td>
+<td></td>
+<td><p>COMM_PNC_NO_COMMUNICATION</p>
+<p>COMM_PNC_PREPARE_SLEEP</p>
+<p>COMM_PNC_READY_SLEEP</p>
+<p>COMM_PNC_REQUESTED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>ComM
+通知BswM
+Pnc模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-comm-initiatereset">
+<h4>BswM_ComM_InitiateReset函数定义<a class="headerlink" href="#bswm-comm-initiatereset" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_C
+omM_InitiateReset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_C
+omM_InitiateReset
+(</p>
+<p>void</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Function called
+by ComM to signal
+a shutdown.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-dcm-applicationupdated">
+<h4>BswM_Dcm_ApplicationUpdated函数定义<a class="headerlink" href="#bswm-dcm-applicationupdated" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Dcm_A
+pplicationUpdated</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Dcm_A
+pplicationUpdated
+(</p>
+<p>void</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x14</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Dcm通知BswM
+App应用有更新</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-dcm-communicationmode-currentstate">
+<h4>BswM_Dcm_CommunicationMode_CurrentState函数定义<a class="headerlink" href="#bswm-dcm-communicationmode-currentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id20"><span class="problematic" id="id21">BswM_</span></a>
+Dcm_Communication
+Mode_CurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id22"><span class="problematic" id="id23">BswM_</span></a>
+Dcm_Communication
+Mode_CurrentState
+(</p>
+<p>NetworkHandleType
+Network,</p>
+<p>Dcm_Comm
+unicationModeType
+RequestedMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RequestedMode</p></td>
+<td></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>Dcm通知BswM
+通讯模式改变请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-deinit">
+<h4>BswM_Deinit函数定义<a class="headerlink" href="#bswm-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Deinit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void BswM_Deinit
+(</p>
+<p>void</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>取消初始化BSWM</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-ecum-currentstate">
+<h4>BswM_EcuM_CurrentState函数定义<a class="headerlink" href="#bswm-ecum-currentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_E
+cuM_CurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Void
+BswM_E
+cuM_CurrentState
+(</p>
+<p>EcuM_StateType
+CurrentState)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0xf</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CurrentState</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>EcuM通知
+BswM当前ECU状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-ecum-currentwakeup">
+<h4>BswM_EcuM_CurrentWakeup函数定义<a class="headerlink" href="#bswm-ecum-currentwakeup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Ec
+uM_CurrentWakeup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Ec
+uM_CurrentWakeup
+(</p>
+<p><a href="#id24"><span class="problematic" id="id25">EcuM_</span></a>
+WakeupSourceType
+source,</p>
+<p><a href="#id26"><span class="problematic" id="id27">EcuM_</span></a>
+WakeupStatusType
+state</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>source</p></td>
+<td><p>值
+域：</p></td>
+<td><p>配置的唤醒源</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>state</p></td>
+<td></td>
+<td><p>ECUM_WKSTATUS_NONE</p>
+<p>ECUM_WKSTATUS_PENDING</p>
+<p>ECUM_WKSTATUS_VALIDATED</p>
+<p>ECUM_WKSTATUS_EXPIRED</p>
+<p>ECUM_WKSTATUS_ENABLED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>EcuM通知BswM当
+前ECU唤醒源状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-ecum-requestedstate">
+<h4>BswM_EcuM_RequestedState函数定义<a class="headerlink" href="#bswm-ecum-requestedstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Ecu
+M_RequestedState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Ecu
+M_RequestedState
+(</p>
+<p>EcuM_StateType
+State,</p>
+<p>Ec
+uM_RunStatusType
+CurrentState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x29</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>State</p></td>
+<td><p>值
+域：</p></td>
+<td><p>EcuM请求的状态</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurrentState</p></td>
+<td></td>
+<td><p>Run Request
+Protocol执行结果</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>EcuM
+调用函数通知Run
+Request
+Pr
+otocol的当前状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-ethif-portgrouplinkstatechg">
+<h4>BswM_EthIf_PortGroupLinkStateChg函数定义<a class="headerlink" href="#bswm-ethif-portgrouplinkstatechg" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_EthIf_Port
+GroupLinkStateChg</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_EthIf_Port
+GroupLinkStateChg
+(</p>
+<p>EthIf_Switc
+hPortGroupIdxType
+PortGroupIdx,</p>
+<p>EthT
+rcv_LinkStateType
+PortGroupState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x26</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>PortGroupIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PortGroupState</p></td>
+<td></td>
+<td><p>ETH_MODE_DOWN</p>
+<p>ETH_MODE_ACTIVE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>Et
+hIf通知BswM当前sw
+itchPortGroup状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-ethsm-currentstate">
+<h4>BswM_EthSM_CurrentState函数定义<a class="headerlink" href="#bswm-ethsm-currentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Eth
+SM_CurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Eth
+SM_CurrentState
+(</p>
+<p>Ne
+tworkHandleType
+Network,</p>
+<p>EthSM_Netwo
+rkModeStateType
+CurrentState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurrentState</p></td>
+<td></td>
+<td><p>ETHSM_STATE_OFFLINE</p>
+<p>ETHSM_STATE_WAIT_TRCVLINK</p>
+<p>ETHSM_STATE_WAIT_ONLINE</p>
+<p>ETHSM_STATE_ONLINE</p>
+<p>ETHSM_STATE_ONHOLD</p>
+<p>ETHSM_STATE_WAIT_OFFLINE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>EthSM通
+知BswM当前状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-frsm-currentstate">
+<h4>BswM_FrSM_CurrentState函数定义<a class="headerlink" href="#bswm-frsm-currentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id28"><span class="problematic" id="id29">BswM_FrSM_</span></a>
+CurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id30"><span class="problematic" id="id31">BswM_FrSM_</span></a>
+CurrentState
+(</p>
+<p>Netwo
+rkHandleType
+Network,</p>
+<p>FrSM_Bs
+wM_StateType
+CurrentState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值域
+：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurrentState</p></td>
+<td></td>
+<td><p>FRSM_BSWM_READY</p>
+<p>FRSM_BSWM_READY_ECU_PASSIVE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>FrSM通知
+BswM当前状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-getversioninfo">
+<h4>BswM_GetVersionInfo函数定义<a class="headerlink" href="#bswm-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>B
+swM_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+B
+swM_GetVersionInfo
+(</p>
+<p>Std
+_VersionInfoType*
+VersionInfo</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>VersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取BswM版本号.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-init">
+<h4>BswM_Init函数定义<a class="headerlink" href="#bswm-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void BswM_Init (</p>
+<p>const
+BswM_ConfigType *
+ConfigPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>有条件的重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>NULL_PTR</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化BSWM模块</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-j1939dcmbroadcaststatus">
+<h4>BswM_J1939DcmBroadcastStatus函数定义<a class="headerlink" href="#bswm-j1939dcmbroadcaststatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_J1939
+DcmBroadcastStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_J1939
+DcmBroadcastStatus
+(</p>
+<p>uint16 NetworkMask</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>NetworkMask</p></td>
+<td><p>值域：</p></td>
+<td><p>0..65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>J1939Dcm通
+知BswM广播状态变化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-j1939nm-statechangenotification">
+<h4>BswM_J1939Nm_StateChangeNotification函数定义<a class="headerlink" href="#bswm-j1939nm-statechangenotification" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_J1939
+Nm_StateChang
+eNotification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_J1939
+Nm_StateChang
+eNotification
+(</p>
+<p>Netw
+orkHandleType
+Network,</p>
+<p>uint8 Node,</p>
+<p>Nm_StateType
+NmState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x18</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Node</p></td>
+<td></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NmState</p></td>
+<td></td>
+<td><p>NM_STATE_UNINIT,</p>
+<p>NM_STATE_BUS_SLEEP,</p>
+<p>NM_STATE_PREPARE_BUS_SLEEP,</p>
+<p>NM_STATE_READY_SLEEP,</p>
+<p>NM_STATE_NORMAL_OPERATION,</p>
+<p>NM_STATE_REPEAT_MESSAGE,</p>
+<p>NM_STATE_SYNCHRONIZE,</p>
+<p>NM_STATE_OFFLINE</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>J1939Nm通知
+BswM当前状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-linsm-currentschedule">
+<h4>BswM_LinSM_CurrentSchedule函数定义<a class="headerlink" href="#bswm-linsm-currentschedule" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Lin
+SM_CurrentSchedule</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Lin
+SM_CurrentSchedule
+(</p>
+<p>NetworkHandleType
+Network,</p>
+<p>L
+inIf_SchHandleType
+CurrentSchedule</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurrentSchedule</p></td>
+<td></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>LinSM
+通知BswM当前时间表</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-linsm-currentstate">
+<h4>BswM_LinSM_CurrentState函数定义<a class="headerlink" href="#bswm-linsm-currentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id32"><span class="problematic" id="id33">BswM_</span></a>
+LinSM_CurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id34"><span class="problematic" id="id35">BswM_</span></a>
+LinSM_CurrentState
+(</p>
+<p>NetworkHandleType
+Network,</p>
+<p>LinSM_ModeType
+CurrentState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurrentState</p></td>
+<td></td>
+<td><p>LINSM_FULL_COM</p>
+<p>LINSM_NO_COM</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>Lin
+SM通知BswM当前状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-lintp-requestmode">
+<h4>BswM_LinTp_RequestMode函数定义<a class="headerlink" href="#bswm-lintp-requestmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_L
+inTp_RequestMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_L
+inTp_RequestMode
+(</p>
+<p>N
+etworkHandleType
+Network,</p>
+<p>LinTp_Mode
+Li
+nTpRequestedMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Li
+nTpRequestedMode</p></td>
+<td></td>
+<td><p>LINTP_APPLICATIVE_SCHEDULE</p>
+<p>LINTP_DIAG_REQUEST</p>
+<p>LINTP_DIAG_RESPONSE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>LinIf通
+知BswM当前Tp请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-nm-carwakeupindication">
+<h4>BswM_Nm_CarWakeUpIndication函数定义<a class="headerlink" href="#bswm-nm-carwakeupindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Nm_C
+arWakeUpIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Nm_C
+arWakeUpIndication
+(</p>
+<p>NetworkHandleType
+Network</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x24</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Network</p></td>
+<td><p>值域：</p></td>
+<td><p>0~255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Nm通知BswM被唤醒</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-nvm-currentblockmode">
+<h4>BswM_NvM_CurrentBlockMode函数定义<a class="headerlink" href="#bswm-nvm-currentblockmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_NvM_Cu
+rrentBlockMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_NvM_Cu
+rrentBlockMode
+(</p>
+<p>N
+vM_BlockIdType
+Block,</p>
+<p>NvM_Req
+uestResultType
+Cu
+rrentBlockMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x16</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Block</p></td>
+<td><p>值域
+：</p></td>
+<td><p>0..65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cu
+rrentBlockMode</p></td>
+<td></td>
+<td><p>NVM_REQ_OK</p>
+<p>NVM_REQ_NOT_OK</p>
+<p>NVM_REQ_PENDING</p>
+<p>NVM_REQ_INTEGRITY_FAILED</p>
+<p>NVM_REQ_BLOCK_SKIPPED</p>
+<p>NVM_REQ_NV_INVALIDATED</p>
+<p>NVM_REQ_CANCELED</p>
+<p>NVM_REQ_REDUNDANCY_FAILED</p>
+<p>NVM_REQ_RESTORED_FROM_ROM</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>NvM通
+知BswM某个blo
+ck操作状态改变</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-nvm-currentjobmode">
+<h4>BswM_NvM_CurrentJobMode函数定义<a class="headerlink" href="#bswm-nvm-currentjobmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id36"><span class="problematic" id="id37">BswM_NvM_</span></a>
+CurrentJobMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id38"><span class="problematic" id="id39">BswM_NvM_</span></a>
+CurrentJobMode
+(</p>
+<p>NvM_MultiBl
+ockRequestType
+Mult
+iBlockRequest,</p>
+<p>NvM_Req
+uestResultType
+CurrentJobMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x17</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Mul
+tiBlockRequest</p></td>
+<td><p>值域
+：</p></td>
+<td><p>NVM_READ_ALL,</p>
+<p>NVM_WRITE_ALL,</p>
+<p>NVM_VALIDATE_ALL,</p>
+<p>NVM_FIRST_INIT_ALL,</p>
+<p>NVM_CANCEL_WRITE_ALL</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurrentJobMode</p></td>
+<td></td>
+<td><p>NVM_REQ_OK</p>
+<p>NVM_REQ_NOT_OK</p>
+<p>NVM_REQ_PENDING</p>
+<p>NVM_REQ_INTEGRITY_FAILED</p>
+<p>NVM_REQ_BLOCK_SKIPPED</p>
+<p>NVM_REQ_NV_INVALIDATED</p>
+<p>NVM_REQ_CANCELED</p>
+<p>NVM_REQ_REDUNDANCY_FAILED</p>
+<p>NVM_REQ_RESTORED_FROM_ROM</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>NvM通知BswM
+readall
+或writeall状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-requestmode">
+<h4>BswM_RequestMode函数定义<a class="headerlink" href="#bswm-requestmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_RequestMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_RequestMode (</p>
+<p>BswM_UserType
+requesting_user,</p>
+<p>BswM_ModeType
+requested_mode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>requesting_user</p></td>
+<td><p>值域：</p></td>
+<td><p>IN：
+取决于配置工具的配置。</p>
+<p>Uint8：0-255</p>
+<p>Uint16：0-65535</p>
+<p>Uint32：0- 4294967295</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>requested_mode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供给没有模式
+请求接口的BSW模块
+，供其请求特定模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-sd-clientservicecurrentstate">
+<h4>BswM_Sd_ClientServiceCurrentState函数定义<a class="headerlink" href="#bswm-sd-clientservicecurrentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Sd_ClientSe
+rviceCurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Sd_ClientSe
+rviceCurrentState
+(</p>
+<p>uint16
+SdClien
+tServiceHandleId,</p>
+<p>Sd_ClientServic
+eCurrentStateType
+C
+urrentClientState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SdClie
+ntServiceHandleId</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0..65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>C
+urrentClientState</p></td>
+<td></td>
+<td><p>SD_CLIENT_SERVICE_DOWN</p>
+<p>SD_CLIENT_SERVICE_AVAILABLE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>Sd通
+知BswM客户端状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-sd-consumedeventgroupcurrentstate">
+<h4>BswM_Sd_ConsumedEventGroupCurrentState函数定义<a class="headerlink" href="#bswm-sd-consumedeventgroupcurrentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_Sd_ConsumedE
+ventGroupCurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_Sd_ConsumedE
+ventGroupCurrentState
+(</p>
+<p>uint16
+SdConsum
+edEventGroupHandleId,</p>
+<p>Sd_ConsumedEvent
+GroupCurrentStateType
+ConsumedEventGroup</p>
+<p>State</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Sd
+ClientServiceHandleId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>0..65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Co
+nsumedEventGroupState</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>SdEventgr
+oup通知BswM客户端状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-sd-eventhandlercurrentstate">
+<h4>BswM_Sd_EventHandlerCurrentState函数定义<a class="headerlink" href="#bswm-sd-eventhandlercurrentstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数
+名称：</p></td>
+<td><p>BswM_Sd_Event
+HandlerCurrentState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数
+原型：</p></td>
+<td><p>void
+BswM_Sd_Event
+HandlerCurrentState
+(</p>
+<p>uint16
+SdEv
+entHandlerHandleId,</p>
+<p>Sd_EventHand
+lerCurrentStateType
+EventHandlerStatus</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务
+编号：</p></td>
+<td><p>0x20</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/
+异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可
+重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入
+参数：</p></td>
+<td><p>SdE
+ventHandlerHandleId</p></td>
+<td><p>值
+域
+：</p></td>
+<td><p>0..65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EventHandlerStatus</p></td>
+<td></td>
+<td><p>SD_EVENT_HANDLER_RELEASED</p>
+<p>SD_EVENT_HANDLER_REQUESTED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出
+参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出
+参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回
+值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能
+概述：</p></td>
+<td><p>Sd通知BswM
+EventHandler状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswm-wdgm-requestpartitionreset">
+<h4>BswM_WdgM_RequestPartitionReset函数定义<a class="headerlink" href="#bswm-wdgm-requestpartitionreset" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>BswM_WdgM_Requ
+estPartitionReset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+BswM_WdgM_Requ
+estPartitionReset
+(</p>
+<p>ApplicationType
+Application</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Application</p></td>
+<td><p>值域：</p></td>
+<td><p>Uint32</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>WdgM通知Bsw
+M当前分区需要复位</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id14">
+<h3>可配置函数定义<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id15">
+<h2>配置<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="bswmgeneral">
+<h3>BswMGeneral<a class="headerlink" href="#bswmgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image10.png"><img alt="image10" src="../../_images/image10.png" style="width: 5.45833in; height: 4.95833in;" /></a></p>
+<p>图5-1 BswMGeneral容器配置图</p>
+<p>表5-1 BswMGeneral属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMCanSMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与CanS
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bs
+wMCanSMIcomEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使
+能与CANSM
+Ico
+m相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMComMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是
+否使能与CO
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMDcmEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是
+否使能与Dc
+m相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMDevErrorDetect</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+需要使能开
+发错误检查</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMEcuMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与Ecu
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEthSMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td></td>
+<td><p>默
+认
+取
+值</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与EthS
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMFrSMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与FrS
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMGen
+ericRequestEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能
+BswM_Reque
+stMode接口</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>B
+swMJ1939DcmEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能
+与J1939Dc
+m相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMJ1939NmEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使
+能与J1939N
+m相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMLinSMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与LinS
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMLinTPEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与LinT
+p相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswM
+MainFunctionPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 … INF</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义main
+fu
+nction执行
+的调度时间</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMNvMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是
+否使能与Nv
+m相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMSchMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与Sch
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMSdEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是
+否使能与S
+d相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMVersionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能
+BswM_GetV
+ersionInfo</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMWdgMEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>T
+rue、False</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>F
+a
+l
+s
+e</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能与Wdg
+M相关的API</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmuserincludefiles">
+<h3>BswMUserIncludeFiles<a class="headerlink" href="#bswmuserincludefiles" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image11.png"><img alt="image11" src="../../_images/image11.png" style="width: 5.38542in; height: 2.77083in;" /></a></p>
+<p>图5-2 BswMUserIncludeFiles容器配置图</p>
+<p>表5-2 BswMUserIncludeFiles属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMUserIncludeFile</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>需要包
+含的外部
+头文件，
+一般用于
+调用User
+Callout函
+数时添加
+用户函数
+的头文件</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmconfigs">
+<h3>BswMConfigs<a class="headerlink" href="#bswmconfigs" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image12.png"><img alt="image12" src="../../_images/image12.png" style="width: 5.37433in; height: 0.79157in;" /></a></p>
+<p>图5-3 BswMConfigs容器配置图</p>
+<p>表5-3 BswMConfigs属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMPartitionRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+E
+cucPartition
+]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>通过OS
+Applic
+ation与EcucP
+artition关联
+，从而知道
+此partition
+处于哪个核</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>仅在多核系统
+中才需要配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmlogicalexpression">
+<h3>BswMLogicalExpression<a class="headerlink" href="#bswmlogicalexpression" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image13.png"><img alt="image13" src="../../_images/image13.png" style="width: 5.34308in; height: 2.72883in;" /></a></p>
+<p>图5-4 BswMLogicalExpression容器配置图</p>
+<p>表5-4 BswMLogicalExpression属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMLogicalOperator</p></td>
+<td><p>取值范围</p></td>
+<td><p>BSWM_AND、</p>
+<p>BSWM_NAND、</p>
+<p>BSWM_NOT、</p>
+<p>BSWM_OR、</p>
+<p>BSWM_XOR、</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于存在多个
+仲裁条件时，仲
+裁条件的连接符</p>
+<p><a class="reference internal" href="../../_images/image14.png"><img alt="image14" src="../../_images/image14.png" style="width: 2.88125in; height: 0.4in;" /></a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当仲裁条
+件只有一个时，
+不用配置此项。
+当有多个时，需
+通过此配置项关
+联多个仲裁条件
+（eg：与、或）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMArgumentRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[Bs
+wMModeCondition
+]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>每
+一个Argument代
+表一个仲裁条件</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmmodecondition">
+<h3>BswMModeCondition<a class="headerlink" href="#bswmmodecondition" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image15.png"><img alt="image15" src="../../_images/image15.png" style="width: 5.2181in; height: 0.98946in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image16.png"><img alt="image16" src="../../_images/image16.png" style="width: 3.60417in; height: 1in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image17.png"><img alt="image17" src="../../_images/image17.png" style="width: 2.76042in; height: 0.875in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image18.png"><img alt="image18" src="../../_images/image18.png" style="width: 5.75in; height: 0.75in;" /></a></p>
+<p>图5-5 BswMModeCondition容器配置图</p>
+<p>表5-5 BswMModeCondition属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMConditionType</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>B
+SWM_EQUALS</p>
+<p><a href="#id40"><span class="problematic" id="id41">BSWM_</span></a>
+EQUALS_NOT</p>
+<p>BSWM_EV
+ENT_IS_SET</p>
+<p>B
+<a href="#id42"><span class="problematic" id="id43">SWM_EVENT_</span></a>
+IS_CLEARED</p>
+</td>
+<td></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用
+于判断条件
+判断符号，
+如下图：</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image19.png"><img alt="image19" src="../../_images/image19.png" style="width: 3.28333in; height: 0.90556in;" /></a></p>
+</div></blockquote>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>依赖于
+BswMCondi
+tionMode，
+当BswMCon
+ditionMode
+配置为引用
+BswMModeR
+equestPort
+时，此处只
+能选择BSW
+M_EQUALS或
+者BSWM_EQ
+UALS_NOT；</p>
+<p>当BswMCon
+ditionMode
+配置为引用
+BswMEventR
+equestPort
+时，此处只
+能选择BSWM
+_EVENT_IS_
+SET或者BSW
+M_EVENT_IS
+_CLEARED。</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMConditionMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>选
+择用于比较
+的条件是基
+于那个请求
+端口，比如
+下图中，比
+较条件为D
+CM中28服务
+的请求模式</p>
+<p><a class="reference internal" href="../../_images/image20.png"><img alt="image20" src="../../_images/image20.png" style="width: 3.28194in; height: 0.86736in;" /></a></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>Reference
+to [
+BswMModeR
+equestPort
+or
+BswMEventR
+equestPort
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMConditionValue</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于和B
+swMConditi
+onMode作比
+较的比较值</p>
+<p><a class="reference internal" href="../../_images/image21.png"><img alt="image21" src="../../_images/image21.png" style="width: 3.28542in; height: 0.89583in;" /></a></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>需要
+和BswMCon
+ditionMode
+中配置对应
+，如BswMC
+onditionMo
+de中选择引
+用CanSMInd
+，那么此处
+比较值必须
+为CanSM对
+应的比较值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMBswMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>This
+container
+defines
+the value
+and type
+of a mode
+in the
+BSW.</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>如果BswM
+ConditionV
+alue是来自
+BSW模块，
+则需要配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMBswRequestedMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>配
+置用于和B
+swMConditi
+onMode中所
+选的请求端
+口的比较值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>根据Bsw
+MCondition
+Mode中配置
+会自动使能
+，如果使能
+，需要用户
+填相应的值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswModeCompareValue</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>配
+置用于和B
+swMConditi
+onMode中所
+选的请求端
+口的比较值</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>需要和
+BswMCondi
+tionMode中
+配置对应，
+此参数会根
+据BswMCon
+ditionMode
+的配置自动
+有下拉选项</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMModeDeclaration</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>When the
+mode
+c
+orresponds
+to a mode
+request or
+mode
+indication
+interface
+the mode
+is defined
+by a mode
+de
+claration.</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>如果配置此
+项，则需要
+创建BswMMo
+deValueRef</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMModeValueRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此项引用S
+WC中定义的
+[
+MODE-D
+ECLARATION
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>如果
+BswMCondit
+ionValue是
+来自Swc中
+定义的Mode
+Decleara
+tion模块，
+则需要配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmmoderequestport">
+<h3>BswMModeRequestPort<a class="headerlink" href="#bswmmoderequestport" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image22.png"><img alt="image22" src="../../_images/image22.png" style="width: 5.30142in; height: 0.74991in;" /></a></p>
+<p>图5-6 BswMModeRequestPort容器配置图</p>
+<p>表5-6 BswMModeRequestPort属性描述</p>
+</section>
+<section id="bswmmodeinitvalue">
+<h3>BswMModeInitValue<a class="headerlink" href="#bswmmodeinitvalue" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image23.png"><img alt="image23" src="../../_images/image23.png" style="width: 5.41599in; height: 6.32213in;" /></a></p>
+<p>图5-7 BswMModeInitValue容器配置图</p>
+<p>表5-7 BswMModeInitValue属性描述</p>
+</section>
+<section id="bswmmoderequestsource">
+<h3>BswMModeRequestSource<a class="headerlink" href="#bswmmoderequestsource" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image24.png"><img alt="image24" src="../../_images/image24.png" style="width: 5.76736in; height: 5.00069in;" /></a></p>
+<p>图5-8 BswMModeRequestSource容器配置图</p>
+<p>表5-8 BswMModeRequestSource属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMBswModeDeclarat
+ion-GroupPrototypeRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用
+到SWC定
+义的Mode
+Dec
+laration
+Group
+Pr
+ototype.</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Mode
+Dec
+laration
+Group是S
+WC定义的
+，因此如
+果配置此
+项需要导
+入SWC的a
+rxml文件</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMCanSMIcom
+IndicationSwitchError</p></td>
+<td><p>取值范围</p></td>
+<td><p>ICOM_S
+<a href="#id44"><span class="problematic" id="id45">WITCH_E_</span></a>
+OK，ICOM
+_SWITCH_
+E_FAILED</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标识来自
+该模式请
+求对应的
+CanSM
+的
+指示类型
+（错误或
+无错误）</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMCanSMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此端口
+关联的[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMComMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表
+示此端口
+对应的[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMComMPncRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+ComMPnc
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表
+示此端口
+对应的[
+ComMPnc]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMDcmComMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Dcm模式
+请求端口
+对应的[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEcuMWakeupSrcRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+EcuMWake
+upSource
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswM
+EcuMWake
+upSource
+请求端口
+对应的[
+EcuMWake
+upSource
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMEcuMR
+UNRequestProtocolPort</p></td>
+<td><p>取值范围</p></td>
+<td><p>B
+SWM_ECUM
+_STATE_P</p>
+<p>OST_RUN</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>B
+SWM_ECUM
+_STATE_R</p>
+<p>UN</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标识
+与模式请
+求相关的
+EcuM
+状态</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>EcuM模
+块的Mode
+Handling
+需要打开</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMEt
+hIfSwitchPortGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+EthI
+fSwitchP
+ortGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Bs
+wMEthIfP
+ortGroup
+LinkStat
+eChg请求
+端口对应
+的[EthI
+fSwitchP
+ortGroup
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEthSMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMEth
+SMIndica
+tion请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMFrSMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMFr
+SMIndica
+tion请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMModeRequesterId</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标识通
+用模式请
+求接口的
+不同用户</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>B
+swMJ1939DcmChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMJ19
+39DcmBro
+adcastSt
+atus请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMJ1939NmChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>B
+swMJ1939
+NmIndica
+tion请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMJ1939NmNodeRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用
+到[J193
+9NmNode]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>B
+swMJ1939
+NmIndica
+tion请求
+端口对应
+的[J193
+9NmNode]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMLinSMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Com
+MChannel
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMLin
+SMIndica
+tion请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMLinScheduleRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到
+[LinSMS
+chedule]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMLin
+Schedule
+Indicati
+on请求端
+口对应的
+[LinSMS
+chedule]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMLinSMChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用
+到[ComM
+Channel]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswML
+inSchedu
+leIndica
+tion请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMLinTpChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用
+到[ComM
+Channel]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMLinT
+pModeReq
+uest请求
+端口对应
+的[ComM
+Channel]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMNvmService</p></td>
+<td><p>取值范围</p></td>
+<td><p>Nv
+mCancelW
+riteAll/</p>
+<p>Nvm
+ReadAll/</p>
+<p>NvmW
+riteAll/</p>
+<p>NvmFir
+stInitAl
+l/NvmVal
+idateAll</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswM
+NvMJobMo
+deIndica
+tion表示
+执行任务
+的当前状
+态，标识
+与模式请
+求相关的
+Nvm 任务</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMNvMBlockRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Nv
+MBlockDe
+scriptor
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMNv
+MRequest
+请求端口
+对应的[
+Nv
+MBlockDe
+scriptor
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMSdClientMethodsRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+SdClient
+Service]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMSdC
+lientSer
+viceCurr
+entState
+请求端口
+对应的[
+SdClient
+Service]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMSd
+ConsumedEventGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+SdCo
+nsumedEv
+entGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswM
+SdConsum
+edEventG
+roupCurr
+entState
+请求端口
+对应的[
+SdCo
+nsumedEv
+entGroup
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMSdEventHandlerRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+SdEven
+tHandler
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMSd
+EventHan
+dlerCurr
+entState
+请求端口
+对应的[
+SdEven
+tHandler
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMSwcModeNoti
+fication-ModeDeclarat
+ionGroup-PrototypeRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到 [
+MODE-DEC
+LARATION
+-GROUP-P
+ROTOTYPE
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMSwc
+ModeNoti
+fication
+请求端口
+对应的[
+MODE-DEC
+LARATION
+-GROUP-P
+ROTOTYPE
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>[
+MODE-DEC
+LARATION
+-GROUP-P
+ROTOTYPE
+]是在S
+WC中定义</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMSwcModeRequest-Var
+iableDataPrototypeRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到 [
+VARIABLE
+-DATA-PR
+OTOTYPE]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Bs
+wMSwcMod
+eRequest
+请求端口
+对应的[
+VARIABLE
+-DATA-PR
+OTOTYPE]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>VARI
+ABLE-DAT
+A-PROTOT
+YPE是在S
+WC中定义</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmeventrequestsource">
+<h3>BswMEventRequestSource<a class="headerlink" href="#bswmeventrequestsource" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image25.png"><img alt="image25" src="../../_images/image25.png" style="width: 5.76736in; height: 1.84236in;" /></a></p>
+<p>图5-9 BswMEventRequestSource容器配置图</p>
+<p>表5-9 BswMEventRequestSource属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswME
+ventRequestProcessing</p></td>
+<td><p>取值范围</p></td>
+<td><p>BSWM
+_DEFERRED</p>
+<p><a href="#id46"><span class="problematic" id="id47">BSWM_</span></a>
+IMMEDIATE</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswM.当
+请求源触
+发时，模
+式仲裁是
+立即处理
+还是推迟
+到下次Ma
+infunctio
+n中去处理</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMComMInitiateReset</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>当ComM
+调
+用BswM_Co
+mM_Initia
+teReset时
+，此端口
+会被触发</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMDcmApplica
+tionUpdatedIndication</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>当Dcm调用
+BswM_Dcm
+_Applicat
+ionUpdate
+d时此端口
+会被触发</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMNmChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Co
+mMChannel
+]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>BswMNmCar
+WakeUpInd
+ication请
+求端口对
+应的[Com
+MChannel]</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMPartitionRestarted</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>当分区发
+生错误时
+，Rte通过
+此端口通
+知到BswM</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMWdgMReq
+uestPartitionResetRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用到[
+Ecuc
+Partition
+]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>WdgM调用
+BswM_Wdg
+M_Request
+Partition
+Reset发起
+分区重启
+时，通过
+此端口通
+知到BSWM</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmrule">
+<h3>BswMRule<a class="headerlink" href="#bswmrule" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image26.png"><img alt="image26" src="../../_images/image26.png" style="width: 5.37433in; height: 1.6977in;" /></a></p>
+<p>图5-10 BswMRule容器配置图</p>
+<p>表5-10 BswMRule属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bs
+wMNestedExecutionOnly</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True，false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>F
+alse</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指示此rule是
+否为Subordinate
+rule</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>BswMNestedExe
+cutionOnly配置TR
+UE表示此Rule不能
+直接被仲裁，只能
+用于在模式控制Ac
+tionlist中被引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMRuleInitState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSWM_FALSE</p>
+<p>BSWM_TRUE</p>
+<p>BSWM_UNDEFINED</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义此
+Rule的初始化状态</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMRuleExpressionRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+BswML
+ogicalExpression
+]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义此ru
+le的仲裁规则引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bs
+wMRuleFalseActionList</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+BswMActionList ]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示当r
+ule仲裁为FALSE时
+，需要执行的动作</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMRuleTrueActionList</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+BswMActionList ]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示当
+rule仲裁为TRUE时
+，需要执行的动作</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmdatatypemappingsets">
+<h3>BswMDataTypeMappingSets<a class="headerlink" href="#bswmdatatypemappingsets" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image27.png"><img alt="image27" src="../../_images/image27.png" style="width: 5.10353in; height: 2.39553in;" /></a></p>
+<p>图5-11 BswMDataTypeMappingSets容器配置图</p>
+<p>表5-11 BswMDataTypeMappingSets属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswM
+DataTypeMappingSetRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>引用到[Dat
+aTypeMappingSet]</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmaction">
+<h3>BswMAction<a class="headerlink" href="#bswmaction" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image28.png"><img alt="image28" src="../../_images/image28.png" style="width: 5.76736in; height: 4.77917in;" /></a></p>
+<p>图5-12 BswMAction容器配置图</p>
+<p>表5-12 BswMAction属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMClea
+rEventRequestPortRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+BswMEven
+tRequestPort]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>选择需要清除
+内部状态的Eve
+ntRequestPort</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMComAllowed</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True，False</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>F
+alse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表
+示调用ComM_Co
+mmunicationAl
+lowed()时传入
+的Allowed参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bsw
+MComMAllowChannelRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComMChannel ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表
+示调用ComM_Co
+mmunicationAl
+lowed()时传入
+的Channel参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMComMLimitMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True，False</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Com
+M_LimitChanne
+lToNoComMode.</p>
+<p>指
+调用ComM_Lim
+itChannelToNo
+ComMode中传入
+的Status参数</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bsw
+MComMLimitChannelRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指
+调用ComM_Lim
+itChannelToNo
+ComMode中传入
+的Channel参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>Symbolic name
+reference to
+[ ComMChannel
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>B
+swMComMRequestedMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSWM_FULL_COM</p>
+<p>BSWM_NO_COM</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用ComM_Reque
+stComMode时传
+入的Mode参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMComMUserRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用ComM_Reque
+stComMode时传
+入的User参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>Symbolic name
+reference to
+[ ComMUser ]</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMCor
+eHaltActivationState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用Contro
+lIdle中传入的
+IdleMode参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>通
+过调用OS提供
+的ControlIdle</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMTargetCoreRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+EcucC
+oreDefinition
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用Cont
+rolIdle中传入
+的CoreID参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMD
+isabledDMPduGroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComIPduGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此项关联的
+IpduGroup，会
+调用Com_SetIp
+duGroup设置其
+vector为FALSE</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswME
+nabledDMPdu-GroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComIPduGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此项关联的
+IpduGroup，会
+调用Com_SetIp
+duGroup设置其
+vector为TRUE</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMEcuMD
+riverInitListBswMRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用
+到[EcuMDriver
+InitListBswM]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>BswM通
+过此配置项，
+初始化BSW模块</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEcuMUserIdRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[EcuMFl
+exUserConfig]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于调
+用EcuM_GoDow
+nHaltPoll中传
+入的user参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bs
+wMEcuMShutdownTarget</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>OFF</p>
+<p>RESET</p>
+<p>SLEEP</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用
+EcuM_SelectS
+hutdownTarget
+时传入的shutd
+ownTarget参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEcuMResetModeRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[E
+cuMResetMode]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用EcuM_Selec
+tShutdownTarg
+et时传入的shu
+tdownMode参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>BswMEcu
+MShutdownTarg
+<a href="#id48"><span class="problematic" id="id49">et配置为BSWM_</span></a>
+ECUM_SHUTDOWN
+_TARGET_RESET</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMEcuMSleepModeRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[E
+cuMSleepMode]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用EcuM_Selec
+tShutdownTarg
+et时传入的shu
+tdownMode参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无BswMEcu
+MShutdownTarg
+<a href="#id50"><span class="problematic" id="id51">et配置为BSWM_</span></a>
+ECUM_SHUTDOWN
+_TARGET_SLEEP</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEcuMState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>POST_RUN</p>
+<p>RUN</p>
+<p>SHUTDOWN</p>
+<p>SLEEP</p>
+<p>STARTUP</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用EcuM
+_SetState时传
+入的State参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMEthTrcvMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSWM_ET
+H_MODE_ACTIVE</p>
+<p><a href="#id52"><span class="problematic" id="id53">BSWM_</span></a>
+ETH_MODE_DOWN</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用EthIf_Sw
+itchPortGroup
+RequestMode传
+入的mode参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMEth
+IfSwitchPortGroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+EthIfSw
+itchPortGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用
+EthIf_Switch
+PortGroupRequ
+estMode传入的
+PortGroup参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMFrSMAllS
+lotsNetworkHandleRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComMChannel ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用FrSm_AllSl
+ots传入的参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMJ1
+939DcmRequestedState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>J1939DCM_S
+TAT-E_OFFLINE</p>
+<p><a href="#id54"><span class="problematic" id="id55">J1939DCM_</span></a>
+STA-TE_ONLINE</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用
+J1939Dcm_Set
+State时传入的
+newState参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bsw
+MJ1939Dcm-ChannelRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComMChannel ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用J1939Dcm_S
+etState时传入
+的channel参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMJ1939DcmNodeRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到
+[J1939NmNode]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用J1939Dcm
+_SetState时传
+入的node参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMJ
+1939RmRequestedState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>J1939RM_S
+TAT-E_OFFLINE</p>
+<p><a href="#id56"><span class="problematic" id="id57">J1939RM_</span></a>
+STA-TE_ONLINE</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用J1939Rm
+_Set
+State时传入的
+newState参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMJ1939RmChannelRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComMChannel ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用J1939Rm_S
+etState时传入
+的channel参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMJ1939RmNodeRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到
+[J1939NmNode]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用J1939Rm
+_SetState时传
+入的Node参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMLinScheduleRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+LinSMSchedule
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用Lin
+SM_ScheduleRe
+quest时传入的
+schedule参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMNMAction</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSW
+M_NM_DI-SABLE</p>
+<p>BS
+WM_NM_EN-ABLE</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>配置
+为ENABLE会调
+用Nm_EnableCo
+mmunication；</p>
+<p>配置为DI
+SABLE则会调用
+Nm_DisableCo
+mmunication；</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswM
+ComMNetworkHandleRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComMChannel ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用N
+m_EnableCommu
+nication或者N
+m_DisableComm
+unication传入
+的channel参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>依赖于BswMN
+MAction配置，
+从而决定会调
+用Nm_EnableCo
+mmunication或
+者Nm_Disable
+Communication</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswM
+PduGroupSwitchReinit</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>False，true</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>F
+alse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用
+Com_IpduGrou
+pStart传入的i
+nitialize参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bsw
+MDisabledPduGroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComIPduGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调
+用Com_IpduGro
+upStart传入的
+IPduGroup参数
+，配置为Disa
+ble的需要调用
+Com_SetIpduGr
+oup设置其IPDU
+Group的
+vector为FALSE</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bs
+wMEnabledPduGroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComIPduGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用Com_IpduG
+roupStart传入
+的IPduGroup参
+数，配置为ena
+ble的需要调用
+Com_SetIpduGr
+oup设置其IPDU
+Group的
+vector为TRUE</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMPduRouterAction</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSWM
+_PDUR_DISABLE</p>
+<p>BSWM
+_PDUR_EN-ABLE</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>根据配
+置决定调用Pd
+uR_DisableRou
+<a href="#id58"><span class="problematic" id="id59">ting或者PduR_</span></a>
+EnableRouting</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMPduRou
+terDisableInitBuffer</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True，false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用
+PduR_DisableR
+outing传入的i
+nitialize参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>Bsw
+MPduRouterAct
+ion配置为BSWM
+_PDUR_DISABLE</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMRequestedModeRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+MOD
+E-DECLARATION
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于模式请
+求端口传入的[
+MOD
+E-DECLARATION
+]</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>[
+MOD
+E-DECLARATION
+]在SWC中定义</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMR
+teModeRequestPortRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+BswMRteMo
+deRequestPort
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于
+模式请求端口
+传入的端口号</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMRteSwitchPortRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+B
+swMSwitchPort
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>确定SwithP
+ort引用的端口</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMSwitchedMode</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+MOD
+E-DECLARATION
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该
+参数包含Mode
+Declaration
+Gr
+oup中某个模式
+对应的整数值</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMSchMMod
+eDeclarationGroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+MODE-DECL
+ARATION-GROUP
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>对 BswM
+将从中生成
+Mod
+eDeclarationG
+roupPrototype
+的
+ModeDec
+larationGroup
+的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswM
+SdClientServiceState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSWM_SD
+_CLIEN-T_SERV
+ICE_RE-LEASED</p>
+<p><a href="#id60"><span class="problematic" id="id61">BSWM_SD_</span></a>
+CLIEN-T_SERVI
+CE_RE-QUESTED</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此
+指定是否应释
+放或请求相应
+的客户端服务</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bs
+wMSdClientMethodsRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+Sd
+ClientService
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>对 Sd
+模块中客户
+端服务的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMSdCon
+sumedEventGroupState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSWM_SD_CO-N
+SUMED_EVENTG-
+ROUP_RELEASED</p>
+<p>BSWM_SD_CO-NS
+UMED_EVENTG-R
+OUP_REQUESTED</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此
+参数指定是否
+应释放或请求
+相应的Consume
+d-event-group</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMSdC
+onsumedEventGroupRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+SdConsu
+medEventGroup
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>对在 Sd
+模
+块中的客户端
+服务中定义的
+eventGroup
+的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswM
+SdServerServiceState</p></td>
+<td><p>取
+值范围</p></td>
+<td><p><a href="#id62"><span class="problematic" id="id63">BSWM_SD_</span></a>
+SE-RVER_SERVI
+C-E_AVAILABLE</p>
+<p>BSW
+<a href="#id64"><span class="problematic" id="id65">M_SD_SE-RVER_</span></a>
+SERVIC-E_DONE</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定相应的服
+务器服务是否
+应关闭或可用</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bs
+wMSdServerMethodsRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+Sd
+ServerService
+]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>对 Sd
+模块中的服务
+器服务的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bsw
+MSwitchIPduModeValue</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True，false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定调
+用Com_SwitchI
+pduTxMode时传
+入的Mode参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>B
+swMSwitchIPduModeRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComIPdu ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定调
+用Com_SwitchI
+pduTxMode时传
+入的PduId参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMTimerAction</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BSW
+M_TIMER_START</p>
+<p>BS
+WM_TIMER_STOP</p>
+</td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定对BswMTi
+mer的操作（开
+始或者停止）</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMTimerValue</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>当
+Timer启动时，
+给定的填充值</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>Bs
+wMTimerAction
+=
+BSW
+M_TIMER_START</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMTimerRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+BswMTimer ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示引用到哪
+一个BswMTimer</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMTriggeredIPduRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+ComIPdu ]</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>调用Com_Trig
+gerIPDUSend传
+入的PduId参数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bsw
+MUserCalloutFunction</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>当
+action中调用
+的动作列表不
+是其他BSW定义
+的规范动作时
+，可以配置Bsw
+MUserCalloutF
+unction调用用
+户自定义函数</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>一般情况
+下，如果调用
+用户自定义函
+数，需要配置
+BswMUserIncl
+udeFile，使其
+包含用户自定
+义函数的声明</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmactionlist">
+<h3>BswMActionList<a class="headerlink" href="#bswmactionlist" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image29.png"><img alt="image29" src="../../_images/image29.png" style="width: 5.3535in; height: 1.26026in;" /></a></p>
+<p>图5-13 BswMActionList容器配置图</p>
+<p>表5-13 BswMActionList属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bs
+wMActionListExecution</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>B
+SWM_CONDITION</p>
+<p>BSWM_TRIGGER</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>当
+配置为CONDITI
+ON模式时，此A
+ctionList每次
+都会被执行；</p>
+<p>当配置
+为TRIGGER模式
+时，此ActionL
+ist仅在仲裁结
+果发生改变时
+才会被执行；</p>
+<p><a class="reference internal" href="../../_images/image30.png"><img alt="image30" src="../../_images/image30.png" style="width: 3.13403in; height: 1.95903in;" /></a></p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>B
+swMActionListPriority</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Actio
+nList的优先级</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmactionlistitem">
+<h3>BswMActionListItem<a class="headerlink" href="#bswmactionlistitem" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image31.png"><img alt="image31" src="../../_images/image31.png" style="width: 5.34308in; height: 1.42691in;" /></a></p>
+<p>图5-14 BswMActionListItem容器配置图</p>
+<p>表5-14 BswMActionListItem属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMAbortOnFail</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True，False</p></td>
+<td><p>默认取值</p></td>
+<td><p>F
+alse</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>如
+果一个action
+list有多个act
+ion，如果其中
+有个action的
+BswMAbortOnF
+ail配置为TRUE
+，则当其actio
+n返回E_NOT_OK
+后，actionlis
+t就会终止执行</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bs
+wMActionListItemIndex</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>ActionList
+Item在此Actio
+nList中的索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMActionListItemRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>从[
+BswMAction ,
+B
+swMActionList
+, BswMRule
+]中选择</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示此ActionL
+istItem的引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>当其引
+用到BswMRule
+，需要保证
+被引用的BswM
+Rule-&gt;BswMNes
+tedExecutionO
+nly配置为TRUE</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>B
+swMReportFailToDemRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+DemE
+ventParameter
+]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>上报到DE
+M的运行时错误</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmrtemoderequestport">
+<h3>BswMRteModeRequestPort<a class="headerlink" href="#bswmrtemoderequestport" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image32.png"><img alt="image32" src="../../_images/image32.png" style="width: 5.38474in; height: 1.18735in;" /></a></p>
+<p>图5-15 BswMRteModeRequestPort容器配置图</p>
+<p>表5-15 BswMRteModeRequestPort属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMRteModeRequestPo
+rtInterfaceMappingRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>对用于模
+式请求的变量
+和参数接口映
+射的外部引用.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BswMRteModeRe
+questPortInterfaceRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>这是对
+用于模式请求
+的可变数据原
+型的实例引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bswmswitchport">
+<h3>BswMSwitchPort<a class="headerlink" href="#bswmswitchport" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image33.png"><img alt="image33" src="../../_images/image33.png" style="width: 5.25976in; height: 0.677in;" /></a></p>
+<p>图5-16 BswMSwitchPort容器配置图</p>
+<p>表5-16 BswMSwitchPort属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p>**
+描述**</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BswMM
+odeSwitchInterfaceRef</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到[
+MODE-SWI
+TCH-INTERFACE
+]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>BswMSwitch
+Port引用到的[
+MODE-SWI
+TCH-INTERFACE
+]</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>[
+MODE-SWI
+TCH-INTERFACE
+]是
+在SWC中定义的</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../index.html" class="btn btn-neutral float-left" title="小满EasyXMen技术文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CanIf.html" class="btn btn-neutral float-right" title="CanIf产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

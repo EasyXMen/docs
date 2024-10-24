@@ -1,0 +1,1454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小满S32K148示例工程说明 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="XCP_集成手册" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">小满S32K148示例工程说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">基本信息</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">缩略词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">开发环境</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">开发环境获取</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ide">IDE补丁包安装</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bsw">BSW工程目录结构说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">协议栈配置说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#can">CAN通信协议栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">CAN通信协议栈概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">CAN通信协议栈配置功能说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">CAN网络管理协议栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">CAN网络管理协议栈概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">CAN网络管理协议栈配置说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">CAN网络管理协议栈休眠唤醒说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">CAN诊断协议栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">CAN诊断协议栈概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">CAN诊断协议栈配置说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">存储协议栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">存储协议栈概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">存储协议栈配置说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">看门狗协议栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">看门狗协议栈概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">看门狗协议栈配置说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#os">OS协议栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">OS协议栈概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">OS协议栈配置说明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">工程验证</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id25">编译及下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">工程运行验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">小满S32K148示例工程说明</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/工程说明/小满S32K148示例工程说明.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="s32k148">
+<h1>小满S32K148示例工程说明<a class="headerlink" href="#s32k148" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>基本信息<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>简介<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>本Demo工程集成的AUTOSAR协议栈有CAN通信、诊断、网络管理、存储、看门狗。各个模块均提供了参考的配置示例，旨在指导用户快速熟悉AUTOSAR中各个协议栈的模块的基本配置以及各个模块间的关联关系。</p>
+</section>
+<section id="id3">
+<h3>缩略词<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>开发环境<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>编译器&amp;IDE: S32 Design Studio 3.5</p>
+<p>EB工具:      EB tresos Studio 29.0.0</p>
+<p>MCAL:         SW32K1_S32M24x_RTD_R21-11_2.0.0_QLP1</p>
+<p>开发板：       S32K148EVB-Q176</p>
+<section id="id5">
+<h4>开发环境获取<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>注册恩智浦账号后访问以下链接：<a class="reference external" href="https://www.nxp.com.cn/document/guide/getting-started-with-the-real-time-drivers-rtd:GS-AUTOMOTIVE-RTD?section=design-resources">https://www.nxp.com.cn/document/guide/getting-started-with-the-real-time-drivers-rtd:GS-AUTOMOTIVE-RTD?section=design-resources</a> | NXP 半导体</p>
+<p>获取EB工具：</p>
+<p><a class="reference internal" href="../../_images/image1158.png"><img alt="image1" src="../../_images/image1158.png" style="width: 6.44583in; height: 1.97292in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image2102.png"><img alt="image2" src="../../_images/image2102.png" style="width: 5.5125in; height: 4.30556in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image378.png"><img alt="image3" src="../../_images/image378.png" style="width: 5.75972in; height: 3.07222in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image467.png"><img alt="image4" src="../../_images/image467.png" style="width: 5.76319in; height: 4.86528in;" /></a></p>
+<p>获取MCAL安装包和IDE补丁包：</p>
+<p><a class="reference internal" href="../../_images/image557.png"><img alt="image5" src="../../_images/image557.png" style="width: 6.175in; height: 1.66319in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image656.png"><img alt="image6" src="../../_images/image656.png" style="width: 5.18056in; height: 3.15486in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image747.png"><img alt="image7" src="../../_images/image747.png" style="width: 5.76458in; height: 3.7125in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image843.png"><img alt="image8" src="../../_images/image843.png" style="width: 5.76319in; height: 3.25972in;" /></a></p>
+</section>
+<section id="ide">
+<h4>IDE补丁包安装<a class="headerlink" href="#ide" title="Link to this heading"></a></h4>
+<p>S32 Design Studio 3.5安装好后还需要添加补丁。</p>
+<p><a class="reference internal" href="../../_images/image942.png"><img alt="image9" src="../../_images/image942.png" style="width: 5.76806in; height: 3.43125in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1036.png"><img alt="image10" src="../../_images/image1036.png" style="width: 5.76806in; height: 4.34583in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1159.png"><img alt="image11" src="../../_images/image1159.png" style="width: 5.76806in; height: 3.60278in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1234.png"><img alt="image12" src="../../_images/image1234.png" style="width: 5.76806in; height: 3.56319in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1330.png"><img alt="image13" src="../../_images/image1330.png" style="width: 5.76806in; height: 3.56319in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1428.png"><img alt="image14" src="../../_images/image1428.png" style="width: 5.76806in; height: 3.56319in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1526.png"><img alt="image15" src="../../_images/image1526.png" style="width: 5.76806in; height: 3.55139in;" /></a></p>
+</section>
+</section>
+</section>
+<section id="bsw">
+<h2>BSW工程目录结构说明<a class="headerlink" href="#bsw" title="Link to this heading"></a></h2>
+<p>AUTOSAR 基础软件集成工程的目录结构一般如下：</p>
+<p><a class="reference internal" href="../../_images/image1622.png"><img alt="image16" src="../../_images/image1622.png" style="width: 6.39028in; height: 1.62708in;" /></a></p>
+<p>各文件夹释义：</p>
+<p>ASW：存放应用代码，供客户添加应用代码。</p>
+<p>BSW：存放BSW相关代码，包括AUTOSAR各个协议栈源代码和配置、MCAL的源代码和配置、复杂驱动的源代码和配置等。</p>
+<p><a class="reference internal" href="../../_images/image1722.png"><img alt="image17" src="../../_images/image1722.png" style="width: 4.94792in; height: 2.35417in;" /></a></p>
+<p>CommonInclude：存放共用的头文件，比如Std_Types.h、Compiler.h、ComStack_Types.h等。</p>
+<p>Communication：存放通信相关的代码，包含Can、Lin、Ethernet、FlexRay等。</p>
+<p><a class="reference internal" href="../../_images/image1820.png"><img alt="image18" src="../../_images/image1820.png" style="width: 5.29167in; height: 1.38542in;" /></a></p>
+<p>Config：存放BSW配置相关的代码，包含BSW的配置、MCAL的配置、CDD的配置等。</p>
+<p><a class="reference internal" href="../../_images/image1918.png"><img alt="image19" src="../../_images/image1918.png" style="width: 4.89583in; height: 1.35417in;" /></a></p>
+<p>Crypto：存放加密模块相关的代码。</p>
+<p>IoHwAb：存放IO抽象模块的源代码。</p>
+<p>Libraries：存放CRC、E2E等通用库代码。</p>
+<p>MCAL：存放MCAL各模块的源代码、CanTrcv、LinTrcv、EthPhy、CDD模块源代码。</p>
+<p><a class="reference internal" href="../../_images/image2014.png"><img alt="image20" src="../../_images/image2014.png" style="width: 4.87153in; height: 3.21389in;" /></a></p>
+<p>Memory：存放存储相关模块的源代码。</p>
+<p><a class="reference internal" href="../../_images/image2121.png"><img alt="image21" src="../../_images/image2121.png" style="width: 5.28125in; height: 1.375in;" /></a></p>
+<p>SystemServices：存放系统服务相关模块的源代码。</p>
+<p><a class="reference internal" href="../../_images/image2217.png"><img alt="image22" src="../../_images/image2217.png" style="width: 5.13542in; height: 2.59375in;" /></a></p>
+<p>RTE：存放RTE代码。</p>
+<p>LinkFile：存放链接文件。</p>
+</section>
+<section id="id6">
+<h2>协议栈配置说明<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="can">
+<h3>CAN通信协议栈<a class="headerlink" href="#can" title="Link to this heading"></a></h3>
+<section id="id7">
+<h4>CAN通信协议栈概述<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p>CAN通信协议栈涉及到的软件模块主要有CAN、CanIf、PduR、Com、ECUC模块，其中各个模块的主要功能如下表：</p>
+<p>CAN通信栈各配置模块介绍</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>模
+块名</strong></p></td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Can</p></td>
+<td><p>主要配置CAN控制器的波特率，CAN报文的收发邮箱。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf</p></td>
+<td><p>CanIf
+模块主要处理上层模块与底层驱动的之间P
+DU的传递，为上层模块提供统一的接口来管理不同的CAN硬件模块。</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuC</p></td>
+<td><p>用于辅助
+配置工具完成配置的模块。主要提供Pdu的定义，其它模块通过关联
+EcuC中Pdu，相互关联起来。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PDU Router主要为通讯接口模块（CANIF）、传输协议模块（CAN
+TP、J1939
+TP）、诊断
+通讯管理模块（DCM、J1939DCM）以及通讯模块（COM、LDCOM）以及
+IPDUM、SECOC等模块提供基于 I-PDU的路由服务。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com</p></td>
+<td><p>COM模块主要提供 I-PDU和信号相关管理功能</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h4>CAN通信协议栈配置功能说明<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>CAN通信协议栈配置的发送报文说明：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>报文名</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>CANID*</em></p>
+</td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Tx_0x300_Cyclic</p></td>
+<td><p>0x300</p></td>
+<td><p>周期报文，周期时间：500ms</p>
+<p>该报文下的信号均配有UB位</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CAN0_Tx_0x301_Event</p></td>
+<td><p>0x301</p></td>
+<td><p>事件报文</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Tx_0x302_Mixed</p></td>
+<td><p>0x302</p></td>
+<td><p>混合
+报文，正常周期：500ms，触
+发后连发3帧，周期为：50ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN0_Tx_0x303_Cyclic_Counter</p></td>
+<td><p>0x303</p></td>
+<td><p>周期报文，周期时间
+：500ms，带RollingCounter</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Tx_0x350_Cyclic_PN17</p></td>
+<td><p>0x350</p></td>
+<td><p>周期报文，周期时间：100ms</p>
+<p>受PN17控制</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CAN0_Tx_0x351_Cyclic_PN29</p></td>
+<td><p>0x351</p></td>
+<td><p>周期报文，周期时间：100ms</p>
+<p>受PN29控制</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Tx_0x360_E2E_P01</p></td>
+<td><p>0x360</p></td>
+<td><p>周期报文，周期时间：100ms</p>
+<p>E2E报文，DATAID：0x1234</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>CAN通信协议栈配置的接收报文说明：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>报文名</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>CANID*</em></p>
+</td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Rx_0x200_Cyclic</p></td>
+<td><p>0x200</p></td>
+<td><p>周期报文，周期时间：500ms</p>
+<p>该报文下的信号均配有UB位</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CAN0_Rx_0x201_Event</p></td>
+<td><p>0x201</p></td>
+<td><p>事件报文</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Rx_0x202_Mixed</p></td>
+<td><p>0x202</p></td>
+<td><p>混合报文，正常周期：5
+00ms，触发后连发3帧，周期为
+：50ms，包含信号超时2500ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>C
+AN0_Rx_0x203_Cyclic_Counter</p></td>
+<td><p>0x203</p></td>
+<td><p>周期报文，周期时
+间：500ms，带RollingCounter</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Rx_0x250_Cyclic_PN17</p></td>
+<td><p>0x250</p></td>
+<td><p>周期报文，周期时间：100ms</p>
+<p>受PN17控制</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CAN0_Rx_0x251_Cyclic_PN29</p></td>
+<td><p>0x251</p></td>
+<td><p>周期报文，周期时间：100ms</p>
+<p>受PN29控制</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CAN0_Rx_0x260_E2E_P01</p></td>
+<td><p>0x260</p></td>
+<td><p>周期报文，周期时间：100ms</p>
+<p>E2E报文，DATAID：0x1234</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h3>CAN网络管理协议栈<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<section id="id10">
+<h4>CAN网络管理协议栈概述<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<p>CAN通信协议栈涉及到的软件模块主要有Can、CanIf、CanSM、EcuC、NM、CanNm、ComM模块，其中各个模块的主要功能如下表：</p>
+<p>网络管理栈各配置模块介绍</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>**
+模块名**</p></td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Can</p></td>
+<td><p>主要配置CAN控制器的波特率，CAN报文的收发邮箱。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf</p></td>
+<td><p>CanIf模块主要处理上层模块与底层驱动
+的之间PDU的传递，为上层模块提供统一的接口来管理不同的CAN
+硬件模块。</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuC</p></td>
+<td><p>用于辅助配
+置工具完成配置的模块。主要提供Pdu的定义，其它模块通过关联
+EcuC中Pdu，相互关联起来。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nm</p></td>
+<td><p>NmIf模块主要包
+含两个功能：NmIf模块是ComM与CanNm之间的适配层；网络管理协
+调功能，协调不同总线channel的ECU节点实现网络的同步睡眠。</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM</p></td>
+<td><p>C
+omM模块封装了控制底层的通信服务。通信管理模块从通信请求者
+那里收集总线通信访问请求，并协调这些请求，主要目的是：为
+每个Channel设置一个状态机控制一个ECU的多个通信总线通道。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanSM</p></td>
+<td><p>主要功能
+是与通信硬件抽象层和系统服务层产生交互，为每一个CAN通信总
+线定义一个总线相关的状态管理，并为相关的总线提供流控制。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNM</p></td>
+<td><p>负责实现EC
+U的状态切换。比如合适进入睡眠、是否保持正常的网络状态等。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h4>CAN网络管理协议栈配置说明<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<p>CAN网络管理的接收报文ID范围为0x500-0x5ff,</p>
+<p>CAN网络管理的发送报文ID为0x501</p>
+<p>CanNM的主要配置参数如下表所示：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>配置项</p></td>
+<td><p>配置参数</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmGlobalPnSupport</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmComUserDataSupport</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmMainFunctionPeriod</p></td>
+<td><p>0.005</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPassiveModeEnabled</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPnEiraCalcEnabled</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPnResetTime</p></td>
+<td><p>2.5S</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmActiveWakeupBitEnabled</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmCarWakeUpRxEnabled</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmImmediateNmCycleTime</p></td>
+<td><p>0.02S</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmImmediateNmTransmissions</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmMsgCycleOffset</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmMsgCycleTime</p></td>
+<td><p>1.0S</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmMsgTimeoutTime</p></td>
+<td><p>0.001S</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmNodeId</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPduCbvPosition</p></td>
+<td><p>CANNM_PDU_BYTE_1</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPduNidPosition</p></td>
+<td><p>CANNM_PDU_BYTE_0</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPnEnabled</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ca
+nNmPnHandleMultipleNetworkRequests</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmRepeatMessageTime</p></td>
+<td><p>3S</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmRetryFirstMessageRequest</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmTimeoutTime</p></td>
+<td><p>3.0S</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmWaitBusSleepTime</p></td>
+<td><p>1.5S</p></td>
+</tr>
+<tr class="row-even"><td><p>CanSMBorCounterL1ToL2</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanSMBorTimeL1</p></td>
+<td><p>0.1S</p></td>
+</tr>
+<tr class="row-even"><td><p>CanSMBorTimeL2</p></td>
+<td><p>1.0S</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanSMBorTimeTxEnsured</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanSMEnableBusOffDelay</p></td>
+<td><p>FALSE</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h4>CAN网络管理协议栈休眠唤醒说明<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<p>设置唤醒源主要包含两个为远程唤醒和本地唤醒</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>唤醒源</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuMWakeupSource_CAN</p></td>
+<td><p>被动唤
+醒，需要检测总线上是否为网管报文</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMWakeupSource_Local</p></td>
+<td><p>主动
+唤醒，用户请求后就会立即请求网络</p></td>
+</tr>
+</tbody>
+</table>
+<p>在S32K148开发板上，ECU一上电主动请求网络，释放网络后ECU休眠时直接调用Mcu_PerformReset进行复位。</p>
+</section>
+</section>
+<section id="id13">
+<h3>CAN诊断协议栈<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="id14">
+<h4>CAN诊断协议栈概述<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<p>CAN诊断协议栈涉及到的软件模块主要有Can、CanIf、CanTP、EcuC、DCM、DEM模块，其中各个模块的主要功能如下表：</p>
+<p>诊断栈各配置模块介绍</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>模块名</p></td>
+<td><p>功能</p></td>
+</tr>
+<tr class="row-even"><td><p>Can</p></td>
+<td><p>主要配置CAN控制器的波特率，CAN报文的收发邮箱。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf</p></td>
+<td><p>CanIf模块主
+要处理上层模块与底层驱动的之间PDU的传递，为上
+层模块提供统一的接口来管理不同的CAN硬件模块。</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuC</p></td>
+<td><p>用
+于辅助配置工具完成配置的模块。主要提供Pdu的定
+义，其它模块通过关联EcuC中Pdu，相互关联起来。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PDU
+Router
+主要为通讯接口模块（CANIF）、传输协议模块（CAN
+TP、J1939
+TP）、诊断通讯管理模块
+（DCM、J1939DCM）以及通讯模块（COM、LDCOM）以
+及IPDUM、SECOC等模块提供基于I-PDU的路由服务。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTp</p></td>
+<td><p>CANTP模块实现依据ISO15765-2
+标准规范中
+定义的CAN总线数据在传输层的数据接收发送功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dcm</p></td>
+<td><p>依据ISO15765-3和ISO14229-1标准描述，实现诊
+断请求报文的解析，响应(正响应和负响应)与执行。</p></td>
+</tr>
+<tr class="row-even"><td><p>Dem</p></td>
+<td><p>实现诊断故障的存储与管理功能，提供API接口供
+其他模块读取DTC和对应的冻结帧数据和扩展数据。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h4>CAN诊断协议栈配置说明<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<p>CAN诊断协议栈的CANID如下表：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>CANID类型</p></td>
+<td><p>CANID</p></td>
+</tr>
+<tr class="row-even"><td><p>物理寻址Physical Request CAN ID</p></td>
+<td><p>0x708</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能寻址Functional Request CAN ID</p></td>
+<td><p>0x7DF</p></td>
+</tr>
+<tr class="row-even"><td><p>物理响应Physical Response CAN ID</p></td>
+<td><p>0x709</p></td>
+</tr>
+</tbody>
+</table>
+<p>Demo工程中配置的诊断服务有如下表所示：</p>
+<p><a class="reference internal" href="../../_images/image2316.png"><img alt="image23" src="../../_images/image2316.png" style="width: 6.74167in; height: 7.26667in;" /></a></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>A
+pp
+li
+ca
+ti
+on
+L
+ay
+er
+Ti
+mi
+ng
+Pa
+ra
+me
+te
+rs
+*</em></p>
+<p>**
+应
+用
+层
+会
+话
+管
+理
+计
+时
+器
+参
+数
+**</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><strong>Symbol</strong></p>
+<p><strong>符号</strong></p>
+</td>
+<td><p><strong>Min</strong></p>
+<p><strong>最小值</strong></p>
+</td>
+<td><p><strong>M
+ax/Timeout</strong></p>
+<p><strong>最大值
+/超时时间</strong></p>
+</td>
+<td><p><strong>U
+nit</strong></p>
+<p><strong>单
+位</strong></p>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>E
+CU
+电
+控
+单
+元
+*</em></p>
+</td>
+<td><p>P2<sub>Server</sub></p></td>
+<td><p>N/A</p></td>
+<td><p>50</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P
+2*<sub>Server</sub></p></td>
+<td><p>N/A</p></td>
+<td><p>5000</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>S3<sub>Server</sub></p></td>
+<td><p>N/A</p></td>
+<td><p>5000</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>N
+et
+wo
+rk
+L
+ay
+er
+Ti
+mi
+ng
+Pa
+ra
+me
+te
+rs
+*</em></p>
+<p>**
+网
+络
+层
+定
+时
+器
+参
+数
+**</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><strong>Symbol</strong></p>
+<p><strong>符号</strong></p>
+</td>
+<td><p><strong>Timeout</strong></p>
+<p><strong>超时时间</strong></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>Performance
+R
+equirement*</em></p>
+<p><strong>性能要求</strong></p>
+</td>
+<td><p><strong>U
+nit</strong></p>
+<p><strong>单
+位</strong></p>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>E
+CU
+电
+控
+单
+元
+*</em></p>
+</td>
+<td><p>N_As/N_Ar</p></td>
+<td><p>70</p></td>
+<td><p>——</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>N_Bs</p></td>
+<td><p>150</p></td>
+<td><p>——</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>N_Br</p></td>
+<td><p>——</p></td>
+<td><p>&lt; 70</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>N_Cs</p></td>
+<td><p>——</p></td>
+<td><p>&lt; 150</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>N_Cr</p></td>
+<td><p>150</p></td>
+<td><p>——</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>O
+th
+er
+pa
+ra
+me
+te
+rs
+*</em></p>
+<p>**
+其
+它
+参
+数
+**</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><strong>Symbol</strong></p>
+<p><strong>符号</strong></p>
+</td>
+<td><p><strong>Parameter</strong></p>
+<p><strong>参数</strong></p>
+</td>
+<td><p><strong>Value</strong></p>
+<p><strong>值</strong></p>
+</td>
+<td><p><strong>U
+nit</strong></p>
+<p><strong>单
+位</strong></p>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>E
+CU
+电
+控
+单
+元
+*</em></p>
+</td>
+<td><p>BS</p></td>
+<td><p>Block Size</p></td>
+<td><p>0</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>STmin</p></td>
+<td><p>Minimum
+Separation Time</p></td>
+<td><p>10</p></td>
+<td><p>ms</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Fill
+b
+ytes(发送数据填充)</p></td>
+<td><p>Padding</p></td>
+<td><p>0xAA</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>接收填充值检查</p></td>
+<td><p>ON/OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Fill
+b
+ytes(接收数据填充)</p></td>
+<td><p>Padding</p></td>
+<td><p>——</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>诊断报文长度</p></td>
+<td><p>Byze Size</p></td>
+<td><p>8</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>诊断报文长度检查</p></td>
+<td><p>ON/OFF</p></td>
+<td><p>ON</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>D
+CM接收BUFFER最大值</p></td>
+<td><p>Byze Size</p></td>
+<td><p>1024</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>D
+CM发送BUFFER最大值</p></td>
+<td><p>Byze Size</p></td>
+<td><p>1024</p></td>
+<td><p>——</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TP半双工</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>CAN诊断时间参数如下:</p>
+<p>安全访问算法配置信息如下：</p>
+<blockquote>
+<div><p>Mask配置值</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Mask = 0x5555AAAAu</p></td>
+</tr>
+</tbody>
+</table>
+<p>密钥算法（根据Seed计算Key）如下，其中seed为输入的种子。</p>
+<blockquote>
+<div><p>安全算法</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Key = Seed &amp; Mask</p></td>
+</tr>
+</tbody>
+</table>
+<p>注：最大失败次数为3，达到最大失败次数启动延时时间为10S；连续请求种子错误计数不加1，种子相同，延时时间过后错误计数清零。</p>
+<p>DID列表：</p>
+<p><a class="reference internal" href="../../_images/image2414.png"><img alt="image24" src="../../_images/image2414.png" style="width: 6.59167in; height: 3.96806in;" /></a></p>
+<p>IO DID列表：</p>
+<p><a class="reference internal" href="../../_images/image2512.png"><img alt="image25" src="../../_images/image2512.png" style="width: 6.64097in; height: 2.79097in;" /></a></p>
+<p>RID列表：<a class="reference internal" href="../../_images/image2611.png"><img alt="image26" src="../../_images/image2611.png" style="width: 6.69722in; height: 1.58472in;" /></a>DTC列表：<a class="reference internal" href="../../_images/image2710.png"><img alt="image27" src="../../_images/image2710.png" style="width: 6.77222in; height: 3.52917in;" /></a></p>
+<p>注：DTC格式：01，ISO 14229；DTC status支持的bit位仅bit7不支持，0x7F；</p>
+<p>DTC扩展数据：</p>
+<p><a class="reference internal" href="../../_images/image2810.png"><img alt="image28" src="../../_images/image2810.png" style="width: 7.25833in; height: 1.36111in;" /></a>DTC快照：</p>
+<p><a class="reference internal" href="../../_images/image2910.png"><img alt="image29" src="../../_images/image2910.png" style="width: 7.03194in; height: 2.23819in;" /></a></p>
+</section>
+</section>
+<section id="id16">
+<h3>存储协议栈<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<section id="id17">
+<h4>存储协议栈概述<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<p>存储协议栈涉及到的软件模块主要有Flash、MemAcc、FEE、NvM模块，其中各个模块的主要功能如下表：</p>
+<p>NvM 各配置模块介绍</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>**
+模块名**</p></td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Flash</p></td>
+<td><p>Flash 驱动配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>MemAcc</p></td>
+<td><p>MemAcc 驱动配置</p></td>
+</tr>
+<tr class="row-even"><td><p>FEE</p></td>
+<td><p>FEE 驱动配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvM</p></td>
+<td><p>非易失存储管理</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h4>存储协议栈配置说明<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<p>存储协议栈中主要配置了如下NvMBlock:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>NvMBlock名</strong></p></td>
+<td><p><strong>作用</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>NvMBlock_ConfigID</p></td>
+<td><p>NvM管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvMBlock_Dem_Data</p></td>
+<td><p>用来存放Dem的数据</p></td>
+</tr>
+<tr class="row-even"><td><p>NvMBlock_Dem_Status</p></td>
+<td><p>用来存放Dem的状态</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvMBlock_Dcm</p></td>
+<td><p>用来存放Dcm的数据（暂未使用）</p></td>
+</tr>
+<tr class="row-even"><td><p>NvMBlock_SecurityLevel01</p></td>
+<td><p>用来
+存放安全等级1错误计数（暂未使用）</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvMBlock_SecurityLevel02</p></td>
+<td><p>用来
+存放安全等级2错误计数（暂未使用）</p></td>
+</tr>
+<tr class="row-even"><td><p>NvMBlock_Did_0xF190</p></td>
+<td><p>用来存放DID 0xF190的数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvMBlock_Did_0xF183</p></td>
+<td><p>用来存放DID 0xF183的数据</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id19">
+<h3>看门狗协议栈<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<section id="id20">
+<h4>看门狗协议栈概述<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<p>看门狗协议栈是一种用于监控和保护系统运行状态的机制。它通过监控软件执行的稳定性和正确性确保了在系统发生故障时能迅速采取恢复措施。</p>
+<p>Wdg协议栈主要涉及到的模块为Wdg、WdgIf 、WdgM
+，其中各个模块的主要功能如下表：</p>
+<p>Wdg 看门狗协议栈各配置模块介绍</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>模块
+名*</em></p>
+</td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Wdg</p></td>
+<td><p>Wdg
+属于
+MCAL的一部分，用于完成看门狗初始化，模式设置以及喂狗设置等。</p></td>
+</tr>
+<tr class="row-odd"><td><p>WdgIf</p></td>
+<td><p>WdgIf
+模块属于ECU抽象层，能够允许上层WdgM
+模块来同时处理多个看门狗实体，比如外部看门狗或者内部看门狗。</p></td>
+</tr>
+<tr class="row-even"><td><p>WdgM</p></td>
+<td><p>WdgM
+模块
+从硬件看门狗实体监控的过程抽象出来完成软件程序执行监控抽象。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id21">
+<h4>看门狗协议栈配置说明<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<p>看门狗协议栈中配置了一个Alive supervision用于监控定期软件的时间。</p>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">Alive监控参数配置</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>监控
+类型</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>监
+控
+实
+体
+个
+数
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>监
+控
+点
+个
+数
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>参
+考
+周
+期
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>监
+控
+失
+败
+门
+限
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>监
+控
+失
+效
+门
+限
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>期
+望
+执
+行
+次
+数
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>次
+数
+上
+偏
+差
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>次
+数
+下
+偏
+差
+*</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Alive
+监控</p></td>
+<td><p>监控一
+次mainfu
+nction周
+期alive
+监控点执
+行的次数</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="os">
+<h3>OS协议栈<a class="headerlink" href="#os" title="Link to this heading"></a></h3>
+<section id="id22">
+<h4>OS协议栈概述<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<p>AUTOSAR
+OS主要负责任务管理和中断管理功能；实现包括以下模块:Task、Isr、Countor、Alarm、ScheduleTable、Event、Resource等。</p>
+</section>
+<section id="id23">
+<h4>OS协议栈配置说明<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<p>OsTask配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Name</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>Priority*</em></p>
+</td>
+<td><p><strong>Stack
+Siz
+e[4Bytes]</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>Preemptive
+Poilcy*</em></p>
+</td>
+<td><p><strong>OsTask
+Autostart</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>OsTask_Init</p></td>
+<td><p>1</p></td>
+<td><p>512</p></td>
+<td><p>NON</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>OsTask_1ms</p></td>
+<td><p>4</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>OsTask_5ms</p></td>
+<td><p>3</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>OsTask_10ms</p></td>
+<td><p>2</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>O
+sTask_100ms</p></td>
+<td><p>1</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<p>OsIsr配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Name</strong></p></td>
+<td><p>**
+Category**</p></td>
+<td><p><strong>Stack
+Siz
+e[4Bytes]</strong></p></td>
+<td><p>**
+Priority**</p></td>
+<td><p><strong>Nested
+Enable</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_ORed</p></td>
+<td><p>GATEGORY_2</p></td>
+<td><p>512</p></td>
+<td><p>NON</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN
+0_ORed_0_15_MB</p></td>
+<td><p>GATEGORY_2</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0
+_ORed_16_31_MB</p></td>
+<td><p>GATEGORY_2</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>FTM0_Ch0_Ch1</p></td>
+<td><p>GATEGORY_2</p></td>
+<td><p>512</p></td>
+<td><p>FULL</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<p>OsAlarm配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Name</strong></p></td>
+<td><p><strong>Activate
+Task</strong></p></td>
+<td><p><strong>OsAlarm
+Autostart</strong></p></td>
+<td><p><strong>Start
+Time</strong></p></td>
+<td><p><strong>Cycle
+Time</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>OsAlarm_1ms</p></td>
+<td><p>OsTask_1ms</p></td>
+<td><p>True</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>OsAlarm_5ms</p></td>
+<td><p>OsTask_5ms</p></td>
+<td><p>True</p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>OsAlarm_10ms</p></td>
+<td><p>O
+sTask_10ms</p></td>
+<td><p>True</p></td>
+<td><p>10</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>OsAlarm_100ms</p></td>
+<td><p>Os
+Task_100ms</p></td>
+<td><p>True</p></td>
+<td><p>100</p></td>
+<td><p>100</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="id24">
+<h2>工程验证<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
+<section id="id25">
+<h3>编译及下载<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<p>将BSW工程导入IDE后点击Build Project即可编译工程。</p>
+<p><a class="reference internal" href="../../_images/image306.png"><img alt="image30" src="../../_images/image306.png" style="width: 5.86181in; height: 3.49375in;" /></a></p>
+<p>编译通过后点击Debug下载工程。（根据使用的调试器配置）</p>
+<p><a class="reference internal" href="../../_images/image3113.png"><img alt="image31" src="../../_images/image3113.png" style="width: 6.76111in; height: 2.96736in;" /></a></p>
+</section>
+<section id="id26">
+<h3>工程运行验证<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<p>正确连接开发板并成功下载运行后，使用通信测试验证工具接收板子发出的报文，可以收到如下报文。</p>
+<p><a class="reference internal" href="../../_images/image3211.png"><img alt="image32" src="../../_images/image3211.png" style="width: 6.77153in; height: 1.82847in;" /></a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html" class="btn btn-neutral float-left" title="XCP_集成手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

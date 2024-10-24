@@ -1,0 +1,3269 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E2EXf产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="EA产品参考手册" href="Ea.html" />
+    <link rel="prev" title="E2EL产品参考手册" href="E2EL.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">E2EXf产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">函数命名及数据结构生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">静态初始化配置和状态</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-placeout-of-place">In-place和Out-of-place处理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e2exf-configtype">E2EXf_ConfigType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e2exf-init">E2EXf_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2exf-deinit">E2EXf_DeInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2exf-getversioninfo">E2EXf_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2exf-transformerid">E2EXf_&lt;transformerId&gt;函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2exf-inv-transformerid">E2EXf_Inv_&lt;transformerId&gt;函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#e2exfrmgeneral">E2EXfrmGeneral</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e2etransformer">E2ETransformer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#endtoendtransformationisignalprops">EndToEndTransformationISignalProps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#endtoendtransformationcomspecprops">EndToEndTransformationComSpecProps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transformationset">TransformationSet</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#transformation">Transformation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transformationtechnology">TransformationTechnology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bufferproperty">BufferProperty</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">E2EXf产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/E2EXf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="e2exf">
+<h1>E2EXf产品参考手册<a class="headerlink" href="#e2exf" title="Link to this heading"></a></h1>
+<p>1 简介</p>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>E2EXf</p></td>
+<td><p>End to End Transformer</p></td>
+<td><p>端到端转换器</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2EL</p></td>
+<td><p>End to End library</p></td>
+<td><p>端到端通讯保护库</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>E2EXf模块的责任在于保护安全性相关的数据，在发送端，E2EXf保护数据，在接收端，E2EXf检查受保护的数据。所有的算法由E2EL提供，E2EXf调用E2EL相应的接口，传入配置和状态来实现保护的功能。</p>
+<p><img alt="image1" src="../../_images/image180.png" /></p>
+<p>图1-1 E2EXf在AUTOSAR中的位置</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1]AUTOSAR_SWS_E2ETransformer.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_E2ELibrary.pdf，R19-11</p>
+<p>[3] AUTOSAR_TPS_SystemTemplate.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>函数命名及数据结构生成<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>E2EXf的函数及结构体会以&lt;transformerId&gt;后缀命名，针对每个transformer函数，都会有一个唯一的ID。这种命名方式用于E2EXf的C函数。</p>
+<p>E2EXf应生成数据结构E2EXf_ConfigStruct_&lt;v&gt;，存储E2EXf模块的配置。</p>
+<p>E2EXf应获取所需独立状态数据资源的类型：E2E_PXXProtectStateType、E2E_PXXCheckStateType和E2E_SMCheckStateType，去保护需要E2E保护的有唯一transformerId标识的数据，通过各类型profile进行保护。</p>
+<p>E2EXf会根据受E2E保护的数据的&lt;transformerId&gt;，各类型profile，去引用E2E_PXXConfigType和E2E_SMConfigType，在E2EXf模块内部执行E2E保护。</p>
+</section>
+<section id="id5">
+<h3>静态初始化配置和状态<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>根据EndToEndTransformationDescription，EndToEndTransformationISignalProps和EndToEndTransformationComSpecProps三种元模型对配置进行静态初始化。其中，EndToEndTransformationDescription定义E2E变量，EndToEndTransformationISignalProps对给定的ISignal定义一个特殊的保护，EndToEndTransformationComSpecProps覆盖一些已定义的变量。</p>
+<p>跟配置结构体相反，状态结构体不依赖于编译选项，生成的状态可以保持不进行初始化。</p>
+</section>
+<section id="in-placeout-of-place">
+<h3>In-place和Out-of-place处理<a class="headerlink" href="#in-placeout-of-place" title="Link to this heading"></a></h3>
+<p>E2EXf函数的处理会有In-place和Out-of-place两种方式，选择哪种buffer处理方式，可通过buffer属性配置项进行配置。</p>
+<p>In-place是指Transformer用的buffer既作为输入又作为输出，所以，In-place的处理有性能上的优势，空间占用少，拷贝次数少。Out-of-place是指有独立的输入输出buffer。</p>
+<p>E2EXf_&lt;transformerId&gt;函数In-place方式buffer处理：</p>
+<p><a class="reference internal" href="../../_images/image236.png"><img alt="image2" src="../../_images/image236.png" style="width: 6in; height: 5.72083in;" /></a></p>
+<p>图2-1 E2EXf_&lt;transformerId&gt;buffer处理方式— In-place</p>
+<p>E2EXf_&lt;transformerId&gt;函数Out-of-place方式buffer处理：</p>
+<p><a class="reference internal" href="../../_images/image326.png"><img alt="image3" src="../../_images/image326.png" style="width: 5.84236in; height: 5.39028in;" /></a></p>
+<p>图2-2 E2EXf_&lt;transformerId&gt;buffer处理方式—Out-of-place</p>
+</section>
+</section>
+<section id="id6">
+<h2>源文件描述<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>表3-1 E2EXf组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_E2EXf_Cfg.h</p></td>
+<td><p>定义E2EXf模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_E2EXf_LCfg.c</p></td>
+<td><p>定义E2EXf模块链接时用到的配置参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_E2EXf_LCfg.h</p></td>
+<td><p>定义E2EXf模块链接时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_Xf_Cfg.c</p></td>
+<td><p>定义Xf模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_Xf_Cfg.h</p></td>
+<td><p>定义Xf模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_E2EXf_MemMap.h</p></td>
+<td><p>E2EXf的内存映射定义</p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_E2EXf.h</p></td>
+<td><p>E2EXf模块头文件，包含
+了API函数的扩展声明并定义了端口的数据结构。</p></td>
+</tr>
+<tr class="row-odd"><td><p>TransformerTypes.h</p></td>
+<td><p>E2EXf的类型定义</p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_E2EXf.c</p></td>
+<td><p>E2EXf模块源文件，包含了API函数的实现。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image419.png"><img alt="image4" src="../../_images/image419.png" style="width: 5.75972in; height: 2.98333in;" /></a></p>
+<p>图3-1 E2EXf组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id7">
+<h3>类型定义<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="e2exf-configtype">
+<h4>E2EXf_ConfigType类型定义<a class="headerlink" href="#e2exf-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2EXf_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>结构体</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>根据实现决定</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>用于传递配置数据</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id8">
+<h3>输入函数描述<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>E2EL</p></td>
+<td><p>E2E_P01Check</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P01CheckInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P01MapStatusToSM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P01Protect</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P01ProtectInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P02Check</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P02CheckInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P02MapStatusToSM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P02Protect</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P02ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P04Check</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P04CheckInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P04MapStatusToSM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P04Protect</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P04ProtectInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P05Check</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P05CheckInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P05MapStatusToSM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P05Protect</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P05ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P06Check</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P06CheckInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P06MapStatusToSM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P06Protect</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P06ProtectInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P07Check</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P07CheckInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P07MapStatusToSM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P07Protect</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P07ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P11Check</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P11CheckInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P11MapStatusToSM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P11Protect</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P11ProtectInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P22Check</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P22CheckInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P22MapStatusToSM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_P22Protect</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_P22ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E2E_SMCheck</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E2E_SMCheckInit</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>静态接口函数定义<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<section id="e2exf-init">
+<h4>E2EXf_Init函数定义<a class="headerlink" href="#e2exf-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2EXf_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void E2EXf_Init (</p>
+<p>const
+E
+2EXf_ConfigType*
+config)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>config</p></td>
+<td><p>值域：</p></td>
+<td><p>指向所选配置结构的指针</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化E2EXf的状态
+。它的主要部分是
+初始化E2Elib状态
+结构，这是通过调
+用E2Elib中的所有
+init函数来完成的</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2exf-deinit">
+<h4>E2EXf_DeInit函数定义<a class="headerlink" href="#e2exf-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2EXf_DeInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void E2EXf_DeInit
+(</p>
+<p>void)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>反初始化E2EXf</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2exf-getversioninfo">
+<h4>E2EXf_GetVersionInfo函数定义<a class="headerlink" href="#e2exf-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E
+Xf_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+E2E
+Xf_GetVersionInfo
+(</p>
+<p>* versioninfo</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值域：</p></td>
+<td><p>指向
+保存软件版本信息的地址</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取软件版本信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2exf-transformerid">
+<h4>E2EXf_&lt;transformerId&gt;函数定义<a class="headerlink" href="#e2exf-transformerid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2EXf
+_&lt;transformerId&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+E2EXf
+_&lt;transformerId&gt;
+(</p>
+<p>uint8* buffer,</p>
+<p>uint32*
+bufferLength,</p>
+<p>[const uint8*
+inputBuffer],</p>
+<p>uint32
+inputBufferLength</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>inputBuffer</p></td>
+<td><p>值域：</p></td>
+<td><p>输入数据</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>inputBufferLength</p></td>
+<td><p>值域：</p></td>
+<td><p>输入数据长度</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>buffer</p></td>
+<td><p>值域：</p></td>
+<td><p>输出数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>bufferLength</p></td>
+<td><p>值域：</p></td>
+<td><p>输出数据长度</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>uint8：0x00
+(E_OK) 0xFF
+(E_SAFETY_H
+ARD_RUNTIMEERROR)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>对传入数
+据进行保护,&lt;trans
+formerId&gt;由配置决
+定，是动态生成的</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2exf-inv-transformerid">
+<h4>E2EXf_Inv_&lt;transformerId&gt;函数定义<a class="headerlink" href="#e2exf-inv-transformerid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2EXf_Inv
+_&lt;transformerId&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+E2EXf_Inv
+_&lt;transformerId&gt;
+(</p>
+<p>uint8* buffer,</p>
+<p>uint32*
+bufferLength,</p>
+<p>[const uint8*
+inputBuffer],</p>
+<p>uint32
+inputBufferLength</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>inputBuffer</p></td>
+<td><p>值域：</p></td>
+<td><p>输入数据</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>inputBufferLength</p></td>
+<td><p>值域：</p></td>
+<td><p>输入数据长度</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>buffer</p></td>
+<td><p>值域：</p></td>
+<td><p>输出数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>bufferLength</p></td>
+<td><p>值域：</p></td>
+<td><p>输出数据长度</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>0x00 (E_OK) This
+means VALID_OK</p>
+<p>0x01
+(<a href="#id12"><span class="problematic" id="id13">E_</span></a>
+SAFETY_VALID_REP)</p>
+<p>0x02
+(<a href="#id14"><span class="problematic" id="id15">E_</span></a>
+SAFETY_VALID_SEQ)</p>
+<p>0x03
+(<a href="#id16"><span class="problematic" id="id17">E_</span></a>
+SAFETY_VALID_ERR)</p>
+<p>0x05
+(<a href="#id18"><span class="problematic" id="id19">E_</span></a>
+SAFETY_VALID_NND)</p>
+<p>0x20
+(<a href="#id20"><span class="problematic" id="id21">E_</span></a>
+SAFETY_NODATA_OK)</p>
+<p>0x21
+(E_S
+AFETY_NODATA_REP)</p>
+<p>0x22
+(E_S
+AFETY_NODATA_SEQ)</p>
+<p>0x23
+(E_S
+AFETY_NODATA_ERR)</p>
+<p>0x25
+(E_S
+AFETY_NODATA_NND)</p>
+<p>0x30
+(
+E_SAFETY_INIT_OK)</p>
+<p>0x31
+(E
+_SAFETY_INIT_REP)</p>
+<p>0x32
+(E
+_SAFETY_INIT_SEQ)</p>
+<p>0x33
+(E
+_SAFETY_INIT_ERR)</p>
+<p>0x35
+(E
+_SAFETY_INIT_NND)</p>
+<p>0x40
+(E_S
+AFETY_INVALID_OK)</p>
+<p>0x41
+(E_SA
+FETY_INVALID_REP)</p>
+<p>0x42
+(E_SA
+FETY_INVALID_SEQ)</p>
+<p>0x43
+(E_SA
+FETY_INVALID_ERR)</p>
+<p>0x45
+(E_SA
+FETY_INVALID_NND)</p>
+<p>0x77
+(E_SAFETY_S
+OFT_RUNTIMEERROR)</p>
+<p>0xFF
+(E_SAFETY_H
+ARD_RUNTIMEERROR)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>对传入数
+据进行检查,&lt;trans
+formerId&gt;由配置决
+定，是动态生成的</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id10">
+<h3>可配置函数定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id11">
+<h2>配置<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="e2exfrmgeneral">
+<h3>E2EXfrmGeneral<a class="headerlink" href="#e2exfrmgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image518.png"><img alt="image5" src="../../_images/image518.png" style="width: 3.67778in; height: 0.74792in;" /></a></p>
+<p>图5-1 E2EXfrmGeneral容器配置图</p>
+<p>表5‑1 E2EXfrmGeneral属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+2EXfVe
+rsionI
+nfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>打开或关闭版本信息API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+2EXfDe
+vError
+Detect</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用或
+禁用开发错误检测开关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="e2etransformer">
+<h4>E2ETransformer<a class="headerlink" href="#e2etransformer" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image617.png"><img alt="image6" src="../../_images/image617.png" style="width: 4.62847in; height: 0.85208in;" /></a></p>
+<p>图5-2 E2ETransformer容器配置图</p>
+<p>表5‑2 E2ETransformer属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E2
+EISign
+alProp</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to
+[EndToEndTransf
+ormationISignalProps]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>被transform
+er引用的EndToEndTrans
+formationISignalProps</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E2
+EComSp
+ecProp</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to
+[EndToEndTransf
+ormationComSpecProps]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>被transform
+er引用的EndToEndTrans
+formationComSpecProps</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="endtoendtransformationisignalprops">
+<h4>EndToEndTransformationISignalProps<a class="headerlink" href="#endtoendtransformationisignalprops" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image716.png"><img alt="image7" src="../../_images/image716.png" style="width: 5.40139in; height: 3.99375in;" /></a></p>
+<p>图5-3 EndToEndTransformationISignalProps容器配置图</p>
+<p>表5‑3 EndToEndTransformationISignalProps属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dataId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~4294967295</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示一个唯一
+的数字标识符</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+profile_01||
+profi
+le_11),dataId
+multiplicity
+attribute
+shall be
+1,and shall
+be in the
+range
+0-65535;</p>
+<p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+profile_01||
+profile_11)
+&amp;&amp;(dataIdMode
+==
+lower
+12Bit),dataId
+value range
+shall be in
+256-65535;</p>
+<p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+profile_02||
+profi
+le_22),dataId
+multiplicity
+attribute
+shall be
+16,and value
+shall be in
+the range
+0-255;</p>
+<p>if
+(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+profile_01)
+&amp;&amp;
+(dataIDMode
+==
+LOWER8BIT),
+dataId high
+byte shall be
+0, low byte
+valid,and
+value shall
+be in the
+range 0-255;</p>
+<p>if
+(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+profile_01||
+profile_11)
+&amp;&amp;
+(dataIDMode
+==
+LOWER12BIT),
+dataId high
+byte high
+nibble shall
+be 0, high
+byte low
+nibble and
+low byte
+valid;</p>
+<p>if
+profileName
+== profile_01
+||
+profile_05
+||
+profile_06||
+profi
+le_11，dataId
+type shall be
+uint16;</p>
+<p>if
+profileName
+==
+profile_02||
+profi
+le_22，dataId
+type shall be
+uint8;</p>
+<p>if
+profileName
+==
+profile_04||
+profi
+le_07，dataId
+type shall be
+uint32.</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>data
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数据的长
+度，单位为位</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+== profile_01
+||
+profile_02
+||
+profile_05||
+profile_11||
+profile_2
+2),dataLength
+multiplicity
+attribute
+shall be 1;</p>
+<p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+== profile_04
+||
+<a href="#id22"><span class="problematic" id="id23">profile_</span></a>
+06||profile_0
+7),dataLength
+multiplicity
+attribute
+shall be 0;</p>
+<p>if
+EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+<a href="#id24"><span class="problematic" id="id25">profile_</span></a>
+01,dataLength
+shall be a
+multiple of 8
+and shall be
+2*8bit
+s≤dataLength≤
+240 bits;</p>
+<p>if
+EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+<a href="#id26"><span class="problematic" id="id27">profile_</span></a>
+02,dataLength
+shall be a
+multiple of
+8;and shall
+be
+2*8bit
+s≤dataLength≤
+8*256 bits;</p>
+<p>if
+EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+<a href="#id28"><span class="problematic" id="id29">profile_</span></a>
+05,dataLength
+shall be a
+multiple of
+8,and shall
+be 3*8bits =&lt;
+dataLength≤
+4096*8 bits;</p>
+<p>if
+EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+<a href="#id30"><span class="problematic" id="id31">profile_</span></a>
+11,dataLength
+shall be a
+multiple of 8
+and shall be
+2*8bit
+s≤dataLength≤
+240 bits;</p>
+<p>if
+EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+==
+<a href="#id32"><span class="problematic" id="id33">profile_</span></a>
+22,dataLength
+shall be a
+multiple of
+8;and shall
+be
+2*8bit
+s≤dataLength≤
+8*256 bits.</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>m
+axData
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数
+据的最大长度
+，以位为单位</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+== profile_01
+||
+profile_02
+||
+profile_05||
+profile_11
+||
+profile_22),
+maxDataLength
+multiplicity
+attribute
+shall be 0;</p>
+<p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+== profile_04
+||
+profile_06||
+profile_07),
+maxDataLength
+multiplicity
+attribute
+shall be
+1;the value
+shall be a
+multiple of
+8;</p>
+<p>if
+profileName
+==
+profile_04,
+minDataLength
+≤maxData
+Length≤4096*8
+bits;</p>
+<p>if
+profileName
+==
+profile_06,
+minDataLength
+≤maxData
+Length≤4096*8
+bits;</p>
+<p>if
+profileName
+==
+profile_07,
+minDataLength
+≤maxDataLeng
+th≤4294967295
+bits.</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>m
+inData
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数
+据的最小长度
+，以位为单位</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+== profile_01
+||
+profile_02
+||
+profile_05
+||
+profile_11
+||
+profile_22),
+minDataLength
+multiplicity
+attribute
+shall be 0;</p>
+<p>if(EndToE
+ndTransformat
+ionDescriptio
+n.profileName
+== profile_04
+||
+profile_06||
+profile_07),
+minDataLength
+multiplicity
+attribute
+shall be
+1;the value
+shall be a
+multiple of
+8;</p>
+<p>if
+profileName
+==
+profile_04,
+12*8 bits
+≤minData
+Length≤4096*8
+bits</p>
+<p>if
+profileName
+==
+profile_06,
+5*8 bits
+≤minData
+Length≤4096*8
+bits</p>
+<p>if
+profileName
+==
+profile_07,
+20*8 bits
+≤m
+inDataLength≤
+maxDataLength</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Trans
+former</p></td>
+<td><p>取值范围</p></td>
+<td><p>References to
+[Transformati
+onTechnology]</p></td>
+<td></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引
+用Transformat
+ionTechnology</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>sy
+stemSi
+gnalGr
+oupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>References to
+[Co
+mSignalGroup]</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对本 I-Pdu
+中包含的所有
+信号组的引用</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>IS
+ignals</p></td>
+<td><p>取值范围</p></td>
+<td><p>References to
+[C
+omGroupSignal
+]</p></td>
+<td><p>默认
+取值</p></td>
+<td></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用此
+C
+omSignalGroup
+所需的
+C
+omGroupSignal</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="endtoendtransformationcomspecprops">
+<h4>EndToEndTransformationComSpecProps<a class="headerlink" href="#endtoendtransformationcomspecprops" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image815.png"><img alt="image8" src="../../_images/image815.png" style="width: 4.79097in; height: 3.42014in;" /></a></p>
+<p>图5-4 EndToEndTransformationComSpecProps容器配置图</p>
+<p>表5‑4 EndToEndTransformationComSpecProps属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>di
+sabelE
+ndToEn
+dCheck</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>禁
+用/启用端到端加密检查</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>max
+DeltaC
+ounter</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Maximum allowed gap
+between two counter
+values of two
+consecutive checks.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_01),
+maxdeltacounter shall
+be in the range 1-14;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_02),
+maxdeltacounter shall
+be in the range 1-15;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_04),
+maxdeltacounter shall
+be in the range
+1-65535;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_05),
+maxdeltacounter shall
+be in the range
+1-255;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_06),
+maxdeltacounter shall
+be in the range
+1-255;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_07),
+maxdeltacounter shall
+be in the range
+1-4294967295;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_11),
+maxdeltacounter shall
+be in the range 1-14;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_22),
+maxdeltacounter shall
+be in the range 1-15.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>maxEr
+rorSta
+teInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_INIT 的
+ProfileStatus 等于
+E2E_P_ERROR
+的最大检查次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>maxErrorStateValid&gt;=m
+axErrorStateInit&gt;=max
+ErrorStateInvalid&gt;=0;</p>
+<p>minOkStateInit +
+maxErrorStateInit &lt;=
+windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ma
+xError
+StateI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_INVALID的
+ProfileStatus 等于
+E2E_P_ERROR
+的最大检查次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>maxErrorStateValid&gt;=m
+axErrorStateInit&gt;=max
+ErrorStateInvalid&gt;=0;</p>
+<p>minOkStateInvalid +
+maxErrorStateInvalid
+&lt;= windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>maxErr
+orStat
+eValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_VALID的
+ProfileStatus 等于
+E2E_P_ERROR
+的最大检查次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>maxErrorStateValid&gt;=m
+axErrorStateInit&gt;=max
+ErrorStateInvalid&gt;=0;</p>
+<p>minOkStateValid +
+maxErrorStateValid &lt;=
+windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>maxN
+oNewOr
+Repeat
+edData</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>连续失败的计数器
+检查的最大允许数量。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>value of
+m
+axNoNewOrRepeatedData
+is 0~14;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mi
+nOkSta
+teInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_INIT 的
+ProfileStatus 等于
+E2E_P_OK
+的最少检查次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>1&lt;=minOkStat
+eValid&lt;=minOkStateIni
+t&lt;=minOkStateInvalid;</p>
+<p>minOkStateInit +
+maxErrorStateInit &lt;=
+windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>minOk
+StateI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_ INVALID的
+ProfileStatus 等于
+E2E_P_OK
+的最少检查次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>1&lt;=minOkStat
+eValid&lt;=minOkStateIni
+t&lt;=minOkStateInvalid;</p>
+<p>minOkStateInvalid +
+maxErrorStateInvalid
+&lt;= windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>min
+OkStat
+eValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_ VALID的
+ProfileStatus 等于
+E2E_P_OK
+的最少检查次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>1&lt;=minOkStat
+eValid&lt;=minOkStateIni
+t&lt;=minOkStateInvalid;</p>
+<p>minOkStateValid +
+maxErrorStateValid &lt;=
+windowSizeValid.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>syn
+cCount
+erInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>验证必须用有
+效计数器接收的计数器
+的一致性所需的检查数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>wi
+ndowSi
+zeInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>E2E
+Ini
+t状态机监控窗口大小。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>windowSizeInit &lt;=
+WindowSizeValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>win
+dowSiz
+eValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>E2E
+Vali
+d状态机监控窗口大小。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>The value of the
+windowSizeValid
+attribute shall be
+greater or equal to
+1.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>windo
+wSizeI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>E2E
+Invali
+d状态机监控窗口大小。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>WindowSizeInvalid &lt;=
+WindowSizeValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>clear
+FromVa
+lidToI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>从状态 Valid
+转换到状态 Invalid
+时清除监控窗口。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="transformationset">
+<h3>TransformationSet<a class="headerlink" href="#transformationset" title="Link to this heading"></a></h3>
+<section id="transformation">
+<h4>Transformation<a class="headerlink" href="#transformation" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image915.png"><img alt="image9" src="../../_images/image915.png" style="width: 3.87778in; height: 1.96944in;" /></a></p>
+<p>图5-5 Transformation容器配置图</p>
+<p>表5‑5 Transformation属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>T
+ransfo
+rmerId</p></td>
+<td><p>取值范围</p></td>
+<td><p>String</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于t
+ransformer模块API命名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Tra
+nsform
+Chains</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对所有
+transformer的引用（即
+ComXf_Tra
+nsformer、E2ETransfor
+mer、SomeIpXfConfig）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>References to
+ComXf
+_Transformer,E2ETrans
+former,SomeIpXfConfig</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transformationtechnology">
+<h4>TransformationTechnology<a class="headerlink" href="#transformationtechnology" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image1015.png"><img alt="image10" src="../../_images/image1015.png" style="width: 3.97361in; height: 0.97361in;" /></a></p>
+<p>图5-6 TransformationTechnology容器配置图</p>
+<p>表5‑6 TransformationTechnology属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Needs
+Origin
+alData</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指
+定此transformer是否能
+够访问SWC的原始数据。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Pr
+otocol</p></td>
+<td><p>取值范围</p></td>
+<td><p>String</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指定此tr
+ansformer实现的协议。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Tran
+sforme
+rClass</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指定此transformer属
+于哪个transformer类。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>V
+ersion</p></td>
+<td><p>取值范围</p></td>
+<td><p>String</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>已实现的协议版本。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="endtoendtransformationdescription">
+<h5>EndToEndTransformationDescription<a class="headerlink" href="#endtoendtransformationdescription" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image1119.png"><img alt="image11" src="../../_images/image1119.png" style="width: 4.06042in; height: 4.08472in;" /></a></p>
+<p>图5-7 EndToEndTransformationDescription容器配置图</p>
+<p>表5‑7 EndToEndTransformationDescription属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>c
+ounter
+Offset</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数组中计数器
+的偏移量(以位为单位)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profile_01||prof
+ile_11),counteroffset
+multiplicity
+attribute shall be
+1,and the value of
+counterOffset shall
+be set to n * 8（n &gt;
+0）;the value shall
+be set to the value
+of
+u
+pperHeaderBitsToShift
++ 8.</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+<a href="#id34"><span class="problematic" id="id35">profile_</span></a>
+02||profile_04||profi
+le_05||profile_06||pr
+ofile_07||profile_22)
+counteroffset
+multiplicity
+attribute shall be 0.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>crc
+Offset</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数组中CRC的
+偏移量，以位为单位。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profile_01||
+profile_11),crcOffset
+multiplicity
+attribute shall be 1,
+and the value of
+crcOffset shall be
+the same as
+up
+perHeaderBitsToShift;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+<a href="#id36"><span class="problematic" id="id37">profile_</span></a>
+02||profile_04||profi
+le_05||profile_06||pr
+ofile_07||profile_22)
+crcoffset
+multiplicity
+attribute shall be 0.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>data
+IdMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>ALL16BIT</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该属性描
+述了一种包含方式，用
+于将隐含的两字节数据
+ID 包含在 1 字节 CRC
+中</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profile_01||p
+rofile_11),dataIdmode
+multiplicity
+attribute shall be 1;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+<a href="#id38"><span class="problematic" id="id39">profile_</span></a>
+02||profile_04||profi
+le_05||profile_06||pr
+ofile_07||profile_22)
+dataIdmode
+multiplicity
+attribute shall be 0;</p>
+<p>If(EndToEndTrans
+formationDescription.
+profileName ==
+profile_11) then the
+value of the
+En
+dToEndTransformationD
+escription.dataIdMode
+attribute shall be
+set to ALL16BIT or
+LOWER12BIT.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dataId
+Nibble
+Offset</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Offset of the Data ID
+nibble in the Data[]
+array in bits.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_01||profile_11)
+&amp;&amp;(En
+dToEndTransformationD
+escription.dataIdMode
+== lower12Bit
+),dataIdNibbleOffset
+attribute
+multiplicity shall be
+1;the value shall be
+set to
+u
+pperHeaderBitsToShift
++ 12;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+<a href="#id40"><span class="problematic" id="id41">profile_</span></a>
+02||profile_04||profi
+le_05||profile_06||pr
+ofile_07||profile_22)
+||(En
+dToEndTransformationD
+escription.dataIdMode
+!= lower12Bit )
+,dataIdNibbleOffset
+attribute
+multiplicity shall be
+0.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>max
+DeltaC
+ounter</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>两次连
+续检查的两个计数器值
+之间的最大允许间隙。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_01),
+maxdeltacounter shall
+be in the range 1-14;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_02),
+maxdeltacounter shall
+be in the range 1-15;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_04),
+maxdeltacounter shall
+be in the range
+1-65535;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_05),
+maxdeltacounter shall
+be in the range
+1-255;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_06),
+maxdeltacounter shall
+be in the range
+1-255;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_07),
+maxdeltacounter shall
+be in the range
+1-4294967295;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_11),
+maxdeltacounter shall
+be in the range 1-14;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_22),
+maxdeltacounter shall
+be in the range 1-15.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>maxEr
+rorSta
+teInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_INIT 的
+ProfileStatus 等于
+E2E_P_ERROR
+的最大检查次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>maxErrorStateValid&gt;=m
+axErrorStateInit&gt;=max
+ErrorStateInvalid&gt;=0;</p>
+<p>minOkStateInit +
+maxErrorStateInit &lt;=
+windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ma
+xError
+StateI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_ INVALID的
+ProfileStatus 等于
+E2E_P_ERROR
+的最大检查次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>maxErrorStateValid&gt;=m
+axErrorStateInit&gt;=max
+ErrorStateInvalid&gt;=0;</p>
+<p>minOkStateInvalid +
+maxErrorStateInvalid
+&lt;= windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>maxErr
+orStat
+eValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_ VALID的
+ProfileStatus 等于
+E2E_P_ERROR
+的最大检查次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>maxErrorStateValid&gt;=m
+axErrorStateInit&gt;=max
+ErrorStateInvalid&gt;=0;</p>
+<p>minOkStateValid +
+maxErrorStateValid &lt;=
+windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>maxN
+oNewOr
+Repeat
+edData</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>允许连续失败的计
+数器检查的最大数量。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_01)，value
+range of
+m
+axNoNewOrRepeatedData
+is 0~14;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_02)，value
+value of
+m
+axNoNewOrRepeatedData
+is 0~15;</p>
+<p>if the
+End
+ToEndTransformationDe
+scription.profileName
+attribute has a value
+of PROFILE_04,
+PROFILE_05,
+PROFILE_06,
+PROFILE_07,
+PROFILE_11, or
+PROFILE_22 then the
+multiplicity of the
+EndToEndTransf
+ormationDescription.m
+axNoNewOrRepeatedData
+attribute shall be 0;</p>
+<p>if the
+End
+ToEndTransformationDe
+scription.profileName
+attribute has a value
+of PROFILE_01 and the
+value of the
+profileBehavior
+attribute is R4_2
+,the value of the
+EndToEndTransf
+ormationDescription.m
+axNoNewOrRepeatedData
+attribute shall be
+14;</p>
+<p>if the
+End
+ToEndTransformationDe
+scription.profileName
+attribute has a value
+of PROFILE_02 and the
+value of the
+profileBehavior
+attribute is R4_2,the
+value of the
+EndToEndTransf
+ormationDescription.m
+axNoNewOrRepeatedData
+attribute shall be
+15.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mi
+nOkSta
+teInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_INIT 的
+ProfileStatus 等于
+E2E_P_OK
+的最少检查次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>1&lt;=minOkStat
+eValid&lt;=minOkStateIni
+t&lt;=minOkStateInvalid;</p>
+<p>minOkStateInit +
+maxErrorStateInit &lt;=
+windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>minOk
+StateI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_ INVALID的
+ProfileStatus 等于
+E2E_P_OK
+的最少检查次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>1&lt;=minOkStat
+eValid&lt;=minOkStateIni
+t&lt;=minOkStateInvalid;</p>
+<p>minOkStateInvalid +
+maxErrorStateInvalid
+&lt;= windowSizeValid</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>min
+OkStat
+eValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在最近一次 WindowSize
+检查中，确定了状态
+E2E_SM_ VALID的
+ProfileStatus 等于
+E2E_P_OK
+的最少检查次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>1&lt;=minOkStat
+eValid&lt;=minOkStateIni
+t&lt;=minOkStateInvalid;</p>
+<p>minOkStateValid +
+maxErrorStateValid &lt;=
+windowSizeValid.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>offset</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数组中端到端报文头
+的偏移量，单位为位。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profile_0
+1||profile_11),offset
+multiplicity
+attribute shall be 0,
+if(End
+ToEndTransformationDe
+scription.profileName
+==
+<a href="#id42"><span class="problematic" id="id43">profile_</span></a>
+02||profile_04||profi
+le_05||profile_06||pr
+ofile_07||profile_22)
+offset multiplicity
+attribute shall be 1;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profil
+e_02||profile_22),the
+value of offset shall
+be 0;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profile_04||
+profile_05||profile_0
+6||profile_07),offset
+=
+up
+perHeaderBitsToShift.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>pro
+fileBe
+havior</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>R4_2</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>检查功能的行为。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_01)，value
+of profileBehavior is
+R4_2;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+== profile_02)，value
+of profileBehavior is
+R4_2;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+profile_04||profile_0
+5||profile_06||profil
+e_07||profile_11||pro
+file_22),multiplicity
+attribute of
+profileBehavior shall
+be 0.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>profi
+leName</p></td>
+<td><p>取值范围</p></td>
+<td><p>String</p></td>
+<td><p>默认取值</p></td>
+<td><p>PROFILE_01</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>端到端配置文件的定义</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>syn
+cCount
+erInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>验证必须用有
+效计数器接收的计数器
+的一致性所需的检查数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+prof
+ile_01)，multiplicity
+attribute of
+syncCounterInit shall
+be 1;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+prof
+ile_02)，multiplicity
+attribute of
+syncCounterInit shall
+be 1;</p>
+<p>if the
+End
+ToEndTransformationDe
+scription.profileName
+==
+PROFI
+LE_01||PROFILE_02,and
+the value of the
+profileBehavior
+attribute is R4_2
+then
+EndToEn
+dTransformationDescri
+ption.syncCounterInit
+== 1;</p>
+<p>if(End
+ToEndTransformationDe
+scription.profileName
+==
+p
+rofile_04||profile_05
+||profile_06||profile
+_07||profile_11||prof
+ile_22)，multiplicity
+attribute of
+syncCounter shall be
+0.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>uppe
+rHeade
+rBitsT
+oShift</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个属性描述了要
+移动的上层头部的位数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if
+(EndToEndTransformati
+onDescription.profile
+== profile_02), the
+value of
+u
+pperHeaderBitsToShift
+is 0;other profile
+this value shall be
+n*8(n&gt;=0)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>wi
+ndowSi
+zeInit</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>E2E
+Init状
+态机的监控窗口大小。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>windowSizeInit &lt;=
+WindowSizeValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>win
+dowSiz
+eValid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>E2E
+Valid状
+态机的监控窗口大小。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>The value of the
+windowSizeValid
+attribute shall be
+greater or equal to
+1.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>windo
+wSizeI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>E2E
+Invalid状
+态机的监控窗口大小。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>WindowSizeInvalid &lt;=
+WindowSizeValid</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>clear
+FromVa
+lidToI
+nvalid</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>从状态 Valid
+转换到状态 Invalid
+时清除监控窗口。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="bufferproperty">
+<h4>BufferProperty<a class="headerlink" href="#bufferproperty" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image1216.png"><img alt="image12" src="../../_images/image1216.png" style="width: 3.86042in; height: 0.95833in;" /></a></p>
+<p>图5-8 BufferProperty容器配置图</p>
+<p>表5‑8 BufferProperty属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Buff
+erName</p></td>
+<td><p>取值范围</p></td>
+<td><p>String</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义trans
+formerchain缓冲区名称</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Buffer
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义trans
+formerchain缓冲区长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>header
+Length</p></td>
+<td><p>取值范围</p></td>
+<td><p>0~65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义此transformer将
+在数据前面添加的E2E头
+长度（以位为单位）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_01,headerLength
+= 16 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_02,headerLength
+= 16 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_04,headerLength
+= 96 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_05,headerLength
+= 24 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_06,headerLength
+= 40 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_07,headerLength
+= 160 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_11,headerLength
+= 16 bits;</p>
+<p>if
+End
+ToEndTransformationDe
+scription.profileName
+==
+pr
+ofile_22,headerLength
+= 16 bits.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>i
+nPlace</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果设置，
+transformer使用输入b
+uffer作为输出buffer。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="E2EL.html" class="btn btn-neutral float-left" title="E2EL产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Ea.html" class="btn btn-neutral float-right" title="EA产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

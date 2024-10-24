@@ -1,0 +1,909 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComXf产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CRC产品参考手册" href="CRC.html" />
+    <link rel="prev" title="ComM产品参考手册" href="ComM.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ComXf产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">数据序列化功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">数据序列化功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">数据序列化功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">数据反序列化功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">数据反序列化功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">数据反序列化功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comxf-configtype">ComXf_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#paramtype">&lt;paramtype&gt;类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comxf-init">ComXf_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comxf-deinit">ComXf_DeInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comxf-getversioninfo">ComXf_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comxf-transformerid">ComXf_&lt;transformerId&gt;函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comxf-inv-transformerid">ComXf_Inv_&lt;transformerId&gt;函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comxfgeneral">ComXfGeneral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comxf-transformer">ComXf_Transformer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ComXf产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/ComXf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comxf">
+<h1>ComXf产品参考手册<a class="headerlink" href="#comxf" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ComXf</p></td>
+<td><p>COM Based Transformer</p></td>
+<td><p>Com通信序列化</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTE</p></td>
+<td><p>Runtime environment</p></td>
+<td><p>运行时环境</p></td>
+</tr>
+<tr class="row-even"><td><p>COM</p></td>
+<td><p>Communication Stack</p></td>
+<td><p>通信栈</p></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>开发错误检测</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>数据序列化功能在AUTOSAR架构中属于RTE的功能点，为适配无RTE项目的集成需求，将ComXf作为序列化模块Xfrm中的子模块实现。</p>
+<p><img alt="image1" src="../../_images/image139.png" />图1-1 ComXf模块层次图</p>
+<p>ComXf模块处于AUTOSAR架构中RTE层，主要实现Com中Signal
+Group（Array）数据的序列化与反序列化功能，使得在Com层将Signal
+Group（Array）数据作为整体封装在I-PDU中，或者从I-PDU中作为整体解析。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_COMBasedTransformer.pdf，R19-11和4.2.2</p>
+<p>[2] AUTOSAR_SWS_COM.pdf，R19-11和4.2.2</p>
+<p>[3] AUTOSAR_SRS_COM.pdf，R19-11和4.2.2</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>数据序列化功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>数据序列化功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>将字节对齐的SignalGroup中关联的N个GroupSignal根据其在Com中的</p>
+<p>配置信息，通过ComXf序列化将各个GroupSignal信号值封装到序列化数据中。</p>
+</section>
+<section id="id6">
+<h4>数据序列化功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>ComXf通过Ref到Com中各个GroupSignal的起始位置，信号长度，大小端，信号类型，未使用位默认值等信息。将关联的各个GroupSignal同时封装到序列化数据中，保证SignalGroup的数据一致性。</p>
+</section>
+</section>
+<section id="id7">
+<h3>数据反序列化功能<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="id8">
+<h4>数据反序列化功能介绍<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>从字节对齐的序列化数据中将关联的N个GroupSignal根据其在Com中的配置信息，通过ComXf反序列化将各个GroupSignal信号值解析出来。</p>
+</section>
+<section id="id9">
+<h4>数据反序列化功能实现<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>ComXf通过Ref到Com中各个GroupSignal的起始位置，信号长度，大小端，信号类型等信息。将关联的各个GroupSignal信号值从序列化数据中解析出来。</p>
+</section>
+</section>
+</section>
+<section id="id10">
+<h2>源文件描述<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>表3-1 ComXf组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ComXf_Cfg.h</p></td>
+<td><p>定义ComXf模块PC配置的宏定义。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComXf_Cfg.c</p></td>
+<td><p>定义ComXf模块PC/PB配置的结构体参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>ComXf.h</p></td>
+<td><p>实现ComXf模块全
+部外部接口的声明，以及配置文件中全局变量的声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComXf.c</p></td>
+<td><p>作为ComXf模块的核心文件
+，实现ComXf模块全部对外接口，以及实现ComXf模块功
+能所必须的local函数，local宏定义，local变量定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>ComXf_MemMap.h</p></td>
+<td><p>实现ComXf模块内存布局。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image220.png"><img alt="image2" src="../../_images/image220.png" style="width: 5.76736in; height: 3.65in;" /></a></p>
+<p>图3-1 ComXf组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id11">
+<h3>类型定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="comxf-configtype">
+<h4>ComXf_ConfigType类型定义<a class="headerlink" href="#comxf-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComXf_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>ComXf模块PB配置结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="paramtype">
+<h4>&lt;paramtype&gt;类型定义<a class="headerlink" href="#paramtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>&lt;paramtype&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>ComXf模块中序列化/反序列化参数类型（根据配置生成）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id12">
+<h3>输入函数描述<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="id13">
+<h3>静态接口函数定义<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="comxf-init">
+<h4>ComXf_Init函数定义<a class="headerlink" href="#comxf-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComXf_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComXf_Init(const
+ComXf_ConfigType*
+config)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>config</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>ComXf模块初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comxf-deinit">
+<h4>ComXf_DeInit函数定义<a class="headerlink" href="#comxf-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComXf_DeInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void ComXf_DeInit
+(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>ComXf模块反初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comxf-getversioninfo">
+<h4>ComXf_GetVersionInfo函数定义<a class="headerlink" href="#comxf-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com
+Xf_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com
+Xf_GetVersionInfo
+(</p>
+<p><a href="#id16"><span class="problematic" id="id17">Std_</span></a>
+VersionInfoType*
+VersionInfo)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>VersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取
+模块软件版本信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comxf-transformerid">
+<h4>ComXf_&lt;transformerId&gt;函数定义<a class="headerlink" href="#comxf-transformerid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+omXf_Transformer0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Co
+mXf_Transformer0(</p>
+<p>uint8* buffer,</p>
+<p>uint16*
+bufferLength,</p>
+<p>const
+ComXf_Tr
+ansformer0_Type*
+dataElement)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>dataElement</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>buffer</p>
+<p>bufferLength</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8：0x00
+(E_OK)/ 0x81
+(E_S
+ER_GENERIC_ERROR)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>复杂数据序列化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comxf-inv-transformerid">
+<h4>ComXf_Inv_&lt;transformerId&gt;函数定义<a class="headerlink" href="#comxf-inv-transformerid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComXf
+_Inv_Transformer0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+<a href="#id18"><span class="problematic" id="id19">ComXf_</span></a>
+Inv_Transformer0(</p>
+<p>const uint8*
+buffer,</p>
+<p>uint16
+bufferLength,</p>
+<p>Co
+<a href="#id20"><span class="problematic" id="id21">mXf_Transformer0_</span></a>
+Type*dataElement)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>buffer</p>
+<p>bufferLength</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>dataElement</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8：0x00
+(E_OK)/ 0x81
+(E_S
+ER_GENERIC_ERROR)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>将序列化数
+据解析成复杂数据</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id14">
+<h3>可配置函数定义<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id15">
+<h2>配置<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="comxfgeneral">
+<h3>ComXfGeneral<a class="headerlink" href="#comxfgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image313.png"><img alt="image3" src="../../_images/image313.png" style="width: 4.9797in; height: 1.83538in;" /></a></p>
+<p>图5-1 ComXfGeneral</p>
+<p>表5-1 ComXfGeneral</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComXf
+DevErrorDetect</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能DET开发错误检测</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Det模块的支持</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComXf
+VersionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能获取模块软件版本</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comxf-transformer">
+<h3>ComXf_Transformer<a class="headerlink" href="#comxf-transformer" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image49.png"><img alt="image4" src="../../_images/image49.png" style="width: 5.76736in; height: 1.95069in;" /></a></p>
+<p>图5-2 ComXf_Transformer</p>
+<p>表5-2 ComXf_Transformer</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>API_Name</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>数据序列
+化/反序列化接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据XfrmSignalGr
+oupRef关联的Signa
+lGroup名自动生成;
+API_Nam
+e必须要有值，依赖
+于关联的Com中Sig
+nalGroup属于的Pdu
+的收发属性配置（C
+omIPduDirection）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>D
+ataElement_Type</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>序列化/反序列
+化参数数据类型名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据ComXf_Tran
+sformer名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Xfr
+mSignalGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用
+Com中SignalGroup</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关
+联到Com模块中Sig
+nalGroup（Array）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Com配
+置的SignalGroup;
+XfrmSignalGr
+oupRef关联的Com中
+SignalGroup配置项
+ComSignalGroupArr
+ayAccess必须勾选;
+XfrmGroup
+SignalRef关联的Gr
+oupSignal的信号类
+型不能为UINT8_DYN</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Xfr
+mGroupSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用
+Com中GroupSignal</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关
+联到Com模块中Sig
+nalGroup（Array）
+包含的GroupSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Com
+配置的GroupSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ComM.html" class="btn btn-neutral float-left" title="ComM产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CRC.html" class="btn btn-neutral float-right" title="CRC产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

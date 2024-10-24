@@ -1,0 +1,3804 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E2EL产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="E2EXf产品参考手册" href="E2EXf.html" />
+    <link rel="prev" title="DoIP产品参考手册" href="DoIP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">E2EL产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">E2EL模块简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">E2EL功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">E2EL功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2elprofile">E2EL各Profile功能介绍</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01configtype">E2E_P01ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01dataidmode">E2E_P01DataIDMode类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01protectstatetype">E2E_P01ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01checkstatetype">E2E_P01CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01checkstatustype">E2E_P01CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02configtype">E2E_P02ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02protectstatetype">E2E_P02ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02checkstatetype">E2E_P02CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02checkstatustype">E2E_P02CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04configtype">E2E_P04ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04protectstatetype">E2E_P04ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04checkstatetype">E2E_P04CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04checkstatustype">E2E_P04CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05configtype">E2E_P05ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05protectstatetype">E2E_P05ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05checkstatetype">E2E_P05CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05checkstatustype">E2E_P05CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06configtype">E2E_P06ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06protectstatetype">E2E_P06ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06checkstatetype">E2E_P06CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06checkstatustype">E2E_P06CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07configtype">E2E_P07ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07protectstatetype">E2E_P07ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07checkstatetype">E2E_P07CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07checkstatustype">E2E_P07CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11configtype">E2E_P11ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11protectstatetype">E2E_P11ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11checkstatetype">E2E_P11CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11checkstatustype">E2E_P11CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22configtype">E2E_P22ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22protectstatetype">E2E_P22ProtectStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22checkstatetype">E2E_P22CheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22checkstatustype">E2E_P22CheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-pcheckstatustype">E2E_PCheckStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-smconfigtype">E2E_SMConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-smcheckstatetype">E2E_SMCheckStateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-smstatetype">E2E_SMStateType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01protect">E2E_P01Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01protectinit">E2E_P01ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01check">E2E_P01Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p01checkinit">E2E_P01CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02protect">E2E_P02Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02protectinit">E2E_P02ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02check">E2E_P02Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p02checkinit">E2E_P02CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04protect">E2E_P04Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04protectinit">E2E_P04ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04check">E2E_P04Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p04checkinit">E2E_P04CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05protect">E2E_P05Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05protectinit">E2E_P05ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05check">E2E_P05Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p05checkinit">E2E_P05CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06protect">E2E_P06Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06protectinit">E2E_P06ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06check">E2E_P06Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p06checkinit">E2E_P06CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07protect">E2E_P07Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07protectinit">E2E_P07ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07check">E2E_P07Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p07checkinit">E2E_P07CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11protect">E2E_P11Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11protectinit">E2E_P11ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11check">E2E_P11Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p11checkinit">E2E_P11CheckInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22protect">E2E_P22Protect函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22protectinit">E2E_P22ProtectInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22check">E2E_P22Check函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e2e-p22checkinit">E2E_P22CheckInit函数定义</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">E2EL产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/E2EL.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="e2el">
+<h1>E2EL产品参考手册<a class="headerlink" href="#e2el" title="Link to this heading"></a></h1>
+<p>1 E2EL模块简介</p>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>E2E
+Library</p></td>
+<td><p>End to End library</p></td>
+<td><p>端到端通讯保护库</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data ID</p></td>
+<td><p>Data Identification</p></td>
+<td><p>一段数据/消息的标识</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E
+profile</p></td>
+<td><p>E2E profile</p></td>
+<td><p>E2E算法</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRC</p></td>
+<td><p>Cyclic Redundancy Check</p></td>
+<td><p>循环冗余校验</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E XF</p></td>
+<td><p>End to End Transformer</p></td>
+<td><p>端到端转换器</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>E2EL模块简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><img alt="image1" src="../../_images/image170.png" />图1-1 E2EL架构图</p>
+<p>E2EL在架构上属于AUTOSAR静态库代码，使用同样属于静态库代码的CRC模块来进行安全数据的保护，E2E
+XF通过把E2EL的相关算法抽象成用户易操作的配置项和配置界面，并根据用户的属于生成代码，来帮助用户更好的使用E2EL来保护数据。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_E2ELibrary.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_CRCLibrary.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>E2EL功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>E2EL功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>E2EL的各个profile提供了一种可以满足功能安全目标的数据保护机制，各个E2E
+profile通过不同的算法和API完成以下类型的数据保护机制：</p>
+<ul class="simple">
+<li><p>集成CRC库的CRC保护机制；</p></li>
+<li><p>接收端检测接收报文的递增计数器，判断接收数据是否有序递增；</p></li>
+<li><p>接收端通过检测心跳计数器判断数据是否发生改变；</p></li>
+<li><p>通过特定的ID来区分不同的I-PDU组；</p></li>
+<li><p>超时检测机制（接收报文超时和发送确认超时）；</p></li>
+<li><p>E2E profiles的用户需要根据自己的应用场景决定选用哪种类型的E2E
+profile；</p></li>
+<li><p>E2E支持的profile有profile1、profile2、profile4、profile5、profile6、profile7、profile11、profile22。</p></li>
+</ul>
+</section>
+<section id="e2elprofile">
+<h4>E2EL各Profile功能介绍<a class="headerlink" href="#e2elprofile" title="Link to this heading"></a></h4>
+<section id="profile1">
+<h5>Profile1<a class="headerlink" href="#profile1" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile1使用CRC-8-SAE J1850算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>4-bit的Sequence counter/alive counter在0-14之间依次递增,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>Profile1通过特定的ID来区分不同的I-PDU组，它分为了四种ID模式。</p>
+<p>Both bytes
+(dataIdMode=0):16位数据ID的两个字节都附加在安全数据上用于CRC计算，但没有显式发送。</p>
+<p>ALT bytes
+(dataIdMode=1)：根据counter的基偶性，来选择高字节还是低字节进行CRC计算。</p>
+<p>Low byte only
+(dataIdMode=2):只有16位数据ID的低字节附加到安全数据进行CRC计算，但不显式发送，高字节设置为0。</p>
+<p>显式传输数据ID nibble (dataIdMode=3):
+16位数据ID的两个字节都附加在安全数据上进行CRC计算，但数据ID高字节的低字节显式传输。在这个16位的数据ID中只使用了12位。</p>
+</section>
+<section id="profile2">
+<h5>Profile2<a class="headerlink" href="#profile2" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile2使用8bit Polynomial为0x2f的算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>4-bit的Sequence counter/alive counter在0-15之间依次递增,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>DataID使用特定的ID来区分不同的I-PDU组，Profile2使用了一个预设的DataID列表，并通过Counter的值来选择DataID列表里的特定的DataID。</p>
+</section>
+<section id="profile4">
+<h5>Profile4<a class="headerlink" href="#profile4" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile4使用32 bit polynomial为0x1F4ACFB13的算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Data Length</p></li>
+</ul>
+<p>Profile4使用16bit的Data Length来支持动态大小的输入数据。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>16-bit的Sequence counter/alive counter,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>DataID使用特定的ID来区分不同的I-PDU组，Profile4使用了全局唯一的32bit的DataID进行显式发送。</p>
+</section>
+<section id="profile5">
+<h5>Profile5<a class="headerlink" href="#profile5" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile5使用16 bit polynomial为0x1021的算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>8-bit的Sequence counter/alive counter,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>DataID使用特定的ID来区分不同的I-PDU组，Profile5使用了全局唯一的16bit的DataID进行隐式发送。</p>
+</section>
+<section id="profile6">
+<h5>Profile6<a class="headerlink" href="#profile6" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile6使用16 bit polynomial为0x1021的算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>8-bit的Sequence counter/alive counter,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>DataID使用特定的ID来区分不同的I-PDU组，Profile5使用了全局唯一的16bit的DataID进行隐式发送。</p>
+<ul class="simple">
+<li><p>Data Length</p></li>
+</ul>
+<p>Profile6使用16bit的Data Length来支持动态大小的输入数据。</p>
+</section>
+<section id="profile7">
+<h5>Profile7<a class="headerlink" href="#profile7" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile7使用64 bit
+polynomial为0x42F0E1EBA9EA3693的算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>32-bit的Sequence counter/alive counter,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>DataID使用特定的ID来区分不同的I-PDU组，Profile7使用了全局唯一的32bit的DataID进行隐式发送。</p>
+<ul class="simple">
+<li><p>Data Length</p></li>
+</ul>
+<p>Profile7使用32bit的Data Length来支持动态大小的输入数据。</p>
+</section>
+<section id="profile11">
+<h5>Profile11<a class="headerlink" href="#profile11" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<p>Profile11使用CRC-8-SAE J1850的算法对数据的完整性进行校验。</p>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>4-bit的Sequence counter/alive counter,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>Profile11通过特定的ID来区分不同的I-PDU组，它分为了三种ID模式：</p>
+<p>Both bytes
+(dataIdMode=0):16位数据ID的两个字节都附加在安全数据上用于CRC计算，但没有显式发送。</p>
+<p>显式传输数据ID nibble (dataIdMode=3):
+16位数据ID的两个字节都附加在安全数据上进行CRC计算，但数据ID高字节的低字节显式传输。在这个16位的数据ID中只使用了12位。</p>
+</section>
+<section id="profile22">
+<h5>Profile22<a class="headerlink" href="#profile22" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>CRC保护</p></li>
+</ul>
+<blockquote>
+<div><p>Profile22使用8bit Polynomial为0x2f的算法对数据的完整性进行校验。</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Sequence counter/alive counter</p></li>
+</ul>
+<p>4-bit的Sequence counter/alive counter,
+递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。</p>
+<ul class="simple">
+<li><p>DataID</p></li>
+</ul>
+<p>DataID使用特定的ID来区分不同的I-PDU组，Profile22使用了一个预设的DataID列表，并通过Counter的值来选择DataID列表里的特定的DataID。</p>
+</section>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2>源文件描述<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>表3-1 E2EL组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P01.c</p></td>
+<td><p>E2E Profile1算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P01.h</p></td>
+<td><p>E2E Profile1算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P02.c</p></td>
+<td><p>E2E Profile2算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P02.h</p></td>
+<td><p>E2E Profile2算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P04.c</p></td>
+<td><p>E2E Profile4算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P04.h</p></td>
+<td><p>E2E Profile4算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P05.c</p></td>
+<td><p>E2E Profile5算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P05.h</p></td>
+<td><p>E2E Profile5算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P06.c</p></td>
+<td><p>E2E Profile1算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P06.h</p></td>
+<td><p>E2E Profile1算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P07.c</p></td>
+<td><p>E2E Profile1算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P07.h</p></td>
+<td><p>E2E Profile1算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P11.c</p></td>
+<td><p>E2E Profile1算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P11.h</p></td>
+<td><p>E2E Profile1算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E_P22.c</p></td>
+<td><p>E2E Profile1算法库源文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E_P22.h</p></td>
+<td><p>E2E Profile1算法库头文件</p></td>
+</tr>
+<tr class="row-even"><td><p>E2E.c</p></td>
+<td><p>E2E状态机管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>E2E.h</p></td>
+<td><p>E2E的共有头文件</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image235.png"><img alt="image2" src="../../_images/image235.png" style="width: 5.76736in; height: 3.80625in;" /></a></p>
+<p>图3-1 E2EL组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id7">
+<h3>类型定义<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="e2e-p01configtype">
+<h4>E2E_P01ConfigType类型定义<a class="headerlink" href="#e2e-p01configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P01ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile1的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01dataidmode">
+<h4>E2E_P01DataIDMode类型定义<a class="headerlink" href="#e2e-p01dataidmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P01DataIDMode</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P01_DATAID_BOTH, E2E_P01_DATAID_ALT,
+E2E_P01_DATAID_LOW, E2E_P01_DATAID_NIBBLE</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>DataID模式</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01protectstatetype">
+<h4>E2E_P01ProtectStateType类型定义<a class="headerlink" href="#e2e-p01protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P01ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile1发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01checkstatetype">
+<h4>E2E_P01CheckStateType类型定义<a class="headerlink" href="#e2e-p01checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P01CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile1接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01checkstatustype">
+<h4>E2E_P01CheckStatusType类型定义<a class="headerlink" href="#e2e-p01checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P01CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P01STATUS_OK</p>
+<p>E2E_P01STATUS_NONEWDATA</p>
+<p>E2E_P01STATUS_WRONGCRC</p>
+<p>E2E_P01STATUS_SYNC</p>
+<p>E2E_P01STATUS_INITIAL</p>
+<p>E2E_P01STATUS_REPEATED</p>
+<p>E2E_P01STATUS_OKSOMELOST</p>
+<p>E2E_P01STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>profile1中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02configtype">
+<h4>E2E_P02ConfigType类型定义<a class="headerlink" href="#e2e-p02configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P02ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile2的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02protectstatetype">
+<h4>E2E_P02ProtectStateType类型定义<a class="headerlink" href="#e2e-p02protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P02ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile2发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02checkstatetype">
+<h4>E2E_P02CheckStateType类型定义<a class="headerlink" href="#e2e-p02checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P02CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile2接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02checkstatustype">
+<h4>E2E_P02CheckStatusType类型定义<a class="headerlink" href="#e2e-p02checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P01CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P02STATUS_OK</p>
+<p>E2E_P02STATUS_NONEWDATA</p>
+<p>E2E_P02STATUS_WRONGCRC</p>
+<p>E2E_P02STATUS_SYNC</p>
+<p>E2E_P02STATUS_INITIAL</p>
+<p>E2E_P02STATUS_REPEATED</p>
+<p>E2E_P02STATUS_OKSOMELOST</p>
+<p>E2E_P02STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile2中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04configtype">
+<h4>E2E_P04ConfigType类型定义<a class="headerlink" href="#e2e-p04configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P04ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile4的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04protectstatetype">
+<h4>E2E_P04ProtectStateType类型定义<a class="headerlink" href="#e2e-p04protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P04ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile4发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04checkstatetype">
+<h4>E2E_P04CheckStateType类型定义<a class="headerlink" href="#e2e-p04checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P04CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile4接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04checkstatustype">
+<h4>E2E_P04CheckStatusType类型定义<a class="headerlink" href="#e2e-p04checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P04CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P04STATUS_OK</p>
+<p>E2E_P04STATUS_NONEWDATA</p>
+<p>E2E_P04STATUS_ ERROR</p>
+<p>E2E_P04STATUS_REPEATED</p>
+<p>E2E_P04STATUS_OKSOMELOST</p>
+<p>E2E_P04STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile4中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05configtype">
+<h4>E2E_P05ConfigType类型定义<a class="headerlink" href="#e2e-p05configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P05ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile5的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05protectstatetype">
+<h4>E2E_P05ProtectStateType类型定义<a class="headerlink" href="#e2e-p05protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P05ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile5发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05checkstatetype">
+<h4>E2E_P05CheckStateType类型定义<a class="headerlink" href="#e2e-p05checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P05CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile5接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05checkstatustype">
+<h4>E2E_P05CheckStatusType类型定义<a class="headerlink" href="#e2e-p05checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P05CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P05STATUS_OK</p>
+<p>E2E_P05STATUS_NONEWDATA</p>
+<p>E2E_P05STATUS_ ERROR</p>
+<p>E2E_P05STATUS_REPEATED</p>
+<p>E2E_P05STATUS_OKSOMELOST</p>
+<p>E2E_P05STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile5中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06configtype">
+<h4>E2E_P06ConfigType类型定义<a class="headerlink" href="#e2e-p06configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P06ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile6的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06protectstatetype">
+<h4>E2E_P06ProtectStateType类型定义<a class="headerlink" href="#e2e-p06protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P06ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile6发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06checkstatetype">
+<h4>E2E_P06CheckStateType类型定义<a class="headerlink" href="#e2e-p06checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P06CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile6接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06checkstatustype">
+<h4>E2E_P06CheckStatusType类型定义<a class="headerlink" href="#e2e-p06checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P06CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P06STATUS_OK</p>
+<p>E2E_P06STATUS_NONEWDATA</p>
+<p>E2E_P06STATUS_ ERROR</p>
+<p>E2E_P06STATUS_REPEATED</p>
+<p>E2E_P06STATUS_OKSOMELOST</p>
+<p>E2E_P06STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile6中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07configtype">
+<h4>E2E_P07ConfigType类型定义<a class="headerlink" href="#e2e-p07configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P07ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile7的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07protectstatetype">
+<h4>E2E_P07ProtectStateType类型定义<a class="headerlink" href="#e2e-p07protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P07ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile7发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07checkstatetype">
+<h4>E2E_P07CheckStateType类型定义<a class="headerlink" href="#e2e-p07checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P07CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile7接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07checkstatustype">
+<h4>E2E_P07CheckStatusType类型定义<a class="headerlink" href="#e2e-p07checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P07CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P07STATUS_OK</p>
+<p>E2E_P07STATUS_NONEWDATA</p>
+<p>E2E_P07STATUS_ ERROR</p>
+<p>E2E_P07STATUS_REPEATED</p>
+<p>E2E_P07STATUS_OKSOMELOST</p>
+<p>E2E_P07STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile7中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11configtype">
+<h4>E2E_P11ConfigType类型定义<a class="headerlink" href="#e2e-p11configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P11ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile11的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11protectstatetype">
+<h4>E2E_P11ProtectStateType类型定义<a class="headerlink" href="#e2e-p11protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P11ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile11发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11checkstatetype">
+<h4>E2E_P11CheckStateType类型定义<a class="headerlink" href="#e2e-p11checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P11CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile11接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11checkstatustype">
+<h4>E2E_P11CheckStatusType类型定义<a class="headerlink" href="#e2e-p11checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P11CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P11STATUS_OK</p>
+<p>E2E_P11STATUS_NONEWDATA</p>
+<p>E2E_P11STATUS_ ERROR</p>
+<p>E2E_P11STATUS_REPEATED</p>
+<p>E2E_P11STATUS_OKSOMELOST</p>
+<p>E2E_P11STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile11中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22configtype">
+<h4>E2E_P22ConfigType类型定义<a class="headerlink" href="#e2e-p22configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P22ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile22的传输数据配置实例</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22protectstatetype">
+<h4>E2E_P22ProtectStateType类型定义<a class="headerlink" href="#e2e-p22protectstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P22ProtectStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile22发送端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22checkstatetype">
+<h4>E2E_P22CheckStateType类型定义<a class="headerlink" href="#e2e-p22checkstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P22CheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile22接收端保护状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22checkstatustype">
+<h4>E2E_P22CheckStatusType类型定义<a class="headerlink" href="#e2e-p22checkstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_P22CheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P22STATUS_OK</p>
+<p>E2E_P22STATUS_NONEWDATA</p>
+<p>E2E_P22STATUS_ ERROR</p>
+<p>E2E_P22STATUS_REPEATED</p>
+<p>E2E_P22STATUS_OKSOMELOST</p>
+<p>E2E_P22STATUS_WRONGSEQUENCE</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Profile22中数据的校验结果。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-pcheckstatustype">
+<h4>E2E_PCheckStatusType类型定义<a class="headerlink" href="#e2e-pcheckstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_PCheckStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_P_OK</p>
+<p>E2E_P_REPEATED</p>
+<p>E2E_P_WRONGSEQUENCE</p>
+<p>E2E_P_ERROR</p>
+<p>E2E_P_NOTAVAILABLE</p>
+<p>E2E_P_NONEWDATA</p>
+<p>reserved</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>一个周期内单个数据的接收状态，和profile无关</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-smconfigtype">
+<h4>E2E_SMConfigType类型定义<a class="headerlink" href="#e2e-smconfigtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_SMConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>E2E状态的总体初始化配置</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-smcheckstatetype">
+<h4>E2E_SMCheckStateType类型定义<a class="headerlink" href="#e2e-smcheckstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_SMCheckStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>接收端的检查状态</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-smstatetype">
+<h4>E2E_SMStateType类型定义<a class="headerlink" href="#e2e-smstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>E2E_SMStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>E2E_SM_VALID</p>
+<p>E2E_SM_DEINIT</p>
+<p>E2E_SM_NODATA</p>
+<p>E2E_SM_INIT</p>
+<p>E2E_SM_INVALID</p>
+<p>reserved</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>整个系统的E2E检查状态，只有为E2E_SM_VALID时数据才可信</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id8">
+<h3>输入函数描述<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CRC</p></td>
+<td><p>Crc_CalculateCRC8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_CalculateCRC16</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_CalculateCRC32P4</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_CalculateCRC8H2F</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_CalculateCRC64</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>静态接口函数定义<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<section id="e2e-p01protect">
+<h4>E2E_P01Protect函数定义<a class="headerlink" href="#e2e-p01protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P01Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P01Protect(
+E2
+E_P01ConfigType*
+ConfigPtr,
+E2E_P01P
+rotectStateType*
+StatePtr, uint8*
+DataPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过本
+API实现传输数据基
+于Profile1算法的
+保护。包含了校验
+值计算、couter和D
+ataID的处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01protectinit">
+<h4>E2E_P01ProtectInit函数定义<a class="headerlink" href="#e2e-p01protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+2E_P01ProtectInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2
+E_P01ProtectInit(
+E2E_P01P
+rotectStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect
+State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01check">
+<h4>E2E_P01Check函数定义<a class="headerlink" href="#e2e-p01check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P01Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P01Check(
+E2
+E_P01ConfigType*
+Config,
+E2E_P0
+1CheckStateType*
+State, uint8*
+Data )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Config</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Data</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>State：Pointer to
+port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过Profile1算
+法检查接收数据，
+包括CRC计算、Coun
+ter和DataID的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p01checkinit">
+<h4>E2E_P01CheckInit函数定义<a class="headerlink" href="#e2e-p01checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P01CheckInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P01CheckInit(
+E2E_P0
+1CheckStateType*
+State )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>State：Pointer to
+port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02protect">
+<h4>E2E_P02Protect函数定义<a class="headerlink" href="#e2e-p02protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P02Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P02Protect(
+E2
+E_P02ConfigType*
+ConfigPtr,
+E2E_P02P
+rotectStateType*
+StatePtr, uint8*
+DataPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过本
+API实现传输数据基
+于Profile2算法的
+保护。包含了校验
+值计算、couter和D
+ataID的处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02protectinit">
+<h4>E2E_P02ProtectInit函数定义<a class="headerlink" href="#e2e-p02protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+2E_P02ProtectInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2
+E_P02ProtectInit(
+E2E_P02P
+rotectStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect
+State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02check">
+<h4>E2E_P02Check函数定义<a class="headerlink" href="#e2e-p02check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P02Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P02Check(
+E2
+E_P02ConfigType*
+ConfigPtr,
+E2E_P0
+2CheckStateType*
+StatePtr, uint8*
+DataPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td><p>值域</p></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过Profile2算
+法检查接收数据，
+包括CRC计算、Coun
+ter和DataID的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p02checkinit">
+<h4>E2E_P02CheckInit函数定义<a class="headerlink" href="#e2e-p02checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P02CheckInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P02CheckInit(
+E2E_P0
+2CheckStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04protect">
+<h4>E2E_P04Protect函数定义<a class="headerlink" href="#e2e-p04protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P04Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P04Protect(
+E2
+E_P04ConfigType*
+ConfigPtr,
+E2E_P04P
+rotectStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过本
+API实现传输数据基
+于Profile4算法的
+保护。包含了校验
+值计算、couter和D
+ataID的处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04protectinit">
+<h4>E2E_P04ProtectInit函数定义<a class="headerlink" href="#e2e-p04protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+2E_P04ProtectInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2
+E_P04ProtectInit(
+E2E_P04P
+rotectStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect
+State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04check">
+<h4>E2E_P04Check函数定义<a class="headerlink" href="#e2e-p04check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P04Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P04Check(
+E2
+E_P04ConfigType*
+ConfigPtr,
+E2E_P0
+4CheckStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x23</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过Profile4算
+法检查接收数据，
+包括CRC计算、Coun
+ter和DataID的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p04checkinit">
+<h4>E2E_P04CheckInit函数定义<a class="headerlink" href="#e2e-p04checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P04CheckInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P04CheckInit(
+E2E_P0
+4CheckStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x24</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05protect">
+<h4>E2E_P05Protect函数定义<a class="headerlink" href="#e2e-p05protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P05Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P05Protect(
+E2
+E_P05ConfigType*
+ConfigPtr,
+E2E_P05P
+rotectStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x26</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过本
+API实现传输数据基
+于Profile5算法的
+保护。包含了校验
+值计算、couter和D
+ataID的处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05protectinit">
+<h4>E2E_P05ProtectInit函数定义<a class="headerlink" href="#e2e-p05protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+2E_P05ProtectInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2
+E_P05ProtectInit(
+E2E_P05P
+rotectStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x27</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect
+State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05check">
+<h4>E2E_P05Check函数定义<a class="headerlink" href="#e2e-p05check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P05Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P05Check(
+E2
+E_P05ConfigType*
+ConfigPtr,
+E2E_P0
+5CheckStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x28</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过Profile5算
+法检查接收数据，
+包括CRC计算、Coun
+ter和DataID的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p05checkinit">
+<h4>E2E_P05CheckInit函数定义<a class="headerlink" href="#e2e-p05checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P05CheckInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P05CheckInit(
+E2E_P0
+4CheckStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x29</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06protect">
+<h4>E2E_P06Protect函数定义<a class="headerlink" href="#e2e-p06protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P06Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P06Protect(
+E2
+E_P06ConfigType*
+ConfigPtr,
+E2E_P06P
+rotectStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过本
+API实现传输数据基
+于Profile6算法的
+保护。包含了校验
+值计算、couter和D
+ataID的处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06protectinit">
+<h4>E2E_P06ProtectInit函数定义<a class="headerlink" href="#e2e-p06protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+2E_P06ProtectInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2
+E_P06ProtectInit(
+E2E_P06P
+rotectStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect
+State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06check">
+<h4>E2E_P06Check函数定义<a class="headerlink" href="#e2e-p06check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P06Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P06Check(
+E2
+E_P06ConfigType*
+ConfigPtr,
+E2E_P0
+6CheckStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过Profile6算
+法检查接收数据，
+包括CRC计算、Coun
+ter和DataID的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p06checkinit">
+<h4>E2E_P06CheckInit函数定义<a class="headerlink" href="#e2e-p06checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P06CheckInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P06CheckInit(
+E2E_P0
+6CheckStateType*
+StatePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07protect">
+<h4>E2E_P07Protect函数定义<a class="headerlink" href="#e2e-p07protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P07Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P07Protect (
+const
+E2
+E_P07ConfigType*
+ConfigPtr,
+E2E_P07P
+rotectStateType*
+StatePtr, uint8*
+DataPtr, uint32
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>NA</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过本
+API实现传输数据基
+于Profile7算法的
+保护。包含了校验
+值计算、couter和D
+ataID的处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07protectinit">
+<h4>E2E_P07ProtectInit函数定义<a class="headerlink" href="#e2e-p07protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P07ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType E2E_P07ProtectInit (
+E2E_P07ProtectStateType* StatePtr )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>StatePtr：Pointer to port/data communication state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E2E_E_INPUTERR_NULL E2E_E_INPUTERR_WRONG E2E_E_INTERR</p>
+<p>E2E_E_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect State</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07check">
+<h4>E2E_P07Check函数定义<a class="headerlink" href="#e2e-p07check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P07Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P07Check(
+E2
+E_P07ConfigType*
+ConfigPtr,
+E2E_P0
+7CheckStateType*
+StatePtr, const
+uint8* DataPtr,
+uint32 Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x23</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过Profile7算
+法检查接收数据，
+包括CRC计算、Coun
+ter和DataID的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p07checkinit">
+<h4>E2E_P07CheckInit函数定义<a class="headerlink" href="#e2e-p07checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P07CheckInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType E2E_P07CheckInit(
+E2E_P07CheckStateType* StatePtr )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x24</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>StatePtr：Pointer to port/data communication state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：E2E_E_INPUTERR_NULL
+E2E_E_INPUTERR_WRONG E2E_E_INTERR E2E_E_OK</p>
+<p>E2E_E_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11protect">
+<h4>E2E_P11Protect函数定义<a class="headerlink" href="#e2e-p11protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P11Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P11Protect (
+const
+E2
+E_P11ConfigType*
+ConfigPtr,
+E2E_P11P
+rotectStateType*
+StatePtr, uint8*
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x3b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过本API实现传
+输数据基于Profil
+e11算法的保护。包
+含了校验值计算、
+couter处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11protectinit">
+<h4>E2E_P11ProtectInit函数定义<a class="headerlink" href="#e2e-p11protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P11ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType E2E_P11ProtectInit (
+E2E_P11ProtectStateType* StatePtr )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x3c</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>StatePtr：Pointer to port/data communication state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E2E_E_INPUTERR_NULL E2E_E_INPUTERR_WRONG E2E_E_INTERR</p>
+<p>E2E_E_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect State</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11check">
+<h4>E2E_P11Check函数定义<a class="headerlink" href="#e2e-p11check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P11Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P11Check(
+E2
+E_P11ConfigType*
+ConfigPtr,
+E2E_P1
+1CheckStateType*
+StatePtr, const
+uint8* DataPtr,
+uint16 Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x38</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过Pr
+ofile11算法检查接
+收数据，包括CRC计
+算、Counter的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p11checkinit">
+<h4>E2E_P11CheckInit函数定义<a class="headerlink" href="#e2e-p11checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P11CheckInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType E2E_P11CheckInit(
+E2E_P11CheckStateType* StatePtr )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x39</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>StatePtr：Pointer to port/data communication state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：E2E_E_INPUTERR_NULL
+E2E_E_INPUTERR_WRONG E2E_E_OK</p>
+<p>E2E_E_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22protect">
+<h4>E2E_P22Protect函数定义<a class="headerlink" href="#e2e-p22protect" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P22Protect</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P22Protect (
+const
+E2
+E_P22ConfigType*
+ConfigPtr,
+E2E_P2
+2ProtectStateType
+StatePtr, uint8
+DataPtr, uint16
+Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x40</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p>
+<p>DataPtr：Pointer
+to Data to be
+transmitted.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>通过本API实现传
+输数据基于Profil
+e22算法的保护。包
+含了校验值计算、
+couter处理操作。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22protectinit">
+<h4>E2E_P22ProtectInit函数定义<a class="headerlink" href="#e2e-p22protectinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P22ProtectInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType E2E_P22ProtectInit (
+E2E_P22ProtectStateType* StatePtr )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x41</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>StatePtr：Pointer to port/data communication state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：</p>
+<p>E2E_E_INPUTERR_NULL E2E_E_INPUTERR_WRONG E2E_E_INTERR</p>
+<p>E2E_E_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Protect State</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22check">
+<h4>E2E_P22Check函数定义<a class="headerlink" href="#e2e-p22check" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P22Check</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+E2E_P22Check (
+const
+E2
+E_P22ConfigType*
+ConfigPtr,
+<a href="#id10"><span class="problematic" id="id11">E2E_</span></a>
+P22CheckStateType
+StatePtr, const
+uint8* DataPtr,
+uint16 Length )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x3d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to static
+configuration.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td></td>
+<td><p>Pointer to received
+data.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td></td>
+<td><p>Length of the data in
+bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>StatePtr：Pointer
+to port/data
+communication
+state.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnType：E2
+E_E_INPUTERR_NULL
+E2E
+_E_INPUTERR_WRONG
+E2E_E_INTERR
+E2E_E_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通过Pr
+ofile22算法检查接
+收数据，包括CRC计
+算、Counter的处理</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e2e-p22checkinit">
+<h4>E2E_P22CheckInit函数定义<a class="headerlink" href="#e2e-p22checkinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E2E_P22CheckInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType E2E_P22CheckInit(
+E2E_P22CheckStateType* StatePtr )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x3e</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>StatePtr：Pointer to port/data communication state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType：E2E_E_INPUTERR_NULL
+E2E_E_INPUTERR_WRONG E2E_E_OK</p>
+<p>E2E_E_OK</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化Check State</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="DoIP.html" class="btn btn-neutral float-left" title="DoIP产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="E2EXf.html" class="btn btn-neutral float-right" title="E2EXf产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

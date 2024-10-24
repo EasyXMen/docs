@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlashTest_集成手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LinMaster_集成手册" href="LinMaster.html" />
+    <link rel="prev" title="EthTSyn_集成手册" href="EthTSyn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FlashTest_集成手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">缩写词和术语</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">参考文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">FlashTest集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#orientais-configurator">新建ORIENTAIS Configurator配置工程及模块加载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">模块配置及生产代码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">模块配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">功能集成</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">代码集成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">集成注意事项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">集成示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">集成目标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">模块的配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flststgeneral">FlsTstGeneral配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flststconfigset">FlsTstConfigSet配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flststconfigurationofapiservices">FlsTstConfigurationOfApiServices配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flststdemeventparameterrefs">FlsTstDemEventParameterRefs配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">源代码集成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crc">CRC结果存放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">FlashTest调度集成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">验证结果</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">验证前台测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">验证后台测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FlashTest_集成手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/集成手册/FlashTest.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flashtest">
+<h1>FlashTest_集成手册<a class="headerlink" href="#flashtest" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>目标<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>本文档用于指导客户进行FlashTest集成，文档主要包括FlashTest集成指导、基于普通应用的集成示例讲解、项目集成特殊说明。</p>
+<p>通过阅读本文档，用户可以了解代码集成过程，ORIENTAIS配置工具的配置过程，以及如何应用配置工具生成的配置文件。由于各项目的需求不同，集成示例不会针对于特定的商业项目做详细讲解。</p>
+</section>
+<section id="id2">
+<h2>缩写词和术语<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">表格 2‑1 缩写词</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ECU</p></td>
+<td><p>Electric Control Unit 电气控制单元</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRC</p></td>
+<td><p>Cyclic Redundancy Check 循环冗余校验</p></td>
+</tr>
+<tr class="row-even"><td><p>MCAL</p></td>
+<td><p>Microcontroller Abstraction Layer 单片机抽象层</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEM</p></td>
+<td><p>Diagnostic Event Manager 诊断事件管理器</p></td>
+</tr>
+<tr class="row-even"><td><p>OS</p></td>
+<td><p>Operating System 操作系统</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECC</p></td>
+<td><p>Error Correction Code 错误校正码</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">表格 2‑2 术语</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>术语</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Background
+test</p></td>
+<td><p>后台测试由调度程序周期性
+地调用，并且是可中断的。测试被划分到许多计划任务中。</p>
+<p>Background test is called periodically by a
+scheduler, and is interruptible. The test is split
+up over many scheduled tasks.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Foreground
+test</p></td>
+<td><p>前台测试通过用户来调用。</p>
+<p>Foreground test is called via users call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Flash cell</p></td>
+<td><p>要寻址的最小实体，在本例中为字节应使用。</p>
+<p>Smallest entity to be addressed, in this case bytes
+shall be used</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Invariable
+memory</p></td>
+<td><p>不变存储器可以是PFlash、
+PSRAM、锁定缓存和只读存储器。</p>
+<p>Invariable memory can be program flash, program
+SRAM, locked cache and ROM</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Test block</p></td>
+<td><p>定义了要在前台和后台模式下测试的内存区域。</p>
+<p>Defined memory area to be tested in foreground and
+background mode.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Test interval</p></td>
+<td><p>在后台模式下完成一次Flash测试的时间间隔</p>
+<p>Interval of a complete Flash test in background
+mode.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Test time</p></td>
+<td><p>在一个计划任务中定义的部分测试时间。</p>
+<p>Time for partial test defined within one scheduled
+task.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Signature</p></td>
+<td><p>特定内存块内容的唯一计算结果。</p>
+<p>Unique calculation result of the content of a
+specific memory block.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Memory block</p></td>
+<td><p>定义的内存区域。</p>
+<p>Defined memory area.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2>参考文档<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>暂无</p>
+</section>
+<section id="id4">
+<h2>FlashTest集成<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>项目交付的内容为：FlashTest源码和ORIENTAIS
+Configurator配置工具。FlashTest各配置模块的功能介绍，参见表4-1
+FlashTest各配置模块介绍。</p>
+<p>使用FlashTest源码和配置工具，进行FlashTest的集成的步骤，参见表 4‑2
+FlashTest集成的步骤。</p>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">表 4‑1 FlashTest各配置模块介绍</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>模
+块名</strong></p></td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Fl
+ashTest</p></td>
+<td><p>内存块测试块配置。</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">表 4‑2 FlashTest集成的步骤</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>步
+骤
+*</em></p>
+</td>
+<td><p><strong>操作</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>ORIENTAIS
+Configurator配置工具工
+程搭建和FlashTest模块加载</p></td>
+<td><p>若配置工具已经搭建，则
+仅需进行FlashTest模块的加载操作。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>模块配置及配置文件生成</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>代码集成</p></td>
+<td><p>现有工程、Flas
+hTest源代码和配置生成文件的集成。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>验证测试</p></td>
+<td><p>NA</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：FlashTest模块前台测试，为了更好的计算性能依赖硬件的CRC和DMA功能，FlashTest集成之前，用户须确保已经有基础工程，且FlashTest相关的其他协议栈能正常工作。</strong></p>
+<section id="orientais-configurator">
+<h3>新建ORIENTAIS Configurator配置工程及模块加载<a class="headerlink" href="#orientais-configurator" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>安装ORIENTAIS Configurator软件后，双击软件图标打开软件。</p></li>
+</ol>
+<figure class="align-default" id="id22">
+<a class="reference internal image-reference" href="../../_images/image1172.png"><img alt="../../_images/image1172.png" src="../../_images/image1172.png" style="width: 4.49005in; height: 3.25694in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 4‑1软件主界面</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>菜单栏File🡪New🡪Project，新建工程。</p></li>
+</ol>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="../../_images/image2129.png"><img alt="../../_images/image2129.png" src="../../_images/image2129.png" style="width: 4.7132in; height: 3.42708in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 4‑2新建工程</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。 <a class="reference internal" href="../../_images/image399.png"><img alt="image1" src="../../_images/image399.png" style="width: 3.91027in; height: 3.77253in;" /></a></p></li>
+</ol>
+<p>图 4‑3新建工程</p>
+<ol class="arabic simple" start="4">
+<li><p>在弹出的窗口中输入工程名，选择Finish。</p></li>
+</ol>
+<figure class="align-default" id="id24">
+<a class="reference internal image-reference" href="../../_images/image488.png"><img alt="../../_images/image488.png" src="../../_images/image488.png" style="width: 4.16875in; height: 3.32986in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 4‑4新建工程</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>在弹出的窗口中选择Yes。</p></li>
+</ol>
+<p>图 4‑5完成新建工程</p>
+<ol class="arabic simple" start="6">
+<li><p>选择[Bsw_Builder]，右键单击，选择New ECU Configuration。</p></li>
+</ol>
+<p>图 4‑6新建ECU</p>
+<ol class="arabic simple" start="7">
+<li><p>在弹出的窗口中输入ECU名，然后选择Next。</p></li>
+</ol>
+<p>图 4‑7选择芯片平台</p>
+<ol class="arabic simple" start="8">
+<li><p>在弹出的窗口中勾选需添加的模块，点击Finish。</p></li>
+</ol>
+<p>图 4‑8完成ECU配置</p>
+<ol class="arabic simple" start="9">
+<li><p>新建工程如下所示，步骤⑧中添加的模块已经被加入到工程中。</p></li>
+</ol>
+<p>图 4‑9工程列表界面</p>
+</section>
+<section id="id5">
+<h3>模块配置及生产代码<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<section id="id6">
+<h4>模块配置<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>模块的具体配置，取决于具体的项目需求。配置代码生成</p>
+<ol class="arabic simple">
+<li><p>在ORIENTAIS
+Configurator主界面左方，选择对应的协议栈，单击右键弹出Validate
+All和Generate All菜单。</p></li>
+</ol>
+<p>图 4‑10代码生成</p>
+<ol class="arabic simple" start="2">
+<li><p>选择Validate
+All对本协议栈各配置选项进行校验，没有错误提示信息即校验通过。若有错误信息，请按照错误提示修改。</p></li>
+<li><p>选择Generate
+All，生成配置文件。右下角的Console窗口输出生成的配置文件信息。</p></li>
+</ol>
+<p>图 4‑11代码生成提示界面</p>
+<ol class="arabic simple" start="4">
+<li><p>将ORIENTAIS Configurator切换到Resource模式，即可查看生成的配置文件。</p></li>
+</ol>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../../_images/image1241.png"><img alt="../../_images/image1241.png" src="../../_images/image1241.png" style="width: 5.76736in; height: 3.58125in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 4‑12生成的配置文件</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id7">
+<h3>功能集成<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="id8">
+<h4>代码集成<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>FlashTest代码包括两部分：项目提供的FlashTest源码和ORIENTAIS
+Configurator配置生成代码。</p>
+<p>用户须将FlashTest源码和章节4.2.1生成的源代码添加到集成开发工具的对应文件夹。FlashTest集成的文件结构，见章节5.2.4。</p>
+</section>
+<section id="id9">
+<h4>集成注意事项<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>对于集成过程中，FlashTest特殊要求和用户经常出现的问题，归类总结形成表
+4‑3
+FlashTest集成约束清单。用户需逐一排查表中的约束项，以避免集成问题出现。</p>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">表 4‑3 FlashTest集成约束清单</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>编
+号
+*</em></p>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>类别*</em></p>
+</td>
+<td><p><strong>约束限制</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>**
+1**</p></td>
+<td><p>堆栈</p></td>
+<td><p>用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+2**</p></td>
+<td><p>头文件</p></td>
+<td><ul class="simple">
+<li><p>添加协议</p></li>
+</ul>
+<p>栈代码之后，用户需更新集成开发工具中的头文件路径。</p>
+<ul class="simple">
+<li><p>调用协议栈API的源文件，需要包含协议栈的头文件。</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>**
+3**</p></td>
+<td><p>初始化</p></td>
+<td><p>FlashTest的初始化API：FlsTst_Init</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+4**</p></td>
+<td><p>周
+期函数</p></td>
+<td><p>FlsTst_MainFunction需要被周期性任务函数调用。</p></td>
+</tr>
+<tr class="row-even"><td><p>**
+5**</p></td>
+<td><p>前
+台测试</p></td>
+<td><p>前台测试使用CRC3
+2算法依赖硬件CRC和DMA，则需要确保相关驱动程序正常，
+中断开启，以及在硬件CRC计算完成的中断函数设置标志。</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+6**</p></td>
+<td><p>依赖</p></td>
+<td><p>软件依赖</p>
+<ul class="simple">
+<li><p>OS：提供任务调</p></li>
+</ul>
+<p>度周期调用FlsTst_MainFunction提供周期后台测试调度。</p>
+<ul class="simple">
+<li><p>DEM：DEM错误处理函数，该模块不是强制的。</p></li>
+<li><p>DET：处理开发过程中的错误，该模块不是强制的。</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="id10">
+<h2>集成示例<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>本章节向用户展示FlashTest的集成过程。用户可以据此熟悉FlashTest配置工具的配置过程，以及如何应用配置工具生成的配置文件。</p>
+<p>本章节先完成基本FlashTest配置，使得工程可以编译通过，并实现FlashTest测试，然后根据具体需求服务进行添加或修改。</p>
+<p><strong>注意：本示例不代表用户的实际配置情况，用户需要根据自己的实际需求，决定各个参数的配置。</strong></p>
+<section id="id11">
+<h3>集成目标<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>通过搭建基础工程，实现FlashTest测试功能。具体测试功能如下：</p>
+<p>前台测试 - 在前台实现对所配置的Memory
+Block用选定的算法进行。测试块参数配置如表5-1：</p>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">表 5‑1 前台测试测试块参数配置</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>测
+试类型</strong></p></td>
+<td><p><strong>起
+始地址</strong></p></td>
+<td><p><strong>测
+试长度</strong></p></td>
+<td><p><strong>测
+试算法</strong></p></td>
+<td><p>CRC*
+<em>地址*</em></p></td>
+<td><p>**
+测试使用方法**</p></td>
+</tr>
+<tr class="row-even"><td><p>前台测试</p></td>
+<td><p>0x10800</p></td>
+<td><p>0x60000</p></td>
+<td><p>CRC32</p></td>
+<td><p>0xF0010</p></td>
+<td><p>前台测试</p></td>
+</tr>
+</tbody>
+</table>
+<p>后台测试 - 在后台实现对所配置的Memory
+Block分为原子操作，用选定的算法进行异步的细分测试。参数配置如表5-2：</p>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">表 5‑2 后台测试测试块参数配置</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>测
+试类型</strong></p></td>
+<td><p><strong>起
+始地址</strong></p></td>
+<td><p><strong>测试
+长度</strong></p></td>
+<td><p><strong>测
+试算法</strong></p></td>
+<td><p>CRC*
+<em>地址*</em></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>测试使用方法*</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p>后台测试</p></td>
+<td><p>0x10800</p></td>
+<td><p>0x60000</p></td>
+<td><p>CRC32</p></td>
+<td><p>0xF0010</p></td>
+<td><p>后台测试</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>模块的配置<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p>新建配置工程及模块加载操作，请参考本文档4.1章节。生成代码过程请参考章节4.2。</p>
+<section id="flststgeneral">
+<h4>FlsTstGeneral配置<a class="headerlink" href="#flststgeneral" title="Link to this heading"></a></h4>
+<p>在此处进行一些功能的开启与禁用，以及配置FlashTest模块的一些常规功能属性。</p>
+<ol class="arabic simple">
+<li><p>打开FlsTstGeneral模块配置界面。</p></li>
+</ol>
+<figure class="align-default" id="id29">
+<a class="reference internal image-reference" href="../../_images/image1336.png"><img alt="../../_images/image1336.png" src="../../_images/image1336.png" style="width: 4.96417in; height: 5.58043in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5‑1FlsTstGeneral配置界面</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>FlsTstDevErrorDetect</strong>：预处理器开关，以禁用/启用开发时的错误检测。在开发阶段需要开启，在发布时需要关闭。</p>
+<p><strong>FlsTstMainFunctionPeriod</strong>：FlsTst_MainFunction的调用周期,以秒（s）为单位，通常放在低优先级的任务当中，如100ms任务或1s的任务中。</p>
+<p><strong>FlsTstNumberOfTestedCells</strong>：配置在后台测试一次任务测试的Flash单元的数量，后台测试的每次执行计算的字节数量由FlsTstNumberOfTestedCells和FlsTstNumberOfTestedCellsAtomic两个配置项共同决定,具体的配置需根据实际的运算时间估算。</p>
+<p><strong>FlsTstNumberOfTestedCellsAtomic</strong>：定义一个Flash单元的大小，即单次原子操作计算的大小（单位为Bytes）。</p>
+<p><strong>FlsTstTestCompletedNotificationSupported</strong>：预处理器开关，以禁用/启用回调函数功能。</p>
+<p><strong>FlsTstTestIntervalIdEndValue</strong>：定义后台测试的测试间隔ID的最大值。后台测试，对配置的顺序对配置的后台测试下所有的memory
+block完成一次计算，叫做一次测试间隔，每个间隔具有一个ID，每次测试间隔完成后此ID自加1，当这个ID到达配置的最大值时，将会继续从0开始递增。</p>
+<p><strong>FlsTstInitECC</strong>：预处理器开关，以在初始化函数中禁用/启用硬件ECC报错功能，在硬件不支持测试时，通常不开启。</p>
+<p><strong>FlsTstExtendedSafetyMode</strong>：预处理器开关，以禁用/启用扩展安全模式，在扩展安全模式下，FlashTest将在初始化和运行过程中执行更多的检测功能。</p>
+<p><strong>FlsTstFgndTimeOut</strong>：定义前台测试的超时计数值，如执行时间超过配置的超时计数，前台测试将返回错误并退出。一般根据前台测试的时间得出一个经验值。</p>
+<p><strong>FlsTstEcucPartitionRef</strong>：将Flash测试驱动程序映射到零个或一个ECUC分区，以使驱动程序API在该分区中可用。</p>
+<ol class="arabic simple" start="2">
+<li><p>配置FlsTstGeneral模块配置界面。FlashTest模块工具默认配置了相关参数供用户做默认生成，用户应根据实际需求，对相关配置项做出修改。</p></li>
+</ol>
+</section>
+<section id="flststconfigset">
+<h4>FlsTstConfigSet配置<a class="headerlink" href="#flststconfigset" title="Link to this heading"></a></h4>
+<p>此处进行FlashTest 待测Memory
+Block进行配置。FlsTstConfigSet配置页面包含前台测试下的块属性配置和后台测试下的块属性配置，以及回调函数的配置。</p>
+<ol class="arabic simple">
+<li><p>打开FlsTstConfigSet模块配置界面。</p></li>
+</ol>
+<figure class="align-default" id="id30">
+<a class="reference internal image-reference" href="../../_images/image1434.png"><img alt="../../_images/image1434.png" src="../../_images/image1434.png" style="width: 4.87937in; height: 2.96993in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5‑2FlsTstBlockBgnd配置</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>FlsTstBgnds容器在FlsTstConfigSet配置页面中，用于配置后台测试下的块属性。</p>
+<p><strong>FlsTstBgndBlockId：</strong>由配置工具自动计算块ID号，默认从0开始，新建一个块，块ID加1。</p>
+<p><strong>FlsTstBlockBaseAddress：</strong>配置的内存块的起始地址。</p>
+<p><strong>FlsTstBlockSize</strong>：配置的内存块的长度。</p>
+<p><strong>FlsTstSignatureAddress：</strong>当前内存块的签名数据存放的起始地址。</p>
+<p><strong>FlsTstTestAlgorithm：</strong>选择Flash test算法类型。</p>
+<p>FlsTstFgnds容器在FlsTstConfigSet配置页面中，用于配置前台测试下的块属性。配置项和FlsTstBgnds相同。</p>
+<figure class="align-default" id="id31">
+<a class="reference internal image-reference" href="../../_images/image1533.png"><img alt="../../_images/image1533.png" src="../../_images/image1533.png" style="width: 5.76736in; height: 1.7125in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5‑3 FlsTstTestCompletedNotification配置</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>FlsTstTestCompletedNotification</strong>：用于配置后台测试完成时的回调函数，该配置项依赖于FlsTstGenerl下FlsTstTestCompletedNotificationSupported配置项，只有在FlsTstTestCompletedNotificationSupported配置为true时，且不为NULL_PTR时，FlsTstTestCompletedNotification才会生成回调函数相关的代码。</p>
+<ol class="arabic simple" start="2">
+<li><p>配置FlsTstConfigSet相关属性。</p></li>
+</ol>
+<p>用户需关注前台测试和后台测试下的内存块属性，并对FlsTstTestCompletedNotification进行配置。</p>
+<p>在FlsTstConfigSet-&gt;FlsTstConfigSet-&gt;FlsTstBlockBgnds,鼠标点击右键，添加新的Memory
+Block，添加待测的后台测试内存块，并根据配置参数表填写FlsTstBlockbaseAddress、lststBlockSize、FlsTstSignatureAddress的参数，并选择对应的FlsTstTestAlgorithm。</p>
+<p>在FlsTstConfigSet-&gt;FlsTstConfigSet-&gt;FlsTstBlockFgnds,鼠标点击右键，添加新的Memory
+Block，添加待测的前台测试内存块，并根据配置参数表填写FlsTstBlockbaseAddress、lststBlockSize、FlsTstSignatureAddress的参数，并选择对应的FlsTstTestAlgorithm。</p>
+<p>在FlsTstConfigSet-&gt;FlsTstConfigSet容器点击鼠标左键，对FlsTstTestCompletedNotification配置相应的回调函数。</p>
+</section>
+<section id="flststconfigurationofapiservices">
+<h4>FlsTstConfigurationOfApiServices配置<a class="headerlink" href="#flststconfigurationofapiservices" title="Link to this heading"></a></h4>
+<p>此处进行FlashTest功能API的配置。打开模块配置界面，根据实际需求对相关API进行配置。</p>
+<p>图 5‑4 FlsTstConfigurationOfApiServices配置</p>
+</section>
+<section id="flststdemeventparameterrefs">
+<h4>FlsTstDemEventParameterRefs配置<a class="headerlink" href="#flststdemeventparameterrefs" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>选中FlsTstDemEventParameterRefss容器，鼠标右键选择New
+FlsTstDemEventParameterRefs，新建Dem参数引用。</p></li>
+</ol>
+<figure class="align-default" id="id32">
+<a class="reference internal image-reference" href="../../_images/image1730.png"><img alt="../../_images/image1730.png" src="../../_images/image1730.png" style="width: 5.76736in; height: 1.47361in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5‑5 FlsTstDemEventParameterRefs添加</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>选择FlsTstDemEventParameterRefs配置界面。</p></li>
+</ol>
+<figure class="align-default" id="id33">
+<a class="reference internal image-reference" href="../../_images/image1828.png"><img alt="../../_images/image1828.png" src="../../_images/image1828.png" style="width: 5.76736in; height: 1.26111in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5‑6 FlsTstDemEventParameterRefs配置界面</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>勾选FLSTST_E_FLSTST_FAILURE，并从下拉框中选择对应的Dem配置项。（注：需要DEM模块先配置相关的参数）</p></li>
+</ol>
+<figure class="align-default" id="id34">
+<a class="reference internal image-reference" href="../../_images/image1925.png"><img alt="../../_images/image1925.png" src="../../_images/image1925.png" style="width: 4.73154in; height: 3.55848in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5‑7 FLSTST_E_FLSTST_FAILURE配置界面</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id13">
+<h3>源代码集成<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<p>项目交付给用户的工程结构如下：</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/image2023.png"><img alt="../../_images/image2023.png" src="../../_images/image2023.png" style="width: 3.03346in; height: 3.22767in;" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>Config目录，这个目录用来存放配置工具生成的配置文件，FlashTest有关的配置文件放在BSW_Config文件夹中。</p></li>
+<li><p>BSW目录，存放模块相关的源代码。可以看到BSW目录下各个文件夹下是各个模块的源代码。</p></li>
+</ul>
+<p>FlashTest源代码集成步骤如下：</p>
+<ol class="arabic simple">
+<li><p>将5.2章节中ORIENTAIS Configurator生成的配置文件复制到BSW_Config文件
+夹中。</p></li>
+<li><p>将项目提供的协议栈源代码文件复制到BSW/Memory/FlsTst文件夹中。</p></li>
+</ol>
+</section>
+<section id="crc">
+<h3>CRC结果存放<a class="headerlink" href="#crc" title="Link to this heading"></a></h3>
+<p>以S32K146芯片平台做集成示例，使用S32K14X_MCAL4_2_RTM_1_0_4版本的MCAL开发，因其依赖于硬件的CRC和DMA。如果MCAL版本的变更，有关功能需要重新调试和验证。</p>
+<p>在集成时，FlashTest模块需要将CRC等Memory的信息存储在芯片上的固定地址，而在代码的配置阶段，因为本身的代码会引入配置代码，导致当前的CRC值无法确定，配置时只能指定特定的地址，通常只能在代码定版后，对hex文件进行计算，并将CRC结果存放到Hex文件中指定的地址，需要注意CRC值的大小端问题。</p>
+<p>在验证时，如果没有计算hex文件的工具或方法，可以使用另一种方式对Flashtest模块进行集成验证，可以通过代码链接的方式将需要写入的信息链接到指定的地址，这种方式需要修改代码的链接文件。</p>
+<p><a class="reference internal" href="../../_images/image2130.png"><img alt="image2" src="../../_images/image2130.png" style="width: 5.28462in; height: 1.02708in;" /></a></p>
+<p>图 5‑9 链接文件修改 划分区域</p>
+<p><a class="reference internal" href="../../_images/image2226.png"><img alt="image3" src="../../_images/image2226.png" style="width: 5.35198in; height: 1.33125in;" /></a></p>
+<p>图 5‑10 链接文件修改 定义段</p>
+<p>相关代码定义如下：</p>
+<p>const uint8  FlsTst_StoredInfo[] __attribute__
+((section(“.FlsTst_Info “))) =</p>
+<p>{</p>
+<p>        0x5a,0x5a,0x5a,0x5a,</p>
+<p>        0x00,0x00,0x00,0x01,</p>
+<p>        0x00,0x01,0x08,0x00,</p>
+<p>        0x00,0x06,0x00,0x00,</p>
+<p>        0xBF,0x60,0x10,0xA9</p>
+<p>};</p>
+<p>其中，</p>
+<p>0x5A5A5A5A表示FlashTest存储信息的有效标志；</p>
+<p>0x00000001表示当前的Memory Block的个数；</p>
+<p>0x00010800表示第一个Memory block的起始地址</p>
+<p>0x00060000表示第一个Memory block的计算大小</p>
+<p>0xBF6010A9表示第一个Memory block的CRC值。</p>
+<p>在链接文件中，需要对FlsTst_Info这个段，做好链接划分并指定地址。编译下载后，FlashTest所需要的信息即存储在芯片的指定位置。在集成FlashTest模块后，因为CRC值尚无法确定，可通过DEBUG的方式，先通过芯片计算出一个正确的CRC值，再用计算的CRC结果来修改FlsTst_StoredInfo中Memory
+block的CRC值。</p>
+</section>
+<section id="id14">
+<h3>FlashTest调度集成<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>FlashTest调度集成步骤如下：</p>
+<ol class="arabic simple">
+<li><p>FlashTest调度集成，需要逐一排查并实现表 4‑3
+FlashTest集成约束清单所罗列的问题，以避免集成出现差错。</p></li>
+<li><p>编译链接代码，将生成的elf文件烧写进芯片。</p></li>
+</ol>
+<p>初始化代码如下：</p>
+<p>FlsTst_Init(&amp;FlsTst_Config);应在合适的位置进行初始化。</p>
+<p>前台测试代码如下：</p>
+<p>TASK(OsTask_Init)</p>
+<p>{</p>
+<p>    Std_ReturnType FlsTstReturn;</p>
+<p>  FlsTst_TestResultFgndType FgndBlockResult;</p>
+<blockquote>
+<div><p>FlsTstReturn = FlsTst_StartFgnd(0U);</p>
+</div></blockquote>
+<p>  FgndBlockResult = FlsTst_GetTestResultFgnd();</p>
+<p>……</p>
+<p>}</p>
+<p>前台测试代码需要依赖硬件CRC和DMA，用户需要配置对应的中断函数，并在中断函数中实现对FlashTest计算完成的标志置位，实现代码如下：</p>
+<p>void Crcu_AsyncCalculateCrcCompleteNotif()</p>
+<p>{</p>
+<p>    /* Used for FlsTst_StartFgnd */</p>
+<p>    CrcCompleted = 1U;</p>
+<p>}</p>
+<p>后台测试代码如下：</p>
+<p>FlsTst_MainFunction();应放在周期较大，优先级较低的任务中。</p>
+</section>
+<section id="id15">
+<h3>验证结果<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<section id="id16">
+<h4>验证前台测试<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<p>将工程编译通过后，使用调试工具进行调试，当执行FlsTstReturn =
+FlsTst_StartFgnd
+()语句后，FlsTstReturn表示前台测试的执行成功是否成功，再调用FlsTst_GetTestResultFgnd
+()获取前台测试的结果，编译下载调试时，在获取结果后打断点，如果计算的CRC值和存储的CRC值一致，测试结果为FLSTST_OK。</p>
+</section>
+<section id="id17">
+<h4>验证后台测试<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<p>将工程编译通过后，使用调试工具进行调试，周期调用FlsTst_MainFunction()，编译下载仿真时，当后台测试完成时，会调用FlsTst_TestCompletedNotification()回调函数，在回调函数里面再调用FlsTst_GetTestResult()获取结果，可以看见返回测试结果为FLSTST_OK。</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="EthTSyn.html" class="btn btn-neutral float-left" title="EthTSyn_集成手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="LinMaster.html" class="btn btn-neutral float-right" title="LinMaster_集成手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

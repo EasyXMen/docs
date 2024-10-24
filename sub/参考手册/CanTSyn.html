@@ -1,0 +1,1716 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CanTSyn产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Com产品参考手册" href="Com.html" />
+    <link rel="prev" title="CanTrcv产品参考手册" href="CanTrcv.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CanTSyn产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">CanTSyn功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">CanTSyn功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">CanTSyn功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-configtype">CanTSyn_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-transmissionmodetype">CanTSyn_TransmissionModeType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-getversioninfo">CanTSyn_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-init">CanTSyn_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-settransmissionmode">CanTSyn_SetTransmissionMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-rxindication">CanTSyn_RxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-txconfirmation">CanTSyn_TxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsyn-mainfunction">CanTSyn_MainFunction函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">配置列表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cantsyngeneral">CanTSynGeneral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cantsynglobaltimedomain">CanTSynGlobalTimeDomain</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cantsynglobaltimesyncdataidlist">CanTSynGlobalTimeSyncDataIDList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsynglobaltimefupdataidlist">CanTSynGlobalTimeFupDataIDList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsynglobaltimeofsdataidlist">CanTSynGlobalTimeOfsDataIDList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsynglobaltimeofnsdataidlist">CanTSynGlobalTimeOfnsDataIDList</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsynglobaltimemaster">CanTSynGlobalTimeMaster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantsynglobaltimeslave">CanTSynGlobalTimeSlave</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CanTSyn产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/CanTSyn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cantsyn">
+<h1>CanTSyn产品参考手册<a class="headerlink" href="#cantsyn" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>(G)TD</p></td>
+<td><p>(Global) Time Domain</p></td>
+<td><p>（全局）时间域</p></td>
+</tr>
+<tr class="row-odd"><td><p>(G)TM</p></td>
+<td><p>(Global)Time Master</p></td>
+<td><p>（全局）时间主控</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;Bus&gt;TSyn</p></td>
+<td><p>A bus specific Time
+Synchronization module</p></td>
+<td><p>特定总线时间同步模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN</p></td>
+<td><p>Controller Area Network</p></td>
+<td><p>控制器区域网络</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTSyn</p></td>
+<td><p>Time Synchronization
+module for CAN</p></td>
+<td><p>CAN时间同步模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRC</p></td>
+<td><p>Cyclic Redundancy
+Checksum</p></td>
+<td><p>循环冗余检验</p></td>
+</tr>
+<tr class="row-even"><td><p>Debounce
+Time</p></td>
+<td><p>Minimum gap between two
+Tx messages with the same
+PDU</p></td>
+<td><p>同一
+PDU两条发送消息的最小间隔</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEM</p></td>
+<td><p>Diagnostic Event Manager</p></td>
+<td><p>诊断事件管理</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>默认错误跟踪器</p></td>
+</tr>
+<tr class="row-odd"><td><p>DLC</p></td>
+<td><p>Data Length Code</p></td>
+<td><p>数据长度代码</p></td>
+</tr>
+<tr class="row-even"><td><p>FUP
+message</p></td>
+<td><p>Follow-Up message</p></td>
+<td><p>后续消息</p></td>
+</tr>
+<tr class="row-odd"><td><p>OFNS
+message</p></td>
+<td><p>Offset adjustment message</p></td>
+<td><p>偏移调整消息</p></td>
+</tr>
+<tr class="row-even"><td><p>OFS
+message</p></td>
+<td><p>Offset Synchronization
+message</p></td>
+<td><p>偏移同步消息</p></td>
+</tr>
+<tr class="row-odd"><td><p>StbM</p></td>
+<td><p>Synchronized Time-Base
+Manager</p></td>
+<td><p>同步的时间基管理</p></td>
+</tr>
+<tr class="row-even"><td><p>SYNC
+message</p></td>
+<td><p>Time Synchronization
+message</p></td>
+<td><p>时间同步消息</p></td>
+</tr>
+<tr class="row-odd"><td><p>TG</p></td>
+<td><p>Time Gateway</p></td>
+<td><p>时间网关</p></td>
+</tr>
+<tr class="row-even"><td><p>Timesync</p></td>
+<td><p>Time Synchronization</p></td>
+<td><p>时间同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>TS</p></td>
+<td><p>Time Slave</p></td>
+<td><p>时间从属</p></td>
+</tr>
+<tr class="row-even"><td><p>TSD</p></td>
+<td><p>Time Sub-domain</p></td>
+<td><p>时间子域</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>CanTSyn在AutoSAR软件层级架构如下图，其所属于时间同步栈。</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image119.png"><img alt="image1" src="../../_images/image119.png" style="width: 5.8709in; height: 3.68556in;" /></a></p>
+<p>图1-1 CanTSyn所在AutoSAR软件架构</p>
+<p>本文中描述CanTSyn，StbM负责管理时间域，给CanTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。CanTSyn负责Can总线上的时间同步。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>[1] AUTOSAR_SWS_TimeSyncOverCAN.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_SynchronizedTimeBaseManager.pdf，R19-11</p>
+<p>[3] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>CanTSyn功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>CanTSyn功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>CanTSyn模块和StbM模块息息相关，StbM模块提供了时间同步的功能和时钟实例的指针，但不负责在各个总线内的时间分发任务。那么CanTSyn模块就处理了在CAN总线发放时间信息的任务。</p>
+<p>仅仅通过广播的方式把时间信息从Time Masters发送到Time
+Slaves会导致时间不精准，这是因为CAN总线传输仲裁机制以及BSW的延迟。</p>
+</section>
+<section id="id6">
+<h4>CanTSyn功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>我们通过以下的两步算法来尽可能消除这样的延迟：</p>
+<p>发送方（Time
+Master）首先记录当前的同步时间（SYNC）以及本地时间(T0VLT)并在第一个广播信息（所谓的SYNC信息）里，把同步好的时间的秒部分（SYNCSEC）作为内容发送。发送方在收到
+“CAN transmit
+confirmation”时记录时间戳来得到信息实际发送的时间点（T1VLT）。</p>
+<p>接收方（Time Slave）收到信息 “CAN receive
+indication”时记录时间戳来检测信息实际收到的时间点（T2VLT）。</p>
+<p>在第二个广播信息（所谓的FUP（follow-up）信息）里，发送方发送T4作为内容，T4为SYNC消息准备发送和实际发送的时间差（T1VLT-T0VLT）加上T0SYNCNS（同步时间的纳秒部分）（T4=T0SYNCNS+(T1VLT-T0VLT)）。对于发送方来说，此时T0SYNCSEC+T4就为同步时间。</p>
+<p>Time
+Slave现在从SYNC和FUP消息里获取了足够的信息，再加上先前记录的时间戳T2VLT，就可以确定更加确切的时间信息。接收方获取当前的时间戳为T3VLT，再减去T2VLT，我们就将FUP及SYNC消息中的传输延迟包含在内，再加上T0SYNCSEC+T4（Master的同步时间），我们就得到最终的同步时间T5=
+T0SYNCSEC+T4+（T3VLT-T2VLT）。</p>
+<p>至此，Time Master和Time Slave完成时间同步。</p>
+<p>以下图片显示了CAN时间同步机制：</p>
+<p><a class="reference internal" href="../../_images/image215.png"><img alt="image2" src="../../_images/image215.png" style="width: 5.78125in; height: 2.80208in;" /></a></p>
+<p>图2-1 Can时间同步算法</p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2>源文件描述<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<p>表3-1 CanTSyn组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CanTSyn.c</p></td>
+<td><p>包含需
+要使用的宏定义，内部变量，内部函数，全局函数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSyn.h</p></td>
+<td><p>包含需要使用的宏
+定义，类型定义，配置结构体声明，外部函数声明。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTSyn_Cbk.h</p></td>
+<td><p>包含需要使用的宏定义
+，类型定义，配置结构体声明，外部回调函数声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSyn_Cfg.h</p></td>
+<td><p>包含配置宏定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTSyn_Cfg.c</p></td>
+<td><p>包含配置参数结构体。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSyn_MemMap.h</p></td>
+<td><p>CanTSyn模块的内存映射。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image38.png"><img alt="image3" src="../../_images/image38.png" style="width: 5.76736in; height: 3.98958in;" /></a>图3-1 CanTSyn组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>类型定义<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="cantsyn-configtype">
+<h4>CanTSyn_ConfigType类型定义<a class="headerlink" href="#cantsyn-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanTSyn_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>配置参数结构体类型定义</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyn-transmissionmodetype">
+<h4>CanTSyn_TransmissionModeType类型定义<a class="headerlink" href="#cantsyn-transmissionmodetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanTSyn_TransmissionModeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>CANTSYN_TX_OFF</p>
+<p>CANTSYN_TX_ON</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>传输模式</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h3>输入函数描述<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Crc</p></td>
+<td><p>Crc_CalculateCRC8H2F</p></td>
+</tr>
+<tr class="row-odd"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf</p></td>
+<td><p>CanIf_Transmit</p></td>
+</tr>
+<tr class="row-odd"><td><p>StbM</p></td>
+<td><p>StbM_BusGetCurrentTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_BusSetGlobalTime</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_GetCurrentVirtualLocalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_GetOffset</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_GetTimeBaseStatus</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_GetTimeBaseUpdateCounter</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>静态接口函数定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="cantsyn-getversioninfo">
+<h4>CanTSyn_GetVersionInfo函数定义<a class="headerlink" href="#cantsyn-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTSyn_GetVersionInfo</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void CanTSyn_GetVersionInfo (</p>
+<p>Std_VersionInfoType* versioninfo</p>
+<p>)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versionInfoPtr：版本信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取CanTSyn模块版本信息</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyn-init">
+<h4>CanTSyn_Init函数定义<a class="headerlink" href="#cantsyn-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTSyn_Init</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void CanTSyn_Init
+(</p>
+<p>const
+Ca
+nTSyn_ConfigType*
+configPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>configPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>配置结构指针</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化模块。</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyn-settransmissionmode">
+<h4>CanTSyn_SetTransmissionMode函数定义<a class="headerlink" href="#cantsyn-settransmissionmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTSyn_Se
+tTransmissionMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanTSyn_Se
+tTransmissionMode
+(</p>
+<p>uint8 CtrlIdx,</p>
+<p>CanTSyn_Tra
+nsmissionModeType
+Mode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>CAN通道序号</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Mode</p></td>
+<td><p>值域：</p></td>
+<td><p>CANTSYN_TX_OFF
+CANTSYN_TX_ON</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>开
+关发送消息功能。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyn-rxindication">
+<h4>CanTSyn_RxIndication函数定义<a class="headerlink" href="#cantsyn-rxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+TSyn_RxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Can
+TSyn_RxIndication
+(</p>
+<p>PduIdType
+RxPduId,</p>
+<p>const
+PduInfoType*
+PduInfoPtr</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x42</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>对于不同的PDU可
+重入，否则不可。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>RxPduId</p></td>
+<td><p>值域：</p></td>
+<td><p>收到的PDU Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>数据信息指针</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提示从
+下层模块收到PDU。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyn-txconfirmation">
+<h4>CanTSyn_TxConfirmation函数定义<a class="headerlink" href="#cantsyn-txconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Ca
+nTSyn_TxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Ca
+nTSyn_TxConfirmation
+(</p>
+<p>PduIdType TxPduId,</p>
+<p>Std_ReturnType
+result</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x40</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>对于不同的P
+DU可重入，否则不可。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>RxPduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>收到的PDU Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>result</p></td>
+<td><p>值
+域：</p></td>
+<td><p>E_OK：成功发送。</p>
+<p>E_NOT_Ok：发送失败</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>下层模块
+确认发送成功或失败。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyn-mainfunction">
+<h4>CanTSyn_MainFunction函数定义<a class="headerlink" href="#cantsyn-mainfunction" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTSyn_MainFunction</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void CanTSyn_MainFunction (</p>
+<p>void</p>
+<p>)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>模块主函数，循环调用，发送时间同步消息。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id11">
+<h3>可配置函数定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id12">
+<h2>配置<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="id13">
+<h3>配置列表<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<p>表5-1属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>该配置项在配置工具界面显示的名称</p></td>
+</tr>
+<tr class="row-even"><td><p>取值范围</p></td>
+<td><p>该配置项允许的取值区间</p></td>
+</tr>
+<tr class="row-odd"><td><p>默认取值</p></td>
+<td><p>该配置项默认的配置值</p></td>
+</tr>
+<tr class="row-even"><td><p>参数描述</p></td>
+<td><p>该配置项在标准的AUTOSAR_EcucParamDef.arxml文件中的描述</p></td>
+</tr>
+<tr class="row-odd"><td><p>依赖关系</p></td>
+<td><p>该配置项与其他模块或配置项的关系</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsyngeneral">
+<h3>CanTSynGeneral<a class="headerlink" href="#cantsyngeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image44.png"><img alt="image4" src="../../_images/image44.png" style="width: 5.22917in; height: 1.15625in;" /></a></p>
+<p>图5-1 CanTSynGeneral 工具配置</p>
+<p>表5-2 CanTSynGeneral配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanT
+SynDevErrorDetect</p></td>
+<td><p>取值范围</p></td>
+<td><p>True、False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>开关
+错误检测和通知。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynM
+ainFunctionPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>主函数调度周期。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanT
+SynVersionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>True、False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>开关获
+取版本信息接口。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="rubric">Can</p>
+<dl class="simple">
+<dt>TSynR19CbkVersion</dt><dd><dl class="field-list simple">
+<dt class="field-odd">name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>can</p>
+</dd>
+</dl>
+</dd>
+<dt>tsynr19cbkversion</dt><dd><p>:</p>
+</dd>
+</dl>
+<p>class: unnumbered</p>
+</td>
+<td><p>取值范围</p></td>
+<td><p>True、False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>选择C
+anTSyn回调函数为
+R19版本（默认为
+4.2.2 版本）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsynglobaltimedomain">
+<h3>CanTSynGlobalTimeDomain<a class="headerlink" href="#cantsynglobaltimedomain" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image55.png"><img alt="image5" src="../../_images/image55.png" style="width: 5.76181in; height: 1.42292in;" /></a></p>
+<p>图5-2 CanTSynGlobalTimeDomain 工具配置</p>
+<p>表5-3 CanTSynGlobalTimeDomain配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynG
+lobalTimeDomainId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 31</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>时间域ID。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynUse
+ExtendedMsgFormat</p></td>
+<td><p>取值范围</p></td>
+<td><p>True、False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使
+用时间同步扩展格
+式（仅CANFD）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynSynchr
+onizedTimeBaseRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>reference</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引
+用需要的时间基。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>StbMSync
+hronizedTimeBase</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="cantsynglobaltimesyncdataidlist">
+<h4>CanTSynGlobalTimeSyncDataIDList<a class="headerlink" href="#cantsynglobaltimesyncdataidlist" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image65.png"><img alt="image6" src="../../_images/image65.png" style="width: 4.13599in; height: 2.17739in;" /></a></p>
+<p>图5-3 CanTSynGlobalTimeSyncDataIDList工具配置</p>
+<blockquote>
+<div><p>CanTSynGlobalTimeSyncDataIDListElement</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image75.png"><img alt="image7" src="../../_images/image75.png" style="width: 5.23958in; height: 1.10417in;" /></a></p>
+<p>图5-4 CanTSynGlobalTimeSyncDataIdListElement工具配置</p>
+<p>表5-4 CanTSynGlobalTimeSyncDataIdListElement配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynGlobalTim
+eSyncDataIDListIndex</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 15</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于
+CRC计算和信息校
+验SYNC报文的Dat
+aIDList的Index。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不可配，自
+动根据顺序生成。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynGlobalTim
+eSyncDataIDListValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于CRC计算和信
+息校验SYNC报文的
+DataIDList的值。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsynglobaltimefupdataidlist">
+<h4>CanTSynGlobalTimeFupDataIDList<a class="headerlink" href="#cantsynglobaltimefupdataidlist" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image85.png"><img alt="image8" src="../../_images/image85.png" style="width: 5in; height: 2.41667in;" /></a></p>
+<p>图5-5 CanTSynGlobalTimeFupDataIdList工具配置</p>
+<blockquote>
+<div><p>CanTSynGlobalTimeFupDataIDListElement</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image95.png"><img alt="image9" src="../../_images/image95.png" style="width: 5.22917in; height: 1.0625in;" /></a></p>
+<p>图5-6 CanTSynGlobalTimeFupDataIdListElement工具配置</p>
+<p>表5-5 CanTSynGlobalTimeFupDataIdListElement配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynGlobalTim
+eFupDataIDListIndex</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 15</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用
+于CRC计算和信息
+校验FUP报文的Dat
+aIDList的Index。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不可配，自
+动根据顺序生成。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynGlobalTim
+eFupDataIDListValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于CRC计算和信
+息校验SYNC报文的
+DataIDList的值。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsynglobaltimeofsdataidlist">
+<h4>CanTSynGlobalTimeOfsDataIDList<a class="headerlink" href="#cantsynglobaltimeofsdataidlist" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image105.png"><img alt="image10" src="../../_images/image105.png" style="width: 4.54167in; height: 2.5in;" /></a></p>
+<p>图5-7 CanTSynGlobalTimeOfsDataIdList工具配置</p>
+<blockquote>
+<div><p>CanTSynGlobalTimeOfsDataIDListElement</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image1110.png"><img alt="image11" src="../../_images/image1110.png" style="width: 5.26042in; height: 1.02083in;" /></a></p>
+<p>图5-8 CanTSynGlobalTimeOfsDataIdListElement工具配置</p>
+<p>表5-6 CanTSynGlobalTimeOfsDataIdListElement配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynGlobalTime
+OfsDataIDListIndex</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 15</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用
+于CRC计算和信息
+校验OFS报文的Dat
+aIDList的Index。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不可配，自
+动根据顺序生成。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynGlobalTime
+OfsDataIDListValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于CRC计算和信
+息校验OFS报文的
+DataIDList的值。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsynglobaltimeofnsdataidlist">
+<h4>CanTSynGlobalTimeOfnsDataIDList<a class="headerlink" href="#cantsynglobaltimeofnsdataidlist" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image125.png"><img alt="image12" src="../../_images/image125.png" style="width: 5.04167in; height: 3.86458in;" /></a></p>
+<p>图5-9 CanTSynGlobalTimeOfnsDataIdList工具配置</p>
+<blockquote>
+<div><p>CanTSynGlobalTimeOfnsDataIDListElement</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image134.png"><img alt="image13" src="../../_images/image134.png" style="width: 5.30208in; height: 1.04167in;" /></a></p>
+<p>图5-10 CanTSynGlobalTimeOfnsDataIdListElement工具配置</p>
+<p>表5-7 CanTSynGlobalTimeOfnsDataIdListElement配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynGlobalTimeO
+fnsDataIDListIndex</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 15</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于
+CRC计算和信息校
+验OFNS报文的Dat
+aIDList的Index。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不可配，自
+动根据顺序生成。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynGlobalTimeO
+fnsDataIDListValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于CRC计算和信
+息校验OFNS报文的
+DataIDList的值。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsynglobaltimemaster">
+<h4>CanTSynGlobalTimeMaster<a class="headerlink" href="#cantsynglobaltimemaster" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image143.png"><img alt="image14" src="../../_images/image143.png" style="width: 5.5in; height: 1.95833in;" /></a></p>
+<p>图5-11 CanTSynGlobalTimeMaster工具配置</p>
+<p>表5-8 CanTSynGlobalTimeMaster配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynC
+yclicMsgResumeTime</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在立即传
+输之后，间隔多久
+发送第一帧常规循
+环时间同步报文。
+单位：秒。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynGlob
+alTimeDebounceTime</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>SYNC消息和
+FUP消息之间以及O
+FS和OFNS消息之间
+的发送间隔时间。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynGlob
+alTimeTxCrcSecured</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_SUPPORTED/
+C
+RC_NOT_SUPPORTED</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>发送报文的C
+RC校验支持形式。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当其为CRC_SUPPOR
+TED时，若CanTSyn
+GlobalTimeDomain
+Id为0-15，则需配
+置CanTSynGlobalT
+imeSyncDataIDLis
+t和CanTSynGlobal
+TimeFupDataIDLis
+t；若CanTSynGlob
+alTimeDomainId为
+16-31，则需配置C
+anTSynGlobalTime
+OfsDataIDList和C
+anTSynGlobalTime
+OfnsDataIDList。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSyn
+GlobalTimeTxPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>同
+步报文发送周期。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSy
+nImmediateTimeSync</p></td>
+<td><p>取值范围</p></td>
+<td><p>True、False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>开关在主函数
+中对StbM_GetTim
+eBaseUpdateCount
+er()的周期调用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTSynMasterC
+onfirmationTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>发送
+时间同步消息之后
+的确认等待超时。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>CanTSynGlobalTimeMasterPdu</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image152.png"><img alt="image15" src="../../_images/image152.png" style="width: 5.54167in; height: 0.72917in;" /></a></p>
+<p>图5-12 CanTSynGlobalTimeMasterPdu工具配置</p>
+<p>表5-9 CanTSynGlobalTimeMasterPdu配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSy
+nGlobalTimePduRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>发送时间同步消息
+所用的pdu引用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Pdu</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantsynglobaltimeslave">
+<h4>CanTSynGlobalTimeSlave<a class="headerlink" href="#cantsynglobaltimeslave" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image162.png"><img alt="image16" src="../../_images/image162.png" style="width: 5.5in; height: 1.41667in;" /></a></p>
+<p>图5-13 CanTSynGlobalTimeSlave工具配置</p>
+<p>表5-10 CanTSynGlobalTimeSlave配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSynGlobalT
+imeFollowUpTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>等待Follow_Up
+报文的超时时间。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTS
+ynGlobalTimeSequen
+ceCounterJumpWidth</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 15</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>两帧
+SYNC或OFS消息之
+间的最大Sequence
+Counter差。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can
+TSynRxCrcValidated</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_IGNORED/</p>
+<p>CR
+C_NOT_VALIDATED/</p>
+<p>CRC_OPTIONAL/</p>
+<p>CRC_VALIDATED</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收报文的C
+RC校验支持形式。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当其为CRC_OPTI
+ONAL或CRC_VALIDA
+TED时，若CanTSyn
+GlobalTimeDomain
+Id为0-15，则需配
+置CanTSynGlobalT
+imeSyncDataIDLis
+t和CanTSynGlobal
+TimeFupDataIDLis
+t；若CanTSynGlob
+alTimeDomainId为
+16-31，则需配置C
+anTSynGlobalTime
+OfsDataIDList和C
+anTSynGlobalTime
+OfnsDataIDList。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>CanTSynGlobalTimeSlavePdu</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image172.png"><img alt="image17" src="../../_images/image172.png" style="width: 5.54167in; height: 0.72917in;" /></a></p>
+<p>图5-14 CanTSynGlobalTimeSlavePdu工具配置</p>
+<p>表5-11 CanTSynGlobalTimeSlavePdu配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTSyn
+GlobalTimePduRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收报文
+所用的pdu引用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Pdu</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="CanTrcv.html" class="btn btn-neutral float-left" title="CanTrcv产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Com.html" class="btn btn-neutral float-right" title="Com产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

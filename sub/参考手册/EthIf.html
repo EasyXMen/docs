@@ -1,0 +1,4014 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EthIf产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="EthSM产品参考手册" href="EthSM.html" />
+    <link rel="prev" title="EcuM产品参考手册" href="EcuM.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EthIf产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">接口传递功能功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">接口传递功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vlan">Vlan收发功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">状态通知功能介绍</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-configtype">EthIf_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-ethdriverapitype">EthIf_EthDriverApiType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-ethtrcvdriverapitype">EthIf_EthTrcvDriverApiType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-init">EthIf_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-setcontrollermode">EthIf_SetControllerMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-getcontrollermode">EthIf_GetControllerMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-settransceiverwakeupmode">EthIf_SetTransceiverWakeupMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-gettransceiverwakeupmode">EthIf_GetTransceiverWakeupMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-checkwakeup">EthIf_CheckWakeup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-gettransceivermode">EthIf_GetTransceiverMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-providetxbuffer">EthIf_ProvideTxBuffer函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-transmit">EthIf_Transmit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-txconfirmation">EthIf_TxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-rxindication">EthIf_RxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-setphysaddr">EthIf_SetPhysAddr函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-getphysaddr">EthIf_GetPhysAddr函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-updatephysaddrfilter">EthIf_UpdatePhysAddrFilter函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-getcurrenttime">EthIf_GetCurrentTime函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-enableegresstimestamp">EthIf_EnableEgressTimeStamp函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-getegresstimestamp">EthIf_GetEgressTimeStamp函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-getingresstimestamp">EthIf_GetIngressTimeStamp函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-mainfunctionrx">EthIf_MainFunctionRx函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-mainfunctiontx">EthIf_MainFunctionTx函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethif-mainfunctionstate">EthIf_MainFunctionState函数定义</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ethifgeneral">EthIfGeneral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethifconfigset">EthIfConfigSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethifcontroller">EthIfController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethifframeownerconfig">EthIfFrameOwnerConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethifphyscontroller">EthIfPhysController</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethifrxindicationconfig">EthIfRxIndicationConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethifswitch">EthIfSwitch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethiftrcvlinkstatechgconfig">EthIfTrcvLinkStateChgConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethiftxconfirmationconfig">EthIfTxConfirmationConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethiftransceiver">EthIfTransceiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethtrcv-driverapi">EthTrcv_DriverApi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eth-driverapi">Eth_DriverApi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EthIf产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/EthIf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethif">
+<h1>EthIf产品参考手册<a class="headerlink" href="#ethif" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Eth</p></td>
+<td><p>Ethernet Driver (AUTOSAR
+BSW module)</p></td>
+<td><p>AUTOSAR标准以太网驱动模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>EthIf</p></td>
+<td><p>Ethernet Interface
+(AUTOSAR BSW module)</p></td>
+<td><p>AUTOSAR标准以太网接口模块</p></td>
+</tr>
+<tr class="row-even"><td><p>EthTrcv</p></td>
+<td><p>Ethernet Transceiver
+Driver (AUTOSAR BSW
+module)</p></td>
+<td><p>A
+UTOSAR标准以太网收发器模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>TCP</p></td>
+<td><p>Transmission Control
+Protocol</p></td>
+<td><p>传输控制协议</p></td>
+</tr>
+<tr class="row-even"><td><p>UDP</p></td>
+<td><p>User Datagram Protocol</p></td>
+<td><p>用户数据报协议</p></td>
+</tr>
+<tr class="row-odd"><td><p>IP</p></td>
+<td><p>Internet Protocol</p></td>
+<td><p>以太网协议</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>EthIf向上层提供与以太网硬件无关的独立接口，该接口可以支持多个不同的有线或无线以太网控制器和收发器。这些接口按功能可以大体分为模式控制相关的接口、时间同步相关的接口、数据接收发送相关的接口、EthIf本身的初始化或周期任务接口等。</p>
+<p><a class="reference internal" href="../../_images/image198.png"><img alt="image1" src="../../_images/image198.png" style="width: 5.76736in; height: 2.45943in;" /></a></p>
+<p>图1-1 EthIf层次图</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_EthernetInterface.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>接口传递功能功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>接口传递功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>EthIf负责对底层驱动提供给上层模块的接口进行抽象，通过EthDriver提供的接收发送接口实现对以太网数据的收发。</p>
+</section>
+<section id="vlan">
+<h4>Vlan收发功能介绍<a class="headerlink" href="#vlan" title="Link to this heading"></a></h4>
+<p>EthIf负责对VLAN报文的解/加Tag操作，当接收时，通过EthIf传递给上层的以太网报文将在EthIf中提取出VLAN头，并把剩余的数据传递给上层模块。当上层模块需要向下传输报文时，在EthIf中添加VLAN头，并通过合适的Eth通道发送出去。</p>
+</section>
+<section id="id6">
+<h4>状态通知功能介绍<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>EthIf负责向EthSM通知下层EthController和EthTrcv的状态变化。</p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2>源文件描述<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<p>表3-1 EthIf组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>EthIf_cfg.h</p></td>
+<td><p>定义EthIf模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>EthIf _cfg.c</p></td>
+<td><p>定义EthIf模块中链接时用到的配置参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>EthIf.h</p></td>
+<td><p>EthIf模块头文
+件，包含了API函数的扩展声明并定义了端口的数据结构。</p></td>
+</tr>
+<tr class="row-odd"><td><p>EthIf.c</p></td>
+<td><p>DoIP模块源文件，包含了API函数的实现。</p></td>
+</tr>
+<tr class="row-even"><td><p>EthIf _Cbk.h</p></td>
+<td><p>包含EthIf供底层调用的API函数的声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>EthIf_MemMap.h</p></td>
+<td><p>EthIf的内存映射定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>EthIf_Types.h</p></td>
+<td><p>EthIf模块宏定义及数据类型定义。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image240.png"><img alt="image2" src="../../_images/image240.png" style="width: 5.76736in; height: 4.86875in;" /></a></p>
+<p>图3-1 EthIf组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>类型定义<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="ethif-configtype">
+<h4>EthIf_ConfigType类型定义<a class="headerlink" href="#ethif-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>EthIf_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>EthIf配置结构体定义</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-ethdriverapitype">
+<h4>EthIf_EthDriverApiType类型定义<a class="headerlink" href="#ethif-ethdriverapitype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>EthIf_EthDriverApiType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>EthIf通道对应的Eth驱动的API列表</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-ethtrcvdriverapitype">
+<h4>EthIf_EthTrcvDriverApiType类型定义<a class="headerlink" href="#ethif-ethtrcvdriverapitype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>EthIf_EthTrcvDriverApiType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>EthIf通道对应的EthTrcv驱动的API列表</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h3>输入函数描述<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Eth.h</p></td>
+<td><p>Eth_Get-ControllerMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eth_GetPhys-Addr</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eth_ProvideTx-Buffer</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eth_Set-ControllerMode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eth_Transmit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eth_Tx-Confirmation</p></td>
+</tr>
+<tr class="row-even"><td><p>EthSM.h</p></td>
+<td><p>EthSM_Ctrl-ModeIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EthSM_Trcv-LinkStateChg</p></td>
+</tr>
+<tr class="row-even"><td><p>EthTrcv.h</p></td>
+<td><p>EthTrcv_Get-LinkState</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EthTrcv_Get-Transceiver-Mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EthTrcv_Set-Transceiver-Mode</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>静态接口函数定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="ethif-init">
+<h4>EthIf_Init函数定义<a class="headerlink" href="#ethif-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void EthIf_Init (
+const
+E
+thIf_ConfigType*
+CfgPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CfgPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Points to the
+implementation specific
+structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>EthIf初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-setcontrollermode">
+<h4>EthIf_SetControllerMode函数定义<a class="headerlink" href="#ethif-setcontrollermode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id12"><span class="problematic" id="id13">EthIf_</span></a>
+SetControllerMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+<a href="#id14"><span class="problematic" id="id15">EthIf_</span></a>
+SetControllerMode
+( uint8 CtrlIdx,
+Eth_ModeType
+CtrlMode )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CtrlMode</p></td>
+<td><p>值域：</p></td>
+<td><p>ETH_MODE_DOWN： disable
+the controller
+ETH_MODE_ACTIVE：
+enable the controller</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： success
+E_NOT_OK：
+controller mode
+could not be
+changed</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>设
+置controller模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-getcontrollermode">
+<h4>EthIf_GetControllerMode函数定义<a class="headerlink" href="#ethif-getcontrollermode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id16"><span class="problematic" id="id17">EthIf_</span></a>
+GetControllerMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_GetCon
+trollerMode(uint8
+CtrlI
+dx,Eth_ModeType*
+CtrlModePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>CtrlModePtr</p></td>
+<td><p>值域：</p></td>
+<td><p>ETH_MODE_DOWN： the
+controller is disabled
+ETH_MODE_ACTIVE： the
+controller is enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： success
+E_NOT_OK：
+controller could
+not be
+initialized</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获
+取controller模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-settransceiverwakeupmode">
+<h4>EthIf_SetTransceiverWakeupMode函数定义<a class="headerlink" href="#ethif-settransceiverwakeupmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_SetTran
+sceiverWakeupMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_SetTran
+sceiverWakeupMode
+( uint8 TrcvIdx,
+EthTr
+cv_WakeupModeType
+TrcvWakeupMode )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TrcvIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the
+transceiver within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TrcvWakeupMode</p></td>
+<td><p>值域：</p></td>
+<td><p>ETHTRCV_WUM_DISABLE：
+disable transceiver
+wake up
+ETHTRCV_WUM_ENABLE：
+enable transceiver wake
+up ETHTRCV_WUM_CLEAR：
+clears transceiver wake
+up reason</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： success
+E_NOT_OK：
+transceiver wake
+up could not be
+changed or
+wake-up reason
+could not be
+cleared</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>设置Tr
+ansceiver唤醒模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-gettransceiverwakeupmode">
+<h4>EthIf_GetTransceiverWakeupMode函数定义<a class="headerlink" href="#ethif-gettransceiverwakeupmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_GetTran
+sceiverWakeupMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_GetTran
+sceiverWakeupMode
+( uint8 TrcvIdx,
+EthTrcv
+_WakeupModeType*
+TrcvWakeupModePtr
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TrcvIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the
+transceiver within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>TrcvWakeupMode</p></td>
+<td><p>值域：</p></td>
+<td><p>ETHTRCV_WUM_DISABLE：
+transceiver wake up is
+disable
+TRCV_WUM_ENABLE：
+transceiver wake up is
+enable</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： success
+E_NOT_OK：
+transceiver wake
+up mode could not
+be obtained</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取Tr
+ansceiver唤醒模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-checkwakeup">
+<h4>EthIf_CheckWakeup函数定义<a class="headerlink" href="#ethif-checkwakeup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_CheckWakeup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_CheckWakeup
+(
+EcuM
+_WakeupSourceType
+WakeupSource )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x30</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>WakeupSource</p></td>
+<td><p>值域：</p></td>
+<td><p>source (transceiver)
+which initiated the
+wake up event</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Return-Type</p>
+<p>E_OK when
+function has been
+successfully
+executed E_NOT_OK
+when function
+could not be
+successfully
+executed</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>判断Wakeup状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-gettransceivermode">
+<h4>EthIf_GetTransceiverMode函数定义<a class="headerlink" href="#ethif-gettransceivermode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_G
+etTransceiverMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_Ge
+tTransceiverMode(
+uint8 CtrlIdx,
+E
+thTrcv_ModeType*
+TrcvModePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>TrcvModePtr</p></td>
+<td><p>值域：</p></td>
+<td><p>ETHTRCV_MODE_DOWN： the
+transceiver is disabled
+ETHTRCV_MODE_ACTIVE：
+the transceiver is
+enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： success
+E_NOT_OK：
+transceiver mode
+could not be
+obtained</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获
+取transceiver状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-providetxbuffer">
+<h4>EthIf_ProvideTxBuffer函数定义<a class="headerlink" href="#ethif-providetxbuffer" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthI
+f_ProvideTxBuffer</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType
+EthI
+f_ProvideTxBuffer
+( uint8 CtrlIdx,
+Eth_FrameType
+FrameType, uint8
+Priority,
+Eth_BufIdxType*
+BufIdxPtr,
+uint8** BufPtr,
+uint16*
+LenBytePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FrameType</p></td>
+<td><p>值域：</p></td>
+<td><p>Ethernet Frame Type
+(EtherType)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Priority</p></td>
+<td><p>值域：</p></td>
+<td><p>Priority value which
+shall be used for the
+3-bit PCP field of the
+VLAN tag</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>LenBytePtr</p></td>
+<td><p>值域：</p></td>
+<td><p>in： desired length in
+bytes, out： granted
+length in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>BufIdxPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Index to the granted
+buffer resource. To be
+used for subsequent
+requests</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BufPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to the granted
+buffer</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>BUFREQ_OK：
+success
+BUFREQ_E_NOT_OK：
+development error
+detected
+BUFREQ_E_BUSY：
+all buffers in
+use
+BUFREQ_E_OVFL：
+requested buffer
+too large</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供发送buffer</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-transmit">
+<h4>EthIf_Transmit函数定义<a class="headerlink" href="#ethif-transmit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_Transmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_Transmit (
+uint8 CtrlIdx,
+Eth_BufIdxType
+BufIdx,
+Eth_FrameType
+FrameType,
+boolean
+TxConfirmation,
+uint16 LenByte,
+const uint8*
+PhysAddrPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同的Ctrl
+Idx和BufIdx可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BufIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the buffer
+resource</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FrameType</p></td>
+<td><p>值域：</p></td>
+<td><p>Ethernet frame type</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TxConfirmation</p></td>
+<td><p>值域：</p></td>
+<td><p>Activates transmission
+confirmation</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LenByte</p></td>
+<td><p>值域：</p></td>
+<td><p>Data length in byte</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PhysAddrPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Physical target address
+(MAC address) in
+network byte order</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： success
+E_NOT_OK：
+transmission
+failed</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>发送函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-txconfirmation">
+<h4>EthIf_TxConfirmation函数定义<a class="headerlink" href="#ethif-txconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eth
+If_TxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Eth
+If_TxConfirmation
+( uint8 CtrlIdx,
+Eth_BufIdxType
+BufIdx,
+Std_ReturnType
+Result )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BufIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the
+transmitted buffer</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Result</p></td>
+<td><p>值域：</p></td>
+<td><p>E_OK： The transmission
+was successful,
+E_NOT_OK： The
+transmission failed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>发送确认函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-rxindication">
+<h4>EthIf_RxIndication函数定义<a class="headerlink" href="#ethif-rxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+thIf_RxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+E
+thIf_RxIndication
+( uint8 CtrlIdx,
+Eth_FrameType
+FrameType,
+boolean
+IsBroadcast,
+const uint8*
+PhysAddrPtr,
+const
+Eth_DataType*
+DataPtr, uint16
+LenByte )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FrameType</p></td>
+<td><p>值域：</p></td>
+<td><p>Frame type of received
+Ethernet frame</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IsBroadcast</p></td>
+<td><p>值域：</p></td>
+<td><p>parameter to indicate a
+broadcast frame</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PhysAddrPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to Physical
+source address (MAC
+address in network byte
+order) of received
+Ethernet frame</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to payload of
+received Ethernet
+frame.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LenByte</p></td>
+<td><p>值域：</p></td>
+<td><p>Length (bytes) of the
+payload in received
+frame.</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>接收通知函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-setphysaddr">
+<h4>EthIf_SetPhysAddr函数定义<a class="headerlink" href="#ethif-setphysaddr" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_SetPhysAddr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+EthIf_SetPhysAddr
+( uint8 CtrlIdx,
+const uint8*
+PhysAddrPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>相同
+的CtrlIdx不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PhysAddrPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to memory
+containing the physical
+source address (MAC
+address) in network
+byte order.</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>设置phy地址</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-getphysaddr">
+<h4>EthIf_GetPhysAddr函数定义<a class="headerlink" href="#ethif-getphysaddr" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_GetPhysAddr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+EthIf_GetPhysAddr
+( uint8 CtrlIdx,
+uint8*
+PhysAddrPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>PhysAddrPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to memory
+containing the physical
+source address (MAC
+address) in network
+byte order.</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取phy地址</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-updatephysaddrfilter">
+<h4>EthIf_UpdatePhysAddrFilter函数定义<a class="headerlink" href="#ethif-updatephysaddrfilter" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_Upd
+atePhysAddrFilter</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_Upd
+atePhysAddrFilter
+( uint8 CtrlIdx,
+const uint8*
+PhysAddrPtr,
+Eth
+_FilterActionType
+Action )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PhysAddrPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to memory
+containing the physical
+source address (MAC
+address) in network
+byte order.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Action</p></td>
+<td><p>值域：</p></td>
+<td><p>Add or remove the
+address from the
+Ethernet controllers
+filter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： filter was
+successfully
+changed
+E_NOT_OK： filter
+could not be
+changed</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>更
+新phy地址到过滤器</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-getcurrenttime">
+<h4>EthIf_GetCurrentTime函数定义<a class="headerlink" href="#ethif-getcurrenttime" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eth
+If_GetCurrentTime</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Eth
+If_GetCurrentTime
+( uint8 CtrlIdx,
+Eth_Ti
+meStampQualType*
+timeQualPtr,
+Et
+h_TimeStampType*
+timeStampPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>timeQualPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>quality of HW time
+stamp, e.g. based on
+current drift</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>timeStampPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>current time stamp</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK： successful
+E_NOT_OK： failed</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>获取当前时间戳</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-enableegresstimestamp">
+<h4>EthIf_EnableEgressTimeStamp函数定义<a class="headerlink" href="#ethif-enableegresstimestamp" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_Enab
+leEgressTimeStamp</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+EthIf_Enab
+leEgressTimeStamp
+( uint8 CtrlIdx,
+Eth_BufIdxType
+BufIdx )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x23</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BufIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the message
+buffer, where
+Application expects
+egress time stamping</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>启用出口时间戳</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-getegresstimestamp">
+<h4>EthIf_GetEgressTimeStamp函数定义<a class="headerlink" href="#ethif-getegresstimestamp" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_G
+etEgressTimeStamp</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_G
+etEgressTimeStamp
+( uint8 CtrlIdx,
+Eth_BufIdxType
+BufIdx,
+Eth_Ti
+meStampQualType*
+timeQualPtr,
+Et
+h_TimeStampType*
+timeStampPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x24</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to the message
+buffer, where
+Application expects
+ingress time stamping</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>timeQualPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>quality of HW time
+stamp, e.g. based on
+current drift</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>timeStampPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>current time stamp</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Return-Type</p>
+<p>E_OK： success
+E_NOT_OK： failed
+to read time
+stamp.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取出口时间戳</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-getingresstimestamp">
+<h4>EthIf_GetIngressTimeStamp函数定义<a class="headerlink" href="#ethif-getingresstimestamp" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_Ge
+tIngressTimeStamp</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+EthIf_Ge
+tIngressTimeStamp
+( uint8 CtrlIdx,
+Eth_BufIdxType
+BufIdx,
+Eth_Ti
+meStampQualType*
+timeQualPtr,
+Et
+h_TimeStampType*
+timeStampPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x25</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CtrlIdx</p></td>
+<td><p>值域：</p></td>
+<td><p>Index of the Ethernet
+controller within the
+context of the Ethernet
+Interface</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>Pointer to the message
+buffer, where
+Application expects
+ingress time stamping</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>timeQualPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>quality of HW time
+stamp, e.g. based on
+current drift</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>timeStampPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>current time stamp</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Return-Type</p>
+<p>E_OK： success
+E_NOT_OK： failed
+to read time
+stamp.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取入口时间戳</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-mainfunctionrx">
+<h4>EthIf_MainFunctionRx函数定义<a class="headerlink" href="#ethif-mainfunctionrx" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_MainFunctionRx</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void EthIf_MainFunctionRx ( void )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x20</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>EthIf模块
+接收处理函数，轮询模式下检查新接收到数据并发出接收通知</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-mainfunctiontx">
+<h4>EthIf_MainFunctionTx函数定义<a class="headerlink" href="#ethif-mainfunctiontx" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_MainFunctionTx</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void EthIf_MainFunctionTx ( void )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>EthIf模块发送确认处理函数，在轮询模式下发出传输确认</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethif-mainfunctionstate">
+<h4>EthIf_MainFunctionState函数定义<a class="headerlink" href="#ethif-mainfunctionstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>EthIf_MainFunctionState</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void EthIf_MainFunctionState ( void )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>EthIf模块状态处理函数，轮询不同的通信硬件（以太网收
+发器，以太网交换机端口）相关信息，如链路状态、信号质量</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="id11">
+<h2>配置<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<section id="ethifgeneral">
+<h3>EthIfGeneral<a class="headerlink" href="#ethifgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image330.png"><img alt="image3" src="../../_images/image330.png" style="width: 3.88216in; height: 3.87733in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image425.png"><img alt="image4" src="../../_images/image425.png" style="width: 3.83315in; height: 3.99893in;" /></a></p>
+<p>图5-1 EthIfGeneral容器配置图</p>
+<p>表5‑1属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfVl
+anUsed</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the EthIf
+Vlan used ON or OFF.</p>
+<p> true： enabled
+(ON).</p>
+<p> false： disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+thIfDe
+vError
+Detect</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Default
+Error Tracer (Det)
+detection and
+notification ON or
+OFF.</p>
+<p> true： enabled
+(ON).</p>
+<p> false： disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthI
+fEnabl
+eRxInt
+errupt</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+receive interrupt.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthI
+fEnabl
+eTxInt
+errupt</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+the transmit
+interrupt.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthI
+fGetBa
+udRate</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+GetBaudRate API.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Et
+hIfGet
+Counte
+rState</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+GetCounterState API.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+hIfGet
+Transc
+eiverW
+akeupM
+odeApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+EthIf_Get
+TransceiverWakeupMode
+API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthI
+fGloba
+lTimeS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables/Disables the
+Global Time APIs used
+amongst others by
+Global</p>
+<p>Time Synchronization
+over Ethernet.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthIf
+MainFu
+nction
+Period</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies the period
+of main function
+EthIf_MainFunctionRx
+and
+EthIf_MainFunctionTx
+in seconds. Ethernet
+Interface does not
+require this
+information but the
+BSW scheduler.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不能为0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Et
+hIfMai
+nFunct
+ionRxT
+imeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter is
+deprecated and will
+be removed in future.</p>
+<p>Old description：
+Timeout in seconds
+after which the EthIf
+stops to receive</p>
+<p>frames in an
+EthIfMainFunctionRx
+period.</p>
+<p>Tags：</p>
+<p>atp.Status=obsolete</p>
+<p>atp.Stat
+usRevisionBegin=4.2.2</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthIfM
+axTrcv
+sTotal</p></td>
+<td><p>取值范围</p></td>
+<td><p>1..255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Limits the total
+number of
+transceivers.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthIfP
+ublicC
+ddHead
+erFile</p></td>
+<td><p>取值范围</p></td>
+<td><p>1..32 characters</p></td>
+<td><p>默认取值</p></td>
+<td><p>#includ
+e”TCPIP.h”</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Defines header files
+for callback
+functions which shall
+be included in case</p>
+<p>of CDDs. Range of
+characters is 1.. 32.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth
+IfRxIn
+dicati
+onIter
+ations</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Maximum number of
+Ethernet frames per
+Ethernet controller
+polled from</p>
+<p>the Ethernet driver
+within
+EthIf_MainFunctionRx.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+nables
+/
+Di
+sables
+St
+artAut
+oNegot
+iation
+API</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+StartAutoNegotiation
+API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfTr
+cvLink
+StateC
+hgMain
+Reload</p></td>
+<td><p>取值范围</p></td>
+<td><p>1..255</p></td>
+<td><p>默认取值</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies the
+frequency of
+transceiver link
+state change checks
+in each</p>
+<p>period of main
+function
+EthIf_MainFunctionTx.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+thIfVe
+rsionI
+nfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+version info API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthIfV
+ersion
+InfoAp
+iMacro</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+version info API
+macro implementation.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthIfW
+akeUpS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Configures if wakeup
+is supported or not</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfGe
+tCtrlI
+dxList</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Enables / Disables
+GetCtrlIdxList API.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthI
+fMainF
+unctio
+nState
+Period</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies the period
+of main function
+Et
+hIf_MainFunctionState
+in seconds. Ethernet
+Interface does not
+require this
+information but the
+BSW scheduler.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethifconfigset">
+<h3>EthIfConfigSet<a class="headerlink" href="#ethifconfigset" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image522.png"><img alt="image5" src="../../_images/image522.png" style="width: 5.12528in; height: 3.00913in;" /></a></p>
+<p>图5-2EthIfConfigSet容器配置图</p>
+<p>表5‑2属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth
+IfCont
+roller</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This container
+contains the
+configuration of
+EthIfController.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>配置中最少有一个
+EthIfController，
+定义的配置数组名为
+Et
+hIf_ControllerCfgData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth
+IfFram
+eOwner
+Config</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Configuration of
+Ethernet frame owner</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>配置中最少有两
+个EtherIfFrameOwnerCo
+nfig，分别对应ARP和IP</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthIf
+RxIndi
+cation
+Config</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Configuration of
+receive callback
+functions.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthIf
+Switch</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This container
+contains the
+configuration of
+EthIfSwitches.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth
+IfTrcv
+LinkSt
+ateChg
+Config</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies link state
+change callback
+function</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+thIfTx
+Confir
+mation
+Config</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Configuration of
+transmit indication
+callback functions.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfPh
+ysCont
+roller</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This container
+contains the
+configuration of
+EthIfPhysController.
+The usage of
+EthIfEthCtrlRef and
+EthIfWEthCtrlRef is
+exclusive OR.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthI
+fTrans
+ceiver</p></td>
+<td><p>取值范围</p></td>
+<td><p>Container</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This container
+contains the
+configuration of
+EthIfTransceiver. The
+usage of
+EthIfEthTrcvRef and
+EthIfWEthTrcvRefis
+exclusive OR.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethifcontroller">
+<h3>EthIfController<a class="headerlink" href="#ethifcontroller" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image620.png"><img alt="image6" src="../../_images/image620.png" style="width: 5.76736in; height: 2.18819in;" /></a></p>
+<p>图5-3 EthIfController容器配置图</p>
+<p>表5‑3属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthIfC
+trlIdx</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter
+provides a zero-based
+consecutive index of
+the Ethernet</p>
+<p>Communication
+Controllers. Upper
+layer BSW modules and
+the EthIf itself</p>
+<p>use this index to
+identify a Ethernet
+CC.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>新增时自动
+递增，删除时自动递减</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthIfC
+trlMtu</p></td>
+<td><p>取值范围</p></td>
+<td><p>64..9000</p></td>
+<td><p>默认取值</p></td>
+<td><p>1500</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies the maximum
+transmission unit
+(MTU) of the
+EthIfCtrl in [bytes].</p>
+<p>Note： in case a VLAN
+tag is used for the
+EthIfCtrl, the MTU is
+4 bytes smaller han
+the maximum payload
+size of an Ethernet
+frame which can be
+transmitted on the
+network.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>新增时自动
+递增，删除时自动递减</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfMa
+xTxBuf
+sTotal</p></td>
+<td><p>取值范围</p></td>
+<td><p>1..255</p></td>
+<td><p>默认取值</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Limits the total
+number of transmit
+buffers.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthIf
+VlanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..4095</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>A virtual-LAN is
+identified by this
+attribute according
+to IEEE 802.1Q</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>如果EthIf
+VlanUsed配置成STD_OFF
+的情况下，VLANID生成0
+xff，并且这时候不可配</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfPh
+ysCont
+roller</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This container
+contains the
+configuration of
+EthIfPhysController.
+The usage of
+EthIfEthCtrlRef and
+EthIfWEthCtrlRef is
+exclusive OR.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>指向
+EthIf_PhysCont
+rollerCfg结构体的实例</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthIfT
+rcvRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Reference to a
+Ethernet Transceiver.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>引用到EthIf
+TrcvCfg的具体实例，关
+联到EthIfTransceiver</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethifframeownerconfig">
+<h3>EthIfFrameOwnerConfig<a class="headerlink" href="#ethifframeownerconfig" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image719.png"><img alt="image7" src="../../_images/image719.png" style="width: 5.05031in; height: 1.94472in;" /></a></p>
+<p>图5-4 EthIfFrameOwerConfig容器配置图</p>
+<p>表5‑4EthIfFrameOwerConfig属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+hIfFra
+meType</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Selects the Ethernet
+frame type.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthI
+fOwner</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Selects the owner of
+an Ethernet frame
+type. The owner is a
+zero based index into
+the callback function
+configuration
+‘EthI
+fRxIndicationConfig’.
+I.e. an Ethernet
+frame of type IPv4
+(0x800) at index 0
+will call the first
+callback function
+configured in
+‘EthI
+fRxIndicationConfig’.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>配置的值
+不能超过EthIfRxIndic
+ationConfig的配置个数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethifphyscontroller">
+<h3>EthIfPhysController<a class="headerlink" href="#ethifphyscontroller" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image818.png"><img alt="image8" src="../../_images/image818.png" style="width: 4.90543in; height: 1.84995in;" /></a></p>
+<p>图5-5 EthIfPhysController容器配置图</p>
+<p>表5‑5 EthIfPhysController属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthI
+fPhysC
+ontrol
+lerIdx</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter
+provides a zero-based
+consecutive index of
+the physical Ethernet
+controllers. Upper
+layer BSW modules and
+the Ethernet
+Interface itself use
+this index to
+identify a physical
+Ethernet controller.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>新增时自动
+递增，删除时自动递减</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth
+IfEthC
+trlRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联到EthI
+fEthCtrlRef的具体实现</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethifrxindicationconfig">
+<h3>EthIfRxIndicationConfig<a class="headerlink" href="#ethifrxindicationconfig" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image918.png"><img alt="image9" src="../../_images/image918.png" style="width: 5.26221in; height: 2.00034in;" /></a></p>
+<p>图5-6 EthIfRxIdicationConfig容器配置图</p>
+<p>表5‑6 EthIfRxIdicationConfig属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfRx
+Indica
+tionFu
+nction</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies receive
+indication callback
+function.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethifswitch">
+<h3>EthIfSwitch<a class="headerlink" href="#ethifswitch" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1018.png"><img alt="image10" src="../../_images/image1018.png" style="width: 4.768in; height: 1.78779in;" /></a></p>
+<p>图5-7 EthIfSwitch容器配置图</p>
+<p>表5‑7 EthIfSwitch属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+hIfSwi
+tchIdx</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter
+provides a zero-based
+consecutive index of
+the Ethernet
+Interface Switches.
+Upper layer BSW
+modules and the EthIf
+itself use this index
+to identify a
+Ethernet Switch.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>新增时自动
+递增，删除时自动递减</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Et
+hIfSwi
+tchRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Reference to a
+Ethernet Switch,
+which is handled by a
+specific Ethernet
+Switch driver.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethiftrcvlinkstatechgconfig">
+<h3>EthIfTrcvLinkStateChgConfig<a class="headerlink" href="#ethiftrcvlinkstatechgconfig" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1122.png"><img alt="image11" src="../../_images/image1122.png" style="width: 5.19801in; height: 1.99158in;" /></a></p>
+<p>图5-8 EthIfTrcvLinkStateChgConfig容器配置图</p>
+<p>表5‑8 EthIfTrcvLinkStateChgConfig属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthIf
+TrcvLi
+nkStat
+eChgFu
+nction</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies link state
+change callback
+function</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethiftxconfirmationconfig">
+<h3>EthIfTxConfirmationConfig<a class="headerlink" href="#ethiftxconfirmationconfig" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1219.png"><img alt="image12" src="../../_images/image1219.png" style="width: 4.68259in; height: 1.77887in;" /></a></p>
+<p>图5-9 EthIfTxConfirmationConfig容器配置图</p>
+<p>表5‑9 EthIfTxConfirmationConfig属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth
+IfTxCo
+nfirma
+tionFu
+nction</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies transmit
+indication callback
+function</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethiftransceiver">
+<h3>EthIfTransceiver<a class="headerlink" href="#ethiftransceiver" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1316.png"><img alt="image13" src="../../_images/image1316.png" style="width: 4.89895in; height: 1.85517in;" /></a></p>
+<p>图5-10 EthIfTransceiver容器配置图</p>
+<p>表5‑10 EthIfTransceiver属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+thIfTr
+anscei
+verIdx</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter
+provides a zero-based
+consecutive index of
+the Ethernet
+transceivers. Upper
+layer BSW modules and
+the Ethernet
+Interface itself use
+this index to
+identify an Ethernet
+tranceiver.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>新增时自动
+递增，删除时自动递减</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth
+IfEthT
+rcvRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联到EthI
+fEthTrcvRef的具体实现</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethtrcv-driverapi">
+<h3>EthTrcv_DriverApi<a class="headerlink" href="#ethtrcv-driverapi" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1415.png"><img alt="image14" src="../../_images/image1415.png" style="width: 5.30189in; height: 3.00557in;" /></a></p>
+<p>图5-11 EthTrcv_DriverApi容器配置图</p>
+<p>表5‑11 EthTrcv_DriverApi属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+hTrcvN
+ameRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>R
+ef到EthTrcv驱动的名称</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>引用
+的EthTrcvName不能相同</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Et
+<a href="#id18"><span class="problematic" id="id19">hTrcv_</span></a>
+SetTra
+nsceiv
+erWake
+upMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+<a href="#id20"><span class="problematic" id="id21">hTrcv_</span></a>
+GetTra
+nsceiv
+erWake
+upMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EthTr
+cv_Tra
+nsceiv
+erLink
+StateR
+equest</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+<a href="#id22"><span class="problematic" id="id23">hTrcv_</span></a>
+GetTra
+nsceiv
+erMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Et
+<a href="#id24"><span class="problematic" id="id25">hTrcv_</span></a>
+GetLin
+kState</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+<a href="#id26"><span class="problematic" id="id27">hTrcv_</span></a>
+SetTra
+nsceiv
+erMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+thTrcv
+_Check
+Wakeup</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根据E
+thTrcvNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eth-driverapi">
+<h3>Eth_DriverApi<a class="headerlink" href="#eth-driverapi" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1514.png"><img alt="image15" src="../../_images/image1514.png" style="width: 4.96003in; height: 3.08412in;" /></a></p>
+<p>图5-12 Eth_DriverApi容器配置图</p>
+<p>表5‑12 Eth_DriverApi属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EthN
+ameRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Ref</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Ref
+到EthDriver驱动的名称</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>引用的EthName不能相同</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth_Se
+tContr
+ollerM
+odeApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth_Ge
+tContr
+ollerM
+odeApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a href="#id28"><span class="problematic" id="id29">Eth_</span></a>
+Provid
+eTxBuf
+ferApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth
+_Trans
+mitApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth_Se
+tPhysA
+ddrApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth_Ge
+tPhysA
+ddrApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth
+_Updat
+ePhysA
+ddrFil
+terApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eth
+_GetCu
+rrentT
+imeApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a href="#id30"><span class="problematic" id="id31">Eth_</span></a>
+Enable
+Egress
+TimeSt
+ampApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+th_Get
+Egress
+TimeSt
+ampApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Et
+h_GetI
+ngress
+TimeSt
+ampApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Et
+h_Rece
+iveApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eth
+_TxCon
+firmat
+ionApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>API名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>可根
+据EthNameRef自动变更</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="EcuM.html" class="btn btn-neutral float-left" title="EcuM产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="EthSM.html" class="btn btn-neutral float-right" title="EthSM产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

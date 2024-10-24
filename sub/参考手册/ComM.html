@@ -1,0 +1,4285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComM产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ComXf产品参考手册" href="ComXf.html" />
+    <link rel="prev" title="Com产品参考手册" href="Com.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ComM产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#channelpnc">Channel与PNC状态管理功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel">Channel状态机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pnc">PNC状态机</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">功能抑制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managedmanaging">managed通道与managing通道</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comm-initstatustype">ComM_InitStatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-pncmodetype">ComM_PNCModeType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-statetype">ComM_StateType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-modetype">ComM_ModeType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-userhandletype">ComM_UserHandleType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-configtype">ComM_ConfigType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comm-init">ComM_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-deinit">ComM_DeInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-getstatus">ComM_GetStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-getinhibitionstatus">ComM_GetInhibitionStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-requestcommode">ComM_RequestComMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-getmaxcommode">ComM_GetMaxComMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-getrequestedcommode">ComM_GetRequestedComMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-getcurrentcommode">ComM_GetCurrentComMode函数定义、</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-preventwakeup">ComM_PreventWakeUp函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-limitchanneltonocommode">ComM_LimitChannelToNoComMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-limitecutonocommode">ComM_LimitECUToNoComMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-readinhibitcounter">ComM_ReadInhibitCounter函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-resetinhibitcounter">ComM_ResetInhibitCounter函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-setecugroupclassification">ComM_SetECUGroupClassification函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-getversioninfo">ComM_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-nm-networkstartindication">ComM_Nm_NetworkStartIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-nm-networkmode">ComM_Nm_NetworkMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-nm-preparebussleepmode">ComM_Nm_PrepareBusSleepMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-nm-bussleepmode">ComM_Nm_BusSleepMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-nm-restartindication">ComM_Nm_RestartIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-dcm-activediagnostic">ComM_DCM_ActiveDiagnostic函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-dcm-inactivediagnostic">ComM_DCM_InactiveDiagnostic函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-ecum-wakeupindication">ComM_EcuM_WakeUpIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-ecum-pncwakeupindication">ComM_EcuM_PNCWakeUpIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-communicationallowed">ComM_CommunicationAllowed函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-bussm-modeindication">ComM_BusSM_ModeIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-bussm-bussleepmode">ComM_BusSM_BusSleepMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-comcbk-sn">ComM_COMCbk_&lt;sn&gt;函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comm-mainfunction">ComM_MainFunction函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">可配置函数定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swc">SWC服务组件封装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">实现数据类型封装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sr">SR接口封装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cs">CS接口封装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">模式转换接口封装</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commgeneral">ComMGeneral</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#commconfigset">ComMConfigSet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ComM产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/ComM.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comm">
+<h1>ComM产品参考手册<a class="headerlink" href="#comm" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>API</p></td>
+<td><p>Application Programming
+Interface</p></td>
+<td><p>应用程序接口</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswM</p></td>
+<td><p>Basic Software Manager</p></td>
+<td><p>基础软件管理模块</p></td>
+</tr>
+<tr class="row-even"><td><p>BusSM</p></td>
+<td><p>Bus State Manger</p></td>
+<td><p>与总线相关的状态管理模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanSM</p></td>
+<td><p>Can State Manger</p></td>
+<td><p>Can总线状态管理模块</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>默认错误检测模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>NM</p></td>
+<td><p>Network Management</p></td>
+<td><p>网络管理</p></td>
+</tr>
+<tr class="row-even"><td><p>PDU</p></td>
+<td><p>Protocol Data Unit</p></td>
+<td><p>协议数据单元</p></td>
+</tr>
+<tr class="row-odd"><td><p>PN</p></td>
+<td><p>Partial Network</p></td>
+<td><p>部分网络</p></td>
+</tr>
+<tr class="row-even"><td><p>PNC</p></td>
+<td><p>Partial Network Cluster</p></td>
+<td><p>部分网络集群</p></td>
+</tr>
+<tr class="row-odd"><td><p>ERA</p></td>
+<td><p>External Request Array</p></td>
+<td><p>外部请求集合</p></td>
+</tr>
+<tr class="row-even"><td><p>EIRA</p></td>
+<td><p>External and Internal
+Request Array</p></td>
+<td><p>外部和内部请求集合</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM</p></td>
+<td><p>Communication Manager</p></td>
+<td><p>通讯管理模块</p></td>
+</tr>
+<tr class="row-even"><td><p>DCM</p></td>
+<td><p>Diagnostic Communication
+Manager</p></td>
+<td><p>诊断通讯管理模块</p></td>
+</tr>
+<tr class="row-odd"><td><p>BusNm</p></td>
+<td><p>Bus Network Management</p></td>
+<td><p>与总线相关的网络管理模块</p></td>
+</tr>
+<tr class="row-even"><td><p>NvM</p></td>
+<td><p>Non-Volatile Manager</p></td>
+<td><p>非易失性管理器</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>ComM（COM
+Manage，通信管理）模块是一个资源管理器，它封装了对基础通信服务的控制。ComM模块控制与通信相关的基础软件模块，它收集来自通信请求者的总线通信访问请求，并进行协调。</p>
+<p><a class="reference internal" href="../../_images/image130.png"><img alt="image1" src="../../_images/image130.png" style="width: 5.76736in; height: 3.43056in;" /></a></p>
+<p>图1-1 ComM在AUTOSAR中的位置</p>
+<p>ComM模块的目的是：</p>
+<p>为用户简化总线通信栈的使用，包括简化的网络管理处理。</p>
+<p>协调一个ECU上多个独立软件组件的总线通信栈的可用性(允许发送和接收信号)。</p>
+<p>提供一个API来禁用发送信号，以防止ECU(主动地)唤醒通信总线。</p>
+<p>通过为每个通道实现通道状态机来控制ECU的多个通信总线通道。</p>
+<p>提供迫使ECU保持总线唤醒的“无通讯”模式的可能性。</p>
+<p>通过分配请求的通信模式所需的所有资源来简化资源管理。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_COMManager.pdf</p>
+<p>[2] AUTOSAR_SWS_NetworkManagementInterface.pdf</p>
+<p>[3] AUTOSAR_SWS_BSWModeManager.pdf</p>
+<p>[4] AUTOSAR_SWS_ECUStateManager.pdf</p>
+<p>[5] AUTOSAR_SWS_DiagnosticCommunicationManager.pdf</p>
+<p>[6] AUTOSAR_SWS_COM.pdf</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="channelpnc">
+<h3>Channel与PNC状态管理功能<a class="headerlink" href="#channelpnc" title="Link to this heading"></a></h3>
+<p>AUTOSAR中，通过ComM系统服务实现对通信状态的管理。用户上电唤醒时通过主动请求通信FULL_COMMUNICATION或被动唤醒通知，用户休眠时请求NO_COMMUNICATION释放通信，ComM接收到请求后通过相应总线的SM模块和NM模块实现对总线通信状态的切换。用户无需再与各个通信总线的状态管理模块和网络管理模块进行交互。一个用户可以对应多个通道和多个PNC。当用户请求FULL_COMMUNICATION来请求通信时，该用户对应的所有channel和PNC都需要切换为FULL_COMMUNICATION的状态。在发生被动唤醒时，例如由ECUM发出的唤醒请求或者由网络管理模块发出的重启通信请求，对应的channel和PNC需要切换为FULL_COMMUNICATION的状态。ComM为每个channel和每个PNC都提供一个独立的状态机。</p>
+<p>ComM模块实现了PNC(局域网络集群)管理功能，在ComM中可配置PNC，并且该PNC可以被通道和用户所引用，每个PNC在总线上使用NM用户数据中位向量中的专用位位置。如果节点上的本地ComM用户请求了PNC，则该节点会将NM用户数据中的相应位设置为1。如果不再请求PNC，节点将NM用户数据中的相应位设置为0。BusNm收集并聚集PNC的NM用户数据，并通过以下方式提供状态：通过COM信号向ComM发送COM位向量。ComM通过信号的内容，更新PNC状态机的状态。</p>
+<p>PNC可以设置为网关类型和非网关类型，网关类型主要用于当局域网连接到一个以上的通道时，需要进行协调，通道可以配置为Active（主动）类型和Passive（被动）类型，Passive类型存在于当被动协调通道连接到多个PNC网关。
+如果启用了ComM的PNC网关功能（ComMPNCGatewayEnabled =
+true）可以将映射到此网关的ComM通道设置为主动或被动类型（COMM_GATEWAY_TYPE_ACTIVE或COMM_GATEWAY_TYPE_PASSIVE）。
+如果ComM通道映射到两个不同的PNC网关，则只有一个网关主动协调此通道，而另一个则被动协调。这意味着，PNC网关始终映射到至少一个ComM通道类型为主动，并且可以映射到一个或多个ComM通道类型为被动。当PNC只要有一个Active通道收到ERA中为请求，则Passive通道发送当前PNC为请求的Nm
+Pdu；当前Gateway
+的PNC中所有Active通道收到ERA标识PNC为释放状态，发送当前PNC为释放的Nm
+Pdu；这种表现可以简单理解为Gateway 从Active 通道向Passive转发ERA
+PNC信息。</p>
+<section id="channel">
+<h4>Channel状态机<a class="headerlink" href="#channel" title="Link to this heading"></a></h4>
+<p>ComM为每个通道都实现了一个状态机，ComM通道有三个主要状态，分别为COMM_NO_COMMUNICATION、COMM_SILENT_COMMUNICATION、COMM_FULL_COMMUNICATION，其中COMM_SILENT_COMMUNICATION状态用于网络管理内部状态同步，用户不可请求。COMM_NO_COMMUNICATI-</p>
+<p>ON内部包含COMM_NO_COM_NO_PENDING_REQUEST和COMM_NO_CO-</p>
+<p>M_REQUEST_PENDING两个子状态，COMM_FULL_COMMUNICATION内部包含COMM_FULL_COM_NETWORK_REQUESTED和COMM_FULL_COM_-</p>
+<p>READY_SLEEP两个子状态。ComM通道状态机如下图所示。</p>
+<p><a class="reference internal" href="../../_images/image219.png"><img alt="image2" src="../../_images/image219.png" style="width: 5.76736in; height: 6.00417in;" /></a>图2-1 ComM通道状态机</p>
+</section>
+<section id="pnc">
+<h4>PNC状态机<a class="headerlink" href="#pnc" title="Link to this heading"></a></h4>
+<p>ComM为每个PNC（局域网集群）实现一个状态机，每个PNC都有其自己的状态，通过配置映射，PNC的状态与channel的状态有关。ComM用户可以请求和释放PNC，系统通道节点上所有PNC的状态通过网络管理报文进行交换。每个PNC在总线上使用网络管理报文用户数据中位向量中的专用位位置。如果该节点上的本地ComM用户请求了PNC，则该节点会将网络管理用户数据中的相应位设置为1。如果该PNC不再被请求，节点将网络管理用户数据中的相应位设置为0。BusNm收集并聚合PNC的网络管理用户数据，并通过COM位向量通过COM信号将状态提供给ComM。</p>
+<p>在每个系统通道上，每个PNC在网络管理用户数据中使用相同的位位置。ComM使用两种类型的位向量EIRA和ERA进行PNC状态信息交换。EIRA体现了当前节点与网络上其他节点对某一个PNC的请求与释放情况；EIRA不区分物理通道，只针对不同的PN，ERA则是在网关节点才使用，用于表示不同的通道对Pn的外部请求。ComM
+PNC有两个主要状态，分别为COMM_PNC_NO_C-</p>
+<p>OMMUNICATION、COMM_PNC_FULL_COMMUNICATION。COMM_PNC_F-</p>
+<p>ULL_COMMUNICATION 内部有COMM_PNC_PREPARE_SLEEP，COMM_P-</p>
+<p>NC_READY_SLEEP和COMM_PNC_REQUESTED三个子状态。ComM
+PNC的状态机如下图所示。</p>
+<p><a class="reference internal" href="../../_images/image312.png"><img alt="image3" src="../../_images/image312.png" style="width: 5.76736in; height: 4.16944in;" /></a></p>
+<p>图2-2 ComM PNC状态机</p>
+<p>注：当前版本使用 Nm_UpdateIRA 接口替代 Com_SendSignal 进行 IRA 的更新。</p>
+</section>
+</section>
+<section id="id4">
+<h3>功能抑制<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>功能抑制是ComM中的扩展功能，ComM释放了功能抑制的接口与配置，功能抑制以通道为单位，各通道内的功能抑制相互独立。功能抑制分为唤醒抑制与无通信抑制。</p>
+<p>唤醒抑制：表现为通道处于COMM_NO_COMMUNICATION或COMM_SILENT_COMMUNICATION状态时忽略User对通道的FULL_COMMUNICATION请求，但通道的被动唤醒功能不受影响，当全局配置项打开的情况下，唤醒抑制可以通过API来控制。</p>
+<p>NoCom抑制：表现为限制通道切换到COMM_FULL_COMMUNICATION与COMM_SILENT_COMMUNICATION状态，当全局配置项打开的情况下，NoCom抑制也可以通过API来控制。</p>
+</section>
+<section id="managedmanaging">
+<h3>managed通道与managing通道<a class="headerlink" href="#managedmanaging" title="Link to this heading"></a></h3>
+<p>一个通道可以被配置为managed通道和managing通道，即被其他通道管理的通道和管理其他通道的通道。一个通道为managed通道还是managing通道是由配置参数ComMManageReference来决定的，如果通道1通过配置项ComMManageReference引用了通道2，那么，通道1为managed通道，通道2为managing通道。其中managed通道的ComMNmVariant（配置参数）为LIGHT，managing通道的ComMNmVariant为FULL。</p>
+<p>如果一个managed通道被用户主动或ECUM被动唤醒请求FULL_COMMUNICATION
+，那么它的managing通道也需要请求FULL_COMMUNICATION。当一个managing通道想要切换到NO_COMMUNICATION的时候，一定需要它的managed通道都没有请求FULL_COMMUNICATION时才能切换状态。</p>
+</section>
+</section>
+<section id="id5">
+<h2>源文件描述<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>表3-1 ComM组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_BusSM.h</p></td>
+<td><p>ComM与BusSm交互API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_BswM.h</p></td>
+<td><p>ComM与BswM交互API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Ch.c</p></td>
+<td><p>ComM 通道管理模块内部实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_Ch.h</p></td>
+<td><p>ComM 通道管理模块内部接口声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Dcm.h</p></td>
+<td><p>ComM与Dcm交互API声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_EcuM.h</p></td>
+<td><p>ComM与EcuM交互API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Internal.h</p></td>
+<td><p>ComM内部公共接口声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_Nm.h</p></td>
+<td><p>ComM与NmIf交互API声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Pnc.h</p></td>
+<td><p>ComM 部分网络管理模块内部实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_Pnc.c</p></td>
+<td><p>ComM 部分网络管理模块内部实现</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM.c</p></td>
+<td><p>ComM源文件，包含了API函数的实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM.h</p></td>
+<td><p>ComM头文件，包含了API函数的声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Types.h</p></td>
+<td><p>ComM 头文件，包含了模块类型定义</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_Version.h</p></td>
+<td><p>ComM 头文件，包含了版本信息</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Cfg.h</p></td>
+<td><p>ComM配置头文件，涉及配置项宏开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_Gent.h</p></td>
+<td><p>ComM 与通道有关的主函数声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Gent.c</p></td>
+<td><p>ComM 与通道有关的主函数入口实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_PBCfg.h</p></td>
+<td><p>ComM 配置头文件，包含全局配置声明和相关类型定义</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_PBCfg.c</p></td>
+<td><p>ComM 配置C文件，包含全局配置定义</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_Com.h</p></td>
+<td><p>ComM 配置头文件，包含PNC接收信号的回调函数声明</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_Com.c</p></td>
+<td><p>ComM 配置C文件，包含PNC接收信号的回调函数实现</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image48.png"><img alt="IMG_256" src="../../_images/image48.png" style="width: 5.76736in; height: 1.09028in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image59.png"><img alt="image4" src="../../_images/image59.png" style="width: 5.76736in; height: 1.54931in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image69.png"><img alt="image5" src="../../_images/image69.png" style="width: 5.76736in; height: 1.70694in;" /></a></p>
+<p>图3-1 ComM组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id6">
+<h3>类型定义<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<section id="comm-initstatustype">
+<h4>ComM_InitStatusType类型定义<a class="headerlink" href="#comm-initstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComM_InitStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>COMM_UNINIT 未初始化</p>
+<p>COMM_INIT 初始化成功</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示ComM初始化状态</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-pncmodetype">
+<h4>ComM_PNCModeType类型定义<a class="headerlink" href="#comm-pncmodetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComM_PNCModeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>COMM_PNC_REQUESTED</p>
+<p>PNC处于被请求模式</p>
+<p>COMM_PNC_PREPARE_SLEEP</p>
+<p>PNC处于prepare sleep模式</p>
+<p>COMM_PNC_READY_SLEEP</p>
+<p>PNC处于ready sleep模式</p>
+<p>COMM_PNC_NO_COMMUNICATION</p>
+<p>PNC处于无通信模式</p>
+<p>COMM_PNC_REQUESTED_WITH_WAKEUP_REQUEST</p>
+<p>PNC是由本地ComM用户请求的</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示PNC状态机的状态</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-statetype">
+<h4>ComM_StateType类型定义<a class="headerlink" href="#comm-statetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComM_StateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>COMM_NO_COM_NO_PENDING_REQUEST</p>
+<p>COMM_NO_COM_REQUEST_PENDING</p>
+<p>COMM_FULL_COM_NETWORK_REQUESTED</p>
+<p>COMM_FULL_COM_READY_SLEEP</p>
+<p>COMM_SILENT_COM</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>通信状态机通信状态与通信状态的状态和子状态</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-modetype">
+<h4>ComM_ModeType类型定义<a class="headerlink" href="#comm-modetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComM_ModeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>COMM_NO_COMMUNICATION</p>
+<p>COMM_SILENT_COMMUNICATION</p>
+<p>COMM_FULL_COMMUNICATION COMM_FULL_</p>
+<p>COMMUNICATION_WITH_WAKEUP_REQUEST</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>通信管理器的当前模式（状态机的主要状态）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-userhandletype">
+<h4>ComM_UserHandleType类型定义<a class="headerlink" href="#comm-userhandletype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComM_UserHandleType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>0..254 (255 是保留的，用于 COMM_NOT_USED_USER_ID)</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>UserId的类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-configtype">
+<h4>ComM_ConfigType类型定义<a class="headerlink" href="#comm-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>ComM_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>ComM模块配置数据</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id7">
+<h3>输入函数描述<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nm</p></td>
+<td><p>Nm_PassiveStartUp</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Nm_NetworkRequest</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Nm_NetworkRelease</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Nm_PduRxIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Nm_PrepareBusSleepMode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Nm_UpdateIRA</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dcm</p></td>
+<td><p>Dcm_ComM_NoComModeEntered</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Dcm_ComM_SilentComModeEntered</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Dcm_ComM_FullComModeEntered</p></td>
+</tr>
+<tr class="row-even"><td><p>BswM</p></td>
+<td><p>BswM_ComM_CurrentMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BswM_ComM_CurrentPNCMode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BswM_ComM_InitiateReset</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvM</p></td>
+<td><p>NvM_ReadBlock</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NvM_WriteBlock</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NvM_GetErrorStatus</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;BusSM&gt;</p></td>
+<td><p>&lt;BusSM&gt;_GetCurrentComMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;BusSM&gt;_RequestComMode</p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf</p></td>
+<td><p>CanIf_Transmit</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanSM</p></td>
+<td><p>CanSM_TxTimeoutException</p></td>
+</tr>
+<tr class="row-even"><td><p>Com</p></td>
+<td><p>Com_ReceiveSignal</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_SendSignal</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>静态接口函数定义<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="comm-init">
+<h4>ComM_Init函数定义<a class="headerlink" href="#comm-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void ComM_Init (
+const
+ComM_ConfigType*
+ConfigPtr
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>指向p
+ost-build配置数据的指针</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>完成对ComM模块
+的初始化处理，重
+新启动内部状态机</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-deinit">
+<h4>ComM_DeInit函数定义<a class="headerlink" href="#comm-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_DeInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void ComM_DeInit (</p>
+<p>void</p>
+<p>)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>反初始化ComM模块</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-getstatus">
+<h4>ComM_GetStatus函数定义<a class="headerlink" href="#comm-getstatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_GetStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+ComM_GetStatus(</p>
+<p>ComM
+_InitStatusType*
+Status</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>Status</p></td>
+<td><p>值域：</p></td>
+<td><p>初始化状态</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK:
+初
+始化状态成功返回</p>
+<p>E_NOT_OK:
+初
+始化状态成功失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>返回C
+omM的初始化状态。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-getinhibitionstatus">
+<h4>ComM_GetInhibitionStatus函数定义<a class="headerlink" href="#comm-getinhibitionstatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Ge
+tInhibitionStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+ComM_Get
+InhibitionStatus(</p>
+<p>NetworkHandleType
+Channel,</p>
+<p>ComM_Inhib
+itionStatusType*
+Status</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>State</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM通道的抑制状态</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：
+成功返回抑制状态</p>
+<p>E_NOT_OK：
+抑制状态返回失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>返回Com
+M通道的抑制状态。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-requestcommode">
+<h4>ComM_RequestComMode函数定义<a class="headerlink" href="#comm-requestcommode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com
+M_Reques
+tComMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_Re
+turnType
+Com
+M_Reques
+tComMode
+(
+Com
+M_UserHa
+ndleType
+User,
+<a href="#id13"><span class="problematic" id="id14">ComM_</span></a>
+ModeType
+ComMode
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>User</p></td>
+<td><p>值域：</p></td>
+<td><p>请求模式的用户的Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ComMode</p></td>
+<td><p>值域：</p></td>
+<td><p>COMM_FULL_COMMUNICATION
+COMM_NO_COMMUNICATION</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>E_OK:
+成功切换
+到新模式</p>
+<p>E
+_NOT_OK:
+更改新
+模式失败</p>
+<p>COM
+M_E_MODE
+_LIMITAT
+ION:由于
+模式抑制
+，不能更
+改模式。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>用户对
+通信模式
+的请求。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-getmaxcommode">
+<h4>ComM_GetMaxComMode函数定义<a class="headerlink" href="#comm-getmaxcommode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+omM_GetMaxComMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+omM_GetMaxComMode
+(
+Co
+mM_UserHandleType
+User,
+ComM_ModeType*
+ComMode
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>User</p></td>
+<td><p>值域：</p></td>
+<td><p>用户的Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>ComMode</p></td>
+<td><p>值域：</p></td>
+<td><p>获取的通信模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK:
+成功返回允许
+的通信模式最大值</p>
+<p>E_NOT_OK:
+返回允许的通
+信模式最大值失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>查询相应用户最大
+允许的通信模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-getrequestedcommode">
+<h4>ComM_GetRequestedComMode函数定义<a class="headerlink" href="#comm-getrequestedcommode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Ge
+tRequestedComMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+ComM_Ge
+tRequestedComMode
+(
+Co
+mM_UserHandleType
+User,
+ComM_ModeType*
+ComMode
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>User</p></td>
+<td><p>值域：</p></td>
+<td><p>用户的Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>ComMode</p></td>
+<td><p>值域：</p></td>
+<td><p>请求的通信模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK:成功返
+回请求的通信模式</p>
+<p>E_NOT_OK:请求的
+通信模式返回失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>查询对应用户当前
+请求的通信模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-getcurrentcommode">
+<h4>ComM_GetCurrentComMode函数定义、<a class="headerlink" href="#comm-getcurrentcommode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id15"><span class="problematic" id="id16">ComM_</span></a>
+GetCurrentComMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+<a href="#id17"><span class="problematic" id="id18">ComM_</span></a>
+GetCurrentComMode
+(
+Co
+mM_UserHandleType
+User,
+ComM_ModeType*
+ComMode
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>User</p></td>
+<td><p>值域：</p></td>
+<td><p>用户的Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>ComMode</p></td>
+<td><p>值域：</p></td>
+<td><p>获取当前的通信模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK:
+从BusS
+M返回通讯模式成功</p>
+<p>E_NOT_OK:从BusS
+M返回通讯模式失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>查
+询当前通信模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-preventwakeup">
+<h4>ComM_PreventWakeUp函数定义<a class="headerlink" href="#comm-preventwakeup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id19"><span class="problematic" id="id20">ComM_</span></a>
+PreventWakeUp</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>S
+td_ReturnType
+<a href="#id21"><span class="problematic" id="id22">ComM_</span></a>
+PreventWakeUp
+(
+Netw
+orkHandleType
+Channel,
+boolean
+Status
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>Channel的Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Status</p></td>
+<td><p>值域：</p></td>
+<td><p>是否开启唤醒抑制功能</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>E_OK:成
+功地更改了通
+道的唤醒状态</p>
+<p>E_NOT_OK:
+唤醒状态更
+改失败，例如
+ComMEcuGroup
+Classificatio
+n禁用了该功能</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>更改相应通
+道的抑制状态C
+OMM_NO_WAKEUP</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-limitchanneltonocommode">
+<h4>ComM_LimitChannelToNoComMode函数定义<a class="headerlink" href="#comm-limitchanneltonocommode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM
+_LimitChanne
+lToNoComMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>St
+d_ReturnType
+<a href="#id23"><span class="problematic" id="id24">ComM_</span></a>
+LimitChannel
+ToNoComMode(</p>
+<p>Netwo
+rkHandleType
+Channel,</p>
+<p>boolean
+Status</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>Channel的Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Status</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE：使能COMM_NO_COMMUNI
+CATION更改为更高的通信模式。</p>
+<p>FALSE：禁止COMM_NO_COMMUNI
+CATION更改为更高的通信模式。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>E_OK:
+成
+功地改变了通
+道的抑制状态</p>
+<p>E_NOT_OK:
+改变
+通道的抑制状
+态失败，例如
+ComMEcuGroup
+Classificati
+on禁用该功能</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>更改chann
+el对应通道的
+禁止状态，以
+便从COMM_NO
+_COMMUNICATI
+ON更改为更高
+的通信模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-limitecutonocommode">
+<h4>ComM_LimitECUToNoComMode函数定义<a class="headerlink" href="#comm-limitecutonocommode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM
+_Lim
+itEC
+UToN
+oCom
+Mode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>St
+d_Re
+turn
+Type
+ComM
+_Lim
+itEC
+UToN
+oCom
+Mode
+(
+boo
+lean
+St
+atus
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可
+重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>St
+atus</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE：使能COMM_NO
+_COMMUNICATION更改为更高的通信模式。</p>
+<p>FALSE：禁止COMM_NO
+_COMMUNICATION更改为更高的通信模式。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E
+_OK:
+E
+CU成
+功地
+改变
+了通
+道的
+抑制
+状态</p>
+<p>E
+_NOT
+_OK:
+ECU
+改变
+通道
+的抑
+制状
+态失
+败，
+例如
+ComM
+EcuG
+roup
+Clas
+sifi
+cati
+on禁
+用该
+功能</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>更改
+ECU
+的禁
+止状
+态（
+对于
+所有
+的通
+道）
+，以
+便从
+COM
+M_NO
+_COM
+MUNI
+CATI
+ON更
+改为
+更高
+的通
+信模
+式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-readinhibitcounter">
+<h4>ComM_ReadInhibitCounter函数定义<a class="headerlink" href="#comm-readinhibitcounter" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Rea
+dInhibitCounter</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+ComM_Rea
+dInhibitCounter
+(
+uint16*
+CounterValue
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>CounterValue</p></td>
+<td><p>值域：</p></td>
+<td><p>被拒绝的COMM_FULL_CO
+MMUNICATION用户请求的数量。</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：成功
+返回抑制计数器</p>
+<p>E_NOT_OK：抑制
+计数器返回失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>这
+个函数获取被拒
+<a href="#id25"><span class="problematic" id="id26">绝的COMM_FULL_</span></a>
+COMMUNICATION用
+户请求的数量。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-resetinhibitcounter">
+<h4>ComM_ResetInhibitCounter函数定义<a class="headerlink" href="#comm-resetinhibitcounter" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_ResetInhibitCounter</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType ComM_ResetInhibitCounter (
+void
+)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0e</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK：重置了被拒绝的COMM_FULL_COMMUNICATION的数量</p>
+<p>E_NOT_OK：重置失败</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>这个函
+数重置被拒绝的COMM_FULL_COMMUNICATION用户请求的数量。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-setecugroupclassification">
+<h4>ComM_SetECUGroupClassification函数定义<a class="headerlink" href="#comm-setecugroupclassification" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM
+_SetECUGroupC
+lassification</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>S
+td_ReturnType
+<a href="#id27"><span class="problematic" id="id28">ComM_</span></a>
+SetECUGroupCl
+assification(</p>
+<p>ComM_Inhibit
+ionStatusType
+Status</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Status</p></td>
+<td><p>值域：</p></td>
+<td><p>设置的模式禁止状态</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK:
+ECU成功
+地修改了ComM
+EcuGroupClass
+ification的值</p>
+<p>E_NOT_OK:
+ComMEcuGroup
+Classificatio
+n的值修改失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>设置ComM
+EcuGroupClass
+ification的值</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-getversioninfo">
+<h4>ComM_GetVersionInfo函数定义<a class="headerlink" href="#comm-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Co
+mM_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Co
+mM_GetVersionInfo
+(
+<a href="#id29"><span class="problematic" id="id30">Std_</span></a>
+VersionInfoType*
+Versioninfo
+)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>Versioninfo</p></td>
+<td><p>值域：</p></td>
+<td><p>指向存储版本信息的位置</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取版本信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-nm-networkstartindication">
+<h4>ComM_Nm_NetworkStartIndication函数定义<a class="headerlink" href="#comm-nm-networkstartindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Nm_Netwo
+rkStartIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_Nm_Netwo
+rkStartIndication
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x15</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>指示在总
+线睡眠模式下已收
+到NM消息，这表示
+网络中的某些节点
+已进入网络模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-nm-networkmode">
+<h4>ComM_Nm_NetworkMode函数定义<a class="headerlink" href="#comm-nm-networkmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Co
+mM_Nm_NetworkMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Co
+mM_Nm_NetworkMode
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x18</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通知网络管理
+已进入网络模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-nm-preparebussleepmode">
+<h4>ComM_Nm_PrepareBusSleepMode函数定义<a class="headerlink" href="#comm-nm-preparebussleepmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Nm_Pr
+epareBusSleepMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_Nm_Pr
+epareBusSleepMode
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x19</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通知网络
+管理已进入Prepare
+Bus-Sleep模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-nm-bussleepmode">
+<h4>ComM_Nm_BusSleepMode函数定义<a class="headerlink" href="#comm-nm-bussleepmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com
+M_Nm_BusSleepMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com
+M_Nm_BusSleepMode
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通知网络管理已进
+入Bus-Sleep模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-nm-restartindication">
+<h4>ComM_Nm_RestartIndication函数定义<a class="headerlink" href="#comm-nm-restartindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id31"><span class="problematic" id="id32">ComM_Nm_</span></a>
+RestartIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id33"><span class="problematic" id="id34">ComM_Nm_</span></a>
+RestartIndication
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>如果NmIf已开
+始关闭协调总线，
+并且并非所有协调
+总线都已指示总线
+处于睡眠状态，并
+且至少在协调总线
+之一上重新启动了N
+M，则NM接口应在已
+经指示总线睡眠状
+态的通道使用nmNe
+tworkHandle调用回
+调函数ComM_Nm_Re
+startIndication。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-dcm-activediagnostic">
+<h4>ComM_DCM_ActiveDiagnostic函数定义<a class="headerlink" href="#comm-dcm-activediagnostic" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_DCM
+_ActiveDiagnostic</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_DCM
+_ActiveDiagnostic
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>DC
+M诊断开始的指示。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-dcm-inactivediagnostic">
+<h4>ComM_DCM_InactiveDiagnostic函数定义<a class="headerlink" href="#comm-dcm-inactivediagnostic" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_DCM_I
+nactiveDiagnostic</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_DCM_I
+nactiveDiagnostic
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x20</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>DC
+M诊断结束的指示。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-ecum-wakeupindication">
+<h4>ComM_EcuM_WakeUpIndication函数定义<a class="headerlink" href="#comm-ecum-wakeupindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_EcuM
+_WakeUpIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_EcuM
+_WakeUpIndication
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x2a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>在相应通
+道上的唤醒通知。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-ecum-pncwakeupindication">
+<h4>ComM_EcuM_PNCWakeUpIndication函数定义<a class="headerlink" href="#comm-ecum-pncwakeupindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_EcuM_PN
+CWakeUpIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_EcuM_PN
+CWakeUpIndication
+(</p>
+<p>PNCHandleType
+PNCid</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x37</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>PNCid</p></td>
+<td><p>值域：</p></td>
+<td><p>局域网集群的Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>在相应
+pnc上的唤醒通知。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-communicationallowed">
+<h4>ComM_CommunicationAllowed函数定义<a class="headerlink" href="#comm-communicationallowed" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Com
+municationAllowed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_Com
+municationAllowed
+(</p>
+<p>NetworkHandleType
+Channel,</p>
+<p>boolean Allowed</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x35</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Allowed</p></td>
+<td><p>值域：</p></td>
+<td><p>是否允许通信</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>当允
+许通信时，EcuM或B
+swM应向ComM指示。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-bussm-modeindication">
+<h4>ComM_BusSM_ModeIndication函数定义<a class="headerlink" href="#comm-bussm-modeindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_Bus
+SM_ModeIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_Bus
+SM_ModeIndication
+(</p>
+<p>NetworkHandleType
+Channel,</p>
+<p>ComM_ModeType
+ComMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x33</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ComMode</p></td>
+<td><p>值域：</p></td>
+<td><p>通信模式</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>由相应的BusSM通
+知实际总线模式。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-bussm-bussleepmode">
+<h4>ComM_BusSM_BusSleepMode函数定义<a class="headerlink" href="#comm-bussm-bussleepmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_B
+usSM_BusSleepMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+ComM_B
+usSM_BusSleepMode
+(</p>
+<p>NetworkHandleType
+Channel</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x34</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Channel</p></td>
+<td><p>值域：</p></td>
+<td><p>ComM的通道Id</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>E_OK: 请求被接受</p>
+<p>E_NOT_OK:
+请求被拒绝</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>通知
+相应的总线状态管
+理器实际的总线模
+式为“Bus-Sleep”。</p>
+<p>仅
+适用于LIN从节点。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-comcbk-sn">
+<h4>ComM_COMCbk_&lt;sn&gt;函数定义<a class="headerlink" href="#comm-comcbk-sn" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_COMCbk_&lt;sn&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void ComM_COMCbk_&lt;sn&gt; (</p>
+<p>void</p>
+<p>)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x36</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>在COM中更新EIRA或ERA时调用此回调。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comm-mainfunction">
+<h4>ComM_MainFunction函数定义<a class="headerlink" href="#comm-mainfunction" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_MainFunction</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void ComM_MainFunction_&lt;ComMChannel.ShortName&gt; (</p>
+<p>void</p>
+<p>)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x60</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>ComM 模块后台主处理函数。 需被后台主循环或 OS 的 task
+调用</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h3>可配置函数定义<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="swc">
+<h3>SWC服务组件封装<a class="headerlink" href="#swc" title="Link to this heading"></a></h3>
+<p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接，没有列出的部分暂时不支持。</p>
+<section id="id10">
+<h4>实现数据类型封装<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>类型名及定义引用</p></td>
+<td><p>生成条件</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_ModeType</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM_UserHandleType</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM_UserHandleArrayType_{channel_name}</p></td>
+<td><p>无</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sr">
+<h4>SR接口封装<a class="headerlink" href="#sr" title="Link to this heading"></a></h4>
+<section id="comm-currentchannelrequest">
+<h5>ComM_CurrentChannelRequest<a class="headerlink" href="#comm-currentchannelrequest" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>ComM_CurrentChannelRequest_{channel_name}</p></td>
+</tr>
+<tr class="row-even"><td><p>功能描述</p></td>
+<td><p>Array of ComMUserIdentifier, that currently hold
+FULL_COM requests for this channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>channel_name =
+{ecuc(ComM/ComMConfigSet/ComMChannel.SHORT-NAME)}</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>ComMFullCommRequestNotificationEnabled is true</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数：</p></td>
+<td><p>ComM_UserHandleArrayType_{channel_name}</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_CR</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cs">
+<h4>CS接口封装<a class="headerlink" href="#cs" title="Link to this heading"></a></h4>
+<section id="rte-call-comm-comm-userrequest-getcurrentcommode">
+<h5>Rte_Call_ComM_ComM_UserRequest_GetCurrentComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-getcurrentcommode" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_Call_ComM_ComM_UserRequest_GetCurrentComMode</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_UserRequest</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-userrequest-getmaxcommode">
+<h5>Rte_Call_ComM_ComM_UserRequest_GetMaxComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-getmaxcommode" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_Call_ComM_ComM_UserRequest_GetMaxComMode</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.7</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_UserRequest</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-userrequest-requestcommode">
+<h5>Rte_Call_ComM_ComM_UserRequest_RequestComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-requestcommode" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_Call_ComM_ComM_UserRequest_RequestComMode</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_UserRequest</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-channellimitation-getinhibitionstatus">
+<h5>Rte_Call_ComM_ComM_ChannelLimitation_GetInhibitionStatus<a class="headerlink" href="#rte-call-comm-comm-channellimitation-getinhibitionstatus" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_Ca
+ll_ComM_ComM_ChannelLimitation_GetInhibitionStatus</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>ComMModeLimitationEnabled is TRUE</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_ChannelLimitation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-channellimitation-limitchanneltonocommode">
+<h5>Rte_Call_ComM_ComM_ChannelLimitation_LimitChannelToNoComMode<a class="headerlink" href="#rte-call-comm-comm-channellimitation-limitchanneltonocommode" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函
+数名称：</p></td>
+<td><p><a href="#id35"><span class="problematic" id="id36">Rte_</span></a>
+Call_ComM_ComM_ChannelLimitation_LimitChannelToNoComMode</p></td>
+</tr>
+<tr class="row-even"><td><p>运
+行实体函
+数定义：</p></td>
+<td><p>详见4.3.11</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生
+成条件：</p></td>
+<td><p>ComMModeLimitationEnabled and
+ComMResetAfterForcingNoComm open</p></td>
+</tr>
+<tr class="row-odd"><td><p>端
+口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从
+属端口：</p></td>
+<td><p>ComM_ChannelLimitation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-channelwakeup-preventwakeup">
+<h5>Rte_Call_ComM_ComM_ChannelWakeup_PreventWakeUp<a class="headerlink" href="#rte-call-comm-comm-channelwakeup-preventwakeup" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_Call_ComM_ComM_ChannelWakeup_PreventWakeUp</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.10</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>ComMWakeupInhibitionEnabled open</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_ChannelWakeup</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-ecumodelimitation-limitecutonocommode">
+<h5>Rte_Call_ComM_ComM_ECUModeLimitation_LimitECUToNoComMode<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-limitecutonocommode" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rt
+e_Call_ComM_ComM_ECUModeLimitation_LimitECUToNoComMode</p></td>
+</tr>
+<tr class="row-even"><td><p>运行实体
+函数定义：</p></td>
+<td><p>详见4.3.12</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>ComMModeLimitationEnabled and
+ComMResetAfterForcingNoComm open</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_ECUModeLimitation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-ecumodelimitation-readinhibitcounter">
+<h5>Rte_Call_ComM_ComM_ECUModeLimitation_ReadInhibitCounter<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-readinhibitcounter" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_C
+all_ComM_ComM_ECUModeLimitation_ReadInhibitCounter</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.13</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>ComMModeLimitationEnabled enable and
+ComMGlobalNvMBlockDescriptor configured</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_ECUModeLimitation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-comm-comm-ecumodelimitation-resetinhibitcounter">
+<h5>Rte_Call_ComM_ComM_ECUModeLimitation_ResetInhibitCounter<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-resetinhibitcounter" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Rte_Ca
+ll_ComM_ComM_ECUModeLimitation_ResetInhibitCounter</p></td>
+</tr>
+<tr class="row-even"><td><p>运行
+实体函数定义：</p></td>
+<td><p>详见4.3.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件：</p></td>
+<td><p>ComMModeLimitationEnabled enable and
+ComMGlobalNvMBlockDescriptor configured</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_ECUModeLimitation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id11">
+<h4>模式转换接口封装<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<section id="comm-currentmode">
+<h5>ComM_CurrentMode<a class="headerlink" href="#comm-currentmode" title="Link to this heading"></a></h5>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>接口名称：</p></td>
+<td><p>UM_{user_name}_currentMode</p></td>
+</tr>
+<tr class="row-even"><td><p>变体：</p></td>
+<td><p>user_name =
+{ecuc(ComM/ComMConfigSet/ComMUser.SHORT-NAME)}</p></td>
+</tr>
+<tr class="row-odd"><td><p>生成条件：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>模式组：</p></td>
+<td><p>currentMode</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型：</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口：</p></td>
+<td><p>ComM_UM</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+<section id="id12">
+<h2>配置<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="commgeneral">
+<h3>ComMGeneral<a class="headerlink" href="#commgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image79.png"><img alt="image6" src="../../_images/image79.png" style="width: 4.14167in; height: 3.5in;" /></a></p>
+<p>图5-1 ComMGeneral容器配置图</p>
+<p>表5‑1 ComMGeneral属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComM0
+PNCVec
+torAvo
+idance</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果启用了
+ComMPNCGatewayEnab
+led，此参数将避免发送
+0-PNC-Vectors。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>ComM
+PNCGatewayEnabled启用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>ComM
+PNCGatewayEnabled启用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMDe
+vError
+Detect</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>打开或关闭
+开发错误检测和通知。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Com
+MDirec
+tUserM
+apping</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果此参数设置为
+true，
+配置工具将自动为每个
+ComMPNC 创建一个
+ComMUser，并为每个
+ComMChannel 创建一个
+ComMUser。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Co
+mMEcuG
+roupCl
+assifi
+cation</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义
+模式抑制是否影响ECU。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>至少在启用/允许唤醒抑
+制的情况下，应以非易
+失性方式存储（在复位
+期间必须保持该值）。
+可以在运行时使用
+ComM_SetECU
+GroupClassification()
+进行更改，因此默认值
+只能设置一次（第一次
+ECU 初始化）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omMMod
+eLimit
+ationE
+nabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果应启
+用模式限制功能，则为
+true。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Com
+MPncGa
+tewayE
+nabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如
+果应启用PNC网关，则为
+true。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMN
+mPassi
+veMode
+Enable</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用被动模式的支持</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMPN
+CPrepa
+reSlee
+pTimer</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 63</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>PNC 状态机应在
+C
+OMM_PNC_PREPARE_SLEEP
+中等待的
+时间（以秒为单位）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>#CanNm:
+(CanNmPnResetTime +
+ComM
+PNCPrepareSleepTimer)
+&lt; CanNmTimeoutTime</p>
+<p># FrNm:
+(FrNmPnResetTime +
+ComM
+PNCPrepareSleepTimer)
+&lt; (</p>
+<p>(FrNmReadySleepCnt
++1) *
+FrNmRepetitionCycle
+*“一个 FlexRay
+周期的持续时间”）</p>
+<p># UdpNm:
+(UdpNmPnResetTime +
+ComM
+PNCPrepareSleepTimer)
+&lt; UdpNmTimeoutTime</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Co
+mMPNCS
+upport</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用或
+禁用对PNC网络的支持。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Com
+MReset
+AfterF
+orcing
+NoComm</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>由于活动模式限制
+为“无通信”模式，ComM
+应在进入“无
+通信”模式后执行复位。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Com
+MSynch
+ronous
+WakeUp</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果
+为真，一个通道的唤醒
+将导致所有通道的唤醒</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMVe
+rsionI
+nfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>获取
+版本信息的预处理开关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Com
+MWakeu
+pInhib
+itionE
+nabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果唤醒抑制
+功能启用，则为True。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComM
+Global
+NvMBlo
+ckDesc
+riptor</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to</p>
+<p>[ NvMBlockDescriptor
+]</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>源自NvM配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="commconfigset">
+<h4>ComMConfigSet<a class="headerlink" href="#commconfigset" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image89.png"><img alt="image7" src="../../_images/image89.png" style="width: 2.83114in; height: 0.52205in;" /></a></p>
+<p>图5-2 ComMConfigSet容器配置图</p>
+<p>表5‑2 ComMConfigSet属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Co
+mMPNCE
+nabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义在此配置设置
+中是否启用部分网络。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于ComMPNCSupport使能</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="commchannel">
+<h5>ComMChannel<a class="headerlink" href="#commchannel" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image99.png"><img alt="image8" src="../../_images/image99.png" style="width: 3.2in; height: 1.94931in;" /></a></p>
+<p>图5-3 ComMChannel容器配置图</p>
+<p>表5‑3 ComMChannel属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMB
+usType</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标识通道的总线类型。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComM
+CDDBus
+Prefix</p></td>
+<td><p>取值范围</p></td>
+<td><p>String</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于 API 调用 CDD
+的前缀。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>仅
+当ComMBusType等于COMM
+_BUS_TYPE_CDD时适用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+omMCha
+nnelId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对
+应通道的通道标识号。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>应与网络管理的通
+道id和总线接口协调。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Co
+mMFull
+CommRe
+questN
+otific
+ationE
+nabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义
+是否为此通道提供可选
+Sen
+derReceiver端口的接口
+ComM_Cu
+rrentChannelRequest。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>应存储为非易失性（重
+置期间必须保留值）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComM
+MainFu
+nction
+Period</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.02</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指
+定必须触发MainFunctio
+n的周期(以秒为单位)。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Com
+MNoCom</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>NoCom
+抑制功能的默认值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>ComMMode
+LimitationEnabled使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Co
+mMNoWa
+keUpIn
+hibiti
+onNvmS
+torage</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果此参数设
+置为“true”，则信道的
+NoWakeUp
+禁止状态应（以某种
+实现特定方式）存储在
+ComMGlo
+balNvmBlockDescriptor
+指向的块中。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>如果该参数设置为
+true，则必须
+在（现有的，即多重性
+1）ComMGlo
+balNvmBlockDescriptor
+中给出一个有效的 Nvm
+块引
+用，指向一个足够大的
+Nvm 块。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMNo
+Wakeup</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>NoWakeup
+抑制功能的默认值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>应存储为非易失性（重
+置期间必须保留值）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMPN
+CGatew
+ayType</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标识 ComMChannel
+的PNC网络网关行为。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>参数不得用于
+受管通道（不得设置为
+COM
+M_GATEWAY_TYPE_ACTIVE
+或
+COMM_GAT
+EWAY_TYPE_PASSIVE）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMC
+hannel
+Partit
+ionRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+EcucPartition ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>根据ComMChanne
+l被分配到的分区，引用
+EcucPartition。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+omMMan
+ageRef
+erence</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+ComMChannel ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示managing通道和ma
+naged通道之间的引用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不能配置ComMPn
+cGatewayType，managed
+channel对应的ComMN
+mVariant要求为LIGHT，
+managing
+channel对应的Co
+mMNmVariant要求为FULL</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="commnetworkmanagement">
+<h6>ComMNetworkManagement<a class="headerlink" href="#commnetworkmanagement" title="Link to this heading"></a></h6>
+<p><a class="reference internal" href="../../_images/image109.png"><img alt="image9" src="../../_images/image109.png" style="width: 3.41528in; height: 0.77569in;" /></a></p>
+<p>图5-4 ComMNetworkManagement容器配置图</p>
+<p>表5‑4 ComMNetworkManagement属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMNm
+LightT
+imeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义
+离开COMM_FULL_COMMUN
+ICATION子状态COMM_FUL
+L_COM_READY_SLEEP的超
+时时间(以秒为单位)。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>仅在将 ComMNmVariant
+配置为 ComMLight
+时使用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omMNmV
+ariant</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义
+网络管理的功能。应与
+NM 配置协调。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>如果 ComMBusType =
+COMM_BUS_TYPE_IN
+TERNAL，ComMNmVariant
+应为 NONE。</p>
+<p>对于manag
+ed通道，ComMNmVariant
+应为 LIGHT。</p>
+<p>对于managi
+ng通道，ComMNmVariant
+应为FULL。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComM
+PNCNmR
+equest</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>如果此参
+数等于真，则每次由于
+PNC 状态机更改为
+COMM_PNC_REQUESTED
+而请求 FULL
+通信时，应使用 API
+调用
+Nm_NetworkRequest。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只有当 ComMNmVariant
+为 FULL时才可以将
+ComMPNCNmRequest
+设置为 TRUE。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commuserperchannel">
+<h6>ComMUserPerChannel<a class="headerlink" href="#commuserperchannel" title="Link to this heading"></a></h6>
+<p><a class="reference internal" href="../../_images/image1114.png"><img alt="image10" src="../../_images/image1114.png" style="width: 3.45556in; height: 0.46111in;" /></a></p>
+<p>图5-5 ComMUserPerChannel容器配置图</p>
+<p>表5‑5 ComMUserPerChannel属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Com
+MUserC
+hannel</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+ComMUser ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对与此通道用户对应的
+ComMUser 的引用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="commpnc">
+<h5>ComMPNC<a class="headerlink" href="#commpnc" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image1211.png"><img alt="image11" src="../../_images/image1211.png" style="width: 2.83958in; height: 3.76736in;" /></a></p>
+<p>图5-6 ComMPnc容器配置图</p>
+<p>表5‑6 ComMPnc属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Com
+MPNCId</p></td>
+<td><p>取值范围</p></td>
+<td><p>8 .. 63</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>PNC标识号。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMC
+hannel
+PerPNC</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+ComMChannel ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对这个PNC所需
+的ComMChannel的引用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMPN
+CEthIf
+Switch
+PortGr
+oupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+EthIfSwitchPortGroup
+]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用与此 PNC
+对应的PortGroups 。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Co
+mMUser
+PerPNC</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+ComMUser ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>这个PNC对
+应的ComMUsers的引用。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="commpnccomsignal">
+<h6>ComMPNCComSignal<a class="headerlink" href="#commpnccomsignal" title="Link to this heading"></a></h6>
+<p><a class="reference internal" href="../../_images/image138.png"><img alt="image12" src="../../_images/image138.png" style="width: 4.125in; height: 1in;" /></a></p>
+<p>图5-7 ComMPNCComSignal容器配置图</p>
+<p>表5‑7 ComMPNCComSignal属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Co
+mMPNCC
+omSign
+alKind</p></td>
+<td><p>取值范围</p></td>
+<td><p>Enumeration</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指示此 PNCComSignal
+是代表 EIRA 还是 ERA
+PNC 信息。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Co
+mMPNCC
+omSign
+alChan
+nelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+ComMChannel ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参考
+Co
+mMChannel，用于确定该
+PNCComSignal
+应
+是主动还是被动（通过
+ComMChannel 的参数
+C
+omMPNCGatewayType）。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>ComM
+PNCGatewayEnabled使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+omMPNC
+ComSig
+nalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+ComSignal ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参考ComSignal，用于
+传输PN通道请求信息。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="commuser">
+<h5>ComMUser<a class="headerlink" href="#commuser" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image147.png"><img alt="image13" src="../../_images/image147.png" style="width: 3.34375in; height: 0.71736in;" /></a></p>
+<p>图5-8 ComMUser容器配置图</p>
+<p>表5‑8 ComMUser属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMUs
+erIden
+tifier</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 254</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指代系
+统中指定请求通信模式
+的用户所需的标识符。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>E
+cuMUser：用户的概念与
+ECU
+状态管理器规范中的
+请求者概念非常相似。
+这两个参数应在
+配置过程中协调一致。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMUs
+erMode
+Notifi
+cation</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE,FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>打开
+或关闭用户模式通知。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMUs
+erEcuc
+Partit
+ionRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>Reference to [
+EcucPartition ]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示在哪个“EcucPar
+tition”中执行请求者。
+当
+分区停止时，通信请求
+将在ComM中取消，以避
+免由于分区停止而导致
+总线保持唤醒的情况。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Com.html" class="btn btn-neutral float-left" title="Com产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ComXf.html" class="btn btn-neutral float-right" title="ComXf产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

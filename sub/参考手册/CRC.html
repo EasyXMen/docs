@@ -1,0 +1,1342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRC产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CryIf 产品参考手册" href="CryIf.html" />
+    <link rel="prev" title="ComXf产品参考手册" href="ComXf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CRC产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">CRC功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">CRC功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">CRC功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">类型定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crc-calculatecrc8">Crc_CalculateCRC8函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crc-calculatecrc82f">Crc_CalculateCRC82F函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crc-calculatecrc16">Crc_CalculateCRC16函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crc-calculatecrc32">Crc_CalculateCRC32函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crc-calculatecrc32p4">Crc_CalculateCRC32P4函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crc-calculatecrc64">Crc_CalculateCRC64函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">CRC配置列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CRC产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/CRC.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crc">
+<h1>CRC产品参考手册<a class="headerlink" href="#crc" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>缩写
+词*</em></p>
+</td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CRC8</p></td>
+<td><p>CRC8</p></td>
+<td><p>生成多项式最高次幂为8的CRC算法</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRC16</p></td>
+<td><p>CRC16</p></td>
+<td><p>生成多项式最高次幂为16的CRC算法</p></td>
+</tr>
+<tr class="row-even"><td><p>CRC32</p></td>
+<td><p>CRC32</p></td>
+<td><p>生成多项式最高次幂为32的CRC算法</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRC64</p></td>
+<td><p>CRC64</p></td>
+<td><p>生成多项式最高次幂为64的CRC算法</p></td>
+</tr>
+<tr class="row-even"><td><p>CRC</p></td>
+<td><p>Cyclic Redundancy
+Check</p></td>
+<td><p>循环冗余校验</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>CRCL模块提供如下的算法，用于对输入数据进行循环冗余校验，用于核对数据传输过程中是否被更改或者传输错误：</p>
+<ul class="simple">
+<li><p>CRC8: SAEJ1850</p></li>
+<li><p>CRC8H2F: CRC8 0x2F polynomial</p></li>
+<li><p>CRC16: CCITT-FALSE</p></li>
+<li><p>CRC32: 0xF4ACFB13</p></li>
+<li><p>CRC32P4: CRC32 0x1F4ACFB13 polynomial</p></li>
+<li><p>CRC64: CRC-64-ECMA</p></li>
+</ul>
+<p>CRCL模块提供两种算法处理机制：</p>
+<blockquote>
+<div><p>查表计算法：速度快，需要占用较大的ROM。</p>
+<p>运行时计算法：速度慢，占用较少的ROM。</p>
+</div></blockquote>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_CRCLibrary.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>CRC功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>CRC功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>CRC基本概念</p></li>
+</ul>
+<p>CRC（循环冗余校验），是基于输入数据计算一组校验码，用于核对数据传输过程中是否被更改或者传输错误。</p>
+<p>假设D是被校验的数据，将其转换为n位的二进制表示，如：</p>
+<p>D =
+（d<sub>n-1</sub>，d<sub>n-2</sub>，d<sub>n-3</sub>，…，d<sub>1</sub>，d<sub>0</sub>）,其中，d<sub>0</sub>到d<sub>n-1</sub>为二进制值0或1。</p>
+<p>以一定的规则产生一个新的二进制序列R，假设是k位的，r<sub>0</sub>到r<sub>k-1</sub>为二进制值0或1。</p>
+<p>冗余码R附加在原始数据二进制序列后面，成为n+k位数据的二进制表示：</p>
+<p>C =
+（D，R）=（d<sub>n-1</sub>，d<sub>n-2</sub>，d<sub>n-3</sub>，…，d<sub>1</sub>，d<sub>0</sub>，r<sub>k-1</sub>，…，r<sub>2</sub>，r<sub>1</sub>，r<sub>0</sub>，）。</p>
+<p>将C除以k阶多项式，得到（k-1）阶余项r(x)，则r(x)对应的二进制码r就是CRC码。</p>
+<p>其中k阶多项式则为生成项。</p>
+<ul class="simple">
+<li><p>CRC算法原理</p></li>
+</ul>
+<p>下述是几种标准的CRC校验生成多项式：</p>
+<p>CRC 8bit SAE J1850：</p>
+<blockquote>
+<div><p>G(x) = <span class="math notranslate nohighlight">\(x^{8} + x^{4} + x^{3} + x^{2} + 1\)</span></p>
+</div></blockquote>
+<p>CRC 8bit 基于0x2F：</p>
+<blockquote>
+<div><p>G(x) = <span class="math notranslate nohighlight">\(x^{8} + x^{5} + x^{3} + x^{2} + x^{1} + 1\)</span></p>
+</div></blockquote>
+<p>CRC 16bit CCITT-FALSE：</p>
+<blockquote>
+<div><p>G(x) = <span class="math notranslate nohighlight">\(x^{16} + x^{12} + x^{5} + 1\)</span></p>
+</div></blockquote>
+<p>CRC 32bit Ethernet IEEE-802.3：</p>
+<blockquote>
+<div><p>G(x) =
+<span class="math notranslate nohighlight">\(x^{32} + x^{26} + x^{23} + x^{22} + x^{16} + x^{12}{+ \ x}^{11} + x^{10} + x^{8} + x^{7} + x^{5} + x^{4} + x^{2} + x^{1} + 1\)</span></p>
+</div></blockquote>
+<p>CRC 32bit 基于0xF4ACFB13：</p>
+<blockquote>
+<div><p>G(x) =
+<span class="math notranslate nohighlight">\(x^{32} + x^{31} + x^{30} + x^{29} + x^{28} + x^{25}{+ \ x}^{23} + x^{21} + x^{19} + x^{18} + x^{15} + x^{14} + x^{13} + x^{12} + x^{11} + x^{9} + x^{8} + x^{4} + x^{1} + 1\)</span></p>
+</div></blockquote>
+<p>CRC 64bit ECMA：</p>
+<blockquote>
+<div><p>G(x) =
+<span class="math notranslate nohighlight">\(x^{64} + \ x^{62} + x^{57} + x^{55} + x^{54} + x^{53} + x^{52} + x^{47} + x^{46} + x^{45} + x^{40} + x^{39} + x^{38} + x^{37} + x^{35} + x^{33} + x^{32} + x^{31} + x^{29} + x^{27} + x^{27} + x^{24} + x^{23} + x^{22} + x^{21} + x^{19} + x^{17} + x^{13} + x^{12} + x^{10} + x^{9} + x^{7} + x^{4} + x + 1\)</span></p>
+</div></blockquote>
+<p>CRC校验的原理就是将需要校验的数据与按规则产生的数据进行异或运算，得到的余数即为校验值。进行异或的方式与实际数据传输时，高位先传还是低位先传有关，若异或从数据的高位开始，为顺序异或，若异或从数据的低位开始，则为反序异或，两种异或方式，即使对应同一个生成多项式，计算出来的结果也不相同。</p>
+<ul class="simple">
+<li><p>CRC标准参数模型</p></li>
+</ul>
+<p>CRC8、CRC16、CRC32、CRC64所要用到的标准参数如下：</p>
+<p>表2-1 CRC标准参数</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>参数名</strong></p></td>
+<td><p><strong>解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CRC宽度</p></td>
+<td><p>CRC计算结果的宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>多项式</p></td>
+<td><p>用于CRC算法的生成多项式</p></td>
+</tr>
+<tr class="row-even"><td><p>初始值</p></td>
+<td><p>CRC算法开始时寄存器初始化的预置值</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入数据反转</p></td>
+<td><p>定
+义了在参与CRC计算之前，每个输入字节是否需要进行位反转</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+出数据反转</p></td>
+<td><p>定义了CRC计算结果是否需要按位反转</p></td>
+</tr>
+<tr class="row-odd"><td><p>异或值</p></td>
+<td><p>该
+值将与寄存器中的最终值进行运算，再将异或结果作为返回值</p></td>
+</tr>
+<tr class="row-even"><td><p>检查值</p></td>
+<td><p>这是作为验证CRC算法的一种较弱
+的方法，当输入ASCII字符串”123456789”时，该值作为校验值</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h4>CRC功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>CRC功能实现分为三种方式：直接计算法、查表法、硬件实现法，分别对应配置项CrcxMode中的取值CRC_RUNTIME、CRC_TABLE和CRC_HARDWARE
+，x代表CRC位宽，可为8、8H2F、16、32、32P4、64。</p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2>源文件描述<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<p>表3-1 CRC组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Crc_cfg.h</p></td>
+<td><p>定义CRC模块预编译时用到的配置参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crc.h</p></td>
+<td><p>CRC模块头文
+件，包含了API函数的扩展声明并定义了端口的数据结构。</p></td>
+</tr>
+<tr class="row-even"><td><p>Crc.c</p></td>
+<td><p>CRC模块源文件，包含了API函数的实现。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crc_MemMap.h</p></td>
+<td><p>CRC的内存映射定义</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image110.png"><img alt="image1" src="../../_images/image110.png" style="width: 5.69583in; height: 2.23611in;" /></a></p>
+<p>图3-1 CRC组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>类型定义<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="id9">
+<h3>输入函数描述<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+<section id="id10">
+<h3>静态接口函数定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="crc-calculatecrc8">
+<h4>Crc_CalculateCRC8函数定义<a class="headerlink" href="#crc-calculatecrc8" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Crc_CalculateCRC8</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Crc_CalculateCRC8
+( const uint8*
+Crc_DataPtr,
+uint32
+Crc_Length, uint8
+Crc_StartValue8,
+boolean
+Crc_IsFirstCall )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Crc_DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>被
+计算数据的起始地址指针</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_Length</p></td>
+<td><p>值域：</p></td>
+<td><p>被计算数据的长度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_StartValue8</p></td>
+<td><p>值域：</p></td>
+<td><p>起始值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_IsFirstCall</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE: First call in a
+sequence or individual
+CRC calculation; start
+from initial value,
+ignore Crc_StartValue8.</p>
+<p>FALSE: Subsequent call
+in a call sequence;
+Crc_StartValue8 is
+interpreted to be the
+return value of the
+previous function call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>CRC计算结果</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供基于SAE J1850
+算
+法的CRC8计算服务</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crc-calculatecrc82f">
+<h4>Crc_CalculateCRC82F函数定义<a class="headerlink" href="#crc-calculatecrc82f" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Crc
+_CalculateCRC8H2F</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Crc
+_CalculateCRC8H2F
+( const uint8*
+Crc_DataPtr,
+uint32
+Crc_Length, uint8
+Cr
+c_StartValue8H2F,
+boolean
+Crc_IsFirstCall )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Crc_DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>被
+计算数据的起始地址指针</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_Length</p></td>
+<td><p>值域：</p></td>
+<td><p>被计算数据的长度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>C
+rc_StartValue8H2F</p></td>
+<td><p>值域：</p></td>
+<td><p>起始值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_IsFirstCall</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE: First call in a
+sequence or individual
+CRC calculation; start
+from initial value,
+ignore Crc_StartValue8.</p>
+<p>FALSE: Subsequent call
+in a call sequence;
+Crc_StartValue8 is
+interpreted to be the
+return value of the
+previous function call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数:</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>CRC计算结果</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供基于使
+用0x2F作为多项式
+值的CRC8计算服务</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crc-calculatecrc16">
+<h4>Crc_CalculateCRC16函数定义<a class="headerlink" href="#crc-calculatecrc16" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+rc_CalculateCRC16</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint16
+C
+rc_CalculateCRC16
+( const uint8*
+Crc_DataPtr,
+uint32
+Crc_Length,
+uint16
+Crc_StartValue16,
+boolean
+Crc_IsFirstCall )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Crc_DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>被
+计算数据的起始地址指针</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_Length</p></td>
+<td><p>值域：</p></td>
+<td><p>被计算数据的长度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_StartValue16</p></td>
+<td><p>值域：</p></td>
+<td><p>起始值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_IsFirstCall</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE: First call in a
+sequence or individual
+CRC calculation; start
+from initial value,
+ignore
+Crc_StartValue16.</p>
+<p>FALSE: Subsequent call
+in a call sequence;
+Crc_StartValue16 is
+interpreted to be the
+return value of the
+previous function call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>CRC计算结果</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供
+基于CRC16计算服务</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crc-calculatecrc32">
+<h4>Crc_CalculateCRC32函数定义<a class="headerlink" href="#crc-calculatecrc32" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+rc_CalculateCRC32</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint16
+C
+rc_CalculateCRC32
+( const uint8*
+Crc_DataPtr,
+uint32
+Crc_Length,
+uint32
+Crc_StartValue32,
+boolean
+Crc_IsFirstCall )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Crc_DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>被
+计算数据的起始地址指针</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_Length</p></td>
+<td><p>值域：</p></td>
+<td><p>被计算数据的长度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_StartValue32</p></td>
+<td><p>值域：</p></td>
+<td><p>起始值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_IsFirstCall</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE: First call in a
+sequence or individual
+CRC calculation; start
+from initial value,
+ignore
+Crc_StartValue32.</p>
+<p>FALSE: Subsequent call
+in a call sequence;
+Crc_StartValue32 is
+interpreted to be the
+return value of the
+previous function call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>CRC计算结果</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供
+基于CRC32计算服务</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crc-calculatecrc32p4">
+<h4>Crc_CalculateCRC32P4函数定义<a class="headerlink" href="#crc-calculatecrc32p4" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Crc
+_CalculateCRC32P4</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint32
+Crc
+_CalculateCRC32P4
+( const uint8*
+Crc_DataPtr,
+uint32
+Crc_Length,
+uint32
+Crc_StartValue32,
+boolean
+Crc_IsFirstCall )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Crc_DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>被
+计算数据的起始地址指针</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_Length</p></td>
+<td><p>值域：</p></td>
+<td><p>被计算数据的长度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_StartValue32</p></td>
+<td><p>值域：</p></td>
+<td><p>起始值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_IsFirstCall</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE: First call in a
+sequence or individual
+CRC calculation; start
+from initial value,
+ignore
+Crc_StartValue32.</p>
+<p>FALSE: Subsequent call
+in a call sequence;
+Crc_StartValue32 is
+interpreted to be the
+return value of the
+previous function call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>CRC计算结果</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提
+供基于CRC32计算服
+务,使用0xF4ACFB13
+作为多项式因子</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crc-calculatecrc64">
+<h4>Crc_CalculateCRC64函数定义<a class="headerlink" href="#crc-calculatecrc64" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+rc_CalculateCRC64</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint64
+C
+rc_CalculateCRC64
+( const uint8*
+Crc_DataPtr,
+uint32
+Crc_Length,
+uint64
+Crc_StartValue64,
+boolean
+Crc_IsFirstCall )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Crc_DataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>被
+计算数据的起始地址指针</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_Length</p></td>
+<td><p>值域：</p></td>
+<td><p>被计算数据的长度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Crc_StartValue64</p></td>
+<td><p>值域：</p></td>
+<td><p>起始值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Crc_IsFirstCall</p></td>
+<td><p>值域：</p></td>
+<td><p>TRUE: First call in a
+sequence or individual
+CRC calculation; start
+from initial value,
+ignore
+Crc_StartValue64.</p>
+<p>FALSE: Subsequent call
+in a call sequence;
+Crc_StartValue64 is
+interpreted to be the
+return value of the
+previous function call.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>CRC计算结果</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>提供
+基于CRC64计算服务</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id11">
+<h3>可配置函数定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id12">
+<h2>配置<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="id13">
+<h3>CRC配置列表<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image210.png"><img alt="image2" src="../../_images/image210.png" style="width: 3.31181in; height: 2.79583in;" /></a></p>
+<p>图5-1 CRC容器配置图</p>
+<p>表5‑1 CRC属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI
+名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>A
+lgorit
+hmCrc8</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Crc8 ON
+or OFF.</p>
+<p>true: enabled (ON).</p>
+<p>false: disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当配置为OFF时，不
+生成Crc8Mode相关配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Algo
+rithmC
+rc8H2F</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Crc8H2F
+ON or OFF.</p>
+<p>true: enabled (ON).</p>
+<p>false: disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当配置为OFF时，不生
+成Crc8H2FMode相关配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Al
+gorith
+mCrc16</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Crc16 ON
+or OFF.</p>
+<p>true: enabled (ON).</p>
+<p>false: disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当配置为OFF时，不
+生成Crc16Mode相关配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Al
+gorith
+mCrc32</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Crc32ON
+or OFF.</p>
+<p>true: enabled (ON).</p>
+<p>false: disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当配置为OFF时，不
+生成Crc32Mode相关配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Algo
+rithmC
+rc32P4</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Crc32P4
+ON or OFF.</p>
+<p>true: enabled (ON).</p>
+<p>false: disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当配置为
+OFF时，不生成Crc32P4
+Mode相关配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Al
+gorith
+mCrc64</p></td>
+<td><p>取值范围</p></td>
+<td><p>STD_ON / STD_OFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>STD_OFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the Crc64 ON
+or OFF.</p>
+<p>true: enabled (ON).</p>
+<p>false: disabled
+(OFF).</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当配置为OFF时，不
+生成Crc64Mode相关配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cr
+c8Mode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_TABLE/CRC
+_RUNTIME/CRC_HARDWARE</p></td>
+<td><p>默认取值</p></td>
+<td><p>CRC_TABLE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switch to select one
+of the available CRC
+8-bit (SAE J1850)
+calculation methods</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>AlgorithmCrc8为STD_ON</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Crc8H
+2FMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_TABLE/CRC
+_RUNTIME/CRC_HARDWARE</p></td>
+<td><p>默认取值</p></td>
+<td><p>CRC_TABLE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switch to select one
+of the available CRC
+8-bit (2Fh
+polynomial)
+calculation methods</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Alg
+orithmCrc8H2F为STD_ON</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Crc
+16Mode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_TABLE/CRC
+_RUNTIME/CRC_HARDWARE</p></td>
+<td><p>默认取值</p></td>
+<td><p>CRC_TABLE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switch to select one
+of the available CRC
+16-bit (CCITT)
+calculation methods</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>A
+lgorithmCrc16为STD_ON</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Crc
+32Mode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_TABLE/CRC
+_RUNTIME/CRC_HARDWARE</p></td>
+<td><p>默认取值</p></td>
+<td><p>CRC_TABLE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switch to select one
+of the available CRC
+32-bit (IEEE-802.3
+CRC32 Ethernet
+Standard) calculation
+methods.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>A
+lgorithmCrc32为STD_ON</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Crc32
+P4Mode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_TABLE/CRC
+_RUNTIME/CRC_HARDWARE</p></td>
+<td><p>默认取值</p></td>
+<td><p>CRC_TABLE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switch to select one
+of the available CRC
+32-bit E2E Profile 4
+calculation methods</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Alg
+orithmCrc32P4为STD_ON</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Crc
+64Mode</p></td>
+<td><p>取值范围</p></td>
+<td><p>CRC_TABLE/CRC
+_RUNTIME/CRC_HARDWARE</p></td>
+<td><p>默认取值</p></td>
+<td><p>CRC_TABLE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switch to select one
+of the available CRC
+64-bit calculation
+methods.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>A
+lgorithmCrc64为STD_ON</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ComXf.html" class="btn btn-neutral float-left" title="ComXf产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CryIf.html" class="btn btn-neutral float-right" title="CryIf 产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,3458 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecOC_集成手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SOMEIP_集成手册" href="SOMEIP.html" />
+    <link rel="prev" title="RamTest_集成手册" href="RamTest.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SecOC_集成手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">缩写词和术语</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">参考文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">SecOC集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#orientais-configurator">新建ORIENTAIS Configurator配置工程及模块加载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">模块配置及生成代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ecuc">Ecuc配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canif">CanIf的配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pdur">PDUR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">发送路由表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">接收路由表</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#com">COM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tx">Tx信号的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rx">Rx信号的配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#crypto">Crypto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cryif">CryIf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csm">Csm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">代码例程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">代码结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">源代码调度集成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">测试结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SecOC_集成手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/集成手册/SecOC.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="secoc">
+<h1>SecOC_集成手册<a class="headerlink" href="#secoc" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2>目标<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>本集成手册用于指导用户进行SecOC模块集成，文档主要包括的内容为：SecOC模块集成指导、基于示例应用的集成讲解。</p>
+<p>由于各项目的需求不同，集成示例不会针对于特定的商业项目做详细讲解。</p>
+</section>
+<section id="id2">
+<h2>缩写词和术语<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">表格 2‑1</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>**
+缩写词/术语**</p></td>
+<td><p><strong>描述</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SecOC</p></td>
+<td><p>Security On board Communication安全板载通信</p></td>
+</tr>
+<tr class="row-odd"><td><p>MCAL</p></td>
+<td><p>Microcontroller Abstraction Layer微控制器抽象层</p></td>
+</tr>
+<tr class="row-even"><td><p>CryIf</p></td>
+<td><p>Crypto Interface Crypto接口</p></td>
+</tr>
+<tr class="row-odd"><td><p>Csm</p></td>
+<td><p>Crypto ServiceManager Crypto服务管理</p></td>
+</tr>
+<tr class="row-even"><td><p>MAC</p></td>
+<td><p>Message Authentication Code消息认证码</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2>参考文档<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>[1]《参考手册_CryIf.pdf》</p>
+<p>[2]《参考手册_CSM.pdf》</p>
+<p>[3]《参考手册_Crypto.pdf》</p>
+<p>[4]《参考手册_SecOC.pdf》</p>
+</section>
+<section id="id4">
+<h2>SecOC集成<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>项目交付的内容为：SecOC源码和ORIENTAIS Configurator配置工具。</p>
+<p>SecOC相关配置模块的功能介绍，参见表4‑1 SecOC相关配置模块介绍。</p>
+<p>使用SecOC源码和配置工具，进行SecOC的集成的步骤，参见表4‑2
+SecOC集成的步骤。</p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">表4‑1 SecOC相关配置模块介绍</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p><strong>模
+块名</strong></p></td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Can</p></td>
+<td><p>提供SecOC所需要的邮箱</p></td>
+</tr>
+<tr class="row-odd"><td><p>CANIf</p></td>
+<td><p>CANIf模块主要处理上层模块与底层驱动的之间
+PDU的传递，为上层模块提供统一的接口来管理不同的CAN硬件模块</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuC</p></td>
+<td><p>用于辅助配置工具完成配置的模块。主
+要提供PDU的定义，其它模块通过关联EcuC中PDU，相互关联起来。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PDU Router主要为通讯接口模块（CANIf）、传输协议模块（CAN
+TP、J1939
+TP）、诊断通讯管理模块（DCM、J1939DCM）以及通讯模块（C
+OM、LDCOM）以及IPDUM、SECOC等模块提供基于I-PDU的路由服务。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com</p></td>
+<td><p>COM模块主要提供I-PDU和信号相关管理功能</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crypto</p></td>
+<td><p>为SecOC提供底层加密驱动程序</p></td>
+</tr>
+<tr class="row-even"><td><p>Csm</p></td>
+<td><p>Csm模块为Crypto进行抽象并为上层提供标准化接口</p></td>
+</tr>
+<tr class="row-odd"><td><p>SecOC</p></td>
+<td><p>SecOC模块主要管理参与信息安全收发的PDU及相关属性</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">表4‑2 SecOC集成的步骤</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>步
+骤
+*</em></p>
+</td>
+<td><p><strong>操作</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>ORIENTAIS
+Configurator配置工
+具工程搭建和SecOC相关模块加载</p></td>
+<td><p>若配置工具已经搭建，则仅需
+进行SecOC相关模块的加载操作。</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>模块配置及配置文件生成</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>代码集成</p></td>
+<td><p>现有工程、SecOC相关模块
+源代码和配置生成文件的集成。</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>验证测试</p></td>
+<td><p>NA</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：SecOC模块集成之前，用户须确保已经有基础工程。</strong></p>
+<section id="orientais-configurator">
+<h3>新建ORIENTAIS Configurator配置工程及模块加载<a class="headerlink" href="#orientais-configurator" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>安装ORIENTAIS Configurator软件后，双击软件图标打开软件。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image1187.png"><img alt="image1" src="../../_images/image1187.png" style="width: 5.76389in; height: 3.05486in;" /></a></p>
+<p>图4-1 新建工程-1</p>
+<ol class="arabic simple" start="2">
+<li><p>菜单栏File🡪New🡪Project，新建工程。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image2146.png"><img alt="image2" src="../../_images/image2146.png" style="width: 5.75625in; height: 3.17083in;" /></a></p>
+<p>图4-2 新建工程-2</p>
+<ol class="arabic simple" start="3">
+<li><p>在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image3108.png"><img alt="image3" src="../../_images/image3108.png" style="width: 3.86875in; height: 3.68542in;" /></a></p>
+</div></blockquote>
+<p>图4-3 新建工程-3</p>
+<ol class="arabic simple" start="4">
+<li><p>在弹出的窗口中输入工程名，选择Finish。</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image4106.png"><img alt="image4" src="../../_images/image4106.png" style="width: 4.30069in; height: 3.61806in;" /></a></p>
+</div></blockquote>
+<p>图4-4 新建工程-4</p>
+<ol class="arabic simple" start="5">
+<li><p>在弹出的窗口中选择Yes。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image590.png"><img alt="image5" src="../../_images/image590.png" style="width: 3.0625in; height: 1.43194in;" /></a></p>
+<p>图4-5 新建工程-5</p>
+<ol class="arabic simple" start="6">
+<li><p>选择[Bsw_Builder]，右键单击，选择New ECU Configuration。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image680.png"><img alt="image6" src="../../_images/image680.png" style="width: 2.42778in; height: 0.57639in;" /></a></p>
+<p>图4-6 新建工程-6</p>
+<ol class="arabic simple" start="7">
+<li><p>在弹出的窗口中输入ECU名，然后选择Next。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image765.png"><img alt="image7" src="../../_images/image765.png" style="width: 2.65139in; height: 2.55139in;" /></a></p>
+<p>图4-7 新建工程-7</p>
+<ol class="arabic simple" start="8">
+<li><p>在弹出的窗口中勾选需添加的模块，点击Finish。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image859.png"><img alt="image8" src="../../_images/image859.png" style="width: 2.56111in; height: 2.42917in;" /></a></p>
+<p>图4-8 新建工程-8</p>
+<ol class="arabic simple" start="9">
+<li><p>新建工程如下所示，上一步添加的模块已经被加入到工程中。</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image958.png"><img alt="图形用户界面 描述已自动生成" src="../../_images/image958.png" style="width: 2.38152in; height: 2.35505in;" /></a></p>
+<p>图4-9 新建工程-9</p>
+<ol class="arabic simple" start="10">
+<li><p>MCAL配置导入，BSW模块需要依赖MCAL生成的CAN模块</p>
+<ol class="loweralpha simple">
+<li><p>从MCAL配置工具生成arxml</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image1050.png"><img alt="图形用户界面 中度可信度描述已自动生成" src="../../_images/image1050.png" style="width: 2.46501in; height: 2.01876in;" /></a></p>
+<p>图4-10 新建工程-10</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image1188.png"><img alt="图形用户界面, 文本, 应用程序, 电子邮件 描述已自动生成" src="../../_images/image1188.png" style="width: 5.65283in; height: 3.25965in;" /></a></p>
+<blockquote>
+<div><p>图4-11 新建工程-11</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>导入BSW工具</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image1250.png"><img alt="图形用户界面, 文本, 应用程序 描述已自动生成" src="../../_images/image1250.png" style="width: 3.44522in; height: 2.66342in;" /></a></p>
+<blockquote>
+<div><p>图4-12 新建工程-12</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image1345.png"><img alt="image9" src="../../_images/image1345.png" style="width: 5.98979in; height: 2.11824in;" /></a></p>
+<blockquote>
+<div><p>图4-13 新建工程-13</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image1443.png"><img alt="图形用户界面, 文本 描述已自动生成" src="../../_images/image1443.png" style="width: 3.05931in; height: 3.44533in;" /></a></p>
+<blockquote>
+<div><p>图4-14 新建工程-14</p>
+</div></blockquote>
+</section>
+<section id="id5">
+<h3>模块配置及生成代码<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>该章节主要介绍SecOC模块的配置参数，列举配置项在配置界面显示的名称、可能的取值、默认的取值、参数描述及依赖关系，旨在指导用户如何使用配置工具进行SecOC模块参数的配置。</p>
+<p>目标：配置一组报文进行SecOC的正常收发</p>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">表 4-3配置目标</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>类型</p></td>
+<td><p>CANID</p></td>
+<td><p>Date</p></td>
+<td><p>新鲜度长度</p></td>
+<td><p>MAC值长度</p></td>
+<td><p>SecOCID</p></td>
+</tr>
+<tr class="row-even"><td><p>TX</p></td>
+<td><p>0x350</p></td>
+<td><p>8Bytes</p></td>
+<td><p>2Bytes</p></td>
+<td><p>6Bytes</p></td>
+<td><p>2Bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>RX</p></td>
+<td><p>0x351</p></td>
+<td><p>8Bytes</p></td>
+<td><p>2Bytes</p></td>
+<td><p>6Bytes</p></td>
+<td><p>2Bytes</p></td>
+</tr>
+</tbody>
+</table>
+<p>表格名词解析如下表介绍</p>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">表 4-4属性描述</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>该配置项在配置工具界面显示的名称</p></td>
+</tr>
+<tr class="row-even"><td><p>取值范围</p></td>
+<td><p>该配置项允许的取值区间</p></td>
+</tr>
+<tr class="row-odd"><td><p>默认取值</p></td>
+<td><p>该配置项默认的配置值</p></td>
+</tr>
+<tr class="row-even"><td><p>参数描述</p></td>
+<td><p>该配置项在标准的AUTOSAR_EcucParamDef.arxml文件中的描述</p></td>
+</tr>
+<tr class="row-odd"><td><p>依赖关系</p></td>
+<td><p>该配置项与其他模块或配置项的关系</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecuc">
+<h3>Ecuc配置<a class="headerlink" href="#ecuc" title="Link to this heading"></a></h3>
+<p>一帧SecOC报文对应于四组ECUC和PDUR的两组路由组，分别对应于CANIf和COM使用。</p>
+<blockquote>
+<div><p>EcucConfigSet</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>如表
+4-3配置目标，示例中使用CANFD，数据整体长度是16Bytes（此长度不包含SecOCID）。</p>
+<p>配置Ecuc包含的发送、接收信息</p>
+<p>COM -&gt; SecOC_Authentic_Tx -&gt; SecOC_Secured_Tx -&gt; SecOC_Tx</p>
+<p>SecOC_Rx -&gt; SecOC_Secured_Rx -&gt; SecOC_Authentic_Rx -&gt; COM</p>
+<p><a class="reference internal" href="../../_images/image1542.png"><img alt="image10" src="../../_images/image1542.png" style="width: 5.76597in; height: 2.41944in;" /></a></p>
+<p>图4-15 EcucConfigSet</p>
+<ol class="arabic simple">
+<li><p>配置COM发送、接收信息:</p></li>
+</ol>
+<blockquote>
+<div><p>COM_SECOC_DEMO_TX_350/COM_SECOC_DEMO_RX_351，长度为8</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>配置CANIf的发送、接收信息：</p></li>
+</ol>
+<blockquote>
+<div><p>SECOC_DEMO_TX_350/SECOC_DEMO_RX_351，长度为16</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>配置SecOC的加密、真实的发送、接收信息：</p></li>
+</ol>
+<blockquote>
+<div><p>SecOC_Authentic_Tx/ SecOC_Authentic_Rx，长度为8</p>
+<p>SecOC_Secured_Tx/SecOC_Secured/Rx，长度为16</p>
+</div></blockquote>
+</section>
+<section id="canif">
+<h3>CanIf的配置<a class="headerlink" href="#canif" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>CanIfRx</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>CanIf主要是对报文属性的定义，包含了CANID和DLC以及帧类型等重要数据。</p>
+<p><a class="reference internal" href="../../_images/image1638.png"><img alt="image11" src="../../_images/image1638.png" style="width: 5.12639in; height: 2.10278in;" /></a></p>
+<p>图4-16 CanIfInitCfgRX配置</p>
+<ol class="arabic simple">
+<li><p>配置接收报文的ID 0x351这个信息和底层的邮箱信息相匹配。</p></li>
+<li><p>配置帧类型是STANDARD_FD_CAN。</p></li>
+<li><p>DLC的长度，接收数据为16字节。</p></li>
+</ol>
+<p>填写接收报文的ID，确定数据帧的类型以及数据长度，选择此数据的PDUHrH，以及CanIfRxPduRef。</p>
+<p>表4-5 CanIfRx界面配置说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>CanIfR
+xPduCanId</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0-0x7FF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>报文的ID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>CanIfRxPdu
+CanIdType*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>ST
+ABDARD_CAN</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>帧类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>CanI
+fRxPduDlc</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0-32</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>报文长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CanIfRxP
+duUserRxInd
+icationUL</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>PDUR</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>接收
+报文所属的规范类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>CanIfRxPd
+uHrhIdRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>HRH</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Rx
+L-PDU所属的
+HRH通过该参数引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CanI
+fRxPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>引用“全局”P
+du结构，以允许协调
+com堆栈中的句柄id</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>CanIfTx</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image1739.png"><img alt="image12" src="../../_images/image1739.png" style="width: 5.76181in; height: 2.64792in;" /></a></p>
+<p>图4‑17 CanIfInitCfgTX配置</p>
+<ol class="arabic simple">
+<li><p>配置发送报文的ID 0x350这个信息和底层的邮箱信息相匹配。</p></li>
+<li><p>配置帧类型STANDARD_FD_CAN。。</p></li>
+</ol>
+<p>填写发送报文的ID，确定数据帧的类型，选择此数据的PDUHrH，以及CanIfTxPduRef。</p>
+<p>表4-6 CanIfTx界面配置说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>CanIf
+TxPduType</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0-0x7FF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>报文的ID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>CanIfTxPdu
+CanIdType*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>ST
+ABDARD_CAN</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>帧类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>CanIf
+TxPduType</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>STATIC</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>是否可以更改CANID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CanIfTxP
+duUserRxInd
+icationUL</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>PDUR</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>接收
+报文所属的规范类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>CanIfTxPdu
+BufferRef*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>对CanIf缓冲
+区配置的可配置引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CanI
+fTxPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>引用“全局”P
+DU结构，以允许协调
+com堆栈中的句柄id</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur">
+<h3>PDUR<a class="headerlink" href="#pdur" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>PduRBswModules</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image1836.png"><img alt="图形用户界面, 应用程序 描述已自动生成" src="../../_images/image1836.png" style="width: 5.175in; height: 3.09931in;" /></a></p>
+<p>图4‑18 PduRBswModules配置</p>
+<ol class="arabic simple">
+<li><p>打开发送确认(PduRTxConfirmation)。</p></li>
+<li><p>Module引用SecOC模块。</p></li>
+</ol>
+<p>此界面包含函数接口的宏开关以及PDU路由器模块应使用传输协议接口指定的API参数。PduRBswModuleRef需要在添加SecOC模块之后才可出现选择项。</p>
+<p>表4-7 PduRBswModules界面配置说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRCance
+lTransmit</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>取
+消发送函数的宏开关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRTxCon
+firmation</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>发
+送确认函数的宏开关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRBsw
+ModuleRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>这是对一个
+BSW模块配置的引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>PduRRoutingTables</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>在界面配置路由表，包含在ECUC里面配置的句柄信息以及数据流向，本文档中在此只关注SecOC报文。</p>
+<p><a class="reference internal" href="../../_images/image1933.png"><img alt="image13" src="../../_images/image1933.png" style="width: 4.6637in; height: 3.39796in;" /></a></p>
+<p>图4-19 路由表配置</p>
+<p>如上述的4.3章节里面已经描述SecOC配置的ECUC的分组信息，在此配置发送是两组，接收是两组，分别在CanIf和COM里面进行传输，普通报文仅只有COM和CanIf两者之间传输而已，并不包含SecOC的附加信息。</p>
+<section id="id6">
+<h4>发送路由表<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>发送的数据信息的传输如下图所示：</p>
+<p><a class="reference internal" href="../../_images/image2031.png"><img alt="image14" src="../../_images/image2031.png" style="width: 5.76736in; height: 1.53542in;" /></a></p>
+<p>图4-20 发送数据流</p>
+<p>分析路由表的配置以下：</p>
+<p>一、真实数据发送PduR组</p>
+<p>源发送数据（此数据和下面的数据为一组，在COM往下发的时候传输使用，和安全的数据不一样，此为真实数据组8Bytes）。</p>
+<p><a class="reference internal" href="../../_images/image2147.png"><img alt="image15" src="../../_images/image2147.png" style="width: 5.32361in; height: 2.34097in;" /></a></p>
+<p>图4-21 COM发送数据流Src</p>
+<ol class="arabic simple">
+<li><p>启动传输需要打开，否则无法传输。</p></li>
+<li><p>目的PDU参考为COM来的PDU，选择COM_SECOC_DEMO_Tx_0x350</p></li>
+</ol>
+<p>发送的时候数据从COM源发送真实数据到真实数据配置的ECUC</p>
+<p>PduRSrcPdus -&gt; PduRDestPdus</p>
+<p>表4-8 PduRSrcPdus界面配置说明TxCom</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRSrcPd
+uUpTxConf</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>启动传输</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduR
+SrcPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>源PDU参
+考;引用唯一的PDU标
+识符，应使用用于请
+求的PDU路由器操作</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>目的发送数据（此数据和上面的数据为一组8Bytes）</p>
+<p><a class="reference internal" href="../../_images/image2235.png"><img alt="image16" src="../../_images/image2235.png" style="width: 5.76736in; height: 2.4875in;" /></a></p>
+<p>图4-22 COM发送数据流Dest</p>
+<ol class="arabic simple">
+<li><p>选择数据的传输方式为直接传输。</p></li>
+<li><p>此路由和TP无关报文走的是If，不需勾选PduRTpThreshold。</p></li>
+<li><p>目的PDU参考为真实PDU，选择SecOC_Authentic_Tx</p></li>
+</ol>
+<p>表4-9 PduRSrcPdus界面配置说明TxCom</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduR
+DestPduData
+Provision</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定如何提供数
+据:direct(作为传输
+调用的一部分)或via</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRTp
+Threshold</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参
+数仅与TP路由相关。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRTran
+smissionCon
+firmation</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参数仅
+用于通信接口。传输
+协议模块将始终调用
+TxConfirmation函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRD
+estPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>SecOC_Aut
+hentic_Tx0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>目的地PD
+U参考;当调用目标模
+块的相关函数时，由
+PDU路由器引用唯一
+的PDU标识符应使用
+而不是源PDU标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>二、安全数据PduR组</p>
+<p>SecOC_Secured_Tx -&gt; CANIF_SECOC_DEMO_Tx_0x350为PduR的数据流向</p>
+<p>安全PduR源目的的数据如下：</p>
+<p>源发送数据（此数据和下面的数据为一组，在CanIf往外发的时候传输使用，和真实的数据不一样，此为安全数据组16Bytes）。</p>
+<p><a class="reference internal" href="../../_images/image2332.png"><img alt="image17" src="../../_images/image2332.png" style="width: 5.76736in; height: 2.4375in;" /></a></p>
+<p>图4-23 CanIf发送数据流Src</p>
+<ol class="arabic simple">
+<li><p>启动传输需要打开，否则无法传输。</p></li>
+<li><p>PDU参考为安全的PDU，选择SecOC_Secured_Tx</p></li>
+</ol>
+<p>表4-10 PduRSrcPdus界面配置说明TxCanIf</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRSrcPd
+uUpTxConf</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>启动传输</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduR
+SrcPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>源PDU参
+考;引用唯一的PDU标
+识符，应使用用于请
+求的PDU路由器操作</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>安全PduR目的数据如下：</p>
+<p>目的发送数据（此数据和上面的数据为一组16Bytes）</p>
+<p><a class="reference internal" href="../../_images/image2430.png"><img alt="image18" src="../../_images/image2430.png" style="width: 5.75972in; height: 2.24236in;" /></a></p>
+<p>图4-24 CanIf发送数据流Dest</p>
+<ol class="arabic simple">
+<li><p>选择数据的传输方式为直接传输。</p></li>
+<li><p>和TP无关报文走的是If，填写0.</p></li>
+<li><p>目的PDU参考为CanIf的PDU，选择CANIF_SECOC_DEMO_Tx_0x350</p></li>
+</ol>
+<p>表4-11 PduRSrcPdus界面配置说明TxCom</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduR
+DestPduData
+Provision</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定如何提供数
+据:direct(作为传输
+调用的一部分)或via</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRTp
+Threshold</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参
+数仅与TP路由相关。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRTran
+smissionCon
+firmation</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参数仅
+用于通信接口。传输
+协议模块将始终调用
+TxConfirmation函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRD
+estPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>SecOC_Aut
+hentic_Tx0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>目的地PD
+U参考;当调用目标模
+块的相关函数时，由
+PDU路由器引用唯一
+的PDU标识符应使用
+而不是源PDU标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注意：如果已在DBC里面配置SecOC报文，需要删除工具里生成的这一层的PduR，手动的去配置。因为目前DBC需求中没有明确信息表明是SecOC报文，所以会按照非加密报文生成通信栈里面的信息，需要按照本文档写的配置说明去手动更改配置的信息（Ecuc-CanIf-PduR-COM-SecOC的顺序配置）或者在DBC中删除多余信号。</p>
+</section>
+<section id="id7">
+<h4>接收路由表<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p>接收数据信息的传输如下图所示：</p>
+<p><a class="reference internal" href="../../_images/image2528.png"><img alt="image19" src="../../_images/image2528.png" style="width: 5.76736in; height: 2.48333in;" /></a></p>
+<p>图4-25 接收数据流</p>
+<p>路由表的配置如下：</p>
+<p>一、加密数据接收PduR组</p>
+<p>源发送数据（此数据和下面的数据为一组，在Can接收的时候传输使用，和真实的数据不一样，此为安全数据组16Bytes）。</p>
+<p><a class="reference internal" href="../../_images/image2627.png"><img alt="image20" src="../../_images/image2627.png" style="width: 5.76736in; height: 2.44375in;" /></a></p>
+<p>图4-26 CanIf接收数据流Src</p>
+<ol class="arabic simple">
+<li><p>启动传输需要打开，否则无法传输。</p></li>
+<li><p>源PDU参考为CanIf的PDU，选择SecOC_DEMO_Rx_0x351</p></li>
+</ol>
+<p>表4-12 PduRSrcPdus界面配置说明RxCanIf</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRSrcPd
+uUpTxConf</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>启动传输</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduR
+SrcPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>源PDU参
+考;引用唯一的PDU标
+识符，应使用用于请
+求的PDU路由器操作</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>接收时,安全数据从CanIf源接收外部的数据，路由到SecOC安全的数据配置的ECUC。</p>
+<p><a class="reference internal" href="../../_images/image2726.png"><img alt="image21" src="../../_images/image2726.png" style="width: 5.70409in; height: 2.49043in;" /></a></p>
+<p>图4-27 CanIf接收数据流Dest</p>
+<ol class="arabic simple">
+<li><p>选择数据的传输方式为直接传输。</p></li>
+<li><p>和TP无关报文走的是If，填写0.</p></li>
+<li><p>目的PDU参考为安全的PDU，选择SecOC_Secured_Rx</p></li>
+</ol>
+<p>表4-13 PduRSrcPdus界面配置说明RxCanIf</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduR
+DestPduData
+Provision</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定如何提供数
+据:direct(作为传输
+调用的一部分)或via</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRTp
+Threshold</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参
+数仅与TP路由相关。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRTran
+smissionCon
+firmation</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参数仅
+用于通信接口。传输
+协议模块将始终调用
+TxConfirmation函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRD
+estPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>目的地PD
+U参考;当调用目标模
+块的相关函数时，由
+PDU路由器引用唯一
+的PDU标识符应使用
+而不是源PDU标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>二、真实数据接收PduR组</p>
+<p>这是PduR源目的的数据如下：</p>
+<p>源发送数据（此数据和下面的数据为一组，在COM接收的时候传输使用，和安全的数据不一样，此为安全数据组8Bytes）。</p>
+<p><a class="reference internal" href="../../_images/image2824.png"><img alt="image22" src="../../_images/image2824.png" style="width: 5.01859in; height: 1.97385in;" /></a></p>
+<p>图4-28 COM接收数据流Src</p>
+<ol class="arabic simple">
+<li><p>启动传输需要打开，否则无法传输。</p></li>
+<li><p>源PDU参考为真实的PDU，选择SecOC_Authentic_Rx</p></li>
+</ol>
+<p>表4-14 PduRSrcPdus界面配置说明RxCom</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRSrcPd
+uUpTxConf</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>启动传输</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduR
+SrcPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>源PDU参
+考;引用唯一的PDU标
+识符，应使用用于请
+求的PDU路由器操作</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>真实PduR目的的数据如下：</p>
+<p>目的接收数据（此数据和上面的数据为一组8Bytes）</p>
+<p><a class="reference internal" href="../../_images/image2924.png"><img alt="image23" src="../../_images/image2924.png" style="width: 5.23988in; height: 2.15715in;" /></a></p>
+<p>图4-29 COM接收数据流Dest</p>
+<ol class="arabic simple">
+<li><p>选择数据的传输方式为直接传输。</p></li>
+<li><p>和TP无关报文走的是If，填写0.</p></li>
+<li><p>目的PDU参考为COM的PDU，选择COM_SecOC_DEMO_Rx_0x351</p></li>
+</ol>
+<p>表4-15 PduRDestPdus界面配置说明RxCom</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduR
+DestPduData
+Provision</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>指定如何提供数
+据:direct(作为传输
+调用的一部分)或via</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRTp
+Threshold</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参
+数仅与TP路由相关。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>PduRTran
+smissionCon
+firmation</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>此参数仅
+用于通信接口。传输
+协议模块将始终调用
+TxConfirmation函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PduRD
+estPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>目的地PD
+U参考;当调用目标模
+块的相关函数时，由
+PDU路由器引用唯一
+的PDU标识符应使用
+而不是源PDU标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="com">
+<h3>COM<a class="headerlink" href="#com" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>DBC的配置</p>
+</div></blockquote>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>TX（信号只需要定义有效数据即可，本文档采用大端法）</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image3018.png"><img alt="image24" src="../../_images/image3018.png" style="width: 5.7625in; height: 3.06944in;" /></a></p>
+<p>图4-30 TX_DBC的定义</p>
+<ol class="arabic simple" start="2">
+<li><p>RX（信号只需要定义有效数据即可，本文档采用大端法）</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image3126.png"><img alt="image25" src="../../_images/image3126.png" style="width: 5.7625in; height: 3.06944in;" /></a></p>
+<p>图4-31 RX_DBC的定义</p>
+<blockquote>
+<div><blockquote>
+<div><p>附加的信息不必要占用任何的DBC里面的信息，描述包含：新鲜度、MAC、SecOCID。</p>
+</div></blockquote>
+<p>ComConfig</p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="tx">
+<h4>Tx信号的配置<a class="headerlink" href="#tx" title="Link to this heading"></a></h4>
+<p>SECOC_DEMO_Tx_Data0x_IPDU_COM_SECOC_DEMO_Tx_0x350信号的定义</p>
+<p><a class="reference internal" href="../../_images/image3224.png"><img alt="image26" src="../../_images/image3224.png" style="width: 2.69097in; height: 2.88681in;" /></a><a class="reference internal" href="../../_images/image3323.png"><img alt="image27" src="../../_images/image3323.png" style="width: 2.76389in; height: 2.20278in;" /></a><a class="reference internal" href="../../_images/image3422.png"><img alt="image28" src="../../_images/image3422.png" style="width: 2.77708in; height: 2.31806in;" /></a><a class="reference internal" href="../../_images/image3522.png"><img alt="image29" src="../../_images/image3522.png" style="width: 2.67431in; height: 2.33194in;" /></a><a class="reference internal" href="../../_images/image3621.png"><img alt="image30" src="../../_images/image3621.png" style="width: 2.86597in; height: 1.62361in;" /></a></p>
+<p>图4-32 TX信号</p>
+<ol class="arabic simple">
+<li><p>数据的起始位和位长度可以根据DBC的导入获得，或者根据大端和小端的方式来确定，本示例使用大端配置。</p></li>
+<li><p>信号类型采用：大端法。</p></li>
+<li><p>信号的初始值：此处可人为填写，也可以在测试的时候更改这个值，验证功能，示例按照图4-32所示字节填写即可。</p></li>
+<li><p>信号类型：这个很重要，后面的测试转发报文的需要信号的类型相匹配，此选项是16Bits，选择UINT16。</p></li>
+</ol>
+<p>表4-16 ComConfig界面配置说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>ComBit
+Position</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>I-PDU内的
+起始位置该参数指的
+是I-PDU中的位置，而
+不是影子缓冲区中的
+位置如果将字节序转
+换配置为不透明，则
+参数ComBitPosition
+应定义第一个字节的b
+it0，如小端字节顺序</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C
+omSignalEn
+dianness</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>BIG_ENDIAN</p>
+<p>LITTLE_ENDIAN</p>
+<p>OPAQUE</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义信号
+网络表示的字节顺序</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>**
+ComSignalI
+nitValue**</p></td>
+<td><p>取值范围</p></td>
+<td><p>与信号类型有关</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此信号的初始值在UI
+NT8_N的情况下，默认
+值是一个长度为ComS
+ignalLength的字符串
+，所有字节都设置为
+0x00在UINT8_DYN的情
+况下，初始大小应为0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>在
+UINT8_N的情况下，C
+omSignalInitValue的
+长度必须与ComSigna
+lLength的长度相同。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C
+omTransfer
+Property</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>PENDING</p>
+<p>TRIGGERED
+TRIGGERED_ON_CHANGE</p>
+<p>TRIGGERED_ON_CHANGE
+_WITHOUT_REPETITION</p>
+<p>TRIGGERED
+_WITHOUT_REPETITION</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>PENDING</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义对此信号的写访
+问是否可以触发相应
+I-PDU的传输如果I-PD
+U被触发，则还取决于
+相应I-PDU的传输模式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Co
+mUpdateBit
+Position</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>更新
+位在I-PDU内的位位置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ComG
+wIPduRef</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>引用[ComIPdu]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用Signal
+Gateway源
+或目的地描述的I-PDU</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rx">
+<h4>Rx信号的配置<a class="headerlink" href="#rx" title="Link to this heading"></a></h4>
+<p>SecOC_Payload_Rx00_IPDU_COM_SecOC_Rx的定义</p>
+<p><a class="reference internal" href="../../_images/image3721.png"><img alt="image31" src="../../_images/image3721.png" style="width: 2.27431in; height: 2.95139in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image3816.png"><img alt="image32" src="../../_images/image3816.png" style="width: 2.80625in; height: 2.39514in;" /></a><a class="reference internal" href="../../_images/image3914.png"><img alt="image33" src="../../_images/image3914.png" style="width: 2.79306in; height: 2.38333in;" /></a><a class="reference internal" href="../../_images/image4012.png"><img alt="image34" src="../../_images/image4012.png" style="width: 2.70694in; height: 2.34514in;" /></a><a class="reference internal" href="../../_images/image4119.png"><img alt="image35" src="../../_images/image4119.png" style="width: 2.83889in; height: 2.40833in;" /></a></p>
+<p>图4-33 RX信号</p>
+<ol class="arabic simple">
+<li><p>数据的起始位和位长度可以根据DBC的导入获得，或者根据大端和小端的方式来确定，在这里采用大端法。</p></li>
+<li><p>信号类型采用：大端法。</p></li>
+<li><p>信号的初始值：接收数据无需配置，默认即可。</p></li>
+<li><p>信号类型：这个很重要，后面的测试转发报文的需要信号的类型相匹配，此选项是16Bits，选择UINT16。</p></li>
+</ol>
+<p>表4-17 ComConfig界面配置说明R</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>ComBit
+Position</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>I-PDU内的
+起始位置该参数指的
+是I-PDU中的位置，而
+不是影子缓冲区中的
+位置如果将字节序转
+换配置为不透明，则
+参数ComBitPosition
+应定义第一个字节的b
+it0，如小端字节顺序</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C
+omSignalEn
+dianness</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>BIG_ENDIAN</p>
+<p>LITTLE_ENDIAN</p>
+<p>OPAQUE</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义信号
+网络表示的字节顺序</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>**
+ComSignalI
+nitValue**</p></td>
+<td><p>取值范围</p></td>
+<td><p>与信号类型有关</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>此信号的初始值在UI
+NT8_N的情况下，默认
+值是一个长度为ComS
+ignalLength的字符串
+，所有字节都设置为
+0x00在UINT8_DYN的情
+况下，初始大小应为0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>在
+UINT8_N的情况下，C
+omSignalInitValue的
+长度必须与ComSigna
+lLength的长度相同。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>C
+omTransfer
+Property</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>PENDING</p>
+<p>TRIGGERED
+TRIGGERED_ON_CHANGE</p>
+<p>TRIGGERED_ON_CHANGE
+_WITHOUT_REPETITION</p>
+<p>TRIGGERED
+_WITHOUT_REPETITION</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>PENDING</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义对此信号的写访
+问是否可以触发相应
+I-PDU的传输如果I-PD
+U被触发，则还取决于
+相应I-PDU的传输模式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Co
+mUpdateBit
+Position</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>更新
+位在I-PDU内的位位置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ComG
+wIPduRef</strong></p></td>
+<td><p>取值范围</p></td>
+<td><p>引用[ComIPdu]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用Signal
+Gateway源
+或目的地描述的I-PDU</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="crypto">
+<h3>Crypto<a class="headerlink" href="#crypto" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>设置CryptoQueueSize大小为16，选择后面设置的CryptoPrimitive.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image4221.png"><img alt="image36" src="../../_images/image4221.png" style="width: 4.54192in; height: 2.19723in;" /></a></p>
+<p>图4-34 Crypto设置</p>
+<blockquote>
+<div><p>添加密钥元素，后面的CryptoKeyTypes可选择此处设置的CryptoKeyElements作为密钥类型参考值。</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image4319.png"><img alt="image37" src="../../_images/image4319.png" style="width: 4.64306in; height: 1.40625in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image4419.png"><img alt="image38" src="../../_images/image4419.png" style="width: 4.49028in; height: 1.36042in;" /></a></p>
+<p>图4-35 CryptoKeyElement设置</p>
+<blockquote>
+<div><p>设置算法类型，此处设置为AES-CMAC算法，选择算法加密服务为MAC_GENERATE。</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image4519.png"><img alt="image39" src="../../_images/image4519.png" style="width: 4.58276in; height: 1.28571in;" /></a></p>
+<p>图4-36 Crypto设置</p>
+</section>
+<section id="cryif">
+<h3>CryIf<a class="headerlink" href="#cryif" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>CryIfIncludes</p>
+</div></blockquote>
+<hr class="docutils" />
+<blockquote>
+<div><p>此处主要设置CryIf需要的头文件名，不需要添加.h后缀</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image4618.png"><img alt="image40" src="../../_images/image4618.png" style="width: 4.66461in; height: 1.10956in;" /></a></p>
+<p>图4-37 CryIf设置</p>
+<blockquote>
+<div><p>CryIfChannel</p>
+</div></blockquote>
+<hr class="docutils" />
+<blockquote>
+<div><p>选择对应的底层驱动</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image4716.png"><img alt="image41" src="../../_images/image4716.png" style="width: 5.76458in; height: 1.30069in;" /></a></p>
+<p>图4-38 CryIf设置</p>
+<blockquote>
+<div><p>CryIfKey</p>
+</div></blockquote>
+<hr class="docutils" />
+<blockquote>
+<div><p>添加底层驱动的密钥参考值</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image4815.png"><img alt="image42" src="../../_images/image4815.png" style="width: 5.76458in; height: 1.1875in;" /></a></p>
+<p>图4-39 CryIf设置</p>
+</section>
+<section id="csm">
+<h3>Csm<a class="headerlink" href="#csm" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>CsmJobs</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>添加密钥管理服务的任务设置</p>
+<p>CsmJobPriority:设置任务优先级</p>
+<p>CsmProcessingMode:设置任务处理模式，可选择同步或者异步</p>
+<p>CsmJobKeyRef:设置参考的密钥，在后面的CsmKeys中配置</p>
+<p>CsmJobPrimitiveRef:设置任务原型，在后面的CsmPrimitives中配置</p>
+<p>CsmJobQueueRef:设置任务队列，在后面的CsmQueues中配置</p>
+<p><a class="reference internal" href="../../_images/image4913.png"><img alt="image43" src="../../_images/image4913.png" style="width: 5.37611in; height: 2.10642in;" /></a></p>
+<p>图4-40 Csm设置</p>
+<blockquote>
+<div><p>CsmKeys</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image5012.png"><img alt="image44" src="../../_images/image5012.png" style="width: 4.94861in; height: 1.21319in;" /></a></p>
+<p>图4-41 Csm设置</p>
+<p>添加从If层设置的密钥</p>
+<blockquote>
+<div><p>CsmPrimitives</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>设置加密原型</p>
+<p>CsmMacGenerateAlgorithmFamily:设置加密服务的算法族</p>
+<p>CsmMacGenerateAlgorithmKeyLength:设置MAC的长度16byte</p>
+<p>CsmMacGenerateAlgorithmMode:设置加密算法服务</p>
+<p>CsmMacGenerateResultLength:设置输出的MAC长度6bytes</p>
+<p><a class="reference internal" href="../../_images/image5121.png"><img alt="image45" src="../../_images/image5121.png" style="width: 4.52153in; height: 2.47847in;" /></a></p>
+<p>图4-42 Csm设置</p>
+<blockquote>
+<div><p>CsmQueues</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>设置Csm序列大小、If层设置的参考通道</p>
+<p><a class="reference internal" href="../../_images/image5218.png"><img alt="image46" src="../../_images/image5218.png" style="width: 5.12917in; height: 1.34792in;" /></a></p>
+<p>图4-43 Csm设置</p>
+<blockquote>
+<div><p>SecOC</p>
+</div></blockquote>
+<hr class="docutils" />
+<blockquote>
+<div><p>Genernal</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image5317.png"><img alt="image47" src="../../_images/image5317.png" style="width: 2.19375in; height: 2.61875in;" /></a></p>
+<p>图4-44 General</p>
+<ol class="arabic simple">
+<li><p>MainFunction所放置的周期，通常放在10ms里面，此处写0.01。</p></li>
+</ol>
+<p>表4-18 General界面说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>SecOCDevE
+rrorDetect</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>错误检
+查开关，表示是否打
+开DET错误检查机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOCM
+ainFunctionP
+eriodRx/Tx</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 0.255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>SecOC模块Main
+Function的调度周期</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOCVers
+ionInfoApi</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>True / False</p></td>
+<td><p>默认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于配置
+SecOC_GetVersionIn
+fo函数接口是否可用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>SecOCRxPduProcessing</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image5416.png"><img alt="image48" src="../../_images/image5416.png" style="width: 2.28034in; height: 1.0297in;" /></a></p>
+<p>图4-45 SecOCRxPduProcessings</p>
+<p>如上图，SecOCRxPduProcessings为SecOCRxPduProcessing对象的集合，在该对象的右键菜单中，可添加0
+.. n个SecOCRxPduProcessing对象。</p>
+<p><a class="reference internal" href="../../_images/image5514.png"><img alt="image49" src="../../_images/image5514.png" style="width: 4.81667in; height: 2.81458in;" /></a></p>
+<p>图4-46 SecOCRxPduProcessing</p>
+<ol class="arabic simple">
+<li><p>SecOCAuthInfoTxLength：描述的是MAC的长度。</p></li>
+<li><p>SecOCDataId ：和发送的ID需要一致，接收和发送是一组，具有唯一性。</p></li>
+<li><p>SecOCFreshnessCounterSyncAttempts：新鲜度的尝试次数，也许会出现偶然新鲜度失败，可以通过多次尝试依旧接收报文。</p></li>
+<li><p>SecOCFreshnessValueId：和发送的ID需要一致，接收和发送是一组，具有唯一性。</p></li>
+<li><p>SecOCFreshnessValueLength：新鲜度在加密信息里所占用的长度，单位：Bits。</p></li>
+<li><p>SecOCFreshnessValueTxLength：和SecOCFreshnessValueId保持一致即可。</p></li>
+<li><p>SecOCVerificationStatusPropagationMode：参数用于描述从SecOC模块到SWCs的每次验证尝试状态的传播，此处包含失败通知，成功通知，和不通知，为了提高代码的效率，选择NONE。</p></li>
+<li><p>SecOCRxAuthServiceConfigRef：算法选择，根据在Csm模块中配置的算法进行选择。</p></li>
+<li><p>SecOCSecuredPduBuffLength：大于等于所有信息的长度即可，数组缓存SecOC报文（此例程大于16即可，单位Bytes）。</p></li>
+</ol>
+<p>表4-19 SecOCRxPduProcessing参数说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>SecOCAuthIn
+foTxLength*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定
+义了添加在Secured
+I-PDU后
+面的Authentication
+cod
+e的长度，单位为bit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>S
+ecOCDataId</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Secured
+I-PDU唯一的标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>SecOCFreshn
+essCounterSy
+ncAttempts*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该参数定
+义了在校验Secured
+I-PDU失败后，
+尝试再校验的次数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+FreshnessTim
+estampTimePe
+riodFactor</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该参数目
+前不可用，不可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sec
+OCFreshnessV
+alueLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义了Freshness
+Value的完
+整长度，单位为bit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+FreshnessVal
+ueTxLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定
+义了添加在Secured
+I-
+PDU后面的Freshness
+Valu
+e的长度，单位为bit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义了用于认证
+和校验MAC时使用的
+key在本地的标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>S
+ecOCRxAccept
+anceWindow</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该参数目
+前未使用，不可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOCSec
+ondaryFreshn
+essValueId</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0xFFFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Secondary
+Freshness
+Value的Id</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>SecO
+CUseFreshnes
+sTimestamp</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>False</p></td>
+<td><p>默认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该参数固定
+为False，不可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecO
+CVerificatio
+nStatusPropa
+gationMode</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>BOTH FAILURE_ONLY</p>
+<p>NONE</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>NONE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于定义在那种校验
+结果下，通知用户：</p>
+<p>BOTH：
+在校验结果成功
+和失败时都通知用户</p>
+<p>FAILURE_ONLY：只在
+校验失败时通知用户</p>
+<p>NONE：任
+何结果都不通知用户</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>SecOC
+RxAuthServic
+eConfigRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>Csm模块选择</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>进
+行校验时使用的算法</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+AuthenticPdu
+BuffLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于存储Authentic
+PDU的buffer的长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sec
+OCSecuredPdu
+BuffLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于存储Secured
+PDU的buffer的长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>CSM或CAL模
+块中用于提供该PDU
+校验服务所配置的Id</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>SecOCSameBu
+fferPduRef*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到配
+置的samebuffer对象</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>如果使用SameBu
+ffer，则指向一个配
+置的SameBuffer对象</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>SecOCRxAuthenticPduLayer</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image5612.png"><img alt="image50" src="../../_images/image5612.png" style="width: 5.7625in; height: 1.31736in;" /></a></p>
+<p>图4-47 SecOCRxAuthenticPduLayer</p>
+<ol class="arabic simple">
+<li><p>SecOCPduType：选择所走的协议，此例程为If。</p></li>
+<li><p>SecOCRxAuthenticLayerPduRef：SecOc_RxPduA。</p></li>
+</ol>
+<p>表4-20 SecOCRxAuthenticPduLayer参数说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Se
+cOCPduType</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>SECOC_IFPDU</p>
+<p>SECOC_TPPDU</p>
+</td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p></td>
+<td><p>SECOC_IFPDU</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示PDU的类型是IF
+PDU还是TP PDU</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+RxAuthenticL
+ayerPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>ECUC中定义的PDU</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>SecOCRxAuthentic
+PduLayer对应的PDU</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>SecOCRxSecuredPduLayer</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>SecOCRxSecuredLayerPduRef：SecOc_RxPduS。</p>
+<p><a class="reference internal" href="../../_images/image5712.png"><img alt="image51" src="../../_images/image5712.png" style="width: 5.76504in; height: 1.80836in;" /></a></p>
+<p>图4-48 SecOCRxSecuredPduLayer</p>
+<p>表4-21 SecOCRxSecuredPduLayer参数说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>**
+SecOCRxSecur
+edPduLayer**</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>ECUC中定义的PDU</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>SecOCRxSecure
+dPduLayer对应的PDU</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>SecOCTxPduProcessing</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image5810.png"><img alt="image52" src="../../_images/image5810.png" style="width: 3.24653in; height: 1.55903in;" /></a></p>
+<p>图4-49 SecOCTxPduProcessings</p>
+<p>如上图，SecOCTxPduProcessings为SecOCTxPduProcessing对象的集合，在该对象的右键菜单中，可添加0
+.. n个SecOCTxPduProcessing对象。</p>
+<p><a class="reference internal" href="../../_images/image598.png"><img alt="image53" src="../../_images/image598.png" style="width: 5.75972in; height: 2.33056in;" /></a></p>
+<p>图4-50 SecOCTxPduProcessing</p>
+<ol class="arabic simple">
+<li><p>SecOCAuthInfoTxLength：描述的是MAC的长度。</p></li>
+<li><p>SecOCDataId ：和发送的ID需要一致，接收和发送是一组，具有唯一性。</p></li>
+<li><p>SecOCAuthenticationBuildAttempts：新鲜度的尝试次数，也许会出现偶然新鲜度失败，可以通过多次尝试依旧接收报文。</p></li>
+<li><p>SecOCFreshnessValueId：和发送的ID需要一致，接收和发送是一组，具有唯一性。</p></li>
+<li><p>SecOCFreshnessValueLength：新鲜度在加密信息里所占用的长度，单位：Bits。</p></li>
+<li><p>SecOCFreshnessValueTruncLength：和SecOCFreshnessValueLength保持一致即可。</p></li>
+<li><p>SecOCAuthenticPduBuffLength：大于等于真实信息的长度即可，数组缓存SecOC报文（此例程大于8即可，单位Bytes）。</p></li>
+<li><p>SecOCSecuredPduBuffLength：大于等于所有信息的长度即可，数组缓存SecOC报文（此例程大于16即可，单位Bytes）。</p></li>
+<li><p>SecOCTxAuthServiceConfigRef：算法选择，从Csm中选择对应的CsmJob。</p></li>
+</ol>
+<p>表4-22 SecOCTxPduProcessing参数说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>SecOCAuthIn
+foTxLength*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定
+义了添加在Secured
+I-PDU后
+面的Authentication
+cod
+e的长度，单位为bit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecO
+CAuthenticat
+ionRetries</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义
+了在生成认证信息失
+败后再次尝试的次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>S
+ecOCDataId</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Secured
+I-PDU唯一的标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+FreshnessTim
+estampTimePe
+riodFactor</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该参数目
+前不可用，不可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Sec
+OCFreshnessV
+alueLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义了Freshness
+Value的完
+整长度，单位为bit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+FreshnessVal
+ueTxLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定
+义了添加在Secured
+I-
+PDU后面的Freshness
+Valu
+e的长度，单位为bit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>**
+SecOCKeyId**</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>定义了用于认证
+和校验MAC时使用的
+key在本地的标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecO
+CUseFreshnes
+sTimestamp</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>False</p></td>
+<td><p>默认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>该参数固定
+为False，不可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>SecOC
+AuthenticPdu
+BuffLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于存储Authentic
+PDU的buffer的长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sec
+OCSecuredPdu
+BuffLength</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>用于存储Secured
+PDU的buffer的长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>SecOCC
+smCalCfgId</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>Csm或CAL模
+块中用于提供该PDU
+校验服务所配置的Id</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+RxAuthServic
+eConfigRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>SECOC_CALMAC</p>
+<p>SECOC_CALSIGNATURE</p>
+<p>SECOC_CSMMAC</p>
+<p>SECOC_CSMSIGNATURE</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>SE
+COC_CSMMAC</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>进
+行校验时使用的算法</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>SecOCSameBu
+fferPduRef*</em></p>
+</td>
+<td><p>取
+值范围</p></td>
+<td><p>引用到配
+置的samebuffer对象</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>如果使用SameBu
+ffer，则指向一个配
+置的SameBuffer对象</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>SecOCTxAuthenticPduLayer</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image607.png"><img alt="image54" src="../../_images/image607.png" style="width: 5.75903in; height: 0.91944in;" /></a></p>
+<p>图4-51 SecOCTxAuthenticPduLayer</p>
+<ol class="arabic simple">
+<li><p>SecOCPduType：选择所走的协议，此例程为If。</p></li>
+<li><p>SecOCTxAuthenticLayerPduRef：SecOc_TxPduA。</p></li>
+</ol>
+<p>表4-23 SecOCTxAuthenticPduLayer参数说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>Se
+cOCPduType</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>SECOC_IFPDU</p>
+<p>SECOC_TPPDU</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>S
+ECOC_IFPDU</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>表示PDU的类型是IF
+PDU还是TP PDU</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SecOC
+TxAuthenticL
+ayerPduRef</strong></p></td>
+<td><p>取
+值范围</p></td>
+<td><p>ECUC中定义的PDU</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>SecOCTxAuthenti
+cPduLayer对应的PDU</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>SecOCTxSecuredPduLayer</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image6116.png"><img alt="image55" src="../../_images/image6116.png" style="width: 5.75764in; height: 1.16042in;" /></a></p>
+<p>图4-52 SecOCTxSecuredPduLayer</p>
+<p>SecOCTxSecuredLayerPduRef：SecOc_TxPduS。</p>
+<p>表4-24 SecOCTxSecuredPduLayer参数说明</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+<p><em>描述*</em></p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>**
+SecOCTxSecur
+edPduLayer**</p></td>
+<td><p>取
+值范围</p></td>
+<td><p>ECUC中定义的PDU</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参
+数描述</p></td>
+<td><p>SecOCTxSecure
+dPduLayer对应的PDU</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依
+赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id8">
+<h2>代码例程<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<section id="id9">
+<h3>代码结构<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<p>示例集成通讯安全模块代码框架如下：</p>
+<p><a class="reference internal" href="../../_images/image6215.png"><img alt="image56" src="../../_images/image6215.png" style="width: 2.20417in; height: 2.95833in;" /></a></p>
+<p>图5-1代码框架</p>
+</section>
+<section id="id10">
+<h3>源代码调度集成<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>包含了模块初始化和Csm密钥的有效性验证。</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image6313.png"><img alt="image57" src="../../_images/image6313.png" style="width: 1.93472in; height: 2.07917in;" /></a></p>
+<p>图5-2代码初始化</p>
+<p>信息的加密和解密是下函数，放置在5ms周期里面，进行周期的处理发送和接收的SecOC报文。</p>
+<p><a class="reference internal" href="../../_images/image6413.png"><img alt="image58" src="../../_images/image6413.png" style="width: 4.3125in; height: 2.53125in;" /></a></p>
+<p>图5-3周期处理函数</p>
+</section>
+<section id="id11">
+<h3>测试结果<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>需要在Rte_SecOC.c的函数FreshnessManagement_GetTxFreshness中添加对入参freshnessValue的操作，作为观察周期发送的新鲜度值的依据，以下为一个简单的周期更新计算方法：</p>
+<p><a class="reference internal" href="../../_images/image6512.png"><img alt="文本 描述已自动生成" src="../../_images/image6512.png" style="width: 3.9625in; height: 2.21528in;" /></a></p>
+<p>在CAN监测工具里面观察数据新鲜度的变化是否连续。新鲜度在本例程里占2Bytes，在真实数据的后面。</p>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="../../_images/image6612.png"><img alt="../../_images/image6612.png" src="../../_images/image6612.png" style="width: 4.03958in; height: 3.40833in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5-1发送报文验证</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>向对应的SecOC邮箱发送一条报文，检查是否可以进对应的SecOC_RxIndication。</p>
+<p>收到校验通过的报文后，可进入COM配置中PDU接收callout函数。</p>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../../_images/image6710.png"><img alt="../../_images/image6710.png" src="../../_images/image6710.png" style="width: 4.15139in; height: 1.25417in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5-2配置测试用callout函数</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../../_images/image686.png"><img alt="../../_images/image686.png" src="../../_images/image686.png" style="width: 3.1875in; height: 1.40625in;" />
+</a>
+<figcaption>
+<p><span class="caption-text">图 5-3接收报文验证</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="RamTest.html" class="btn btn-neutral float-left" title="RamTest_集成手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SOMEIP.html" class="btn btn-neutral float-right" title="SOMEIP_集成手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,5882 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Com产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ComM产品参考手册" href="ComM.html" />
+    <link rel="prev" title="CanTSyn产品参考手册" href="CanTSyn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Com产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#i-pdu-group">I-PDU Group功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">I-PDU Group功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">I-PDU Group使能控制功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#signal">Signal封装解析功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Signal封装解析功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Signal封装解析功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ipdu">IPdu收发功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">IPdu收发功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">IPdu收发功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">超时监测功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">超时监测功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">超时监测功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">信号滤波功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">信号滤波功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">信号滤波功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#update">信号Update功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">信号Update功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">信号Update功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ipdu-rolling-counter">IPdu Rolling Counter功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">IPdu Rolling Counter功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">IPdu Rolling Counter功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">信号网关功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">信号网关功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">信号网关功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#com-statustype">Com_StatusType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-signalidtype">Com_SignalIdType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-signalgroupidtype">Com_SignalGroupIdType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-ipdugroupidtype">Com_IpduGroupIdType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-ipdugroupvector">Com_IpduGroupVector类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-configtype">Com_ConfigType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#com-init">Com_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-deinit">Com_DeInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-ipdugroupcontrol">Com_IpduGroupControl函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-receptiondmcontrol">Com_ReceptionDMControl函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-getstatus">Com_GetStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-getversioninfo">Com_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-clearipdugroupvector">Com_ClearIpduGroupVector函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-setipdugroup">Com_SetIpduGroup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-sendsignal">Com_SendSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-senddynsignal">Com_SendDynSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-receivesignal">Com_ReceiveSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-receivedynsignal">Com_ReceiveDynSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-updateshadowsignal">Com_UpdateShadowSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-sendsignalgroup">Com_SendSignalGroup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-receivesignalgroup">Com_ReceiveSignalGroup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-receiveshadowsignal">Com_ReceiveShadowSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-sendsignalgrouparray">Com_SendSignalGroupArray函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-receivesignalgrouparray">Com_ReceiveSignalGroupArray函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-invalidatesignal">Com_InvalidateSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-invalidateshadowsignal">Com_InvalidateShadowSignal函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-invalidatesignalgroup">Com_InvalidateSignalGroup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-triggeripdusend">Com_TriggerIPDUSend函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-triggeripdusendwithmetadata">Com_TriggerIPDUSendWithMetaData函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-switchipdutxmode">Com_SwitchIpduTxMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-triggertransmit">Com_TriggerTransmit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-rxindication">Com_RxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-tprxindication">Com_TpRxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-txconfirmation">Com_TxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-tptxconfirmation">Com_TpTxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-startofreception">Com_StartOfReception函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-copyrxdata">Com_CopyRxData函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-copytxdata">Com_CopyTxData函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-mainfunctionrx">Com_MainFunctionRx函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-mainfunctiontx">Com_MainFunctionTx函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#com-mainfunctionroutesignals">Com_MainFunctionRouteSignals函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id28">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comgeneral">ComGeneral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comconfig">ComConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comtimebase">ComTimeBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comipdugroup">ComIPduGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comipdu">ComIPdu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comipducounter">ComIPduCounter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comipdureplication">ComIPduReplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comtxipdu">ComTxIPdu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comtxmode">ComTxMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comsignal">ComSignal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comfilter">ComFilter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comsignalgroup">ComSignalGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comgroupsignal">ComGroupSignal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comgwsignal">ComGwSignal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comgwsourcedescription">ComGwSourceDescription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comgwdestinationdescription">ComGwDestinationDescription</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Com产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/Com.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="com">
+<h1>Com产品参考手册<a class="headerlink" href="#com" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>DM</p></td>
+<td><p>Deadline Monitoring</p></td>
+<td><p>超时监控</p></td>
+</tr>
+<tr class="row-odd"><td><p>I-PDU</p></td>
+<td><p>Interaction Layer Protocol Data
+Unit</p></td>
+<td><p>交互层协议数据单元</p></td>
+</tr>
+<tr class="row-even"><td><p>L-PDU</p></td>
+<td><p>Data Link Layer Protocol Data
+Unit</p></td>
+<td><p>数
+据链路层协议数据单元</p></td>
+</tr>
+<tr class="row-odd"><td><p>MDT</p></td>
+<td><p>Minimum Delay Timer</p></td>
+<td><p>最小延迟时间</p></td>
+</tr>
+<tr class="row-even"><td><p>OSEK COM</p></td>
+<td><p>OSEK Communication（open
+systems and the corresponding
+interfaces for automotive
+electronics）</p></td>
+<td><p>OSEK通信协议</p></td>
+</tr>
+<tr class="row-odd"><td><p>TM</p></td>
+<td><p>Transmission Mode</p></td>
+<td><p>I-PDU传输模式</p></td>
+</tr>
+<tr class="row-even"><td><p>TMC</p></td>
+<td><p>Transmission Mode Condition</p></td>
+<td><p>（信号）传输模式状况</p></td>
+</tr>
+<tr class="row-odd"><td><p>TMS</p></td>
+<td><p>Transmission Mode Selector</p></td>
+<td><p>(I-PDU)传输模式选择</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>开发错误检测</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTE</p></td>
+<td><p>Runtime environment</p></td>
+<td><p>运行时环境</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Com模块主要实现了Signal在I-PDU中的封装及解析功能，为RTE层提供了基于Signal的发送与接收接口，实现了基于Signal的网关功能，实现了PDU的不同发送模式，以及Signal滤波，Update
+bit，Pdu Counter等功能。</p>
+<p><img alt="image1" src="../../_images/image129.png" /></p>
+<p>图1-1 Com模块层次图</p>
+<p>Com模块处于AUTOSAR架构中的通信服务层，其下层模块为PduR模块，上层模块为RTE。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SRS_COM.pdf，R19-11和4.2.2</p>
+<p>[2] AUTOSAR_SWS_COM.pdf，R19-11和4.2.2</p>
+<p>[3] AUTOSAR_SWS_PDURouter.pdf，R19-11和4.2.2</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="i-pdu-group">
+<h3>I-PDU Group功能<a class="headerlink" href="#i-pdu-group" title="Link to this heading"></a></h3>
+<section id="id4">
+<h4>I-PDU Group功能介绍<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<p>Com模块实现基于I-PDU
+Group的使能控制，接收超时检测使能控制。根据I-PDU与I-PDU
+Group的包含关系，间接实现对各个I-PDU的通信使能控制及Rx
+I-PDU的接收超时检测使能控制。</p>
+</section>
+<section id="id5">
+<h4>I-PDU Group使能控制功能实现<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>通过ComIPdu配置参数ComIPduGroupRef，以及ComIPduGroup的配置实现将ComIPdu进行不同的分组。对于不从属于任何ComIPduGroup的ComIPdu其通信使能状态初始化之后一直为Enable且不可动态更改，Rx
+ComIPdu接收超时使能状态初始化之后一直为Disable且不可动态更改。</p>
+<p>IpduGroupVector中的每个bit位代表一个ComIPduGroup，通过调用Com_IpduGroupControl和Com_ReceptionDMControl实现ComIPduGroup通信使能控制和接收超时使能控制，间接实现每个ComIPdu的控制。</p>
+<p>Com提供两个接口Com_ClearIpduGroupVector和Com_SetIpduGroup实现对每个ComIPduGroup所在IpduGroupVector中对应bit位置0或置1（0表示Disable，1表示Enable）。</p>
+</section>
+</section>
+<section id="signal">
+<h3>Signal封装解析功能<a class="headerlink" href="#signal" title="Link to this heading"></a></h3>
+<section id="id6">
+<h4>Signal封装解析功能介绍<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>信号的封装和解析是Com模块的核心功能，根据各个信号的配置信息将发送Signal封装到关联的Tx
+IPdu数据中，从Rx IPdu数据中解析接收Signal。</p>
+<p>Com模块为RTE/应用层提供了完整的基于Signal/SignalGroup的收发接口。</p>
+</section>
+<section id="id7">
+<h4>Signal封装解析功能实现<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p>信号的封装和解析涉及的信号配置参数为ComBitPosition，ComBitSize，ComSignalEndianness，ComSignalType，ComSignalLength。Com模块根据这些配置信息，将发送信号值封装到对应IPdu报文数据中，从接收IPdu报文数据中解析出接收信号值。</p>
+<p>上层通过调用Com_SendSignal来请求非动态长度类型Signal/GroupSignal的发送，调用Com_SendDynSignal来请求动态长度类型（UINT8_DYN）Signal/GroupSignal的发送，调用Com_SendSignalGroup来请求SignalGroup的发送，调用Com_InvalidateSignal来请求Signal发送无效值，调用Com_InvalidateSignalGroup来请求SignalGroup发送无效值，调用Com_SendSignalGroupArray请求上层字节对齐的SignalGroup（已完成各GroupSignal的封装）发送。</p>
+<p>上层通过调用Com_ReceiveSignal获取非动态长度类型接收Signal/GroupSignal信号值，调用Com_ReceiveDynSignal获取动态长度类型接收Signal/GroupSignal信号值，调用Com_ReceiveSignalGroup请求SignalGroup的接收，调用Com_ReceiveSignalGroupArray获取字节对齐SignalGroup的数据值。</p>
+</section>
+</section>
+<section id="ipdu">
+<h3>IPdu收发功能<a class="headerlink" href="#ipdu" title="Link to this heading"></a></h3>
+<section id="id8">
+<h4>IPdu收发功能介绍<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>Com模块实现IPdu的收发方式按数据流分两种类型，即IF方式和TP方式，IF方式通常用于“数据长度较小”的IPdu，而TP方式通常用于“数据长度较大”的IPdu，这里的“数据长度”是相对于传输总线来定义的，如CAN总线为8字节，CANFD为64字节，ETH可以达到1000+字节。其中IF
+IPdu的发送又分为Direct和TriggerTransmit两种类型，前者发送时机由Com决定，后者发送时机由下层模块决定。</p>
+<p>Tx
+IPdu从发送时机角度又分为四种模式，即PERIODIC，DIRECT，MIXED，NONE。NONE模式通常与TriggerTransmit，或者调用Com_TriggerIPDUSend/
+Com_TriggerIPDUSendWithMetaData来配置实现IPdu的发送。</p>
+</section>
+<section id="id9">
+<h4>IPdu收发功能实现<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>通过ComIPdu的配置参数ComIPduType决定该IPdu通过IF/TP方式进行收发：</p>
+<p>1.IF发送：PduR_ComTransmit→ Com_TxConfirmation；</p>
+<p>2.IF接收：Com_RxIndication；</p>
+<p>3.TP发送：PduR_ComTransmit→N次Com_CopyTxData→ Com_TpTxConfirmation；</p>
+<p>4.TP接收：Com_StartOfReception→N次Com_CopyRxData→ Com_TpRxIndication；</p>
+<p>对于Tx
+IPdu通过配置ComTxModeMode来选择发送模式，对于PERIODIC模式需配置发送偏移ComTxModeTimeOffset和发送周期ComTxModeTimePeriod，对于DIRECT模式需配置发送重复次数ComTxModeNumberOfRepetitions和重复发送报文周期ComTxModeRepetitionPeriod（需重复发送次数＞0），对于MIXED模式需配置以上所有参数，对于NONE模式则不需要配置以上任何参数。</p>
+</section>
+</section>
+<section id="id10">
+<h3>超时监测功能<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="id11">
+<h4>超时监测功能介绍<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<p>Com模块实现基于Signal/SignalGroup的超时监测功能。对于发送实现超时通知机制，对于接收实现超时通知和超时替换两种机制。</p>
+</section>
+<section id="id12">
+<h4>超时监测功能实现<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<p>发送超时监测：监测Signal/SignalGroup请求发送到其所在的IPdu发送成功这段时间，IPdu超时时间阈值取请求发送的Signal/SignalGroup配置的超时时间最小值。当发生发送超时，调用各Signal/SignalGroup配置的超时通知函数ComTimeoutNotification通知上层模块。</p>
+<p>接收超时监测：监测两次正确接收Signal/SignalGroup信号值之间的时间段，Signal/SignalGroup超时时间阈值根据其各自的配置参数决定。当发生超时时，调用其超时通知函数ComTimeoutNotification通知上层模块，也可以将接收信号值替换为初始值（通过配置参数ComRxDataTimeoutAction选择REPLACE实现）。</p>
+</section>
+</section>
+<section id="id13">
+<h3>信号滤波功能<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<section id="id14">
+<h4>信号滤波功能介绍<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<p>Com模块实现基于信号的信号值进行过滤的机制，虽然对于收发信号的过滤算法一样，但过滤的目的完全不同。</p>
+<p>对于接收Signal/SignalGroup，过滤算法未通过时，将舍弃当前接收到的Signal/SignalGroup。</p>
+<p>对于发送Signal/GroupSignal，过滤算法的结果只决定该发送IPdu选择ComTxModeTrue或者ComTxModeFalse进行报文发送，不会舍弃信号本身。</p>
+</section>
+<section id="id15">
+<h4>信号滤波功能实现<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<p>通过配置Signal/GroupSignal的ComFilter来选择其过滤算法及算法所需的各种参数，过滤算法的结果分TRUE和FALSE两种。</p>
+<p>对于接收Signal/SignalGroup只有当通过过滤算法，才将接收信号值更新到接收Buffer中供上层模块获取，未通过过滤算法则舍弃当前接收信号值，不更新接收Buffer中的信号值。对于SignalGroup，只要其包含的任一GroupSignal未通过过滤算法，则整个SignalGroup信号值都将舍弃。</p>
+<p>对于发送Signal/GroupSignal，若过滤算法通过，其TMC置为TRUE，未通过置为FALSE。只要该IPdu包含的所有Signal/GroupSignal中存在任一TMC为TRUE，则IPdu的TMS为TRUE，否则为FALSE。IPdu根据其TMS选择通过ComTxModeTrue或者ComTxModeFalse进行报文发送，发送Pdu中ComTxIPdu至少需要配置ComTxModeTrue。发送信号的滤波只有在ComTxModeTrue和ComTxModeFalse都配置时才有意义。</p>
+</section>
+</section>
+<section id="update">
+<h3>信号Update功能<a class="headerlink" href="#update" title="Link to this heading"></a></h3>
+<section id="id16">
+<h4>信号Update功能介绍<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<p>Com模块实现基于Signal/SignalGroup的Update
+Bit机制来识别信号是否更新（信号更新，但信号值不一定变化）。</p>
+</section>
+<section id="id17">
+<h4>信号Update功能实现<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<p>Signal/SignalGroup通过配置参数ComUpdateBitPosition来决定是否支持Update机制，Update
+Bit本身占用IPdu中一个Bit位，该Bit位为1表示对应Signal/SignalGroup有更新，为0表示对应Signal/SignalGroup没有更新。</p>
+<p>对于发送信号，当请求Signal/SignalGroup发送时，Com模块将其Update位置1，表示该信号有更新，通过ComTxIPdu的配置参数ComTxIPduClearUpdateBit决定什么时候清除（置0）该发送IPdu中所有的Update位。</p>
+<p>对于接收信号，只有当检测到Signal/SignalGroup的Update位为1，才执行进一步的接收操作，否则舍弃该信号。</p>
+</section>
+</section>
+<section id="ipdu-rolling-counter">
+<h3>IPdu Rolling Counter功能<a class="headerlink" href="#ipdu-rolling-counter" title="Link to this heading"></a></h3>
+<section id="id18">
+<h4>IPdu Rolling Counter功能介绍<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<p>Com模块实现基于IPdu的Rolling
+Counter功能，让IPdu接收端能够识别出IPdu的序列是否正确。</p>
+</section>
+<section id="id19">
+<h4>IPdu Rolling Counter功能实现<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<p>对于配置了ComIPduCounter的Tx
+IPdu，Com每发送一次该IPdu将其Counter值+1，到达Counter最大值之后翻转到0（初始Counter值为0）。Counter值在IPdu中的位置由配置参数ComIPduCounterStartPosition和ComIPduCounterSize决定，需注意的是Counter值所在范围不能跨字节。</p>
+<p>对于配置了ComIPduCounter的Rx
+IPdu，启动后接收到的第一帧IPdu，其Counter值无论为什么值都匹配成功，之后期望Counter值根据上一次接收IPdu（即使该IPdu的Counter值不匹配）的Counter值+1而定。
+对于接收Counter是否匹配，需结合当前期望Counter以及ComIPduCounterThreshold来决定。对于Counter不匹配的IPdu，Com将舍弃该IPdu，并可以通过配置ComIPduCounterErrorNotification实现接收Counter错误通知。</p>
+</section>
+</section>
+<section id="id20">
+<h3>信号网关功能<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<section id="id21">
+<h4>信号网关功能介绍<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<p>Com中信号的网关只针对Signal和GroupSignal，R19_11标准中不再支持基于SignalGroup的网关。信号网关不仅支持1：1，同样支持1：N。</p>
+<p>对于GwSource信号与GwDestination信号，其信号类型及信号长度必须一致。GwSource信号关联Rx
+IPdu，GwDestination信号关联Tx IPdu。</p>
+<p>注：TP Pdu中的Signal/Group Signal不支持信号网关。</p>
+</section>
+<section id="id22">
+<h4>信号网关功能实现<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<p>信号网关路由通过配置ComGwMapping实现，信号网关的周期性处理主函数为Com_MainFunctionRouteSignals。</p>
+<p>注：当配置了ComGwMapping时，ComGwSource和ComGwDestination必须要配置具体内容。</p>
+<p>GwSource信号可以通过两种方式进行配置，通过配置ComGwSourceDescription方式和通过配置ComGwSignal方式。前者针对网关Source信号在ComSignal/ComGroupSignal中未配置（上层模块不获取该信号值），后者针对网关Source信号在ComSignal/ComGroupSignal中有配置（不光希望信号被转发，上层模块同样希望获取该信号值），因此前者需要类似配置Signal参数来配置ComGwSourceDescription，而后者只需通过ComGwSignal→ComGwSignalRef关联到ComSignal/ComGroupSignal就行。</p>
+<p>同样GwDestination也可以通过两种方式进行配置，通过配置ComGwDestinationDescription方式和通过配置ComGwSignal方式。前者针对网关Description信号在ComSignal/ComGroupSignal中未配置（上层模块不请求该信号发送），后者针对网关Description信号在ComSignal/ComGroupSignal中有配置（不光希望信号通过网关转发，上层模块同样希望请求该信号发送），因此前者需要类似配置Signal参数来配置ComGwDestinationDescription，而后者只需通过ComGwSignal→ComGwSignalRef关联到ComSignal/ComGroupSignal就行。</p>
+</section>
+</section>
+</section>
+<section id="id23">
+<h2>源文件描述<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<p>表3-1 Com组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Com_Cfg.h</p></td>
+<td><p>定义Com模块PC配置的宏定义。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com_Cfg.c</p></td>
+<td><p>定义Com模块PC/PB配置的结构体参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com.h</p></td>
+<td><p>实现Com模块全
+部外部接口的声明，以及配置文件中全局变量的声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com.c</p></td>
+<td><p>作为Com模块的核心
+文件，实现Com模块全部对外接口，以及实现Com模块功
+能所必须的local函数，local宏定义，local变量定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com_MemMap.h</p></td>
+<td><p>实现Com模块内存布局。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com_Types.h</p></td>
+<td><p>实现外部/
+内部类型的定义，包括AUTOSAR标准定义的类型，以及PB
+/PC配置参数结构体类型，以及内部运行时结构体类型。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com_Cbk.h</p></td>
+<td><p>实现Com模块全部回调函数的声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com_Internal.h</p></td>
+<td><p>实现Com模块内部函数的声明。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com_Callout.c</p></td>
+<td><p>实现Com模块IPDU配置的Callout回调函数定义。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com_Callout.h</p></td>
+<td><p>实现Com模块IPDU配置的Callout回调函数声明。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com_Internal.c</p></td>
+<td><p>实现Com模块公共内部函数的定义。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com_GwInternal.c</p></td>
+<td><p>实现Com模块信号网关功能内部函数的定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>Com_RxInternal.c</p></td>
+<td><p>实现Com模块信号接收内部函数的定义。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Com_TxInternal.c</p></td>
+<td><p>实现Com模块信号发送内部函数的定义。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image218.png"><img alt="image2" src="../../_images/image218.png" style="width: 5.76736in; height: 3.88958in;" /></a></p>
+<p>图3-1 Com组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id24">
+<h3>类型定义<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<section id="com-statustype">
+<h4>Com_StatusType类型定义<a class="headerlink" href="#com-statustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Com_StatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>COM_UNINIT = 0x00, COM模块已初始化且可用</p>
+<p>COM_INIT , COM模块未初始化且不可用</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>Com状态类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-signalidtype">
+<h4>Com_SignalIdType类型定义<a class="headerlink" href="#com-signalidtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Com_SignalIdType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示信号的Id号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-signalgroupidtype">
+<h4>Com_SignalGroupIdType类型定义<a class="headerlink" href="#com-signalgroupidtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Com_SignalGroupIdType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示信号组的Id号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-ipdugroupidtype">
+<h4>Com_IpduGroupIdType类型定义<a class="headerlink" href="#com-ipdugroupidtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Com_IpduGroupIdType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示IpduGroup的Id号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-ipdugroupvector">
+<h4>Com_IpduGroupVector类型定义<a class="headerlink" href="#com-ipdugroupvector" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Com_IpduGroupVector</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint8[(ComSupportedIPduGroups-1)/8+1]</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示IpduGroup的使能Flag</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-configtype">
+<h4>Com_ConfigType类型定义<a class="headerlink" href="#com-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Com_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>表示Com的PB配置结构体</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id25">
+<h3>输入函数描述<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PduR_ComTransmit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PduR_ComCancelTransmit</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;RTE/Up&gt;</p></td>
+<td><p>Com_CbkTxAck</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Com_CbkTxErr</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_CbkTxTOut</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Com_CbkRxAck</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_CbkRxTOut</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Com_CbkInv</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_CbkCounterErr</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Com_RxIpduCallout</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Com_TxIpduCallout</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id26">
+<h3>静态接口函数定义<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<section id="com-init">
+<h4>Com_Init函数定义<a class="headerlink" href="#com-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_Init(const
+C
+om_ConfigType*
+config)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>config</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Co
+m模块初始化函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-deinit">
+<h4>Com_DeInit函数定义<a class="headerlink" href="#com-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_DeInit</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Com_DeInit(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入：</p></td>
+<td><p>否</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输
+入输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Com模块反初始化</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-ipdugroupcontrol">
+<h4>Com_IpduGroupControl函数定义<a class="headerlink" href="#com-ipdugroupcontrol" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_I
+pduGroupControl</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_Ip
+duGroupControl(</p>
+<p><a href="#id29"><span class="problematic" id="id30">Com_</span></a>
+IpduGroupVector
+i
+pduGroupVector,</p>
+<p>boolean
+initialize)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ipduGroupVector</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>initialize</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输
+入输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>Ip
+duGroup使能控制</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-receptiondmcontrol">
+<h4>Com_ReceptionDMControl函数定义<a class="headerlink" href="#com-receptiondmcontrol" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_R
+eceptionDMControl</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_Re
+ceptionDMControl(</p>
+<p>Co
+m_IpduGroupVector
+ipduGroupVector)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ipduGroupVector</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>IpduGroup接收
+超时检测使能控制</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-getstatus">
+<h4>Com_GetStatus函数定义<a class="headerlink" href="#com-getstatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_GetStatus</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Com_StatusType Com_GetStatus(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Com_StatusType</p>
+<p>COM_UNINIT：Com模块未初始化</p>
+<p>COM_INIT：Com模块已初始化</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取模块初始化状态信息</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-getversioninfo">
+<h4>Com_GetVersionInfo函数定义<a class="headerlink" href="#com-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+om_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Co
+m_GetVersionInfo(</p>
+<p><a href="#id31"><span class="problematic" id="id32">Std_</span></a>
+VersionInfoType*
+versioninfo)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取模块软件版本</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-clearipdugroupvector">
+<h4>Com_ClearIpduGroupVector函数定义<a class="headerlink" href="#com-clearipdugroupvector" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_Cle
+arIpduGroupVector</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_Clea
+rIpduGroupVector(</p>
+<p>Co
+m_IpduGroupVector
+ipduGroupVector)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>ipduGroupVector</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Ip
+duGroupVector清零</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-setipdugroup">
+<h4>Com_SetIpduGroup函数定义<a class="headerlink" href="#com-setipdugroup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_SetIpduGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_SetIpduGroup(</p>
+<p>Co
+m_IpduGroupVector
+ipduGroupVector,</p>
+<p>Co
+m_IpduGroupIdType
+ipduGroupId,</p>
+<p>boolean bitval)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ipduGroupId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>bitval</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>ipduGroupVector</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>设置IpduGr
+oup所在的Vector位</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-sendsignal">
+<h4>Com_SendSignal函数定义<a class="headerlink" href="#com-sendsignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_SendSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Com_SendSignal(</p>
+<p>Com_SignalIdType
+SignalId,</p>
+<p>const void*
+SignalDataPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同
+Signal可重入，相
+同Signal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SignalDataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:发送信
+号请求被成功接收</p>
+<p>COM_SERVICE_N
+OT_AVAILABLE:对应
+的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大型数
+据类型处理的情况
+下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>信号发送请求（
+非动态长度信号）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-senddynsignal">
+<h4>Com_SendDynSignal函数定义<a class="headerlink" href="#com-senddynsignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_SendDynSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+C
+om_SendDynSignal(</p>
+<p>Com_SignalIdType
+SignalId,</p>
+<p>const void*
+SignalDataPtr,</p>
+<p>uint16 Length)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同
+Signal可重入，相
+同Signal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SignalDataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:发送动态信
+号请求被成功接收</p>
+<p>E_NOT_OK:请
+求发送的长度大于
+此信号配置的长度</p>
+<p>COM_SERVICE_N
+OT_AVAILABLE:对应
+的IpduGroup停止了</p>
+<p>COM_BUSY:
+TP-B
+uffer被锁定，上一
+次TP还未完成发送</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>动态
+长度信号发送请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-receivesignal">
+<h4>Com_ReceiveSignal函数定义<a class="headerlink" href="#com-receivesignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_ReceiveSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+C
+om_ReceiveSignal(</p>
+<p>Com_SignalIdType
+SignalId,</p>
+<p>void*
+SignalDataPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同
+Signal可重入，相
+同Signal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>SignalDataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:接收信
+号请求被成功接收</p>
+<p>COM_SERVICE_N
+OT_AVAILABLE:对应
+的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大型数
+据类型处理的情况
+下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>信号接收（
+非动态长度信号）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-receivedynsignal">
+<h4>Com_ReceiveDynSignal函数定义<a class="headerlink" href="#com-receivedynsignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com
+_ReceiveDynSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+<a href="#id33"><span class="problematic" id="id34">Com_</span></a>
+ReceiveDynSignal(</p>
+<p>Com_SignalIdType
+SignalId,</p>
+<p>void*
+SignalDataPtr,</p>
+<p>uint16* Length)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同
+Signal可重入，相
+同Signal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>Length</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>SignalDataPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:接收动态信
+号请求被成功接收</p>
+<p>E_NOT_OK:
+长度(在参数
+中)小于接收到的动
+态长度信号的长度</p>
+<p>COM_SERVICE_N
+OT_AVAILABLE:对应
+的IpduGroup停止了</p>
+<p>COM_BUSY:
+TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>动态
+长度信号接收请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-updateshadowsignal">
+<h4>Com_UpdateShadowSignal函数定义<a class="headerlink" href="#com-updateshadowsignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com
+_UpdateShadowSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id35"><span class="problematic" id="id36">Com_</span></a>
+UpdateShadowSignal(</p>
+<p>Com_SignalIdType
+SignalId,</p>
+<p>const void*
+SignalDataPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Grou
+pSignal可重入，相同
+GroupSignal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SignalDataPtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>更新GroupSignal的Sh
+adowBuffer（功能由C
+om_SendSignal，<a href="#id37"><span class="problematic" id="id38">Com_</span></a>
+SendDynSignal实现）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-sendsignalgroup">
+<h4>Com_SendSignalGroup函数定义<a class="headerlink" href="#com-sendsignalgroup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_SendSignalGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+C
+om_SendSignalGroup(</p>
+<p>Co
+m_SignalGroupIdType
+SignalGroupId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Sign
+alGroup可重入，相同
+SignalGroup不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalGroupId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:发送信
+号组请求被成功接收</p>
+<p>COM_SERVI
+CE_NOT_AVAILABLE:对
+应的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大
+型数据类型处理的情
+况下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>SignalGroup发送请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-receivesignalgroup">
+<h4>Com_ReceiveSignalGroup函数定义<a class="headerlink" href="#com-receivesignalgroup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com
+_ReceiveSignalGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+<a href="#id39"><span class="problematic" id="id40">Com_</span></a>
+ReceiveSignalGroup(</p>
+<p>Co
+m_SignalGroupIdType
+SignalGroupId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Sign
+alGroup可重入，相同
+SignalGroup不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalGroupId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:接收信
+号组请求被成功接收</p>
+<p>COM_SERVI
+CE_NOT_AVAILABLE:对
+应的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大
+型数据类型处理的情
+况下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>SignalGroup接收请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-receiveshadowsignal">
+<h4>Com_ReceiveShadowSignal函数定义<a class="headerlink" href="#com-receiveshadowsignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id41"><span class="problematic" id="id42">Com_</span></a>
+ReceiveShadowSignal</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_R
+eceiveShadowSignal(</p>
+<p>Com_SignalIdType
+SignalId,</p>
+<p>void*
+SignalDataPtr)</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0f</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Grou
+pSignal可重入，相同
+GroupSignal不可重入</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值
+域：</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>SignalDataPtr</p></td>
+<td><p>值
+域：</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>GroupSignal接收
+请求（功能由Com_Rec
+eiveSignal，Com_Rec
+eiveDynSignal实现）</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-sendsignalgrouparray">
+<h4>Com_SendSignalGroupArray函数定义<a class="headerlink" href="#com-sendsignalgrouparray" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_S
+endSignalGroupArray</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Com_Se
+ndSignalGroupArray(</p>
+<p>Co
+m_SignalGroupIdType
+SignalGroupId,</p>
+<p>const uint8*
+S
+ignalGroupArrayPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x23</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Sign
+alGroup可重入，相同
+SignalGroup不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalGroupId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SignalGroupArrayPtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK
+:发送请求被成功接收</p>
+<p>COM_SERVI
+CE_NOT_AVAILABLE:对
+应的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大
+型数据类型处理的情
+况下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>SignalG
+roupArray的发送请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-receivesignalgrouparray">
+<h4>Com_ReceiveSignalGroupArray函数定义<a class="headerlink" href="#com-receivesignalgrouparray" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_Rece
+iveSignalGroupArray</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Com_Recei
+veSignalGroupArray(</p>
+<p>Co
+m_SignalGroupIdType
+SignalGroupId,</p>
+<p>uint8*
+S
+ignalGroupArrayPtr)</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x24</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Sign
+alGroup可重入，相同
+SignalGroup不可重入</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalGroupId</p></td>
+<td><p>值
+域：</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>SignalGroupArrayPtr</p></td>
+<td><p>值
+域：</p></td>
+<td colspan="2"><dl>
+<dt>无 |</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK
+:接收请求被成功接收</p>
+<p>COM_SERVI
+CE_NOT_AVAILABLE:对
+应的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大
+型数据类型处理的情
+况下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>SignalG
+roupArray的接收请求</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-invalidatesignal">
+<h4>Com_InvalidateSignal函数定义<a class="headerlink" href="#com-invalidatesignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+om_InvalidateSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Com_InvalidateSign
+al(Com_SignalIdType
+SignalId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Signal可重入，
+不同Signal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK:请求被成功接收</p>
+<p>COM_SERVI
+CE_NOT_AVAILABLE:对
+应的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大
+型数据类型处理的情
+况下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>请
+求发送信号的无效值</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-invalidateshadowsignal">
+<h4>Com_InvalidateShadowSignal函数定义<a class="headerlink" href="#com-invalidateshadowsignal" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_Inv
+alidateShadowSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_I
+nvalidateShadowSign
+al(Com_SignalIdType
+SignalId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x16</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Grou
+pSignal可重入，不同
+GroupSignal不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>请求发送
+GroupSignal的无效值</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-invalidatesignalgroup">
+<h4>Com_InvalidateSignalGroup函数定义<a class="headerlink" href="#com-invalidatesignalgroup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_In
+validateSignalGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>uint8
+Com_Inv
+alidateSignalGroup(</p>
+<p>Co
+m_SignalGroupIdType
+SignalGroupId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Sign
+alGroup可重入，不同
+SignalGroup不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>SignalGroupId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>uint8</p>
+<p>E_OK
+:发送请求被成功接收</p>
+<p>COM_SERVI
+CE_NOT_AVAILABLE:对
+应的IpduGroup停止了</p>
+<p>COM_BUSY:
+对于大
+型数据类型处理的情
+况下TP-Buffer被锁定</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Signal
+Group无效值发送请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-triggeripdusend">
+<h4>Com_TriggerIPDUSend函数定义<a class="headerlink" href="#com-triggeripdusend" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_TriggerIPDUSend</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Com_Trigge
+rIPDUSend(PduIdType
+PduId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x17</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>PduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p><a href="#id43"><span class="problematic" id="id44">E_</span></a>
+OK:Ipdu触发发送成功</p>
+<p><a href="#id45"><span class="problematic" id="id46">E_NOT_</span></a>
+OK:Ipdu触发发送失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>IPdu触发发送请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-triggeripdusendwithmetadata">
+<h4>Com_TriggerIPDUSendWithMetaData函数定义<a class="headerlink" href="#com-triggeripdusendwithmetadata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_TriggerI
+PDUSendWithMetaData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Com_TriggerIP
+DUSendWithMetaData(</p>
+<p>PduIdType PduId,</p>
+<p>uint8* MetaData)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x28</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>PduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MetaData</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p><a href="#id47"><span class="problematic" id="id48">E_</span></a>
+OK:Ipdu触发发送成功</p>
+<p><a href="#id49"><span class="problematic" id="id50">E_NOT_</span></a>
+OK:Ipdu触发发送失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>IPdu发送请求，并
+请求MetaData值改变</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-switchipdutxmode">
+<h4>Com_SwitchIpduTxMode函数定义<a class="headerlink" href="#com-switchipdutxmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+om_SwitchIpduTxMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Co
+m_SwitchIpduTxMode(</p>
+<p>PduIdType PduId,</p>
+<p>boolean Mode)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x27</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>PduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Mode</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>I
+Pdu发送模式切换请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-triggertransmit">
+<h4>Com_TriggerTransmit函数定义<a class="headerlink" href="#com-triggertransmit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_TriggerTransmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+om_TriggerTransmit(</p>
+<p>PduIdType TxPduId,</p>
+<p>PduInfoType*
+PduInfoPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x41</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Pdu可重
+入，相同Pdu不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p>
+<p>E_OK：SDU已经被复制</p>
+<p>E_NOT_OK
+：没有SDU数据被复制</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>IF TxPdu数据请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-rxindication">
+<h4>Com_RxIndication函数定义<a class="headerlink" href="#com-rxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_RxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_RxIndication(</p>
+<p>PduIdType RxPduId,</p>
+<p>const PduInfoType*
+PduInfoPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x42</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Pdu可重
+入，相同Pdu不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>RxPduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>IF RxPdu接收指示</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-tprxindication">
+<h4>Com_TpRxIndication函数定义<a class="headerlink" href="#com-tprxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_TpRxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_TpRxIndication(</p>
+<p>PduIdType id,</p>
+<p>Std_ReturnType
+result)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x45</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>result</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>TP RxPdu接收结束</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-txconfirmation">
+<h4>Com_TxConfirmation函数定义<a class="headerlink" href="#com-txconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_TxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Com_TxConfirmation(</p>
+<p>PduIdType TxPduId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x40</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Pdu可重
+入，相同Pdu不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>IF TxPdu发送确认</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-tptxconfirmation">
+<h4>Com_TpTxConfirmation函数定义<a class="headerlink" href="#com-tptxconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+om_TpTxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Co
+m_TpTxConfirmation(</p>
+<p>PduIdType id,</p>
+<p>Std_ReturnType
+result)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x48</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>result</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>TP TxPdu发送结束</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-startofreception">
+<h4>Com_StartOfReception函数定义<a class="headerlink" href="#com-startofreception" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+om_StartOfReception</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType
+Co
+m_StartOfReception(</p>
+<p>PduIdType id,</p>
+<p>const PduInfoType*
+info,</p>
+<p>PduLengthType
+TpSduLength,</p>
+<p>PduLengthType*
+bufferSizePtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x46</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TpSduLength</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>bufferSizePtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>BufReq_ReturnType</p>
+<p>BUFREQ_OK：请求成功</p>
+<p>BUFREQ
+_E_NOT_OK：请求失败</p>
+<p>BU
+FREQ_E_OVFL：无法提
+供所需长度的缓冲区</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>TP开始接收数据请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-copyrxdata">
+<h4>Com_CopyRxData函数定义<a class="headerlink" href="#com-copyrxdata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_CopyRxData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType
+Com_CopyRxData(</p>
+<p>PduIdType id,</p>
+<p>const PduInfoType*
+info,</p>
+<p>PduLengthType*
+bufferSizePtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x44</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>bufferSizePtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>BufReq_ReturnType</p>
+<p>BUF
+REQ_OK:数据拷贝成功</p>
+<p>BUFREQ_E_NOT_OK:
+数据拷贝失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>TP RxPdu数据段接收</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-copytxdata">
+<h4>Com_CopyTxData函数定义<a class="headerlink" href="#com-copytxdata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_CopyTxData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>BufReq_ReturnType
+Com_CopyTxData(</p>
+<p>PduIdType id,</p>
+<p>const PduInfoType*
+info,</p>
+<p>RetryInfoType*
+retry,</p>
+<p>PduLengthType*
+availableDataPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x43</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>id</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>retry</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>availableDataPtr</p></td>
+<td><p>值
+域：</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>BufReq_ReturnType</p>
+<p>BUFREQ_O
+K：数据已按照请求完
+全复制到发送缓冲区</p>
+<p>BUFR
+EQ_E_BUSY：请求所需
+数量的Tx数据不可用</p>
+<p>BUFREQ_E_NOT_O
+K：数据复制请求失败</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>TP TxPdu数据段请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-mainfunctionrx">
+<h4>Com_MainFunctionRx函数定义<a class="headerlink" href="#com-mainfunctionrx" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_MainFunctionRx</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Com_MainFunctionRx(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x18</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>RxPdu的周期处理函数</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-mainfunctiontx">
+<h4>Com_MainFunctionTx函数定义<a class="headerlink" href="#com-mainfunctiontx" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_MainFunctionTx</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Com_MainFunctionTx(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x19</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>TxPdu的周期处理函数</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="com-mainfunctionroutesignals">
+<h4>Com_MainFunctionRouteSignals函数定义<a class="headerlink" href="#com-mainfunctionroutesignals" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Com_MainFunctionRouteSignals</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Com_MainFunctionRouteSignals(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1a</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>信号网关的周期处理函数</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id27">
+<h3>可配置函数定义<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id28">
+<h2>配置<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
+<section id="comgeneral">
+<h3>ComGeneral<a class="headerlink" href="#comgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image311.png"><img alt="image3" src="../../_images/image311.png" style="width: 4.35209in; height: 3.61582in;" /></a></p>
+<p>图5-1 ComGeneral</p>
+<p>表5‑1 ComGeneral</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComCance
+llationSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能取消机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>ComCancell
+ationSupport的使能需
+要与PduR中配置的Com
+Modu
+le的配置项PduRCancel
+Transmit使能保持一致</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComConfi
+gurationUseDet</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能Det检测机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Det模块的支持</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Com
+VersionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能获取模块软件版本</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComEn
+ableMDTForCycl
+icTransmission</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对于
+周期发送是否使能MDT
+机制（最小发送间隔）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComEnableSigna
+lGroupArrayApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>True/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能Signal
+GroupArray的收发接口</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComM
+etaDataSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能MetaData机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Co
+mRetryFailedTr
+ansmitRequests</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否
+使能发送失败重发机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComSuppo
+rtedIPduGroups</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Com支
+持最大IPduGroup数目</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>实际配置ComIPd
+uGroups数目应该要≤Co
+mSupportedIPduGroups</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComUse
+rCbkHeaderFile</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Com模块需
+包含的回调函数头文件</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>ComUserCbkHea
+derFile中添加的strin
+g名格式必须为”xxx.h”</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comconfig">
+<h3>ComConfig<a class="headerlink" href="#comconfig" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image47.png"><img alt="image4" src="../../_images/image47.png" style="width: 5.76736in; height: 1.20972in;" /></a></p>
+<p>图5-2 ComConfig</p>
+<p>表5-2 ComConfig</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComDataMemSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>18446744073709551615</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>PB配置数据最大值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于PB配置
+内存分配，当前不支持</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMaxIPduCnt</p></td>
+<td><p>取值范围</p></td>
+<td><p>18446744073709551615</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdus的最大配置数目</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于PB配置
+内存分配，当前不支持</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comtimebase">
+<h3>ComTimeBase<a class="headerlink" href="#comtimebase" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image58.png"><img alt="image5" src="../../_images/image58.png" style="width: 5.76736in; height: 1.55069in;" /></a></p>
+<p>图5-3 ComTimeBase</p>
+<p>表5-3 ComTimeBase</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComGwTimeBase</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.005</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Com_MainFunction
+RouteSignals调用周期</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不能配置为0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComRxTimeBase</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.005</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Com_Ma
+inFunctionRx调用周期</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不能配置为0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTxTimeBase</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.005</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Com_Ma
+inFunctionTx调用周期</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>不能配置为0</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comipdugroup">
+<h3>ComIPduGroup<a class="headerlink" href="#comipdugroup" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image68.png"><img alt="image6" src="../../_images/image68.png" style="width: 5.76736in; height: 1.34653in;" /></a></p>
+<p>图5-4 ComIPduGroup</p>
+<p>表5-4 ComIPduGroup</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPd
+uGroupHandleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPduGroup的Id号</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据Co
+mIPduGroup名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComIPd
+uGroupGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[ComIPduGroup]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPduGrou
+p从属于哪些IPduGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comipdu">
+<h3>ComIPdu<a class="headerlink" href="#comipdu" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image78.png"><img alt="image7" src="../../_images/image78.png" style="width: 5.76736in; height: 4.07083in;" /></a></p>
+<p>图5-5 ComIPdu</p>
+<p>表5-5 ComIPdu</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPduCallout</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu的C
+allout回调函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComIPduCance
+llationSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示
+该IPdu是否使能取
+消发送/接收请求</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于ComCancellat
+ionSupport的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Co
+mIPduDirection</p></td>
+<td><p>取值范围</p></td>
+<td><p>RECEIVE/SEND</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>I
+Pdu接收/发送属性</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>PDU只有
+ComIPduDirection
+配置为SEND时，才
+能添加ComTxIPdu</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omIPduHandleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPdu</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于ComCancellat
+ionSupport的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPduSi
+gnalProcessing</p></td>
+<td><p>取值范围</p></td>
+<td><p>DE
+FERRED/IMMEDIATE</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>DEFERRED</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPdu中信号
+的处理时机（延迟
+处理/立即处理）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omIPduTriggerT
+ransmitCallout</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>发送IF
+IPdu的TriggerTr
+ansmit回调函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于上层模块Trigg
+erTransmit接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPduType</p></td>
+<td><p>取值范围</p></td>
+<td><p>NORMAL / TP</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>NORMAL</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPd
+u为IF/TP收发模式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omIPduGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索
+引[ComIPduGroup]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPdu被哪些
+ComIPduGroup包含</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPdu
+SignalGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引
+[ComSignalGroup]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPdu包含哪
+些ComSignalGroup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Co
+mIPduSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[ComSignal]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPdu包
+含哪些ComSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComPduIdRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[Pdu]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联EcuC中Pdu</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于EcuC中配置
+的Pdu，Com模块中
+不能多个Pdu关联
+ECUC中同一个Pdu;
+Co
+m中Pdu实际长度（
+根据包含的信号计
+算）不能大于ECU
+C中配置的Pdu长度
+；动态信号必要位
+于Pdu的最后部分</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comipducounter">
+<h3>ComIPduCounter<a class="headerlink" href="#comipducounter" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image88.png"><img alt="image8" src="../../_images/image88.png" style="width: 5.76736in; height: 1.76181in;" /></a></p>
+<p>图5-6 ComIPduCounter</p>
+<p>表5-6 ComIPduCounter</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Com
+IPduCounterErr
+orNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收IPdu的Count
+er值不匹配通知接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComI
+PduCounterSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 8</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu的Co
+unter值所占bit位大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Count
+er所在范围不能跨字节</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPduCounte
+rStartPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IP
+du的Counter起始bit位</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Count
+er所在范围不能跨字节</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComIPduCo
+unterThreshold</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收IPdu的
+Counter阈值，用于计
+算有效Counter的范围</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comipdureplication">
+<h3>ComIPduReplication<a class="headerlink" href="#comipdureplication" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image98.png"><img alt="image9" src="../../_images/image98.png" style="width: 5.76736in; height: 1.81944in;" /></a></p>
+<p>图5-7 ComIPduReplication</p>
+<p>表5-7 ComIPduReplication</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComIPduRepli
+cationQuorum</p></td>
+<td><p>取值范围</p></td>
+<td><p>1 .. 3</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该IPdu重复接收阈
+值，只有当正确接收完
+全相同的多帧报文，该
+IPdu才执行接收处理。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComIP
+duReplicaRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[Pdu]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联重复接收的PduR
+PDUs，当时代码
+实现不需要配置该项。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>该配置
+项目前不支持进行配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comtxipdu">
+<h3>ComTxIPdu<a class="headerlink" href="#comtxipdu" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image108.png"><img alt="image10" src="../../_images/image108.png" style="width: 5.76736in; height: 1.87639in;" /></a></p>
+<p>图5-8 ComTxIPdu</p>
+<p>表5-8 ComTxIPdu</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComM
+etaDataDefault</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu的默认MetaData值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComMetaDataS
+upport使能，以及关联
+的EcuC中Pdu配置了Met
+aData；配置了MetaDat
+a的Pdu不能包含动态信
+号；当Pdu包含MetaDa
+ta时，需要配置ComMet
+aDataDefault；ComMet
+aDataDefault需要以十
+六进制进行填写，且数
+据长度必须与ECUC中Me
+taData类型的长度匹配</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComMi
+nimumDelayTime</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu发
+送的最小时间间隔MDT</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTxIPdu
+ClearUpdateBit</p></td>
+<td><p>取值范围</p></td>
+<td><p>Confirmation/Tran
+smit/TriggerTransmit</p></td>
+<td><p>默认取值</p></td>
+<td><p>Confir
+mation</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPd
+u中UpdateBit清除时机</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComTxIPduUnus
+edAreasDefault</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IP
+du未使用字段的默认值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comtxmode">
+<h3>ComTxMode<a class="headerlink" href="#comtxmode" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1113.png"><img alt="image11" src="../../_images/image1113.png" style="width: 5.76736in; height: 2.49444in;" /></a></p>
+<p>图5-9 ComTxMode</p>
+<p>表5-9 ComTxMode</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTxModeMode</p></td>
+<td><p>取值范围</p></td>
+<td><p>DIRECT
+/MIXED/NONE/PERIODIC</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示IPdu的发送模式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComTxModeNumbe
+rOfRepetitions</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu触发发送重复次数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只有当配置为DI
+RECT/MIXED才可配置，
+ComT
+xModeNumberOfRepetit
+ions&gt;0时，其包含的信
+号不能配置update信息</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTxModeRe
+petitionPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu触发
+发送重复发送间隔周期</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只有当配置为DIR
+ECT/MIXED，且ComTxMo
+deNumberOfRepetition
+s配置大于0时才可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComTx
+ModeTimeOffset</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu起始发送偏移时间</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只有当配置为PERIODIC
+/MIXED才可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTx
+ModeTimePeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>IPdu发送的周期</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只有当配置为PERIODIC
+/MIXED才可配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comsignal">
+<h3>ComSignal<a class="headerlink" href="#comsignal" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1210.png"><img alt="image12" src="../../_images/image1210.png" style="width: 5.76736in; height: 3.97153in;" /></a></p>
+<p>图5-10 ComSignal</p>
+<p>表5-10 ComSignal</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号起始位置（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComBitSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号长度（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置;
+信号类型与
+信号Size范围要匹配;
+除了UINT8_N、
+UINT8_DYN信号外，别
+的信号的Size不能为0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComHandleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的Id值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据Com
+Signal信号名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号
+接收/发送通知函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据Rte
+回调函数命名规则生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComSignalDa
+taInvalidValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的无效信号值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>按十六进制
+方式，若为数组类型的
+信号，字节间通过“，
+”实现；当接收信号配
+置了ComSignalDataIn
+validValue，必须配置
+ComDataInvalidAction</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComSi
+gnalEndianness</p></td>
+<td><p>取值范围</p></td>
+<td><p>BIG_ENDIAN/
+LITTLE_ENDIAN/OPAQUE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号大小端</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComS
+ignalInitValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的初始值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>按十六进制方式
+，若为数组类型的信号
+，字节间通过“，”实现</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omSignalLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示U
+INT8_N/UINT8_DYN信号
+的字节长度/最大长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置;
+UINT8_N
+、UINT8_DYN信号，sig
+nalLength配置值需＞0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComSignalType</p></td>
+<td><p>取值范围</p></td>
+<td><p>BOOLEAN/FLOAT32
+/FLOAT64/SINT16/SINT
+32/SINT64/SINT8/UINT
+16/UINT32/UINT64/UIN
+T8/UINT8_DYN/UINT8_N</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>信号
+类型ComSignalType配
+置为UINT8_DYN或者UIN
+T8_N时，ComBitPositi
+on必须为字节的最低位</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号超时时间</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTimeo
+utNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号超时通知函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于ComTimeout的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComUpd
+ateBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的UpdateBit位置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComDat
+aInvalidAction</p></td>
+<td><p>取值范围</p></td>
+<td><p>NOTIFY/REPLACE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收
+到信号无效值处理方式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComSignalDa
+taInvalidValue的配置
+；当ComDataInvalidA
+ction选择为REPLACE时
+，ComInvalidNotific
+ation必须为NULL_PTR;
+信
+号的ComSignalDataIn
+validValue需与信号类
+型匹配（UINT8_N、UI
+NT8_DYN信号还涉及与C
+omSignalLength匹配）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omFirstTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号第一次超时时
+间（start/restart）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComInval
+idNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号无效通知</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComSignalData
+InvalidValue和ComDat
+aInvalidAction的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComRxDat
+aTimeoutAction</p></td>
+<td><p>取值范围</p></td>
+<td><p>NONE/REPLACE</p></td>
+<td><p>默认取值</p></td>
+<td><p>NONE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号超时处理方式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComTimeout/C
+omFirstTimeout的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComErr
+orNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信
+号发送错误通知函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>对于发送信
+号，该配置项才有意义</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComIn
+itialValueOnly</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>发送信号的信
+号值是否只能为初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTr
+ansferProperty</p></td>
+<td><p>取值范围</p></td>
+<td><p>PENDI
+NG/TRIGGERED/TRIGGER
+ED_ON_CHANGE/TRIGGER
+ED_ON_CHANGE_WITHOUT
+_REPETITION/TRIGGERE
+D_WITHOUT_REPETITION</p></td>
+<td><p>默认取值</p></td>
+<td><p>P
+ENDING</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号触发方式选择</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于关联的发送
+IPdu的ComTxModeMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComS
+ystemTemplateS
+ystemSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[I-SIGN
+AL-TO-I-PDU-MAPPING]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号关联索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于RTE/应用
+，与Com模块功能无关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ArcS
+ystemSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[SystemSignal]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号关联索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于RTE/应用
+，与Com模块功能无关</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comfilter">
+<h3>ComFilter<a class="headerlink" href="#comfilter" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image137.png"><img alt="image13" src="../../_images/image137.png" style="width: 5.76736in; height: 1.56597in;" /></a></p>
+<p>图5-11 ComFilter</p>
+<p>表5-11 ComFilter</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComF
+ilterAlgorithm</p></td>
+<td><p>取值范围</p></td>
+<td><p>ALWAYS/
+MASKED_NEW
+_DIFFERS_MASKED_OLD/
+M
+ASKED_NEW_DIFFERS_X/
+MASKED_NEW_EQUALS_X/
+NEVER/
+NEW_IS_OUTSIDE/
+NEW_IS_WITHIN/
+ONE_EVERY_N</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波方式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p><a href="#id51"><span class="problematic" id="id52">ONE_EVERY_</span></a>
+N的过滤方式下，ComFi
+lterOffset配置值应&lt;C
+omFilterPeriod配置值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComFilterMask</p></td>
+<td><p>取值范围</p></td>
+<td><p>string（十六进制）</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波掩码</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComFil
+terAlgorithm配置类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComFilterMax</p></td>
+<td><p>取值范围</p></td>
+<td><p>string（十六进制）</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波上限值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComFilte
+rAlgorithm配置类型；
+ComFilterMin配置值应
+≤ComFilterMax配置值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComFilterMin</p></td>
+<td><p>取值范围</p></td>
+<td><p>string（十六进制）</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波下限值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComFilte
+rAlgorithm配置类型；
+ComFilterMin配置值应
+≤ComFilterMax配置值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+omFilterOffset</p></td>
+<td><p>取值范围</p></td>
+<td><p>string（十六进制）</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波偏移值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComFil
+terAlgorithm配置类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omFilterPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>string（十六进制）</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波周期值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComFil
+terAlgorithm配置类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComFilterX</p></td>
+<td><p>取值范围</p></td>
+<td><p>string（十六进制）</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号滤波X值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComFil
+terAlgorithm配置类型</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comsignalgroup">
+<h3>ComSignalGroup<a class="headerlink" href="#comsignalgroup" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image146.png"><img alt="image14" src="../../_images/image146.png" style="width: 5.76736in; height: 2.36319in;" /></a></p>
+<p>图5-12 ComSignalGroup</p>
+<p>表5-12 ComSignalGroup</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComHandleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组的Id值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据信号组名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组
+接收/发送通知函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据Rte
+回调函数命名规则生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComSignalGr
+oupArrayAccess</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否支持信
+号组字节对齐方式收发</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComEnableSig
+nalGroupArrayApi使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组超时时间</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTimeo
+utNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组超时通知函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于ComTimeout的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComUpd
+ateBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信
+号组的UpdateBit位置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComDat
+aInvalidAction</p></td>
+<td><p>取值范围</p></td>
+<td><p>NOTIFY/REPLACE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收
+到信号组无效值处理方
+式（至少一个GroupSi
+gnal接收值为无效值）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于其包含的GroupSig
+nal配置项ComSignalDa
+taInvalidValue的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omFirstTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 3600</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组第一次超时时
+间（start/restart）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComInval
+idNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组无效通
+知（至少一个GroupSi
+gnal接收值为无效值）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComDat
+aInvalidAction的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComRxDat
+aTimeoutAction</p></td>
+<td><p>取值范围</p></td>
+<td><p>NONE/REPLACE</p></td>
+<td><p>默认取值</p></td>
+<td><p>NONE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组超时处理方式</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ComTimeout/C
+omFirstTimeout的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComErr
+orNotification</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号
+组发送错误通知函数名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>对于发送信号
+组，该配置项才有意义</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComIn
+itialValueOnly</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>发送信号组的信
+号值是否只能为初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTr
+ansferProperty</p></td>
+<td><p>取值范围</p></td>
+<td><p>PENDI
+NG/TRIGGERED/TRIGGER
+ED_ON_CHANGE/TRIGGER
+ED_ON_CHANGE_WITHOUT
+_REPETITION/TRIGGERE
+D_WITHOUT_REPETITION</p></td>
+<td><p>默认取值</p></td>
+<td><p>P
+ENDING</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组触发方式选择</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于关联的发送
+IPdu的ComTxModeMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Com
+SystemTemplate
+SignalGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[I-SIGN
+AL-TO-I-PDU-MAPPING]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组关联索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于RTE/应用
+，与Com模块功能无关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ArcSystem
+SignalGroupRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引
+[SystemSignalGroup]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号组关联索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于RTE/应用
+，与Com模块功能无关</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comgroupsignal">
+<h3>ComGroupSignal<a class="headerlink" href="#comgroupsignal" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image155.png"><img alt="image15" src="../../_images/image155.png" style="width: 5.76736in; height: 2.29653in;" /></a></p>
+<p>图5-13 ComGroupSignal</p>
+<p>表5-13 ComGroupSignal</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号起始位置（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComBitSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号长度（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComHandleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的Id值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据ComGroup
+Signal信号名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComSignalDa
+taInvalidValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的无效信号值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>按十六进制方式
+，若为数组类型的信号
+，字节间通过“，”实现</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComSi
+gnalEndianness</p></td>
+<td><p>取值范围</p></td>
+<td><p>BIG_ENDIAN/
+LITTLE_ENDIAN/OPAQUE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号大小端</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComS
+ignalInitValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的初始值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>按十六进制方式，
+若为数组类型的信号，
+字节间通过“，”实现;
+信号的ComSigna
+lInitValue需与信号类
+型匹配（UINT8_N、UI
+NT8_DYN信号还涉及与C
+omSignalLength匹配）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+omSignalLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示U
+INT8_N/UINT8_DYN信号
+的字节长度/最大长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComSignalType</p></td>
+<td><p>取值范围</p></td>
+<td><p>BOOLEAN/FLOAT32
+/FLOAT64/SINT16/SINT
+32/SINT64/SINT8/UINT
+16/UINT32/UINT64/UIN
+T8/UINT8_DYN/UINT8_N</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComTr
+ansferProperty</p></td>
+<td><p>取值范围</p></td>
+<td><p>PENDING
+/TRIGGERED_ON_CHANGE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>组信号触发方式选择</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只有其
+关联的SignalGroup配
+置项ComTransferPrope
+rty为TRIGGERED_ON_CH
+ANGE时，才可配置该项</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComS
+ystemTemplateS
+ystemSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[I-SIGN
+AL-TO-I-PDU-MAPPING]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>组信号关联索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于RTE/应用
+，与Com模块功能无关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ArcS
+ystemSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[SystemSignal]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>组信号关联索引</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于RTE/应用
+，与Com模块功能无关</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comgwsignal">
+<h3>ComGwSignal<a class="headerlink" href="#comgwsignal" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image165.png"><img alt="image16" src="../../_images/image165.png" style="width: 5.76736in; height: 2.10417in;" /></a></p>
+<p>图5-14 ComGwSignal</p>
+<p>表5-14 ComGwSignal</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComGwSignalRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[ComSi
+gnal/ComGroupSignal]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联ComS
+ignal/ComGroupSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当为GwSource
+时关联接收信号，当为
+GwDestination时关联
+发送信号；ComGwSigna
+lRef不能重复关联同一
+个Signal/GroupSignal</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comgwsourcedescription">
+<h3>ComGwSourceDescription<a class="headerlink" href="#comgwsourcedescription" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image175.png"><img alt="image17" src="../../_images/image175.png" style="width: 5.76736in; height: 2.26736in;" /></a></p>
+<p>图5-15 ComGwSourceDescription</p>
+<p>表5-15 ComGwSourceDescription</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>网关
+信号起始位置（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComBitSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 64</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>网关信号长度（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置
+；网关信号的Srouce和
+Dest信号，其信号Size
+和信号类型必须要一样</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComSi
+gnalEndianness</p></td>
+<td><p>取值范围</p></td>
+<td><p>BIG_ENDIAN/
+LITTLE_ENDIAN/OPAQUE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号大小端</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+omSignalLength</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示U
+INT8_N/UINT8_DYN信号
+的字节长度/最大长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComSignalType</p></td>
+<td><p>取值范围</p></td>
+<td><p>BOOLEAN/FLOAT32
+/FLOAT64/SINT16/SINT
+32/SINT64/SINT8/UINT
+16/UINT32/UINT64/UIN
+T8/UINT8_DYN/UINT8_N</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComUpd
+ateBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的UpdateBit位置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComGwIPduRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[ComIPdu]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该网关信
+号所在的接收ComIPdu</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只能关联接收ComIPdu</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comgwdestinationdescription">
+<h3>ComGwDestinationDescription<a class="headerlink" href="#comgwdestinationdescription" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image183.png"><img alt="image18" src="../../_images/image183.png" style="width: 5.76736in; height: 2.28889in;" /></a></p>
+<p>图5-16 ComGwDestinationDescription</p>
+<p>表5-16 ComGwDestinationDescription</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>网关
+信号起始位置（bit）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComSi
+gnalEndianness</p></td>
+<td><p>取值范围</p></td>
+<td><p>BIG_ENDIAN/
+LITTLE_ENDIAN/OPAQUE</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号大小端</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+ComSignalType的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComS
+ignalInitValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x00</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的初始值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>按十六进制方式
+，若为数组类型的信号
+，字节间通过“，”实现</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComTr
+ansferProperty</p></td>
+<td><p>取值范围</p></td>
+<td><p>PENDI
+NG/TRIGGERED/TRIGGER
+ED_ON_CHANGE/TRIGGER
+ED_ON_CHANGE_WITHOUT
+_REPETITION/TRIGGERE
+D_WITHOUT_REPETITION</p></td>
+<td><p>默认取值</p></td>
+<td><p>P
+ENDING</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>网关信号触发方式选择</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于关联的发送IP
+du的ComTxModeMode，T
+xSignalGroup中有一个
+GroupSignal配置了Com
+TransferProperty，该
+TxSignalGroup中别的G
+roupSignal也必须配置
+ComTransferProperty</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComUpd
+ateBitPosition</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>信号的UpdateBit位置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>ComGwIPduRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>索引[ComIPdu]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该网关信
+号所在的发送ComIPdu</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>只能关联发送ComIPdu</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="CanTSyn.html" class="btn btn-neutral float-left" title="CanTSyn产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ComM.html" class="btn btn-neutral float-right" title="ComM产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

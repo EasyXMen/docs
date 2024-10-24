@@ -1,0 +1,5651 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CanIf产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CanNm产品参考手册" href="CanNm.html" />
+    <link rel="prev" title="BswM产品参考手册" href="BswM.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CanIf产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">模式控制功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">模式控制功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">模式控制功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#txpdu">TxPdu发送功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">TxPdu发送功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">TxPdu发送功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rxpdu">RxPdu接收功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">RxPdu接收功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">RxPdu接收功能实现</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">睡眠唤醒功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">睡眠唤醒功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">睡眠唤醒功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#canif-configtype">CanIf_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-controllermodetype">CanIf_ControllerModeType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-pdumodetype">CanIf_PduModeType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-notifstatustype">CanIf_NotifStatusType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#canif-init">CanIf_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-deinit">CanIf_DeInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-setcontrollermode">CanIf_SetControllerMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-getcontrollermode">CanIf_GetControllerMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-transmit">CanIf_Transmit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-canceltransmit">CanIf_CancelTransmit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-readrxpdudata">CanIf_ReadRxPduData函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-readtxnotifstatus">CanIf_ReadTxNotifStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-readrxnotifstatus">CanIf_ReadRxNotifStatus函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-setpdumode">CanIf_SetPduMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-getpdumode">CanIf_GetPduMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-getversioninfo">CanIf_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-setdynamictxid">CanIf_SetDynamicTxId函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-settrcvmode">CanIf_SetTrcvMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-gettrcvmode">CanIf_GetTrcvMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-gettrcvwakeupreason">CanIf_GetTrcvWakeupReason函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-settrcvwakeupmode">CanIf_SetTrcvWakeupMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-checkwakeup">CanIf_CheckWakeup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-checkvalidation">CanIf_CheckValidation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-gettxconfirmationstate">CanIf_GetTxConfirmationState函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-cleartrcvwufflag">CanIf_ClearTrcvWufFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-checktrcvwakeflag">CanIf_CheckTrcvWakeFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-setbaudrate">CanIf_SetBaudrate函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-seticomconfiguration">CanIf_SetIcomConfiguration函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-triggertransmit">CanIf_TriggerTransmit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-txconfirmation">CanIf_TxConfirmation函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-rxindication">CanIf_RxIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-controllerbusoff">CanIf_ControllerBusOff函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-confirmpnavailability">CanIf_ConfirmPnAvailability函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-cleartrcvwufflagindication">CanIf_ClearTrcvWufFlagIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-checktrcvwakeflagindication">CanIf_CheckTrcvWakeFlagIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-controllermodeindication">CanIf_ControllerModeIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-trcvmodeindication">CanIf_TrcvModeIndication函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#canif-currenticomconfiguration">CanIf_CurrentIcomConfiguration函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#canifpubliccfg">CanIfPublicCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifprivatecfg">CanIfPrivateCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifdispatchcfg">CanIfDispatchCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifctrldrvcfg">CanIfCtrlDrvCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifctrlcfg">CanIfCtrlCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caniftrcvcfg">CanIfTrcvCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caniftxpducfg">CanIfTxPduCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifbuffercfg">CanIfBufferCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifhthcfg">CanIfHthCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifrxpducfg">CanIfRxPduCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifrxpducanidrange">CanIfRxPduCanIdRange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifhrhcfg">CanIfHrhCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifhrhrangecfg">CanIfHrhRangeCfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canifinitcfg">CanIfInitCfg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CanIf产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/CanIf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="canif">
+<h1>CanIf产品参考手册<a class="headerlink" href="#canif" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>DLC</p></td>
+<td><p>Data Length Code</p></td>
+<td><p>L-PDU中表示报文长度的部分</p></td>
+</tr>
+<tr class="row-odd"><td><p>HRH</p></td>
+<td><p>CAN hardware receive
+handle</p></td>
+<td><p>CAN驱动层接收硬件单元的抽象</p></td>
+</tr>
+<tr class="row-even"><td><p>HTH</p></td>
+<td><p>CAN hardware transmit
+handle</p></td>
+<td><p>CAN驱动层发送硬件单元的抽象</p></td>
+</tr>
+<tr class="row-odd"><td><p>HOH</p></td>
+<td><p>CAN hardware object
+handle</p></td>
+<td><p>CAN硬件抽象单元（HRH+HTH）</p></td>
+</tr>
+<tr class="row-even"><td><p>I-PDU</p></td>
+<td><p>Interaction Layer
+Protocol Data Unit</p></td>
+<td><p>交互层协议数据单元</p></td>
+</tr>
+<tr class="row-odd"><td><p>L-PDU</p></td>
+<td><p>Data Link Layer
+Protocol Data Unit</p></td>
+<td><p>数据链路层协议数据单元</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>开发错误检测</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN FD</p></td>
+<td><p>Controller Area Network
+Flexible Data-Rate</p></td>
+<td><p>相比传
+统CAN，其波特率及负载都更高</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>CanIf模块将底层不同的Can驱动，CanTrcv驱动抽象化，方便上层模块统一通过CanIf模块进行访问。在AUTOSAR架构中，其上层模块主要为PduR，CanTp，J1939Tp，CanNm，CanSm等。CanIf主要功能包含L-PDU的接收指示，L-PDU的发送及发送确认等通信功能，以及Can
+Controller/Trcv的模式控制，波特率切换，睡眠唤醒等其它功能栈功能。</p>
+<p><img alt="image1" src="../../_images/image113.png" />图1-1 CanIf模块层次图</p>
+<p>CanIf模块处于AUTOSAR架构中的通信硬件抽象层，其下层模块为CanDrv/CanTrcv驱动模块，上层模块可能为PduR，CanTp，CanNm，CanSM，EcuM，Xcp，J1939Tp，J1939Nm，CDD。</p>
+<p>CanIf实现了与上下层模块间基于PDU的发送/接收，实现了对硬件单元模式的控制以及模式切换通知，实现了对睡眠/唤醒机制的支持。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_CANInterface.pdf， R19-11和4.2.2</p>
+<p>[2] AUTOSAR_SWS_CANDriver.pdf，R19-11和4.2.2</p>
+<p>[3] AUTOSAR_SWS_CANTransceiverDriver.pdf，R19-11和4.2.2</p>
+<p>[4] AUTOSAR_SWS_PDURouter.pdf，R19-11和4.2.2</p>
+<p>[5] AUTOSAR_SWS_COM.pdf，R19-11和4.2.2</p>
+<p>[6] AUTOSAR_SRS_COM.pdf，R19-11和4.2.2</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>模式控制功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>模式控制功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>1.CanIf模块的状态机控制，包括未初始化和已初始化状态，除了CanIf_Init
+和CanIf_GetVersionInfo之外，都需要在已初始化状态下才能正常调用。</p>
+<p>2.Controller模式控制，分为STOP，START，SLEEP三种，只有在START状态下Controller才能正常通信。</p>
+<p>3.Trcv模式控制，分为NORMAL，STANDBY，SLEEP三种，只有在NORMAL状态下Trcv才能正常通信。</p>
+<p>4.Controller的Pdu模式控制，分为OFFLINE，TX_OFFLINE，TX_OFFLINE_ACTIVE，ONLINE四种，ONLINE模式下允许正常收发通信，TX_OFFLINE模式下只能接收不能发送，TX_OFFLINE_ACTIVE模式下允许接收和虚拟发送，OFFLINE模式下不允许收发通信。</p>
+</section>
+<section id="id6">
+<h4>模式控制功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>1.上电之后CanIf处于CANIF_UNINIT状态，正确调用CanIf_Init（参数为CanIf模块PB配置参数指针）之后状态切换到CANIF_INITED。</p>
+<p>2.CanIf_Init初始化之后，Controller模式为STOP，调用接口CanIf_SetControllerMode切换Controller模式，调用CanIf_GetControllerMode获取当前Controller模式。当Controller发生BusOff事件时，Controller模式切换到STOP。</p>
+<p>3.调用CanIf_SetTrcvMode切换Trcv模式，调用CanIf_GetTrcvMode获取Trcv当前模式。</p>
+<p>4.CanIf_Init初始化之后，Pdu模式为OFFLINE，调用CanIf_SetPduMode切换Pdu模式，调用CanIf_GetPduMode获取当前Controller的Pdu模式。其中TX_OFFLINE_ACTIVE模式需要在配置项CanIfTxOfflineActiveSupport使能时才支持。当Controller发生BusOff事件时，Pdu模式切换到TX_OFFLINE。</p>
+</section>
+</section>
+<section id="txpdu">
+<h3>TxPdu发送功能<a class="headerlink" href="#txpdu" title="Link to this heading"></a></h3>
+<section id="id7">
+<h4>TxPdu发送功能介绍<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p>当模块初始化成功，Controller模式及其Pdu模式，Trcv模式均处于允许发送状态，可通过CanIf两种发送机制来发送L-Pdu：</p>
+<p>方式一：上层模块调用CanIf_Transmit请求TxPdu的发送，发送时机由上层决定；</p>
+<p>方式二：下层驱动调用CanIf_TriggerTransmit请求TxPdu的发送数据，发送时机由下层决定；</p>
+<p>TxPdu发送成功后，下层驱动调用CanIf_TxConfirmation进行发送确认。</p>
+</section>
+<section id="id8">
+<h4>TxPdu发送功能实现<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>当上层模块调用CanIf_Transmit请求TxPdu发送，并传入L-PDU的SDU及可能存在的MetaData数据时，CanIf根据Static/Dynamic
+CanId策略计算出该TxPdu当前对应的CanId，调用Can_Write由配置的HTH进行发送。</p>
+<p>CAN总线通常不支持TriggerTransmit进行发送，该机制通常用于LIN总线。</p>
+<p>当驱动层TxPdu发送成功后，调用CanIf_TxConfirmation，CanIf调用&lt;Up&gt;_
+TxConfirmation通知上层模块。</p>
+<p>对于TxPdu发送，可以配置TxBuffer机制（CanIfBufferSize&gt;0）来降低因发送邮箱BUSY而导致丢帧的概率。需注意的是配置项CanIfBufferSize决定该HTH最多缓存的不同TxPdu帧数，对于每个TxPdu最多只能缓存一帧。</p>
+</section>
+</section>
+<section id="rxpdu">
+<h3>RxPdu接收功能<a class="headerlink" href="#rxpdu" title="Link to this heading"></a></h3>
+<section id="id9">
+<h4>RxPdu接收功能介绍<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>当模块初始化成功，Controller模式及其Pdu模式，Trcv模式均处于允许接收状态，将从驱动层接收到的报文，传递到上层模块。</p>
+</section>
+<section id="id10">
+<h4>RxPdu接收功能实现<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<p>当驱动层邮箱收到报文后，调用CanIf_RxIndication将接收数据传递到CanIf模块，CanIf通过接收的HRH以及CanId，查询匹配到接收RxPdu，调用关联上层模块的&lt;Up&gt;_
+RxIndication将接收RxPdu数据传递给上层模块。</p>
+<p>RxPdu上层模块由配置项CanIfRxPduUserRxIndicationUL决定，&lt;Up&gt;_
+RxIndication由配置项CanIfRxPduUserRxIndicationName决定。</p>
+</section>
+</section>
+<section id="id11">
+<h3>睡眠唤醒功能<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="id12">
+<h4>睡眠唤醒功能介绍<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<p>上层模块可以通过CanIf来将Controller/Trcv设置为SLEEP模式，支持Controller/Trcv唤醒源检测，Controller/Trcv唤醒确认，Trcv唤醒原因获取，Trcv唤醒标志位检测/清除，Trcv唤醒模式设置。</p>
+</section>
+<section id="id13">
+<h4>睡眠唤醒功能实现<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<p>CanIf提供CanIf_SetControllerMode/CanIf_SetTrcvMode来设置Controller/Trcv的模式（包含SLEEP模式），当发生唤醒事件后可通过调用CanIf_CheckWakeup来检测是否由Controller/Trcv导致的唤醒事件，可通过CanIf_CheckValidation来检测唤醒成功确认（唤醒确认条件为接收到任意Pdu/NM
+Pdu，参见配置项CanIfPublicWakeupCheckValidByNM是否勾选）。</p>
+</section>
+</section>
+</section>
+<section id="id14">
+<h2>源文件描述<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<p>表3-1 CanIf组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf_Cfg.h</p></td>
+<td><p>定义CanIf模块PC配置的宏定义。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf_Cfg.c</p></td>
+<td><p>定义CanIf模块PC/PB配置的结构体参数。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf.h</p></td>
+<td><p>实现CanIf模块全部外部接口（除
+了回调函数）的声明，以及配置文件中全局变量的声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf.c</p></td>
+<td><p>作为CanIf模块的核心文
+件，实现CanIf模块全部对外接口，以及实现CanIf模块功
+能所必须的local函数，local宏定义，local变量定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf_Cbk.h</p></td>
+<td><p>实现CanIf模块全部回调函数的声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf_Types.h</p></td>
+<td><p>实现外部
+/内部类型的定义，包括AUTOSAR标准定义的类型，以及P
+B/PC配置参数结构体类型，以及内部运行时结构体类型。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf_MemMap.h</p></td>
+<td><p>实现CanIf模块内存布局。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image212.png"><img alt="image2" src="../../_images/image212.png" style="width: 5.76736in; height: 6.00833in;" /></a></p>
+<p>图3-1 CanIf组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id15">
+<h3>类型定义<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<section id="canif-configtype">
+<h4>CanIf_ConfigType类型定义<a class="headerlink" href="#canif-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanIf_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>CanIf模块PB配置结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-controllermodetype">
+<h4>CanIf_ControllerModeType类型定义<a class="headerlink" href="#canif-controllermodetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanIf_ControllerModeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>CANIF_CS_UN
+INIT，CANIF_CS_STOPPED，CANIF_CS_STARTED，CANIF_CS_SLEEP</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>CanIf模块中Can控制器模式类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-pdumodetype">
+<h4>CanIf_PduModeType类型定义<a class="headerlink" href="#canif-pdumodetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanIf_PduModeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>CANIF_OFFLINE，
+CANIF_TX_OFFLINE，CANIF_TX_OFFLINE_ACTIVE，CANIF_ONLINE</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>CanIf模块中Pdu通信模式类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-notifstatustype">
+<h4>CanIf_NotifStatusType类型定义<a class="headerlink" href="#canif-notifstatustype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanIf_NotifStatusType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>CANIF_TX_RX_NOTIFICATION，CANIF_NO_NOTIFICATION</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>CanIf模块中Pdu/Controller收发通知类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id16">
+<h3>输入函数描述<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CanDrv</p></td>
+<td><p>Can_SetControllerMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Can_Write</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Can_CheckWakeup</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Can_SetBaudrate</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Can_SetIcomConfiguration</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM</p></td>
+<td><p>SchM_Enter_CanIf_&lt;ExclusiveArea&gt;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SchM_Exit_CanIf_&lt;ExclusiveArea&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>Det</p></td>
+<td><p>Det_ReportRuntimeError</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcv</p></td>
+<td><p>CanTrcv_SetOpMode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CanTrcv_GetOpMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CanTrcv_GetBusWuReason</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CanTrcv_SetWakeupMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CanTrcv_ClearTrcvWufFlag</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CanTrcv_CheckWakeFlag</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CanTrcv_CheckWakeup</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;Up_User&gt;</p></td>
+<td><p>User_TriggerTransmit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>User_TxConfirmation</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>User_RxIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>User_ValidateWakeupEvent</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>User_ControllerBusOff</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>User_ConfirmPnAvailability</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>User_ClearTrcvWufFlagIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>User_CheckTrcvWakeFlagIndication</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>User_ControllerModeIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>User_TrcvModeIndication</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>静态接口函数定义<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<section id="canif-init">
+<h4>CanIf_Init函数定义<a class="headerlink" href="#canif-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_Init(const
+CanIf_ConfigType*
+ConfigPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>CanIf模块初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-deinit">
+<h4>CanIf_DeInit函数定义<a class="headerlink" href="#canif-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_DeInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+C
+anIf_DeInit(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>CanIf模块反初始化</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-setcontrollermode">
+<h4>CanIf_SetControllerMode函数定义<a class="headerlink" href="#canif-setcontrollermode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id20"><span class="problematic" id="id21">CanIf_</span></a>
+SetControllerMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_S
+etControllerMode(</p>
+<p>uint8
+ControllerId,</p>
+<p>CanIf_C
+ontrollerModeType
+ControllerMode)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同的Controll
+er可重入，相同的C
+ontroller不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p>
+<p>ControllerMode</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Contr
+oller模式切换请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-getcontrollermode">
+<h4>CanIf_GetControllerMode函数定义<a class="headerlink" href="#canif-getcontrollermode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id22"><span class="problematic" id="id23">CanIf_</span></a>
+GetControllerMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_G
+etControllerMode(</p>
+<p>uint8
+ControllerId,</p>
+<p>CanIf_Con
+trollerModeType*
+C
+ontrollerModePtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>ControllerModePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取C
+ontroller当前模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-transmit">
+<h4>CanIf_Transmit函数定义<a class="headerlink" href="#canif-transmit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Transmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_Transmit(</p>
+<p>PduIdType
+CanIfTxSduId,</p>
+<p>const
+PduInfoType*
+CanIfTxInfoPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanIfTxSduId
+CanIfTxInfoPtr</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>TxPdu发送请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-canceltransmit">
+<h4>CanIf_CancelTransmit函数定义<a class="headerlink" href="#canif-canceltransmit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+If_CancelTransmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanI
+f_CancelTransmit(</p>
+<p>PduIdType
+CanIfTxSduId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x18</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanIfTxSduId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>TxPdu发送取消请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-readrxpdudata">
+<h4>CanIf_ReadRxPduData函数定义<a class="headerlink" href="#canif-readrxpdudata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Ca
+nIf_ReadRxPduData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Can
+If_ReadRxPduData(</p>
+<p>PduIdType
+CanIfRxSduId,</p>
+<p>PduInfoType*
+CanIfRxInfoPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanIfRxSduId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>CanIfRxInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取
+RxPdu最新接收数据</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-readtxnotifstatus">
+<h4>CanIf_ReadTxNotifStatus函数定义<a class="headerlink" href="#canif-readtxnotifstatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id24"><span class="problematic" id="id25">CanIf_</span></a>
+ReadTxNotifStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>CanI
+f_NotifStatusType
+CanIf_R
+eadTxNotifStatus(</p>
+<p>PduIdType
+CanIfTxSduId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanIfTxSduId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>CanI
+f_NotifStatusType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取TxPdu的T
+xConfirmation状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-readrxnotifstatus">
+<h4>CanIf_ReadRxNotifStatus函数定义<a class="headerlink" href="#canif-readrxnotifstatus" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id26"><span class="problematic" id="id27">CanIf_</span></a>
+ReadRxNotifStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>CanI
+f_NotifStatusType
+CanIf_R
+eadRxNotifStatus(</p>
+<p>PduIdType
+CanIfRxSduId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanIfRxSduId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>CanI
+f_NotifStatusType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获
+取RxPdu的接收状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-setpdumode">
+<h4>CanIf_SetPduMode函数定义<a class="headerlink" href="#canif-setpdumode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_SetPduMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_SetPduMode(</p>
+<p>uint8
+ControllerId,</p>
+<p>CanIf_PduModeType
+PduModeRequest)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p>
+<p>PduModeRequest</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Controller
+的PduMode切换请求</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-getpdumode">
+<h4>CanIf_GetPduMode函数定义<a class="headerlink" href="#canif-getpdumode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_GetPduMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_GetPduMode(</p>
+<p>uint8
+ControllerId,</p>
+<p>Ca
+nIf_PduModeType*
+PduModePtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Contro
+ller可重入，相同C
+ontroller不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>PduModePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取Contro
+ller的PduMode状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-getversioninfo">
+<h4>CanIf_GetVersionInfo函数定义<a class="headerlink" href="#canif-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+If_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Can
+If_GetVersionInfo
+(</p>
+<p><a href="#id28"><span class="problematic" id="id29">Std_</span></a>
+VersionInfoType*
+VersionInfo)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0B</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>VersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取
+CanIf模块软件版本</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-setdynamictxid">
+<h4>CanIf_SetDynamicTxId函数定义<a class="headerlink" href="#canif-setdynamictxid" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+If_SetDynamicTxId</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Can
+If_SetDynamicTxId
+(</p>
+<p>PduIdType
+CanIfTxSduId,</p>
+<p>Can_IdType CanId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanIfTxSduId</p>
+<p>CanId</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>设置
+动态TxPdu的CanId</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-settrcvmode">
+<h4>CanIf_SetTrcvMode函数定义<a class="headerlink" href="#canif-settrcvmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_SetTrcvMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_SetTrcvMode
+(</p>
+<p>uint8
+TransceiverId,</p>
+<p>Can
+Trcv_TrcvModeType
+TransceiverMode)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0D</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p>
+<p>TransceiverMode</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>请求设置Trcv模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-gettrcvmode">
+<h4>CanIf_GetTrcvMode函数定义<a class="headerlink" href="#canif-gettrcvmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_GetTrcvMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+anIf_GetTrcvMode(</p>
+<p>CanTr
+cv_TrcvModeType*
+Tr
+ansceiverModePtr,</p>
+<p>uint8
+TransceiverId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0E</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>T
+ransceiverModePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取Trcv模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-gettrcvwakeupreason">
+<h4>CanIf_GetTrcvWakeupReason函数定义<a class="headerlink" href="#canif-gettrcvwakeupreason" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Ge
+tTrcvWakeupReason</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_Get
+TrcvWakeupReason(</p>
+<p>uint8
+TransceiverId,</p>
+<p>CanTrcv_TrcvW
+akeupReasonType*
+TrcvWuReasonPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0F</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>TrcvWuReasonPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获
+取Trcv的唤醒原因</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-settrcvwakeupmode">
+<h4>CanIf_SetTrcvWakeupMode函数定义<a class="headerlink" href="#canif-settrcvwakeupmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id30"><span class="problematic" id="id31">CanIf_</span></a>
+SetTrcvWakeupMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_S
+etTrcvWakeupMode(</p>
+<p>uint8
+TransceiverId,</p>
+<p>CanTrcv_T
+rcvWakeupModeType
+TrcvWakeupMode)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p>
+<p>TrcvWakeupMode</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>设置Trcv唤醒模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checkwakeup">
+<h4>CanIf_CheckWakeup函数定义<a class="headerlink" href="#canif-checkwakeup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_CheckWakeup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+anIf_CheckWakeup(</p>
+<p>EcuM
+_WakeupSourceType
+WakeupSource)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>WakeupSource</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>唤
+醒源检测(底层Can
+驱动/CanTrcv驱动)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checkvalidation">
+<h4>CanIf_CheckValidation函数定义<a class="headerlink" href="#canif-checkvalidation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanI
+f_CheckValidation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf
+_CheckValidation(</p>
+<p>EcuM
+_WakeupSourceType
+WakeupSource)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>WakeupSource</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>唤醒事件确认</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-gettxconfirmationstate">
+<h4>CanIf_GetTxConfirmationState函数定义<a class="headerlink" href="#canif-gettxconfirmationstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_GetTx
+ConfirmationState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>CanI
+f_NotifStatusType
+CanIf_GetTxC
+onfirmationState(</p>
+<p>uint8
+ControllerId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x19</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Contro
+ller可重入，不同C
+ontroller不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>CanI
+f_NotifStatusType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取C
+ontroller是否已发
+送报文成功（TxCon
+firmation已发生）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-cleartrcvwufflag">
+<h4>CanIf_ClearTrcvWufFlag函数定义<a class="headerlink" href="#canif-cleartrcvwufflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf
+_ClearTrcvWufFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+<a href="#id32"><span class="problematic" id="id33">CanIf_</span></a>
+ClearTrcvWufFlag(</p>
+<p>uint8
+TransceiverId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1E</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Trcv可重入，
+相同Trcv不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>请求清
+除Trcv唤醒标志位</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checktrcvwakeflag">
+<h4>CanIf_CheckTrcvWakeFlag函数定义<a class="headerlink" href="#canif-checktrcvwakeflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id34"><span class="problematic" id="id35">CanIf_</span></a>
+CheckTrcvWakeFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_C
+heckTrcvWakeFlag(</p>
+<p>uint8
+TransceiverId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1F</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Trcv可重入，
+相同Trcv不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>检
+测Trcv唤醒标志位</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-setbaudrate">
+<h4>CanIf_SetBaudrate函数定义<a class="headerlink" href="#canif-setbaudrate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_SetBaudrate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+anIf_SetBaudrate(</p>
+<p>uint8
+ControllerId,</p>
+<p>uint16
+BaudRateConfigID)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x27</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Controller
+Id可重入，相同Con
+trollerId不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId
+BaudRateConfigID</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>切换
+Controller波特率</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-seticomconfiguration">
+<h4>CanIf_SetIcomConfiguration函数定义<a class="headerlink" href="#canif-seticomconfiguration" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Set
+IcomConfiguration</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf_SetI
+comConfiguration(</p>
+<p>uint8
+ControllerId,</p>
+<p>IcomConfigIdType
+ConfigurationId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x25</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Controller
+Id可重入，相同Con
+trollerId不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p>
+<p>ConfigurationId</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>切换Con
+troller的Icom配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-triggertransmit">
+<h4>CanIf_TriggerTransmit函数定义<a class="headerlink" href="#canif-triggertransmit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanI
+f_TriggerTransmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanIf
+_TriggerTransmit(</p>
+<p>PduIdType
+TxPduId,</p>
+<p>PduInfoType*
+PduInfoPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x41</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同TxPdu可重入，
+相同TxPdu不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>请求获
+取TxPdu的报文数据</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-txconfirmation">
+<h4>CanIf_TxConfirmation函数定义<a class="headerlink" href="#canif-txconfirmation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+If_TxConfirmation</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanI
+f_TxConfirmation(</p>
+<p>PduIdType
+CanTxPduId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>CanTxPduId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>TxPdu发送确认</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-rxindication">
+<h4>CanIf_RxIndication函数定义<a class="headerlink" href="#canif-rxindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+anIf_RxIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Ca
+nIf_RxIndication(</p>
+<p>const
+Can_HwType*
+Mailbox,</p>
+<p>const
+PduInfoType*
+PduInfoPtr)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x14</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Mailbox</p>
+<p>PduInfoPtr</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>RxPdu接收指示</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-controllerbusoff">
+<h4>CanIf_ControllerBusOff函数定义<a class="headerlink" href="#canif-controllerbusoff" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf
+_ControllerBusOff</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+<a href="#id36"><span class="problematic" id="id37">CanIf_</span></a>
+ControllerBusOff(</p>
+<p>uint8
+ControllerId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x16</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Controller发
+生BusOff事件通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-confirmpnavailability">
+<h4>CanIf_ConfirmPnAvailability函数定义<a class="headerlink" href="#canif-confirmpnavailability" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Conf
+irmPnAvailability</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_Confi
+rmPnAvailability(</p>
+<p>uint8
+TransceiverId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x1A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Trcv运行
+在PN通信模式通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-cleartrcvwufflagindication">
+<h4>CanIf_ClearTrcvWufFlagIndication函数定义<a class="headerlink" href="#canif-cleartrcvwufflagindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_ClearTrcv
+WufFlagIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_ClearTrcvW
+ufFlagIndication(</p>
+<p>uint8
+TransceiverId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x20</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Trcv唤醒标
+志位清除成功通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checktrcvwakeflagindication">
+<h4>CanIf_CheckTrcvWakeFlagIndication函数定义<a class="headerlink" href="#canif-checktrcvwakeflagindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_CheckTrcvW
+akeFlagIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_CheckTrcvWa
+keFlagIndication(</p>
+<p>uint8
+TransceiverId)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Trcv唤醒标
+志位检测完成通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-controllermodeindication">
+<h4>CanIf_ControllerModeIndication函数定义<a class="headerlink" href="#canif-controllermodeindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Control
+lerModeIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_Controll
+erModeIndication(</p>
+<p>uint8
+ControllerId,</p>
+<p>CanIf_C
+ontrollerModeType
+ControllerMode)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x17</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p>
+<p>ControllerMode</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Contr
+oller模式变化通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-trcvmodeindication">
+<h4>CanIf_TrcvModeIndication函数定义<a class="headerlink" href="#canif-trcvmodeindication" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_T
+rcvModeIndication</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_Tr
+cvModeIndication(</p>
+<p>uint8
+TransceiverId,</p>
+<p>Can
+Trcv_TrcvModeType
+TransceiverMode)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>TransceiverId</p>
+<p>TransceiverMode</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Trcv模式改变通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-currenticomconfiguration">
+<h4>CanIf_CurrentIcomConfiguration函数定义<a class="headerlink" href="#canif-currenticomconfiguration" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanIf_Current
+IcomConfiguration</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanIf_CurrentI
+comConfiguration(</p>
+<p>uint8
+ControllerId,</p>
+<p>IcomConfigIdType
+ConfigurationId,</p>
+<p>Ico
+mSwitch_ErrorType
+Error)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x26</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不同Controll
+er可重入，相同的C
+ontroller不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>ControllerId</p>
+<p>ConfigurationId</p>
+<p>Error</p>
+</td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>Controller的
+Icom配置改变通知</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id18">
+<h3>可配置函数定义<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id19">
+<h2>配置<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="canifpubliccfg">
+<h3>CanIfPublicCfg<a class="headerlink" href="#canifpubliccfg" title="Link to this heading"></a></h3>
+<p><img alt="image3" src="../../_images/image35.png" /></p>
+<p>图5-1 CanIfPublicCfg</p>
+<p>表5-1 CanIfPublicCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfM
+etaDataSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是
+否使能MetaData机制</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当
+CanIfMetaDataSupp
+ort使能，CanIf关联
+的ECUC中Pdu才能配
+置MetaDataTypeRef</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanI
+fPublicCancelT
+ransmitSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能
+TxPdu发送取消机制</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfPubli
+cCddHeaderFile</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>模块
+与CDD交互时，需要
+包含的头文件，填写
+规则必须为“xxx.h”</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据CDD
+具体实现的头文件名</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfPublic
+DevErrorDetect</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能模块
+的开发错误检测机制</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖Det模块的实现</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfPublic
+HandleTypeEnum</p></td>
+<td><p>取值范围</p></td>
+<td><p>UINT16/UINT8</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>UINT32</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p><a href="#id38"><span class="problematic" id="id39">决定Can_</span></a>
+HwHandleType的定义</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当CAN hardware
+units超过255时，
+该项需配置为UNIT16</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanI
+fPublicCanIdTy</p>
+<p>peEnum</p>
+</td>
+<td><p>取值范围</p></td>
+<td><p>UINT16/UINT32</p></td>
+<td colspan="2"><p>默 |
+认 |
+取 |
+值 |</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</td>
+<td><p>U
+I
+N
+T
+3
+2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>根据 Can_IdType
+的定义设定</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>当驱动 Can_IdType
+定义为 uint16
+时，该项需配
+置为UNIT16；当驱动
+Can_IdType 定义为
+uint32
+时，该项需配置为
+UNIT32</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfPub
+licIcomSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能Pretended
+Network</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>该功
+能依赖于CAN驱动对
+虚拟网络功能的支持</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>C
+anIfPublicMult
+ipleDrvSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否支持多CAN驱动</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>限制CanIfCt
+rlDrvCfg的配置数目</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfP
+ublicPnSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能Partial
+Network，依
+赖于Trcv驱动的配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>限制TxPdu的CanIfTx
+PduPnFilterPdu配置</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfPublicRe
+adRxPduDataApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能C
+anIf_ReadRxPduData</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfPu
+blicReadRxPduN
+otifyStatusApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能CanIf
+_ReadRxNotifStatus</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfPu
+blicReadTxPduN
+otifyStatusApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能CanIf
+_ReadTxNotifStatus</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfPublicSet
+DynamicTxIdApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能Ca
+nIf_SetDynamicTxId</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfPub
+licTxBuffering</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能C
+anIf发送Buffer机制</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfP
+ublicTxConfirm
+PollingSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能CanIf_GetT
+xConfirmationState</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfPublic
+VersionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能获
+取模块软件版本信息</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can
+IfPublicWakeup
+CheckValidByNM</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能通过NM
+RxPdu来确认唤醒</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于唤醒确认的使能</p>
+<p>CanIfPublicWakeu
+pCheckValidSupport</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfP
+ublicWakeupChe
+ckValidSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能唤醒确认</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfW
+akeupSupport的使能</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIf
+SetBaudrateApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能
+CanIf_SetBaudrate</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于CAN驱动的支持</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfTriggerT
+ransmitSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能Can
+If_TriggerTransmit</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfTxOfflin
+eActiveSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能T
+xPdu的模拟发送模式</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanI
+fWakeupSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td></td>
+<td><p>默
+认取值</p></td>
+<td></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>是否使能唤醒机制</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Can
+Drv和CanTrcv的支持</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifprivatecfg">
+<h3>CanIfPrivateCfg<a class="headerlink" href="#canifprivatecfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image52.png"><img alt="image4" src="../../_images/image52.png" style="width: 5.76389in; height: 1.62639in;" /></a></p>
+<p>图5-2 CanIfPrivateCfg</p>
+<p>表5-2 CanIfPrivateCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+anIfFixedBuffer</p></td>
+<td><p>取值范围</p></td>
+<td><p>true（固定配置）</p></td>
+<td><p>默认取值</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>对于数据长度
+&lt;8字节的报文，分
+配固定8字节Buffer</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf
+PrivateDlcCheck</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>选
+择是否支持DLC检测</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfPrivateSof
+twareFilterType</p></td>
+<td><p>取值范围</p></td>
+<td><p>LINEAR/BINARY</p></td>
+<td><p>默认取值</p></td>
+<td><p>LINEAR</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>HRH
+接
+收到的报文→RxPdu
+的匹配算法</p>
+<p>在配置为 BINARY
+时，在下面情
+况下按照二分法查</p>
+<p>找
+RxPdu，其它
+情况按照线性查找
+RxPdu。</p>
+<p>① 该 HRH 关 联 的
+RxPdu 均 未 配 置</p>
+<p>CanI
+fRxPduCanIdMask；</p>
+<p>② 该 HRH 关 联 的
+RxPdu 均 配 置 了
+相 同 的</p>
+<p>Ca
+nIfRxPduCanIdMask
+且 这些 RxPdu
+全部未配置</p>
+<p>CanIf
+RxPduCanIdRange；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ca
+nIfSupportTTCAN</p></td>
+<td><p>取值范围</p></td>
+<td><p>false(固定配置)</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>定义是否支持TTCAN</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanDrive
+rAutosarVersion</p></td>
+<td><p>取值范围</p></td>
+<td><p>AUTOSAR422/
+AUTOSAR431/</p>
+<p>AUTOSAR440</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>AUT
+OSAR422</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>选择集成的C
+an驱动的AUTOSAR版
+本，根据集成的Can
+驱动AUTOSAR版本选
+择，若无匹配的版
+本则需手动适配。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifdispatchcfg">
+<h3>CanIfDispatchCfg<a class="headerlink" href="#canifdispatchcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image62.png"><img alt="image5" src="../../_images/image62.png" style="width: 5.76736in; height: 2.71528in;" /></a></p>
+<p>图5-3 CanIfDispatchCfg</p>
+<p>表5-3 CanIfDispatchCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDispatchUse
+rCheckTrcvWakeFl
+agIndicationName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;User
+_ClearTrc
+vWufFlagI
+ndication
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>CanIfDisp
+atchUserC
+heckTrcvW
+akeFlagIn
+dicationU
+L的选择；</p>
+<p>该
+配置的使
+能依赖于C
+anIfPubli
+cPnSuppor
+t的使能；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfDispatchU
+serCheckTrcvWake
+FlagIndicationUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_SM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CheckTrc
+vWakeFlag
+Indicatio
+n通知到上
+层的模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>该
+配置的使
+能依赖于
+CanIfPub
+licPnSupp
+ort的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDispatchUs
+erClearTrcvWufFl
+agIndicationName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;User
+_ClearTrc
+vWufFlagI
+ndication
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>Ca
+nIfDispat
+chUserCle
+arTrcvWuf
+FlagIndic
+ationUL；</p>
+<p>该
+配置的使
+能依赖于C
+anIfPubli
+cPnSuppor
+t的使能；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfDispatch
+UserClearTrcvWuf
+FlagIndicationUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_SM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>ClearTr
+cvWufFlag
+Indicatio
+n通知到上
+层的模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>该
+配置的使
+能依赖于
+CanIfPub
+licPnSupp
+ort的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDispa
+tchUserConfirmPn
+AvailabilityName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;User_Con
+firmPnAva
+ilability
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>CanIfD
+ispatchUs
+erConfirm
+PnAvailab
+ilityUL；</p>
+<p>该
+配置的使
+能依赖于C
+anIfPubli
+cPnSuppor
+t的使能；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfDis
+patchUserConfirm
+PnAvailabilityUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_SM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Co
+nfirmPnAv
+ailabilit
+y通知到的
+上层模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>该
+配置的使
+能依赖于C
+anIfPubli
+cPnSuppor
+t的使能；</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDispatchUs
+erCtrlBusOffName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>CanSM_Co
+ntrollerBusOff</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;Use
+r_Control
+lerBusOff
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>CanI
+fDispatch
+UserCtrlB
+usOffUL；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfDispatch
+UserCtrlBusOffUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_SM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>CAN_SM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Controlle
+rBusOff事
+件通知的
+上层模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于CanSM
+或者CDD模
+块的实现</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDi
+spatchUserCtrlMo
+deIndicationName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>Ca
+nSM_Controller
+ModeIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;Us
+er_Contro
+llerModeI
+ndication
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>Can
+IfDispatc
+hUserCtrl
+ModeIndic
+ationUL；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf
+DispatchUserCtrl
+ModeIndicationUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_SM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>CAN_SM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Ctrl
+ModeIndic
+ation事件
+通知到的
+上层模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDi
+spatchUserTrcvMo
+deIndicationName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;<a href="#id40"><span class="problematic" id="id41">User_</span></a>
+TrcvModeI
+ndication
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>Can
+IfDispatc
+hUserTrcv
+ModeIndic
+ationUL；</p>
+<p>依赖
+于模块配
+置了至少
+一个CanT
+rcv驱动；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf
+DispatchUserTrcv
+ModeIndicationUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_SM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;<a href="#id42"><span class="problematic" id="id43">User_</span></a>
+TrcvModeI
+ndication
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于模块配
+置了至少
+一个CanT
+rcv驱动；</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfDis
+patchUserValidat
+eWakeupEventName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;User_V
+alidateWa
+keupEvent
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>接口
+名依赖于</p>
+<p>CanI
+fDispatch
+UserValid
+ateWakeup
+EventUL；</p>
+<p>依赖
+于配置项</p>
+<p>CanIfP
+ublicWake
+upCheckVa
+lidSuppor
+t的使能；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfD
+ispatchUserValid
+ateWakeupEventUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>ECUM</p>
+<p>CDD</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>&lt;User_V
+alidateWa
+keupEvent
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于配置项</p>
+<p>CanIfP
+ublicWake
+upCheckVa
+lidSuppor
+t的使能；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifctrldrvcfg">
+<h3>CanIfCtrlDrvCfg<a class="headerlink" href="#canifctrldrvcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image72.png"><img alt="image6" src="../../_images/image72.png" style="width: 5.76736in; height: 1.15417in;" /></a></p>
+<p>图5-4 CanIfCtrlDrvCfg</p>
+<p>表5-4 CanIfCtrlDrvCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfCtrlDrv
+InitHohConfigRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>关联
+到[CanIfInitHohCfg]</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该CanDrv关
+联的HOH（多个CanDrv
+可关联到同一个HOH）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Can
+IfCtrlDrvNameRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>关联
+到CanDrv中驱动Name</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于获
+取CanIf模块需要调用
+的CanDrv功能接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanDrv的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifctrlcfg">
+<h3>CanIfCtrlCfg<a class="headerlink" href="#canifctrlcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image82.png"><img alt="image7" src="../../_images/image82.png" style="width: 5.76736in; height: 1.22083in;" /></a></p>
+<p>图5-5 CanIfCtrlCfg</p>
+<p>表5-5 CanIfCtrlCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfCtrlId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该Controller在
+CanIf模块中的I
+ndex（宏定义）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>宏
+名根据CanIfCtr
+lCfg名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfCtrlWa
+keupSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示
+该Controller是
+否支持唤醒机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于CanIfWakeu
+pSupport的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfCtr
+lCanCtrlRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>关联到CanD
+rv中Controller</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该参数
+引用CAN驱动模
+块中Controller</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于Can驱动中
+Controller的配
+置。若Can驱动
+为第三方工具无
+法查询CanIf的
+配置参数，无法
+获知CanIf和Can
+Cont
+roller的映射关
+系，通常需要Ca
+nIf与Can中Cont
+roller的Id要配
+置一样，否则需
+要定制化转换。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="caniftrcvcfg">
+<h3>CanIfTrcvCfg<a class="headerlink" href="#caniftrcvcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image92.png"><img alt="image8" src="../../_images/image92.png" style="width: 5.76736in; height: 1.28264in;" /></a></p>
+<p>图5-6 CanIfTrcvCfg</p>
+<p>表5-6 CanIfTrcvCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfTrcvId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该Trcv在
+CanIf模块中的I
+ndex（宏定义）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>宏
+名根据CanIfTrc
+vCfg名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfTrcvWa
+keupSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该Trcv是
+否支持唤醒机制</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于CanIfWakeu
+pSupport的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfTrc
+vCanTrcvRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用Trcv收发器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该参数引用Can
+Trcv模块中Trcv</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于C
+anTrcv中Trcv的
+配置。若CanTr
+cv驱动为第三方
+工具无法查询C
+anIf的配置参数
+，通常需要CanI
+f与CanTrcv驱动
+中Trcv的Id要配
+置一样，否则需
+要定制化转换。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="caniftxpducfg">
+<h3>CanIfTxPduCfg<a class="headerlink" href="#caniftxpducfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image102.png"><img alt="image9" src="../../_images/image102.png" style="width: 5.76736in; height: 2.14097in;" /></a></p>
+<p>图5-7 CanIfTxPduCfg</p>
+<p>表5-7 CanIfTxPduCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIf
+TxPduCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0
+x0…0x1fffffff/0x7ff</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示T
+xPdu的CanId（11位用
+于标准CAN标识符…
+29位
+用于扩展CAN标识符）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+CanIfTxPduCanIdType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfTxPd
+uCanIdMask</p></td>
+<td><p>取值范围</p></td>
+<td><p>0
+x0…0x1fffffff/0x7ff</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x1fffffff</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于MetaDa
+ta机制动态更改CanId</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于CanIfTxPduType</p>
+<p>和C
+anIfMetaDataSupport</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfTxPd
+uCanIdType</p></td>
+<td><p>取值范围</p></td>
+<td><p>EXTENDED_CAN</p>
+<p>EXTENDED_FD_CAN</p>
+<p>STANDARD_CAN</p>
+<p>STANDARD_FD_CAN</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CanId类型选择</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CanIfTxPduCanIdTyp
+e为EXTENDED，CanIfT
+xPduCanId和CanIfTxP
+duCanIdMask配置范围
+≤0x1fffffff；CanIf
+TxPduCanIdType为STA
+NDARD，CanIfTxPduCa
+nId和CanIfTxPduCanI
+dMask配置范围≤0x7ff</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ca
+nIfTxPduId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示TxPd
+u在CanIf中的Index号</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据CanIfTxPduRef
+关联的Pdu名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C
+anIfTxPduP
+nFilterPdu</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该Tx
+Pdu是否能通过PN过滤</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfPu
+blicPnSupport的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfT
+xPduReadNo
+tifyStatus</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该TxPdu是否支
+持读取发送通知状态</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于CanIfPublicReadT
+xPduNotifyStatusApi</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIf
+TxPduTrigg
+erTransmit</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该TxPdu是否
+支持TriggerTransmit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依
+赖于CanIfTriggerTr
+ansmitSupport的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanI
+fTxPduType</p></td>
+<td><p>取值范围</p></td>
+<td><p>DYNAMIC</p>
+<p>STATIC</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>STATIC</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表
+示该TxPdu的CanId是
+否支持动态改变，当
+CanIf中Pdu关联的ECU
+C中Pdu配置了MetaDat
+a时，其CanIfTxPduTy
+pe必须配置为DYNAMIC</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can
+IfTxPduUse
+rTriggerTr
+ansmitName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示
+上层模块&lt;User_Trigg
+erTransmit&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于该
+TxPdu的CanIfTxPduTr
+iggerTransmit使能；</p>
+<p>依赖
+于CanIfTxPduUserTxC
+onfirmationUL选择；</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ca
+nIfTxPduUs
+erTxConfir
+mationName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示上层模块&lt;
+User_TxConfirmation
+&gt;的接口名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于CanIfTxPduUserTxC
+onfirmationUL选择；</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfTxPdu
+UserTxConf
+irmationUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_NM</p>
+<p>CAN_TP</p>
+<p>CAN_TSYN</p>
+<p>CDD</p>
+<p>J1939NM</p>
+<p>J1939TP</p>
+<p>PDUR</p>
+<p>XCP</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示发
+送该TxPdu的上层模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfTxPd
+uBufferRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用[
+CanIfBufferCfg]</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示
+该TxPdu关联的TxBuff
+er（间接关联到HTH）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can
+IfTxPduRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>关联ECUC中Pdu</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>通过ECUC中Pdu索引
+，明确Pdu的路由路径</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于ECUC中Pdu的配置，
+CanIf中CanIfTxPduR
+ef关联的ECUC中Pdu必
+须要被别的模块关联</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifbuffercfg">
+<h3>CanIfBufferCfg<a class="headerlink" href="#canifbuffercfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image114.png"><img alt="image10" src="../../_images/image114.png" style="width: 5.76736in; height: 1.29722in;" /></a></p>
+<p>图5-8 CanIfBufferCfg</p>
+<p>表5-8 CanIfBufferCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIf
+BufferSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示关联的HTH的Buf
+ferSize（用于缓存通
+过该HTH发送的TxPdu
+报文），配置为0表示
+该HTH不支持发送缓存</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于配置Can
+IfPublicTxBuffering</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfBu
+fferHthRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用CanIfHthCfg</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联HTH（间接将T
+xPdu与HTH关联起来）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>与CanIfHth
+Cfg为一一对应的关系</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifhthcfg">
+<h3>CanIfHthCfg<a class="headerlink" href="#canifhthcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image122.png"><img alt="image11" src="../../_images/image122.png" style="width: 5.76736in; height: 2.50625in;" /></a></p>
+<p>图5-9 CanIfHthCfg</p>
+<p>表5-9 CanIfHthCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfHthCa
+nCtrlIdRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用CanIfCtrlCfg</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联到CanIf模块
+中配置的Controller</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>关联到
+配置项CanIfCtrlCfg</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfH
+thIdSymRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用
+CanDrv中HTH硬件单元</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>关联到Can驱
+动中硬件发送单元HTH</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Can驱动中硬
+件发送单元HTH的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifrxpducfg">
+<h3>CanIfRxPduCfg<a class="headerlink" href="#canifrxpducfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image132.png"><img alt="image12" src="../../_images/image132.png" style="width: 5.76736in; height: 2.66111in;" /></a></p>
+<p>图5-10 CanIfRxPduCfg</p>
+<p>表5-10 CanIfRxPduCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIf
+RxPduCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0 .. 0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>标准
+帧：0x0-0x7FF;扩展
+帧：0x0-0x1FFFFFFF</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+CanIfRxPduCanIdType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfRxPd
+uCanIdMask</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0 .. 0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x1FFFFFFF</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>接收报文CanId的
+掩码，用于接收过滤</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+CanIfRxPduCanIdType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfRxPd
+uCanIdType</p></td>
+<td><p>取值范围</p></td>
+<td><p>EXTENDED_CAN</p>
+<p>EXTENDED_FD_CAN</p>
+<p>EXTENDED_NO_FD_CAN</p>
+<p>STANDARD_CAN</p>
+<p>STANDARD_FD_CAN</p>
+<p>STANDARD_NO_FD_CAN</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示接收CAN报文类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Can
+IfRxPduDlc</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..64</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>RxPdu的DLC
+长度（用于DLC检测）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于配置C
+anIfPrivateDlcCheck</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ca
+nIfRxPduId</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示
+该RxPdu在CanIf模块
+中的Index，由其关联
+的Pdu名自动生成宏名</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>根据CanIfRxPduRef
+关联的Pdu名自动生成</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfRxP
+duReadData</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该RxPdu是
+否支持CanIf_ReadRx
+PduData获取接收数据</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于CanIfPublicReadR
+xPduDataApi，当RxPd
+u支持CanIfRxPduRead
+Data时，接收报文Can
+Id必须为唯一值（Can
+IfRxPduCanIdRange配
+置不能是一个范围）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfR
+xPduReadNo
+tifyStatus</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该RxPdu是否支
+持CanIf_ReadRxNoti
+fStatus获取接收状态</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于CanIfPublicReadR
+xPduNotifyStatusApi</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfRxPdu
+UserRxIndi
+cationName</p></td>
+<td><p>取值范围</p></td>
+<td><p>string</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示&lt;U
+ser_RxIndication&gt;的
+接口名，由工具自动
+生成（CanIfRxPduUse
+rRxIndicationUL配置
+为CDD时可手动更改）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfRxPd
+uUserRxIndicationUL</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfRxP
+duUserRxIn
+dicationUL</p></td>
+<td><p>取值范围</p></td>
+<td><p>CAN_NM</p>
+<p>CAN_TP</p>
+<p>CAN_TSYN</p>
+<p>CDD</p>
+<p>J1939NM</p>
+<p>J1939TP</p>
+<p>PDUR</p>
+<p>XCP</p>
+</td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该RxPdu接收数
+据传递到上层的模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfRxP
+duHrhIdRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用CanIfHrhCfg</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该
+RxPdu通过关联的HRH
+接收</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Can
+If模块中CanIfHrhCfg</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can
+IfRxPduRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>关联ECUC中Pdu</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>通过ECUC中Pdu索引
+，明确Pdu的路由路径</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于ECUC中Pdu</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifrxpducanidrange">
+<h3>CanIfRxPduCanIdRange<a class="headerlink" href="#canifrxpducanidrange" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image142.png"><img alt="image13" src="../../_images/image142.png" style="width: 5.76736in; height: 2.80625in;" /></a></p>
+<p>图5-11 CanIfRxPduCanIdRange</p>
+<p>表5-11 CanIfRxPduCanIdRange</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfRxPdu
+CanIdRange
+LowerCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0 .. 0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该R
+xPdu过滤的CanId下限</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfR
+xPduCanIdType，CanI
+fRxPduCanIdRangeLow
+erCanId≤CanIfRxPduC
+anIdRangeUpperCanId</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfRxPdu
+CanIdRange
+UpperCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0 .. 0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该R
+xPdu过滤的CanId上限</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanI
+fRxPduCanIdType；Ca
+nIfRxPduCanIdRangeL
+owerCanId≤CanIfRxPd
+uCanIdRangeUpperCan
+Id；CanIfRxPduCanId
+Type为STANDARD，Can
+IfRxPduCanIdRangeUp
+perCanId配置范围≤0x
+7ff；CanIfRxPduCanI
+dType为EXTENDED，Ca
+nIfRxPduCanIdRangeU
+pperCanId配置范围≤0
+x1fffffff；CanIfHrh
+RangeRxPduRangeCanI
+dType为STANDARD，Ca
+nIfHrhRangeRxPduUpp
+erCanId配置范围≤0x7
+ff；CanIfHrhRangeRx
+PduRangeCanIdType为
+EXTENDED，CanIfHrhR
+angeRxPduUpperCanId
+配置范围≤0x1fffffff</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifhrhcfg">
+<h3>CanIfHrhCfg<a class="headerlink" href="#canifhrhcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image151.png"><img alt="image14" src="../../_images/image151.png" style="width: 5.76736in; height: 2.47708in;" /></a></p>
+<p>图5-12 CanIfHrhCfg</p>
+<p>表5-12 CanIfHrhCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ca
+nIfHrhSoft
+wareFilter</p></td>
+<td><p>取值范围</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值</p></td>
+<td><p>ture</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该
+HRH是否使能软件滤波</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于关联的CAN驱动中HR
+H的类型（配置为Full
+Can不需要软件滤波）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfHrhCa
+nCtrlIdRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用CanIfCtrlCfg</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该HRH关联的CanI
+f中配置的Controller</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfCtrlCfg</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfH
+rhIdSymRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用CAN驱
+动中硬件接收单元HRH</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Ca
+nIf中HRH与CAN驱动中
+硬件接收单元的关联</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CAN驱动中
+硬件接收单元的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifhrhrangecfg">
+<h3>CanIfHrhRangeCfg<a class="headerlink" href="#canifhrhrangecfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image161.png"><img alt="image15" src="../../_images/image161.png" style="width: 5.76736in; height: 2.78889in;" /></a></p>
+<p>图5-13 CanIfHrhRangeCfg</p>
+<p>表5-13 CanIfHrhRangeCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfHrhR
+angeBaseId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0-0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示HRH软
+件滤波的BaseCanId（
+掩码方式过滤所需）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfHrhSof
+twareFilter的使能，</p>
+<p>当前结合到CA
+N驱动中通常都是通过
+硬件掩码进行过滤，
+软件不支持这种方式
+，因此工具不可配。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfHr
+hRangeMask</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0-0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示该
+HRH软件滤波的掩码（
+掩码方式过滤所需）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfHrhSof
+twareFilter的使能，</p>
+<p>当前结合到CA
+N驱动中通常都是通过
+硬件掩码进行过滤，
+软件不支持这种方式
+，因此工具不可配。</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfHrh
+RangeRxPdu
+LowerCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0-0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该HRH
+接收报文CanId的下限</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfHrhS
+oftwareFilter的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ca
+nIfHrhRang
+eRxPduRang
+eCanIdType</p></td>
+<td><p>取值范围</p></td>
+<td><p>STANDARD/EXTENDED</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该HRH过滤CanI
+d类型（11位和29位）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfHrhS
+oftwareFilter的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfHrh
+RangeRxPdu
+UpperCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0x0-0x1FFFFFFF</p></td>
+<td><p>默认取值</p></td>
+<td><p>0x1fffffff</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该HRH
+接收报文CanId的上限</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于CanIfHrhS
+oftwareFilter的使能</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canifinitcfg">
+<h3>CanIfInitCfg<a class="headerlink" href="#canifinitcfg" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image171.png"><img alt="image16" src="../../_images/image171.png" style="width: 5.76736in; height: 2.53125in;" /></a></p>
+<p>图5-14 CanIfInitCfg</p>
+<p>表5-14 CanIfInitCfg</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIf
+InitCfgSet</p></td>
+<td><p>取值范围</p></td>
+<td><p>CanIfInitCfgSet</p></td>
+<td><p>默
+认
+取
+值</p></td>
+<td><p>CanIfInitCfgSet</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>表示
+CanIf模块PB配置参数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>工具固定生成，不可变</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfMax
+BufferSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..</p>
+<p>18446744073709551615</p>
+</td>
+<td><p>默
+认
+取
+值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Can
+If模块TxBuffer总长度</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于PB配
+置的实现，目前不支持</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanIfM
+axRxPduCfg</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..</p>
+<p>18446744073709551615</p>
+</td>
+<td><p>默
+认
+取
+值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CanIf模块
+支持的最大RxPdu数目</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于PB配
+置的实现，目前不支持</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanIfM
+axTxPduCfg</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..</p>
+<p>18446744073709551615</p>
+</td>
+<td><p>默
+认
+取
+值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CanIf模块
+支持的最大TxPdu数目</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用于PB配
+置的实现，目前不支持</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="BswM.html" class="btn btn-neutral float-left" title="BswM产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CanNm.html" class="btn btn-neutral float-right" title="CanNm产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

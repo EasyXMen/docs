@@ -1,0 +1,2884 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CanTrcv产品参考手册 &mdash; EasyXMen_docs 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CanTSyn产品参考手册" href="CanTSyn.html" />
+    <link rel="prev" title="CanTp产品参考手册" href="CanTp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            EasyXMen_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp产品参考手册</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CanTrcv产品参考手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">功能描述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">CanTrcv功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">CanTrcv功能介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">CanTrcv功能实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">源文件描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API接口</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">类型定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-configtype">CanTrcv_ConfigType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-pnactivationtype">CanTrcv_PNActivationType类型定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-trcvflagstatetype">CanTrcv_TrcvFlagStateType类型定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">输入函数描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">静态接口函数定义</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-init">CanTrcv_Init函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-setopmode">CanTrcv_SetOpMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-getopmode">CanTrcv_GetOpMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-getbuswureason">CanTrcv_GetBusWuReason函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-getversioninfo">CanTrcv_GetVersionInfo函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-setwakeupmode">CanTrcv_SetWakeupMode函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-mainfunction">CanTrcv_MainFunction函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-checkwakeup">CanTrcv_CheckWakeup函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-mainfunctiondiagnostics">CanTrcv_MainFunctionDiagnostics函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-deinit">CanTrcv_DeInit函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-gettrcvsystemdata">CanTrcv_GetTrcvSystemData函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-cleartrcvwufflag">CanTrcv_ClearTrcvWufFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-readtrcvtimeoutflag">CanTrcv_ReadTrcvTimeoutFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-cleartrcvtimeoutflag">CanTrcv_ClearTrcvTimeoutFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-readtrcvsilenceflag">CanTrcv_ReadTrcvSilenceFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-checkwakeflag">CanTrcv_CheckWakeFlag函数定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcv-setpnactivationstate">CanTrcv_SetPNActivationState函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">可配置函数定义</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">配置列表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cantrcvgeneral">CanTrcvGeneral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cantrcvconfigset">CanTrcvConfigSet</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cantrcvchannels">CanTrcvChannels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf 产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto驱动产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">DCM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA_handler.html">FOTA_handler产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS模块参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM产品参考手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP产品参考手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EasyXMen_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CanTrcv产品参考手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sub/参考手册/CanTrcv.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cantrcv">
+<h1>CanTrcv产品参考手册<a class="headerlink" href="#cantrcv" title="Link to this heading"></a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ComM</p></td>
+<td><p>Communication Manager</p></td>
+<td><p>通信管理器</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEM</p></td>
+<td><p>Diagnostic Event Manager</p></td>
+<td><p>诊断事件管理器</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>默认错误检测/追踪器</p></td>
+</tr>
+<tr class="row-odd"><td><p>DIO</p></td>
+<td><p>Digital Input Output
+(SPAL module)</p></td>
+<td><p>数字输入/输出</p></td>
+</tr>
+<tr class="row-even"><td><p>EB</p></td>
+<td><p>Externally Buffered
+channels</p></td>
+<td><p>外部缓冲通道。缓冲区存放
+SPI驱动以外要传输的数据。</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM</p></td>
+<td><p>ECU State Manager</p></td>
+<td><p>ECU状态机管理器</p></td>
+</tr>
+<tr class="row-even"><td><p>IB</p></td>
+<td><p>Internally Buffered
+channels</p></td>
+<td><p>内部缓冲通道。缓冲区存放
+SPI驱动内部要传输的数据。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ISR</p></td>
+<td><p>Interrupt Service Routine</p></td>
+<td><p>中断服务程序</p></td>
+</tr>
+<tr class="row-even"><td><p>MCAL</p></td>
+<td><p>Micro Controller
+Abstraction Layer</p></td>
+<td><p>微控制器抽象层</p></td>
+</tr>
+<tr class="row-odd"><td><p>Port</p></td>
+<td><p>Port module (SPAL module)</p></td>
+<td><p>端口模块</p></td>
+</tr>
+<tr class="row-even"><td><p>n/a</p></td>
+<td><p>Not Applicable</p></td>
+<td><p>不适用</p></td>
+</tr>
+<tr class="row-odd"><td><p>SBC</p></td>
+<td><p>System Basis Chip</p></td>
+<td><p>系统
+基础芯片。一个整合收发器，
+看门狗以及电源控制的设备。</p></td>
+</tr>
+<tr class="row-even"><td><p>SPAL</p></td>
+<td><p>Standard Peripheral
+Abstraction Layer</p></td>
+<td><p>标准外设抽象层</p></td>
+</tr>
+<tr class="row-odd"><td><p>API</p></td>
+<td><p>Application Programming
+Interface</p></td>
+<td><p>应用接口</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>CanTrcv在AutoSar R19-11软件层级架构如下图：</p>
+<p><a class="reference internal" href="../../_images/image127.png"><img alt="image1" src="../../_images/image127.png" style="width: 5.6875in; height: 5.92361in;" /></a></p>
+<p>图1-1 CanTrcv在AutoSar的软件层级架构图</p>
+<p>CanTrcv抽象化Can收发器硬件，提供独立于硬件的接口给CanIf等上层模块。它通过使用MCAL层的API接口访问CAN收发器硬件，从ECU布局中抽象出来。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>[1] AUTOSAR_SWS_CanTransceiverDriver.PDF，R19-11</p>
+<p>[2] AUTOSAR_SRS_CAN.PDF，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>CanTrcv功能<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>CanTrcv功能介绍<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>CAN收发器驱动程序模块负责处理ECU上的CAN收发器硬件芯片，并将CAN总线上使用的信号电平调整为微控制器可以识别的逻辑(数字)信号电平。此外，收发器还能检测到电气故障，如线路问题、地面偏移或长主导信号的传输。</p>
+<p>根据CAN收发器与微控制器的接口，驱动程序模块可以标记由外部端口pin记录的探测错误或由SPI总线记录的检测错误；特定CAN收发器支持电源控制，并通过CAN总线唤醒。有些CAN收发器具备特定功能，如系统基础芯片(SBC)，它除了CAN基本功能之外，还实现了电源控制和高级监控，并通过SPI总线和MCU进行访问。部分网络唤醒是CAN系统中的一种状态，其中一些节点处于低功耗模式，而其他节点正在通信。这减少了整个网络的功耗。在低功耗模式下，节点被预先定义的唤醒帧唤醒。支持选择性唤醒的收发器除了普通收发器提供的唤醒模式(Wakeup
+Pattern)外，还可以通过唤醒帧(Wakeup Frame)来唤醒。</p>
+</section>
+<section id="id6">
+<h4>CanTrcv功能实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<p>CAN收发器驱动程序的目标是指定适合CAN收发器设备的接口和行为和抽象CAN收发器硬件；它为上层提供了一个独立于硬件的接口；它通过使用MCAL层的API接口访问CAN收发器硬件，从ECU布局中抽象出来。</p>
+<p>CanTrcv在访问到硬件，发现唤醒事件之后，也可以通过回调接口通知到上层CanIf/EcuM从而使BSW能处理这些唤醒事件。</p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2>源文件描述<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<p>表3-1 CanTrcv组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcv.c</p></td>
+<td><p>包含需
+要使用的宏定义，内部变量，内部函数，全局函数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcv_Driver.c</p></td>
+<td><p>包含需
+要使用的关于硬件的宏定义，内部变量，内部函数。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcv_Driver.h</p></td>
+<td><p>包含需要使
+用的关于硬件的宏定义，类型定义，内部函数声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcv_Types.h</p></td>
+<td><p>包含需要使用的类型定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcv.h</p></td>
+<td><p>包含需要使用的宏
+定义，类型定义，配置结构体声明，外部函数声明。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcv_Cfg.h</p></td>
+<td><p>生成CanTrcv模块配置相关的宏定义。</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcv_Cfg.c</p></td>
+<td><p>生成CanTrcv模块配置相关的结构体。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcv_MemMap.h</p></td>
+<td><p>CanTrcv模块的内存映射。</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image217.png"><img alt="image2" src="../../_images/image217.png" style="width: 5.76736in; height: 4.08056in;" /></a></p>
+<p>图3-1 CanTrcv组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>类型定义<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="cantrcv-configtype">
+<h4>CanTrcv_ConfigType类型定义<a class="headerlink" href="#cantrcv-configtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanTrcv_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>配置参数结构体类型定义</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-pnactivationtype">
+<h4>CanTrcv_PNActivationType类型定义<a class="headerlink" href="#cantrcv-pnactivationtype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanTrcv_PNActivationType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>PN_ENABLED</p>
+<p>PN_DISABLED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>部分唤醒功能开关</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-trcvflagstatetype">
+<h4>CanTrcv_TrcvFlagStateType类型定义<a class="headerlink" href="#cantrcv-trcvflagstatetype" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>CanTrcv_TrcvFlagStateType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围</p></td>
+<td><p>CANTRCV_FLAG_SET</p>
+<p>CANTRCV_FLAG_CLEARED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>描述</p></td>
+<td><p>CanTrcv硬件是否置位</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h3>输入函数描述<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf</p></td>
+<td><p>CanIf_ConfirmPnAvailability</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CanIf_TrcvModeIndication</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CanIf_ClearTrcvWufFlagIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CanIf_CheckTrcvWakeFlagIndication</p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Det_ReportRuntimeError</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM</p></td>
+<td><p>EcuM_SetWakeupEvent</p></td>
+</tr>
+<tr class="row-odd"><td><p>Icu</p></td>
+<td><p>Icu_DisableNotification</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Icu_EnableNotification</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dio</p></td>
+<td><p>预留，根据硬件决定</p></td>
+</tr>
+<tr class="row-even"><td><p>Spi</p></td>
+<td><p>预留，根据硬件决定</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tm</p></td>
+<td><p>Tm_BusyWait1us16bit</p></td>
+</tr>
+<tr class="row-even"><td><p>Dem</p></td>
+<td><p>Dem_SetEventStatus</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>静态接口函数定义<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="cantrcv-init">
+<h4>CanTrcv_Init函数定义<a class="headerlink" href="#cantrcv-init" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void CanTrcv_Init
+(const
+Can
+Trcv_ConfigType*
+ConfigPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Config
+Ptr：配置参数指针</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>初始化CanTrcv模块</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-setopmode">
+<h4>CanTrcv_SetOpMode函数定义<a class="headerlink" href="#cantrcv-setopmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+anTrcv_SetOpMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+anTrcv_SetOpMode
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>CanT
+rcv_TrcvModeType
+OpMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>对于不同tr
+ansceivers可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>OpMode：运行模式</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std_Retu
+rnType：E_OK：切
+换请求接收并成功</p>
+<p>E_NOT_OK：切
+换失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>切换运行模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-getopmode">
+<h4>CanTrcv_GetOpMode函数定义<a class="headerlink" href="#cantrcv-getopmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>C
+anTrcv_GetOpMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+C
+anTrcv_GetOpMode
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>CanTrc
+v_TrcvModeType*
+OpMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>OpMo
+de：运行模式指针</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Re
+turnType：E_OK：
+成功获取运行模式</p>
+<p>E_NOT_OK：获
+取失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取运行模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-getbuswureason">
+<h4>CanTrcv_GetBusWuReason函数定义<a class="headerlink" href="#cantrcv-getbuswureason" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrc
+v_GetBusWuReason</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTrc
+v_GetBusWuReason
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>CanTrcv_TrcvWa
+keupReasonType*
+reason</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>reason：唤醒原因</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Re
+turnType：E_OK：
+成功获取唤醒原因</p>
+<p>E_NOT_OK：获
+取失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取唤醒原因</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-getversioninfo">
+<h4>CanTrcv_GetVersionInfo函数定义<a class="headerlink" href="#cantrcv-getversioninfo" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTr
+cv_GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanTr
+cv_GetVersionInfo
+(</p>
+<p><a href="#id16"><span class="problematic" id="id17">Std_</span></a>
+VersionInfoType*
+versioninfo</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versioni
+nfo：版本信息指针</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取版本信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-setwakeupmode">
+<h4>CanTrcv_SetWakeupMode函数定义<a class="headerlink" href="#cantrcv-setwakeupmode" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTr
+cv_SetWakeupMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTr
+cv_SetWakeupMode
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>CanTrcv_Tr
+cvWakeupModeType
+TrcvWakeupMode</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>对于不同t
+ransceiver可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TrcvWakeupMode：
+处理唤醒事件模式</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p><a href="#id18"><span class="problematic" id="id19">Std_</span></a>
+ReturnType：E_OK
+：成功处理唤醒事
+件并设置唤醒模式</p>
+<p>E_NOT_OK：处
+理失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>根据TrcvWake
+upMode开启、禁用
+或清除唤醒事件。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-mainfunction">
+<h4>CanTrcv_MainFunction函数定义<a class="headerlink" href="#cantrcv-mainfunction" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+Trcv_MainFunction</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Can
+Trcv_MainFunction
+(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>主调度函数，周期
+性扫描唤醒时间。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-checkwakeup">
+<h4>CanTrcv_CheckWakeup函数定义<a class="headerlink" href="#cantrcv-checkwakeup" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Can
+Trcv_CheckWakeup</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+Can
+Trcv_CheckWakeup
+(uint8
+Transceiver)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>是</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Re
+turnType：E_OK：
+成功处理唤醒事件</p>
+<p>E_NOT_OK：处
+理失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>唤醒中断发生
+后检查唤醒事件。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-mainfunctiondiagnostics">
+<h4>CanTrcv_MainFunctionDiagnostics函数定义<a class="headerlink" href="#cantrcv-mainfunctiondiagnostics" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_MainFu
+nctionDiagnostics</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanTrcv_MainFu
+nctionDiagnostics
+(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>主诊断调度函数
+，周期性读取硬件
+状态并报告错误。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-deinit">
+<h4>CanTrcv_DeInit函数定义<a class="headerlink" href="#cantrcv-deinit" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_DeInit</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+CanTrcv_DeInit
+(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td><p>值域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>反初始化函数，
+停止CanTrcv模块。</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-gettrcvsystemdata">
+<h4>CanTrcv_GetTrcvSystemData函数定义<a class="headerlink" href="#cantrcv-gettrcvsystemdata" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_G
+etTrcvSystemData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTrcv_G
+etTrcvSystemData
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>const uint32*
+TrcvSysData</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>TrcvSysData
+：收发器系统数据</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Re
+turnType：E_OK：
+成功获取系统数据</p>
+<p>E_NOT_OK：获
+取失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获
+取收发器系统数据</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-cleartrcvwufflag">
+<h4>CanTrcv_ClearTrcvWufFlag函数定义<a class="headerlink" href="#cantrcv-cleartrcvwufflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p><a href="#id20"><span class="problematic" id="id21">CanTrcv_</span></a>
+ClearTrcvWufFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+<a href="#id22"><span class="problematic" id="id23">CanTrcv_</span></a>
+ClearTrcvWufFlag
+(uint8
+Transceiver)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>对于不同tr
+ansceivers可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Retu
+rnType：E_OK：成
+功清除唤醒帧Flag</p>
+<p>E_NOT_OK：清
+除失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>清
+除硬件唤醒帧Flag</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-readtrcvtimeoutflag">
+<h4>CanTrcv_ReadTrcvTimeoutFlag函数定义<a class="headerlink" href="#cantrcv-readtrcvtimeoutflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_Rea
+dTrcvTimeoutFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTrcv_Rea
+dTrcvTimeoutFlag
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>CanTrcv_Trc
+vFlagStateType*
+FlagState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>FlagSta
+te：超时Flag状态</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnTy
+pe：E_OK：成功读
+取收发器超时Flag</p>
+<p>E_NOT_OK：读
+取失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>读取硬件超时Flag</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-cleartrcvtimeoutflag">
+<h4>CanTrcv_ClearTrcvTimeoutFlag函数定义<a class="headerlink" href="#cantrcv-cleartrcvtimeoutflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_Clea
+rTrcvTimeoutFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTrcv_Clea
+rTrcvTimeoutFlag
+(uint8
+Transceiver)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnTy
+pe：E_OK：成功清
+除收发器超时Flag</p>
+<p>E_NOT_OK：清
+除失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>清除硬件超时Flag</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-readtrcvsilenceflag">
+<h4>CanTrcv_ReadTrcvSilenceFlag函数定义<a class="headerlink" href="#cantrcv-readtrcvsilenceflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_Rea
+dTrcvSilenceFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTrcv_Rea
+dTrcvSilenceFlag
+(</p>
+<p>uint8
+Transceiver,</p>
+<p>CanTrcv_Trc
+vFlagStateType*
+FlagState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>Fl
+agState：Silence
+Flag状态</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_ReturnTy
+pe：E_OK：成功读
+取收发器Silence
+Flag</p>
+<p>E_NOT_OK：读
+取失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>读取硬件Silence
+Flag</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-checkwakeflag">
+<h4>CanTrcv_CheckWakeFlag函数定义<a class="headerlink" href="#cantrcv-checkwakeflag" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTr
+cv_CheckWakeFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTr
+cv_CheckWakeFlag
+(uint8
+Transceiver)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Transcei
+ver：Transceiver
+Id</p></td>
+<td><p>值域：</p></td>
+<td><p>0-
+(CANTRCV_MAX_CHANNELS-1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Re
+turnType：E_OK：
+成功检查唤醒Flag</p>
+<p>E_NOT_OK：检
+查失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>检查硬件wakeup
+Flag状态</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcv-setpnactivationstate">
+<h4>CanTrcv_SetPNActivationState函数定义<a class="headerlink" href="#cantrcv-setpnactivationstate" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>CanTrcv_Set
+PNActivationState</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std_ReturnType
+CanTrcv_Set
+PNActivationState
+(</p>
+<p>CanTrcv
+_PNActivationType
+ActivationState</p>
+<p>)</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0f</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>否</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Acti
+vationState：部分
+唤醒功能开关状态</p></td>
+<td><p>值域：</p></td>
+<td><p>PN_ENABLED：
+部分唤醒开启</p>
+<p>PN_DIABLED：
+部分唤醒关闭</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std_Retur
+nType：E_OK：成功
+设置部分唤醒开关</p>
+<p>E_NOT_OK：设
+置失败，遇到错误</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>设置部分唤醒开关</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id11">
+<h3>可配置函数定义<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>无。</p>
+</section>
+</section>
+<section id="id12">
+<h2>配置<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<section id="id13">
+<h3>配置列表<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<p>表5-1 属性描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>该配置项在配置工具界面显示的名称</p></td>
+</tr>
+<tr class="row-even"><td><p>取值范围</p></td>
+<td><p>该配置项允许的取值区间</p></td>
+</tr>
+<tr class="row-odd"><td><p>默认取值</p></td>
+<td><p>该配置项默认的配置值</p></td>
+</tr>
+<tr class="row-even"><td><p>参数描述</p></td>
+<td><p>该配置项在标准的AUTOSAR_EcucParamDef.arxml文件中的描述</p></td>
+</tr>
+<tr class="row-odd"><td><p>依赖关系</p></td>
+<td><p>该配置项与其他模块或配置项的关系</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcvgeneral">
+<h3>CanTrcvGeneral<a class="headerlink" href="#cantrcvgeneral" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image310.png"><img alt="image3" src="../../_images/image310.png" style="width: 4.12448in; height: 0.79157in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image46.png"><img alt="image4" src="../../_images/image46.png" style="width: 5.76736in; height: 2.71597in;" /></a></p>
+<p>图5-1 CanTrcvGeneral工具配置</p>
+<p>表5-2 CanTrcvGeneral配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanT
+rcvDevErrorDetect</p></td>
+<td><p>取值范围</p></td>
+<td><p>True、False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches the
+development
+error detection
+and notification
+on or off.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvIndex</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 ..255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Specifies the
+InstanceId of
+this module
+instance. If
+only one
+instance is
+present it shall
+have the Id 0.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ca
+nTrcvMainFunction
+DiagnosticsPeriod</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..INF</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter
+describes the
+period for
+cyclic call to
+CanTrcv_MainFunc
+tionDiagnostics.
+Unit is seconds.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvTimerType</p></td>
+<td><p>取值范围</p></td>
+<td><p>None</p>
+<p>Timer_1us16bit</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Type of the Time
+Service
+Predefined
+Timer.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanT
+rcvVersionInfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>True, False</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Switches version
+information API
+on and off. If
+switched off,
+function need
+not be present
+in compiled
+code.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvWaitTime</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..2.55E-4</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Wait time for
+transceiver
+state changes in
+seconds.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can
+TrcvWakeUpSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>CANTRCV_W
+AKEUP_BY_POLLING</p>
+<p>CANTRCV_WAKE
+UP_NOT_SUPPORTED</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Informs whether
+wake up is
+supported by
+polling or not
+supported. In
+case no</p>
+<p>wake up is
+supported by the
+hardware,
+setting has to
+be
+NOT_SUPPORTED.
+Only in the case
+of wake up
+supported by
+polling,
+function
+CanT
+rcv_MainFunction
+has to be
+present and to
+be invoked by
+the scheduler.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcvconfigset">
+<h3>CanTrcvConfigSet<a class="headerlink" href="#cantrcvconfigset" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image57.png"><img alt="image5" src="../../_images/image57.png" style="width: 4.11407in; height: 1.2915in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image67.png"><img alt="image6" src="../../_images/image67.png" style="width: 5.70762in; height: 1.18735in;" /></a></p>
+<p>图5-2 CanTrcvConfigSet工具配置</p>
+<p>表5-3 CanTrcvConfigSet配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanT
+rcvSPICommRetries</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates the
+maximum number
+of communication
+retries in case
+of a failed SPI
+communication
+(applies both to
+timed out
+communication
+and to
+errors/NACK in
+the response
+data).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>需要配置Ca
+nTrcvSpiSequence</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanT
+rcvSPICommTimeout</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..100</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates the
+maximum time
+allowed to the
+CanTrcv for
+replying (either
+positively or
+negatively) to a
+SPI command.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>需要配置Ca
+nTrcvSpiSequence</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="cantrcvchannels">
+<h4>CanTrcvChannels<a class="headerlink" href="#cantrcvchannels" title="Link to this heading"></a></h4>
+<p><a class="reference internal" href="../../_images/image77.png"><img alt="image7" src="../../_images/image77.png" style="width: 3.73291in; height: 1.13148in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image87.png"><img alt="image8" src="../../_images/image87.png" style="width: 5.76736in; height: 3.56875in;" /></a></p>
+<p>图5-3 CanTrcvChannel工具配置</p>
+<p>表5-4 CanTrcvChannel配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvChannleId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Unique
+identifier of
+the CAN
+Transceiver
+Channel.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvChannelUsed</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>t
+rue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Shall the
+related CAN
+transceiver
+channel be used?</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrc
+vControlsPowerSupply</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Is ECU power
+supply
+controlled by
+this
+transceiver?</p>
+<p>TRUE =
+Controlled by
+transceiver.
+FALSE = Not
+controlled by
+transceiver.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvHwPnSupport</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates
+whether the HW
+supports the
+selective
+wake-up function</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>开启此项
+才可以配置CanTr
+cvPartialNetwork</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvInitState</p></td>
+<td><p>取值范围</p></td>
+<td><p>CANTR
+CV_OP_MODE_SLEEP</p>
+<p>CANTRCV
+_OP_MODE_STANDBY</p>
+</td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>State of CAN
+transceiver
+after call to
+CanTrcv_Init.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvMaxBaudrate</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..12000</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates the
+data transfer
+rate in kbps.</p>
+<p>Maximum data
+transfer rate in
+kbps for
+transceiver
+hardware type.
+Only used for
+validation
+purposes. This
+value can be
+used by
+configuration
+tools.</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ca
+nTrcvWakeupByBusUsed</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Is wake up by
+bus supported?</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvIcuChannelRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Reference to the
+IcuChannel to
+enable/disable
+the interrupts
+for wakeups.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTr
+cvPorWakeupSourceRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Symbolic name
+reference to
+specify the
+wakeup sources
+that should be
+used in the
+calls to
+Ecu
+M_SetWakeupEvent</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Ca
+nTrcvHwPnSupport
+=TRUE &amp;</p>
+<p>CanTrcv
+PowerOnFlag=TRUE</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvS
+yserrWakeupSourceRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Symbolic name
+reference to
+specify the
+wakeup sources
+that should be
+used in the
+calls to
+Ecu
+M_SetWakeupEvent</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>Ca
+nTrcvHwPnSupport
+=TRUE&amp;</p>
+<p>CanTrc
+vBusErrFlag=TRUE</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ca
+nTrcvWakeupSourceRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Reference to a
+wakeup source in
+the EcuM
+configuration.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>CanTrcvWake
+upByBusUsed=TRUE</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>CanTrcvAccess</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><a class="reference internal" href="../../_images/image97.png"><img alt="image9" src="../../_images/image97.png" style="width: 3.97867in; height: 2.07266in;" /></a></p>
+<p>图5-4 CanTrcvAccess工具配置</p>
+<section id="cantrcvdioaccess">
+<h5>CanTrcvDioAccess<a class="headerlink" href="#cantrcvdioaccess" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image107.png"><img alt="image10" src="../../_images/image107.png" style="width: 4.02257in; height: 1.04275in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1112.png"><img alt="image11" src="../../_images/image1112.png" style="width: 5.66596in; height: 1.20818in;" /></a></p>
+<p>图5-5 CanTrcvDioAccess工具配置</p>
+<p>表5-5 CanTrcvDioAccess配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvH
+ardwareInterfaceName</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CAN transceiver
+hardware
+interface name.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvDioSymNameRef</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Choice Reference
+to a DIO Port,
+DIO Channel or
+DIO Channel
+Group.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cantrcvspiaccess">
+<h5>CanTrcvSpiAccess<a class="headerlink" href="#cantrcvspiaccess" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image128.png"><img alt="image12" src="../../_images/image128.png" style="width: 3.79119in; height: 2.69758in;" /></a></p>
+<p>图5-6 CanTrcvSpiAccess工具配置</p>
+<p><a class="reference internal" href="../../_images/image136.png"><img alt="image13" src="../../_images/image136.png" style="width: 5.76736in; height: 2.89375in;" /></a></p>
+<p>图5-7 CanTrcvSpiSequence工具配置</p>
+<p>表5-6 CanTrcvSpiSequence配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcv
+SpiAccessSynchronous</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>This parameter
+is used to
+define whether
+the access to
+the Spi sequence
+is synchronous
+or asynchronous.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ca
+nTrcvSpiSequenceName</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Reference to a
+Spi sequence
+configuration
+container.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="cantrcvpartialnetwork">
+<h6>CanTrcvPartialNetwork<a class="headerlink" href="#cantrcvpartialnetwork" title="Link to this heading"></a></h6>
+<p><a class="reference internal" href="../../_images/image145.png"><img alt="image14" src="../../_images/image145.png" style="width: 3.98908in; height: 1.19777in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image154.png"><img alt="image15" src="../../_images/image154.png" style="width: 4.50743in; height: 2.17277in;" /></a></p>
+<p>图5-8 CanTrcvPartialNetwork工具配置</p>
+<p>表5-7 CanTrcvPartialNetwork配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvBaudRate</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 12000</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates the
+data transfer
+rate in kbps.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvBusErrFlag</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates if the
+Bus Error
+(BUSERR) flag is
+managed by the
+BSW.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>开启此项才可
+配置CanTrcvDemE
+ventParameterRef</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanT
+rcvPnCanIdIsExtended</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates
+whether extended
+or standard ID
+is used.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvPnEnabled</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates
+whether the
+selective
+wake-up function
+is enabled or
+disabled in HW.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvPnFrameCanId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>CAN ID of the
+Wake-up Frame
+(WUF).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Can
+TrcvPnFrameCanIdMask</p></td>
+<td><p>取值范围</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>ID Mask for the
+selective
+activation of
+the transceiver.
+It is used to
+enable-Frame
+Wake-up (WUF) on
+a group of IDs.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvPnFrameDlc</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..8</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Data Length of
+the Wake-up
+Frame (WUF).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcvPowerOnFlag</p></td>
+<td><p>取值范围</p></td>
+<td><p>true, false</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>fa
+lse</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Indicates if the
+Power On Reset
+(POR) flag is
+available and is
+managed by the
+transceiver.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cantrcvpnframedatamaskspec">
+<h5>CanTrcvPnFrameDataMaskSpec<a class="headerlink" href="#cantrcvpnframedatamaskspec" title="Link to this heading"></a></h5>
+<p><a class="reference internal" href="../../_images/image164.png"><img alt="image16" src="../../_images/image164.png" style="width: 3.1754in; height: 1.06744in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image174.png"><img alt="image17" src="../../_images/image174.png" style="width: 4.33905in; height: 1.14446in;" /></a></p>
+<p>图5-9 CanTrcvPnFrameDataMaskSpec工具配置</p>
+<p>表5-8 CanTrcvPnFrameDataMaskSpec配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ca
+nTrcvPnFrameDataMask</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..255</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Defines the n
+byte (Byte0 =
+LSB) of the data
+payload mask to
+be used on the
+received payload
+in order to
+determine if the
+transceiver must
+be wok-en up by
+the received
+Wake-up Frame
+(WUF).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>CanTrcv
+PnFrameDataMaskIndex</p></td>
+<td><p>取值范围</p></td>
+<td><p>0..7</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>holds the
+position n in
+frame of the
+mask-part</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="cantrcvdemeventparameterref">
+<h6>CanTrcvDemEventParameterRef<a class="headerlink" href="#cantrcvdemeventparameterref" title="Link to this heading"></a></h6>
+<p><a class="reference internal" href="../../_images/image182.png"><img alt="image18" src="../../_images/image182.png" style="width: 3.85368in; height: 1.52064in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image192.png"><img alt="image19" src="../../_images/image192.png" style="width: 5.47848in; height: 1.01029in;" /></a></p>
+<p>图5-10 CanTrcvDemEventParameterRef工具配置</p>
+<p>表5-9 CanTrcvDemEventParameterRef配置描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>UI名称</strong></p></td>
+<td><p><strong>描述</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CanTrcvEBusError</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默
+认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Reference to the
+D
+emEventParameter
+which shall be
+issued when bus
+error has
+occurred.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>C
+anTrcvBusErrFlag</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#id14"><span class="problematic" id="id15">:mark:`注：该Container依赖于CanTrcvBusErrFlag`</span></a></p>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="CanTp.html" class="btn btn-neutral float-left" title="CanTp产品参考手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CanTSyn.html" class="btn btn-neutral float-right" title="CanTSyn产品参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, i-soft.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
