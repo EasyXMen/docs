@@ -1,0 +1,34 @@
+## 小满EasyXMen技术文档
+
+本仓库为小满EasyXMen的文档仓库
+
+## 使用说明
+- 文档基于sphinx框架编写，需要安装python环境，以及按照如下安装python包
+```bat
+pip install sphinx
+pip install sphinx-rtd-theme
+```
+- 本地可以基于sphinx将文档渲染成html，在当前仓库根目录执行如下命名
+```bat
+make.bat html
+```
+## 目录结构
+```
+├── source                  # 文档文件夹
+│   ├── _static             # 文档图片相关静态资料
+│   └──  sub                # 文档文本内容
+|── LICENSE.txt             # license 说明
+|── make.bat                # 本地查阅文档批处理文件
+└── README.md               # 仓库说明文档
+```
+## 开源许可
+
+本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的[LICENSE.txt](./LICENSE.txt)
+
+Copyright (C) 2024 Isoft Infrastructure Software Co., Ltd.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
