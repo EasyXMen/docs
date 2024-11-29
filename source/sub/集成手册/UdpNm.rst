@@ -19,7 +19,7 @@ UdpNm_集成手册
 .. table:: 表 2‑1 缩写词和术语
 
    +------------+---------------------------------------------------------+
-   | **缩写     | **描述**                                                |
+   | **缩写\    | **描述**                                                |
    | 词/术语**  |                                                         |
    +------------+---------------------------------------------------------+
    | SoAd       | Socket Adapter 套接字适配模块                           |
@@ -79,9 +79,17 @@ UdpNm_集成手册
 
 3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。
 
+.. figure:: ../../_static/集成手册/UdpNm/image3.png
+   :width: 4.92126in
+   :height: 3.45486in
+
 图 4‑3 新建工程-3
 
 4. 在弹出的窗口中输入工程名，选择Finish。
+
+.. figure:: ../../_static/集成手册/UdpNm/image4.png
+   :width: 4.92126in
+   :height: 3.45486in
 
 图 4‑4 新建工程-4
 
@@ -176,29 +184,29 @@ Configurator配置生成代码。
 
 表4-1 UDPNM集成约束清单
 
-+-----+---------+-----------------------------------------------------+
-| *   | *       | **约束限制**                                        |
-| *编 | *类别** |                                                     |
-| 号  |         |                                                     |
-| **  |         |                                                     |
-+-----+---------+-----------------------------------------------------+
-| **  | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
-| 1** |         |                                                     |
-+-----+---------+-----------------------------------------------------+
-| **  | 头文件  | -  添加协议                                         |
-| 2** |         | 栈代码之后，用户需更新集成开发工具中的头文件路径。  |
-|     |         |                                                     |
-|     |         | -  调用协议栈API的源文件，需要包含协议栈的头文件。  |
-+-----+---------+-----------------------------------------------------+
-| **  | 初始化  | UdpNm诊断栈                                         |
-| 3** |         | 的初始化顺序为：EthIf_Init、TcpIp_Init、SoAd_Init、 |
-|     |         | EthSM_Init、UdpNm_Init、 Nm_Init和ComM_Init。       |
-+-----+---------+-----------------------------------------------------+
-| **  | 周      | UdpNm_MainFunction，EthSM_MainFu                    |
-| 4** | 期函数  | nction和ComM_MainFunction需要被周期性任务函数调用。 |
-|     |         |                                                     |
-|     |         | EthSM的调度周期必须大于ComM的调度周期               |
-+-----+---------+-----------------------------------------------------+
++------+---------+-----------------------------------------------------+
+|      |         | **约束限制**                                        |
+|**编\ |**类别** |                                                     |
+|号**  |         |                                                     |
+|      |         |                                                     |
++------+---------+-----------------------------------------------------+
+| **\  | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
+| 1**  |         |                                                     |
++------+---------+-----------------------------------------------------+
+| **\  | 头文件  |- 添加协议\                                          |
+| 2**  |         |  栈代码之后，用户需更新集成开发工具中的头文件路径。 |
+|      |         |                                                     |
+|      |         |- 调用协议栈API的源文件，需要包含协议栈的头文件。    |
++------+---------+-----------------------------------------------------+
+| **\  | 初始化  | UdpNm诊断栈\                                        |
+| 3**  |         | 的初始化顺序为：EthIf_Init、TcpIp_Init、SoAd_Init、 |
+|      |         | EthSM_Init、UdpNm_Init、 Nm_Init和ComM_Init。       |
++------+---------+-----------------------------------------------------+
+| **\  | 周      | UdpNm_MainFunction，EthSM_MainFu\                   |
+| 4**  | 期函数  | nction和ComM_MainFunction需要被周期性任务函数调用。 |
+|      |         |                                                     |
+|      |         | EthSM的调度周期必须大于ComM的调度周期               |
++------+---------+-----------------------------------------------------+
 
 集成示例
 ========
@@ -394,9 +402,9 @@ ComM模块配置
 
    图 5‑17 配置ComMUser
 
-b) 配置ComMChannel，默认就创建了一个。
+   b) 配置ComMChannel，默认就创建了一个。
 
-c) 配置ComMBusType，选择本通道的总线类型。还需要配置ComMMainFunctionPeriod，表示本通道的调度周期。
+   c) 配置ComMBusType，选择本通道的总线类型。还需要配置ComMMainFunctionPeriod，表示本通道的调度周期。
 
 .. figure:: ../../_static/集成手册/UdpNm/image29.png
    :width: 5.11811in
@@ -573,7 +581,6 @@ UdpNm有关的代码，在下方的main.c文件中给出重点标注。
 
 *#include "EthSM.h"*
 
-UdpNm协议栈相关模块头文件
 
 *#include "Nm.h"*
 
@@ -591,8 +598,6 @@ Com_IpduGroupVector g_ComIpduGroupVector;
 
 McalUser_Init();
 
-初始化EthIf、EthSM、TcpIp、SoAd、Nm、UdpNm、ComM模块
-
 Led_Init();
 
 EthIf_Init(&EthIf_ConfigData);
@@ -604,8 +609,6 @@ TcpIp_Init(&TcpIp_Config);
 SoAd_Init(&SoAd_Config);
 
 Nm_Init(&Nm_Config);
-
-打开通信
 
 UdpNm_Init(&UdpNm_Config);
 
@@ -626,8 +629,6 @@ StartOS(OSDEFAULTAPPMODE);
 **TASK**\ (OsTask_c0_1ms)
 
 {
-
-EthSM模块周期处理函数
 
 /\* please insert your code here ... \*/
 
@@ -657,8 +658,6 @@ EthSM_MainFunction();
 
 /\* please insert your code here ... \*/
 
-ComM、EthIf、UdpNm模块周期处理函数
-
 ComM_MainFunction(ComMUser_Eth);
 
 EthIf_MainFunctionState();
@@ -684,8 +683,6 @@ UdpNm_MainFunction(0);
 /\* OsTask_c0_5ms: Core0(CPU0), Type = BASIC, Priority = 6*/
 
 **TASK**\ (OsTask_c0_20ms)
-
-SoAd、TcpIp模块周期处理函数
 
 {
 
