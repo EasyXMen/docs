@@ -19,8 +19,8 @@ DoIP_集成手册
 .. table:: 表 2‑1 缩写词和术语
 
    +---------------+------------------------------------------------------+
-   | **            | **描述**                                             |
-   | 缩写词/术语** |                                                      |
+   |**缩写词/术语**| **描述**                                             |
+   |               |                                                      |
    +---------------+------------------------------------------------------+
    | DoIP          | Diagnostic over IP基于IP的诊断                       |
    +---------------+------------------------------------------------------+
@@ -58,13 +58,12 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
 DoIP协议栈各配置模块的功能介绍，参见表 4‑1 DoIP协议栈各配置模块介绍。
 
 使用协议栈源码和配置工具，进行协议栈的集成的步骤，参见
-
 表 4‑2 DoIP协议栈集成的步骤。
 
 .. table:: 表 4‑1 DoIP协议栈各配置模块介绍
 
    +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
+   | **模\   | **功能**                                                   |
    | 块名**  |                                                            |
    +---------+------------------------------------------------------------+
    | Eth     | ETH驱动配置。                                              |
@@ -95,10 +94,10 @@ DoIP协议栈各配置模块的功能介绍，参见表 4‑1 DoIP协议栈各�
 .. table:: 表 4‑2 DoIP协议栈集成的步骤
 
    +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
+   |**步\| **操作**                 | **说明**                           |
+   |骤** |                          |                                    |
+   |     |                          |                                    |
+   |     |                          |                                    |
    +-----+--------------------------+------------------------------------+
    | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
    |     | Configurator配置工具     | ，则仅需进行协议栈模块的加载操作。 |
@@ -133,7 +132,7 @@ DoIP协议栈各配置模块的功能介绍，参见表 4‑1 DoIP协议栈各�
 
 ..
 
-   |image3|
+|image3|
 
 图4-3 新建工程-3
 
@@ -153,25 +152,25 @@ DoIP协议栈各配置模块的功能介绍，参见表 4‑1 DoIP协议栈各�
 
 |image6|
 
-图4-6新建工程-6
+图4-6 新建工程-6
 
 7. 选择[BSW_Builder]->选择目标ECU->右键单机选择[Add Module]。
 
 |image7|
 
-图 4‑7新建工程-7
+图 4‑7 新建工程-7
 
 8. 在弹出的窗口中勾选需添加的模块，点击Finish。
 
 |image8|
 
-图4-8新建工程-8
+图4-8 新建工程-8
 
 9. 新建工程如下所示，上一步添加的模块已经被加入到工程中。
 
 |image9|
 
-图4-9新建工程-9
+图4-9 新建工程-9
 
 10. MCAL配置导入，BSW模块需要依赖MCAL生成的Eth模块
 
@@ -181,11 +180,11 @@ DoIP协议栈各配置模块的功能介绍，参见表 4‑1 DoIP协议栈各�
 
    |image10|
 
-图4-10新建工程-10
+图4-10 新建工程-10
 
 |image11|
 
-图4-11新建工程-11
+图4-11 新建工程-11
 
 b) 导入BSW工具
 
@@ -193,11 +192,11 @@ b) 导入BSW工具
 
    |image12|
 
-图4-12新建工程-12
+图4-12 新建工程-12
 
 |image13|
 
-图4-13新建工程-13
+图4-13 新建工程-13
 
 模块配置及生产代码
 ------------------
@@ -205,8 +204,8 @@ b) 导入BSW工具
 模块配置
 ~~~~~~~~
 
- EcuC配置
-^^^^^^^^^
+EcuC配置
+~~~~~~~~~~~~~~
 
 |image14|
 
@@ -219,20 +218,20 @@ address)的数据类型，分别选择SOURCE_ADDRESS_16和TARGET_ADDRESS_16
 
 图4-16 Pdu配置
 
-   添加DoIP需要的Pdu
+添加DoIP需要的Pdu
 
- EthIf配置
-^^^^^^^^^^
+EthIf配置
+~~~~~~~~~~~~~~
 
- EthIfGeneral
-'''''''''''''
+EthIfGeneral
+
 
 |image16|
 
 图4-17 EthIf配置-EthIfGeneral
 
- EthIfConfigSet
-'''''''''''''''
+EthIfConfigSet
+
 
 |image17|
 
@@ -244,8 +243,8 @@ address)的数据类型，分别选择SOURCE_ADDRESS_16和TARGET_ADDRESS_16
 
 添加以太网对应的帧类型，选择对应的EthIfOwner,这里Owner为上层模块编号，此处对应EthRxIndicationConfigs中的以太网报文接收回调函数。
 
- Eth_DriverApiConfigSet
-'''''''''''''''''''''''
+Eth_DriverApiConfigSet
+
 
 |image19|
 
@@ -253,11 +252,11 @@ address)的数据类型，分别选择SOURCE_ADDRESS_16和TARGET_ADDRESS_16
 
 对Eth驱动中的代码原型进行映射，需参考MCAL源码进行修改，一些未使用的Api(如Timestamp功能)需改为NULL_PTR。如存在EthTrcv模块，同理在EthTrcv_DriverApiConfigSet中进行修改。
 
- TcpIp配置
-^^^^^^^^^^
+TcpIp配置
+~~~~~~~~~~~~~~
 
- TcpIpGeneral
-'''''''''''''
+TcpIpGeneral
+
 
 使能IPv4(暂时只支持IPv4)
 
@@ -265,16 +264,16 @@ address)的数据类型，分别选择SOURCE_ADDRESS_16和TARGET_ADDRESS_16
 
 图4-21 TcpIp配置-TcpIpGeneral
 
-   使能TCP和UDP，设置对应的最大socket数量。
+使能TCP和UDP，设置对应的最大socket数量。
 
 |image21|
 
 图4-22 TcpIp配置-TcpIpGeneral
 
- TcpIpConfig
-''''''''''''
+TcpIpConfig
 
-   选择TcpIpIpConfig添加Arp配置
+
+选择TcpIpIpConfig添加Arp配置
 
 |image22|
 
@@ -287,7 +286,7 @@ TcpIpLocalAddrs 添加DoIP使用的IP地址
 图4-24 TcpIp配置-TcpIpConfig
 
 TcpIpSocketOwnerConfigs
-'''''''''''''''''''''''
+
 
 添加SoAd模块对应的接口Api
 
@@ -295,25 +294,25 @@ TcpIpSocketOwnerConfigs
 
 图4-25 TcpIp配置-TcpIpConfig
 
- TcpIpTcpConfig
-'''''''''''''''
+TcpIpTcpConfig
+
 
 |image25|
 
 图4-26 TcpIp配置-TcpIpConfig
 
- TcpIpUdpConfig
-'''''''''''''''
+TcpIpUdpConfig
+
 
 |image26|
 
 图4-27 TcpIp配置-TcpIpConfig
 
- SoAd配置
-^^^^^^^^^
+SoAd配置
+~~~~~~~~~~~~~~
 
- SoAdBswModules
-'''''''''''''''
+SoAdBswModules
+
 
 |image27|
 
@@ -321,8 +320,8 @@ TcpIpSocketOwnerConfigs
 
 关联SoAd相关的Bsw模块
 
- SoAdConfig
-'''''''''''
+SoAdConfig
+
 
 配置DoIP所需的SoAdPdu路由
 
@@ -360,11 +359,11 @@ TcpIpSocketOwnerConfigs
 
 图4-34 SoAd配置-SoAdConfigs
 
- DoIP配置
-^^^^^^^^^
+DoIP配置
+~~~~~~~~
 
- DoIPGeneral
-''''''''''''
+DoIPGeneral
+
 
 设置DoIP相关的设置
 
@@ -374,8 +373,8 @@ TcpIpSocketOwnerConfigs
 
 图4-35 DoIP配置-DoIPGenerals
 
- DoIPConfigSet
-''''''''''''''
+DoIPConfigSet
+
 
 |image36|
 
@@ -413,11 +412,11 @@ TcpIpSocketOwnerConfigs
 
 添加DoIP的诊断仪并选择对应的源地址，参考路由激活方式。
 
- PduR配置
-^^^^^^^^^
+PduR配置
+~~~~~~~~~~~~~~
 
- PduRBswModules
-'''''''''''''''
+PduRBswModules
+
 
 |image42|
 
@@ -425,8 +424,8 @@ TcpIpSocketOwnerConfigs
 
 添加PduR服务的Bsw模块，选择对应的PduRBswModulesRef后，工具将自动勾选所需Api
 
- PduRoutingTables
-'''''''''''''''''
+PduRoutingTables
+
 
 |image43|
 
@@ -434,8 +433,8 @@ TcpIpSocketOwnerConfigs
 
 PduR的路由表，在DoIP协议栈，需要配置以上路由，路由类型选择TP，选择路由中的目标Pdu(PduRDestPdus)和源Pdu(PduRSrcPdus)，同理添加功能寻址请求路由和响应路由。
 
- ComM配置
-^^^^^^^^^
+ComM配置
+~~~~~~~~
 
 添加一路ComM的通道，后面Dcm模块需要用到这里
 
@@ -443,8 +442,8 @@ PduR的路由表，在DoIP协议栈，需要配置以上路由，路由类型选
 
 图4-44 ComM配置-ComMConfigSet
 
- Dcm配置
-^^^^^^^^
+Dcm配置
+~~~~~~~
 
 Dcm模块配置可参考《UDSonCAN.pdf》中Dcm的配置，ETH的诊断配置只需修改DcmDsl模块：
 
@@ -460,8 +459,8 @@ Dcm模块配置可参考《UDSonCAN.pdf》中Dcm的配置，ETH的诊断配置�
 
 图4-46 DCM配置-DCMConfigSets
 
- Dem配置
-^^^^^^^^
+Dem配置
+~~~~~~~
 
 请参考《UDSonCAN.pdf》
 
@@ -529,7 +528,7 @@ DoIP诊断参数
 表5-1 DoIP诊断参数
 
 +----------------------+-----------------------------------------------+
-| 参数                 | 值                                            |
+|**参数**              |**值**                                         |
 +----------------------+-----------------------------------------------+
 | Local IP Address     | 192.168.1.19                                  |
 +----------------------+-----------------------------------------------+
@@ -557,7 +556,7 @@ DoIP报文示例
 表5-2 DoIP诊断示例报文
 
 +----------------------+-----------------------------------------------+
-| 报文类型             | 报文格式                                      |
+|**报文类型**          |**报文格式**                                   |
 +----------------------+-----------------------------------------------+
 | 路由激活请求         | 02 FD 00 05 00 00 00 07 0E 88 00 00 00 00 00  |
 +----------------------+-----------------------------------------------+
@@ -613,8 +612,6 @@ DoIP协议栈调度集成步骤如下：
 
 **#include** "SoAd.h"
 
-UDSOnIP协议栈相关模块头文件
-
 **#include** "Dem.h"
 
 **#include** "Dcm.h"
@@ -641,8 +638,6 @@ TcpIp_Init(&TcpIp_Config);
 SoAd_Init(&SoAd_Config);
 
 DoIP_Init(&DoIP_PBConfigPtr);
-
-初始化DoIP、Dcm、Dem模块
 
 Dem_PreInit();
 
@@ -715,6 +710,8 @@ DoIP_MainFunction();
 
 |图形用户界面, 文本, 应用程序 描述已自动生成|
 
+图5-2 DoIP报文交互结果示例
+
 22读 DID
 
 2E 写DID
@@ -727,7 +724,7 @@ DoIP_MainFunction();
 
 路由请求激活
 
-图5-2 DoIP报文交互结果示例
+
 
 .. |image1| image:: ../../_static/集成手册/DoIP/image1.png
    :width: 5.60345in

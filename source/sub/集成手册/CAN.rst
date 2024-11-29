@@ -2,10 +2,6 @@
 CAN_集成手册
 ===================
 
-
-
-
-
 目标
 ====
 
@@ -16,17 +12,17 @@ CAN_集成手册
 缩写词和术语
 ============
 
-.. table:: 表 2‑1
+.. table:: 表 2‑1 缩写词和术语
 
    +---------------+------------------------------------------------------+
-   | **            | **描述**                                             |
+   | **\           | **描述**                                             |
    | 缩写词/术语** |                                                      |
    +---------------+------------------------------------------------------+
    | BSW           | Basic Software 基础软件层                            |
    +---------------+------------------------------------------------------+
    | BswM          | Basic Software Mode Manager基础软件模式管理器        |
    +---------------+------------------------------------------------------+
-   | MCAL          | -  Microcontroller Abstraction Layer 微控制器抽象层  |
+   | MCAL          | Microcontroller Abstraction Layer 微控制器抽象层     |
    +---------------+------------------------------------------------------+
    | CANIF         | CAN Interface module CAN接口模块                     |
    +---------------+------------------------------------------------------+
@@ -66,7 +62,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
 .. table:: 表 4‑1通信栈各配置模块介绍
 
    +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
+   | **模\   | **功能**                                                   |
    | 块名**  |                                                            |
    +---------+------------------------------------------------------------+
    | Can     | CAN驱动配置。(由mcal配置工具导入，详见章节5.2.1)           |
@@ -91,10 +87,10 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
 .. table:: 表 4‑2 通信栈集成的步骤
 
    +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
+   |     | **操作**                 | **说明**                           |
+   |**步\|                          |                                    |
+   |骤** |                          |                                    |
+   |     |                          |                                    |
    +-----+--------------------------+------------------------------------+
    | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
    |     | Stuido配置工具           | ，则仅需进行通信栈模块的加载操作。 |
@@ -119,7 +115,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.63542in
    :height: 4.11528in
 
-   图 4‑1 配置工程-1
+图 4‑1 配置工程-1
 
 2. 菜单栏File🡪New🡪Project，新建工程。
 
@@ -127,7 +123,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.65625in
    :height: 4.19167in
 
-   图 4‑2 配置工程-2
+图 4‑2 配置工程-2
 
 3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。
 
@@ -135,7 +131,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.67708in
    :height: 4.14375in
 
-   图 4‑3 配置工程-3
+图 4‑3 配置工程-3
 
 4. 在弹出的窗口中输入工程名，选择Finish。
 
@@ -143,7 +139,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.76736in
    :height: 4.18611in
 
-   图 4‑4 配置工程-4
+图 4‑4 配置工程-4
 
 5. 在弹出的窗口中选择Yes。
 
@@ -151,7 +147,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.4375in
    :height: 2.55208in
 
-   图 4‑5 配置工程-5
+图 4‑5 配置工程-5
 
 6. 选择[Bsw_Builder]，右键单击，选择New ECU Configuration。
 
@@ -165,7 +161,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 4.56173in
    :height: 4.32713in
 
-   图 4‑7 配置工程-7
+图 4‑7 配置工程-7
 
 8. 在弹出的窗口中勾选需添加的模块，点击Finish。
 
@@ -173,13 +169,13 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.46875in
    :height: 5.1875in
 
-   图 4‑8 配置工程-8
+图 4‑8 配置工程-8
 
 .. figure:: ../../_static/集成手册/CAN/image9.png
    :width: 5.52235in
    :height: 1.32451in
 
-   图 4‑9 配置工程-9
+图 4‑9 配置工程-9
 
 9. 新建工程如下所示，步骤⑦中添加的模块已经被加入到工程中。
 
@@ -187,7 +183,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.76736in
    :height: 2.10069in
 
-   图 4‑10 配置工程-10
+图 4‑10 配置工程-10
 
 模块配置及代码生成
 ------------------
@@ -201,8 +197,8 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
 .. table:: 表 4‑3通信栈各模块配置参考文档
 
    +--------+---------------------------------------------+--------------+
-   | **     | **参考文档及其章节**                        | **说明**     |
-   | 模块** |                                             |              |
+   |**模块**| **参考文档及其章节**                        | **说明**     |
+   |        |                                             |              |
    +--------+---------------------------------------------+--------------+
    | Can    | MCAL对应的Can配置手册                       |              |
    +--------+---------------------------------------------+--------------+
@@ -229,7 +225,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.76736in
    :height: 2.96111in
 
-   图 4‑11 模块配置
+图 4‑11 模块配置
 
 2. 选择Validate
    All对本通信栈各配置选项进行校验，没有错误提示信息即校验通过。若有错误信息，请按照错误提示修改。
@@ -241,7 +237,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 4.54236in
    :height: 1.31458in
 
-   图 4‑12 模块配置
+图 4‑12 模块配置
 
 4. 将ORIENTAIS Configurator切换到Resource模式，即可查看生成的配置文件。
 
@@ -249,7 +245,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.77153in
    :height: 2.04097in
 
-   图 4‑13 模块配置
+图 4‑13 模块配置
 
 功能集成
 --------
@@ -267,58 +263,58 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（CAN、Ca
 +-----------------+---------------------------------+-----------------+
 | 移库文件夹      | 移库文件                        | 说明            |
 +-----------------+---------------------------------+-----------------+
-| ComM            | ComM.c、                        | 通信栈源码      |
+| ComM            | ComM.c、ComM_MemMap.h、         | 通信栈源码      |
 |                 |                                 |                 |
-|                 | ComM.h、                        |                 |
+|                 | ComM.h、、ComM_Internal.c、     |                 |
 |                 |                                 |                 |
-|                 | ComM_BusSM.h、                  |                 |
+|                 | ComM_BusSM.h、ComM_Nm.h         |                 |
 |                 |                                 |                 |
-|                 | ComM_Com.h、                    |                 |
+|                 | ComM_Com.h、ComM_Internal.h、   |                 |
 |                 |                                 |                 |
-|                 | ComM_Dcm.h、                    |                 |
+|                 | ComM_Dcm.h、ComM_EcuMBswM.h     |                 |
 |                 |                                 |                 |
-|                 | ComM                            |                 |
-|                 | _EcuMBswM.h、ComM_Internal.c、C |                 |
-|                 | omM_Internal.h、ComM_MemMap.h、 |                 |
 |                 |                                 |                 |
-|                 | ComM_Nm.h                       |                 |
+|                 |                                 |                 |
+|                 |                                 |                 |
+|                 |                                 |                 |
+|                 |                                 |                 |
 +-----------------+---------------------------------+-----------------+
-| CanIf           | CanIf.c、                       |                 |
+| CanIf           | CanIf.c、CanIf_Types.h          |                 |
 |                 |                                 |                 |
-|                 | CanIf.h、                       |                 |
+|                 | CanIf.h、、CanIf_MemMap.h、     |                 |
 |                 |                                 |                 |
 |                 | CanIf_Cbk.h                     |                 |
-|                 | 、CanIf_MemMap.h、CanIf_Types.h |                 |
+|                 |                                 |                 |
 +-----------------+---------------------------------+-----------------+
-| CanSM           | CanSM.c、                       |                 |
+| CanSM           | CanSM.c、CanSM_MemMap.h、       |                 |
 |                 |                                 |                 |
-|                 | CanSM.h、                       |                 |
+|                 | CanSM.h、CanSM_BswM.h、         |                 |
 |                 |                                 |                 |
-|                 | CanSM_BswM.h、                  |                 |
 |                 |                                 |                 |
-|                 | CanSM_Cbk.h、                   |                 |
 |                 |                                 |                 |
-|                 | CanSM_ComM.h、CanSM_MemMa       |                 |
-|                 | p.h、CanSM_TxTimeoutException.h |                 |
+|                 | CanSM_Cbk.h、CanSM_ComM.h、     |                 |
+|                 |                                 |                 |
+|                 |                                 |                 |
+|                 | CanSM_TxTimeoutException.h      |                 |
 +-----------------+---------------------------------+-----------------+
-| PDUR            | PduR_CanIf.h、                  |                 |
+| PDUR            | PduR_CanIf.h、PduR_Com.h、      |                 |
 |                 |                                 |                 |
-|                 | PduR_Com.h、P                   |                 |
+|                 | P\                              |                 |
 |                 | duR_Internal.c、PduR_Internal.h |                 |
-|                 | 、PduR_MemMap.h、PduR_Types.h、 |                 |
 |                 |                                 |                 |
-|                 | PduR.c、                        |                 |
 |                 |                                 |                 |
-|                 | PduR.h                          |                 |
+|                 | PduR.c、PduR_Types.h、          |                 |
+|                 |                                 |                 |
+|                 | PduR.h、PduR_MemMap.h、         |                 |
 +-----------------+---------------------------------+-----------------+
-| Com             | Com.c、                         |                 |
+| Com             | Com.c、Com_Types.h、Com_Cbk.h、 |                 |
 |                 |                                 |                 |
-|                 | Com.h、                         |                 |
+|                 | Com.h、Com_TxInternal.c         |                 |
 |                 |                                 |                 |
-|                 | Com_Cbk.h、Com_GwInternal.c、C  |                 |
-|                 | om_Internal.c、Com_Internal.h、 |                 |
+|                 | Com_GwInternal.c、Com_Internal.c|                 |
+|                 |                                 |                 |
+|                 | Com_Internal.h、                |                 |
 |                 | Com_MemMap.h、Com_RxInternal.c  |                 |
-|                 | 、Com_TxInternal.c、Com_Types.h |                 |
 +-----------------+---------------------------------+-----------------+
 | SchM            | SchM.c、                        | SchM部分源码    |
 |                 |                                 |                 |
@@ -356,28 +352,28 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（CAN、Ca
 .. table:: 表 4‑5 通信栈集成约束清单
 
    +-----+---------+-----------------------------------------------------+
-   | *   | *       | **约束限制**                                        |
-   | *编 | *类别** |                                                     |
-   | 号  |         |                                                     |
-   | **  |         |                                                     |
+   |**编\|         | **约束限制**                                        |
+   |号** | **类别**|                                                     |
+   |     |         |                                                     |
+   |     |         |                                                     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 中断    | 通信栈                                              |
-   | 1** |         | 有中断、轮询或混合三种工作模式。若选取中断或混合模  |
+   |**1**| 中断    | 通信栈                                              |
+   |     |         | 有中断、轮询或混合三种工作模式。若选取中断或混合模  |
    |     |         | 式，用户需在通信栈配置对应的中断并填充中断服务API。 |
    +-----+---------+-----------------------------------------------------+
-   | **  | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
-   | 2** |         |                                                     |
-   +-----+---------+-----------------------------------------------------+
-   | **  | 头文件  | -  添加通信                                         |
-   | 3** |         | 栈代码之后，用户需更新集成开发工具中的头文件路径。  |
+   |**2**| 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
    |     |         |                                                     |
-   |     |         | -  调用通信栈API的源文件，需要包含通信栈的头文件。  |
    +-----+---------+-----------------------------------------------------+
-   | **  | 初始化  | 以CAN通信为例，通信栈的初始化顺序为：Can_Init，     |
-   | 4** |         | CanIf_Init， PduR_Init， Com_Init，CanSM_Init。     |
+   |**3**| 头文件  |添加通信栈代码之后，用户需更新集成开发工具中的头文件 |
+   |     |         |路径。                                               |
+   |     |         |                                                     |
+   |     |         |调用通信栈API的源文件，需要包含通信栈的头文件。      |
    +-----+---------+-----------------------------------------------------+
-   | **  | 周      | Com_MainFunctionRx，Com_MainFunctionRouteSi         |
-   | 5** | 期函数  | gnals和Com_MainFunctionTx需要被周期性任务函数调用。 |
+   |**4**| 初始化  | 以CAN通信为例，通信栈的初始化顺序为：Can_Init，     |
+   |     |         | CanIf_Init， PduR_Init， Com_Init，CanSM_Init。     |
+   +-----+---------+-----------------------------------------------------+
+   |**5**| 周\     | Com_MainFunctionRx，Com_MainFunctionRouteSi         |
+   |     | 期函数  | gnals和Com_MainFunctionTx需要被周期性任务函数调用。 |
    +-----+---------+-----------------------------------------------------+
 
 集成示例
@@ -385,8 +381,7 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（CAN、Ca
 
 本章节通过普通的CAN通信栈为例，向用户展示通信栈的集成过程。用户可以据此熟悉通信栈配置工具的配置过程，以及如何应用配置工具生成的配置文件。
 
-为让用户更清晰的了解工具的使用，所用的配置均逐一手动完成。用户可以使用工具中的DBC导入功能，快速完成配置。DBC导入功能不属于本文档介绍范畴，具体操作请参照《ORIENTAIS
-Configurator DBC导入功能.pdf》。
+为让用户更清晰的了解工具的使用，所用的配置均逐一手动完成。用户可以使用工具中的DBC导入功能，快速完成配置。DBC导入功能不属于本文档介绍范畴，具体操作请参照《参考手册_ORIENTAIS Studio_使用指南.pdf》。
 
 **注意：本示例不代表用户的实际配置情况，用户需要根据自己的实际需求，决定各个参数的配置。**
 
@@ -398,12 +393,12 @@ Configurator DBC导入功能.pdf》。
 .. table:: 表 5‑1
 
    +--------+------------------+------+------+-------+----------+-------+
-   | **报   | **报文**         | **发 | **发 | **报  | **报文** | **工  |
-   | 文ID** |                  | 送** | 送** | 文**  |          | 作**  |
-   |        | **名称**         |      |      |       | **长度** |       |
-   |        |                  | *    | **模 | **周  |          | **模  |
-   |        |                  | */接 | 式** | 期**  |          | 式**  |
-   |        |                  | 收** |      |       |          |       |
+   | **报\  | **报文**\        | **发\| **发\|  **报\| **报文\  | **工\ |
+   | 文ID** | **名称**         | 送** | 送**\|  文**\| 长度**   | 作**\ |
+   |        |                  | **接\| **模\|  **周\|          | **模\ |
+   |        |                  | 收** | 式** |  期** |          | 式**  |
+   |        |                  |      |      |       |          |       |
+   |        |                  |      |      |       |          |       |
    +--------+------------------+------+------+-------+----------+-------+
    | 0x100  | CAN_Tx_Message1  | 发送 | 周期 | 50ms  | 8\       | 轮询  |
    |        |                  |      |      |       | **字节** |       |
@@ -426,9 +421,13 @@ Configurator DBC导入功能.pdf》。
    :width: 5.77153in
    :height: 0.87708in
 
-   图 5‑1 集成示例-1
+图 5‑1 集成示例-1
 
--  |image2|\ CAN_Tx_Message2(0x105) 包含的信号
+-   CAN_Tx_Message2(0x105) 包含的信号
+
+.. figure:: ../../_static/集成手册/CAN/image15.png
+   :width: 5.77153in
+   :height: 0.37708in
 
 图 5‑2 集成示例-2
 
@@ -438,7 +437,7 @@ Configurator DBC导入功能.pdf》。
    :width: 5.77153in
    :height: 0.89583in
 
-   图 5‑3 集成示例-3
+图 5‑3 集成示例-3
 
 -  CAN_Rx_Message1(0x125) 包含的信号
 
@@ -446,7 +445,7 @@ Configurator DBC导入功能.pdf》。
    :width: 5.77153in
    :height: 0.35in
 
-   图 5‑2 集成示例-4
+图 5‑4 集成示例-4
 
 模块的配置
 ----------
@@ -468,7 +467,7 @@ CAN模块🡪CanConfigSet🡪CanHardwareObject。
    :width: 5.50839in
    :height: 1.08545in
 
-   图 5‑3 模块配置-1
+图 5‑5 模块配置-1
 
 **注意：HardwareObject定义的时候，必须接收报文放在发送报文前面。**
 
@@ -486,7 +485,7 @@ CAN模块🡪CanConfigSet🡪CanHardwareObject。
    :width: 5.57292in
    :height: 2.40296in
 
-   图 5‑4 模块配置-2
+图 5‑6 模块配置-2
 
 CanIf模块配置
 ~~~~~~~~~~~~~
@@ -497,7 +496,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 2.40972in
 
-   图 5‑5 模块配置-3
+图 5‑7 模块配置-3
 
 2. CanIfPublicCfg、CanIfPrivateCfg、CanIfDispatchCfg、CanIfTrcvDrvCfg标签页均保持默认值，不需要配置。
 
@@ -507,7 +506,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 2.71597in
 
-   图 5‑6 模块配置-4
+图 5‑8 模块配置-4
 
 4. CanIfCtrlDrvCfg配置。
 
@@ -521,7 +520,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.48194in
 
-   图 5‑7 模块配置-5
+图 5‑9 模块配置-5
 
 5. CanIfCtrlCfg配置：
 
@@ -535,7 +534,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.44792in
 
-   图 5‑8 模块配置-6
+图 5‑10 模块配置-6
 
 可在容器[CanIfInitCfg]上右键，新建CanIfBufferCfg、CanIfInitHohCfg、CanIfRxPduCfg、CanIfTxPduCfg。
 
@@ -543,7 +542,7 @@ CanIf模块配置
    :width: 5.77153in
    :height: 3.56736in
 
-   图 5‑9 模块配置-7
+图 5‑11 模块配置-7
 
 6. 新建一个CanIfInitHohCfg，再在新建的容器[CanIfInitHohCfg_0]上右键新建2个CanIfHrhCfg和2个CanIfHthCfg。然后将新建的容器改为有意义的名字。
 
@@ -555,7 +554,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.06389in
 
-   图 5‑10 模块配置-8
+图 5‑12 模块配置-8
 
 7. 配置CanIfHrhCfg_Rx_Message1和CanIfHrhCfg_Rx_Message2。
 
@@ -563,13 +562,13 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.33264in
 
-   图 5‑11 模块配置-9
+图 5‑13 模块配置-9
 
 .. figure:: ../../_static/集成手册/CAN/image27.png
    :width: 5.76736in
    :height: 3.35in
 
-   图 5‑12 模块配置-10
+图 5‑14 模块配置-10
 
 8. 配置CanIfHthCfg_Tx_Message1和CanIfHthCfg_Tx_Message2。
 
@@ -577,13 +576,13 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.1375in
 
-   图 5‑13 模块配置-11
+图 5‑15 模块配置-11
 
 .. figure:: ../../_static/集成手册/CAN/image29.png
    :width: 5.76736in
    :height: 3.30486in
 
-   图 5‑14 模块配置-12
+图 5‑16 模块配置-12
 
 9. 新建2个CanIfBufferCfg，并修改名字。每个发送报文需要建立一个CanIfBufferCfg。
 
@@ -591,20 +590,20 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.41319in
 
-   图 5‑15 模块配置-13
+图 5‑17 模块配置-13
 
 .. figure:: ../../_static/集成手册/CAN/image31.png
    :width: 5.76736in
    :height: 3.24236in
 
-   图 5‑16 模块配置-14
+图 5‑18 模块配置-14
 
 10. 新建2个CanIfRxPduCfg，并修改名字。每个接收报文需要在CanIf中配置对应的CanIfRxPduCfg。报文CAN_Rx_Message1对应的CanIfRxPduCfg参数配置如下：
 
 .. table:: 表 5‑2
 
    +----------------------+------------------+----------------------------+
-   | 参数名               | 设置值           | 说明                       |
+   | **参数名**           | **设置值**       |**说明**                    |
    +----------------------+------------------+----------------------------+
    | CanIfRxPduCanId      | 0x120            | 报文ID（参照DBC）          |
    +----------------------+------------------+----------------------------+
@@ -626,7 +625,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.32986in
 
-   图 5‑17 模块配置-15
+图 5‑19 模块配置-15
 
 用同样的方法配置CanIfRxPduCfg_Rx_Message2
 
@@ -634,7 +633,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.23264in
 
-   图 5‑18 模块配置-16
+图 5‑20 模块配置-16
 
 11. 新建2个CanIfTxPduCfg，并修改名字。每个接收报文需要在CanIf中配置对应的CanIfTxPduCfg。报文CAN_Tx_Message1对应的CanIfTxPduCfg参数配置如下：
 
@@ -662,7 +661,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.26944in
 
-   图 5‑19 模块配置-17
+图 5‑21 模块配置-17
 
 用同样的方法配置CanIfTxPduCfg_Tx_Message2
 
@@ -670,7 +669,7 @@ CanIf模块配置
    :width: 5.76736in
    :height: 3.24514in
 
-   图 5‑20 模块配置-18
+图 5‑22 模块配置-18
 
 12. 校验配置，无错误信息，即配置完成。
 
@@ -683,7 +682,7 @@ EcuC模块配置
    :width: 5.76736in
    :height: 2.88958in
 
-   图 5‑21 EcuC配置-1
+图 5‑23 EcuC配置-1
 
 2. 右击EcucConfigSets新建EcucConfigSet，右击EcucConfigSet新建EcucPduCollections，右击EcucPduCollections新建EcucPduCollection，右击EcucPduCollections新建MetaDataTypes和Pdus，MetaDataTypes保持默认。
 
@@ -699,7 +698,7 @@ EcuC模块配置
    :width: 5.76736in
    :height: 3.38542in
 
-   图 5‑22 EcuC配置-2
+图 5‑24 EcuC配置-2
 
 4. 其他页面保持默认即可。
 
@@ -712,7 +711,7 @@ Com模块配置
    :width: 5.76736in
    :height: 2.64306in
 
-   图 5‑23 Com配置-1
+图 5‑25 Com配置-1
 
 2. ComSupportedIPduGroups填写数目，且与ComIPduGroup数量保持一致，其他配置选择默认。
 
@@ -720,7 +719,7 @@ Com模块配置
    :width: 5.76736in
    :height: 2.6375in
 
-   图 5‑24 Com配置-2
+图 5‑26 Com配置-2
 
 3. 选择ComConfig页面配置，新建目标数量的ComIPdu、ComIPduGroup、ComSignal并修改名称。
 
@@ -734,7 +733,7 @@ Com模块配置
    :width: 5.76736in
    :height: 2.61806in
 
-   图 5‑25 Com配置-3
+图 5‑27 Com配置-3
 
 4. 选中ComIPdu，配置发送ComIPdu的属性配置如图。
 
@@ -750,13 +749,13 @@ Com模块配置
    :width: 5.76736in
    :height: 2.59653in
 
-   图 5‑26 Com配置-4
+图 5‑28 Com配置-4
 
 .. figure:: ../../_static/集成手册/CAN/image42.png
    :width: 5.76736in
    :height: 2.63056in
 
-   图 5‑27 Com配置-5
+图 5‑29 Com配置-5
 
 5. 在发送IPDU新建ComTxIPdu，配置ComMinimumDelayTime为0.005s，其他保持默认。
 
@@ -768,7 +767,7 @@ Com模块配置
    :width: 5.76736in
    :height: 1.76597in
 
-   图 5‑28 Com配置-6
+图 5‑30 Com配置-6
 
 6. 在发送ComTxIPdu新建ComTxModeTrue，按照需求选择ComTxModeMode为周期、事件或者混合型发送模式此处为周期型发送，ComTxModeNumberOfRepetitions、ComTxModeRepetitionPeriod、ComTxModeTimeOffset和ComTxModeTimePeriod按照不同发送模式配置具体请参照需求设置。
 
@@ -776,7 +775,7 @@ Com模块配置
    :width: 5.76736in
    :height: 2.19722in
 
-   图 5‑29 Com配置-7
+图 5‑31 Com配置-7
 
 7. 选定信号后设置ComBitPosition、ComBitSize、ComSignalEndianness、ComSignalInitValue、ComSignalType和ComTransferProperty等参数。ComTransferProperty的配置，需要考虑与IPDU发送模式相配合从而实现相应的发送类型，此处为周期报文选择PENDING。
 
@@ -784,7 +783,7 @@ Com模块配置
    :width: 5.76736in
    :height: 2.90833in
 
-   图 5‑30 Com配置-8
+图 5‑32 Com配置-8
 
 8. ComTimeBase配置保持默认。
 
@@ -792,7 +791,7 @@ Com模块配置
    :width: 5.76736in
    :height: 3.16389in
 
-   图 5‑31 Com配置-9
+图 5‑33 Com配置-9
 
 PduR模块配置
 ~~~~~~~~~~~~
@@ -803,7 +802,7 @@ PduR模块配置
    :width: 5.76736in
    :height: 4.0625in
 
-   图 5‑32 PduR配置-1
+图 5‑34 PduR配置-1
 
 2. 打开PduRBswModules新建PduRBswModules_CanIf和PduRBswModules_Com，PduRBswModuleRef分别选择CanIf和Com，其他配置保持默认。
 
@@ -811,7 +810,7 @@ PduR模块配置
    :width: 5.76736in
    :height: 2.6375in
 
-   图 5‑33 PduR配置-2
+图 5‑35 PduR配置-2
 
 3. 打开PduRRoutingTables新建一个PduRRoutingTable，再PduRRoutingTable中新建PduRRoutingPath如图。
 
@@ -819,7 +818,7 @@ PduR模块配置
    :width: 5.76736in
    :height: 2.64653in
 
-   图 5‑34 PduR配置-3
+图 5‑36 PduR配置-3
 
 4. 找到并选中PduRDestPdu，配置右边PduRDestPduRef。
 
@@ -837,7 +836,7 @@ PduR模块配置
    :width: 5.76736in
    :height: 2.64306in
 
-   图 5‑35 PduR配置-4
+图 5‑37 PduR配置-4
 
 5. 找到并选中PduRSrcPdu，配置右边PduRSrcPduRef。
 
@@ -855,7 +854,7 @@ PduR模块配置
    :width: 5.76736in
    :height: 2.63958in
 
-   图 5‑36 PduR配置-5
+图 5‑38 PduR配置-5
 
 CanSM模块配置
 ~~~~~~~~~~~~~
@@ -866,7 +865,7 @@ CanSM模块配置
    :width: 5.76736in
    :height: 3.34653in
 
-   图 5‑37 CanSMp配置-1
+图 5‑39 CanSMp配置-1
 
 2. 找到并选中CanSMController，配置右边CanSMControllerId此配置与CanIf模块关联。
 
@@ -874,7 +873,7 @@ CanSM模块配置
    :width: 5.76736in
    :height: 3.34653in
 
-   图 5‑38 CanSMp配置-2
+图 5‑40 CanSMp配置-2
 
 ComM模块配置
 ~~~~~~~~~~~~
@@ -885,7 +884,7 @@ ComM模块配置
    :width: 5.76736in
    :height: 2.525in
 
-   图 5‑39 ComM模块配置-1
+图 5‑41 ComM模块配置-1
 
 2. 修改ComMChannel，配置右边ComMBusType为COMM_BUS_TYPE_CAN
 
@@ -893,7 +892,7 @@ ComM模块配置
    :width: 5.76736in
    :height: 2.88125in
 
-   图 5‑40 ComM模块配置-2
+图 5‑42 ComM模块配置-2
 
 3. 找到ComMNetworkManagement配置，ComMNmVariant设置为NONE
 
@@ -901,7 +900,7 @@ ComM模块配置
    :width: 5.76736in
    :height: 2.1125in
 
-   图 5‑41 ComM模块配置-3
+图 5‑43 ComM模块配置-3
 
 4. 找到ComMUserPreChannels配置，将之前配置的user关联到channel
 
@@ -909,7 +908,7 @@ ComM模块配置
    :width: 5.76736in
    :height: 2.88125in
 
-   图 5‑42 ComM模块配置-4
+图 5‑44 ComM模块配置-4
 
 源代码集成
 ----------
@@ -920,7 +919,7 @@ ComM模块配置
    :width: 5.45833in
    :height: 5.30208in
 
-   图 5‑43 交付工程
+图 5‑45 交付工程
 
 -  BSW目录，这个目录放置所有基础软件相关代码，除了MCAL、Config文件夹之外，均按bsw源码路径放置
 
@@ -1039,7 +1038,7 @@ ComM_MainFunction\_ ComMChannel_0();
 
 ComM_GetCurrentComMode(ComMUser_0,&can_BusMode);
 
-   **if** (COMM_FULL_COMMUNICATION == can_BusMode)
+**if** (COMM_FULL_COMMUNICATION == can_BusMode)
 
 {
 
@@ -1107,7 +1106,7 @@ Com_MainFunctionTx();
    :width: 5.77153in
    :height: 0.41722in
 
-   图 5‑44 验证结果-1
+图 5‑46 验证结果-1
 
 2. 本地发送一帧ID为0x120的报文(CAN_Rx_Message1)后，发送报文0x100(CAN_Tx_Message1)的值发生变化
 
@@ -1115,7 +1114,7 @@ Com_MainFunctionTx();
    :width: 5.77153in
    :height: 0.5476in
 
-   图 5‑45验证结果-2
+图 5‑47 验证结果-2
 
 3. 本地发送一帧ID为0x125的报文（CAN_Rx_Message2）后，开发板发送一帧ID为0x105的报文（CAN_Tx_Message2）
 
@@ -1123,7 +1122,7 @@ Com_MainFunctionTx();
    :width: 5.77153in
    :height: 0.74752in
 
-   图 5‑46验证结果-3
+图 5‑48验证结果-3
 
 .. |image1| image:: ../../_static/集成手册/CAN/image6.png
    :width: 5.76736in
