@@ -500,22 +500,9 @@ CRC结果存放
 
 相关代码定义如下：
 
-const uint8  FlsTst_StoredInfo[] \__attribute\_\_
-((section(".FlsTst_Info "))) =
-
-{
-
-        0x5a,0x5a,0x5a,0x5a,
-
-        0x00,0x00,0x00,0x01,
-
-        0x00,0x01,0x08,0x00,
-
-        0x00,0x06,0x00,0x00,
-
-        0xBF,0x60,0x10,0xA9
-
-};
+.. figure:: ../../_static/集成手册/FlashTest/code1.png
+   :width: 6.17736in
+   :height: 1.77583in
 
 其中，
 
@@ -548,33 +535,15 @@ FlsTst_Init(&FlsTst_Config);应在合适的位置进行初始化。
 
 前台测试代码如下：
 
-TASK(OsTask_Init)
-
-{
-
-    Std_ReturnType FlsTstReturn;
-
-  FlsTst_TestResultFgndType FgndBlockResult;
-
-   FlsTstReturn = FlsTst_StartFgnd(0U);
-
-  FgndBlockResult = FlsTst_GetTestResultFgnd();
-
-……
-
-}
+.. figure:: ../../_static/集成手册/FlashTest/code2.png
+   :width: 5.47736in
+   :height: 1.70583in
 
 前台测试代码需要依赖硬件CRC和DMA，用户需要配置对应的中断函数，并在中断函数中实现对FlashTest计算完成的标志置位，实现代码如下：
 
-void Crcu_AsyncCalculateCrcCompleteNotif()
-
-{
-
-    /\* Used for FlsTst_StartFgnd \*/
-
-    CrcCompleted = 1U;
-
-}
+.. figure:: ../../_static/集成手册/FlashTest/code3.png
+   :width: 5.47736in
+   :height: 1.07583in
 
 后台测试代码如下：
 

@@ -376,120 +376,21 @@ EthTSyn模块配置
 协议栈调度集成
 --------------
 
-**#include** <machine/wdtcon.h>
+.. figure:: ../../_static/集成手册/EthTSyn/code1.png
+   :width: 6.47736in
+   :height: 0.50583in
 
-**#include** "Mcu.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code2.png
+   :width: 6.76736in
+   :height: 6.41583in
 
-**#include** "Port.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code3.png
+   :width: 6.70736in
+   :height: 2.71583in
 
-**#include** "Eth_17_GEthMac.h"
-
-**#include** "EthIf.h"
-
-**#include** "Gpt.h"
-
-**#include "**\ StbM.h\ **"**
-
-**#include "**\ EthTSyn.h"
-
-**int** **main**\ (**void**)
-
-{
-
-Gpt_EnableNotification(GptConf_GptChannel_Gpt_1ms);
-
-Gpt_StartTimer(GptConf_GptChannel_Gpt_1ms, 100000);
-
-Gpt_StartTimer(GptChannelConfiguration_STBM, 0xFFFFFFu);
-
-StbM_Init(&StbM_Config);
-
-Eth_17_GEthMac_Init(&Eth_17_GEthMac_Config);
-
-EthIf_Init(&EthIf_ConfigData);
-
-EthTSyn_Init(&EthTSyn_Config);
-
-EthTSyn_SetTransmissionMode(0,ETHTSYN_TX_ON);
-
-
-StbM_TimeStampType test1 = {0u};
-
-StbM_UserDataType test2 = {0u};
-
-test1.secondsHi = 0;
-
-test1.seconds = 1696903810;
-
-test1.nanoseconds = 0;
-
-StbM_SetGlobalTime(0,&test1,&test2);
-
-**while** (1)
-
-{
-
-   **if**\ (:mark:`Gpt_1msFlag` == TRUE)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-/\* please insert your code here ... \*/
-
-EthTSyn_MainFunction();
-
-   StbM_MainFunction();
-
-   StbM_GetCurrentTime(0, &timestamp,&userData\ **);**
-
-   PduInfo.sdu[0] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[1] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[2] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[3] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x000000ff));
-
-   PduInfo.sdu[4] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[5] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[6] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[7] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x000000ff));
-
-Can_Write(2, &PduInfo);
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/EthTSyn/code4.png
+   :width: 6.76736in
+   :height: 5.14583in
 
 验证结果
 --------

@@ -600,108 +600,21 @@ DoIP协议栈调度集成步骤如下：
 
 以下为示例代码：
 
-**#include** "Mcu.h"
+.. figure:: ../../_static/集成手册/DoIP/code1.png
+   :width: 6.66736in
+   :height: 1.37583in
 
-**#include** "Gpt.h"
+.. figure:: ../../_static/集成手册/DoIP/code2.png
+   :width: 6.59736in
+   :height: 5.68583in
 
-**#include** "Eth_17_GEthMac.h"
+.. figure:: ../../_static/集成手册/DoIP/code3.png
+   :width: 6.67736in
+   :height: 3.34583in
 
-**#include** "TcpIp.h"
-
-**#include** "ComM.h"
-
-**#include** "SoAd.h"
-
-**#include** "Dem.h"
-
-**#include** "Dcm.h"
-
-**#include** "DoIP.h"
-
-**void** **main** (**void**)
-
-{
-
-Eth_Init(&Eth_Config);
-
-Eth_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0,
-ETH_MODE_ACTIVE);
-
-/\*\ *Eth*\ 外接\ *phy*\ 初始化*/
-
-Eth_T_InitPhys();
-
-EthIf_Init(&EthIf_ConfigData);
-
-TcpIp_Init(&TcpIp_Config);
-
-SoAd_Init(&SoAd_Config);
-
-DoIP_Init(&DoIP_PBConfigPtr);
-
-Dem_PreInit();
-
-Dem_Init(&DemPbCfg);
-
-Dcm_Init(&Dcm_Cfg);
-
-**while**\ (1)
-
-{
-
-**if**\ (Gpt_1msFlag == TRUE)
-
-{
-
-/\*DoIPGeneral中选择DoIPHighFrequencyTaskSupport*/
-
-DoIP_MainFunction_HighFrequency();
-
-Gpt_1msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_5msFlag == TRUE)
-
-{
-
-Gpt_5msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-**if**\ ( TCPIP_STATE_ONLINE ==
-
-   TcpIp_GetControlState(TcpIp_Config.CtrlPtr->EthIfCtrlRef ))
-
-{
-
-DoIP_ActivationLineSwitch();
-
-}
-
-Dcm_MainFunction();
-
-Dem_MainFunction();
-
-EcuM_MainFunction();
-
-BswM_MainFunction();
-
-TcpIp_MainFunction();
-
-SoAd_MainFunction();
-
-DoIP_MainFunction();
-
-}
-
-}
-
-}
+.. figure:: ../../_static/集成手册/DoIP/code4.png
+   :width: 6.36736in
+   :height: 2.11583in
 
 验证结果
 --------

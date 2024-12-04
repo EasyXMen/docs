@@ -548,156 +548,21 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 **特别说明：**\ 在其他协议栈如网络管理栈或者通信栈正常运行前提下，添加该两个模块后需要在main.c文件main函数中在所有其他模块初始化之后（while（1）之前）调用EcuM_Init()和EcuM_StartupTwo()函数进行这两个模块的初始化，BswM模块的初始化函数在EcuM_StartupTwo()被调用，读者不需要特别关心。\ **这里特别说明两种情况：一种是MACL中一些模块和BSW中各模块初始化可以在EcuM模块工具进行配置，此情况下在调用EcuM_Init()函数中会间接调用各模块初始化函数将各模块初始化；另一种是各模块初始化都没有在EcuM模块工具进行配置，那这个时候需要将各模块初始化函数在main函数中按合理顺序进行调用将整个工程正常初始化。**
 
-//系统服务协议栈相关模块头文件
-
-**#include**\ <stdlib.h>
-
-**#include**"Std_Types.h"
-
-**#include**"Mcu.h"
-
-**#include**"Port.h"
-
-**#include**"Dio.h"
-
-**#include**"Irq.h"
-
-**#include**"Gpt.h"
-
-**#include**"Gtm.h"
-
-**#include**"Adc.h"
-
-**#include**"Can_17_MCanP.h"
-
-**#include**"Bsw_Test.h"
-
-**#include**"Icu_17_GtmCcu6.h"
-
-**#include**"Pwm_17_Gtm.h"
-
-**#include**"Spi.h"
-
-**#include**"CanIf.h"
-
-**#include**"Can_17_MCanP_Dbg.h"
-
-**#include**"EcuM.h"
-
-**#include**"BswM.h"
-
-**intmain**\ (**void**)
-
-{
-
-Mcu_Init(Mcu_ConfigRoot);
-
-Mcu_InitClock(0);
-
-**while** (MCU_PLL_UNLOCKED == Mcu_GetPllStatus())
-
-{
-
-/\* wait for PLL locked \*/
-
-}
-
-Mcu_DistributePllClock();
-
-/\* IrqGtm_Init \*/
-
-IrqGtm_Init();
-
-/\* Port Initialize \*/
-
-Port_Init(&Port_ConfigRoot[0]);
-
-/\* GPT Initialize \*/
-
-Gpt_Init(&Gpt_ConfigRoot[0]);
-
-/\* *Gpt* enable 1ms notification,and start \*/
-
-Gpt_EnableNotification(GptConf_GptChannel_GptChannelConfiguration_0);
-
-Gpt_StartTimer(GptConf_GptChannel_GptChannelConfiguration_0, 6250);
-
-/\* CAN Initialize \*/
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-/\*Enable CAN*/
-
-Can_17_MCanP_SetControllerMode(Can_17_MCanPConf_CanController_CanController_0,
-CAN_T_START);S
-
-/\* CanIf Initialize \*/
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-/\* *Adc* Initialize \*/
-
-Adc_Init(&Adc_ConfigRoot[0]);
-
-/\* *Icu* Initialize \*/
-
-Icu_17_GtmCcu6_Init(&Icu_ConfigRoot[0]);
-
-Icu_17_GtmCcu6_StartSignalMeasurement(ICU_17_GTMCCU6_INSTANCE_ID);
-
-/\* *Pwm* Initialize \*/
-
-Pwm_17_Gtm_Init(&Pwm_ConfigRoot[0]);
-
-/\* *Spi* Initialize \*/
-
-Spi_Init(&Spi_ConfigRoot[0]);
-
-EcuM_Init();
-
-EcuM_StartupTwo();
-
-/\* EnableallInterrupt*/
-
-Mcal_EnableAllInterrupts();
-
-**while**\ (1)
-
-{
-
-**if** (TRUE == Gpt_1msFlag)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-Run_msCounter();
-
-Can_17_MCanP_MainFunction_Write();
-
-Can_17_MCanP_MainFunction_Read();
-
-Can_17_MCanP_MainFunction_Wakeup();
-
-}
-
-**if** (TRUE == Gpt_10msFlag)
-
-{
-
-Gpt_10msFlag = FALSE;
-
-EcuM_MainFunction();
-
-BswM_MainFunction();
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/BswM&EcuM/code1.png
+   :width: 5.76736in
+   :height: 6.13611in
+
+.. figure:: ../../_static/集成手册/BswM&EcuM/code2.png
+   :width: 5.76736in
+   :height: 5.13611in
+
+.. figure:: ../../_static/集成手册/BswM&EcuM/code3.png
+   :width: 5.76736in
+   :height: 3.13611in
+
+.. figure:: ../../_static/集成手册/BswM&EcuM/code4.png
+   :width: 5.76736in
+   :height: 2.13611in
 
 验证结果
 --------

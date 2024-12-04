@@ -544,78 +544,8 @@ XCP标定协议栈有关的代码，在下方的main.c文件中给出重点标�
 **注意 :
 本示例中，**\ XCP标定协议栈\ **初始化的代码和启动通信的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-**#include** <machine/wdtcon.h>
-
-**#include** "Mcu.h"
-
-**#include** "Port.h"
-
-**#include** "Can_17_MCanP.h"
-
-**#include** "CanIf.h"
-
-**#include** "Xcp.h"
-
-**#include** "Xcp_Test.h"
-
-**int** **main**\ (**void**)
-
-{
-
-/\*Initialize ECUM Module*/
-
-EcuM_Init(&EcuM_ConfigAlternative[0]);
-
-/\*Initialize FlsLoader*/
-
-FlsLoader_Init(NULL_PTR);
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-Xcp_Init(&XcpConfig);
-
-CanIf_SetControllerMode(0, *CANIF_CS_STARTED*);
-
-Gpt_EnableNotification(GptConf_GptChannel_Gpt_1ms);
-
-Gpt_StartTimer(GptConf_GptChannel_Gpt_1ms, 100000);
-
-/\* infinite loop \*/
-
-**while** (1)
-
-{
-
-**if**\ (Gpt_1msFlag == TRUE)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-/\* please insert your code here ... \*/
-
-Xcp_MainFunction();
-
-DaqChangeTest();
-
-Xcp_EventIndication(0);
-
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/XCP/image_code_1.png
+   :width: 5.76736in
 
 代码集成过程中会涉及到标定变量ROM和RAM的区域划分，标定变量需要设置ROM和RAM两个区域，观测量只涉及RAM区域，将划分好地址区域放到工程的链接文件Lcf_Gnuc_Tricore_Tc.ld中。以下是地址划分时需要注意的项（配置工具ORIENTAIS
 Configurator，编译器HighTec Development Platform Version 2.3.1）。

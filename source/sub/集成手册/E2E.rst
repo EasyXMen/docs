@@ -415,58 +415,15 @@ E2E协议栈有关的代码，在下方的main.c文件中给出重点标注。
 **注意 :
 本示例中，E2E协议栈初始化的代码和启动通信的代码置于EcuM_Callout_Stubs.c文件，并不代表其他项目同样适用于将其置于EcuM_Callout_Stubs.c文件中。**
 
-#include "E2E.h"
+.. figure:: ../../_static/集成手册/E2E/code1.png
+   :width: 6.86736in
+   :height: 1.30583in
 
-#include "Rte_E2EXf.h"
+.. figure:: ../../_static/集成手册/E2E/code2.png
+   :width: 6.64736in
+   :height: 5.48583in
 
-#include "Crc.h"
 
-FUNC(void, ECUM_AL_DRIVERINITBSWM_0_CODE)
-
-EcuM_AL_DriverInitBswM(uint8 drvInitIdx)
-
-{
-
-     P2CONST(EcuM_GenBSWPbCfgType, AUTOMATIC, CANIF_APPL_DATA) pbCfg =
-EcuM_ConfigPtr->modulePBCfg;
-
-    if (EcuMDriverInitListBswM_0 == drvInitIdx)
-
-    {
-
-       Dem_PreInit();
-
-        Fee_Init(NULL_PTR);
-
-        CanIf_Init(pbCfg->canIfPbCfg);
-
-        CanSM_Init(pbCfg->canSmPbCfg);
-
-        CanNm_Init(pbCfg->canNmPbCfg);
-
-        Nm_Init(NULL_PTR);
-
-        PduR_Init(pbCfg->pduRPbCfg);
-
-        Com_Init(pbCfg->comPbCfg);
-
-        ComM_Init(pbCfg->comMPbCfg);
-
-        CanTp_Init(pbCfg->canTpPbCfg);
-
-        NvM_Init(NULL_PTR);
-
-        Dcm_Init(pbCfg->dcmPbCfg);
-
-        E2EXf_Init(&E2EXf_Config);
-
-    }
-
-    /\*Enter in RUN after initialized all BSW mode.*/
-
-    EcuMRunData.State = ECUM_STATE_RUN;
-
-}
 
 4. 根据需求对被保护数据直接调用E2Exf中接口即可：例如要发送6个字节的数据，选用profile1进行保护，发送端调用\ **E2EXf_Transformation_0**\ ()进行保护；接收端调用\ **E2EXf_Inv_Transformation_0**\ ()进行检查，该函数名来源于下图中名称添加前缀所得，每一个会生成这样的一对保护和检查函数用于收发端，不可混用，具体使用详情请参照工程中相关代码及《参考手册_E2EXf.pdf》。
 

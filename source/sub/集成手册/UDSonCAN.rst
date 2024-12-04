@@ -754,81 +754,8 @@ Dcm_Callout.c集成源码如下（本工程集成OS相关接口，如果项目�
 3. 诊断栈调度集成，需要逐一排查并实现表 4‑5诊断栈集成约束清单
    所罗列的问题，以避免集成出现差错。
 
-**#include** "main.h"
-
-**#include** "Can.h"
-
-**#include** "CanIf.h"
-
-**#include** "Com.h"
-
-**#include** "PduR.h"
-
-**#include** "Dcm.h"
-
-**#include** "CanTp.h"
-
-**#include** "Dem.h"
-
-**int** **main**\ (**void**)
-
-{
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-PduR_Init(&PduR_PBConfigData);
-
-CanTp_Init(&CanTp_Config);
-
-Dcm_Init(&Dcm_Cfg);
-
-Dem_PreInit();
-
-Dem_Init(&DemPbCfg);
-
-Dem_SetOperationCycleState((uint8)DemOperationCycle_IGON_ID,
-
-DEM_CYCLE_STATE_START );
-
-Dcm_ComM_FullComModeEntered(0);
-
-**while** (1)
-
-{
-
-**if**\ (Flag_1_ms == true)
-
-{
-
-Flag_1_ms = false;
-
-}
-
-**if**\ (Flag_5_ms == true)
-
-{
-
-CanTp_MainFunction();
-
-Flag_5_ms = false;
-
-}
-
-**if**\ (Flag_10_ms == true)
-
-{
-
-Dcm_MainFunction();
-
-Dem_MainFunction();
-
-Flag_10_ms = false;
-
-}
-
-}
-
-}
+|image_code_1|
+|image_code_2|
 
 4. 编译链接代码，将生成的elf文件烧写进芯片。
 
@@ -1057,3 +984,7 @@ Flag_10_ms = false;
 .. |image72| image:: ../../_static/集成手册/UDSonCAN/image72.png
    :width: 5.75764in
    :height: 3.72639in
+.. |image_code_1| image:: ../../_static/集成手册/UDSonCAN/image_code_1.png
+   :width: 5.75764in
+.. |image_code_2| image:: ../../_static/集成手册/UDSonCAN/image_code_2.png
+   :width: 5.75764in

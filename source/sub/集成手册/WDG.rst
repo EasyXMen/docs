@@ -769,34 +769,8 @@ Trigger Watchdog Ref：当前Trigger对应的底层Watchdog。
 这是Alive
 supervision的一个例子。函数WdgM_MainFunction()在50ms任务中执行，函数WdgM_CheckpointReached在50ms任务中执行，因此每执行WdgM_MainFunction()时，WdgM_CheckpointReached中的期望指示是1次。
 
-/\*OsTask_50ms:Core0(CPU0),Type = BASIC,Priority = 3*/
-
-TASK(OsTask_50ms)
-
-{
-
-WdgM_CheckpointReached(1,0);
-
-/\*WdgM_MainFunction() call cycle to check the result of the WdgM
-module*/
-
-WdgM_MainFunction();
-
-if (E_OK != TerminateTask())
-
-{
-
-while (1)
-
-{
-
-/\* dead loop \*/
-
-}
-
-}
-
-}
+.. figure:: ../../_static/集成手册/WDG/image_code_1.png
+   :width: 5.03585in
 
 配置Deadline Supervision
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -935,53 +909,8 @@ while (1)
 这是Deadline supervision的一个例子。WdgMDeadlineMax =
 0.05，WdgMDeadlineMin = 0，表示两个CP之间的时间不超过50ms。
 
-/\*OsTask_50ms:Core0(CPU0),Type = BASIC,Priority = 3*/
-
-TASK(OsTask_50ms)
-
-{
-
-/\* please insert your code here ... \*/
-
-static unsigned int counter = 0;
-
-if(0 == counter)
-
-{
-
-counter = 1;
-
-WdgM_CheckpointReached(1,0);
-
-}
-
-else
-
-{
-
-counter = 0;
-
-WdgM_CheckpointReached(1,1);
-
-WdgM_MainFunction();
-
-}
-
-if (E_OK != TerminateTask())
-
-{
-
-while (1)
-
-{
-
-/\* dead loop \*/
-
-}
-
-}
-
-}
+.. figure:: ../../_static/集成手册/WDG/code1.png
+   :width: 5.03585in
 
 配置Logical Supervision
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1105,60 +1034,21 @@ while (1)
    :width: 4.59465in
    :height: 2.64504in
 
-      图 5‑64 配置看门狗初始模式
+   图 5‑64 配置看门狗初始模式
 
 代码修改如下：
 
 这是Internal logical
 supervision的一个例子。这两个CP属于同一监控实体。CP必须以正确的顺序执行。
 
-/\* OsTask_50ms:Core0(CPU0),Type = BASIC,Priority = 3*/
+.. figure:: ../../_static/集成手册/WDG/code2.png
+   :width: 5.79224in
+   :height: 1.98581in
 
-TASK(OsTask_50ms)
+.. figure:: ../../_static/集成手册/WDG/code3.png
+   :width: 6.29224in
+   :height: 6.16581in
 
-{
-
-/\* please insert your code here ... \*/
-
-static unsigned int counter = 0;
-
-if(0 == counter)
-
-{
-
-counter = 1;
-
-WdgM_CheckpointReached(3,0);
-
-}
-
-If(1 == counter)
-
-{
-
-WdgM_CheckpointReached(3,1);
-
-WdgM_MainFunction();
-
-counter = 0;
-
-}
-
-if (E_OK != TerminateTask())
-
-{
-
-while (1)
-
-{
-
-/\* dead loop \*/
-
-}
-
-}
-
-}
 
 WDG调度集成
 -----------
@@ -1175,23 +1065,10 @@ WDG调度集成步骤如下：
 
 初始化代码如下：
 
-TASK(OsTask_Init)
+.. figure:: ../../_static/集成手册/WDG/code4.png
+   :width: 5.77224in
+   :height: 3.31581in
 
-{
-
-Dem_PreInit();
-
-Dem_Init(&DemPbCfg);
-
-Gtm_Init(&Gtm_ConfigRoot[0]);
-
-Smu_Init(&Smu_ConfigRoot[0]);
-
-Wdg_17_Scu_Init(&Wdg_ConfigRoot[0]);
-
-WdgM_Init(&WdgMConfigRoot[0]);
-
-}
 
 监控代码根据不同的解控实例，监控点放置位置，WdgM_MainFunction放置位置，请参考5.2.3,5.2.4,5.2.5章节
 

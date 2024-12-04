@@ -685,228 +685,30 @@ CanNM模块到此配置结束。可以在模块上右键，然后选择校验，
 **注意 :
 本示例中，网络管理栈初始化的代码和启动通信的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-**#include <stdlib.h>**
 
-**#include "Std_Types.h"**
+.. figure:: ../../_static/集成手册/CANNM/code1.png
+   :width: 6.6in
+   :height: 6.53611in
 
-**#include "Mcu.h"**
+.. figure:: ../../_static/集成手册/CANNM/code2.png
+   :width: 6.6in
+   :height: 1.42311in
 
-**#include "Port.h"**
+.. figure:: ../../_static/集成手册/CANNM/code3.png
+   :width: 6.6in
+   :height: 4.03611in
 
-**#include "Dio.h"**
+.. figure:: ../../_static/集成手册/CANNM/code4.png
+   :width: 6.6in
+   :height: 5.05611in
 
-**#include "Irq.h"**
+.. figure:: ../../_static/集成手册/CANNM/code5.png
+   :width: 6.6in
+   :height: 6.73611in
 
-**#include "Gpt.h"**
-
-**#include "Gtm.h"**
-
-**#include "Adc.h"**
-
-**#include "Can_17_MCanP.h"**
-
-**#include "CanIf.h"**
-
-**#include "ComM_EcuMBswM.h"**
-
-**#include "ComM.h"**
-
-**#include "CanSM.h"**
-
-**#include "CanNm.h"**
-
-**#include "Nm.h"**
-
-**#include "CanNm_Internal.h"**
-
-**#include "Bsw_Test.h"**
-
-**#include "Icu_17_GtmCcu6.h"**
-
-**#include "Pwm_17_Gtm.h"**
-
-**#include "Spi.h"**
-
-**int** **main**\ (**void**)
-
-{
-
-Mcu_Init(Mcu_ConfigRoot);
-
-Mcu_InitClock(0);
-
-while (MCU_PLL_UNLOCKED == Mcu_GetPllStatus())
-
-{
-
-/\* wait for PLL locked \*/
-
-}
-
-Mcu_DistributePllClock();
-
-/\* IrqGtm_Init \*/
-
-IrqGtm_Init();
-
-/\* Port Initialize \*/
-
-Port_Init(&Port_ConfigRoot[0]);
-
-Gpt_Init(&Gpt_ConfigRoot[0]);
-
-Gpt_EnableNotification(GptConf_GptChannel_GptChannelConfiguration_0);
-
-Gpt_StartTimer(GptConf_GptChannel_GptChannelConfiguration_0, 6250);
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-Icu_17_GtmCcu6_Init(&Icu_ConfigRoot[0]);
-
-Icu_17_GtmCcu6_StartSignalMeasurement(ICU_17_GTMCCU6_INSTANCE_ID);
-
-Pwm_17_Gtm_Init(&Pwm_ConfigRoot[0]);
-
-Spi_Init(&Spi_ConfigRoot[0]);
-
-Mcal_EnableAllInterrupts();
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-memset(buff, 0, 8*sizeof(uint8));
-
-Nm_Init(&Nm_Config);
-
-CanSM_Init(&CanSM_Config);
-
-ComM_Init(&ComM_Config);
-
-CanNm_Init(&CanNm_PBConfig);
-
-ComM_RequestComMode(ComMChannel_0, COMM_FULL_COMMUNICATION);
-
-ComM_CommunicationAllowed(ComMUser_0, TRUE);
-
-/\* infinite loop \*/
-
-**while** (1)
-
-{
-
-if (TRUE == Gpt_1msFlag)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-CanSM_MainFunction();
-
-Can_17_MCanP_MainFunction_Read();
-
-Can_17_MCanP_MainFunction_Write();
-
-Can_17_MCanP_MainFunction_BusOff();
-
-Can_17_MCanP_MainFunction_Wakeup();
-
-if(wakeuplag==TRUE)
-
-{
-
-wakeuplag=0;
-
-ComM_RequestComMode(0, COMM_FULL_COMMUNICATION);
-
-}
-
-}
-
-if (TRUE == Gpt_5msFlag)
-
-{
-
-Gpt_5msFlag = FALSE;
-
-CanNm_MainFunction();
-
-ComM_MainFunction(0);
-
-Nm_GetPduData(0,buff);
-
-if(buff[2]==0x01)
-
-{
-
-for(loop = 0x0u; loop < CANNM_DEFAULT_NMPDU_LEN; loop++)
-
-{
-
-CanNm_ChRunTime[0].rxPduData[loop]=0;
-
-}
-
-ComM_RequestComMode(0, COMM_NO_COMMUNICATION);
-
-}
-
-if(buff[2]==0x02)
-
-{
-
-for(loop = 0x0u; loop < CANNM_DEFAULT_NMPDU_LEN; loop++)
-
-{
-
-CanNm_ChRunTime[0].rxPduData[loop]=0;
-
-}
-
-ComM_RequestComMode(0, COMM_SILENT_COMMUNICATION);
-
-}
-
-if(buff[2]==0x03)
-
-{
-
-for(loop = 0x0u; loop < CANNM_DEFAULT_NMPDU_LEN; loop++)
-
-{
-
-CanNm_ChRunTime[0].rxPduData[loop]=0;
-
-}
-
-ComM_RequestComMode(0, COMM_FULL_COMMUNICATION);
-
-}
-
-}
-
-if (TRUE == Gpt_10msFlag)
-
-{
-
-Gpt_10msFlag = FALSE;
-
-}
-
-if (TRUE == Gpt_200msFlag)
-
-{
-
-Gpt_200msFlag = FALSE;
-
-}
-
-if (TRUE == Gpt_1000msFlag)
-
-{
-
-Gpt_1000msFlag = FALSE;
-
-}
-
+.. figure:: ../../_static/集成手册/CANNM/code6.png
+   :width: 6.6in
+   :height: 2.63611in
 验证结果
 -------
 

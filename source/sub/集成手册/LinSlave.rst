@@ -942,90 +942,13 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
 
 #. 添加初始化函数和周期调用函数。
 
-Lin_Init(&Lin_Config);
+.. figure:: ../../_static/集成手册/LinSlave/code1.png
+   :width: 5.93958in
+   :height: 8.43542in
 
-//初始化Lin、LinIf、LinSM模块
-
-LinIf_Init(NULL_PTR);
-
-LinSM_Init(NULL_PTR);
-
-/* Initialize the *PduR* module */
-
-//初始化PduR模块
-
-PduR_Init(&PduR_PBConfigData);
-
-/* Initialize the *Com* module */
-
-//初始化Com模块
-
-Com_Init(&Com_PBConfigData);
-
-Com_SetIpduGroup(ipduGroupVector,Com_RxPduGroup_LinController_0, TRUE);
-
-Com_SetIpduGroup(ipduGroupVector,Com_TxPduGroup_LinController_0, TRUE);
-
-Com_ReceptionDMControl(ipduGroupVector);
-
-//使能接收和发送IPduGroup
-
-Com_IpduGroupControl(ipduGroupVector, TRUE);
-
-/* Initialize the ComM module */
-
-//初始化ComM模块
-
-ComM_Init(&ComM_Config);
-
-ComM_RequestComMode(ComMUser_0, COMM_FULL_COMMUNICATION);
-
-ComM_CommunicationAllowed(ComMChannel_0, TRUE);
-
-//将配置的通道切换到FULL_COMMUNICATION
-
-3. 添加MainFunction函数
-
-/*Task_5ms_Dcpd: Core0(CPU0),Type = BASIC, Priority = 6*/
-TASK(Task_5ms_Dcpd)
-//启用lin协议栈通信
-{
-  /* please insert your code here... */
-  ComM_MainFunction_ComMChannel_0();
-
-  Com_ReceiveSignal(ComSignal_Rx1,&u1_ComTest);
-
-  Com_SendSignal(ComSignal_Tx1,&u1_ComTest);
-
-  //LIN信号的发送和接收
-  if (E_OK!= TerminateTask())
-  {
-    while (1)
-    {
-
-    }
-  }
-}
-
-/*Task_50ms_Psc: Core0(CPU0),Type = BASIC, Priority = 5*/
-TASK(Task_50ms_Psc)
-{
-  /* please insert your code here... */
-
-  //调用LinIf主函数和LinSM主函数
-
-  LinIf_MainFunction();
-
-  LinSM_MainFunction();
-
-  if (E_OK!= TerminateTask())
-  {
-    while (1)
-    {
-      /* dead loop */
-    }
-  }
-}
+.. figure:: ../../_static/集成手册/LinSlave/code2.png
+   :width: 5.43958in
+   :height: 8.60542in
 
 验证结果
 --------

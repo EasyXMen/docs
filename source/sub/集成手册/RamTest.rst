@@ -768,19 +768,8 @@ RamTest调度集成步骤如下：
 
 RamTest协议栈相关模块头文件
 
-**#include** "RamTst.h"
-
-**TASK(EcuM_AL_DriverInitOne)**
-
-{
-
-RamTst_Init(&RamTstConfigRoot);
-
-RamTst_RunFullTest();
-
-RamTst_TestResultType RamTstResult = RamTst_GetTestResult();
-
-}
+.. figure:: ../../_static/集成手册/RamTest/image_code_1.png
+   :width: 5.76736in
 
 验证结果
 --------

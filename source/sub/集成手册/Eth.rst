@@ -747,89 +747,21 @@ Eth通信有关的代码，在下方的main.c文件中给出重点标注。
 **注意 :
 本示例中，Eth通信相关代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-#include "UserTimer.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code1.png
+   :width: 6.47736in
+   :height: 0.50583in
 
-#include "EthIf.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code2.png
+   :width: 6.76736in
+   :height: 6.41583in
 
-#include "TcpIp.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code3.png
+   :width: 6.70736in
+   :height: 2.71583in
 
-#include "SoAd.h"
-
-#include "EthSM.h"
-
-#include "LdCom.h"
-
-int main (void)
-
-
-{
-
-uint8 LdComSrcPduData[10] = {0x0,0x1,0x2,0x3,0x4,0x5,0x6,0x7,0x8,0x9};
-
-PduInfoType LdComTransmitPdu;
-
-LdComTransmitPdu.SduDataPtr = LdComSrcPduData;
-
-LdComTransmitPdu.SduLength = 10;
-
-LdComTransmitPdu.MetaDataPtr = NULL_PTR;
-
-UserTimer_Init();
-
-Eth_Init(&Eth_Config);
-
-Eth_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0,
-ETH_MODE_ACTIVE);
-
-Eth_T_InitPhys();
-
-EthIf_Init(&EthIf_ConfigData);
-
-TcpIp_Init(&TcpIp_Config);
-
-SoAd_Init(&SoAd_Config);
-
-SoAd_OpenSoCon(1);
-
-SoAd_OpenSoCon(2);
-
-LdCom_Init(&LdCom_InitCfgSet);
-
-while (1)
-
-{
-
-if(Gpt_10msFlag == TRUE)
-
-{
-
-TcpIp_MainFunction();
-
-SoAd_MainFunction();
-
-Gpt_10msFlag = FALSE;
-
-}
-
-if (Gpt_50msFlag == TRUE)
-
-{
-
-LdCom_Transmit(LdComIPdu_Client_Tcp_Tx,&LdComTransmitPdu);
-
-LdCom_Transmit(LdComIPdu_Server_Udp_Tx,&LdComTransmitPdu);
-
-LdCom_Transmit(LdComIPdu_Server_Tcp_Tx,&LdComTransmitPdu);
-
-Gpt_50msFlag = FALSE;
-
-}
-
-}
-
-return 0;
-
-}
+.. figure:: ../../_static/集成手册/EthTSyn/code4.png
+   :width: 6.76736in
+   :height: 5.14583in
 
 验证结果
 --------

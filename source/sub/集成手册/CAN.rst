@@ -952,147 +952,21 @@ ComM模块配置
 **注意 :
 本示例中，通信栈初始化的代码和启动通信的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-**#include** <machine/wdtcon.h>
-
-**#include** "Mcu.h"
-
-**#include** "Port.h"
-
-**#include** "Can_17_MCanP.h"
-
-**#include** "CanIf.h"
-
-**#include** "Com.h"
-
-**#include** "PduR.h"
-
-**#include** "ComM.h"
-
-**#include** "CanSM.h"
-
-**#include** "ComM_EcuMBswM.h"
-
-**int** **main**\ (**void**)
-
-{
-
-/\*Initialize ECUM Module*/
-
-EcuM_Init(&EcuM_ConfigAlternative[0]);
-
-/\*Initialize FlsLoader*/
-
-FlsLoader_Init(NULL_PTR);
-
-/\*Dem module Pre_Init*/
-
-Dem_PreInit();
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-PduR_Init(&PduR_PBConfigData);
-
-Com_Init(&Com_PBConfigData);
-
-CanSM_Init(&CanSM_Config);
-
-Com_IpduGroupVector ipduGroupVector;
-
-Com_SetIpduGroup(ipduGroupVector, ComIPduGroup_CAN_Rx,TRUE);
-
-Com_SetIpduGroup(ipduGroupVector, ComIPduGroup_CAN_Tx,TRUE);
-
-Com_ReceptionDMControl(ipduGroupVector);
-
-Com_IpduGroupControl(ipduGroupVector,TRUE);
-
-ComM_RequestComMode(ComMChannel_0, COMM_FULL_COMMUNICATION);
-
-ComM_CommunicationAllowed(ComMUser_0, TRUE);
-
-Gpt_EnableNotification(GptConf_GptChannel_Gpt_1ms);
-
-Gpt_StartTimer(GptConf_GptChannel_Gpt_1ms, 100000);
-
-/\* infinite loop \*/
-
-**while** (1)
-
-{
-
-**if**\ (Gpt_5msFlag == TRUE)
-
-{
-
-/\* please insert your code here ... \*/
-
-uint64 u8_test = 0;
-
-ComM_ModeType can_BusMode = COMM_NO_COMMUNICATION;
-
-CanSM_MainFunction();
-
-ComM_MainFunction\_ ComMChannel_0();
-
-ComM_GetCurrentComMode(ComMUser_0,&can_BusMode);
-
-**if** (COMM_FULL_COMMUNICATION == can_BusMode)
-
-{
-
-Com_MainFunctionRx();
-
-Com_MainFunctionRouteSignals();
-
-/\* Test Code \*/
-
-**if** (TRUE == CAN_Rx_Message1_Signal1_Recevive_Flag)
-
-{
-
-CAN_Rx_Message1_Signal1_Recevive_Flag = FALSE;
-
-Com_ReceiveSignal(CAN_Rx_Message1_Signal1,&u8_ComTest);
-
-Com_SendSignal(CAN_Tx_Message1_Signal1,&u8_ComTest);
-
-Com_ReceiveSignal(CAN_Rx_Message1_Signal2,&u8_ComTest);
-
-Com_SendSignal(CAN_Tx_Message1_Signal2,&u8_ComTest);
-
-Com_ReceiveSignal(CAN_Rx_Message1_Signal3,&u8_ComTest);
-
-Com_SendSignal(CAN_Tx_Message1_Signal3,&u8_ComTest);
-
-Com_ReceiveSignal(CAN_Rx_Message1_Signal4,&u8_ComTest);
-
-Com_SendSignal(CAN_Tx_Message1_Signal4,&u8_ComTest);
-
-}
-
-if (TRUE == CAN_Rx_Message2_Signal1_Recevive_Flag)
-
-{
-
-CAN_Rx_Message2_Signal1_Recevive_Flag = FALSE;
-
-Com_ReceiveSignal(CAN_Rx_Message2_Signal1,&u8_ComTest);
-
-Com_SendSignal(CAN_Tx_Message2_Signal1,&u8_ComTest);
-
-}
-
-Com_MainFunctionTx();
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/CAN/code1.png
+   :width: 6.6in
+   :height: 6.6in
+
+.. figure:: ../../_static/集成手册/CAN/code2.png
+   :width: 6.6in
+   :height: 6.83611in
+
+.. figure:: ../../_static/集成手册/CAN/code3.png
+   :width: 6.6in
+   :height: 2.83611in
+
+.. figure:: ../../_static/集成手册/CAN/code4.png
+   :width: 6.6in
+   :height: 3.83611in
 
 验证结果
 --------

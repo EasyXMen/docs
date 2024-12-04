@@ -2,10 +2,6 @@
 CanTSyn_集成手册
 ===================
 
-
-
-
-
 目标
 ====
 
@@ -481,143 +477,21 @@ CanTSyn协议栈有关的代码，在下方的main.c文件中给出重点标注�
 **注意 :
 本示例中，CanTSyn协议栈初始化的代码和启动通信的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-**#include** <machine/wdtcon.h>
-
-**#include** "Mcu.h"
-
-**#include** "Port.h"
-
-**#include** "Can_17_MCanP.h"
-
-**#include** "CanIf.h"
-
-**#include** "Gpt.h"
-
-**#include** "StbM.h"
-
-**#include** "CanTSyn.h"
-
-StbM_TimeStampType timestamp;
-
-StbM_UserDataType userData;
-
-Uint8 Data[8] = {0};
-
-Can_PduType PduInfo = {0,8,0x666,&Data[0]};
-
-**int** **main**\ (**void**)
-
-{
-
-/\*Initialize ECUM Module*/
-
-EcuM_Init(&EcuM_ConfigAlternative[0]);
-
-/\*Initialize FlsLoader*/
-
-FlsLoader_Init(NULL_PTR);
-
-StbM_Init(&StbM_Config);
-
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-CanTSyn_Init(&CanTSyn_config);
-
-:mark:`CanIf_SetControllerMode`(0, *CANIF_CS_STARTED*);
-
-
-Gpt_EnableNotification(GptConf_GptChannel_Gpt_1ms);
-
-Gpt_StartTimer(GptConf_GptChannel_Gpt_1ms, 100000);
-
-Gpt_StartTimer(GptChannelConfiguration_STBM, 0xFFFFFFu);
-
-StbM_TimeStampType test1 = {0u};
-
-StbM_UserDataType test2 = {0u};
-
-test1.secondsHi = 0;
--
-
-test1.seconds = 1696903810;
-
-test1.nanoseconds = 0;
-
-StbM_SetGlobalTime(0,&test1,&test2);
-
-/\* infinite loop \*/
-
-**while** (1)
-
-{
-
-   **if**\ (:mark:`Gpt_1msFlag` == TRUE)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-/\* please insert your code here ... \*/
-
-
-CanTSyn_MainFunction();
-
-   StbM_MainFunction();
-
-   StbM_GetCurrentTime(0, &timestamp,&userData\ **);**
-
-   PduInfo.sdu[0] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[1] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[2] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[3] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x000000ff));
-
-   PduInfo.sdu[4] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[5] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[6] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[7] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x000000ff));
-
-   Can_Write(2, &PduInfo);
-
-
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/CanTSyn/code1.png
+   :width: 6.86736in
+   :height: 5.74583in
+
+.. figure:: ../../_static/集成手册/CanTSyn/code2.png
+   :width: 6.56736in
+   :height: 5.74583in
+
+.. figure:: ../../_static/集成手册/CanTSyn/code3.png
+   :width: 6.26736in
+   :height: 4.34583in
+
+.. figure:: ../../_static/集成手册/CanTSyn/code4.png
+   :width: 6.76736in
+   :height: 2.14583in
 
 验证结果
 --------

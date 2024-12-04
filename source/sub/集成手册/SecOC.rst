@@ -2031,11 +2031,11 @@ SecOCTxSecuredLayerPduRef：SecOc_TxPduS。
    :width: 5.7625in
    :height: 3.06944in
 .. |image26| image:: ../../_static/集成手册/SecOC/image32.png
-   :width: 2.69097in
-   :height: 2.88681in
+   :width: 2.77708in
+   :height: 2.31806in
 .. |image27| image:: ../../_static/集成手册/SecOC/image33.png
-   :width: 2.76389in
-   :height: 2.20278in
+   :width: 2.67431in
+   :height: 2.33194in
 .. |image28| image:: ../../_static/集成手册/SecOC/image34.png
    :width: 2.77708in
    :height: 2.31806in

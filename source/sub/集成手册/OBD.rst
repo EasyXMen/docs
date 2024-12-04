@@ -892,49 +892,24 @@ OBD诊断栈调度集成步骤如下：
 
 ..
 
-   FUNC(**void**, CANTP_CODE)\ **CanTp_ResetTime**\ (
+.. figure:: ../../_static/集成手册/OBD/code1.png
+   :width: 6.5958in
+   :height: 2.642in
 
-   P2VAR(uint32, AUTOMATIC, CANTP_APPL_DATA) TimerPtr)
 
-   {
-
-   \*TimerPtr = Frt_ReadOutMS();
-
-   }
-
-   FUNC(**void**, CANTP_CODE)\ **CanTp_GetTimeSpan**\ (
-
-   uint32 TimerPtr,
-
-   P2VAR(uint32, AUTOMATIC, CANTP_APPL_DATA) TimeSpanPtr)
-
-   {
-
-   \*TimeSpanPtr = Frt_CalculateElapsedMS(TimerPtr);
-
-}
 
 3. 集成Dcm_Callout.c 中Dcm_ResetTime、Dcm_GetTimeSpan 函数。
 
 ..
 
-   FUNC(**void**, *DCM_CODE*) **Dcm_ResetTime**\ (P2VAR(uint32,
-   AUTOMATIC, DCM_VAR) TimerPtr)
+.. figure:: ../../_static/集成手册/OBD/code2.png
+   :width: 5.53958in
+   :height: 1.09542in
 
-   {
+.. figure:: ../../_static/集成手册/OBD/code2-2.png
+   :width: 5.86958in
+   :height: 1.15542in
 
-   \*TimerPtr = Frt_ReadOutMS();
-
-}
-
-   FUNC(**void**, DCM_CODE) **Dcm_GetTimeSpan**\ (uint32
-   TimerPtr,P2VAR(uint32, AUTOMATIC, DCM_VAR) TimeSpanPtr)
-
-   {
-
-   \*TimeSpanPtr = Frt_CalculateElapsedMS(TimerPtr);
-
-}
 
 4. 编译链接代码，将软件烧写进芯片。
 
@@ -943,133 +918,21 @@ OBD诊断栈有关的代码，在下方的main.c文件中给出重点标注。
 **注意 :
 本示例中，OBD诊断栈初始化的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-#include "CanTp.h"
+.. figure:: ../../_static/集成手册/OBD/code3.png
+   :width: 6.4158in
+   :height: 6.98542in
 
-#include "Dcm.h"
+.. figure:: ../../_static/集成手册/OBD/code4.png
+   :width: 6.24958in
+   :height: 5.27542in
 
-#include "Dem.h"
+.. figure:: ../../_static/集成手册/OBD/code5.png
+   :width: 6.50958in
+   :height: 4.015542in
 
-//初始化、mainfunction及应用接口集成如下：
-
-int main\ **(**\ void\ **)**
-
-**{**
-
-Mcu_Init\ **(**\ Mcu_ConfigRoot\ **);**
-
-Mcu_InitClock\ **(**\ 0\ **);**
-
-**while** **(**\ MCU_PLL_UNLOCKED **==** Mcu_GetPllStatus\ **())**
-
-**{**
-
-/\* wait for PLL locked \*/
-
-**}**
-
-Mcu_DistributePllClock\ **();**
-
-/\* IrqGtm_Init \*/
-
-IrqGtm_Init\ **();**
-
-/\* Port Initialize \*/
-
-Port_Init\ **(&**\ Port_ConfigRoot\ **[**\ 0\ **]);**
-
-/\* GPT Initialize \*/
-
-Gpt_Init\ **(&**\ Gpt_ConfigRoot\ **[**\ 0\ **]);**
-
-/\* Gpt enable 1ms notification,and start \*/
-
-Gpt_EnableNotification\ **(**\ GptConf_GptChannel_GptChannelConfiguration_0\ **);**
-
-Gpt_StartTimer\ **(**\ GptConf_GptChannel_GptChannelConfiguration_0\ **,**
-6250\ **);**
-
-/\* CAN Initialize \*/
-
-Can_17_MCanP_Init\ **(&**\ Can_17_MCanP_ConfigRoot\ **[**\ 0\ **]);**
-
-/\*Enable CAN*/
-
-Can_17_MCanP_SetControllerMode\ **(**\ Can_17_MCanPConf_CanController_CanController_0\ **,**
-CAN_T_START\ **);**
-
-/\*Dem module Pre_Init*/
-
-Dem_PreInit\ **();**
-
-CanIf_Init\ **(&**\ CanIf_InitCfgSet\ **);**
-
-/\* end Add Code \*/
-
-/\* Initialize the CanSM module \*/
-
-CanSM_Init\ **(&**\ CanSM_Config\ **);**
-
-/\* Initialize the ComM module \*/
-
-ComM_Init\ **(&**\ ComM_Config\ **);**
-
-/\* end Add Code \*/
-
-/\*Initialize the CanTp module*/
-
-CanTp_Init(&CanTp_Config);
-
-Dcm_Init(&Dcm_Cfg);
-
-Dem_Init(&DemPbCfg);
-
-Dem_SetOperationCycleState\ **((**\ uint8\ **)**\ DemOperationCycle_ID\ **,**
-DEM_CYCLE_STATE_START\ **);**
-
-ComM_CommunicationAllowed\ **(**\ 0\ **,** TRUE\ **);**
-
-Mcal_EnableAllInterrupts\ **();**
-
-ComM_RequestComMode\ **(**\ ComMUser_0\ **,**
-COMM_FULL_COMMUNICATION\ **);**
-
-**while(**\ 1\ **)**
-
-**{**
-
-**if** **(**\ TRUE **==** Gpt_1msFlag\ **)**
-
-**{**
-
-Gpt_1msFlag **=** FALSE\ **;**
-
-Run_msCounter\ **();**
-
-**}**
-
-**if** **(**\ TRUE **==** Gpt_5msFlag\ **)**
-
-**{**
-
-Gpt_5msFlag **=** FALSE\ **;**
-
-CanSM_MainFunction\ **();**
-
-ComM_MainFunction\ **(**\ 0\ **);**
-
-CanTp_MainFunction\ **();**
-
-Dcm_MainFunction\ **();**
-
-Dem_MainFunction\ **();**
-
-**}**
-
-**}**
-
-**return** 1\ **;**
-
-**}**
+.. figure:: ../../_static/集成手册/OBD/code6.png
+   :width: 5.86958in
+   :height: 0.99542in
 
 验证结果
 --------
