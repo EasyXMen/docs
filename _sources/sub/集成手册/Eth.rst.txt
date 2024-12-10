@@ -19,7 +19,7 @@ Eth_集成手册
 .. table:: 表 2‑2‑1 缩写词和术语
 
    +---------------+------------------------------------------------------+
-   | **            | **描述**                                             |
+   | **\           | **描述**                                             |
    | 缩写词/术语** |                                                      |
    +---------------+------------------------------------------------------+
    | Eth           | Ethernet Driver以太网驱动程序                        |
@@ -66,7 +66,7 @@ Eth通信栈集成的步骤。
 .. table:: 表 4‑1 Eth通信栈各配置模块介绍
 
    +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
+   | **模\   | **功能**                                                   |
    | 块名**  |                                                            |
    +---------+------------------------------------------------------------+
    | Eth     | ETH驱动配置。                                              |
@@ -93,10 +93,10 @@ Eth通信栈集成的步骤。
 .. table:: 表 4‑2 Eth通信栈集成的步骤
 
    +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
+   |**步\| **操作**                 | **说明**                           |
+   |骤** |                          |                                    |
+   |     |                          |                                    |
+   |     |                          |                                    |
    +-----+--------------------------+------------------------------------+
    | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
    |     | Configurator配置工具     | ，则仅需进行协议栈模块的加载操作。 |
@@ -121,7 +121,7 @@ Eth通信栈集成的步骤。
    :width: 5.30055in
    :height: 3.71944in
 
-   图 4‑1 新建工程-1
+图 4‑1 新建工程-1
 
 2. 菜单栏File🡪New🡪Project，新建工程。
 
@@ -129,7 +129,7 @@ Eth通信栈集成的步骤。
    :width: 5.28315in
    :height: 3.70833in
 
-   图 4‑2 新建工程-2
+图 4‑2 新建工程-2
 
 3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。
 
@@ -145,7 +145,7 @@ Eth通信栈集成的步骤。
    :width: 4.33071in
    :height: 2.02362in
 
-   图 4‑5 新建工程-5
+图 4‑5 新建工程-5
 
 6. 选择[Bsw_Builder]，右键单击，选择New ECU Configuration。
 
@@ -153,7 +153,7 @@ Eth通信栈集成的步骤。
    :width: 4.33071in
    :height: 1.5in
 
-   图 4‑6 新建工程-6
+图 4‑6 新建工程-6
 
 7. 在弹出的窗口中输入ECU名，然后选择Next。
 
@@ -167,7 +167,7 @@ Eth通信栈集成的步骤。
    :width: 2.88038in
    :height: 5.71505in
 
-   图 4‑8 新建工程-8
+图 4‑8 新建工程-8
 
 9. 新建工程如下所示，上一步添加的模块已经被加入到工程中。
 
@@ -175,21 +175,41 @@ Eth通信栈集成的步骤。
    :width: 2.75591in
    :height: 2.36614in
 
-   图 4‑9 新建工程-9
+图 4‑9 新建工程-9
 
 10. MCAL配置导入，BSW模块需要依赖MCAL生成的Eth模块
 
-    a) 从MCAL配置工具生成arxml
+a) 从MCAL配置工具生成arxml
+
+.. figure:: ../../_static/集成手册/Eth/image10.png
+   :width: 2.75591in
+   :height: 2.36614in
 
 图 4‑10 新建工程-10
+
+.. figure:: ../../_static/集成手册/Eth/image11.png
+   :width: 4.25591in
+   :height: 3.36614in
 
 图 4‑11 新建工程-11
 
 b) 导入BSW工具
 
+.. figure:: ../../_static/集成手册/Eth/image12.png
+   :width: 4.75591in
+   :height: 3.66614in
+
 图 4‑12 新建工程-12
 
+.. figure:: ../../_static/集成手册/Eth/image13.png
+   :width: 4.75591in
+   :height: 2.66614in
+
 图 4‑13 新建工程-13
+
+.. figure:: ../../_static/集成手册/Eth/image14.png
+   :width: 4.75591in
+   :height: 3.66614in
 
 图 4‑14 新建工程-14
 
@@ -212,7 +232,7 @@ b) 导入BSW工具
    :width: 3.58823in
    :height: 4.13095in
 
-   图 4‑15 配置代码的生成-1
+图 4‑15 配置代码的生成-1
 
 2. 选择Validate
    All对本协议栈各配置选项进行校验，没有错误提示信息即校验通过。若有错误信息，请按照错误提示修改。
@@ -225,7 +245,7 @@ b) 导入BSW工具
    :width: 5.64511in
    :height: 2.06092in
 
-   图 4‑16 配置代码的生成-2
+图 4‑16 配置代码的生成-2
 
 4. 将ORIENTAIS Configurator切换到Resource模式，即可查看生成的配置文件。
 
@@ -233,7 +253,7 @@ b) 导入BSW工具
    :width: 5.51181in
    :height: 2.90157in
 
-   图 4‑17 配置代码的生成-3
+图 4‑17 配置代码的生成-3
 
 功能集成
 --------
@@ -303,14 +323,14 @@ Eth驱动配置为MCAL层配置，可以参考以下S32K148驱动进行配置。
    :width: 5.66205in
    :height: 3.01749in
 
-   图 5‑1 Eth配置-1
+图 5‑1 Eth配置-1
 
 .. figure:: ../../_static/集成手册/Eth/image19.png
    :alt: 图形用户界面, 应用程序 描述已自动生成
    :width: 5.83508in
    :height: 2.4872in
 
-   图 5‑2 Eth配置-2
+图 5‑2 Eth配置-2
 
 EcuC配置
 ~~~~~~~~
@@ -331,7 +351,7 @@ EcuC配置
    :width: 5.5793in
    :height: 1.44907in
 
-   图 5‑3 配置EcucPduCollection
+图 5‑3 配置EcucPduCollection
 
 3. 在EcucPduCollection上右键，选择Pdu，会生成一个Pdu的配置界面。
 
@@ -345,7 +365,7 @@ EcuC配置
    :width: 5.60392in
    :height: 3.72335in
 
-   图 5‑4 配置Pdu
+图 5‑4 配置Pdu
 
 4. ECUC模块到此配置结束。可以在模块上右键，然后选择校验，查看是否配置有错误。
 
@@ -360,7 +380,7 @@ EthIf配置
    :width: 2.81795in
    :height: 3.80071in
 
-   图 5‑5 EthIfGeneral配置
+图 5‑5 EthIfGeneral配置
 
 2. 在EthIfConfigSet中配置EthIfController。
 
@@ -368,7 +388,7 @@ EthIf配置
    :width: 4.72441in
    :height: 2.94882in
 
-   图 5‑6 EthIfController配置
+图 5‑6 EthIfController配置
 
 3. 添加以太网对应的帧类型，选择对应的EthIfOwner，这里Owner为上层模块编号，此处对应EthRxIndicationConfigs中的以太网报文接收回调函数。
 
@@ -377,7 +397,7 @@ EthIf配置
    :width: 5.63642in
    :height: 2.5017in
 
-   图 5‑7 EthIfConfigSet配置
+图 5‑7 EthIfConfigSet配置
 
 4. 在Eth_DriverApiConfigeSet对Eth驱动中的代码原型进行映射，需参考MCAL源码进行修改，一些未使用的Api(如Timestamp功能)需改为NULL_PTR。如存在EthTrcv模块，同理在EthTrcv_DriverApiConfigSet中进行修改。
 
@@ -386,7 +406,7 @@ EthIf配置
    :width: 5.83463in
    :height: 4.07078in
 
-   图 5‑8 Eth_DriverApiConfigSet配置
+图 5‑8 Eth_DriverApiConfigSet配置
 
 5. 校验后提示窗口没有错误信息，即校验通过。
 
@@ -403,7 +423,7 @@ TcpIp配置
    :width: 5.61333in
    :height: 3.34641in
 
-   图 5‑9 TcpIpGeneral配置
+图 5‑9 TcpIpGeneral配置
 
 2. 配置TcpIpIpV4General，使能IPv4(暂时只支持IPv4)。
 
@@ -411,9 +431,13 @@ TcpIp配置
    :width: 5.76736in
    :height: 2.26528in
 
-   图 5‑10 TcpIpIpV4General配置
+图 5‑10 TcpIpIpV4General配置
 
 3. 在TcpIpConfig配置页中新建TcpIpIpConfig，并在TcpIpIpConfig中添加Arp配置。
+
+.. figure:: ../../_static/集成手册/Eth/image28.png
+   :width: 4.99469in
+   :height: 2.33982in
 
 图 5‑11 TcpIpArpConfig配置
 
@@ -423,9 +447,13 @@ TcpIp配置
    :width: 4.99469in
    :height: 2.33982in
 
-   图 5‑12 TcpIpCtrl配置-1
+图 5‑12 TcpIpCtrl配置-1
 
 5. 添加TcpIp的IpV4设置，并选择对应的Arp配置。
+
+.. figure:: ../../_static/集成手册/Eth/image30.png
+   :width: 4.99469in
+   :height: 2.33982in
 
 图 5‑13 TcpIpCtrl配置-2
 
@@ -437,7 +465,7 @@ TcpIp配置
    :width: 4.82471in
    :height: 2.31586in
 
-   图 5‑14 TcpIpAddrAssignment配置
+图 5‑14 TcpIpAddrAssignment配置
 
 b) 在TcpIpLocalAddrs中添加IP地址设置。
 
@@ -445,7 +473,7 @@ b) 在TcpIpLocalAddrs中添加IP地址设置。
    :width: 4.9078in
    :height: 2.51636in
 
-   图 5‑15 TcpIpStaticIpAddressConfig配置
+图 5‑15 TcpIpStaticIpAddressConfig配置
 
 7. 新建TcpIpSocketOwnerConfig，添加SoAd模块对应的接口Api。
 
@@ -453,7 +481,7 @@ b) 在TcpIpLocalAddrs中添加IP地址设置。
    :width: 4.93411in
    :height: 2.22484in
 
-   图 5‑16 TcpIpSocketOwner配置
+图 5‑16 TcpIpSocketOwner配置
 
 8. 在TcpIpTcpConfigs中添加TCP设置。
 
@@ -461,7 +489,7 @@ b) 在TcpIpLocalAddrs中添加IP地址设置。
    :width: 5.5882in
    :height: 3.16495in
 
-   图 5‑17 TcpIpUdpConfig配置
+图 5‑17 TcpIpUdpConfig配置
 
 9. 在TcpIpUdpConfig中添加UDP设置。
 
@@ -469,7 +497,7 @@ b) 在TcpIpLocalAddrs中添加IP地址设置。
    :width: 5.49167in
    :height: 2.34311in
 
-   图 5‑18 TcpIpUdpConfig
+图 5‑18 TcpIpUdpConfig
 
 10. 校验后提示窗口没有错误信息，即校验通过。
 
@@ -486,7 +514,7 @@ SoAd配置
    :width: 5.66789in
    :height: 3.85321in
 
-   图 5‑19 SoAdGeneral配置
+图 5‑19 SoAdGeneral配置
 
 2. 在SoAdBswModules中关联SoAd相关的Bsw模块。
 
@@ -495,7 +523,7 @@ SoAd配置
    :width: 5.82862in
    :height: 3.44523in
 
-   图 5‑20 SoAd配置-SoAdBswModules
+图 5‑20 SoAd配置-SoAdBswModules
 
 3. SoAdSocketConnectionGroups中添加Udp Cilent Socket配置。
 
@@ -507,7 +535,7 @@ SoAd配置
    :width: 5.56925in
    :height: 3.59034in
 
-   图 5‑21 UDP Client配置-SoAdSocketConnectionGroup
+图 5‑21 UDP Client配置-SoAdSocketConnectionGroup
 
 c) 设置Udp发送的远端地址。
 
@@ -515,7 +543,7 @@ c) 设置Udp发送的远端地址。
    :width: 5.56803in
    :height: 3.76588in
 
-   图 5‑22 UDP Client配置-SoAdSocketRemoteAddress
+图 5‑22 UDP Client配置-SoAdSocketRemoteAddress
 
 d) 创建Udp的SoAdSoket时，SoAdSocketRemoteIpAddress和SoAdSocketRemotePort不可设置为0，SoAdSocketRemoteIpAddress需设置为对应本地以太网的地址。
 
@@ -523,7 +551,7 @@ d) 创建Udp的SoAdSoket时，SoAdSocketRemoteIpAddress和SoAdSocketRemotePort�
    :width: 5.64899in
    :height: 3.74853in
 
-   图 5‑23 本地以太网设置IP地址
+图 5‑23 本地以太网设置IP地址
 
 e) 在SoAdSocketProtocols中添加对应协议。
 
@@ -531,7 +559,7 @@ e) 在SoAdSocketProtocols中添加对应协议。
    :width: 5.91978in
    :height: 2.47839in
 
-   图 5‑24 UDP Client配置-SoAdSocketProtocol
+图 5‑24 UDP Client配置-SoAdSocketProtocol
 
 4. SoAdSocketConnectionGroups中添加Tcp Serve Socket配置。
 
@@ -541,7 +569,7 @@ e) 在SoAdSocketProtocols中添加对应协议。
    :width: 4.77116in
    :height: 2.47894in
 
-   图 5‑25 TCP Server配置-SoAdSocketConnectionGroup
+图 5‑25 TCP Server配置-SoAdSocketConnectionGroup
 
 b) 设置TcpServer端的远端地址和Port，对于Tcp而言设置远端地址和Port为0.0.0.0，表示任意远端地址均可进行连接。
 
@@ -549,7 +577,7 @@ b) 设置TcpServer端的远端地址和Port，对于Tcp而言设置远端地址�
    :width: 4.81044in
    :height: 1.89695in
 
-   图 5‑26 TCP Server配置-SoAdSocketRemoteAddress
+图 5‑26 TCP Server配置-SoAdSocketRemoteAddress
 
 c) 在SoAdSocketProtocols中添加对应协议。
 
@@ -557,7 +585,7 @@ c) 在SoAdSocketProtocols中添加对应协议。
    :width: 4.99635in
    :height: 3.18371in
 
-   图 5‑27 TCP Server配置-SoAdSocketTcp
+图 5‑27 TCP Server配置-SoAdSocketTcp
 
 5. SoAdSocketConnectionGroups中添加Tcp Client Socket配置。
 
@@ -567,7 +595,7 @@ c) 在SoAdSocketProtocols中添加对应协议。
    :width: 5.19484in
    :height: 2.81291in
 
-   图 5‑28 TCP Client配置-SoAdSocketConnectionGroup
+图 5‑28 TCP Client配置-SoAdSocketConnectionGroup
 
 b) 添加对应TCP Client节点对应发送的远端地址与port。
 
@@ -575,7 +603,7 @@ b) 添加对应TCP Client节点对应发送的远端地址与port。
    :width: 5.1266in
    :height: 2.01916in
 
-   图 5‑29 TCP Client配置-SoAdSocketRemoteAddress
+图 5‑29 TCP Client配置-SoAdSocketRemoteAddress
 
 c) 在SoAdSocketProtocols中添加对应协议。
 
@@ -583,7 +611,7 @@ c) 在SoAdSocketProtocols中添加对应协议。
    :width: 5.34964in
    :height: 2.28801in
 
-   图 5‑30 TCP Client配置-SoAdSocketTcp
+图 5‑30 TCP Client配置-SoAdSocketTcp
 
 6. 新建SoAdRoutingGroup，勾选SoAdRoutingGroupIsEnabledAtInit，使能SoAdRoutingGroup。
 
@@ -591,7 +619,7 @@ c) 在SoAdSocketProtocols中添加对应协议。
    :width: 5.71031in
    :height: 1.97472in
 
-   图 5‑31SoAdRoutingGroup配置
+图 5‑31 SoAdRoutingGroup配置
 
 7. 配置SoAdPduRoute。
 
@@ -601,7 +629,7 @@ c) 在SoAdSocketProtocols中添加对应协议。
    :width: 5.64567in
    :height: 1.42348in
 
-   图 5‑32 SoAdPduRoute配置
+图 5‑32 SoAdPduRoute配置
 
 b) 新建SoAdPduRouteDest，选择对应的SoAdTxSocketConnOrSocketConnBundleRef，并在SoAdTxRoutingGroupRef添加SoAdTxRoutingGroupRef。
 
@@ -609,7 +637,7 @@ b) 新建SoAdPduRouteDest，选择对应的SoAdTxSocketConnOrSocketConnBundleRef
    :width: 5.45873in
    :height: 2.37673in
 
-   图 5‑33 SoAdPduRouteDest配置
+图 5‑33 SoAdPduRouteDest配置
 
 8. SoAdSocketRoutes配置。
 
@@ -619,7 +647,7 @@ b) 新建SoAdPduRouteDest，选择对应的SoAdTxSocketConnOrSocketConnBundleRef
 
 图 5‑34 SoAdSocketRoute配置
 
-b) 新建SoAdSocketRouteDest，
+   b) 新建SoAdSocketRouteDest，
 
 |image3|
 
@@ -636,7 +664,7 @@ PduR配置
    :width: 5.48612in
    :height: 3.69198in
 
-   图 5‑36 PduRBswModules
+图 5‑36 PduRBswModules
 
 2. PduR的路由表，配置以上路由，路由类型选择IF。
 
@@ -644,7 +672,7 @@ PduR配置
    :width: 5.32408in
    :height: 3.60089in
 
-   图 5‑37 PduRRoutingTables
+图 5‑37 PduRRoutingTables
 
 3. 选择路由中的目标Pdu(PduRDestPdus)和源Pdu(PduRSrcPdus)，同理添加UDP、TCP的客户端和服务端的Pdu路由。
 
@@ -652,13 +680,13 @@ PduR配置
    :width: 5.51221in
    :height: 3.60202in
 
-   图 5‑38 PduRDestPdu配置
+图 5‑38 PduRDestPdu配置
 
 .. figure:: ../../_static/集成手册/Eth/image56.png
    :width: 5.49784in
    :height: 3.74886in
 
-   图 5‑39 PduRSrcPdu配置
+图 5‑39 PduRSrcPdu配置
 
 4. 校验后提示窗口没有错误信息，即校验通过。
 
@@ -672,7 +700,7 @@ LdCom配置
    :width: 3.83537in
    :height: 3.13671in
 
-   图 5‑40 LdComGeneral配置
+图 5‑40 LdComGeneral配置
 
 2. 配置LdComConfig，选择LdComApi类型LDCOM_IF，通信路由方向选择发送报文选择LDCOM_SEND、接收报文选择LDCOM_RECEIVE；添加对应发送或接收的TxComfirmation
    / RxIndication；最后选择PduR中配置的Pdu路由。
@@ -681,7 +709,7 @@ LdCom配置
    :width: 4.97088in
    :height: 3.21835in
 
-   图 5‑41 LdComConfig配置
+图 5‑41 LdComConfig配置
 
 注意：Ldcom配置的TxComfirmation / RxIndication回调函数需要用户自定义。
 
@@ -695,7 +723,7 @@ LdCom配置
    :width: 1.69135in
    :height: 3.10344in
 
-   图 5‑42 工程结构目录
+图 5‑42 工程结构目录
 
 -  Config目录，这个目录用来存放配置工具生成的配置文件
 
@@ -719,98 +747,21 @@ Eth通信有关的代码，在下方的main.c文件中给出重点标注。
 **注意 :
 本示例中，Eth通信相关代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-*#include "UserTimer.h"*
+.. figure:: ../../_static/集成手册/EthTSyn/code1.png
+   :width: 6.47736in
+   :height: 0.50583in
 
-*#include "EthIf.h"*
+.. figure:: ../../_static/集成手册/EthTSyn/code2.png
+   :width: 6.76736in
+   :height: 6.41583in
 
-Eth通信协议相关模块头文件
+.. figure:: ../../_static/集成手册/EthTSyn/code3.png
+   :width: 6.70736in
+   :height: 2.71583in
 
-*#include "TcpIp.h"*
-
-*#include "SoAd.h"*
-
-*#include "EthSM.h"*
-
-*#include "LdCom.h"*
-
-**int** **main**\ (**void**)
-
-定义LdCom发送的Pdu
-
-{
-
-uint8 LdComSrcPduData[10] = {0x0,0x1,0x2,0x3,0x4,0x5,0x6,0x7,0x8,0x9};
-
-PduInfoType LdComTransmitPdu;
-
-LdComTransmitPdu.SduDataPtr = LdComSrcPduData;
-
-LdComTransmitPdu.SduLength = 10;
-
-LdComTransmitPdu.MetaDataPtr = NULL_PTR;
-
-UserTimer_Init();
-
-Eth_Init(&Eth_Config);
-
-Eth_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0,
-ETH_MODE_ACTIVE);
-
-Eth_T_InitPhys();
-
-EthIf_Init(&EthIf_ConfigData);
-
-TcpIp_Init(&TcpIp_Config);
-
-SoAd_Init(&SoAd_Config);
-
-SoAd_OpenSoCon(1);
-
-SoAd_OpenSoCon(2);
-
-LdCom_Init(&LdCom_InitCfgSet);
-
-Eth通信协议相关模块初始化
-
-**while**\ (1)
-
-{
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-TcpIp_MainFunction();
-
-TcpIp、SoAd模块周期处理函数
-
-SoAd_MainFunction();
-
-Gpt_10msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_50msFlag == TRUE)
-
-LdCom模块Pdu发送
-
-{
-
-LdCom_Transmit(LdComIPdu_Client_Tcp_Tx,&LdComTransmitPdu);
-
-LdCom_Transmit(LdComIPdu_Server_Udp_Tx,&LdComTransmitPdu);
-
-LdCom_Transmit(LdComIPdu_Server_Tcp_Tx,&LdComTransmitPdu);
-
-Gpt_50msFlag = FALSE;
-
-}
-
-}
-
-**return** 0;
-
-}
+.. figure:: ../../_static/集成手册/EthTSyn/code4.png
+   :width: 6.76736in
+   :height: 5.14583in
 
 验证结果
 --------
@@ -822,7 +773,7 @@ Gpt_50msFlag = FALSE;
    :width: 4.98052in
    :height: 3.92085in
 
-   图 5‑43 UDP报文示例
+图 5‑43 UDP报文示例
 
 2. 使用网络调试助手，作为TCP Client创建连接后可以监控到对应的TCP
    Client报文。
@@ -831,7 +782,7 @@ Gpt_50msFlag = FALSE;
    :width: 4.5948in
    :height: 3.09382in
 
-   图 5‑44 TCP Client 报文示例
+图 5‑44 TCP Client 报文示例
 
 3. 使用网络调试助手，作为TCP Server创建连接后可以监控到对应的TCP
    Server报文。
@@ -840,7 +791,7 @@ Gpt_50msFlag = FALSE;
    :width: 4.04858in
    :height: 2.79622in
 
-   图 5‑45 TCP Sever 报文示例
+图 5‑45 TCP Sever 报文示例
 
 .. |image1| image:: ../../_static/集成手册/Eth/image7.png
    :width: 4.26328in

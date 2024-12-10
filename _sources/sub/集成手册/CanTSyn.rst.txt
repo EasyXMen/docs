@@ -2,10 +2,6 @@
 CanTSyn_集成手册
 ===================
 
-
-
-
-
 目标
 ====
 
@@ -19,8 +15,8 @@ CanTSyn_集成手册
 .. table:: 表 2‑1 缩写词和术语
 
    +---------------+------------------------------------------------------+
-   | **            | **描述**                                             |
-   | 缩写词/术语** |                                                      |
+   |**缩写词/术语**| **描述**                                             |
+   |               |                                                      |
    +---------------+------------------------------------------------------+
    | CanIf         | Can Interface Can通信的接口模块                      |
    +---------------+------------------------------------------------------+
@@ -49,8 +45,8 @@ CanTSyn协议栈各配置模块的功能介绍。
 .. table:: 表 4‑1 CanTSyn协议栈各配置模块介绍
 
    +----------+-----------------------------------------------------------+
-   | **       | **功能**                                                  |
-   | 模块名** |                                                           |
+   |**模块名**| **功能**                                                  |
+   |          |                                                           |
    +----------+-----------------------------------------------------------+
    | Can      | CAN驱动配置。                                             |
    +----------+-----------------------------------------------------------+
@@ -68,10 +64,10 @@ CanTSyn协议栈各配置模块的功能介绍。
 .. table:: 表 4‑2 CanTSyn协议栈集成的步骤
 
    +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
+   |**步\| **操作**                 | **说明**                           |
+   |骤** |                          |                                    |
+   |     |                          |                                    |
+   |     |                          |                                    |
    +-----+--------------------------+------------------------------------+
    | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
    |     | Configurator配置工具     | ，则仅需进行协议栈模块的加载操作。 |
@@ -96,7 +92,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 5.76389in
    :height: 3.05972in
 
-   图 4‑1 新建工程-1
+图 4‑1 新建工程-1
 
 2. 菜单栏File🡪New🡪Project，新建工程。
 
@@ -110,7 +106,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 4.25764in
    :height: 4.05556in
 
-   图 4‑3 新建工程-3
+图 4‑3 新建工程-3
 
 4. 在弹出的窗口中输入工程名，选择Finish。
 
@@ -118,7 +114,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 4.62222in
    :height: 3.88889in
 
-   图 4‑4 新建工程-4
+图 4‑4 新建工程-4
 
 5. 在弹出的窗口中选择Yes。
 
@@ -126,7 +122,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 4.06777in
    :height: 1.90141in
 
-   图 4‑5 新建工程-5
+图 4‑5 新建工程-5
 
 6. 选择[Bsw_Builder]，右键单击，选择New ECU Configuration。
 
@@ -134,17 +130,17 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 4.29931in
    :height: 1.97778in
 
-   图 4‑6新建工程-6
+图 4‑6 新建工程-6
 
 7. 在弹出的窗口中输入ECU名，然后选择Next。
 
 |image2|
 
-此处以TC397为例，
-
-用户根据项目芯片进行选择。
-
 图 4‑7 新建工程-7
+
+此处以TC397为例，用户根据项目芯片进行选择。
+
+
 
 8. 在弹出的窗口中勾选需添加的模块，点击Finish。
 
@@ -152,7 +148,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 3.39496in
    :height: 4.32446in
 
-   图 4‑8 新建工程-8
+图 4‑8 新建工程-8
 
 9. 新建工程如下所示，上一步添加的模块已经被加入到工程中。
 
@@ -160,7 +156,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 3.97569in
    :height: 3.4in
 
-   图 4‑9 新建工程-9
+图 4‑9 新建工程-9
 
 模块配置及代码生成
 ------------------
@@ -201,7 +197,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 5.76528in
    :height: 3.03889in
 
-   图 4‑10 配置代码的生成-1
+图 4‑10 配置代码的生成-1
 
 2. 选择Validate
    All对本协议栈各配置选项进行校验，没有错误提示信息即校验通过。若有错误信息，请按照错误提示修改。
@@ -213,7 +209,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 5.04861in
    :height: 2.025in
 
-   图 4‑11 配置代码的生成-2
+图 4‑11 配置代码的生成-2
 
 4. 在工程config文件夹，可查看生成的配置文件。
 
@@ -221,7 +217,7 @@ CanTSyn协议栈各配置模块的功能介绍。
    :width: 4.59846in
    :height: 4.97436in
 
-   图 4‑12 配置代码的生成-3
+图 4‑12 配置代码的生成-3
 
 功能集成
 --------
@@ -245,20 +241,20 @@ Configurator配置生成代码。
 .. table:: 表 4‑4 CanTSyn协议栈集成约束清单
 
    +-----+---------+-----------------------------------------------------+
-   | *   | *       | **约束限制**                                        |
-   | *编 | *类别** |                                                     |
-   | 号  |         |                                                     |
-   | **  |         |                                                     |
+   |**编\|         | **约束限制**                                        |
+   |号** | **类别**|                                                     |
+   |     |         |                                                     |
+   |     |         |                                                     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 头文件  | -  添加协议                                         |
+   | **\ | 头文件  | 添加协议\                                           |
    | 1** |         | 栈代码之后，用户需更新集成开发工具中的头文件路径。  |
    |     |         |                                                     |
-   |     |         | -  调用协议栈API的源文件，需要包含协议栈的头文件。  |
+   |     |         | 调用协议栈API的源文件，需要包含协议栈的头文件。     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 初始化  | CanTSy                                              |
+   | **\ | 初始化  | CanTSy                                              |
    | 2** |         | n_Init和StbM_Init初始化前需要确保Can和Gpt已经初始化 |
    +-----+---------+-----------------------------------------------------+
-   | **  | 周      | CanTSyn_MainFunction和StbM_Mai                      |
+   | **\ | 周      | CanTSyn_MainFunction和StbM_Mai                      |
    | 3** | 期函数  | nFunction按照需求放置到相应的周期任务中，一般为10ms |
    +-----+---------+-----------------------------------------------------+
 
@@ -291,7 +287,7 @@ CanTSyn模块配置
    :width: 5.76528in
    :height: 2.94236in
 
-   图 5‑1 CanTSynGeneral配置界面
+图 5‑1 CanTSynGeneral配置界面
 
 11. 在CanTSynGeneral下，有CanTSynDevErrorDetect、CanTSynMainFunc
     tionPeriod和CanTSynVersionInfoApi四个配置项。
@@ -302,7 +298,7 @@ CanTSyn模块配置
    :width: 5.76736in
    :height: 3.77292in
 
-   图 5‑2 CanTSynGlobalTimeDomain配置界面
+图 5‑2 CanTSynGlobalTimeDomain配置界面
 
 13. CanTSynGlobalTimeDomain配置如下图所示：
 
@@ -310,7 +306,7 @@ CanTSyn模块配置
    :width: 5.76389in
    :height: 1.51597in
 
-   图 5‑3 CanTSynGlobalTimeDomain配置
+图 5‑3 CanTSynGlobalTimeDomain配置
 
 14. CanTSynGlobalTimeDomain->CanTSynGlobalTimeFupDataIDList->CanT
     SynGlobalTimeFupDataIDListElements中的配置(使用CRC时)，根据客户
@@ -320,7 +316,7 @@ CanTSyn模块配置
    :width: 5.76736in
    :height: 2.85417in
 
-   图 5‑4 SynGlobalTimeFupDataIDListElements的配置
+图 5‑4 SynGlobalTimeFupDataIDListElements的配置
 
 15. CanTSynGlobalTimeSlaves->CanTSynGlobalTimeSlave的配置（做从节 点）：
 
@@ -328,7 +324,7 @@ CanTSyn模块配置
    :width: 5.76181in
    :height: 1.72569in
 
-   图 5‑5 CanTSynGlobalTimeSlave的配置
+图 5‑5 CanTSynGlobalTimeSlave的配置
 
 16. CanTSynGlobalTimeSlaves->CanTSynGlobalTimeSlave->CanTSynGloba
     lTimeSlavePdu的配置：
@@ -337,7 +333,7 @@ CanTSyn模块配置
    :width: 5.73958in
    :height: 0.94792in
 
-   图 5‑6 CanTSynGlobalTimeSlavePdu的配置
+图 5‑6 CanTSynGlobalTimeSlavePdu的配置
 
 17. CanTSynGlobalTimeSyncDataIDLists->CanTSynGlobalTimeSyncDataIDL
     ist->CanTSynGlobalTimeSyncDataIDListElements的配置(使用CRC时)根
@@ -347,7 +343,7 @@ CanTSyn模块配置
    :width: 5.76736in
    :height: 2.94444in
 
-   图 5‑7 CanTSynGlobalTimeSyncDataIDListElements的配置
+图 5‑7 CanTSynGlobalTimeSyncDataIDListElements的配置
 
 18. CanTSynGlobalTimeMaster->CanTSynGlobalTimeMaster的配置（做主节
     点）：
@@ -364,7 +360,7 @@ CanTSyn模块配置
    :width: 5.76111in
    :height: 1.98542in
 
-   图 5‑8 CanTSynGlobalTimeMaster的配置
+图 5‑8 CanTSynGlobalTimeMaster的配置
 
 19. CanTSynGlobalTimeMaster->CanTSynGlobalTimeMaster->CanTSynGloa
     lTimeMasterPdu的配置：
@@ -373,7 +369,7 @@ CanTSyn模块配置
    :width: 5.66749in
    :height: 0.84807in
 
-   图 5‑9 CanTSynGlobalTimeMasterPdu的配置
+图 5‑9 CanTSynGlobalTimeMasterPdu的配置
 
 StbM模块的配置
 ~~~~~~~~~~~~~~
@@ -384,7 +380,7 @@ StbM模块的配置
    :width: 5.31021in
    :height: 2.64327in
 
-   图 5‑10 StbMGeneral的配置界面
+图 5‑10 StbMGeneral的配置界面
 
 在StbMGeneral的配置。若使用GPT时钟，需打开StbMGptTimerRef，并
 选择mcal配置的Gpt时钟；若用Eth硬件时钟，则不勾选。
@@ -393,7 +389,7 @@ StbM模块的配置
    :width: 3.72725in
    :height: 2.24346in
 
-   图 5‑11 StbMGeneral的配置
+图 5‑11 StbMGeneral的配置
 
 StbMSynchronizedTimeBases->StbMSynchronizedTimeBase的配置。
 
@@ -401,7 +397,7 @@ StbMSynchronizedTimeBases->StbMSynchronizedTimeBase的配置。
    :width: 5.81525in
    :height: 2.67532in
 
-   图 5‑12 StbMSynchronizedTimeBase配置界面
+图 5‑12 StbMSynchronizedTimeBase配置界面
 
 StbMSynchronizedTimeBases->StbMSynchronizedTimeBase->StbMLocal
 TimeClocks->StbMLocalTimeClock的配置：
@@ -416,22 +412,22 @@ StbMLocalTimeHardware引用所需要引用的Gpt的定时器通道。若是Eth
    :width: 5.76181in
    :height: 1.56736in
 
-   图 5‑13 StbMLocalTimeClock配置界面
+图 5‑13 StbMLocalTimeClock配置界面
 
 StbMSynchronizedTimeBases->StbMSynchronizedTimeBase->StbMLocal
 TimeClocks->StbMTimeCorrection的配置：
 
-   StbMAllowMasterRateCorrection如果主节点启用correction功能则需要开启。
+StbMAllowMasterRateCorrection如果主节点启用correction功能则需要开启。
 
-   StbMMasterRateDeviationMax填写由
-   StbM_SetRateCorrection设置的速率偏差值的最大允许绝对值。
+StbMMasterRateDeviationMax填写由
+StbM_SetRateCorrection设置的速率偏差值的最大允许绝对值。
 
-   StbMOffsetCorrectionAdaptionInterval填写适应性的速率矫正足以消除速率和时间偏差值的时间区间。
+StbMOffsetCorrectionAdaptionInterval填写适应性的速率矫正足以消除速率和时间偏差值的时间区间。
 
-   StbMOffsetCorrectionJumpThreshold用于决定使用什么样的矫正方式。偏差值若小于此值，则在定义的时间周期内使用线性缩减（linear
-   reduction）矫正。若大于此值，则以跳跃的方式立即设置正确的时间和速率。
+StbMOffsetCorrectionJumpThreshold用于决定使用什么样的矫正方式。偏差值若小于此值，则在定义的时间周期内使用线性缩减（linear
+reduction）矫正。若大于此值，则以跳跃的方式立即设置正确的时间和速率。
 
-   StbMRateCorrectionMeasurementDuration填写用于计算速率差的时间区间。
+StbMRateCorrectionMeasurementDuration填写用于计算速率差的时间区间。
 
 StbMRateCorrectionsPerMeasurementDuration填写同时进行速率测量的
 次数，以确定当前速率偏差。
@@ -440,7 +436,7 @@ StbMRateCorrectionsPerMeasurementDuration填写同时进行速率测量的
    :width: 5.24167in
    :height: 2.47778in
 
-   图 5‑14 StbMLocalTimeCorrection配置界面
+图 5‑14 StbMLocalTimeCorrection配置界面
 
 源代码集成
 ----------
@@ -451,7 +447,7 @@ StbMRateCorrectionsPerMeasurementDuration填写同时进行速率测量的
    :width: 3.17708in
    :height: 3.13542in
 
-   图 5‑15 工程结构目录
+图 5‑15 工程结构目录
 
 -  BSW目录，存放模块相关的源代码和配置代码。可以看到Source目录下各个文件夹下是各个模块的源代码。
 
@@ -481,151 +477,21 @@ CanTSyn协议栈有关的代码，在下方的main.c文件中给出重点标注�
 **注意 :
 本示例中，CanTSyn协议栈初始化的代码和启动通信的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-**#include** <machine/wdtcon.h>
-
-**#include** "Mcu.h"
-
-**#include** "Port.h"
-
-**#include** "Can_17_MCanP.h"
-
-CanTSyn协议栈相关模块头文件
-
-**#include** "CanIf.h"
-
-**#include** "Gpt.h"
-
-**#include** "StbM.h"
-
-**#include** "CanTSyn.h"
-
-StbM_TimeStampType timestamp;
-
-StbM_UserDataType userData;
-
-Uint8 Data[8] = {0};
-
-Can_PduType PduInfo = {0,8,0x666,&Data[0]};
-
-**int** **main**\ (**void**)
-
-{
-
-/\*Initialize ECUM Module*/
-
-EcuM_Init(&EcuM_ConfigAlternative[0]);
-
-/\*Initialize FlsLoader*/
-
-FlsLoader_Init(NULL_PTR);
-
-StbM_Init(&StbM_Config);
-
-初始化Can、CanIf、CanTSyn、StbM模块
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-CanTSyn_Init(&CanTSyn_config);
-
-:mark:`CanIf_SetControllerMode`(0, *CANIF_CS_STARTED*);
-
-打开通信，主节点使用
-
-Gpt_EnableNotification(GptConf_GptChannel_Gpt_1ms);
-
-Gpt_StartTimer(GptConf_GptChannel_Gpt_1ms, 100000);
-
-Gpt_StartTimer(GptChannelConfiguration_STBM, 0xFFFFFFu);
-
-StbM_TimeStampType test1 = {0u};
-
-StbM_UserDataType test2 = {0u};
-
-test1.secondsHi = 0;
-
-作主节点需要添加初始化授时
-
-test1.seconds = 1696903810;
-
-test1.nanoseconds = 0;
-
-StbM_SetGlobalTime(0,&test1,&test2);
-
-/\* infinite loop \*/
-
-**while** (1)
-
-{
-
-   **if**\ (:mark:`Gpt_1msFlag` == TRUE)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-/\* please insert your code here ... \*/
-
-CanTSyn、StbM模块周期处理函数
-
-CanTSyn_MainFunction();
-
-   StbM_MainFunction();
-
-   StbM_GetCurrentTime(0, &timestamp,&userData\ **);**
-
-   PduInfo.sdu[0] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[1] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[2] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[3] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x000000ff));
-
-   PduInfo.sdu[4] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[5] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[6] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[7] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x000000ff));
-
-Can_Write(2, &PduInfo);
-
-做从节点时的测试代码：
-
-StbM_GetCurrentTime获取时间，将同步到的时间通过0x666报文转发出来
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/CanTSyn/code1.png
+   :width: 6.86736in
+   :height: 5.74583in
+
+.. figure:: ../../_static/集成手册/CanTSyn/code2.png
+   :width: 6.56736in
+   :height: 5.74583in
+
+.. figure:: ../../_static/集成手册/CanTSyn/code3.png
+   :width: 6.26736in
+   :height: 4.34583in
+
+.. figure:: ../../_static/集成手册/CanTSyn/code4.png
+   :width: 6.76736in
+   :height: 2.14583in
 
 验证结果
 --------
@@ -636,7 +502,7 @@ StbM_GetCurrentTime获取时间，将同步到的时间通过0x666报文转发�
    :width: 5.76736in
    :height: 3.94583in
 
-   图 5‑16 验证结果
+图 5‑16 验证结果
 
 .. |image1| image:: ../../_static/集成手册/CanTSyn/image2.png
    :width: 5.75625in
