@@ -2,16 +2,6 @@
 
 本仓库为小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.net/docs/)
 
-## 使用说明
-- 文档基于sphinx框架编写，需要安装python环境，以及按照如下安装python包
-```bat
-pip install sphinx
-pip install sphinx-rtd-theme
-```
-- 本地可以基于sphinx将文档渲染成html，在当前仓库根目录执行如下命名
-```bat
-make.bat html
-```
 ## 目录结构
 ```
 ├── source                  # 文档文件夹

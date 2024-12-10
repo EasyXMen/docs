@@ -3,32 +3,40 @@ BswM&EcuM_集成手册
 ===================
 
 
+目标
+====
 
-\ 应用软件 |
+该文档描述了系统服务模块BswM&EcuM的集成，旨在让该模块开发实施人员对该模块的应用有粗浅认知。
+
+本集成工程含有通信栈，网络管理栈，系统服务栈，通过系统服务栈实现对通信栈报文收发控制，及网络管理栈休眠唤醒和网络模式的请求等简单功能。通信栈及网路管理栈的集成请参照相关文档，本文档不做详细说明。
+
+说明：BswM模块涉及BSW模块很多（包括CAN通信、网络管理、诊断模块；LIN通信、网络管理、诊断模块以及EtherNet通信、网络管理、诊断模块等），配置根据需求可以非常灵活，无固定范式；EcuM模块根据节点功能需求配置也相对灵活。
+
+本文档只做入门之用，若要深入请研读AUTOSAR标准。由于各项目的需求不同，该集成示例不会针对于特定的商业项目做详细讲解。特定商业项目的主要集成问题，将在项目集成特殊说明章节讲述。
+
+
+
+.. table:: 表 2‑1 缩写词和术语
+
    +---------------+------------------------------------------------------+
-   | BSW           | Basic Software基础软件                               |
+   | **\           | **描述**                                             |
+   | 缩写词/术语** |                                                      |
    +---------------+------------------------------------------------------+
-   | MCAL          | -  Microcontroller Abstraction Layer微控制器抽象层   |
+   | BSW           | Basic Software 基础软件层                            |
    +---------------+------------------------------------------------------+
-   | CanIf         | CAN Interface module CAN接口模块                     |
+   | BswM          | Basic Software Mode Manager基础软件模式管理器        |
    +---------------+------------------------------------------------------+
-   | CanSM         | CAN State Manager module CAN状态管理器模块           |
+   | MCAL          | Microcontroller Abstraction Layer 微控制器抽象层     |
+   +---------------+------------------------------------------------------+
+   | CANIF         | CAN Interface module CAN接口模块                     |
+   +---------------+------------------------------------------------------+
+   | CanSm         | CAN State Manager module CAN状态管理器模块           |
    +---------------+------------------------------------------------------+
    | ComM          | Communication Manager module通信管理器模块           |
    +---------------+------------------------------------------------------+
    | EcuM          | ECU State Manager module ECU状态管理器模块           |
    +---------------+------------------------------------------------------+
-   | PduR          | PDU Router module PDU模块化路由器                    |
-   +---------------+------------------------------------------------------+
-   | Com           | Communication 通讯                                   |
-   +---------------+------------------------------------------------------+
-   | CanNm         | CAN Network Management CAN网络管理                   |
-   +---------------+------------------------------------------------------+
-   | NMIf          | Network Management Interface网络管理接口             |
-   +---------------+------------------------------------------------------+
-   | BswM          | Basic Software Mode Manager基础软件模式管理器        |
-   +---------------+------------------------------------------------------+
-   | EcuM          | -  ECU State Manager ECU状态管理器                   |
+   | SchM          | Scheduler Module调度程序模块                         |
    +---------------+------------------------------------------------------+
 
 参考文档
@@ -51,34 +59,34 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
 
 .. table:: 表 4‑1系统服务栈模块介绍
 
-   +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
-   | 块名**  |                                                            |
-   +---------+------------------------------------------------------------+
-   | EcuM    | 对ECU节点的运行状态进行管理                                |
-   +---------+------------------------------------------------------------+
-   | BswM    | 对整个BSW软件模块进行管理                                  |
-   +---------+------------------------------------------------------------+
++---------+------------------------------------------------------------+
+| **模\   | **功能**                                                   |
+| 块名**  |                                                            |
++---------+------------------------------------------------------------+
+| EcuM    | 对ECU节点的运行状态进行管理                                |
++---------+------------------------------------------------------------+
+| BswM    | 对整个BSW软件模块进行管理                                  |
++---------+------------------------------------------------------------+
 
 .. table:: 表 4‑2 协议栈集成的步骤
 
-   +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
-   +-----+--------------------------+------------------------------------+
-   | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
-   |     | Configurator配置工具     | ，则仅需进行协议栈模块的加载操作。 |
-   |     | 工程搭建和协议栈模块加载 |                                    |
-   +-----+--------------------------+------------------------------------+
-   | 2   | 模块配置及配置文件生成   | NA                                 |
-   +-----+--------------------------+------------------------------------+
-   | 3   | 代码集成                 | 现有工程、                         |
-   |     |                          | 协议栈源代码和配置生成文件的集成。 |
-   +-----+--------------------------+------------------------------------+
-   | 4   | 验证测试                 | NA                                 |
-   +-----+--------------------------+------------------------------------+
++-----+--------------------------+------------------------------------+
+|**步\| **操作**                 | **说明**                           |
+|骤** |                          |                                    |
+|     |                          |                                    |
+|     |                          |                                    |
++-----+--------------------------+------------------------------------+
+| 1   | ORIENTAIS                | 若配置工具已经搭建                 |
+|     | Configurator配置工具     | ，则仅需进行协议栈模块的加载操作。 |
+|     | 工程搭建和协议栈模块加载 |                                    |
++-----+--------------------------+------------------------------------+
+| 2   | 模块配置及配置文件生成   | NA                                 |
++-----+--------------------------+------------------------------------+
+| 3   | 代码集成                 | 现有工程、                         |
+|     |                          | 协议栈源代码和配置生成文件的集成。 |
++-----+--------------------------+------------------------------------+
+| 4   | 验证测试                 | NA                                 |
++-----+--------------------------+------------------------------------+
 
 **注意：协议栈集成之前，用户须确保已经有基础工程，且本协议栈相关的其他协议栈能正常工作。**
 
@@ -103,7 +111,7 @@ BswM和EcuM的使用非空中楼阁，需要建立在其他模块已经集成的
 
 ..
 
-   |image3|
+|image3|
 
 图4-3 新建工程添加新模块-3
 
@@ -167,22 +175,22 @@ Studio配置工具生成的配置代码。
 
 .. table:: 表 4‑3 协议栈集成约束清单
 
-   +-----+---------+-----------------------------------------------------+
-   | *   | *       | **约束限制**                                        |
-   | *编 | *类别** |                                                     |
-   | 号  |         |                                                     |
-   | **  |         |                                                     |
-   +-----+---------+-----------------------------------------------------+
-   | **  | 头文件  | -  添加                                             |
-   | 1** |         | 协议栈代码之后，用户需更新集成开发工具中的头文件路  |
-   |     |         | 径。调用协议栈API的源文件，需要包含协议栈的头文件。 |
-   +-----+---------+-----------------------------------------------------+
-   | **  | 初始化  | -  确                                               |
-   | 2** |         | 保EcuM_Init()和EcuM_StartupTwo()两个函数被正确调用  |
-   +-----+---------+-----------------------------------------------------+
-   | **  | 周      | -  EcuM_Ma                                          |
-   | 3** | 期函数  | inFunction()和BswM_MainFunction()需要放到周期任务。 |
-   +-----+---------+-----------------------------------------------------+
++-----+---------+-----------------------------------------------------+
+|**编\|**类别** | **约束限制**                                        |
+|号** |         |                                                     |
+|     |         |                                                     |
+|     |         |                                                     |
++-----+---------+-----------------------------------------------------+
+| **\ | 头文件  |添加                                                 |
+| 1** |         |\协议栈代码之后，用户需更新集成开发工具中的头文件路  |
+|     |         |\径。调用协议栈API的源文件，需要包含协议栈的头文件。 |
++-----+---------+-----------------------------------------------------+
+| **\ | 初始化  |确                                                   |
+| 2** |         |\保EcuM_Init()和EcuM_StartupTwo()两个函数被正确调用  |
++-----+---------+-----------------------------------------------------+
+| **\ | 周\     |EcuM_Ma                                              |
+| 3** | 期函数  |\inFunction()和BswM_MainFunction()需要放到周期任务。 |
++-----+---------+-----------------------------------------------------+
 
 集成示例
 ========
@@ -249,11 +257,11 @@ EcuM模块配置
 
 |image14|
 
+图5-7 配置EcuMDriverInitListOne - 2
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image16.png
    :width: 5.76736in
    :height: 3.09931in
-
-   图5-7 配置EcuMDriverInitListOne - 2
 
 图5-8 配置EcuMDriverInitListOne - 3
 
@@ -348,11 +356,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image30|
 
+图5-24 新建BswMUserIncludeFiles
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image36.png
    :width: 5.76736in
    :height: 3.86944in
-
-   图5-24 新建BswMUserIncludeFiles
 
 图5-25 配置BswMUserIncludeFiles
 
@@ -366,11 +374,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image32|
 
+图5-27 新建Rule
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image39.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-27 新建Rule
 
 图5-28 配置Rule
 
@@ -378,21 +386,21 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image33|
 
+图5-29 新建BswMModeRequestPort
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image41.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-29 新建BswMModeRequestPort
 
 图5-30 配置BswMModeRequestPort - 1
 
 |image34|
 
+图5-31 配置BswMModeRequestPort - 2
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image43.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-31 配置BswMModeRequestPort - 2
 
 图5-32 配置BswMModeRequestPort - 3
 
@@ -400,11 +408,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image35|
 
+图5-33 配置Mode的初始值 - 1
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image45.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-33 配置Mode的初始值 - 1
 
 图5-34 配置Mode的初始值 - 2
 
@@ -412,11 +420,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image36|
 
+图5-35 配置BswMLogicalExpression - 1
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image47.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-35 配置BswMLogicalExpression - 1
 
 图5-36 配置BswMLogicalExpression - 2
 
@@ -424,21 +432,21 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image37|
 
+图5-37 新建BswMModeCondition
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image49.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-37 新建BswMModeCondition
 
 图5-38 新建BswMModeCondition
 
 |image38|
 
+图5-39 配置BswMModeCondition - 1
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image51.png
    :width: 5.76736in
    :height: 3.13611in
-
-   图5-39 配置BswMModeCondition - 1
 
 图5-40 配置BswMModeCondition - 2
 
@@ -446,11 +454,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image39|
 
+图5-41 配置EventRequestPort - 1
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image53.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-41 配置EventRequestPort - 1
 
 图5-42 配置EventRequestPort - 2
 
@@ -458,11 +466,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image40|
 
+图5-43 配置BswMAction - 1
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image55.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-43 配置BswMAction - 1
 
 图5-44 配置BswMAction - 2
 
@@ -478,11 +486,11 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 |image43|
 
+图5-47 配置BswMActionList - 2
+
 .. figure:: ../../_static/集成手册/BswM&EcuM/image59.png
    :width: 5.76736in
    :height: 3.80069in
-
-   图5-47 配置BswMActionList - 2
 
 图5-48 配置BswMActionList - 3
 
@@ -540,156 +548,21 @@ BswM配置和代码调试均比较复杂，此处说明该模块的配置原则�
 
 **特别说明：**\ 在其他协议栈如网络管理栈或者通信栈正常运行前提下，添加该两个模块后需要在main.c文件main函数中在所有其他模块初始化之后（while（1）之前）调用EcuM_Init()和EcuM_StartupTwo()函数进行这两个模块的初始化，BswM模块的初始化函数在EcuM_StartupTwo()被调用，读者不需要特别关心。\ **这里特别说明两种情况：一种是MACL中一些模块和BSW中各模块初始化可以在EcuM模块工具进行配置，此情况下在调用EcuM_Init()函数中会间接调用各模块初始化函数将各模块初始化；另一种是各模块初始化都没有在EcuM模块工具进行配置，那这个时候需要将各模块初始化函数在main函数中按合理顺序进行调用将整个工程正常初始化。**
 
-**#include**\ <stdlib.h>
-
-**#include**"Std_Types.h"
-
-**#include**"Mcu.h"
-
-**#include**"Port.h"
-
-**#include**"Dio.h"
-
-**#include**"Irq.h"
-
-**#include**"Gpt.h"
-
-**#include**"Gtm.h"
-
-**#include**"Adc.h"
-
-**#include**"Can_17_MCanP.h"
-
-**#include**"Bsw_Test.h"
-
-**#include**"Icu_17_GtmCcu6.h"
-
-**#include**"Pwm_17_Gtm.h"
-
-**#include**"Spi.h"
-
-**#include**"CanIf.h"
-
-**#include**"Can_17_MCanP_Dbg.h"
-
-系统服务协议栈相关模块头文件
-
-**#include**"EcuM.h"
-
-**#include**"BswM.h"
-
-**intmain**\ (**void**)
-
-{
-
-Mcu_Init(Mcu_ConfigRoot);
-
-Mcu_InitClock(0);
-
-**while** (MCU_PLL_UNLOCKED == Mcu_GetPllStatus())
-
-{
-
-/\* wait for PLL locked \*/
-
-}
-
-Mcu_DistributePllClock();
-
-/\* IrqGtm_Init \*/
-
-IrqGtm_Init();
-
-/\* Port Initialize \*/
-
-Port_Init(&Port_ConfigRoot[0]);
-
-/\* GPT Initialize \*/
-
-Gpt_Init(&Gpt_ConfigRoot[0]);
-
-/\* *Gpt* enable 1ms notification,and start \*/
-
-Gpt_EnableNotification(GptConf_GptChannel_GptChannelConfiguration_0);
-
-Gpt_StartTimer(GptConf_GptChannel_GptChannelConfiguration_0, 6250);
-
-/\* CAN Initialize \*/
-
-Can_17_MCanP_Init(&Can_17_MCanP_ConfigRoot[0]);
-
-/\*Enable CAN*/
-
-Can_17_MCanP_SetControllerMode(Can_17_MCanPConf_CanController_CanController_0,
-CAN_T_START);S
-
-/\* CanIf Initialize \*/
-
-CanIf_Init(&CanIf_InitCfgSet);
-
-/\* *Adc* Initialize \*/
-
-Adc_Init(&Adc_ConfigRoot[0]);
-
-/\* *Icu* Initialize \*/
-
-Icu_17_GtmCcu6_Init(&Icu_ConfigRoot[0]);
-
-Icu_17_GtmCcu6_StartSignalMeasurement(ICU_17_GTMCCU6_INSTANCE_ID);
-
-/\* *Pwm* Initialize \*/
-
-Pwm_17_Gtm_Init(&Pwm_ConfigRoot[0]);
-
-/\* *Spi* Initialize \*/
-
-Spi_Init(&Spi_ConfigRoot[0]);
-
-EcuM_Init();
-
-EcuM_StartupTwo();
-
-/\* EnableallInterrupt*/
-
-Mcal_EnableAllInterrupts();
-
-**while**\ (1)
-
-{
-
-**if** (TRUE == Gpt_1msFlag)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-Run_msCounter();
-
-Can_17_MCanP_MainFunction_Write();
-
-Can_17_MCanP_MainFunction_Read();
-
-Can_17_MCanP_MainFunction_Wakeup();
-
-}
-
-**if** (TRUE == Gpt_10msFlag)
-
-{
-
-Gpt_10msFlag = FALSE;
-
-EcuM_MainFunction();
-
-BswM_MainFunction();
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/BswM&EcuM/code1.png
+   :width: 5.76736in
+   :height: 6.13611in
+
+.. figure:: ../../_static/集成手册/BswM&EcuM/code2.png
+   :width: 5.76736in
+   :height: 5.13611in
+
+.. figure:: ../../_static/集成手册/BswM&EcuM/code3.png
+   :width: 5.76736in
+   :height: 3.13611in
+
+.. figure:: ../../_static/集成手册/BswM&EcuM/code4.png
+   :width: 5.76736in
+   :height: 2.13611in
 
 验证结果
 --------

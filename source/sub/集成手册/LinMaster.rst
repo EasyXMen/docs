@@ -19,7 +19,7 @@ LinMaster_集成手册
 .. table:: 表格 2‑1 缩写词和术语
 
    +---------------+------------------------------------------------------+
-   | **            | **描述**                                             |
+   | **\           | **描述**                                             |
    | 缩写词/术语** |                                                      |
    +---------------+------------------------------------------------------+
    | BSW           | Basic Software 基础软件                              |
@@ -68,7 +68,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
 .. table:: 4‑1模块功能介绍
 
    +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
+   | **模\   | **功能**                                                   |
    | 块名**  |                                                            |
    +---------+------------------------------------------------------------+
    | Lin     | Lin驱动配置。(由MCAL工具导入)                              |
@@ -97,10 +97,10 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
 .. table:: 4‑2 集成步骤介绍
 
    +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
+   |**步\| **操作**                 | **说明**                           |
+   |骤** |                          |                                    |
+   |     |                          |                                    |
+   |     |                          |                                    |
    +-----+--------------------------+------------------------------------+
    | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
    |     | Configurator配置工具     | ，则仅需进行通信栈模块的加载操作。 |
@@ -125,7 +125,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.77153in
    :height: 2.62431in
 
-   4‑1 新建工程-1
+图4‑1 新建工程-1
 
 2. 菜单栏File🡪New🡪Project，新建工程
 
@@ -133,7 +133,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 4.92431in
    :height: 3.56389in
 
-   4‑2 新建工程-2
+图4‑2 新建工程-2
 
 3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next
 
@@ -141,7 +141,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 4.07097in
    :height: 3.88665in
 
-   4‑3 新建工程-3
+图4‑3 新建工程-3
 
 4. 在弹出的窗口中输入工程名，选择Finish
 
@@ -149,7 +149,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 4.75695in
    :height: 3.96308in
 
-   4‑4 新建工程-4
+图4‑4 新建工程-4
 
 5. 在弹出的窗口中选择Yes。
 
@@ -157,7 +157,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.64741in
    :height: 2.6267in
 
-   4‑5 新建工程-5
+图4‑5 新建工程-5
 
 6. 在工程的[Bsw_Builder]项目上右键，选择New ECU Configuration
 
@@ -173,7 +173,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.08523in
    :height: 4.89353in
 
-   4‑7 新建工程-7
+图4‑7 新建工程-7
 
 8. 在弹出的窗口中勾选需要添加的模块，点击Finish。
 
@@ -181,7 +181,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.56772in
    :height: 7.70328in
 
-   4‑8 新建工程-8
+图4‑8 新建工程-8
 
 9. 新建完成的工程如下所示，步骤⑦中添加的模块已经被加入到工程中。
 
@@ -189,7 +189,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 2.125in
    :height: 3.48958in
 
-   4‑9 新建工程-9
+图4‑9 新建工程-9
 
 模块配置及代码生成
 ------------------
@@ -231,7 +231,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 3.66718in
    :height: 4.96944in
 
-   4‑10 配置校验
+图4‑10 配置校验
 
 3. 然后选择Generate
    All，生成配置文件。右下角的输出框中会输出生成的配置文件信息。
@@ -240,7 +240,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 5.05766in
    :height: 3.83447in
 
-   4‑11 配置生成信息
+图4‑11 配置生成信息
 
 4. 在工程Config文件夹下即可查看生成的配置文件。
 
@@ -248,7 +248,7 @@ Configurator配置工具。通信栈细分为通信栈的各模块及其对应�
    :width: 3.04521in
    :height: 4.66669in
 
-   4‑12 Config代码生成
+图4‑12 Config代码生成
 
 功能集成
 --------
@@ -264,7 +264,7 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
 .. table:: 4‑4 通信栈源码文件
 
    +-----------+--------------------------------------------+------------+
-   | **移库    | **移库文件**                               | **说明**   |
+   | **移库\   | **移库文件**                               | **说明**   |
    | 文件夹**  |                                            |            |
    +-----------+--------------------------------------------+------------+
    | ComM      | ComM                                       | 通信栈源码 |
@@ -315,10 +315,10 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
 .. table:: 4‑5 集成约束清单
 
    +-----+---------+-----------------------------------------------------+
-   | *   | *       | **约束限制**                                        |
-   | *编 | *类别** |                                                     |
-   | 号  |         |                                                     |
-   | **  |         |                                                     |
+   |**编\|**类别** | **约束限制**                                        |
+   |号** |         |                                                     |
+   |     |         |                                                     |
+   |     |         |                                                     |
    +-----+---------+-----------------------------------------------------+
    | 1   | 中断    | 通信栈                                              |
    |     |         | 有中断、轮询或混合三种工作模式。若选取中断或混合模  |
@@ -326,16 +326,16 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
    +-----+---------+-----------------------------------------------------+
    | 2   | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
    +-----+---------+-----------------------------------------------------+
-   | 3   | 头文件  | -  添加通信                                         |
-   |     |         | 栈代码之后，用户需更新集成开发工具中的头文件路径。  |
+   | 3   | 头文件  |添加通信\                                            |
+   |     |         |栈代码之后，用户需更新集成开发工具中的头文件路径。   |
    |     |         |                                                     |
-   |     |         | -  调用通信栈API的源文件，需要包含通信栈的头文件。  |
+   |     |         |调用通信栈API的源文件，需要包含通信栈的头文件。      |
    +-----+---------+-----------------------------------------------------+
    | 4   | 初始化  | 以LIN通信                                           |
    |     |         | 为例，通信栈的初始化顺序为：Lin_Init、LinIf_Init、  |
    |     |         | PduR_Init、Com_Init、LinSM_Init。                   |
    +-----+---------+-----------------------------------------------------+
-   | 5   | 周      | Co                                                  |
+   | 5   | 周\     | Co                                                  |
    |     | 期函数  | m_MainFunctionRx、Com_MainFunctionTx、LinIf_MainFun |
    |     |         | ction、LinSM_MainFunction需要被周期性任务函数调用。 |
    +-----+---------+-----------------------------------------------------+
@@ -355,8 +355,8 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
 .. table:: 5‑1 通信报文配置
 
    +--------------+----------+-----+--------+---------------------------+
-   | **帧名称     | **       | **I | **Tx   | **关联帧**                |
-   | **           | 帧类型** | D** | \\Rx** |                           |
+   | **帧名称**   | **\      | **I\| **Tx   | **关联帧**                |
+   |              | 帧类型** | D** | \\Rx** |                           |
    +--------------+----------+-----+--------+---------------------------+
    | Li           | 无条件帧 | 0x1 | Tx     |                           |
    | nIfFrame_Tx1 |          |     |        |                           |
@@ -385,7 +385,7 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
    :width: 5.77153in
    :height: 4.39722in
 
-   5‑1 EcuC配置-1
+图5‑1 EcuC配置-1
 
 11. 在EcucConfigSets栏目上右键，选择EcucConfigSet。再在EcucConfigSet上右键，选择New🡪EcucPduCollection。
 
@@ -393,7 +393,7 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
    :width: 5.77153in
    :height: 3.23264in
 
-   5‑2 EcuC配置-2
+图5‑2 EcuC配置-2
 
 -  PduIdTypeEnum 选择UINT16.
 
@@ -405,7 +405,7 @@ Configurator配置生成代码。通信栈集成包括通信栈源码（LIN、Li
    :width: 5.77153in
    :height: 3.46181in
 
-   5‑3 EcuC配置-3
+图5‑3 EcuC配置-3
 
 这里按照发送和接收，将Pdu名字改为报文的名字。
 
@@ -417,7 +417,7 @@ PduLength：Pdu长度，根据实际使用帧的长度设置。
    :width: 5.77153in
    :height: 3.2375in
 
-   5‑4 EcuC配置-4
+图5‑4 EcuC配置-4
 
 14. 报文需要PDUR路由，每个方向需要配置2个Pdu。
 
@@ -437,7 +437,7 @@ PduLength：Pdu长度，根据实际使用帧的长度设置。
    :width: 4.35209in
    :height: 5.51429in
 
-   5‑5 LinIf配置-1
+图5‑5 LinIf配置-1
 
 2. LinIfGeneral标签页保持默认值即可。
 
@@ -448,7 +448,7 @@ PduLength：Pdu长度，根据实际使用帧的长度设置。
    :width: 5.77153in
    :height: 3.28681in
 
-   5‑6 LinIf配置-2
+图5‑6 LinIf配置-2
 
 LinIfChannel_0配置参数说明：
 
@@ -483,7 +483,7 @@ LinIfChannel_0配置参数说明：
    :width: 5.77153in
    :height: 3.30347in
 
-   5‑7 LinIf配置-3
+图5‑7 LinIf配置-3
 
 5. 按照步骤创建4个对象，根据章节5.1集成目标修改名字，并将LinIfFrameId设置为对应值。
 
@@ -491,7 +491,7 @@ LinIfChannel_0配置参数说明：
    :width: 5.77153in
    :height: 3.30417in
 
-   5‑8 LinIf配置-4
+图5‑8 LinIf配置-4
 
 下面对不同名称的帧各举一例说明配置参数。
 
@@ -533,7 +533,7 @@ LinIfFrame_Rx1报文LinFrame配置说明：
    :width: 4.88966in
    :height: 4.83847in
 
-   5‑9 LinIf配置-5
+图5‑9 LinIf配置-5
 
 7. 点击新建的LinTxPdu然后选择右边LinIfTxPduRef对象，要求和LinIfFrame名称对应，如LinIfFrame_Tx1对应LinIfFrame_Tx1。
 
@@ -541,7 +541,7 @@ LinIfFrame_Rx1报文LinFrame配置说明：
    :width: 5.42022in
    :height: 3.12196in
 
-   5‑10 LinIf配置-6
+图5‑10 LinIf配置-6
 
 以LinIfFrame_Tx1为例配置LinTxPdu配置参数：
 
@@ -579,7 +579,7 @@ LinIfFrame_Rx1报文LinFrame配置说明：
    :width: 4.93285in
    :height: 2.84361in
 
-   5‑11 LinIf配置-7
+图5‑11 LinIf配置-7
 
 LinIfScheduleTable_0配置说明：
 
@@ -600,7 +600,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.77153in
    :height: 3.28333in
 
-   5‑12 LinIf配置-8
+图5‑12 LinIf配置-8
 
 -  LinIfDelay：到调度表的下一个Entry之间的延时时间（单位：秒）
 
@@ -619,7 +619,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.71875in
    :height: 6.88542in
 
-   5‑13 Com配置-1
+图5‑13 Com配置-1
 
 2. ComGeneral标签页里面只需要配置ComSupportedIPduGroups参数，其余参数保持默认即可。ComSupportedIPduGroups是指IPduGroup的个数。IPduGroups会在ComConfig标签页中配置。后面的配置中将会配置2个IPduGroup，所以将这个参数配置为2。
 
@@ -627,7 +627,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.76736in
    :height: 4.03819in
 
-   5‑14 Com配置-2
+图5‑14 Com配置-2
 
 3. ComConfig下的两个参数不需要配置，保持默认即可。
 
@@ -635,7 +635,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.77153in
    :height: 3.30208in
 
-   5‑15 Com配置-3
+图5‑15 Com配置-3
 
 4. ComGwMapping为信号路由的配置，本次示例不需要信号路由，不需要创建对应对象。
 
@@ -647,7 +647,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.77153in
    :height: 3.29097in
 
-   5‑16 Com配置-4
+图5‑16 Com配置-4
 
 6. 配置ComIPduGroup。
 
@@ -659,7 +659,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.77153in
    :height: 3.32361in
 
-   5‑17 Com配置-5
+图5‑17 Com配置-5
 
 7. 配置ComSignal。
 
@@ -667,7 +667,7 @@ LinIfScheduleTable_0配置说明：
    :width: 5.77153in
    :height: 4.12153in
 
-   5‑18 Com配置-6
+图5‑18 Com配置-6
 
 ComSignal对象属性的配置（以信号ComSignal_Tx1为例）：
 
@@ -718,7 +718,7 @@ ComSignal对象属性的配置（以信号ComSignal_Tx1为例）：
    :width: 5.76597in
    :height: 3.37153in
 
-   5‑19 Com配置-7
+图5‑19 Com配置-7
 
 9. 配置ComIPdu属性。以IPDU_COM_LIN_Tx1为例说明：
 
@@ -750,13 +750,13 @@ ComSignal对象属性的配置（以信号ComSignal_Tx1为例）：
    :width: 4.64in
    :height: 3.33638in
 
-   5‑20 Com配置-8
+图5‑20 Com配置-8
 
 .. figure:: ../../_static/集成手册/LinMaster/image33.png
    :width: 4.67988in
    :height: 3.34928in
 
-   5‑21 Com配置-9
+图5‑21 Com配置-9
 
 10. 为发送报文配置ComTxIPdu（以IPDU_COM_LIN_Tx1为例）。每个发送IPdu，必须要配置一个ComTxIPdu，参数保持默认值即可。只发送报文需要配置。
 
@@ -764,7 +764,7 @@ ComSignal对象属性的配置（以信号ComSignal_Tx1为例）：
    :width: 5.77153in
    :height: 3.32222in
 
-   5‑22 Com配置-10
+图5‑22 Com配置-10
 
 11. 添加ComTxModeTrue对象（以IPDU_COM_LIN_Tx1为例）。
 
@@ -774,7 +774,7 @@ ComSignal对象属性的配置（以信号ComSignal_Tx1为例）：
    :width: 5.28149in
    :height: 2.98549in
 
-   5‑23 Com配置-11
+图5‑23 Com配置-11
 
 ComTxMode配置参数说明：
 
@@ -797,7 +797,7 @@ ComTxMode配置参数说明：
    :width: 3.89583in
    :height: 2.90625in
 
-   5‑24 PduR配置-1
+图5‑24 PduR配置-1
 
 2. PduRGeneral配置。
 
@@ -813,7 +813,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 3.20833in
 
-   5‑25 PduR配置-2
+图5‑25 PduR配置-2
 
 4. PduRRoutingTables配置。
 
@@ -823,7 +823,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 3.21458in
 
-   5‑26 PduR配置-3
+图5‑26 PduR配置-3
 
 5. 配置路由表。
 
@@ -833,7 +833,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 3.20139in
 
-   5‑27 PduR配置-4
+图5‑27 PduR配置-4
 
 6. 配置发送路由表。
 
@@ -843,13 +843,13 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 3.15208in
 
-   5‑28 PduR配置-5
+图5‑28 PduR配置-5
 
 .. figure:: ../../_static/集成手册/LinMaster/image41.png
    :width: 5.77153in
    :height: 3.14236in
 
-   5‑29 PduR配置-6
+图5‑29 PduR配置-6
 
 7. 配置接收路由表。
 
@@ -859,13 +859,13 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 3.21111in
 
-   5‑30 PduR配置-7
+图5‑30 PduR配置-7
 
 .. figure:: ../../_static/集成手册/LinMaster/image43.png
    :width: 5.77153in
    :height: 3.16736in
 
-   5‑31 PduR配置-8
+图5‑31 PduR配置-8
 
 8. 校验配置，无错误信息，PduR模块即配置完成。
 
@@ -878,7 +878,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.75in
    :height: 5.61458in
 
-   5‑32 ComM配置-1
+图5‑32 ComM配置-1
 
 2. ComMGeneral标签页中的参数保持默认即可。
 
@@ -890,19 +890,19 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 2.65625in
 
-   5‑33 ComM配置-2
+图5‑33 ComM配置-2
 
 .. figure:: ../../_static/集成手册/LinMaster/image46.png
    :width: 5.77153in
    :height: 2.67917in
 
-   5‑34 ComM配置-3
+图5‑34 ComM配置-3
 
 .. figure:: ../../_static/集成手册/LinMaster/image47.png
    :width: 5.77153in
    :height: 2.69653in
 
-   5‑35 ComM配置-4
+图5‑35 ComM配置-4
 
 4. 校验配置，无错误信息，ComM模块即配置完成。
 
@@ -915,7 +915,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 1.96667in
 
-   5‑36 LinSM配置-1
+图5‑36 LinSM配置-1
 
 2. LinSMGeneral标签页内各参数保持默认值。
 
@@ -936,13 +936,13 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77153in
    :height: 1.75417in
 
-   5‑37 LinSM配置-2
+图5‑37 LinSM配置-2
 
 .. figure:: ../../_static/集成手册/LinMaster/image50.png
    :width: 5.77153in
    :height: 1.77431in
 
-   5‑38 LinSM配置-3
+图5‑38 LinSM配置-3
 
 4. 校验配置，无错误信息，LinSM模块即配置完成。
 
@@ -955,7 +955,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 2.5in
    :height: 2.60417in
 
-   5‑39 工程目录结构
+图5‑39 工程目录结构
 
 #. Config目录，这个目录用来存放基础软件配置工具生成的配置文件。
 
@@ -968,143 +968,25 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
 
 #. 添加初始化函数和周期调用函数。
 
-+-----------------------------------------------------------------------+
-| Lin_Init(&Lin_Config);                                                |
-|                                                                       |
-| 初始化Lin、LinIf、LinSM模块                                           |
-|                                                                       |
-| LinIf_Init(NULL_PTR);                                                 |
-|                                                                       |
-| LinSM_Init(NULL_PTR);                                                 |
-|                                                                       |
-| /\* Initialize the *Pdur* module \*/                                  |
-|                                                                       |
-| 初始化PduR模块                                                        |
-|                                                                       |
-| PduR_Init(&PduR_PBConfigData);                                        |
-|                                                                       |
-| /\* Initialize the *Com* module \*/                                   |
-|                                                                       |
-| 初始化Com模块                                                         |
-|                                                                       |
-| Com_Init(&Com_PBConfigData);                                          |
-|                                                                       |
-| Com_SetIpduGroup(ipduGroupVector,Com_RxPduGroup_LinController_0,      |
-| TRUE);                                                                |
-|                                                                       |
-| Com_SetIpduGroup(ipduGroupVector,Com_TxPduGroup_LinController_0,      |
-| TRUE);                                                                |
-|                                                                       |
-| Com_ReceptionDMControl(ipduGroupVector);                              |
-|                                                                       |
-| 使能接收和发送IPduGroup                                               |
-|                                                                       |
-| Com_IpduGroupControl(ipduGroupVector, TRUE);                          |
-|                                                                       |
-| /\* Initialize the ComM module \*/                                    |
-|                                                                       |
-| 初始化ComM模块                                                        |
-|                                                                       |
-| ComM_Init(&ComM_Config);                                              |
-|                                                                       |
-| ComM_RequestComMode(ComMUser_0, COMM_FULL_COMMUNICATION);             |
-|                                                                       |
-| ComM_CommunicationAllowed(ComMChannel_0, TRUE);                       |
-|                                                                       |
-| 将配置的通道切换到FULL_COMMUNICATION                                  |
-+-----------------------------------------------------------------------+
+.. figure:: ../../_static/集成手册/LinMaster/code1.png
+   :width: 5.92736in
+   :height: 8.47583in
+
+
 
 3. 添加MainFunction函数
 
-+-----------------------------------------------------------------------+
-| /\*Task_5ms_Dcpd: Core0(CPU0),Type = BASIC, Priority = 6*/            |
-|                                                                       |
-| TASK(Task_5ms_Dcpd)                                                   |
-|                                                                       |
-| 启用lin协议栈通信                                                     |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| /\* please insert your code here ... \*/                              |
-|                                                                       |
-| ComM_MainFunction_ComMChannel_0();                                    |
-|                                                                       |
-| Com_ReceiveSignal(ComSignal_Rx1,&u1_ComTest);                         |
-|                                                                       |
-| Com_SendSignal(ComSignal_Tx1,&u1_ComTest);                            |
-|                                                                       |
-| Com_ReceiveSignal(ComSignal_Rx2,&u2_ComTest);                         |
-|                                                                       |
-| Com_SendSignal(ComSignal_Tx2,&u2_ComTest);                            |
-|                                                                       |
-| LIN信号的发送和接收                                                   |
-|                                                                       |
-| **if** (E_OK != TerminateTask())                                      |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| **while** (1)                                                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| /\*Task_50ms_Psc: Core0(CPU0),Type = BASIC, Priority = 5*/            |
-|                                                                       |
-| ComM_ModeType old_LinSM_State = COMM_NO_COMMUNICATION;                |
-|                                                                       |
-| ComM_ModeType new_LinSM_State = COMM_NO_COMMUNICATION;                |
-|                                                                       |
-| TASK(Task_50ms_Psc)                                                   |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| /\* please insert your code here ... \*/                              |
-|                                                                       |
-| LinIf_MainFunction();                                                 |
-|                                                                       |
-| 调用LinIf主函数和LinSM主函数                                          |
-|                                                                       |
-| LinSM_MainFunction();                                                 |
-|                                                                       |
-| LinSM_GetCurrentComMode(3,&new_LinSM_State);                          |
-|                                                                       |
-| 获取当前通信模式                                                      |
-|                                                                       |
-| **if** ((COMM_NO_COMMUNICATION == old_LinSM_State) &&                 |
-|                                                                       |
-| (COMM_FULL_COMMUNICATION == new_LinSM_State))                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| 更新调度表                                                            |
-|                                                                       |
-| LinSM_ScheduleRequest(3,1);                                           |
-|                                                                       |
-| old_LinSM_State = new_LinSM_State;                                    |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| **if** (E_OK != TerminateTask())                                      |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| **while** (1)                                                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| /\* dead loop \*/                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+-----------------------------------------------------------------------+
+.. figure:: ../../_static/集成手册/LinMaster/code2.png
+   :width: 5.81736in
+   :height: 5.84583in
+
+.. figure:: ../../_static/集成手册/LinMaster/code3.png
+   :width: 5.77736in
+   :height: 3.79583in
+
+.. figure:: ../../_static/集成手册/LinMaster/code4.png
+   :width: 5.84736in
+   :height: 4.07583in
 
 验证结果
 --------
@@ -1117,7 +999,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 4.73958in
    :height: 5.13542in
 
-   5‑40 PLIN配置
+图5‑40 PLIN配置
 
 2. 接通PLIN可以在Receive窗口看到主机发送来的报文
 
@@ -1125,7 +1007,7 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.76528in
    :height: 3.32847in
 
-   5‑41 接收报文验证
+图5‑41 接收报文验证
 
 3. 在Publish窗口创建两个从机发送报文，并发送数据，可以在Receive
    窗口看到主机收到的报文：
@@ -1134,4 +1016,4 @@ PduR模块的目的是实现上层模块到下层模块的路由。PduRBswModule
    :width: 5.77014in
    :height: 3.8in
 
-   5‑42发送报文验证
+图5‑42发送报文验证
