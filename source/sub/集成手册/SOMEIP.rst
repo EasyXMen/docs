@@ -7,19 +7,19 @@ SOMEIP_集成手册
 +----------+--------+------+---------+-------------------------------+
 | 日期     | 作者   | 版本 | 状态    | 说明                          |
 +==========+========+======+=========+===============================+
-| 20       | 吴挺伟 | V0.1 | 【      | 初版                          |
+| 20\      | 吴挺伟 | V0.1 | 【      | 初版                          |
 | 22/10/26 |        |      | 初稿】  |                               |
 +----------+--------+------+---------+-------------------------------+
-| 2        | 吴挺伟 | V0.2 | 【      | 修改Sd、                      |
+| 2\       | 吴挺伟 | V0.2 | 【      | 修改Sd、\                     |
 | 023/2/15 |        |      | 修改】  | SomeIpTp、SomeIpXf参考文件名  |
 +----------+--------+------+---------+-------------------------------+
-| 2        | 陈伯奇 | V1.0 | 【      | 1.更新4.2.1参考手册名称名称修 |
-| 024/7/16 |        |      | 发布】  | 改2.修改4.3.1参考章节引用错误 |
+| 2\       | 陈伯奇 | V1.0 | 【      | 1.更新4.2.1参考手册名称名称修\|
+| 024/7/16 |        |      | 发布】  | 改2.修改4.3.1参考章节引用错误\|
 |          |        |      |         | 3.4.1章节第7步增加截图        |
-|          |        |      |         | 4.删除5.3章节第3步            |
+|          |        |      |         | 4.删除5.3章节第3步\           |
 |          |        |      |         | “添加调度文件，点击应用保存。 |
-|          |        |      |         | 5.5.4章                       |
-|          |        |      |         | 节main函数中代码修改为ComM_C  |
+|          |        |      |         | 5.5.4章\                      |
+|          |        |      |         | 节main函数中代码修改为ComM_C\ |
 |          |        |      |         | hComAllow(ComMUser_ETH,TRUE); |
 |          |        |      |         | 6.修改截图                    |
 +----------+--------+------+---------+-------------------------------+
@@ -43,7 +43,7 @@ SOMEIP_集成手册
 .. table:: 表 2‑1 缩写词和术语
 
    +------------+---------------------------------------------------------+
-   | **缩写     | **描述**                                                |
+   | **缩写\    | **描述**                                                |
    | 词/术语**  |                                                         |
    +------------+---------------------------------------------------------+
    | SoAd       | Socket Adapter 将socket的数据和PDU进行转换              |
@@ -204,23 +204,23 @@ Configurator配置生成代码。SOMEIP集成包括SOMEIP源码（SD、SomeipXf�
 表4-1 SOMEIP集成约束清单
 
 +-----+---------+-----------------------------------------------------+
-| *   | *       | **约束限制**                                        |
-| *编 | *类别** |                                                     |
-| 号  |         |                                                     |
-| **  |         |                                                     |
+|**\  |         | **约束限制**                                        |
+|编\  |**类别** |                                                     |
+|号** |         |                                                     |
+|     |         |                                                     |
 +-----+---------+-----------------------------------------------------+
-| **  | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
+| **\ | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
 | 1** |         |                                                     |
 +-----+---------+-----------------------------------------------------+
-| **  | 头文件  | -  添加协议                                         |
-| 2** |         | 栈代码之后，用户需更新集成开发工具中的头文件路径。  |
+| **\ | 头文件  | - 添加协议\                                         |
+| 2** |         |   栈代码之后，用户需更新集成开发工具中的头文件路径。|
 |     |         |                                                     |
-|     |         | -  调用协议栈API的源文件，需要包含协议栈的头文件。  |
+|     |         | - 调用协议栈API的源文件，需要包含协议栈的头文件。   |
 +-----+---------+-----------------------------------------------------+
-| **  | 初始化  | SOMEIP协议栈的初始化顺序为：EthIf_Init, TcpIp_Init, |
+| **\ | 初始化  | SOMEIP协议栈的初始化顺序为：EthIf_Init, TcpIp_Init, |
 | 3** |         | SoAd_Init，SomeIpXf_Init，Sd_Init。                 |
 +-----+---------+-----------------------------------------------------+
-| **  | 周      | EthSM_Ma                                            |
+| **\ | 周\     | EthSM_Ma                                            |
 | 4** | 期函数  | inFunction,EthIf_MainFunctionState,Sd_MainFunction, |
 |     |         | ComM_MainFu                                         |
 |     |         | nction\_<ComMChannel_ETH>需要被周期性任务函数调用。 |
@@ -319,8 +319,8 @@ EcuC模块配置
 ⑤配置4个PDU用于加法运算服务的收发，pdu长度为500，
 SoAd_SdInstance0_AddMethodReq、LdCom_SdInstance0_AddMethodReq、SoAd_SdInstance0_AddMethodResp、LdCom_SdInstance0_AddMethodResp；
 
-   配置3个PDU用于用于SD模块的单/多播收发，pdu长度1400，
-   SdInstance0_Unicast_Rx、SdInstance0_Multicast_Rx、SdInstance0_Tx。
+配置3个PDU用于用于SD模块的单/多播收发，pdu长度1400，
+SdInstance0_Unicast_Rx、SdInstance0_Multicast_Rx、SdInstance0_Tx。
 
 .. figure:: ../../_static/集成手册/SOMEIP/image15.png
    :width: 5.77153in
@@ -825,209 +825,17 @@ Xfrm模块配置
 **注意 :
 本示例中，**\ SOMEIP\ **初始化的代码和启动通信的代码置于main.c文件，并不代表其他项目同样适用于将其置于main.c文件中。**
 
-#include "Timer.h"
-
-#include "Led.h"
-
-#include "Mcal_User.h"
-
-#include "UserTimer.h"
-
-#include "Dio.h"
-
-#include "ComM.h"
-
-#include "ComM_Internal.h"
-
-#include "Can.h"
-
-#include "E2EXf.h"
-
-#include "CanNm.h"
-
-#include "ComM.h"
-
-#include "ComM_Internal.h"
-
-#include "EthIf.h"
-
-#include "EthSM.h"
-
-#include "TcpIp.h"
-
-#include "SoAd.h"
-
-#include "LdCom.h"
-
-#include "TestCase.h"
-
-#include "Wdg.h"
-
-#include "WdgM.h"
-
-#include "Mcu.h"
-
-#include "ringbuf.h"
-
-#include "Sd.h"
-
-#include "SomeIpXf.h"
-
-int main(void)
-
-{
-
-    eth_ringbuf_init(&g_EthRingBufManager, &g_EthRxPduBuf, ARRAR_SIZE(g_EthRxPduBuf));
-
-McalUser_Init();
-
-    PduR_Init(&PduR_PBConfigData);
-
-    ComM_Init(&ComM_Config);
-
-    
-
-    EthIf_Init(&EthIf_ConfigData);
-
-    EthSM_Init();
-
-    TcpIp_Init(&TcpIp_Config);
-
-    SoAd_Init(&SoAd_Config);
-
-    LdCom_Init(&LdCom_InitCfgSet);
-
-    SomeIpXf_Init(&SomeIpXf_Config);
-
-    Sd_Init(&Sd_Config);
-
- 
-
-    ComM_ChComAllow(ComMUser_ETH,TRUE);
-
-    ComM_RequestComMode(ComMUser_Eth, COMM_FULL_COMMUNICATION);
-
-    
-
-    while (1)
-
-    {    
-
-        if (UserTimer_GetFlag1ms())
-
-        {
-
-            EthSM_MainFunction();
-
-            UserTimer_ClrFlag1ms();
-
-        }
-
-        if (UserTimer_GetFlag2ms())
-
-        {
-
-            EthIf_MainFunctionState();
-
-            UserTimer_ClrFlag2ms();
-
-   }
-
-        if (UserTimer_GetFlag5ms())
-
-        {
-
-            ethif_read_buf();
-
-            
-
-            
-
-            TcpIp_MainFunction();
-
-            SoAd_MainFunction();
-
-            ComM_MainFunction(ComMUser_Eth);
-
-            UserTimer_ClrFlag5ms();
-
-        }
-
-        if (UserTimer_GetFlag10ms())
-
-        {
-
-           TestCase_Send_EthPdu();
-
-           Sd_MainFunction();
-
-           
-
-           UserTimer_ClrFlag10ms();
-
-        }
-
-    }
-
-}
-
+.. figure:: ../../_static/集成手册/SOMEIP/image_code_1.png
+   :width: 5.77153in
+.. figure:: ../../_static/集成手册/SOMEIP/image_code_2.png
+   :width: 5.77153in
+   
 SomeIpXf相关的代码示例需要在LdCom添加函数实现：
 
-#include "SomeIpXf.h"
-
-/\*实现一个加法运算服务*/
-
-void LdComRxInd_SdInstance0_AddMethodReq(const PduInfoType\* PduInfoPtr)
-
-{
-
-    if ((NULL_PTR != PduInfoPtr) && (NULL_PTR != PduInfoPtr->SduDataPtr))
-
-    {
-
-        AddMethodReq request;
-
-        Rte_Cs_TransactionHandleType TransactionHandle;
-
-        if (E_OK == SomeIpXf_Inv_AddMethodReq(&TransactionHandle, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, &request))
-
-        {
-
-            uint8 data[128];
-
-            uint32 sum = request.number_a + request.number_b;
-
-            uint16 length = 0;
-
-       **    ** if (E_OK == SomeIpXf_AddMethodResp(&TransactionHandle, data, &length, &sum))
-
-            {
-
-                PduInfoType pdu;
-
-                pdu.SduLength = length;
-
-                pdu.SduDataPtr = data;
-
-                pdu.MetaDataPtr = NULL_PTR;
-
-                LdCom_Transmit(SdInstance0_AddMethodResp, &pdu);
-
-            }
-
-        }
-
-    }
-
-}
-
-void LdComTxConf_SdInstance0_AddMethodResp(void)
-
-{
-
-    
-
-}
+.. figure:: ../../_static/集成手册/SOMEIP/image_code_3.png
+   :width: 5.77153in
+.. figure:: ../../_static/集成手册/SOMEIP/image_code_4.png
+   :width: 5.77153in
 
 验证结果
 --------

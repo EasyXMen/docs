@@ -19,7 +19,7 @@ EthTSyn_集成手册
 .. table:: 表 2-1 缩写词和术语
 
    +---------------+------------------------------------------------------+
-   | **            | **描述**                                             |
+   | **\           | **描述**                                             |
    | 缩写词/术语** |                                                      |
    +---------------+------------------------------------------------------+
    | EthIf         | Eth 通信的接口模块                                   |
@@ -51,7 +51,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
 .. table:: 表 4-1 以太网时间同步协议栈各配置模块介绍
 
    +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
+   | **模\   | **功能**                                                   |
    | 块名**  |                                                            |
    +---------+------------------------------------------------------------+
    | Eth     | Eth驱动配置。                                              |
@@ -68,10 +68,10 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
 .. table:: 表 4-2 以太网时间同步协议栈集成的步骤
 
    +-----+--------------------------+------------------------------------+
-   | *   | **操作**                 | **说明**                           |
-   | *步 |                          |                                    |
-   | 骤  |                          |                                    |
-   | **  |                          |                                    |
+   |**步\| **操作**                 | **说明**                           |
+   |骤** |                          |                                    |
+   |     |                          |                                    |
+   |     |                          |                                    |
    +-----+--------------------------+------------------------------------+
    | 1   | ORIENTAIS                | 若配置工具已经搭建                 |
    |     | Configurator配置工具     | ，则仅需进行协议栈模块的加载操作。 |
@@ -96,7 +96,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 5.76389in
    :height: 3.06042in
 
-   图 4-1 新建工程-1
+图 4-1 新建工程-1
 
 2. 菜单栏File🡪New🡪Project，新建工程。
 
@@ -104,19 +104,23 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 5.75625in
    :height: 3.17292in
 
-   图 4-2 新建工程-2
+图 4-2 新建工程-2
 
 3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。
 
-..
+.. figure:: ../../_static/集成手册/EthTSyn/image3.png
+   :width: 5.75625in
+   :height: 3.17292in
 
-   图 4-3 新建工程-3
+图 4-3 新建工程-3
 
 4. 在弹出的窗口中输入工程名，选择Finish。
 
-..
+.. figure:: ../../_static/集成手册/EthTSyn/image4.png
+   :width: 5.75625in
+   :height: 3.17292in
 
-   图 4-4 新建工程-4
+图 4-4 新建工程-4
 
 5. 在弹出的窗口中选择Yes。
 
@@ -124,7 +128,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 4.06777in
    :height: 1.90141in
 
-   图 4-5 新建工程-5
+图 4-5 新建工程-5
 
 6. 选择[Bsw_Builder]，右键单击，选择New ECU Configuration。
 
@@ -132,15 +136,13 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 4.29931in
    :height: 1.97778in
 
-   图 4-6 新建工程-6
+图 4-6 新建工程-6
 
 7. 在弹出的窗口中输入ECU名，然后选择Next。
 
+此处以TC397为例，用户根据项目芯片进行选择。
+
 |image1|
-
-此处以TC397为例，
-
-用户根据项目芯片进行选择。
 
 图 4-7 新建工程-7
 
@@ -150,7 +152,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 3.20076in
    :height: 4.48569in
 
-   图 4-8 新建工程-8
+图 4-8 新建工程-8
 
 9. 新建工程如下所示，上一步添加的模块已经被加入到工程中。
 
@@ -158,7 +160,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 1.70812in
    :height: 1.0832in
 
-   图 4-9 新建工程-9
+图 4-9 新建工程-9
 
 模块配置及代码生成
 ------------------
@@ -171,7 +173,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
 .. table:: 表 4-3 协议栈各模块配置参考文档
 
    +--------+----------------------------------------+-------------------+
-   | **     | **参考文档**                           | **说明**          |
+   | **\    | **参考文档**                           | **说明**          |
    | 模块** |                                        |                   |
    +--------+----------------------------------------+-------------------+
    | Eth    | MCAL对应的Eth配置手册                  |                   |
@@ -190,7 +192,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 5.76667in
    :height: 4.05139in
 
-   图 4-10 配置代码的生成-1
+图 4-10 配置代码的生成-1
 
 2. 选择Validate
    All对本协议栈各配置选项进行校验，没有错误提示信息即校验通过。若有错误信息，请按照错误提示修改。
@@ -202,7 +204,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 5.76736in
    :height: 2.24792in
 
-   图 4-11 配置代码的生成-2
+图 4-11 配置代码的生成-2
 
 4. 将ORIENTAIS Configurator切换到Resource模式，即可查看生成的配置文件。
 
@@ -210,7 +212,7 @@ Configurator配置工具。协议栈细分为协议栈的各模块及其对应�
    :width: 5.76736in
    :height: 3.88403in
 
-   图 4-12 配置代码的生成-3
+图 4-12 配置代码的生成-3
 
 功能集成
 --------
@@ -249,9 +251,11 @@ StbM模块配置
 
 #. 双击StbM模块，打开StbM模块的配置界面。
 
-..
+.. figure:: ../../_static/集成手册/EthTSyn/image13.png
+   :width: 5.75625in
+   :height: 3.17292in
 
-   图 5-1 StbMGeneral配置界面
+图 5-1 StbMGeneral配置界面
 
 2. 在StbMGeneral下，每个选项具体注释意思可在右下角查找。
 
@@ -261,13 +265,19 @@ StbM模块配置
 
    其他配置项客户可按OEM需求配置，此处配置只是简单Demo配置。
 
-   图 5-2 StbMSynchronizedTimeBase配置界面-1
+.. figure:: ../../_static/集成手册/EthTSyn/image14.png
+   :width: 5.75625in
+   :height: 3.17292in
+
+图 5-2 StbMSynchronizedTimeBase配置界面-1
 
 4. StbMSynchronizedTimeBases->StbMSynchronizedTimeBase->StbMLocalTimeClocks->StbMLocalTimeClock的配置：
 
-..
+.. figure:: ../../_static/集成手册/EthTSyn/image15.png
+   :width: 5.75625in
+   :height: 2.17292in
 
-   图 5-3 StbMSynchronizedTimeBase配置界面-2
+图 5-3 StbMSynchronizedTimeBase配置界面-2
 
    StbMClockFrequency中填写StbM所引用的Gpt定时器的时钟频率。若是Eth时钟则默认1000000000。
 
@@ -279,7 +289,7 @@ StbM模块配置
    :width: 5.24167in
    :height: 2.47778in
 
-   图 5-4 StbMLocalTimeCorrection配置界面
+图 5-4 StbMLocalTimeCorrection配置界面
 
 StbMAllowMasterRateCorrection如果主节点启用correction功能则需要开启。
 
@@ -304,7 +314,7 @@ EthTSyn模块配置
    :width: 5.76736in
    :height: 3.19097in
 
-   图 5-5 EthTSynGeneral配置界面
+图 5-5 EthTSynGeneral配置界面
 
 2. 在EthTSynGeneral下，每个选项具体注释意思可在右下角查找。此容器下需要注意EthTSynDestPhyAddr，此容器建立时目标的MAC地址会默认为01:80:C2:00:00:0E（此地址为多播地址，支持多MAC主节点授时），此处需要客户按整车分配地址重新填写。
 
@@ -318,7 +328,7 @@ EthTSyn模块配置
    :width: 5.76111in
    :height: 2.24375in
 
-   图 5-6 EthTSynGlobalTimeDomain配置界面
+图 5-6 EthTSynGlobalTimeDomain配置界面
 
 4. 在EthTSynGlobalTimeSlave下，EthTSynRxCrcValidated选择无CRC校验模式，EthTSynGlobalTimeFollowUpTimeout配置为300ms。EthTSynGlobalTimeSequenceCounterJumpWidth设置为1，将检查两个连续同步之间的
    SC
@@ -329,7 +339,7 @@ EthTSyn模块配置
    :width: 5.75208in
    :height: 2.25625in
 
-   图 5-7 EthTSynGlobalTimeSlave配置界面
+图 5-7 EthTSynGlobalTimeSlave配置界面
 
 5. 在EthTSynGlobalTimeMaster下，EthTSynRxCrcValidated选择无CRC校验模式，EthTSynCyclicMsgResumeTime配置为500ms，EthTSynGlobalTimeTxPeriod配置为1s，EthTSynImmediateTimeSync选择为TRUE。
 
@@ -337,7 +347,7 @@ EthTSyn模块配置
    :width: 5.75208in
    :height: 2.25625in
 
-   图 5-8 EthTSynGlobalTimeMaster配置界面
+图 5-8 EthTSynGlobalTimeMaster配置界面
 
 6. 在EthTSynPortConfig下，
    EthTSynGlobalTimeDebounceTime配置为10ms，EthTSynGlobalTimeEthIfRef此处引用Ethif配置的Eth驱动模块。
@@ -346,7 +356,7 @@ EthTSyn模块配置
    :width: 5.76458in
    :height: 2.86944in
 
-   图 5-9 EthTSynPortConfig配置界面
+图 5-9 EthTSynPortConfig配置界面
 
 源代码集成
 ----------
@@ -357,7 +367,7 @@ EthTSyn模块配置
    :width: 3.25069in
    :height: 2.90069in
 
-   图 5-10 工程结构目录
+图 5-10 工程结构目录
 
 -  Bsw_Config目录，这个目录用来存放配置工具生成的配置文件，EthIf、StbM、EthTSyn有关的配置文件放在Bsw_Config文件夹下。
 
@@ -366,133 +376,21 @@ EthTSyn模块配置
 协议栈调度集成
 --------------
 
-**#include** <machine/wdtcon.h>
+.. figure:: ../../_static/集成手册/EthTSyn/code1.png
+   :width: 6.47736in
+   :height: 0.50583in
 
-**#include** "Mcu.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code2.png
+   :width: 6.76736in
+   :height: 6.41583in
 
-**#include** "Port.h"
+.. figure:: ../../_static/集成手册/EthTSyn/code3.png
+   :width: 6.70736in
+   :height: 2.71583in
 
-**#include** "Eth_17_GEthMac.h"
-
-EthTSyn协议栈相关模块头文件
-
-**#include** "EthIf.h"
-
-**#include** "Gpt.h"
-
-**#include "**\ StbM.h\ **"**
-
-**#include "**\ EthTSyn.h"
-
-**int** **main**\ (**void**)
-
-{
-
-Gpt_EnableNotification(GptConf_GptChannel_Gpt_1ms);
-
-Gpt_StartTimer(GptConf_GptChannel_Gpt_1ms, 100000);
-
-Gpt_StartTimer(GptChannelConfiguration_STBM, 0xFFFFFFu);
-
-StbM_Init(&StbM_Config);
-
-Eth_17_GEthMac_Init(&Eth_17_GEthMac_Config);
-
-EthIf_Init(&EthIf_ConfigData);
-
-初始化Eth、EthIf、EthTSyn、StbM模块
-
-EthTSyn_Init(&EthTSyn_Config);
-
-EthTSyn_SetTransmissionMode(0,ETHTSYN_TX_ON);
-
-打开通信，主节点使用
-
-StbM_TimeStampType test1 = {0u};
-
-StbM_UserDataType test2 = {0u};
-
-test1.secondsHi = 0;
-
-作主节点需要添加初始化授时
-
-test1.seconds = 1696903810;
-
-test1.nanoseconds = 0;
-
-StbM_SetGlobalTime(0,&test1,&test2);
-
-**while** (1)
-
-{
-
-   **if**\ (:mark:`Gpt_1msFlag` == TRUE)
-
-{
-
-Gpt_1msFlag = FALSE;
-
-}
-
-**if**\ (Gpt_10msFlag == TRUE)
-
-{
-
-/\* please insert your code here ... \*/
-
-EthTSyn、StbM模块周期处理函数
-
-EthTSyn_MainFunction();
-
-   StbM_MainFunction();
-
-   StbM_GetCurrentTime(0, &timestamp,&userData\ **);**
-
-   PduInfo.sdu[0] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[1] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[2] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[3] =
-
-   (uint8)((StbM_TimeStamp.seconds & 0x000000ff));
-
-   PduInfo.sdu[4] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0xff000000) >> 24);
-
-   PduInfo.sdu[5] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x00ff0000) >> 16);
-
-   PduInfo.sdu[6] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x0000ff00) >> 8);
-
-   PduInfo.sdu[7] =
-
-   (uint8)((StbM_TimeStamp.nanoseconds & 0x000000ff));
-
-Can_Write(2, &PduInfo);
-
-做从节点时的测试代码：
-
-StbM_GetCurrentTime获取时间，将同步到的时间通过0x666报文转发出来，用于调试。
-
-}
-
-}
-
-**return** 1;
-
-}
+.. figure:: ../../_static/集成手册/EthTSyn/code4.png
+   :width: 6.76736in
+   :height: 5.14583in
 
 验证结果
 --------
@@ -503,7 +401,7 @@ StbM_GetCurrentTime获取时间，将同步到的时间通过0x666报文转发�
    :width: 5.76736in
    :height: 3.10903in
 
-   图 5-11 时间同步模块验证结果
+图 5-11 时间同步模块验证结果
 
 .. |image1| image:: ../../_static/集成手册/EthTSyn/image7.png
    :width: 3.72569in

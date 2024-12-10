@@ -104,7 +104,7 @@ FlashTest集成的步骤。
 .. table:: 表 4‑1 FlashTest各配置模块介绍
 
    +---------+------------------------------------------------------------+
-   | **模    | **功能**                                                   |
+   | **模\   | **功能**                                                   |
    | 块名**  |                                                            |
    +---------+------------------------------------------------------------+
    | Fl      | 内存块测试块配置。                                         |
@@ -114,10 +114,10 @@ FlashTest集成的步骤。
 .. table:: 表 4‑2 FlashTest集成的步骤
 
    +-----+---------------------------+-----------------------------------+
-   | *   | **操作**                  | **说明**                          |
-   | *步 |                           |                                   |
-   | 骤  |                           |                                   |
-   | **  |                           |                                   |
+   |**步\| **操作**                  | **说明**                          |
+   |骤** |                           |                                   |
+   |     |                           |                                   |
+   |     |                           |                                   |
    +-----+---------------------------+-----------------------------------+
    | 1   | ORIENTAIS                 | 若配置工具已经搭建，则            |
    |     | Configurator配置工具工    | 仅需进行FlashTest模块的加载操作。 |
@@ -142,7 +142,7 @@ FlashTest集成的步骤。
    :width: 4.49005in
    :height: 3.25694in
 
-   图 4‑1软件主界面
+图 4‑1 软件主界面
 
 2. 菜单栏File🡪New🡪Project，新建工程。
 
@@ -150,11 +150,13 @@ FlashTest集成的步骤。
    :width: 4.7132in
    :height: 3.42708in
 
-   图 4‑2新建工程
+图 4‑2 新建工程
 
-3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。 |image1|
+3. 在弹出的新建窗口中选择Autosar下的 [BSW Project]，选择Next。 
 
-图 4‑3新建工程
+|image1|
+
+图 4‑3 新建工程
 
 4. 在弹出的窗口中输入工程名，选择Finish。
 
@@ -162,27 +164,47 @@ FlashTest集成的步骤。
    :width: 4.16875in
    :height: 3.32986in
 
-   图 4‑4新建工程
+图 4‑4 新建工程
 
 5. 在弹出的窗口中选择Yes。
 
-图 4‑5完成新建工程
+.. figure:: ../../_static/集成手册/FlashTest/image5.png
+   :width: 4.16875in
+   :height: 3.32986in
+
+图 4‑5 完成新建工程
 
 6. 选择[Bsw_Builder]，右键单击，选择New ECU Configuration。
 
-图 4‑6新建ECU
+.. figure:: ../../_static/集成手册/FlashTest/image6.png
+   :width: 4.16875in
+   :height: 1.32986in
+
+图 4‑6 新建ECU
 
 7. 在弹出的窗口中输入ECU名，然后选择Next。
 
-图 4‑7选择芯片平台
+.. figure:: ../../_static/集成手册/FlashTest/image7.png
+   :width: 4.16875in
+   :height: 3.32986in
+
+图 4‑7 选择芯片平台
 
 8. 在弹出的窗口中勾选需添加的模块，点击Finish。
 
-图 4‑8完成ECU配置
+.. figure:: ../../_static/集成手册/FlashTest/image8.png
+   :width: 4.16875in
+   :height: 3.32986in
+
+图 4‑8 完成ECU配置
 
 9. 新建工程如下所示，步骤⑧中添加的模块已经被加入到工程中。
 
-图 4‑9工程列表界面
+.. figure:: ../../_static/集成手册/FlashTest/image9.png
+   :width: 4.16875in
+   :height: 1.32986in
+
+图 4‑9 工程列表界面
 
 模块配置及生产代码
 ------------------
@@ -196,7 +218,11 @@ FlashTest集成的步骤。
    Configurator主界面左方，选择对应的协议栈，单击右键弹出Validate
    All和Generate All菜单。
 
-图 4‑10代码生成
+.. figure:: ../../_static/集成手册/FlashTest/image10.png
+   :width: 4.16875in
+   :height: 2.32986in
+
+图 4‑10 代码生成
 
 2. 选择Validate
    All对本协议栈各配置选项进行校验，没有错误提示信息即校验通过。若有错误信息，请按照错误提示修改。
@@ -204,7 +230,11 @@ FlashTest集成的步骤。
 3. 选择Generate
    All，生成配置文件。右下角的Console窗口输出生成的配置文件信息。
 
-图 4‑11代码生成提示界面
+.. figure:: ../../_static/集成手册/FlashTest/image11.png
+   :width: 4.16875in
+   :height: 2.32986in
+
+图 4‑11 代码生成提示界面
 
 4. 将ORIENTAIS Configurator切换到Resource模式，即可查看生成的配置文件。
 
@@ -212,7 +242,7 @@ FlashTest集成的步骤。
    :width: 5.76736in
    :height: 3.58125in
 
-   图 4‑12生成的配置文件
+图 4‑12 生成的配置文件
 
 功能集成
 --------
@@ -235,37 +265,37 @@ FlashTest集成约束清单。用户需逐一排查表中的约束项，以避�
 .. table:: 表 4‑3 FlashTest集成约束清单
 
    +-----+---------+-----------------------------------------------------+
-   | *   | *       | **约束限制**                                        |
-   | *编 | *类别** |                                                     |
-   | 号  |         |                                                     |
-   | **  |         |                                                     |
+   |**编\|**类别** | **约束限制**                                        |
+   |号** |         |                                                     |
+   |     |         |                                                     |
+   |     |         |                                                     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
+   | **\ | 堆栈    | 用户需确保为任务堆栈和中断堆栈分配足够的堆栈空间。  |
    | 1** |         |                                                     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 头文件  | -  添加协议                                         |
-   | 2** |         | 栈代码之后，用户需更新集成开发工具中的头文件路径。  |
+   | **\ | 头文件  |添加协议\                                            |
+   | 2** |         |栈代码之后，用户需更新集成开发工具中的头文件路径。   |
    |     |         |                                                     |
-   |     |         | -  调用协议栈API的源文件，需要包含协议栈的头文件。  |
+   |     |         |调用协议栈API的源文件，需要包含协议栈的头文件。      |
    +-----+---------+-----------------------------------------------------+
-   | **  | 初始化  | FlashTest的初始化API：FlsTst_Init                   |
+   | **\ | 初始化  | FlashTest的初始化API：FlsTst_Init                   |
    | 3** |         |                                                     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 周      | FlsTst_MainFunction需要被周期性任务函数调用。       |
+   | **\ | 周\     | FlsTst_MainFunction需要被周期性任务函数调用。       |
    | 4** | 期函数  |                                                     |
    +-----+---------+-----------------------------------------------------+
-   | **  | 前      | 前台测试使用CRC3                                    |
+   | **\ | 前\     | 前台测试使用CRC3                                    |
    | 5** | 台测试  | 2算法依赖硬件CRC和DMA，则需要确保相关驱动程序正常， |
    |     |         | 中断开启，以及在硬件CRC计算完成的中断函数设置标志。 |
    +-----+---------+-----------------------------------------------------+
-   | **  | 依赖    | 软件依赖                                            |
+   | **\ | 依赖    |软件依赖                                             |
    | 6** |         |                                                     |
-   |     |         | -  OS：提供任务调                                   |
-   |     |         | 度周期调用FlsTst_MainFunction提供周期后台测试调度。 |
+   |     |         |OS：提供任务调\                                      |
+   |     |         |度周期调用FlsTst_MainFunction提供周期后台测试调度。  |
    |     |         |                                                     |
-   |     |         | -  DEM：DEM错误处理函数，该模块不是强制的。         |
+   |     |         |DEM：DEM错误处理函数，该模块不是强制的。             |
    |     |         |                                                     |
-   |     |         | -  DET：处理开发过程中的错误，该模块不是强制的。    |
+   |     |         |DET：处理开发过程中的错误，该模块不是强制的。        |
    +-----+---------+-----------------------------------------------------+
 
 集成示例
@@ -288,8 +318,8 @@ Block用选定的算法进行。测试块参数配置如表5-1：
 .. table:: 表 5‑1 前台测试测试块参数配置
 
    +----------+----------+----------+----------+---------+----------------+
-   | **测     | **起     | **测     | **测     | CRC\ *  | **             |
-   | 试类型** | 始地址** | 试长度** | 试算法** | *地址** | 测试使用方法** |
+   | **测\    | **起\    | **测\    | **测\    |**CRC\   | **\            |
+   | 试类型** | 始地址** | 试长度** | 试算法** |地址**   | 测试使用方法** |
    +----------+----------+----------+----------+---------+----------------+
    | 前台测试 | 0x10800  | 0x60000  | CRC32    | 0xF0010 | 前台测试       |
    +----------+----------+----------+----------+---------+----------------+
@@ -300,8 +330,8 @@ Block分为原子操作，用选定的算法进行异步的细分测试。参数
 .. table:: 表 5‑2 后台测试测试块参数配置
 
    +----------+----------+---------+----------+---------+-----------------+
-   | **测     | **起     | **测试  | **测     | CRC\ *  | *               |
-   | 试类型** | 始地址** | 长度**  | 试算法** | *地址** | *测试使用方法** |
+   | **测\    | **起\    | **测试\ |**测\     | **CRC\  | **测试使用方法**|
+   | 试类型** | 始地址** | 长度**  |试算法**  | 地址**  |                 |
    +----------+----------+---------+----------+---------+-----------------+
    | 后台测试 | 0x10800  | 0x60000 | CRC32    | 0xF0010 | 后台测试        |
    +----------+----------+---------+----------+---------+-----------------+
@@ -322,7 +352,7 @@ FlsTstGeneral配置
    :width: 4.96417in
    :height: 5.58043in
 
-   图 5‑1FlsTstGeneral配置界面
+图 5‑1 FlsTstGeneral配置界面
 
 **FlsTstDevErrorDetect**\ ：预处理器开关，以禁用/启用开发时的错误检测。在开发阶段需要开启，在发布时需要关闭。
 
@@ -359,7 +389,7 @@ Block进行配置。FlsTstConfigSet配置页面包含前台测试下的块属性
    :width: 4.87937in
    :height: 2.96993in
 
-   图 5‑2FlsTstBlockBgnd配置
+图 5‑2 FlsTstBlockBgnd配置
 
 FlsTstBgnds容器在FlsTstConfigSet配置页面中，用于配置后台测试下的块属性。
 
@@ -379,7 +409,7 @@ FlsTstFgnds容器在FlsTstConfigSet配置页面中，用于配置前台测试下
    :width: 5.76736in
    :height: 1.7125in
 
-   图 5‑3 FlsTstTestCompletedNotification配置
+图 5‑3 FlsTstTestCompletedNotification配置
 
 **FlsTstTestCompletedNotification**\ ：用于配置后台测试完成时的回调函数，该配置项依赖于FlsTstGenerl下FlsTstTestCompletedNotificationSupported配置项，只有在FlsTstTestCompletedNotificationSupported配置为true时，且不为NULL_PTR时，FlsTstTestCompletedNotification才会生成回调函数相关的代码。
 
@@ -412,7 +442,7 @@ FlsTstDemEventParameterRefs配置
    :width: 5.76736in
    :height: 1.47361in
 
-   图 5‑5 FlsTstDemEventParameterRefs添加
+图 5‑5 FlsTstDemEventParameterRefs添加
 
 2. 选择FlsTstDemEventParameterRefs配置界面。
 
@@ -420,7 +450,7 @@ FlsTstDemEventParameterRefs配置
    :width: 5.76736in
    :height: 1.26111in
 
-   图 5‑6 FlsTstDemEventParameterRefs配置界面
+图 5‑6 FlsTstDemEventParameterRefs配置界面
 
 3. 勾选FLSTST_E_FLSTST_FAILURE，并从下拉框中选择对应的Dem配置项。（注：需要DEM模块先配置相关的参数）
 
@@ -428,7 +458,7 @@ FlsTstDemEventParameterRefs配置
    :width: 4.73154in
    :height: 3.55848in
 
-   图 5‑7 FLSTST_E_FLSTST_FAILURE配置界面
+图 5‑7 FLSTST_E_FLSTST_FAILURE配置界面
 
 源代码集成
 ----------
@@ -439,7 +469,7 @@ FlsTstDemEventParameterRefs配置
    :width: 3.03346in
    :height: 3.22767in
 
-      图 5‑8 工程结构图
+图 5‑8 工程结构图
 
 -  Config目录，这个目录用来存放配置工具生成的配置文件，FlashTest有关的配置文件放在BSW_Config文件夹中。
 
@@ -447,8 +477,7 @@ FlsTstDemEventParameterRefs配置
 
 FlashTest源代码集成步骤如下：
 
-#. 将5.2章节中ORIENTAIS Configurator生成的配置文件复制到BSW_Config文件
-   夹中。
+#. 将5.2章节中ORIENTAIS Configurator生成的配置文件复制到BSW_Config文件夹中。
 
 #. 将项目提供的协议栈源代码文件复制到BSW/Memory/FlsTst文件夹中。
 
@@ -471,22 +500,9 @@ CRC结果存放
 
 相关代码定义如下：
 
-const uint8  FlsTst_StoredInfo[] \__attribute\_\_
-((section(".FlsTst_Info "))) =
-
-{
-
-        0x5a,0x5a,0x5a,0x5a,
-
-        0x00,0x00,0x00,0x01,
-
-        0x00,0x01,0x08,0x00,
-
-        0x00,0x06,0x00,0x00,
-
-        0xBF,0x60,0x10,0xA9
-
-};
+.. figure:: ../../_static/集成手册/FlashTest/code1.png
+   :width: 6.17736in
+   :height: 1.77583in
 
 其中，
 
@@ -519,33 +535,15 @@ FlsTst_Init(&FlsTst_Config);应在合适的位置进行初始化。
 
 前台测试代码如下：
 
-TASK(OsTask_Init)
-
-{
-
-    Std_ReturnType FlsTstReturn;
-
-  FlsTst_TestResultFgndType FgndBlockResult;
-
-   FlsTstReturn = FlsTst_StartFgnd(0U);
-
-  FgndBlockResult = FlsTst_GetTestResultFgnd();
-
-……
-
-}
+.. figure:: ../../_static/集成手册/FlashTest/code2.png
+   :width: 5.47736in
+   :height: 1.70583in
 
 前台测试代码需要依赖硬件CRC和DMA，用户需要配置对应的中断函数，并在中断函数中实现对FlashTest计算完成的标志置位，实现代码如下：
 
-void Crcu_AsyncCalculateCrcCompleteNotif()
-
-{
-
-    /\* Used for FlsTst_StartFgnd \*/
-
-    CrcCompleted = 1U;
-
-}
+.. figure:: ../../_static/集成手册/FlashTest/code3.png
+   :width: 5.47736in
+   :height: 1.07583in
 
 后台测试代码如下：
 
