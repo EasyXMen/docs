@@ -548,7 +548,7 @@ CanIf模块配置
 
 ..
 
-   每个发送报文需要一个CanIfHrhCfg，每个接收报文需要一个CanIfHthCfg。
+   每个发送报文需要一个CanIfHthCfg，每个接收报文需要一个CanIfHrhCfg。
 
 .. figure:: ../../_static/集成手册/CAN/image25.png
    :width: 5.76736in
