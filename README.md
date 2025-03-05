@@ -4,7 +4,8 @@
 
 ## 目录结构
 ```
-├── source                  # 文档文件夹
+|── ReleaseNotes            # 版本发布说明
+|── source                  # 文档文件夹
 │   ├── _static             # 文档图片相关静态资料
 │   └──  sub                # 文档文本内容
 |── LICENSE.txt             # license 说明
