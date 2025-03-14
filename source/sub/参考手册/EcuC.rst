@@ -1,7 +1,6 @@
 ===================
-EcuC产品参考手册
+EcuC
 ===================
-
 
 
 
@@ -19,7 +18,6 @@ EcuC产品参考手册
 +------------+-------------------------+------------------------------+
 | SW-C       | Software Component      | 软件组件                     |
 +------------+-------------------------+------------------------------+
-
 
 
 
@@ -65,11 +63,11 @@ Pdu传递路径确定功能介绍
 
 两个模块间通过Pdu配置项PduRef关联到EcuC中配置的同一个Pdu，从而确定Pdu在这两个模块间的传递关系。
 
-这里以Com中TxPdu经过PduR路由到CanIf模块进行发送为例，参照下图2-1所示：
+这里以Com中TxPdu经过PduR路由到CanIf模块进行发送为例，参照下图 所示：
 
 |image1|
 
-图2-1 Pdu传递关系
+图 Pdu传递关系
 
 Pdu传递路径确定功能实现
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -114,9 +112,9 @@ EcucPduCollection
 
 |image2|
 
-图5-1 Pdu
+图 EcucPduCollection
 
-表5-1 Pdu
+表 EcucPduCollection
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
@@ -148,9 +146,9 @@ Pdu
 
 |image3|
 
-图5-2 Pdu
+图 Pdu
 
-表5-2 Pdu
+表 Pdu
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
@@ -176,9 +174,9 @@ MetaDataItem
 
 |image4|
 
-图5-3 MetaDataItem
+图 MetaDataItem
 
-表5-3 MetaDataItem
+表 MetaDataItem
 
 +-----------------+--------+---------------------------+--------+----+
 | **UI名称**      | **     |                           |        |    |
@@ -221,10 +219,10 @@ MetaDataItem
    :height: 3.66326in
 .. |image2| image:: ../../_static/参考手册/EcuC/image2.png
    :width: 5.76736in
-   :height: 2.02153in
+   :height: 1.26736in
 .. |image3| image:: ../../_static/参考手册/EcuC/image3.png
    :width: 5.76736in
-   :height: 2.00833in
+   :height: 1.35139in
 .. |image4| image:: ../../_static/参考手册/EcuC/image4.png
    :width: 5.76736in
-   :height: 1.77361in
+   :height: 1.50972in

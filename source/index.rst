@@ -35,6 +35,10 @@ I-SOFT
    :maxdepth: 1
    :caption: 参考手册:
 
+.. toctree::
+   :maxdepth: 1
+   :caption: 参考手册:
+
    sub/参考手册/BswM.rst
    sub/参考手册/CanIf.rst
    sub/参考手册/CanNm.rst
@@ -59,6 +63,7 @@ I-SOFT
    sub/参考手册/Ea.rst
    sub/参考手册/EcuC.rst
    sub/参考手册/EcuM.rst
+   sub/参考手册/Eep.rst
    sub/参考手册/EthIf.rst
    sub/参考手册/EthSM.rst
    sub/参考手册/EthSwt.rst
@@ -66,7 +71,7 @@ I-SOFT
    sub/参考手册/EthTSyn.rst
    sub/参考手册/Fee.rst
    sub/参考手册/FiM.rst
-   sub/参考手册/FOTA_handler.rst
+   sub/参考手册/FOTA handler.rst
    sub/参考手册/IoHwAb.rst
    sub/参考手册/IpduM.rst
    sub/参考手册/KeyM.rst

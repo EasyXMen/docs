@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'EasyXMen_docs'
-copyright = '2024, i-soft'
+copyright = '2025, i-soft'
 author = 'i-soft'
 release = '1.0.0'
 
