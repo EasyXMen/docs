@@ -1,6 +1,6 @@
-## 小满EasyXMen技术文档
+## 开源小满EasyXMen技术文档
 
-本仓库为小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.net/docs/)
+本仓库为开源小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.net/docs/)
 
 ## 目录结构
 ```
