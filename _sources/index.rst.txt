@@ -1,7 +1,7 @@
-小满EasyXMen技术文档
+开源小满EasyXMen技术文档
 ================================================================
 
-本仓库为小满EasyXMen的文档仓库
+本仓库为开源小满EasyXMen的文档仓库
 
 开源许可
 ================================================================
@@ -29,7 +29,20 @@ I-SOFT
    * - 1.0.0
      - 发布
      - 2024-10-24
+   * - 1.1.0
+     - 基于V25.04源码更新模块参考手册
+     - 2025-04-25
+.. note::
 
+   当前集成手册、工程说明文档尚未匹配V25.04的源码，请谨慎参考
+
+.. tip::
+
+   版本发布说明请参考链接 https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 参考手册:
 
 .. toctree::
    :maxdepth: 1
@@ -59,6 +72,7 @@ I-SOFT
    sub/参考手册/Ea.rst
    sub/参考手册/EcuC.rst
    sub/参考手册/EcuM.rst
+   sub/参考手册/Eep.rst
    sub/参考手册/EthIf.rst
    sub/参考手册/EthSM.rst
    sub/参考手册/EthSwt.rst
@@ -66,7 +80,7 @@ I-SOFT
    sub/参考手册/EthTSyn.rst
    sub/参考手册/Fee.rst
    sub/参考手册/FiM.rst
-   sub/参考手册/FOTA_handler.rst
+   sub/参考手册/FOTA handler.rst
    sub/参考手册/IoHwAb.rst
    sub/参考手册/IpduM.rst
    sub/参考手册/KeyM.rst

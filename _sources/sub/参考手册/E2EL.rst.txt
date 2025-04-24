@@ -1,10 +1,6 @@
-===================
-E2EL产品参考手册
-===================
-
-
-
-1 E2EL模块简介 
+==================
+E2EL
+==================
 
 **缩写词注解**
 
@@ -26,11 +22,10 @@ E2EL产品参考手册
 
 
 
-
 E2EL模块简介
 ============
 
-|image1|\ 图1-1 E2EL架构图
+|image1|\ 图 E2EL架构图
 
 E2EL在架构上属于AUTOSAR静态库代码，使用同样属于静态库代码的CRC模块来进行安全数据的保护，E2E
 XF通过把E2EL的相关算法抽象成用户易操作的配置项和配置界面，并根据用户的属于生成代码，来帮助用户更好的使用E2EL来保护数据。
@@ -54,20 +49,20 @@ E2EL功能介绍
 E2EL的各个profile提供了一种可以满足功能安全目标的数据保护机制，各个E2E
 profile通过不同的算法和API完成以下类型的数据保护机制：
 
--  集成CRC库的CRC保护机制；
+- 集成CRC库的CRC保护机制；
 
--  接收端检测接收报文的递增计数器，判断接收数据是否有序递增；
+- 接收端检测接收报文的递增计数器，判断接收数据是否有序递增；
 
--  接收端通过检测心跳计数器判断数据是否发生改变；
+- 接收端通过检测心跳计数器判断数据是否发生改变；
 
--  通过特定的ID来区分不同的I-PDU组；
+- 通过特定的ID来区分不同的I-PDU组；
 
--  超时检测机制（接收报文超时和发送确认超时）；
+- 超时检测机制（接收报文超时和发送确认超时）；
 
--  E2E profiles的用户需要根据自己的应用场景决定选用哪种类型的E2E
-   profile；
+- E2E profiles的用户需要根据自己的应用场景决定选用哪种类型的E2E
+  profile；
 
--  E2E支持的profile有profile1、profile2、profile4、profile5、profile6、profile7、profile11、profile22。
+- E2E支持的profile有profile1、profile2、profile4、profile5、profile6、profile7、profile11、profile22。
 
 E2EL各Profile功能介绍
 ~~~~~~~~~~~~~~~~~~~~~
@@ -75,16 +70,16 @@ E2EL各Profile功能介绍
 Profile1
 ^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile1使用CRC-8-SAE J1850算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 4-bit的Sequence counter/alive counter在0-14之间依次递增,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 Profile1通过特定的ID来区分不同的I-PDU组，它分为了四种ID模式。
 
@@ -103,109 +98,109 @@ Low byte only
 Profile2
 ^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile2使用8bit Polynomial为0x2f的算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 4-bit的Sequence counter/alive counter在0-15之间依次递增,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 DataID使用特定的ID来区分不同的I-PDU组，Profile2使用了一个预设的DataID列表，并通过Counter的值来选择DataID列表里的特定的DataID。
 
 Profile4
 ^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile4使用32 bit polynomial为0x1F4ACFB13的算法对数据的完整性进行校验。
 
--  Data Length
+- Data Length
 
 Profile4使用16bit的Data Length来支持动态大小的输入数据。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 16-bit的Sequence counter/alive counter,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 DataID使用特定的ID来区分不同的I-PDU组，Profile4使用了全局唯一的32bit的DataID进行显式发送。
 
 Profile5
 ^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile5使用16 bit polynomial为0x1021的算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 8-bit的Sequence counter/alive counter,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 DataID使用特定的ID来区分不同的I-PDU组，Profile5使用了全局唯一的16bit的DataID进行隐式发送。
 
 Profile6
 ^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile6使用16 bit polynomial为0x1021的算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 8-bit的Sequence counter/alive counter,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 DataID使用特定的ID来区分不同的I-PDU组，Profile5使用了全局唯一的16bit的DataID进行隐式发送。
 
--  Data Length
+- Data Length
 
 Profile6使用16bit的Data Length来支持动态大小的输入数据。
 
 Profile7
 ^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile7使用64 bit
 polynomial为0x42F0E1EBA9EA3693的算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 32-bit的Sequence counter/alive counter,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 DataID使用特定的ID来区分不同的I-PDU组，Profile7使用了全局唯一的32bit的DataID进行隐式发送。
 
--  Data Length
+- Data Length
 
 Profile7使用32bit的Data Length来支持动态大小的输入数据。
 
 Profile11
 ^^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 Profile11使用CRC-8-SAE J1850的算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 4-bit的Sequence counter/alive counter,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 Profile11通过特定的ID来区分不同的I-PDU组，它分为了三种ID模式：
 
@@ -218,25 +213,25 @@ Both bytes
 Profile22
 ^^^^^^^^^
 
--  CRC保护
+- CRC保护
 
 ..
 
    Profile22使用8bit Polynomial为0x2f的算法对数据的完整性进行校验。
 
--  Sequence counter/alive counter
+- Sequence counter/alive counter
 
 4-bit的Sequence counter/alive counter,
 递增计数器用来判断接收数据是否有序递增，心跳计数器用来判断数据是否发生改变。
 
--  DataID
+- DataID
 
 DataID使用特定的ID来区分不同的I-PDU组，Profile22使用了一个预设的DataID列表，并通过Counter的值来选择DataID列表里的特定的DataID。
 
 源文件描述
 ==========
 
-表3-1 E2EL组件文件描述
+表 E2EL组件文件描述
 
 +----------------+-----------------------------------------------------+
 | **文件**       | **说明**                                            |
@@ -280,7 +275,7 @@ DataID使用特定的ID来区分不同的I-PDU组，Profile22使用了一个预�
 
 |image2|
 
-图3-1 E2EL组件文件交互关系图
+图 E2EL组件文件交互关系图
 
 API接口
 =======
@@ -2264,7 +2259,7 @@ E2E_P22Check函数定义
 |             | E2                |         |                         |
 |             | E_P22ConfigType\* |         |                         |
 |             | ConfigPtr,        |         |                         |
-|             | E2E_              |         |                         |
+|             | E2E\_             |         |                         |
 |             | P22CheckStateType |         |                         |
 |             | StatePtr, const   |         |                         |
 |             | uint8\* DataPtr,  |         |                         |

@@ -1,9 +1,6 @@
-===================
-PduR产品参考手册
-===================
-
-
-
+==============
+PduR
+==============
 
 
 **缩写词注解**
@@ -51,15 +48,16 @@ PduR产品参考手册
 
 
 
-
 简介
 ====
 
-PduR模块主要为通信接口模块（如CanIf），传输协议模块（如CanTp），诊断服务模块（如Dcm），通信服务模块（如Com,LdCom），以及IpduM，SecOc等模块提供基于PDU的路由服务。PduR模块主要实现基于PDU的接收路由（PDU从CanIf→PduR→Com），发送路由(Com→PduR→CanIf)，网关路由功能（CanIf→PduR→CanIf）。
+PduR模块主要为通信接口模块（如CanIf），传输协议模块（如CanTp），诊断服务模块（如Dcm），通信服务模块（如Com,
+LdCom），以及IpduM，SecOc等模块提供基于PDU的路由服务。PduR模块主要实现基于PDU的接收路由（PDU从CanIf→PduR→Com），发送路由(Com→PduR→CanIf)，网关路由功能（CanIf→PduR→CanIf）。
 
-|image1|\ 图1-1 PduR模块层次图
+|image1|\ 图 PduR模块层次图
 
-与PduR模块存在交互的模块可分为三类：1.下层模块（如CanIf，CanTp）;2.上层模块（如Com，Dcm）;3既是上层又是下层模块（IpduM，SecOC）。
+与PduR模块存在交互的模块可分为三类：1.下层模块（如CanIf,
+CanTp）;2.上层模块（如Com, Dcm）;3既是上层又是下层模块（IpduM, SecOC）。
 
 PduR与所有交互模块间实现IF Pdu和TP Pdu的接收与发送功能。
 
@@ -81,16 +79,18 @@ PduR与所有交互模块间实现IF Pdu和TP Pdu的接收与发送功能。
 
 TxPdu的发送分为两种方式（IF和TP），在PduR模块实现TP
 PDU的1：1发送路由，IF
-PDU的1：N路由。通过PduR模块的路由配置可以为上层屏蔽网络细节，上层模块专注于TxPdu报文数据的封装。
+PDU的1：N发送路由。通过PduR模块的路由配置可以为上层屏蔽网络细节，上层模块专注于TxPdu报文数据的封装。
 
 发送路由功能实现
 ~~~~~~~~~~~~~~~~
 
 IF
-PDU的发送：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配置为IF，PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，（1-N个）PduRDestPduRef关联的Pdu与下层IF模块关联。上层模块通过调用PduR\_<User：Up>Transmit或者下层模块通过调用PduR\_<User：Lo>TriggerTransmit（传递到上层）请求PDU的发送，发送成功后调用上层PduR\_<User：Lo>TxConfirmation进行发送成功确认。
+PDU的发送：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（IF
+PDU
+1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层IF模块关联。上层模块通过调用PduR\_<User：Up>Transmit或者下层模块通过调用PduR\_<User：Lo>TriggerTransmit（传递到上层）请求PDU的发送，发送成功后调用上层PduR\_<User：Lo>TxConfirmation进行发送成功确认。
 
 TP
-PDU的发送：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配置为TP，PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，PduRDestPduRef关联的Pdu与下层TP模块关联。上层模块通过调用PduR\_<User：Up>Transmit请求PDU的发送，下层模块通过调用PduR\_<User：LoTp>CopyTxData（传递到上层）来获取PDU发送数据段，下层模块通过调用PduR\_<User：LoTp>TxConfirmation（传递到上层）通知上层发送结束（成功/失败）。
+PDU的发送：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层TP模块关联。上层模块通过调用PduR\_<User：Up>Transmit请求PDU的发送，下层模块通过调用PduR\_<User：LoTp>CopyTxData（传递到上层）来获取PDU发送数据段，下层模块通过调用PduR\_<User：LoTp>TxConfirmation（传递到上层）通知上层发送结束（成功/失败）。
 
 接收路由功能
 ------------
@@ -98,16 +98,18 @@ PDU的发送：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配
 接收路由功能介绍
 ~~~~~~~~~~~~~~~~
 
-RxPdu的接收分为两种方式（IF和TP），当PDU从下层模块接收到，根据PduR配置的路由路径传递到上层模块。上层模块不必关注网络细节，专注于接收PDU的解析。
+RxPdu的接收分为两种方式（IF和TP），在PduR模块实现TP
+PDU的1：N发送路由，IF
+PDU的1：N路由。当PDU从下层模块接收到，根据PduR配置的路由路径传递到上层模块。上层模块不必关注网络细节，专注于接收PDU的解析。
 
 接收路由功能实现
 ~~~~~~~~~~~~~~~~
 
 IF
-PDU的接收：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配置为IF，PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，PduRDestPduRef关联的Pdu与上层模块关联。下层模块通过调用PduR\_<User：Lo>RxIndication将接收报文传递给上层。
+PDU的接收：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与上层模块关联。下层模块通过调用PduR\_<User：Lo>RxIndication将接收报文传递给上层。
 
 TP
-PDU的接收：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配置为TP，PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，PduRDestPduRef关联的Pdu与上层模块关联。调用PduR\_<User：LoTp>StartOfReception，PduR\_<User：LoTp>CopyRxData，PduR\_<User：LoTp>RxIndication完成TP
+PDU的接收：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与上层模块关联。调用PduR\_<User：LoTp>StartOfReception，PduR\_<User：LoTp>CopyRxData，PduR\_<User：LoTp>RxIndication完成TP
 PDU接收流程。
 
 网关路由功能
@@ -116,7 +118,7 @@ PDU接收流程。
 网关路由功能介绍
 ~~~~~~~~~~~~~~~~
 
-PDU的网关同样分为IF/TP两种方式，IF网关支持1：N，TP网关只支持1：1PDU的网关，不涉及任何报文数据的变化，收发报文速率保持一致。
+PDU的网关同样分为IF/TP两种方式，IF网关支持1：N，TP网关支持1：N，不涉及任何报文数据的变化，收发报文速率保持一致。
 
 需注意PDU的网关不能IF、TP混淆，即接收IF PDU只能通过发送IF
 PDU进行转发，接收TP PDU只能通过TP PDU进行转发。
@@ -125,10 +127,17 @@ PDU进行转发，接收TP PDU只能通过TP PDU进行转发。
 ~~~~~~~~~~~~~~~~
 
 IF
-PDU的网关：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配置为IF，PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，（1-N个）PduRDestPduRef关联的Pdu与下层IF模块发送TxPdu关联，若PduRDestPduRef关联的TxPdu发送方式为TriggerTransmit,PduRDestPduDataProvision需配置为PDUR_TRIGGERTRANSMIT，反之配置为PDUR_DIRECT。若配置为PDUR_TRIGGERTRANSMIT则必须要通过配置PduRDestTxBufferRef来关联到TxBuffer，以及配置PduRDefaultValueElement来设置Pdu初始默认值。配置为PDUR_DIRECT时也可以选择配置PduRDestTxBufferRef关联到TxBuffer，以降低丢帧概率。
+PDU的网关：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层IF模块发送TxPdu关联，若PduRDestPduRRef通过PduRDestPduRef关联的TxPdu发送方式为TriggerTransmit,
+则相应PduRDestPdu的PduRDestPduDataProvision需配置为PDUR_TRIGGERTRANSMIT，反之配置为PDUR_DIRECT。若配置为PDUR_TRIGGERTRANSMIT则必须为该PduRRoutingPath配置queue，以及配置PduRDefaultValueElement来设置Pdu初始默认值。配置为PDUR_DIRECT时也可以选择配置queue，以降低丢帧概率。
+
+注意：queue的配置，①需要在相应的PduRRoutingPath中配置非0的PduRQueueDepth值；②添加PduRTxBuffer配置，没有被任何PduRRoutingPath关联的PduRTxBuffer属于Global
+buffer，存在资源抢占。被某一个PduRRoutingPath关联的PduRTxBuffer属于该PduRRoutingPath的Dedicated
+buffer，该PduRTxBuffer仅可以被该PduRRoutingPath申请；③PduRDestTxBufferRef可以关联最多PduRQueueDepth个PduRTxBuffer，也可以不关联任何PduRTxBuffer。
 
 TP
-PDU的网关：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配置为TP，PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，PduRDestPduRef关联的Pdu与下层TP模块发送TxPdu关联。若不希望等到全部RxPdu数据接收完成才开始执行转发，即希望通过“gatewaying-on-the-fly”方式进行转发，可通过配置PduRTpThreshold来实现，当接收数据长度超过该阈值，则触发TxPdu进行转发。
+PDU的网关：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层TP模块发送TxPdu关联。若不希望等到全部RxPdu数据接收完成才开始执行转发，即希望通过“gatewaying-on-the-fly”方式进行转发，可通过配置PduRTpThreshold（1：N时只允许最多一个相同PduRSrcPduRRef的PduRRoutingPath配置阈值）来实现，当接收数据长度超过该阈值或者接收完成，则触发TxPdu进行转发。
+
+注意：TP PDU的网关必须配置queue。
 
 路由控制功能
 ------------
@@ -136,7 +145,7 @@ PDU的网关：在PduR添加配置路由PduRRoutingPath，其中PduRRouteType配
 路由控制功能介绍
 ~~~~~~~~~~~~~~~~
 
-PduR的路由控制以RoutingPathGroup为单位进行Enable/Disable控制，而RoutingPathGroup关联N个PduRDestPdu，进而控制PduRDestPdu使能状态。
+PduR的路由控制以RoutingPathGroup为单位进行Enable/Disable控制，而RoutingPathGroup可以被N个PduRRoutingPath关联，进而控制PduRDestPdu使能状态。
 
 路由控制功能实现
 ~~~~~~~~~~~~~~~~
@@ -149,7 +158,7 @@ PduR_DisableRouting来控制RoutingPathGroup及其包含的PduRDestPdu使能状�
 源文件描述
 ==========
 
-表3-1 PduR组件文件描述
+表 PduR组件文件描述
 
 +------------------+---------------------------------------------------+
 | **文件**         | **说明**                                          |
@@ -162,12 +171,11 @@ PduR_DisableRouting来控制RoutingPathGroup及其包含的PduRDestPdu使能状�
 +------------------+---------------------------------------------------+
 | PduR_PBcfg.c     | 定义PduR模块PB配置的结构体参数。                  |
 +------------------+---------------------------------------------------+
-| PduR.h           | 实现PduR模块全                                    |
-|                  | 部外部接口的声明，以及配置文件中全局变量的声明。  |
+| PduR.h           | 实现PduR模块全部外部接口的声                      |
+|                  | 明，以及配置文件中全局变量的声明，必要宏的定义。  |
 +------------------+---------------------------------------------------+
-| PduR.c           | 作为PduR模块的核心文                              |
-|                  | 件，实现PduR模块全部对外接口，以及实现PduR模块功  |
-|                  | 能所必须的local函数，local宏定义，local变量定义。 |
+| PduR.c           | 作为PduR模块的核心文件，实现PduR模块全部对外      |
+|                  | 接口，以及实现PduR模块功能所必须的local变量定义。 |
 +------------------+---------------------------------------------------+
 | PduR_MemMap.h    | 实现PduR模块内存布局。                            |
 +------------------+---------------------------------------------------+
@@ -175,16 +183,29 @@ PduR_DisableRouting来控制RoutingPathGroup及其包含的PduRDestPdu使能状�
 |                  | 内部类型的定义，包括AUTOSAR标准定义的类型，以及PB |
 |                  | /PC配置参数结构体类型，以及内部运行时结构体类型。 |
 +------------------+---------------------------------------------------+
-| PduR_Internal.c  | 实现PduR模块内部接口的实现。                      |
+| PduR_Internal.c  | 实现PduR模块内部全局变量的定义，内部接口的实现。  |
 +------------------+---------------------------------------------------+
-| PduR_Internal.h  | 实现PduR模块全局变量的声明，内部接口声明。        |
+| PduR_Internal.h  | 实现PduR模块内部                                  |
+|                  | 宏的定义，全局变量的声明，内部inline接口的实现。  |
++------------------+---------------------------------------------------+
+| PduR_Buffer.c    | 实现Pdu                                           |
+|                  | R模块Buffer功能需要使用到的全部内部接口函数定义。 |
++------------------+---------------------------------------------------+
+| PduR_Buffer.h    | 实现Pdu                                           |
+|                  | R模块Buffer功能需要使用到的全部内部接口函数声明。 |
++------------------+---------------------------------------------------+
+| PduR_Route.c     | 实现Pd                                            |
+|                  | uR模块Route功能需要使用到的全部内部接口函数定义。 |
++------------------+---------------------------------------------------+
+| PduR_Route.h     | 实现Pd                                            |
+|                  | uR模块Route功能需要使用到的全部内部接口函数声明。 |
 +------------------+---------------------------------------------------+
 | PduR\_<Module>.h | 实现Module需要调用的PduR接口宏定义。              |
 +------------------+---------------------------------------------------+
 
-|image2|
+|PduR文件结构图|
 
-图3-1 PduR组件文件交互关系图
+图 PduR组件文件交互关系图
 
 API接口
 =======
@@ -198,7 +219,7 @@ PduR_PBConfigType类型定义
 +-----------+----------------------------------------------------------+
 | 名称      | PduR_PBConfigType                                        |
 +-----------+----------------------------------------------------------+
-| 类型      | struct                                                   |
+| 类型      | Structure                                                |
 +-----------+----------------------------------------------------------+
 | 范围      | 无                                                       |
 +-----------+----------------------------------------------------------+
@@ -278,9 +299,9 @@ PduR_StateType类型定义
 +----------------------------+-----------------------------------------+
 |                            | <Provider：UpTp>_StartOfReception       |
 +----------------------------+-----------------------------------------+
-|                            | <Provider：UpTp>_TpRxIndication         |
+|                            | <Provider：UpTp>_RxIndication           |
 +----------------------------+-----------------------------------------+
-|                            | <Provider：UpTp>_TpTxConfirmation       |
+|                            | <Provider：UpTp>_TxConfirmation         |
 +----------------------------+-----------------------------------------+
 
 静态接口函数定义
@@ -326,8 +347,8 @@ PduR_GetVersionInfo函数定义
 +-------------+-------------------+------+----------------------------+
 | 函数原型：  | void              |      |                            |
 |             | PduR_Ge           |      |                            |
-|             | tVersionInfo(Std_ |      |                            |
-|             | VersionInfoType\* |      |                            |
+|             | tVersionInfo(Std  |      |                            |
+|             | _VersionInfoType\*|      |                            |
 |             | versionInfo)      |      |                            |
 +-------------+-------------------+------+----------------------------+
 | 服务编号：  | 0xf1              |      |                            |
@@ -471,11 +492,12 @@ PduR\_<User：Up>Transmit函数定义
 | 函数原型：  | Std_ReturnType    |         |                         |
 |             | PduR_Transmit(    |         |                         |
 |             |                   |         |                         |
-|             | PduIdType id,     |         |                         |
+|             | PduIdType         |         |                         |
+|             | TxPduId,          |         |                         |
 |             |                   |         |                         |
 |             | const             |         |                         |
 |             | PduInfoType\*     |         |                         |
-|             | info              |         |                         |
+|             | PduInfoPtr        |         |                         |
 |             |                   |         |                         |
 |             | )                 |         |                         |
 +-------------+-------------------+---------+-------------------------+
@@ -487,9 +509,9 @@ PduR\_<User：Up>Transmit函数定义
 | 否可重入：  | 的Pdu可重入，对于 |         |                         |
 |             | 相同的Pdu不可重入 |         |                         |
 +-------------+-------------------+---------+-------------------------+
-| 输入参数：  | id                | 值域：  | 无                      |
+| 输入参数：  | TxPduId           | 值域：  | 无                      |
 |             |                   |         |                         |
-|             | info              |         |                         |
+|             | PduInfoPtr        |         |                         |
 +-------------+-------------------+---------+-------------------------+
 | 输入        | 无                |         |                         |
 | 输出参数：  |                   |         |                         |
@@ -511,7 +533,7 @@ PduR\_<User：Up>CancelTransmit函数定义
 | 函数原型：  | Std_ReturnType    |         |                         |
 |             | PduR_CancelT      |         |                         |
 |             | ransmit(PduIdType |         |                         |
-|             | id)               |         |                         |
+|             | TxPduId)          |         |                         |
 +-------------+-------------------+---------+-------------------------+
 | 服务编号：  | 0x4a              |         |                         |
 +-------------+-------------------+---------+-------------------------+
@@ -520,7 +542,7 @@ PduR\_<User：Up>CancelTransmit函数定义
 | 是          | 否                |         |                         |
 | 否可重入：  |                   |         |                         |
 +-------------+-------------------+---------+-------------------------+
-| 输入参数：  | id                | 值域：  | 无                      |
+| 输入参数：  | TxPduId           | 值域：  | 无                      |
 +-------------+-------------------+---------+-------------------------+
 | 输入        | 无                |         |                         |
 | 输出参数：  |                   |         |                         |
@@ -530,49 +552,6 @@ PduR\_<User：Up>CancelTransmit函数定义
 | 返回值：    | Std_ReturnType    |         |                         |
 +-------------+-------------------+---------+-------------------------+
 | 功能概述：  | Pdu发送取消       |         |                         |
-+-------------+-------------------+---------+-------------------------+
-
-PduR\_<User：Up>ChangeParameter函数定义
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+-------------+-------------------+---------+-------------------------+
-| 函数名称：  | Pdu               |         |                         |
-|             | R_ChangeParameter |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 函数原型：  | Std_ReturnType    |         |                         |
-|             | PduR              |         |                         |
-|             | _ChangeParameter( |         |                         |
-|             |                   |         |                         |
-|             | PduIdType id,     |         |                         |
-|             |                   |         |                         |
-|             | TPParameterType   |         |                         |
-|             | parameter,        |         |                         |
-|             |                   |         |                         |
-|             | uint16 value)     |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 服务编号：  | 0x4b              |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 同步/异步： | 同步              |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 是          | 否                |         |                         |
-| 否可重入：  |                   |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 输入参数：  | id                | 值域：  | 无                      |
-|             |                   |         |                         |
-|             | parameter         |         |                         |
-|             |                   |         |                         |
-|             | value             |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 输入        | 无                |         |                         |
-| 输出参数：  |                   |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 输出参数：  | 无                |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 返回值：    | Std_ReturnType    |         |                         |
-+-------------+-------------------+---------+-------------------------+
-| 功能概述：  | TP                |         |                         |
-|             | Pd                |         |                         |
-|             | u传输参数切换请求 |         |                         |
 +-------------+-------------------+---------+-------------------------+
 
 PduR\_<User：Up>CancelReceive函数定义
@@ -585,7 +564,7 @@ PduR\_<User：Up>CancelReceive函数定义
 | 函数原型：  | Std_ReturnType    |         |                         |
 |             | PduR_Cancel       |         |                         |
 |             | Receive(PduIdType |         |                         |
-|             | id)               |         |                         |
+|             | RxPduId)          |         |                         |
 +-------------+-------------------+---------+-------------------------+
 | 服务编号：  | 0x4c              |         |                         |
 +-------------+-------------------+---------+-------------------------+
@@ -594,7 +573,7 @@ PduR\_<User：Up>CancelReceive函数定义
 | 是          | 否                |         |                         |
 | 否可重入：  |                   |         |                         |
 +-------------+-------------------+---------+-------------------------+
-| 输入参数：  | id                | 值域：  | 无                      |
+| 输入参数：  | RxPduId           | 值域：  | 无                      |
 +-------------+-------------------+---------+-------------------------+
 | 输入        | 无                |         |                         |
 | 输出参数：  |                   |         |                         |
@@ -949,16 +928,16 @@ PduR\_<User：LoTp>TxConfirmation函数定义
 PduRGeneral
 -----------
 
-|image3|
+|image2|
 
-图5-1 PduRGeneral
+图 PduRGeneral
 
-表5-1 PduRGeneral
+表 PduRGeneral
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
 +----------------+----------+----------------------+----------+--------+
-| PduR           | 取值范围 | true/false           | 默认取值 | true   |
+| PduR           | 取值范围 | true/false           | 默认取值 | false  |
 | DevErrorDetect |          |                      |          |        |
 +----------------+----------+----------------------+----------+--------+
 |                | 参数描述 | 是否                 |          |        |
@@ -994,15 +973,29 @@ PduRGeneral
 |                |          | uR上下层模块固定且一 |          |        |
 |                |          | 一对应，不涉及网关。 |          |        |
 +----------------+----------+----------------------+----------+--------+
+| PduRMultiplePa | 取值范围 | true/false           | 默认取值 | false  |
+| rtitionEnabled |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 是                   |          |        |
+|                |          | 否使能PduR多分区功能 |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 必须存在             |          |        |
+|                |          | Rte模块。该配置项使  |          |        |
+|                |          | 能时，路由表中Soure  |          |        |
+|                |          | Pdu和Dest            |          |        |
+|                |          | Pdu在Ec              |          |        |
+|                |          | uC中必须均配置EcucPd |          |        |
+|                |          | uDefaultPartitionRef |          |        |
++----------------+----------+----------------------+----------+--------+
 
 PduRBswModuleRef
 ----------------
 
-|image4|
+|image3|
 
-图5-2 PduRBswModuleRef
+图 PduRBswModuleRef
 
-表5-2 PduRBswModuleRef
+表 PduRBswModuleRef
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
@@ -1022,16 +1015,6 @@ PduRBswModuleRef
 |                | 参数描述 | 模块是否支持发送取消 |          |        |
 +----------------+----------+----------------------+----------+--------+
 |                | 依赖关系 | 无                   |          |        |
-+----------------+----------+----------------------+----------+--------+
-| PduRChan       | 取值范围 | true/false           | 默认取值 | false  |
-| geParameterApi |          |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 参数描述 | 模块是               |          |        |
-|                |          | 否支持TP传输参数切换 |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | Pd                   |          |        |
-|                |          | uRBswModuleRef关联TP |          |        |
-|                |          | 模块时，该项才可配置 |          |        |
 +----------------+----------+----------------------+----------+--------+
 | PduRCommunic   | 取值范围 | true/false           | 默认取值 | false  |
 | ationInterface |          |                      |          |        |
@@ -1193,14 +1176,14 @@ PduRBswModuleRef
 
 注：PduRBswModules至少要配置一个模块
 
-PduRRoutingTables
------------------
+PduRRoutingPaths
+----------------
 
-|image5|
+|image4|
 
-图5-3 PduRRoutingTables
+图 PduRRoutingPaths
 
-表5-3 PduRRoutingTables
+表 PduRRoutingPaths
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
@@ -1227,8 +1210,10 @@ PduRRoutingTables
 |                | 参数描述 | 模块PB配置支         |          |        |
 |                |          | 持的最大路由路径组数 |          |        |
 +----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | 对配置的路径路径     |          |        |
-|                |          | 组数目进行限制及校验 |          |        |
+|                | 依赖关系 | 对配置的路径路径组数 |          |        |
+|                |          | 目进行限制及校验，该 |          |        |
+|                |          | 数值决定可以新建几个 |          |        |
+|                |          | PduRRoutingPathGroup |          |        |
 +----------------+----------+----------------------+----------+--------+
 | PduRMaxR       | 取值范围 | 0 .. 65535           | 默认取值 | 1      |
 | outingTableCnt |          |                      |          |        |
@@ -1242,11 +1227,11 @@ PduRRoutingTables
 PduRRoutingPathGroup
 --------------------
 
-|image6|
+|image5|
 
-图5-4 PduRRoutingPathGroup
+图 PduRRoutingPathGroup
 
-表5-4 PduRRoutingPathGroup
+表 PduRRoutingPathGroup
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
@@ -1268,28 +1253,36 @@ PduRRoutingPathGroup
 |                | 依赖关系 | 根据PduRRoutin       |          |        |
 |                |          | gPathGroup名自动生成 |          |        |
 +----------------+----------+----------------------+----------+--------+
-| PduRDestPduRef | 取值范围 | 索引[PduRDestPdu]    | 默认取值 | 无     |
-+----------------+----------+----------------------+----------+--------+
-|                | 参数描述 | 该RoutingPathGr      |          |        |
-|                |          | oup关联的PduRDestPdu |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | 依                   |          |        |
-|                |          | 赖于PduRDestPdu的配  |          |        |
-|                |          | 置，注意配置时所有P  |          |        |
-|                |          | duRDestPdu名加以区分 |          |        |
-+----------------+----------+----------------------+----------+--------+
 
 PduRRoutingPath
 ---------------
 
-|image7|
+|image6|
 
-图5-5 PduRRoutingPath
+图 PduRRoutingPath
 
-表5-5 PduRRoutingPath
+表 PduRRoutingPath
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRQueueDepth | 取值范围 | 1 .. 255             | 默认取值 | 无     |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 定义此               |          |        |
+|                |          | 路由路径的缓存的深度 |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 取值不能大于定义     |          |        |
+|                |          | 的所有buffer数目之和 |          |        |
++----------------+----------+----------------------+----------+--------+
+| P              | 取值范围 | 0 .. 65535           | 默认取值 | 无     |
+| duRTpThreshold |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | TP Pdu               |          |        |
+|                |          | on-the-fly网关时，   |          |        |
+|                |          | 接收到该配置阈值长度 |          |        |
+|                |          | 的报文后开始执行转发 |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 该配置项只针对TP网关 |          |        |
 +----------------+----------+----------------------+----------+--------+
 | PduRRouteType  | 取值范围 | IF/TP                | 默认取值 | IF     |
 +----------------+----------+----------------------+----------+--------+
@@ -1299,18 +1292,107 @@ PduRRoutingPath
 |                |          | 赖于I-PDU关联的模块  |          |        |
 |                |          | 对于该路由类型的支持 |          |        |
 +----------------+----------+----------------------+----------+--------+
+| P              | 取值范围 | 索引[PduRDestPdu]    | 默认取值 | 无     |
+| duRDestPduRRef |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 关联PduRDestPdu配置  |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 无                   |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRD          | 取值范围 | 索引[PduRTxBuffer]   | 默认取值 | 无     |
+| estTxBufferRef |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 关联PduRTxBuffe      |          |        |
+|                |          | r，I-PDU网关路由才可 |          |        |
+|                |          | 能需要TxBuffer，（IF |          |        |
+|                |          | Direct网关/TP单      |          |        |
+|                |          | 播网关可配可不配，IF |          |        |
+|                |          | TriggerTr            |          |        |
+|                |          | ansmit网关必须配置） |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 无                   |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRRouti      | 取值范围 | 索引                 | 默认取值 | 无     |
+| ngPathGroupRef |          |                      |          |        |
+|                |          | [P                   |          |        |
+|                |          | duRRoutingPathGroup] |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 关联                 |          |        |
+|                |          | PduRRoutingPathGroup |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 无                   |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRSrcPduRRef | 取值范围 | 索引[PduRSrcPdu]     | 默认取值 | 无     |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 关联PduRSrcPdu配置   |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 无                   |          |        |
++----------------+----------+----------------------+----------+--------+
+
+PduRDefaultValueElement
+-----------------------
+
+|image7|
+
+图 PduRDefaultValueElement
+
+表 PduRDefaultValueElement
+
++----------------+----------+----------------------+----------+--------+
+| **UI名称**     | **描述** |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRDefau      | 取值范围 | 0 .. 255             | 默认取值 | 无     |
+| ltValueElement |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | I                    |          |        |
+|                |          | -PDU对应字节的默认值 |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | IF                   |          |        |
+|                |          | Pdu通                |          |        |
+|                |          | 过TriggerTransmit方  |          |        |
+|                |          | 式网关时才需要配置;  |          |        |
+|                |          | 若配置了PduRDe       |          |        |
+|                |          | faultValue，其配置的 |          |        |
+|                |          | PduRDefaultValueEle  |          |        |
+|                |          | ment字节长度需与ECUC |          |        |
+|                |          | 中Pdu的PduLength相等 |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRDef        | 取值范围 | 0 .. 4294967294      | 默认取值 | 无     |
+| aultValueEleme |          |                      |          |        |
+| ntBytePosition |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 表示I-PDU字节偏移    |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | IF                   |          |        |
+|                |          | Pdu通过Trigg         |          |        |
+|                |          | erTransmit方式网关时 |          |        |
+|                |          | 才需要配置；根据添加 |          |        |
+|                |          | PduRDefaultValueElem |          |        |
+|                |          | ent依次从0自动递增； |          |        |
++----------------+----------+----------------------+----------+--------+
 
 PduRSrcPdu
 ----------
 
 |image8|
 
-图5-6 PduRSrcPdu
+图 PduRSrcPdu
 
-表5-6 PduRSrcPdu
+表 PduRSrcPdu
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+| PduRSour       | 取值范围 | 1 .. 4294967295      | 默认取值 | 无     |
+| cePduBlockSize |          |                      |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 参数描述 | 接收TP继             |          |        |
+|                |          | 续接收所需的最小缓存 |          |        |
++----------------+----------+----------------------+----------+--------+
+|                | 依赖关系 | 依                   |          |        |
+|                |          | 赖于PduRRoutingPath  |          |        |
+|                |          | 中PduRRouteType为    |          |        |
+|                |          | TP的传输，当前不支持 |          |        |
 +----------------+----------+----------------------+----------+--------+
 | PduRSou        | 取值范围 | string               | 默认取值 | 无     |
 | rcePduHandleId |          |                      |          |        |
@@ -1356,180 +1438,84 @@ PduRDestPdu
 
 |image9|
 
-图5-7 PduRDestPdu
+图 PduRDestPdu
 
-表5-7 PduRDestPdu
+表 PduRDestPdu
 
-+--------------+----------+----------------------+---+--------+---+--------+
-| **UI名称**   | **描述** |                      |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-| PduRDestPduD | 取值范围 | PDUR_DIRECT/         | 默 |       | P |        |
-| ataProvision |          | PDUR_TRIGGERTRANSMIT | 认 |       | D |        |
-|              |          |                      | 取 |       | U |        |
-|              |          |                      | 值 |       | R |        |
-|              |          |                      |   |        | _ |        |
-|              |          |                      |   |        | D |        |
-|              |          |                      |   |        | I |        |
-|              |          |                      |   |        | R |        |
-|              |          |                      |   |        | E |        |
-|              |          |                      |   |        | C |        |
-|              |          |                      |   |        | T |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 参数描述 | IF                   |   |        |   |        |
-|              |          | Pdu网关路            |   |        |   |        |
-|              |          | 由的数据传递方式选择 |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 依赖关系 | 若选择TriggerTr      |   |        |   |        |
-|              |          | ansmit方式，必须配置 |   |        |   |        |
-|              |          | PduRDestTxBufferRef  |   |        |   |        |
-|              |          | 对网关I-PDU进行缓存; |   |        |   |        |
-|              |          | PduRDestPduDataP     |   |        |   |        |
-|              |          | rovision配置为PDUR_D |   |        |   |        |
-|              |          | IRECT时，不能配置Pdu |   |        |   |        |
-|              |          | RDefaultValueElement |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-| PduRDes      | 取值范围 | string               | 默 |       | 无 |       |
-| tPduHandleId |          |                      | 认 |       |   |        |
-|              |          |                      | 取 |       |   |        |
-|              |          |                      | 值 |       |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 参数描述 | 表示PduR中I-PDU      |   |        |   |        |
-|              |          | Id的宏名             |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 依赖关系 | 根据                 |   |        |   |        |
-|              |          | PduRSrcPduRef关联的  |   |        |   |        |
-|              |          | Ecuc中Pdu名自动生成  |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-| Pdu          | 取值范围 | 0 .. 65535           |   | 默     |   | 无     |
-| RTpThreshold |          |                      |   | 认取值 |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 参数描述 | TP Pdu               |   |        |   |        |
-|              |          | on-the-fly网关时，   |   |        |   |        |
-|              |          | 接收到该配置阈值长度 |   |        |   |        |
-|              |          | 的报文后开始执行转发 |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 依赖关系 | 该配置项只针对TP网关 |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-| PduR         | 取值范围 | true/false           |   | 默     |   | true   |
-| Transmission |          |                      |   | 认取值 |   |        |
-| Confirmation |          |                      |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 参数描述 | 对于IF               |   |        |   |        |
-|              |          | Pdu发送/网关路由是   |   |        |   |        |
-|              |          | 否支持TxConfirmation |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 依赖关系 | 该配置               |   |        |   |        |
-|              |          | 项只针对IF发送/网关  |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-| Pd           | 取值范围 | 索引[Pdu]            |   | 默     |   | 无     |
-| uRDestPduRef |          |                      |   | 认取值 |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 参数描述 | 关联EcuC中配置的Pdu  |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 依赖关系 | 依                   |   |        |   |        |
-|              |          | 赖于EcuC中Pdu的配置; |   |        |   |        |
-|              |          | PduR路由表中Dest     |   |        |   |        |
-|              |          | Pdu关联的ECUC        |   |        |   |        |
-|              |          | Pdu需与PduRBswMod    |   |        |   |        |
-|              |          | ules中的某一Pdu关联; |   |        |   |        |
-|              |          | Pdu关联              |   |        |   |        |
-|              |          | 的ECUC中Pdu的配置项  |   |        |   |        |
-|              |          | PduLength必须配置；  |   |        |   |        |
-|              |          | IF路由Pdu不能关联TP  |   |        |   |        |
-|              |          | Pdu，T               |   |        |   |        |
-|              |          | P路由的Pdu不能关联IF |   |        |   |        |
-|              |          | Pdu；TP路由中        |   |        |   |        |
-|              |          | 仅支持配置1个DestPdu |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-| PduRDes      | 取值范围 | 索引[PduRTxBuffer]   |   | 默     |   | 无     |
-| tTxBufferRef |          |                      |   | 认取值 |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 参数描述 | 关联PduRTxBuffer配置 |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-|              | 依赖关系 | I-PDU网关路由才      |   |        |   |        |
-|              |          | 可能需要TxBuffer（IF |   |        |   |        |
-|              |          | Direct网关/TP单      |   |        |   |        |
-|              |          | 播网关可配可不配，IF |   |        |   |        |
-|              |          | TriggerTr            |   |        |   |        |
-|              |          | ansmit网关必须配置） |   |        |   |        |
-+--------------+----------+----------------------+---+--------+---+--------+
-
-PduRDefaultValueElement
------------------------
-
-|image10|
-
-图5-8 PduRDefaultValueElement
-
-表5-8 PduRDefaultValueElement
-
-+----------------+----------+----------------------+----------+--------+
-| **UI名称**     | **描述** |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-| PduRDefau      | 取值范围 | 0 .. 255             | 默认取值 | 无     |
-| ltValueElement |          |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 参数描述 | I                    |          |        |
-|                |          | -PDU对应字节的默认值 |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | IF                   |          |        |
-|                |          | Pdu通                |          |        |
-|                |          | 过TriggerTransmit方  |          |        |
-|                |          | 式网关时才需要配置;  |          |        |
-|                |          | 若配置了PduRDe       |          |        |
-|                |          | faultValue，其配置的 |          |        |
-|                |          | PduRDefaultValueEle  |          |        |
-|                |          | ment字节长度需与ECUC |          |        |
-|                |          | 中Pdu的PduLength相等 |          |        |
-+----------------+----------+----------------------+----------+--------+
-| PduRDef        | 取值范围 | 0 .. 4294967294      | 默认取值 | 0      |
-| aultValueEleme |          |                      |          |        |
-| ntBytePosition |          |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 参数描述 | 表示I-PDU字节偏移    |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | IF                   |          |        |
-|                |          | Pdu通过Trigg         |          |        |
-|                |          | erTransmit方式网关时 |          |        |
-|                |          | 才需要配置；根据添加 |          |        |
-|                |          | PduRDefaultValueElem |          |        |
-|                |          | ent依次从0自动递增； |          |        |
-+----------------+----------+----------------------+----------+--------+
-
-PduRTpBuffer
-------------
-
-|image11|
-
-图5-9 PduRTpBuffer
-
-表5-9 PduRTpBuffer
-
-+----------------+----------+----------------------+----------+--------+
-| **UI名称**     | **描述** |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-| PduR           | 取值范围 | 1 .. 4294967295      | 默认取值 | 1      |
-| TpBufferLength |          |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 参数描述 | Tp网关Buffer的长度   |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | 当存                 |          |        |
-|                |          | 在TP网关时才需要配置 |          |        |
-+----------------+----------+----------------------+----------+--------+
++--------------+----------+----------------------+--------------+--------+
+| **UI名称**   | **描述** |                      |              |        |
++--------------+----------+----------------------+--------------+--------+
+| PduRDestPduD | 取值范围 | PDUR_DIRECT/         |    默认      | PDUR   |
+| ataProvision |          | PDUR_TRIGGERTRANSMIT |    取值      | _DIRECT|
++--------------+----------+----------------------+--------------+--------+
+|              | 参数描述 | IF                   |              |        |
+|              |          | Pdu网关路            |              |        |
+|              |          | 由的数据传递方式选择 |              |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 依赖关系 | 若选择TriggerTr      |              |        |
+|              |          | ansmit方式，必须配置 |              |        |
+|              |          | PduRDestTxBufferRef  |              |        |
+|              |          | 对网关I-PDU进行缓存; |              |        |
+|              |          | PduRDestPduDataP     |              |        |
+|              |          | rovision配置为PDUR_D |              |        |
+|              |          | IRECT时，不能配置Pdu |              |        |
+|              |          | RDefaultValueElement |              |        |
++--------------+----------+----------------------+--------------+--------+
+| PduRDes      | 取值范围 | string               |    默认      | 无     |
+| tPduHandleId |          |                      |    取值      |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 参数描述 | 表示PduR中I-PDU      |              |        |
+|              |          | Id的宏名             |              |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 依赖关系 | 根据                 |              |        |
+|              |          | PduRSrcPduRef关联的  |              |        |
+|              |          | Ecuc中Pdu名自动生成  |              |        |
++--------------+----------+----------------------+--------------+--------+
+| PduR         | 取值范围 | true/false           |    默认      | true   |
+| Transmission |          |                      |    取值      |        |
+| Confirmation |          |                      |              |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 参数描述 | 对于IF               |              |        |
+|              |          | Pdu发送/网关路由是   |              |        |
+|              |          | 否支持TxConfirmation |              |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 依赖关系 | 该配置               |              |        |
+|              |          | 项只针对IF发送/网关  |              |        |
++--------------+----------+----------------------+--------------+--------+
+| Pd           | 取值范围 | 索引[Pdu]            |    默认      | 无     |
+| uRDestPduRef |          |                      |    取值      |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 参数描述 | 关联EcuC中配置的Pdu  |              |        |
++--------------+----------+----------------------+--------------+--------+
+|              | 依赖关系 | 依                   |              |        |
+|              |          | 赖于EcuC中Pdu的配置; |              |        |
+|              |          | PduR路由表中Dest     |              |        |
+|              |          | Pdu关联的ECUC        |              |        |
+|              |          | Pdu需与PduRBswMod    |              |        |
+|              |          | ules中的某一Pdu关联; |              |        |
+|              |          | Pdu关联              |              |        |
+|              |          | 的ECUC中Pdu的配置项  |              |        |
+|              |          | PduLength必须配置；  |              |        |
+|              |          | IF路由Pdu不能关联TP  |              |        |
+|              |          | Pdu，T               |              |        |
+|              |          | P路由的Pdu不能关联IF |              |        |
+|              |          | Pdu；TP路由中        |              |        |
+|              |          | 仅支持配置1个DestPdu |              |        |
++--------------+----------+----------------------+--------------+--------+
 
 PduRTxBuffer
 ------------
 
-|image12|
+|image10|
 
-图5-10 PduRTxBuffer
+图 PduRTxBuffer
 
-表5-10 PduRTxBuffer
+表 PduRTxBuffer
 
 +----------------+----------+----------------------+----------+--------+
 | **UI名称**     | **描述** |                      |          |        |
 +----------------+----------+----------------------+----------+--------+
-| Pd             | 取值范围 | 1 .. 4294967295      | 默认取值 | 1      |
+| Pd             | 取值范围 | 1 .. 4294967295      | 默认取值 | 无     |
 | uRPduMaxLength |          |                      |          |        |
 +----------------+----------+----------------------+----------+--------+
 |                | 参数描述 | TxBuffer的长度       |          |        |
@@ -1540,52 +1526,35 @@ PduRTxBuffer
 |                |          | Pdu的最大长度/TP     |          |        |
 |                |          | Pdu的最大单播长度）  |          |        |
 +----------------+----------+----------------------+----------+--------+
-| Pdu            | 取值范围 | 1 .. 255             | 默认取值 | 1      |
-| RTxBufferDepth |          |                      |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 参数描述 | 该TxBuffe            |          |        |
-|                |          | r能缓存的Pdu最大数目 |          |        |
-+----------------+----------+----------------------+----------+--------+
-|                | 依赖关系 | 对于TP单播，该配     |          |        |
-|                |          | 置项只能为1；对于IF  |          |        |
-|                |          | P                    |          |        |
-|                |          | DU，配置为1表示"last |          |        |
-|                |          | is                   |          |        |
-|                |          | best"，配            |          |        |
-|                |          | 置大于1表示“FIFO”。  |          |        |
-+----------------+----------+----------------------+----------+--------+
 
 .. |image1| image:: ../../_static/参考手册/PduR/image1.png
-.. |image2| image:: ../../_static/参考手册/PduR/image2.png
+.. |PduR文件结构图| image:: ../../_static/参考手册/PduR/image2.png
+   :width: 5.76667in
+   :height: 4.56458in
+.. |image2| image:: ../../_static/参考手册/PduR/image3.png
+   :width: 4.925in
+   :height: 3.125in
+.. |image3| image:: ../../_static/参考手册/PduR/image4.png
+   :width: 5.76319in
+   :height: 2.85764in
+.. |image4| image:: ../../_static/参考手册/PduR/image5.png
    :width: 5.76736in
-   :height: 5.33542in
-.. |image3| image:: ../../_static/参考手册/PduR/image3.png
-   :width: 4.56679in
-   :height: 2.54816in
-.. |image4| image:: ../../_static/参考手册/PduR/image4.png
+   :height: 1.38542in
+.. |image5| image:: ../../_static/参考手册/PduR/image6.png
    :width: 5.76736in
-   :height: 2.45833in
-.. |image5| image:: ../../_static/参考手册/PduR/image5.png
-   :width: 5.26144in
-   :height: 1.33611in
-.. |image6| image:: ../../_static/参考手册/PduR/image6.png
-   :width: 5.16813in
-   :height: 1.36717in
-.. |image7| image:: ../../_static/参考手册/PduR/image7.png
-   :width: 5.53611in
-   :height: 1.52251in
-.. |image8| image:: ../../_static/参考手册/PduR/image8.png
+   :height: 1.45486in
+.. |image6| image:: ../../_static/参考手册/PduR/image7.png
+   :width: 5.76667in
+   :height: 2.89028in
+.. |image7| image:: ../../_static/参考手册/PduR/image8.png
+   :width: 5.75833in
+   :height: 2.21597in
+.. |image8| image:: ../../_static/参考手册/PduR/image9.png
    :width: 5.76736in
-   :height: 1.59028in
-.. |image9| image:: ../../_static/参考手册/PduR/image9.png
+   :height: 1.43819in
+.. |image9| image:: ../../_static/参考手册/PduR/image10.png
    :width: 5.76736in
-   :height: 1.80278in
-.. |image10| image:: ../../_static/参考手册/PduR/image10.png
-   :width: 5.76736in
-   :height: 2.42222in
-.. |image11| image:: ../../_static/参考手册/PduR/image11.png
-   :width: 5.76736in
-   :height: 2.51667in
-.. |image12| image:: ../../_static/参考手册/PduR/image12.png
-   :width: 5.76736in
-   :height: 1.85556in
+   :height: 1.41944in
+.. |image10| image:: ../../_static/参考手册/PduR/image11.png
+   :width: 5.75833in
+   :height: 1.69653in

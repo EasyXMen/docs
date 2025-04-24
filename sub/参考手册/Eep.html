@@ -1,0 +1,3780 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>EEP &mdash; EasyXMen_docs 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="EasyXMen_docs 1.0.0 documentation" href="#" />
+            <link rel="next" title="EthIf" href="EthIf.html" />
+            <link rel="prev" title="EcuM" href="EcuM.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">EA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EEP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS.html">OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS.html">OS_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OS_%E6%B7%BB%E5%8A%A0%E8%AE%A2%E9%98%85.html">OS添加订阅</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG_集成手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP_集成手册</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html">小满S32K148示例工程说明</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">EEP</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册/Eep.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="eep">
+<h1>EEP<a class="headerlink" href="#eep" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解</strong></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>缩写词</strong></p></td>
+<td><p><strong>英文全称</strong></p></td>
+<td><p><strong>中文解释</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>EEPROM</p></td>
+<td><p>Electrically Erasable and</p>
+<p>Programmable Read Only</p>
+<p>Memory</p>
+</td>
+<td><p>电可擦和可编程只读存储器</p></td>
+</tr>
+<tr class="row-odd"><td><p>NVRAM</p></td>
+<td><p>Non Volatile Random
+Access</p>
+<p>Memory</p>
+</td>
+<td><p>非易失性随机存取存储器</p></td>
+</tr>
+<tr class="row-even"><td><p>NvM</p></td>
+<td><p>Module name of NVRAM</p>
+<p>Manage</p>
+</td>
+<td><p>NVRAM管理器的模块名称</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM</p></td>
+<td><p>Module name of ECU State</p>
+<p>Manager</p>
+</td>
+<td><p>ECU状态管理器的模块名称</p></td>
+</tr>
+<tr class="row-even"><td><p>DEM</p></td>
+<td><p>Module name of Diagnostic</p>
+<p>Event Manager</p>
+</td>
+<td><p>诊断事件管理器的模块名称</p></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Module name of Default
+Error</p>
+<p>Tracer</p>
+</td>
+<td><p>默认错误跟踪器的模块名称</p></td>
+</tr>
+<tr class="row-even"><td><p>FEE</p></td>
+<td><p>Flash EEPROM Emulation</p>
+<p>Abstraction</p>
+</td>
+<td><p>Flash EEPROM仿真抽象</p></td>
+</tr>
+<tr class="row-odd"><td><p>EA</p></td>
+<td><p>EEPROM Abstraction</p></td>
+<td><p>EEPROM抽象</p></td>
+</tr>
+<tr class="row-even"><td><p>MemIf</p></td>
+<td><p>Memory Abstraction
+Interface</p></td>
+<td><p>内存抽象接口</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>EEPROM驱动程序提供对EEPROM存储单元的读取、写入和擦除等操作服务。它还提供将EEPROM中的数据块与内存中的数据块进行比较的服务。这些服务的行为是异步的。内部EEPROM的驱动程序直接访问微控制器硬件，位于微控制器抽象层。外部EEPROM的驱动程序使用SPI/IIC/UART等常见外围串行总线的驱动处理程序来访问外部EEPROM设备，位于ECU抽象层。两种类型的驱动程序的功能要求和功能范围相同，因此API在语义上是相同的。</p>
+<p>EEPROM（Electrically Erasable Programmable Read-Only
+Memory）是一种带电可擦可编程只读存储器，其特点是掉电后数据不丢失。EEPROM可以在电脑上或专用设备上擦除已有信息并重新编程，通常用于即插即用设备中。EEPROM驱动程序的开发涉及到对EEPROM设备的有效管理和操作，包括但不限于读取、写入和擦除数据，这对于许多应用来说是至关重要的，尤其是在需要频繁更新或配置信息的场景中。</p>
+<p>此外，EEPROM驱动程序还需要考虑与不同硬件平台的兼容性，确保能够在不同的微控制器或系统中正确运行。这涉及到驱动程序的移植性和兼容性测试，‌以确保其能够在各种环境中稳定、可靠地工作。</p>
+<section id="id2">
+<h3>参考资料<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_SRS_EEPROMDriver.pdf，R19-11</p>
+<p>[1] AUTOSAR_SWS_EEPROMDriver.pdf，R19-11</p>
+</section>
+</section>
+<section id="id3">
+<h2>功能描述<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h3>Eep功能<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="id5">
+<h4>Eep功能介绍<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
+<p><img alt="image1" src="../../_images/image188.png" /></p>
+<p>图 Eep模块在AUTOSAR架构中的位置</p>
+<p>如图所示展示了AUTOSAR存储栈的EEPROM驱动程序Eep模块的软件分层架构。可以看到Det模块处于BSW基础软件的ECU抽象层，Eep模块的上层与Ea模块进行交互，并提供API函数接口给Ea模块使用，完成EEPROM驱动程序的读取/写入/擦除/比较等作业任务，待作业任务完成以后，提供API查询接口向Ea模块报告作业结果/运行状态或者提供中断回调通知接口报告作业结果和运行状态；当ECU采用片内Eep驱动程序时，Eep模块的下层与Mcal-Int.Eep模块进行交互，直接提供API接口给Ea模块进行调用，完成所有的作业任务；当ECU采用片外Eep驱动程序时，Eep模块的下层与外围串行总线驱动程序SPI/IIC模块进行交互，比如采用SPI总线挂接Ext.Eep外设，调用SPI驱动程序的Spi_SetupEB/Spi_SyncTransmit函数接口，完成EEPROM存储单元的写入/读取/擦除/比较等作业任务。</p>
+<p><a class="reference internal" href="../../_images/image246.png"><img alt="image2" src="../../_images/image246.png" style="width: 4.8in; height: 8.67639in;" /></a></p>
+<p>图 Eep模块分层架构</p>
+<p>存储栈处于BSW基础软件层，主要由NVRAM，MemIf，Fee、Fls、Ea和Eep等组件来实现。大多数情况下，EEPROM存储单元处于MCU的外部，并通过串行外设总线挂接，严格来讲不属于AUTOSAR软件架构中的标准模块，因此针对于Eep模块的软件架构需要设计成EEPROM存储标准框架和设备驱动组合形式，EEPROM存储标准框架可以做成AUTOSAR标准模块，而设备驱动组件则需要以CDD复杂设备驱动的形式来完成。</p>
+</section>
+<section id="id6">
+<h4>Eep功能实现<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image330.png"><img alt="image3" src="../../_images/image330.png" style="width: 5.76736in; height: 4.56042in;" /></a></p>
+<p>图 Eep模块的功能组件拓扑图</p>
+<p>Eep驱动程序提供了为存储栈实现EEPROM存储单元的读取/写入/擦除/比较等基本作业任务。EEPROM存储的标准框架用于实现AUTOSAR的标准API函数，可以直接被EA模块无缝隙进行挂接，脱离硬件设备的束缚，属于EEPROM驱动程序的硬件抽象部分；EEPROM存储的设备驱动程序用于实现硬件设备的驱动控制，完全依赖于所使用EEPROM存储介质的硬件特性。针对于EEPROM存储的设备驱动程序都是根据ECU所集成的芯片定制化的功能模块，并且根据硬件特性需要涉及更多的组件引入；如果采用SPI串行总线进行挂接，则可以直接使用MCAL自带的SPI组件，并追加EEPROM驱动程序相关的SPI组件的Channel/Job/Sequence/External等参数的配置项，然后通过CDD的方式实现驱动程序的基本操作API接口，并通过配置指针的方式挂接到EEPROM存储的标准框架上，最终以AUTOSAR标准API函数供EA存储抽象组件调用；如果采用IIC串行总线进行挂接，因为IIC也不属于AUTOSAR标准API函数，首先需要通过CDD的方式实现IIC总线的驱动程序，然后引用IIC驱动程序的API实现EEPROM存储设备驱动的基本操作API函数，并通过配置指针的方式挂接到EEPROM存储的标准框架上，最终以AUTOSAR标准API函数供EA存储抽象组件调用；如果MCAL自带Eep驱动程序模块，则直接使用其实现的API函数供EA存储抽象组件调用。</p>
+</section>
+</section>
+<section id="id7">
+<h3>模块之间的交互关系<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href="../../_images/image426.png"><img alt="image4" src="../../_images/image426.png" style="width: 5.76736in; height: 3.82222in;" /></a></p>
+<p>图 模块间交互关系</p>
+<p>表 模块间交互关系</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>交互
+模块</strong></p></td>
+<td><p><strong>交互接口</strong></p></td>
+<td><p><strong>交互数据</strong></p></td>
+<td><p><strong>交互条件</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SPI</p></td>
+<td><p>Spi_WriteIB</p></td>
+<td><p>请求向SPI驱动程序
+的指定缓冲区写入数据</p></td>
+<td><p>I
+B模式的缓冲区</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_ReadIB</p></td>
+<td><p>请求从SPI驱动程序
+的指定缓冲区读取数据</p></td>
+<td><p>I
+B模式的缓冲区</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_SetupEB</p></td>
+<td><p>请求向SPI驱动程
+序的指定缓冲区写入数
+据，并绑定结果缓冲区</p></td>
+<td><p>E
+B模式的缓冲区</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_AsyncTransmit</p></td>
+<td><p>请求发起传输任务</p></td>
+<td><p>异步方式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_SyncTransmit</p></td>
+<td><p>请求发起传输任务</p></td>
+<td><p>同步方式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_GetStatus</p></td>
+<td><p>获取
+SPI驱动程序的运行状态</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_GetJobResult</p></td>
+<td><p>获取
+SPI驱动程序的作业结果</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_
+GetSequenceResult</p></td>
+<td><p>获取
+SPI驱动程序的序列结果</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+<td><p>向Det模块报告开发错误</p></td>
+<td><p>依赖于配置</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Det_R
+eportRuntimeError</p></td>
+<td><p>向
+Det模块报告运行时错误</p></td>
+<td><p>依赖于配置</p></td>
+</tr>
+<tr class="row-even"><td><p>Dem</p></td>
+<td><p>Dem_
+ReportErrorStatus</p></td>
+<td><p>向Dem模块报告硬件故障</p></td>
+<td><p>依赖于配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>EA</p></td>
+<td><p>Eep_62_SetMode</p></td>
+<td><p>请求设置EEP
+ROM驱动程序的工作模式</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_Read</p></td>
+<td><p>请求对EEPROM的
+存储单元执行读取操作</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_Write</p></td>
+<td><p>请求对EEPROM的
+存储单元执行写入操作</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_Erase</p></td>
+<td><p>请求对EEPROM的
+存储单元执行擦除操作</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_Compare</p></td>
+<td><p>请求对EEPROM的
+存储单元执行比较操作</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_Cancel</p></td>
+<td><p>请
+求取消EEPROM驱动程序
+中正在执行的作业任务</p></td>
+<td><p>依赖于配置</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_GetStatus</p></td>
+<td><p>请求获取EEP
+ROM驱动程序的运行状态</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Ee
+p_62_GetJobResult</p></td>
+<td><p>请求获取EEPROM驱
+动程序的当前作业结果</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id8">
+<h2>源文件描述<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<p>表 Eep组件文件描述</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>文件</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Eep.h</p></td>
+<td><p>EEPROM驱动程序的派生数据类型定义</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62.c</p></td>
+<td><p>EEPROM驱动程序API函数实现和变量定义</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62.h</p></td>
+<td><p>EEPROM驱动程序API函数声明和宏定义</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Cbk.c</p></td>
+<td><p>E
+EPROM驱动程序提供给上层组件引用的通知回调函数实现</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_Cbk.h</p></td>
+<td><p>E
+EPROM驱动程序提供给上层组件引用的通知回调函数声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Types.h</p></td>
+<td><p>EEPROM驱动程序的派生数据类型定义</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_MemMap.h</p></td>
+<td><p>EEPROM驱动程序的内存映射抽象声明</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM_62_Eep.h</p></td>
+<td><p>EEPROM驱动程序的调用上下文保护接口声明</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_M95320.c</p></td>
+<td><p>EEPROM驱动程序的设备操作控制接口函数实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_M95320.h</p></td>
+<td><p>EEPROM驱动程序的设备操作控制接口函数声明</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_Api.c</p></td>
+<td><p>EEPROM驱动程序的API函数重映射实现的配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Api.h</p></td>
+<td><p>EEPROM驱动程序的API函数重映射声明的配置</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_Cfg.c</p></td>
+<td><p>EEP
+ROM驱动程序的运行时加载需要用到的可配置参数的实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Cfg.h</p></td>
+<td><p>EEPROM驱动程序的可配置参数数据结构的类型定义
+，以及预编译阶段需要用到的配置参数的宏定义的实现</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep
+_M95320_62_Cfg.c</p></td>
+<td><p>EEPROM驱动程序的
+运行时加载需要用到的可配置特定设备属性参数的实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep
+_M95320_62_Cfg.h</p></td>
+<td><p>EEPROM驱动程序的预编译阶
+段需要用到的可配置特定设备属性参数的宏定义的实现</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image524.png"><img alt="image5" src="../../_images/image524.png" style="width: 5.76736in; height: 4.975in;" /></a></p>
+<p>图 Eep组件文件交互关系图</p>
+</section>
+<section id="api">
+<h2>API接口<a class="headerlink" href="#api" title="Link to this heading">¶</a></h2>
+<section id="id9">
+<h3>类型定义<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<section id="eep-62-addresstype">
+<h4>Eep_62_AddressType类型定义<a class="headerlink" href="#eep-62-addresstype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_AddressType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint32</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>#define Eep_AddressType Eep_62_AddressType</p>
+<p>typedef uint32 Eep_62_AddressType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>0 … 4294967295</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述EEPROM驱动程序中地址类型的派生数据类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-lengthtype">
+<h4>Eep_62_LengthType类型定义<a class="headerlink" href="#eep-62-lengthtype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_LengthType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>#define Eep_LengthType Eep_62_LengthType</p>
+<p>typedef uint16 Eep_62_LengthType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>0 … 65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述EEPROM驱动程序中长度类型的派生数据类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-requestjobtype">
+<h4>Eep_62_RequestJobType类型定义<a class="headerlink" href="#eep-62-requestjobtype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_RequestJobType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef enum</p>
+<p>{</p>
+<p>EEP_62_JOB_NONE = 0,</p>
+<p>EEP_62_JOB_ERASE = 1,</p>
+<p>EEP_62_JOB_WRITE = 2,</p>
+<p>EEP_62_JOB_READ = 3,</p>
+<p>EEP_62_JOB_CANCEL = 4,</p>
+<p>EEP_62_JOB_COMPARE = 5</p>
+<p>} Eep_62_RequestJobType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>0 … 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述EEPROM驱动程序中请求作业状况的枚举数据类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-runtimetype">
+<h4>Eep_62_RuntimeType类型定义<a class="headerlink" href="#eep-62-runtimetype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_RuntimeType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>Eep_62_AddressType operateAddr;</p>
+<p>uint8* dataBufferPtr;</p>
+<p>const uint8* WriteBuffer;</p>
+<p>Eep_62_LengthType length;</p>
+<p>Eep_62_LengthType CompareLength;</p>
+<p>Eep_62_RequestJobType currentJob;</p>
+<p>Eep_62_LengthType maxReadSize;</p>
+<p>Eep_62_LengthType maxWriteSize;</p>
+<p>MemIf_ModeType currentMode;</p>
+<p>boolean StateForRunMainFunction;</p>
+<p>} Eep_62_RuntimeType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述EEPROM驱动程序中运行时状况的数据结构类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-devapitype">
+<h4>Eep_62_DevApiType类型定义<a class="headerlink" href="#eep-62-devapitype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_DevApiType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>void (*DevInitApi)(void);</p>
+<p>Std_ReturnType (*DevReadApi)</p>
+<p>(Eep_62_AddressType readAddress, uint8* readBufferPtr,</p>
+<p>Eep_62_LengthType readLength);</p>
+<p>Std_ReturnType (*DevWriteApi)</p>
+<p>(Eep_62_AddressType writeAddress, const uint8*
+writeBufferPtr,</p>
+<p>Eep_62_LengthType writeLength);</p>
+<p>Std_ReturnType (*DevEraseApi)</p>
+<p>(Eep_62_AddressType eraseAddress, const uint8
+ErasedValue,</p>
+<p>Eep_62_LengthType eraseLength);</p>
+<p>} Eep_62_DevApiType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述EEPROM驱动程序中设备操作API列表的数据结构类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-deviceconfigtype">
+<h4>Eep_62_DeviceConfigType类型定义<a class="headerlink" href="#eep-62-deviceconfigtype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_DeviceConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>uint8 DeviceId;</p>
+<p>Eep_62_AddressType baseAddress;</p>
+<p>Eep_62_LengthType usedSize;</p>
+<p>Eep_62_LengthType fastReadBlockSize;</p>
+<p>Eep_62_LengthType fastWriteBlockSize;</p>
+<p>Eep_62_LengthType normalReadBlockSize;</p>
+<p>Eep_62_LengthType normalWriteBlockSize;</p>
+<p>} Eep_62_DeviceConfigType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述EEPROM驱动程序中设备配置信息的数据结构类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-configtype">
+<h4>Eep_62_ConfigType类型定义<a class="headerlink" href="#eep-62-configtype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>名称</p></td>
+<td><p>Eep_62_ConfigType</p></td>
+</tr>
+<tr class="row-even"><td><p>类型</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义</p></td>
+<td><p>typedef struct</p>
+<p>{</p>
+<p>MemIf_ModeType defaultMode;</p>
+<p>uint32 jobCallCycle;</p>
+<p>const Eep_62_JobNotificationFct jobEndNotification;</p>
+<p>const Eep_62_JobNotificationFct jobErrorNotification;</p>
+<p>uint8 DeviceConfigNbr;</p>
+<p>const Eep_62_DeviceConfigType *DeviceConfigPtr;</p>
+<p>} Eep_62_ConfigType;</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>范围</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述</p></td>
+<td><p>用于描述 Eep模块初始化时，加载配置信息的结构体类型</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id10">
+<h3>输入函数描述<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>输入模块</strong></p></td>
+<td><p><strong>API</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Det_ReportRuntimeError</p></td>
+</tr>
+<tr class="row-even"><td><p>Dem</p></td>
+<td><p>Dem_ReportErrorStatus</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPI</p></td>
+<td><p>Spi_SetupEB</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_WriteIB</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_ReadIB</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_SyncTransmit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_AsyncTransmit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_GetStatus</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_GetJobResult</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_GetSequenceResult</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>静态接口函数定义<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<section id="eep-62-init">
+<h4>Eep_62_Init函数定义<a class="headerlink" href="#eep-62-init" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_62_Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Eep_62_Init (const
+Eep_62_ConfigType
+*ConfigPtr);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Co
+nfigPtr：指向所选配置集的指针</p></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用于实现E
+EPROM驱动程序模块的初始化函数</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-getversioninfo">
+<h4>Eep_62_GetVersionInfo函数定义<a class="headerlink" href="#eep-62-getversioninfo" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_62_
+GetVersionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Eep_62_GetVer
+sionInfo(Std_V
+ersionInfoType
+*ver
+sioninfo);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x0A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值
+域：</p></td>
+<td><p>指
+向存储此模块的版本信息的指针</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>获取
+EEPROM驱动程序
+模块的版本信息</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-setmode-deviceindex">
+<h4>Eep_62_SetMode_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-setmode-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_6
+2_SetM
+ode_&lt;
+device
+Index&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void
+Ee
+p_62_S
+etMode
+_&lt;dev
+iceInd
+ex&gt;(Me
+mIf_Mo
+deType
+Mode);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不
+可重入</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Mode</p></td>
+<td><p>值
+域：</p></td>
+<td><p>M
+EMIF_MODE_SLOW：慢读访问/SPI正常访问</p>
+<p>M
+EMIF_MODE_FAST：快读访问/SPI突发访问</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用
+于EEPR
+OM驱动
+程序中
+设置工
+作模式</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-read-deviceindex">
+<h4>Eep_62_Read_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-read-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Ee
+p_62_Read_&lt;
+deviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>St
+d_ReturnType
+Ee
+p_62_Read_&lt;
+deviceIndex&gt;</p>
+<p>(</p>
+<p>Eep_62
+_AddressType
+Ee
+promAddress,</p>
+<p>uint8
+*Da
+taBufferPtr,</p>
+<p>Eep_6
+2_LengthType
+Length</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同
+步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>EepromAddre
+ss：EEPROM中
+的地址偏移量</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:0</p>
+<p>M
+ax:EEP_SIZE-1</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length：要
+读取的字节数</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:1</p>
+<p>Max:EEP_SIZE
+–</p>
+<p>EepromAddress</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>DataBuff
+erPtr：指向R
+AM中目标数据
+缓冲区的指针</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>S
+td_ReturnTyp</p></td>
+<td><p>E_OK：读
+取命令已被接受</p>
+<p>E_NOT_OK：读
+取命令未被接受</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>服务用于从
+EEPROM存储单
+元中读取给定
+字大小的数据</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-write-deviceindex">
+<h4>Eep_62_Write_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-write-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_6
+2_Write_&lt;d
+eviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std
+_ReturnType
+Eep_6
+2_Write_&lt;d
+eviceIndex&gt;</p>
+<p>(</p>
+<p>Eep_62_
+AddressType
+Eep
+romAddress,</p>
+<p>const uint8
+*Dat
+aBufferPtr,</p>
+<p>Eep_62
+_LengthType
+Length</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Eepr
+omAddress：
+EEPROM中的
+地址偏移量</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:0</p>
+<p>Ma
+x:EEP_SIZE-1</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Data
+BufferPtr：
+源数据指针</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>L
+ength：要写
+入的字节数</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:1</p>
+<p>Max:EEP_SIZE
+–</p>
+<p>E
+epromAddress</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std
+_ReturnType</p></td>
+<td><p>E_OK：
+写入命令已被接受</p>
+<p>E_NOT_OK：
+写入命令未被接受</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务
+用于向EEPRO
+M存储单元写
+入给定字节
+大小的数据</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-erase-deviceindex">
+<h4>Eep_62_Erase_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-erase-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_6
+2_Erase_&lt;d
+eviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std
+_ReturnType
+Eep_6
+2_Erase_&lt;d
+eviceIndex&gt;</p>
+<p>(</p>
+<p>Eep_62_
+AddressType
+Eep
+romAddress,</p>
+<p>Eep_62
+_LengthType
+Length</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>E
+epromAddres
+s：EEPROM中
+的起始地址</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:0</p>
+<p>Ma
+x:EEP_SIZE-1</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>L
+ength：要擦
+除的字节数</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:1</p>
+<p>Max:EEP_SIZE
+–</p>
+<p>E
+epromAddress</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>Std
+_ReturnType</p></td>
+<td><p>E_OK：
+擦除命令已被接受</p>
+<p>E_NOT_OK：
+擦除命令未被接受</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>服
+务用于对EEP
+ROM存储单元
+指定扇区执
+行擦除操作</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-campare-deviceindex">
+<h4>Eep_62_Campare_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-campare-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_62_
+Compare_&lt;d
+eviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Std
+_ReturnType
+Eep_62_
+Compare_&lt;d
+eviceIndex&gt;</p>
+<p>(</p>
+<p>Eep_62_
+AddressType
+Eep
+romAddress,</p>
+<p>const uint8
+*Dat
+aBufferPtr,</p>
+<p>Eep_62
+_LengthType
+Length</p>
+<p>);</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>异步</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>Eepr
+omAddress：
+EEPROM中的
+地址偏移量</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:0</p>
+<p>Ma
+x:EEP_SIZE-1</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Data
+BufferPtr：
+指向数据缓
+冲区的指针</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>L
+ength：要比
+较的字节数</p></td>
+<td></td>
+<td><p>值
+域：</p></td>
+<td><p>Min:1</p>
+<p>Max:EEP_SIZE
+–</p>
+<p>E
+epromAddress</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Std
+_ReturnType</p></td>
+<td><p>E_OK：
+比较命令已被接受</p>
+<p>E_NOT_OK：
+比较命令未被接受</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用于
+将EEPROM驱
+动程序中的
+数据块与内
+存中的EEPRO
+M块进行比较</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-cancel-deviceindex">
+<h4>Eep_62_Cancel_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-cancel-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_62_Cancel_&lt;deviceIndex&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Eep_62_Cancel_&lt;deviceIndex&gt;(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x06</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>不可重入</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用于取消EEPROM驱动程序中正在执行的作业任务</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-getstatus-deviceindex">
+<h4>Eep_62_GetStatus_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-getstatus-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>E
+ep_62_GetStatus
+_&lt;deviceIndex&gt;</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>M
+emIf_StatusType
+Eep_62_G
+etStatus_&lt;devi
+ceIndex&gt;(void);</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x07</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>M
+emIf_StatusType</p></td>
+<td><p>MEMIF_UNINIT</p>
+<p>MEMIF_IDLE</p>
+<p>MEMIF_BUSY</p>
+<p>MEMIF_BUSY_INTERNAL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用于获取
+EEPROM驱动程序
+的当前工作状态</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-getjobresult-deviceindex">
+<h4>Eep_62_GetJobResult_&lt;deviceIndex&gt;函数定义<a class="headerlink" href="#eep-62-getjobresult-deviceindex" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_62_GetJobResu
+lt_&lt;deviceIndex&gt;</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>Me
+mIf_JobResultType
+Eep_62_
+GetJobResult_&lt;de
+viceIndex&gt;(void);</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x08</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是
+否可重入：</p></td>
+<td><p>可重入</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值：</p></td>
+<td><p>Me
+mIf_JobResultType</p></td>
+<td><p>MEMIF_JOB_OK</p>
+<p>MEMIF_JOB_FAILED</p>
+<p>MEMIF_JOB_PENDING</p>
+<p>MEMIF_JOB_CANCELED</p>
+<p>MEMIF_BLOCK_INCONSISTENT</p>
+<p>MEMIF_BLOCK_INVALID</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>服务用于
+获取EEPROM驱动程
+序的当前作业结果</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-mainfunction">
+<h4>Eep_62_MainFunction函数定义<a class="headerlink" href="#eep-62-mainfunction" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_62_MainFunction</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Eep_62_MainFunction(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号：</p></td>
+<td><p>0x09</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述：</p></td>
+<td><p>执行
+EEPROM驱动程序作业处理（读取/写入/擦除/比较）的主函数</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id12">
+<h3>可配置函数定义<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<section id="eep-jobendnotification">
+<h4>Eep_JobEndNotification函数定义<a class="headerlink" href="#eep-jobendnotification" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_JobEndNotification</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Eep_JobEndNotification(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-even"><td><p>是
+否可重入：</p></td>
+<td><p>不关心</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>当作业
+完成并产生积极结果时，将调用模块用户提供的这个回调函数</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-joberrornotification">
+<h4>Eep_JobErrorNotification函数定义<a class="headerlink" href="#eep-joberrornotification" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>函数名称：</p></td>
+<td><p>Eep_JobErrorNotification</p></td>
+</tr>
+<tr class="row-even"><td><p>函数原型：</p></td>
+<td><p>void Eep_JobErrorNotification(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步：</p></td>
+<td><p>同步</p></td>
+</tr>
+<tr class="row-even"><td><p>是
+否可重入：</p></td>
+<td><p>不关心</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入
+输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值：</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述：</p></td>
+<td><p>该回调函数
+由模块用户提供，当作业被取消或完成时出现负面结果时调用</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="id13">
+<h2>配置<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
+<section id="eeprom">
+<h3>内部EEPROM的配置描述<a class="headerlink" href="#eeprom" title="Link to this heading">¶</a></h3>
+<section id="eeparxml">
+<h4>导入Eep组件的arxml文件<a class="headerlink" href="#eeparxml" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image624.png"><img alt="image6" src="../../_images/image624.png" style="width: 5.52942in; height: 7.31375in;" /></a></p>
+<p>图 导入Eep模块的arxml配置</p>
+<p>表 Eep配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepGeneral</p></td>
+<td><p>取值范围</p></td>
+<td><p>配置容器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>参数描述</p></td>
+<td colspan="3"><p>EEPROM驱动程序的一般配置参数的容器</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>备注这些参数总是预编译的</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td colspan="3"><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepInitConfiguration</p></td>
+<td><p>取值范围</p></td>
+<td colspan="3"><p>配置容器</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>参数描述</p></td>
+<td colspan="3"><p>EEPROM驱动程序运行时配置参数的容器</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>实现类型：Eep_ConfigType</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td colspan="3"><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepPublishedInformation</p></td>
+<td><p>取值范围</p></td>
+<td><p>配置容器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>参数描述</p></td>
+<td colspan="3"><p>公共发布信息容器未涵盖的其他已发布参数</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>注意：参数没有任何配置类设置，因为它们是发布的信息</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td colspan="3"><p>无</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepgeneral">
+<h4>EepGeneral<a class="headerlink" href="#eepgeneral" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image719.png"><img alt="image7" src="../../_images/image719.png" style="width: 5.76736in; height: 3.13125in;" /></a></p>
+<p>图 EepGeneral配置</p>
+<p>表 EepGeneral配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDemvErrorDetect</p></td>
+<td><p>参数描述</p></td>
+<td><p>打开或关闭开发错误检测和通知
+TRUE：开启检测和通知功能
+FALSE：关闭检测和通知功能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于系统是否集成DET模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>EepUseInterrupts</p></td>
+<td><p>参数描述</p></td>
+<td><p>启用或停用中断控制的作业处理的开关
+TRUE：启用中断控制的作业处理
+FALSE：中断控制的作业处理被禁用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于EEPROM硬件设备的特定，是否支持中断</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepVersionInfoApi</p></td>
+<td><p>参数描述</p></td>
+<td><p>开启或关闭读取软件版本信息API开关
+TRUE：启用读取软件版本信息API开关
+FALSE：关闭读取软件版本信息API开关</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>EepWriteCycleReduction</p></td>
+<td><p>参数描述</p></td>
+<td><p>开关激活或不激活写周期减少
+备注：EEPROM值在被覆盖之前被读取和比较
+TRUE：开启写周期减重功能
+FALSE：不开启写周期减重功能</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepinitconfiguration">
+<h4>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image818.png"><img alt="image8" src="../../_images/image818.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepInitConfiguration配置</p>
+<p>表 EepInitConfiguration配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDefaultMode</p></td>
+<td><p>参数描述</p></td>
+<td><dl class="simple">
+<dt>参数为初始化后EEPROM的默认设备模式</dt><dd><p>实现类型：MemIf_ModeType</p>
+</dd>
+</dl>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>EepJobCallCycle</p></td>
+<td><p>参数描述</p></td>
+<td><p>EEPROM驱动程序主函数的调   用周期时间（单位：s）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepJobEndNotification</p></td>
+<td><p>参数描述</p></td>
+<td><p>此参数是对作业结果为肯定的回调函数的引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepJobErrorNotification</p></td>
+<td><p>参数描述</p></td>
+<td><p>此参数是对作业结果为否定的回调函数的引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>表 EepInitConfiguration容器配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>EepD
+eviceC
+onfigu
+ration</p></td>
+<td><p>取值范围</p></td>
+<td><p>容器创建</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EEPROM驱动程序
+运行时配置参数的容器</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="eepdeviceconfiguration">
+<h5>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration" title="Link to this heading">¶</a></h5>
+<p><a class="reference internal" href="../../_images/image918.png"><img alt="image9" src="../../_images/image918.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepDeviceConfiguration配置</p>
+<p>表 EepDeviceConfiguration配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>EepDe
+viceId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于描述指定E
+EPROM设备的索引标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ee
+pBaseA
+ddress</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参数用于描述E
+EPROM存储设备的基地址</p>
+<p>实现
+类型：Eep_AddressType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepUs
+edSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该
+参数以字节为单位表示E
+EPROM设备已使用的大小</p>
+<p>实现
+类型：Eep_LengthType</p>
+<p>单位：字节</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ee
+pFastR
+eadBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在快速
+模式下，一个作业处理
+周期内读取的字节数；</p>
+<p>如果硬件不支持突发模
+式，该参数应设置为与</p>
+<p>EepNormalRe
+adBlockSize相同的值。</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eep
+FastWr
+iteBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在快速
+模式下，一个作业处理
+周期内写入的字节数；</p>
+<p>如果硬件不支持突发模
+式，该参数应设置为与</p>
+<p>EepNormalWri
+teBlockSize相同的值。</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepN
+ormalR
+eadBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在正
+常模式下，一个作业处
+理周期内读取的字节数</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepNo
+rmalWr
+iteBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在正
+常模式下，一个作业处
+理周期内写入的字节数</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="eeppublishedinformation">
+<h4>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image1017.png"><img alt="image10" src="../../_images/image1017.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepPublishedInformation配置</p>
+<p>表 EepPublishedInformation配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Eep
+Allowe
+dWrite
+Cycles</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>特定EEPROM硬件在最坏
+情况下的最大写周期数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepE
+raseUn
+itSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以
+字节为单位的最小可擦
+EEPROM数据单位的大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+epEras
+eValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>被
+擦除的EEPROM单元的值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eep
+ReadUn
+itSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以
+字节为单位的最小可读
+EEPROM数据单位的大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepSp
+ecifie
+dErase
+Cycles</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>为EE
+P设备指定的擦除周期数</p>
+<p>备注：通
+常在设备数据表中给出</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepTot
+alSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EEPROM存储单元的总
+大小（以字节为单位）</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepW
+riteUn
+itSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以
+字节为单位的最小可写
+EEPROM数据单位的大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id14">
+<h3>外部EEPROM的配置描述<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<p>表 Eep配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepGeneral</p></td>
+<td><p>取值范围</p></td>
+<td><p>配置容器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>参数描述</p></td>
+<td colspan="3"><p>EEPROM驱动程序的一般配置参数的容器</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>备注这些参数总是预编译的</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td colspan="3"><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepInitConfiguration</p></td>
+<td><p>取值范围</p></td>
+<td colspan="3"><p>配置容器</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>参数描述</p></td>
+<td colspan="3"><p>EEPROM驱动程序运行时配置参数的容器</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>实现类型：Eep_ConfigType</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td colspan="3"><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepPublishedInformation</p></td>
+<td><p>取值范围</p></td>
+<td><p>配置容器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"></td>
+<td rowspan="2"><p>参数描述</p></td>
+<td colspan="3"><p>公共发布信息容器未涵盖的其他已发布参数</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>注意：参数没有任何配置类设置，因为它们是发布的信息</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td colspan="3"><p>无</p></td>
+</tr>
+</tbody>
+</table>
+<section id="eepgeneral-1">
+<span id="id15"></span><h4>EepGeneral<a class="headerlink" href="#eepgeneral-1" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image1121.png"><img alt="image11" src="../../_images/image1121.png" style="width: 5.76736in; height: 3.13125in;" /></a></p>
+<p>图 EepGeneral配置</p>
+<p>表 EepGeneral配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>EepDe
+vError
+Detect</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>打开或关
+闭开发错误检测和通知</p>
+<p>TRU
+E：开启检测和通知功能</p>
+<p>FALS
+E：关闭检测和通知功能</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖
+于系统是否集成DET模块</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepD
+eviceN
+umbers</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于指示ECU挂接EEP
+ROM存储设备的实际数量</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于EEP
+ROM硬件设备的挂接数量</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepUs
+eFunci
+ontApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>预
+处理器开关启用/禁用AP
+I使用通用函数或宏函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepU
+seInte
+rrupts</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>启用或停用中断
+控制的作业处理的开关</p>
+<p>TRUE：启
+用中断控制的作业处理</p>
+<p>FALSE：中断
+控制的作业处理被禁用</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于EEPROM硬件设备
+的特定，是否支持中断</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepVe
+rsionI
+nfoApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>开启或关闭读
+取软件版本信息API开关</p>
+<p>TRUE：启用读
+取软件版本信息API开关</p>
+<p>FALSE：关闭读
+取软件版本信息API开关</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepW
+riteCy
+cleRed
+uction</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>开关激
+活或不激活写周期减少</p>
+<p>备注：EEPROM值在被
+覆盖之前被读取和比较</p>
+<p>TRU
+E：开启写周期减重功能</p>
+<p>FALSE：
+不开启写周期减重功能</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+epDevi
+ceName</p></td>
+<td><p>取值范围</p></td>
+<td><p>字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>指定
+Eep模块实例的设备名称</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+epUsed
+SpiBus</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参数用于指定是否使用
+SPI总线访问EEPROM设备</p>
+<p>TRUE
+：允许使用SPI总线访问</p>
+<p>FALSE
+：禁止使用SPI总线访问</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+epUsed
+I2cBus</p></td>
+<td><p>取值范围</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参数用于指定是否使用
+IIC总线访问EEPROM设备</p>
+<p>TRUE
+：允许使用IIC总线访问</p>
+<p>FALSE
+：禁止使用IIC总线访问</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eep
+I2cCha
+nnelId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使用IIC总线访问EEPRO
+M设备的通道命令标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+epHead
+erFile</p></td>
+<td><p>取值范围</p></td>
+<td><p>无</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于
+描述为Eep模块加载设备
+驱动依赖的头文件包含</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepSpi
+CmdCha
+nnelId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使用SP
+I总线访问EEPROM设备的
+命令相关的通道标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+epSpiC
+mdSequ
+enceId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使用SP
+I总线访问EEPROM设备的
+命令相关的序列标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+epSpiD
+ataCha
+nnelId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使用SP
+I总线访问EEPROM设备的
+数据相关的通道标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ee
+pSpiDa
+taSequ
+enceId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>使用SP
+I总线访问EEPROM设备的
+数据相关的序列标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepinitconfiguration-1">
+<span id="id16"></span><h4>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration-1" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image1218.png"><img alt="image12" src="../../_images/image1218.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepInitConfiguration配置</p>
+<p>表 EepInitConfiguration配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDefaultMode</p></td>
+<td><p>参数描述</p></td>
+<td><p>参数为初始化后EEPROM的默认设备模式
+实现类型：MemIf_ModeType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围</p></td>
+<td><p>配置容器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepJobCallCycle</p></td>
+<td><p>参数描述</p></td>
+<td><p>EEPROM驱动程序主函数的用周期时间（单位：s）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>配置容器</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepPublishedInformation</p></td>
+<td><p>参数描述</p></td>
+<td><p>公共发布信息容器未涵盖的其他已发布参数
+注意：参数没有任何配置类设置因为它们是发布的信息</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepJobEndNotifiNotific</p></td>
+<td><p>参数描述</p></td>
+<td><p>此参数是对作业结果为肯定的回调函数的引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepJobErrorNotification</p></td>
+<td><p>参数描述</p></td>
+<td><p>此参数是对作业结果为否定的回调函数的引用</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>表 EepInitConfiguration容器配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>UI名称</p></td>
+<td><p>描述</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>EepDemEventParameterRefs</p></td>
+<td><p>取值范围</p></td>
+<td><p>容器创建</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>参数描述</p></td>
+<td><p>容器   ，用于引用DemEventParameter元素，在发生相应错误时，应使用Dem_SetEventStatus调用DemEventParameter元素。EventId取自引用的DemEventParameter的DemEventId符号值。标准化错误在此容器中提供，并且可以通过特定于供应商的错误引用进行扩展</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><p>EepDeviceConfiguration</p></td>
+<td><p>取值范围</p></td>
+<td><p>容器创建</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>参数描述</p></td>
+<td><p>EEPROM驱动程序运行时配置参数的容器</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>EepDeviceHwApis</p></td>
+<td><p>取值范围</p></td>
+<td><p>容器创建</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>参数描述</p></td>
+<td><p>EEPROM驱动程序运行时设备操作API列表的容器</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="eepdemeventparameterrefs">
+<h5>EepDemEventParameterRefs<a class="headerlink" href="#eepdemeventparameterrefs" title="Link to this heading">¶</a></h5>
+<p><a class="reference internal" href="../../_images/image1316.png"><img alt="image13" src="../../_images/image1316.png" style="width: 5.76736in; height: 3.13125in;" /></a></p>
+<p>图 EepDemEventParameterRefs配置</p>
+<p>表 EepDemEventParameterRefs配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>EE
+P_E_CO
+MPARE_
+FAILED</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用DemEventParamet
+er，当错误“EEPROM比较
+失败”发生时，使用参数
+向Demand组件报告故障</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Dem组件的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EEP_E_
+ERASE_
+FAILED</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用DemEventParamet
+er，当错误“EEPROM擦除
+失败”发生时，使用参数
+向Demand组件报告故障</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Dem组件的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EEP_E
+_READ_
+FAILED</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用DemEventParamet
+er，当错误“EEPROM读取
+失败”发生时，使用参数
+向Demand组件报告故障</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Dem组件的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EEP_E_
+WRITE_
+FAILED</p></td>
+<td><p>取值范围</p></td>
+<td><p>引用或下拉选项</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>引用DemEventParamet
+er，当错误“EEPROM写入
+失败”发生时，使用参数
+向Demand组件报告故障</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于Dem组件的配置</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepdeviceconfiguration-1">
+<span id="id17"></span><h5>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration-1" title="Link to this heading">¶</a></h5>
+<p><a class="reference internal" href="../../_images/image1414.png"><img alt="image14" src="../../_images/image1414.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepDeviceConfiguration配置</p>
+<p>表 EepDeviceConfiguration配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>EepDe
+viceId</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>用于描述指定E
+EPROM设备的索引标识符</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ee
+pBaseA
+ddress</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>参数用于描述E
+EPROM存储设备的基地址</p>
+<p>实现
+类型：Eep_AddressType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepUs
+edSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>该
+参数以字节为单位表示E
+EPROM设备已使用的大小</p>
+<p>实现
+类型：Eep_LengthType</p>
+<p>单位：字节</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ee
+pFastR
+eadBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在快速
+模式下，一个作业处理
+周期内读取的字节数；</p>
+<p>如果硬件不支持突发模
+式，该参数应设置为与</p>
+<p>EepNormalRe
+adBlockSize相同的值。</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Eep
+FastWr
+iteBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在快速
+模式下，一个作业处理
+周期内写入的字节数；</p>
+<p>如果硬件不支持突发模
+式，该参数应设置为与</p>
+<p>EepNormalWri
+teBlockSize相同的值。</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepN
+ormalR
+eadBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在正
+常模式下，一个作业处
+理周期内读取的字节数</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepNo
+rmalWr
+iteBlo
+ckSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>在正
+常模式下，一个作业处
+理周期内写入的字节数</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepdevicehwapis">
+<h5>EepDeviceHwApis<a class="headerlink" href="#eepdevicehwapis" title="Link to this heading">¶</a></h5>
+<p><a class="reference internal" href="../../_images/image1513.png"><img alt="image15" src="../../_images/image1513.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepDeviceHwApis配置</p>
+<p>表 EepDeviceHwApis配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>E
+epDevI
+nitApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>描述指定EEPROM设备的
+访问初始化操作API函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>E
+epDevR
+eadApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>描述指定EEPROM设备
+的访问读取操作API函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ee
+pDevWr
+iteApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>描述指定EEPROM设备
+的访问写入操作API函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ee
+pDevEr
+aseApi</p></td>
+<td><p>取值范围</p></td>
+<td><p>函数指针字符串</p></td>
+<td><p>默认取值</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>描述指定EEPROM设备
+的访问擦除操作API函数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>用
+于指示ECU挂接EEPROM存
+储设备的实际芯片类型</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="eeppublishedinformation-1">
+<span id="id18"></span><h4>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation-1" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="../../_images/image1612.png"><img alt="image16" src="../../_images/image1612.png" style="width: 5.76736in; height: 3.09375in;" /></a></p>
+<p>图 EepPublishedInformation配置</p>
+<p>表 EepPublishedInformation配置</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Eep
+Allowe
+dWrite
+Cycles</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>特定EEPROM硬件在最坏
+情况下的最大写周期数</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepE
+raseUn
+itSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以
+字节为单位的最小可擦
+EEPROM数据单位的大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>E
+epEras
+eValue</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>被
+擦除的EEPROM单元的值</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eep
+Minimu
+mAddre
+ssType</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Eep_Addr
+essType的最小期望大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ee
+pMinim
+umLeng
+thType</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>Eep_Len
+gthType的最小期望大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Eep
+ReadUn
+itSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以
+字节为单位的最小可读
+EEPROM数据单位的大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepSp
+ecifie
+dErase
+Cycles</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>为EE
+P设备指定的擦除周期数</p>
+<p>备注：通
+常在设备数据表中给出</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepTot
+alSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>16384</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>EEPROM存储单元的总
+大小（以字节为单位）</p>
+<p>实现
+类型：Eep_LengthType</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepW
+riteUn
+itSize</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述</p></td>
+<td><p>以
+字节为单位的最小可写
+EEPROM数据单位的大小</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepEra
+seTime</p></td>
+<td><p>取值范围</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述</p></td>
+<td><p>擦除一个EEP
+ROM数据单元的最大时间</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系</p></td>
+<td><p>依赖于
+EEPROM硬件设备的特定</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="EcuM.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>EcuM
+    </a>
+    <a class="float-right" href="EthIf.html" title="Next">
+        EthIf <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">EEP</a><ul>
+<li><a class="reference internal" href="#id1">简介</a><ul>
+<li><a class="reference internal" href="#id2">参考资料</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">功能描述</a><ul>
+<li><a class="reference internal" href="#id4">Eep功能</a><ul>
+<li><a class="reference internal" href="#id5">Eep功能介绍</a></li>
+<li><a class="reference internal" href="#id6">Eep功能实现</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">模块之间的交互关系</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">源文件描述</a></li>
+<li><a class="reference internal" href="#api">API接口</a><ul>
+<li><a class="reference internal" href="#id9">类型定义</a><ul>
+<li><a class="reference internal" href="#eep-62-addresstype">Eep_62_AddressType类型定义</a></li>
+<li><a class="reference internal" href="#eep-62-lengthtype">Eep_62_LengthType类型定义</a></li>
+<li><a class="reference internal" href="#eep-62-requestjobtype">Eep_62_RequestJobType类型定义</a></li>
+<li><a class="reference internal" href="#eep-62-runtimetype">Eep_62_RuntimeType类型定义</a></li>
+<li><a class="reference internal" href="#eep-62-devapitype">Eep_62_DevApiType类型定义</a></li>
+<li><a class="reference internal" href="#eep-62-deviceconfigtype">Eep_62_DeviceConfigType类型定义</a></li>
+<li><a class="reference internal" href="#eep-62-configtype">Eep_62_ConfigType类型定义</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">输入函数描述</a></li>
+<li><a class="reference internal" href="#id11">静态接口函数定义</a><ul>
+<li><a class="reference internal" href="#eep-62-init">Eep_62_Init函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-getversioninfo">Eep_62_GetVersionInfo函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-setmode-deviceindex">Eep_62_SetMode_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-read-deviceindex">Eep_62_Read_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-write-deviceindex">Eep_62_Write_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-erase-deviceindex">Eep_62_Erase_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-campare-deviceindex">Eep_62_Campare_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-cancel-deviceindex">Eep_62_Cancel_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-getstatus-deviceindex">Eep_62_GetStatus_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-getjobresult-deviceindex">Eep_62_GetJobResult_&lt;deviceIndex&gt;函数定义</a></li>
+<li><a class="reference internal" href="#eep-62-mainfunction">Eep_62_MainFunction函数定义</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">可配置函数定义</a><ul>
+<li><a class="reference internal" href="#eep-jobendnotification">Eep_JobEndNotification函数定义</a></li>
+<li><a class="reference internal" href="#eep-joberrornotification">Eep_JobErrorNotification函数定义</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">配置</a><ul>
+<li><a class="reference internal" href="#eeprom">内部EEPROM的配置描述</a><ul>
+<li><a class="reference internal" href="#eeparxml">导入Eep组件的arxml文件</a></li>
+<li><a class="reference internal" href="#eepgeneral">EepGeneral</a></li>
+<li><a class="reference internal" href="#eepinitconfiguration">EepInitConfiguration</a><ul>
+<li><a class="reference internal" href="#eepdeviceconfiguration">EepDeviceConfiguration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eeppublishedinformation">EepPublishedInformation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">外部EEPROM的配置描述</a><ul>
+<li><a class="reference internal" href="#eepgeneral-1">EepGeneral</a></li>
+<li><a class="reference internal" href="#eepinitconfiguration-1">EepInitConfiguration</a><ul>
+<li><a class="reference internal" href="#eepdemeventparameterrefs">EepDemEventParameterRefs</a></li>
+<li><a class="reference internal" href="#eepdeviceconfiguration-1">EepDeviceConfiguration</a></li>
+<li><a class="reference internal" href="#eepdevicehwapis">EepDeviceHwApis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eeppublishedinformation-1">EepPublishedInformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <!-- <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.1
+                    </a>
+                </small> -->
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
