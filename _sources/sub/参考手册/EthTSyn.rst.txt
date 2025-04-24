@@ -1,17 +1,12 @@
-===================
-EthTSyn产品参考手册
-===================
-
-
-
-
+============
+EthTSyn
+============
 
 **缩写词注解**
 
 +-----------+------------------------------+--------------------------+
-| *         | **英文全称**                 | **中文解释**             |
-| *缩写词** |                              |                          |
-+===========+==============================+==========================+
+| **缩写词**| **英文全称**                 | **中文解释**             |
++-----------+------------------------------+--------------------------+
 | StbM      | SynchronizedTimeBaseManager  | 同步时基管理             |
 +-----------+------------------------------+--------------------------+
 | <Bus>TSyn | A bus specific Time          | 总线特                   |
@@ -31,7 +26,6 @@ EthTSyn产品参考手册
 
 
 
-
 简介
 ====
 
@@ -39,7 +33,7 @@ EthTSyn在AutoSAR中软件层级架构如下图，其属于时间同步栈。
 
 |image1|
 
-图1-1 EthTSyn在AutoSar中软件架构图
+图 EthTSyn在AutoSar中软件架构图
 
 本文中描述EthTSyn，StbM负责管理时间域，给CanTSyn,
 EthTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。
@@ -75,15 +69,15 @@ EthTSyn功能实现
 
 关于延迟的测量，EthTSyn使用的是GPTP的延迟测量方法，即
 
-|C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\1594716454(1).png|
+|image16|
 
-图2-1 GPTP延迟测量
+图 GPTP延迟测量
 
 最终延迟值为(t4-t1-(t3-t2))/2。
 
 |image2|
 
-图2-2 时间同步报文时序
+图 时间同步报文时序
 
 而时间同步功能则是EthTSyn应该以配置的频率发送SYNC消息，再根据配置的时间间隔发送带有sync发送时间的Follow_Up消息，最后再根据时间值和延迟测量计算出的结果得出正确的时间传给StbM。其中SYNC和Follow_Up的消息有IEEE
 802.1和AUTOSAR专用的两种格式，需要根据配置来决定消息的格式。
@@ -100,7 +94,7 @@ EthTSyn功能限制
 3. Pdelay_Req报文的接收不作为开始发送Sync报文的前提条件。
 
 4. Rate
-   Correction在IEEE中原先由Pdleay机制负责计算，Autosar中规定该值的计算发生在StbM中（当从节点接收到时间同步报文并向StbM设置多次时间后），因此EthTSyn自身没有获取该值的能力。当填写cumulativeScaledRateOffset字段时，EthTSyn提供了EthTSynCumulativeScaledRateOffset配置项，从而其作为主节点发送时能够使用配置值进行发送，作为主节点接收时则不予处理。
+   Correction在IEEE中原先由Pdelay机制负责计算，Autosar中规定该值的计算发生在StbM中（当从节点接收到时间同步报文并向StbM设置多次时间后），因此EthTSyn自身没有获取该值的能力。当填写cumulativeScaledRateOffset字段时，EthTSyn提供了EthTSynCumulativeScaledRateOffset配置项，从而其作为主节点发送时能够使用配置值进行发送，作为主节点接收时则不予处理。
 
 5. Rate Correction在StbM中属于纯软件算法，不涉及修正硬件。
 
@@ -113,7 +107,7 @@ EthTSyn功能限制
 源文件描述
 ==========
 
-表3-1 EthTSyn组件文件描述
+表 EthTSyn组件文件描述
 
 +---------------------+------------------------------------------------+
 | **文件**            | **说明**                                       |
@@ -135,7 +129,7 @@ EthTSyn功能限制
 
 |image3|
 
-图3-1 EthTSyn组件文件交互关系图
+图 EthTSyn组件文件交互关系图
 
 API接口
 =======
@@ -257,8 +251,8 @@ EthTSyn_GetVersionInfo函数定义
 |             | EthTSy            |         |                         |
 |             | n_GetVersionInfo( |         |                         |
 |             |                   |         |                         |
-|             | Std_              |         |                         |
-|             | VersionInfoType\* |         |                         |
+|             | Std               |         |                         |
+|             | _VersionInfoType\*|         |                         |
 |             | versioninfo       |         |                         |
 |             |                   |         |                         |
 |             | )                 |         |                         |
@@ -312,7 +306,7 @@ EthTSyn_SetTransmissionMode函数定义
 +-------------+-------------------+---------+-------------------------+
 | 输入参数：  | CtrlIdx           | 值域：  | 以太网控制器索引        |
 +-------------+-------------------+---------+-------------------------+
-|             | Mode              |         | ETHTSYN_TX_OFF          |
+|             | Mode              | 值域：  | ETHTSYN_TX_OFF          |
 |             |                   |         | ETHTSYN_TX_ON           |
 +-------------+-------------------+---------+-------------------------+
 | 输入        | 无                |         |                         |
@@ -365,15 +359,20 @@ EthTSyn_RxIndication函数定义
 | 输入参数：  | CtrlIdx           | 值    | 以太网控制器索引          |
 |             |                   | 域：  |                           |
 +-------------+-------------------+-------+---------------------------+
-|             | FrameType         |       | 接收到的以太网帧类型      |
+|             | FrameType         | 值    | 接收到的以太网帧类型      |
+|             |                   | 域：  |                           |
 +-------------+-------------------+-------+---------------------------+
-|             | IsBroadcast       |       | 是否是广播帧              |
+|             | IsBroadcast       | 值    | 是否是广播帧              |
+|             |                   | 域：  |                           |
 +-------------+-------------------+-------+---------------------------+
-|             | PhysAddrPtr       |       | 以太网帧的源MAC地址的指针 |
+|             | PhysAddrPtr       | 值    | 以太网帧的源MAC地址的指针 |
+|             |                   | 域：  |                           |
 +-------------+-------------------+-------+---------------------------+
-|             | DataPtr           |       | 数据域的指针              |
+|             | DataPtr           | 值    | 数据域的指针              |
+|             |                   | 域：  |                           |
 +-------------+-------------------+-------+---------------------------+
-|             | LenByte           |       | 数据域的长度              |
+|             | LenByte           | 值    | 数据域的长度              |
+|             |                   | 域：  |                           |
 +-------------+-------------------+-------+---------------------------+
 | 输入        | 无                |       |                           |
 | 输出参数：  |                   |       |                           |
@@ -399,7 +398,10 @@ EthTSyn_TxConfirmation函数定义
 |             | uint8 CtrlIdx,    |         |                         |
 |             |                   |         |                         |
 |             | Eth_BufIdxType    |         |                         |
-|             | BufIdx            |         |                         |
+|             | BufIdx,           |         |                         |
+|             |                   |         |                         |
+|             | Std_ReturnType    |         |                         |
+|             | Result            |         |                         |
 |             |                   |         |                         |
 |             | )                 |         |                         |
 +-------------+-------------------+---------+-------------------------+
@@ -412,7 +414,11 @@ EthTSyn_TxConfirmation函数定义
 +-------------+-------------------+---------+-------------------------+
 | 输入参数：  | CtrlIdx           | 值域：  | 以太网控制器索引        |
 +-------------+-------------------+---------+-------------------------+
-|             | BufIdx            |         | 以太网缓冲区的索引      |
+|             | BufIdx            | 值域：  | 以太网缓冲区的索引      |
++-------------+-------------------+---------+-------------------------+
+|             | Result            | 值域：  | E_OK 发送成功           |
+|             |                   |         |                         |
+|             |                   |         | E_NOT_OK 发送失败       |
 +-------------+-------------------+---------+-------------------------+
 | 输入        | 无                |         |                         |
 | 输出参数：  |                   |         |                         |
@@ -458,8 +464,8 @@ EthTSyn_TrcvLinkStateChg函数定义
 | 输入参数：   | CtrlIdx   | 值    | 以太网控制器索引                 |
 |              |           | 域：  |                                  |
 +--------------+-----------+-------+----------------------------------+
-|              | Trcv      |       | ETHTRCV_LINK_STATE_DOWN          |
-|              | LinkState |       | ETHTRCV_LINK_STATE_ACTIVE        |
+|              | Trcv      | 值    | ETHTRCV_LINK_STATE_DOWN          |
+|              | LinkState | 域：  | ETHTRCV_LINK_STATE_ACTIVE        |
 +--------------+-----------+-------+----------------------------------+
 | 输           | 无        |       |                                  |
 | 入输出参数： |           |       |                                  |
@@ -522,9 +528,9 @@ EthTSynGeneral
 
 |image4|
 
-图5-1 EthTSynGeneral工具配置
+图 EthTSynGeneral工具配置
 
-表5-2 EthTSynGeneral配置描述
+表 EthTSynGeneral配置描述
 
 +--------------------+-----------+------------------+---------+------+
 | **UI名称**         | **描述**  |                  |         |      |
@@ -616,9 +622,9 @@ EthTSynGlobalTimeDomain
 
 |image5|
 
-图5-2 EthTSynGlobalTimeDomain工具配置
+图 EthTSynGlobalTimeDomain工具配置
 
-表5-3 EthTSynGlobalTimeDomain配置描述
+表 EthTSynGlobalTimeDomain配置描述
 
 +-------------------+-----------+------------------+---------+--------+
 | **UI名称**        | **描述**  |                  |         |        |
@@ -639,22 +645,38 @@ EthTSynGlobalTimeDomain
 |                   | 依赖关系  | StbMSync         |         |        |
 |                   |           | hronizedTimeBase |         |        |
 +-------------------+-----------+------------------+---------+--------+
+| EthTSynSynchr     | 取值范围  | reference        | 默      | 无     |
+| onizedTimeBaseRef |           |                  | 认取值  |        |
++-------------------+-----------+------------------+---------+--------+
+|                   | 参数描述  | 指定本时间域使用 |         |        |
+|                   |           | 的硬件时钟所属的 |         |        |
+|                   |           | EthTSynPort。注  |         |        |
+|                   |           | ：只有当StbM的S  |         |        |
+|                   |           | tbMLocalTimeHard |         |        |
+|                   |           | ware关联了EthTSy |         |        |
+|                   |           | nGlobalTimeDomai |         |        |
+|                   |           | n,此项才可配置。 |         |        |
++-------------------+-----------+------------------+---------+--------+
+|                   | 依赖关系  | E                |         |        |
+|                   |           | thTSynPortConfig |         |        |
++-------------------+-----------+------------------+---------+--------+
 
- EthTSynGlobalTimeFollowUpDataIDList
+
+EthTSynGlobalTimeFollowUpDataIDList
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 |image6|
 
-图5-3 EthTSynGlobalTimeFollowUpDataIDList工具配置
+图 EthTSynGlobalTimeFollowUpDataIDList工具配置
 
 EthTSynGlobalTimeFollowUpDataIDListElement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |image7|
 
-图5-4 EthTSynGlobalTimeFollowUpDataIDListElement工具配置
+图 EthTSynGlobalTimeFollowUpDataIDListElement工具配置
 
-表5-4 EthTSynGlobalTimeFollowUpDataIDListElement配置描述
+表 EthTSynGlobalTimeFollowUpDataIDListElement配置描述
 
 +------------------+-----------+------------------+---------+--------+
 | **UI名称**       | **描述**  |                  |         |        |
@@ -683,14 +705,15 @@ EthTSynGlobalTimeFollowUpDataIDListElement
 |                  | 依赖关系  | 无               |         |        |
 +------------------+-----------+------------------+---------+--------+
 
- EthTSynPortConfig
+
+EthTSynPortConfig
 ~~~~~~~~~~~~~~~~~~
 
 |image8|
 
-图5-5 EthTSynPortConfig工具配置
+图 EthTSynPortConfig工具配置
 
-表5-5 EthTSynPortConfig配置描述
+表 EthTSynPortConfig配置描述
 
 +------------------+-----------+------------------+---------+--------+
 | **UI名称**       | **描述**  |                  |         |        |
@@ -715,8 +738,8 @@ EthTSynGlobalTimeFollowUpDataIDListElement
 | TimeDebounceTime |           |                  | 认取值  |        |
 +------------------+-----------+------------------+---------+--------+
 |                  | 参数描述  | 同一组S          |         |        |
-|                  |           | ync报文和Follow_ |         |        |
-|                  |           | Up报文的发送间隔 |         |        |
+|                  |           | ync报文和Follow  |         |        |
+|                  |           | _Up报文的发送间隔|         |        |
 |                  |           | 时间。单位：秒。 |         |        |
 +------------------+-----------+------------------+---------+--------+
 |                  | 依赖关系  | 无               |         |        |
@@ -731,14 +754,15 @@ EthTSynGlobalTimeFollowUpDataIDListElement
 |                  | 依赖关系  | EthIfController  |         |        |
 +------------------+-----------+------------------+---------+--------+
 
+
 EthTSynPdelayConfig
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 |image9|
 
-图5-6 EthTSynPdelayConfig工具配置
+图 EthTSynPdelayConfig工具配置
 
-表5-6 EthTSynPdelayConfig配置描述
+表 EthTSynPdelayConfig配置描述
 
 +------------------+-----------+------------------+---------+---------+
 | **UI名称**       | **描述**  |                  |         |         |
@@ -820,21 +844,23 @@ EthTSynPdelayConfig
 |                  | 依赖关系  | 无               |         |         |
 +------------------+-----------+------------------+---------+---------+
 
+
 EthTSynPortRole
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 |image10|
 
-图5-7 EthTSynPortRole工具配置
+图 EthTSynPortRole工具配置
 
 EthTSynGlobalTimeMaster
 '''''''''''''''''''''''
 
+
 |image11|
 
-图5-8 EthTSynGlobalTimeMaster工具配置
+图 EthTSynGlobalTimeMaster工具配置
 
-表5-7 EthTSynGlobalTimeMaster配置描述
+表 EthTSynGlobalTimeMaster配置描述
 
 +------------+-----------+------------------+---------+---+--------------+
 | **UI名称** | **描述**  |                  |         |   |              |
@@ -966,14 +992,14 @@ EthTSynGlobalTimeMaster
 |            | 依赖关系  | 无               |         |   |              |
 +------------+-----------+------------------+---------+---+--------------+
 
-**EthTSynCrcTimeFlagsTxSecured**
-                                
+EthTSynCrcTimeFlagsTxSecured
+*****************************
 
 |image12|
 
-图5-9 EthTSynCrcTimeFlagsTxSecured工具配置
+图 EthTSynCrcTimeFlagsTxSecured工具配置
 
-表5-8 EthTSynCrcTimeFlagsTxSecured配置描述
+表 EthTSynCrcTimeFlagsTxSecured配置描述
 
 +----------------+-----------+------------------+---------+-----------+
 | **UI名称**     | **描述**  |                  |         |           |
@@ -1040,14 +1066,15 @@ EthTSynGlobalTimeMaster
 |                | 依赖关系  | 无               |         |           |
 +----------------+-----------+------------------+---------+-----------+
 
+
 EthTSynGlobalTimeSlave
 ''''''''''''''''''''''
 
 |image13|
 
-图5-10 EthTSynGlobalTimeSlave工具配置
+图 EthTSynGlobalTimeSlave工具配置
 
-表5-9 EthTSynGlobalTimeSlave配置描述
+表 EthTSynGlobalTimeSlave配置描述
 
 +------------+-----------+------------------+---------+---+--------------+
 | **UI名称** | **描述**  |                  |         |   |              |
@@ -1097,15 +1124,31 @@ EthTSynGlobalTimeSlave
 +------------+-----------+------------------+---------+---+--------------+
 |            | 依赖关系  | 无               |         |   |              |
 +------------+-----------+------------------+---------+---+--------------+
+| Et         | 取值范围  | 0 .. 15          | 默      |   | 0            |
+| hTSynGloba |           |                  | 认取值  |   |              |
+| lTimeSeque |           |                  |         |   |              |
+| nceCounter |           |                  |         |   |              |
+| Hysteresis |           |                  |         |   |              |
++------------+-----------+------------------+---------+---+--------------+
+|            | 参数描述  | 指定Time         |         |   |              |
+|            |           | Slave            |         |   |              |
+|            |           | 在超时状态下所需 |         |   |              |
+|            |           | 的连续有效消息对 |         |   |              |
+|            |           | 的数量，直到Time |         |   |              |
+|            |           | Tup              |         |   |              |
+|            |           | le转发到StbM为止 |         |   |              |
++------------+-----------+------------------+---------+---+--------------+
+|            | 依赖关系  | 无               |         |   |              |
++------------+-----------+------------------+---------+---+--------------+
 
-**EthTSynCrcFlagsRxValidated**
-                              
+EthTSynCrcFlagsRxValidated
+******************************
 
 |image14|
 
-图5-11 EthTSynCrcFlagsRxValidated工具配置
+图 EthTSynCrcFlagsRxValidated工具配置
 
-表5-10 EthTSynCrcFlagsRxValidated配置描述
+表 EthTSynCrcFlagsRxValidated配置描述
 
 +------------------+-----------+------------------+---------+---------+
 | **UI名称**       | **描述**  |                  |         |         |
@@ -1174,7 +1217,7 @@ EthTSynGlobalTimeSlave
 .. |image1| image:: ../../_static/参考手册/EthTSyn/image1.png
    :width: 5.76736in
    :height: 3.68472in
-.. |C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\1594716454(1).png| image:: ../../_static/参考手册/EthTSyn/image2.png
+.. |image16| image:: ../../_static/参考手册/EthTSyn/image2.png
    :width: 5.76736in
    :height: 2.47917in
 .. |image2| image:: ../../_static/参考手册/EthTSyn/image3.png
@@ -1187,8 +1230,8 @@ EthTSynGlobalTimeSlave
    :width: 5.68679in
    :height: 3.36416in
 .. |image5| image:: ../../_static/参考手册/EthTSyn/image6.png
-   :width: 5.76736in
-   :height: 0.85347in
+   :width: 5.75694in
+   :height: 0.81528in
 .. |image6| image:: ../../_static/参考手册/EthTSyn/image7.png
    :width: 4.64583in
    :height: 1.97917in
@@ -1197,22 +1240,22 @@ EthTSynGlobalTimeSlave
    :height: 1.55208in
 .. |image8| image:: ../../_static/参考手册/EthTSyn/image9.png
    :width: 5.76736in
-   :height: 1.59375in
+   :height: 1.18056in
 .. |image9| image:: ../../_static/参考手册/EthTSyn/image10.png
    :width: 5.76736in
-   :height: 2.38611in
+   :height: 1.46111in
 .. |image10| image:: ../../_static/参考手册/EthTSyn/image11.png
    :width: 4.14583in
    :height: 2.27083in
 .. |image11| image:: ../../_static/参考手册/EthTSyn/image12.png
-   :width: 5.61458in
-   :height: 2.89583in
+   :width: 5.76389in
+   :height: 3.02222in
 .. |image12| image:: ../../_static/参考手册/EthTSyn/image13.png
    :width: 3.54167in
    :height: 1.89583in
 .. |image13| image:: ../../_static/参考手册/EthTSyn/image14.png
-   :width: 5.52014in
-   :height: 1.42691in
+   :width: 5.46807in
+   :height: 1.74978in
 .. |image14| image:: ../../_static/参考手册/EthTSyn/image15.png
    :width: 3.36458in
    :height: 1.97917in
