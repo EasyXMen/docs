@@ -1,6 +1,7 @@
-===================
-SecOC产品参考手册
-===================
+==============
+SecOC
+==============
+
 
 
 
@@ -40,7 +41,6 @@ SecOC产品参考手册
 
 
 
-
 简介
 ====
 
@@ -50,7 +50,7 @@ SecOC模块的目标是在PDU级别上实现资源效率高、可行的敏感数
 
 |image1|
 
-图1-1 SecOC模块示意图
+图 SecOC模块示意图
 
 参考资料
 --------
@@ -84,14 +84,14 @@ Value是在生成Authenticator时使用的新鲜度值。Authenticator为生成�
 
 |image2|
 
-图2-1 Secured I-PDU组成部分示意图
+图 Secured I-PDU组成部分示意图
 
 在创建Secured
 I-PDU时，SecOC支持截取部分FreshnessValue和Authenticator。截取的长度依据配置决定。
 
 |image3|
 
-图2-2 截取FreshnessValue和Authentor组成Secured I-PDU示意图
+图 截取FreshnessValue和Authentor组成Secured I-PDU示意图
 
 DataToAuthenticator
 ~~~~~~~~~~~~~~~~~~~
@@ -100,7 +100,7 @@ DataToAuthenticator指要传递给CSM模块，按照配置的加密算法进行M
 
 |image4|
 
-图2-3 DataToAuthenticator数据格式
+图 DataToAuthenticator数据格式
 
 Freshness Values
 ~~~~~~~~~~~~~~~~
@@ -121,7 +121,7 @@ I-PDU后组合成一帧Secured I-PDU。
 
 |image5|
 
-图2-4 Cryptographic I-PDU组成
+图 Cryptographic I-PDU组成
 
 MessageLinker
 ^^^^^^^^^^^^^
@@ -148,7 +148,7 @@ I-PDU并通过校验之后，SecOC又作为PduR的下层模块，通过PduR将�
 
 |image6|
 
-图2-5 SecOC和PduR关系示意图
+图 SecOC和PduR关系示意图
 
 认证I-PDU（发送）功能
 ---------------------
@@ -233,13 +233,13 @@ I-PDU传递给上层模块。
 
 Override策略见下表：
 
-表2-1 Override策略一览表
+表 Override策略一览表
 
 +-------------------+--------------------------------------------------+
 | **策略**          | **说明**                                         |
 +-------------------+--------------------------------------------------+
-| SECOC_OVERRIDE_   | 在设置新的Override策                             |
-| DROP_UNTIL_NOTICE | 略之前，SecOC不对接收报文进行校验，并且丢弃接收  |
+| SECOC_OVERRIDE    | 在设置新的Override策                             |
+| _DROP_UNTIL_NOTICE| 略之前，SecOC不对接收报文进行校验，并且丢弃接收  |
 |                   | 报文，将校验结果状态设置为SECOC_NO_VERIFICATION  |
 +-------------------+--------------------------------------------------+
 | SECOC_OVERRIDE    | 在设置的NumberOfM                                |
@@ -250,8 +250,8 @@ Override策略见下表：
 | SECO              | 取消Override                                     |
 | C_OVERRIDE_CANCEL |                                                  |
 +-------------------+--------------------------------------------------+
-| SECOC_OVERRIDE_   | 在                                               |
-| PASS_UNTIL_NOTICE | 设置新的Override策略之前，SecOC要对所有的Secured |
+| SECOC_OVERRIDE    | 在                                               |
+| _PASS_UNTIL_NOTICE| 设置新的Override策略之前，SecOC要对所有的Secured |
 |                   | I-PDU进行校验，无论校验结果如何都要将Authentic   |
 |                   | I                                                |
 |                   | -PDU传递给上层模块。当校验结果失败时，将校验结果 |
@@ -273,8 +273,8 @@ Override策略见下表：
 |                   | 结果失败时，将校验结果状态设置为SECOC_VERIFICAT  |
 |                   | IONFAILURE_OVERWRITTEN。之后恢复正常的接收流程。 |
 +-------------------+--------------------------------------------------+
-| SECOC_OVERRIDE_   | 在                                               |
-| SKIP_UNTIL_NOTICE | 设置新的Override策略之前，SecOC不对接收的Secured |
+| SECOC_OVERRIDE    | 在                                               |
+| _SKIP_UNTIL_NOTICE| 设置新的Override策略之前，SecOC不对接收的Secured |
 |                   | I-PDU进行校验，将Authentic                       |
 |                   | I-PDU直接传递给上层模块。                        |
 |                   | 将校验结果状态设置为SECOC_NO_VERIFICATION。如果S |
@@ -285,7 +285,7 @@ Override策略见下表：
 源文件描述
 ==========
 
-表3-1 SecOC组件文件描述
+表 SecOC组件文件描述
 
 +----------------+-----------------------------------------------------+
 | **文件**       | **说明**                                            |
@@ -315,7 +315,7 @@ Override策略见下表：
 
 |image7|
 
-图3-1 SecOC组件文件交互关系图
+图 SecOC组件文件交互关系图
 
 API接口
 =======
@@ -537,8 +537,8 @@ SecOC_GetVersionInfo函数定义
 |             | Sec               |         |                         |
 |             | OC_GetVersionInfo |         |                         |
 |             | (                 |         |                         |
-|             | Std_              |         |                         |
-|             | VersionInfoType\* |         |                         |
+|             | Std               |         |                         |
+|             | _VersionInfoType\*|         |                         |
 |             | versioninfo )     |         |                         |
 +-------------+-------------------+---------+-------------------------+
 | 服务编号：  | 0x02              |         |                         |
@@ -826,8 +826,8 @@ SecOC_VerifyStatusOverride函数定义
 |             | IDE_SKIP_UNTIL_LIMIT, |         |                    |
 |             | SECOC_OVERRI          |         |                    |
 |             | DE_PASS_UNTIL_LIMIT或 |         |                    |
-|             | SECOC_OVERRIDE_SKIP_  |         |                    |
-|             | UNTIL_NOTICE时，SecOC |         |                    |
+|             | SECOC_OVERRIDE_SKIP   |         |                    |
+|             | _UNTIL_NOTICE时，SecOC|         |                    |
 |             | EnableForcedPassOverr |         |                    |
 |             | ide参数必须设置为TRUE |         |                    |
 +-------------+-----------------------+---------+--------------------+
@@ -1743,9 +1743,9 @@ SecOCGeneral
 
 |image8|
 
-图5-1 SecOCGeneral容器配置图
+图 SecOCGeneral容器配置图
 
-表5‑1 SecOCGeneral属性描述
+表 SecOCGeneral属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -1894,9 +1894,9 @@ SecOCRxPduProcessing
 
 |image9|
 
-图5-2 SecOCRxPduProcessing容器配置图
+图 SecOCRxPduProcessing容器配置图
 
-表5‑2 SecOCRxPduProcessing属性描述
+表 SecOCRxPduProcessing属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2137,9 +2137,9 @@ SecOCRxAuthenticPduLayer
 
 |image10|
 
-图5-3 SecOCRxAuthenticPduLayer容器配置图
+图 SecOCRxAuthenticPduLayer容器配置图
 
-表5‑3 SecOCRxAuthenticPduLayer属性描述
+表 SecOCRxAuthenticPduLayer属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2185,9 +2185,9 @@ SecOCRxPduSecuredArea
 
 |image11|
 
-图5-4 SecOCRxPduSecuredArea容器配置图
+图 SecOCRxPduSecuredArea容器配置图
 
-表5‑4 SecOCRxPduSecuredArea属性描述
+表 SecOCRxPduSecuredArea属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2244,9 +2244,9 @@ SecOCRxSecuredPdu
 
 |image12|
 
-图5-5 SecOCRxSecuredPdu容器配置图
+图 SecOCRxSecuredPdu容器配置图
 
-表5‑5 SecOCRxSecuredPdu属性描述
+表 SecOCRxSecuredPdu属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2328,9 +2328,9 @@ SecOCRxSecuredPduCollection
 
 |image13|
 
-图5-6 SecOCRxSecuredPduCollection容器配置图
+图 SecOCRxSecuredPduCollection容器配置图
 
-表5‑6 SecOCRxSecuredPduCollection属性描述
+表 SecOCRxSecuredPduCollection属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2360,9 +2360,9 @@ SecOCRxAuthenticPdu
 
 |image14|
 
-图5-7 SecOCRxAuthenticPdu容器配置图
+图 SecOCRxAuthenticPdu容器配置图
 
-表5‑7 SecOCRxAuthenticPdu属性描述
+表 SecOCRxAuthenticPdu属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2427,9 +2427,9 @@ SecOCRxCryptographicPdu
 
 |image15|
 
-图5-8 SecOCRxCryptographicPdu容器配置图
+图 SecOCRxCryptographicPdu容器配置图
 
-表5‑8 SecOCRxCryptographicPdu属性描述
+表 SecOCRxCryptographicPdu属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2483,9 +2483,9 @@ SecOCUseMessageLink
 
 |image16|
 
-图5-9 SecOCUseMessageLink容器配置图
+图 SecOCUseMessageLink容器配置图
 
-表5‑9 SecOCUseMessageLink属性描述
+表 SecOCUseMessageLink属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2538,9 +2538,9 @@ SecOCSameBufferPduCollection
 
 |image17|
 
-图5-10 SecOCSameBufferPduCollection容器配置图
+图 SecOCSameBufferPduCollection容器配置图
 
-表5‑10 SecOCSameBufferPduCollection属性描述
+表 SecOCSameBufferPduCollection属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2619,9 +2619,9 @@ SecOCTxPduProcessing
 
 |image18|
 
-图5-11 SecOCTxPduProcessing容器配置图
+图 SecOCTxPduProcessing容器配置图
 
-表5‑11 SecOCTxPduProcessing属性描述
+表 SecOCTxPduProcessing属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2778,9 +2778,9 @@ SecOCTxAuthenticPduLayer
 
 |image19|
 
-图5-12 SecOCTxAuthenticPduLayer容器配置图
+图 SecOCTxAuthenticPduLayer容器配置图
 
-表5‑12 SecOCTxAuthenticPduLayer属性描述
+表 SecOCTxAuthenticPduLayer属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2825,9 +2825,9 @@ SecOCTxPduSecuredArea
 
 |image20|
 
-图5-13 SecOCTxPduSecuredArea容器配置图
+图 SecOCTxPduSecuredArea容器配置图
 
-表5‑13 SecOCTxPduSecuredArea属性描述
+表 SecOCTxPduSecuredArea属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2884,9 +2884,9 @@ SecOCTxSecuredPdu
 
 |image21|
 
-图5-14 SecOCTxSecuredPdu容器配置图
+图 SecOCTxSecuredPdu容器配置图
 
-表5‑14 SecOCTxSecuredPdu属性描述
+表 SecOCTxSecuredPdu属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -2956,9 +2956,9 @@ SecOCTxAuthenticPdu
 
 |image22|
 
-图5-15 SecOCTxAuthenticPdu容器配置图
+图 SecOCTxAuthenticPdu容器配置图
 
-表5‑15 SecOCTxAuthenticPdu属性描述
+表 SecOCTxAuthenticPdu属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -3025,9 +3025,9 @@ SecOCTxCryptographicPdu
 
 |image23|
 
-图5-16 SecOCTxCryptographicPdu容器配置图
+图 SecOCTxCryptographicPdu容器配置图
 
-表5‑16 SecOCTxCryptographicPdu属性描述
+表 SecOCTxCryptographicPdu属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -3087,9 +3087,9 @@ SecOCUseMessageLink
 
 |image24|
 
-图5-17 SecOCUseMessageLink容器配置图
+图 SecOCUseMessageLink容器配置图
 
-表5‑17 SecOCUseMessageLink属性描述
+表 SecOCUseMessageLink属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |

@@ -1,7 +1,6 @@
-===================
-E2EXf产品参考手册
-===================
-
+======================
+E2EXf
+======================
 
 
 1 简介 
@@ -15,9 +14,6 @@ E2EXf产品参考手册
 +------------+---------------------------+----------------------------+
 | E2EL       | End to End library        | 端到端通讯保护库           |
 +------------+---------------------------+----------------------------+
-|            |                           |                            |
-+------------+---------------------------+----------------------------+
-
 
 
 
@@ -28,7 +24,7 @@ E2EXf模块的责任在于保护安全性相关的数据，在发送端，E2EXf�
 
 |image1|
 
-图1-1 E2EXf在AUTOSAR中的位置
+图 E2EXf在AUTOSAR中的位置
 
 参考资料
 --------
@@ -71,18 +67,18 @@ E2EXf\_<transformerId>函数In-place方式buffer处理：
 
 |image2|
 
-图2-1 E2EXf\_<transformerId>buffer处理方式--- In-place
+图 E2EXf\_<transformerId>buffer处理方式--- In-place
 
 E2EXf\_<transformerId>函数Out-of-place方式buffer处理：
 
 |image3|
 
-图2-2 E2EXf\_<transformerId>buffer处理方式---Out-of-place
+图 E2EXf\_<transformerId>buffer处理方式---Out-of-place
 
 源文件描述
 ==========
 
-表3-1 E2EXf组件文件描述
+表 E2EXf组件文件描述
 
 +-----------------------+----------------------------------------------+
 | **文件**              | **说明**                                     |
@@ -109,7 +105,7 @@ E2EXf\_<transformerId>函数Out-of-place方式buffer处理：
 
 |image4|
 
-图3-1 E2EXf组件文件交互关系图
+图 E2EXf组件文件交互关系图
 
 API接口
 =======
@@ -424,23 +420,23 @@ E2EXf_Inv\_<transformerId>函数定义
 |             | means VALID_OK    |         |                         |
 |             |                   |         |                         |
 |             | 0x01              |         |                         |
-|             | (E_               |         |                         |
+|             | (E\_              |         |                         |
 |             | SAFETY_VALID_REP) |         |                         |
 |             |                   |         |                         |
 |             | 0x02              |         |                         |
-|             | (E_               |         |                         |
+|             | (E\_              |         |                         |
 |             | SAFETY_VALID_SEQ) |         |                         |
 |             |                   |         |                         |
 |             | 0x03              |         |                         |
-|             | (E_               |         |                         |
+|             | (E\_              |         |                         |
 |             | SAFETY_VALID_ERR) |         |                         |
 |             |                   |         |                         |
 |             | 0x05              |         |                         |
-|             | (E_               |         |                         |
+|             | (E\_              |         |                         |
 |             | SAFETY_VALID_NND) |         |                         |
 |             |                   |         |                         |
 |             | 0x20              |         |                         |
-|             | (E_               |         |                         |
+|             | (E\_              |         |                         |
 |             | SAFETY_NODATA_OK) |         |                         |
 |             |                   |         |                         |
 |             | 0x21              |         |                         |
@@ -526,9 +522,9 @@ E2EXfrmGeneral
 
 |image5|
 
-图5-1 E2EXfrmGeneral容器配置图
+图 E2EXfrmGeneral容器配置图
 
-表5‑1 E2EXfrmGeneral属性描述
+表  E2EXfrmGeneral属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -559,9 +555,9 @@ E2ETransformer
 
 |image6|
 
-图5-2 E2ETransformer容器配置图
+图 E2ETransformer容器配置图
 
-表5‑2 E2ETransformer属性描述
+表  E2ETransformer属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -593,9 +589,9 @@ EndToEndTransformationISignalProps
 
 |image7|
 
-图5-3 EndToEndTransformationISignalProps容器配置图
+图 EndToEndTransformationISignalProps容器配置图
 
-表5‑3 EndToEndTransformationISignalProps属性描述
+表  EndToEndTransformationISignalProps属性描述
 
 +--------+-----------+---------------+------+-------+---+------------+
 | **UI   | **描述**  |               |      |       |   |            |
@@ -752,7 +748,7 @@ EndToEndTransformationISignalProps
 |        |           | n.profileName |      |       |   |            |
 |        |           | == profile_04 |      |       |   |            |
 |        |           | \|\|          |      |       |   |            |
-|        |           | profile_      |      |       |   |            |
+|        |           | profile\_     |      |       |   |            |
 |        |           | 06||profile_0 |      |       |   |            |
 |        |           | 7),dataLength |      |       |   |            |
 |        |           | multiplicity  |      |       |   |            |
@@ -765,7 +761,7 @@ EndToEndTransformationISignalProps
 |        |           | ionDescriptio |      |       |   |            |
 |        |           | n.profileName |      |       |   |            |
 |        |           | ==            |      |       |   |            |
-|        |           | profile_      |      |       |   |            |
+|        |           | profile\_     |      |       |   |            |
 |        |           | 01,dataLength |      |       |   |            |
 |        |           | shall be a    |      |       |   |            |
 |        |           | multiple of 8 |      |       |   |            |
@@ -780,7 +776,7 @@ EndToEndTransformationISignalProps
 |        |           | ionDescriptio |      |       |   |            |
 |        |           | n.profileName |      |       |   |            |
 |        |           | ==            |      |       |   |            |
-|        |           | profile_      |      |       |   |            |
+|        |           | profile\_     |      |       |   |            |
 |        |           | 02,dataLength |      |       |   |            |
 |        |           | shall be a    |      |       |   |            |
 |        |           | multiple of   |      |       |   |            |
@@ -796,7 +792,7 @@ EndToEndTransformationISignalProps
 |        |           | ionDescriptio |      |       |   |            |
 |        |           | n.profileName |      |       |   |            |
 |        |           | ==            |      |       |   |            |
-|        |           | profile_      |      |       |   |            |
+|        |           | profile\_     |      |       |   |            |
 |        |           | 05,dataLength |      |       |   |            |
 |        |           | shall be a    |      |       |   |            |
 |        |           | multiple of   |      |       |   |            |
@@ -811,7 +807,7 @@ EndToEndTransformationISignalProps
 |        |           | ionDescriptio |      |       |   |            |
 |        |           | n.profileName |      |       |   |            |
 |        |           | ==            |      |       |   |            |
-|        |           | profile_      |      |       |   |            |
+|        |           | profile\_     |      |       |   |            |
 |        |           | 11,dataLength |      |       |   |            |
 |        |           | shall be a    |      |       |   |            |
 |        |           | multiple of 8 |      |       |   |            |
@@ -826,7 +822,7 @@ EndToEndTransformationISignalProps
 |        |           | ionDescriptio |      |       |   |            |
 |        |           | n.profileName |      |       |   |            |
 |        |           | ==            |      |       |   |            |
-|        |           | profile_      |      |       |   |            |
+|        |           | profile\_     |      |       |   |            |
 |        |           | 22,dataLength |      |       |   |            |
 |        |           | shall be a    |      |       |   |            |
 |        |           | multiple of   |      |       |   |            |
@@ -985,7 +981,7 @@ EndToEndTransformationISignalProps
 +--------+-----------+---------------+------+-------+---+------------+
 |        | 依赖关系  | 无            |      |       |   |            |
 +--------+-----------+---------------+------+-------+---+------------+
-| sy     | 取值范围  | References to | 默认 |       | 无 |           |
+| sy     | 取值范围  | References to | 默认 |       |   | 无         |
 | stemSi |           | [Co           | 取值 |       |   |            |
 | gnalGr |           | mSignalGroup] |      |       |   |            |
 | oupRef |           |               |      |       |   |            |
@@ -996,7 +992,7 @@ EndToEndTransformationISignalProps
 +--------+-----------+---------------+------+-------+---+------------+
 |        | 依赖关系  | 无            |      |       |   |            |
 +--------+-----------+---------------+------+-------+---+------------+
-| IS     | 取值范围  | References to | 默认 |       | 无 |           |
+| IS     | 取值范围  | References to | 默认 |       |   | 无         |
 | ignals |           | [C            | 取值 |       |   |            |
 |        |           | omGroupSignal |      |       |   |            |
 |        |           | ]             |      |       |   |            |
@@ -1016,9 +1012,9 @@ EndToEndTransformationComSpecProps
 
 |image8|
 
-图5-4 EndToEndTransformationComSpecProps容器配置图
+图 EndToEndTransformationComSpecProps容器配置图
 
-表5‑4 EndToEndTransformationComSpecProps属性描述
+表  EndToEndTransformationComSpecProps属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -1297,9 +1293,9 @@ Transformation
 
 |image9|
 
-图5-5 Transformation容器配置图
+图 Transformation容器配置图
 
-表5‑5 Transformation属性描述
+表  Transformation属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -1335,9 +1331,9 @@ TransformationTechnology
 
 |image10|
 
-图5-6 TransformationTechnology容器配置图
+图 TransformationTechnology容器配置图
 
-表5‑6 TransformationTechnology属性描述
+表  TransformationTechnology属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | **描述**  |                       |           |            |
@@ -1383,642 +1379,221 @@ EndToEndTransformationDescription
 
 |image11|
 
-图5-7 EndToEndTransformationDescription容器配置图
+图 EndToEndTransformationDescription容器配置图
 
-表5‑7 EndToEndTransformationDescription属性描述
+表  EndToEndTransformationDescription属性描述
 
-+--------+-----------+-----------------------+-----------+------------+
-| **UI   | **描述**  |                       |           |            |
-| 名称** |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| c      | 取值范围  | 0~65535               | 默认取值  | 8          |
-| ounter |           |                       |           |            |
-| Offset |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 数组中计数器          |           |            |
-|        |           | 的偏移量(以位为单位)  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_01||prof      |           |            |
-|        |           | ile_11),counteroffset |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be    |           |            |
-|        |           | 1,and the value of    |           |            |
-|        |           | counterOffset shall   |           |            |
-|        |           | be set to n \* 8（n > |           |            |
-|        |           | 0）;the value shall   |           |            |
-|        |           | be set to the value   |           |            |
-|        |           | of                    |           |            |
-|        |           | u                     |           |            |
-|        |           | pperHeaderBitsToShift |           |            |
-|        |           | + 8.                  |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_              |           |            |
-|        |           | 02||profile_04||profi |           |            |
-|        |           | le_05||profile_06||pr |           |            |
-|        |           | ofile_07||profile_22) |           |            |
-|        |           | counteroffset         |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be 0. |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| crc    | 取值范围  | 0~65535               | 默认取值  | 0          |
-| Offset |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 数组中CRC的           |           |            |
-|        |           | 偏移量，以位为单位。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_01||          |           |            |
-|        |           | profile_11),crcOffset |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be 1, |           |            |
-|        |           | and the value of      |           |            |
-|        |           | crcOffset shall be    |           |            |
-|        |           | the same as           |           |            |
-|        |           | up                    |           |            |
-|        |           | perHeaderBitsToShift; |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_              |           |            |
-|        |           | 02||profile_04||profi |           |            |
-|        |           | le_05||profile_06||pr |           |            |
-|        |           | ofile_07||profile_22) |           |            |
-|        |           | crcoffset             |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be 0. |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| data   | 取值范围  | Enumeration           | 默认取值  | ALL16BIT   |
-| IdMode |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 该属性描              |           |            |
-|        |           | 述了一种包含方式，用  |           |            |
-|        |           | 于将隐含的两字节数据  |           |            |
-|        |           | ID 包含在 1 字节 CRC  |           |            |
-|        |           | 中                    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_01||p         |           |            |
-|        |           | rofile_11),dataIdmode |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be 1; |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_              |           |            |
-|        |           | 02||profile_04||profi |           |            |
-|        |           | le_05||profile_06||pr |           |            |
-|        |           | ofile_07||profile_22) |           |            |
-|        |           | dataIdmode            |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be 0; |           |            |
-|        |           |                       |           |            |
-|        |           | If(EndToEndTrans      |           |            |
-|        |           | formationDescription. |           |            |
-|        |           | profileName ==        |           |            |
-|        |           | profile_11) then the  |           |            |
-|        |           | value of the          |           |            |
-|        |           | En                    |           |            |
-|        |           | dToEndTransformationD |           |            |
-|        |           | escription.dataIdMode |           |            |
-|        |           | attribute shall be    |           |            |
-|        |           | set to ALL16BIT or    |           |            |
-|        |           | LOWER12BIT.           |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| dataId | 取值范围  | 0~65535               | 默认取值  | 12         |
-| Nibble |           |                       |           |            |
-| Offset |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | Offset of the Data ID |           |            |
-|        |           | nibble in the Data[]  |           |            |
-|        |           | array in bits.        |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | pr                    |           |            |
-|        |           | ofile_01||profile_11) |           |            |
-|        |           | &&(En                 |           |            |
-|        |           | dToEndTransformationD |           |            |
-|        |           | escription.dataIdMode |           |            |
-|        |           | == lower12Bit         |           |            |
-|        |           | ),dataIdNibbleOffset  |           |            |
-|        |           | attribute             |           |            |
-|        |           | multiplicity shall be |           |            |
-|        |           | 1;the value shall be  |           |            |
-|        |           | set to                |           |            |
-|        |           | u                     |           |            |
-|        |           | pperHeaderBitsToShift |           |            |
-|        |           | + 12;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_              |           |            |
-|        |           | 02||profile_04||profi |           |            |
-|        |           | le_05||profile_06||pr |           |            |
-|        |           | ofile_07||profile_22) |           |            |
-|        |           | \||(En                |           |            |
-|        |           | dToEndTransformationD |           |            |
-|        |           | escription.dataIdMode |           |            |
-|        |           | != lower12Bit )       |           |            |
-|        |           | ,dataIdNibbleOffset   |           |            |
-|        |           | attribute             |           |            |
-|        |           | multiplicity shall be |           |            |
-|        |           | 0.                    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| max    | 取值范围  | 0~65535               | 默认取值  | 1          |
-| DeltaC |           |                       |           |            |
-| ounter |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 两次连                |           |            |
-|        |           | 续检查的两个计数器值  |           |            |
-|        |           | 之间的最大允许间隙。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_01),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range 1-14; |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_02),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range 1-15; |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_04),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range       |           |            |
-|        |           | 1-65535;              |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_05),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range       |           |            |
-|        |           | 1-255;                |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_06),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range       |           |            |
-|        |           | 1-255;                |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_07),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range       |           |            |
-|        |           | 1-4294967295;         |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_11),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range 1-14; |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_22),       |           |            |
-|        |           | maxdeltacounter shall |           |            |
-|        |           | be in the range 1-15. |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| maxEr  | 取值范围  | 0~255                 | 默认取值  | 0          |
-| rorSta |           |                       |           |            |
-| teInit |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 在最近一次 WindowSize |           |            |
-|        |           | 检查中，确定了状态    |           |            |
-|        |           | E2E_SM_INIT 的        |           |            |
-|        |           | ProfileStatus 等于    |           |            |
-|        |           | E2E_P_ERROR           |           |            |
-|        |           | 的最大检查次数        |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | maxErrorStateValid>=m |           |            |
-|        |           | axErrorStateInit>=max |           |            |
-|        |           | ErrorStateInvalid>=0; |           |            |
-|        |           |                       |           |            |
-|        |           | minOkStateInit +      |           |            |
-|        |           | maxErrorStateInit <=  |           |            |
-|        |           | windowSizeValid       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| ma     | 取值范围  | 0~255                 | 默认取值  | 0          |
-| xError |           |                       |           |            |
-| StateI |           |                       |           |            |
-| nvalid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 在最近一次 WindowSize |           |            |
-|        |           | 检查中，确定了状态    |           |            |
-|        |           | E2E_SM\_ INVALID的    |           |            |
-|        |           | ProfileStatus 等于    |           |            |
-|        |           | E2E_P_ERROR           |           |            |
-|        |           | 的最大检查次数        |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | maxErrorStateValid>=m |           |            |
-|        |           | axErrorStateInit>=max |           |            |
-|        |           | ErrorStateInvalid>=0; |           |            |
-|        |           |                       |           |            |
-|        |           | minOkStateInvalid +   |           |            |
-|        |           | maxErrorStateInvalid  |           |            |
-|        |           | <= windowSizeValid    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| maxErr | 取值范围  | 0~255                 | 默认取值  | 0          |
-| orStat |           |                       |           |            |
-| eValid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 在最近一次 WindowSize |           |            |
-|        |           | 检查中，确定了状态    |           |            |
-|        |           | E2E_SM\_ VALID的      |           |            |
-|        |           | ProfileStatus 等于    |           |            |
-|        |           | E2E_P_ERROR           |           |            |
-|        |           | 的最大检查次数        |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | maxErrorStateValid>=m |           |            |
-|        |           | axErrorStateInit>=max |           |            |
-|        |           | ErrorStateInvalid>=0; |           |            |
-|        |           |                       |           |            |
-|        |           | minOkStateValid +     |           |            |
-|        |           | maxErrorStateValid <= |           |            |
-|        |           | windowSizeValid       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| maxN   | 取值范围  | 0~255                 | 默认取值  | 0          |
-| oNewOr |           |                       |           |            |
-| Repeat |           |                       |           |            |
-| edData |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 允许连续失败的计      |           |            |
-|        |           | 数器检查的最大数量。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_01)，value |           |            |
-|        |           | range of              |           |            |
-|        |           | m                     |           |            |
-|        |           | axNoNewOrRepeatedData |           |            |
-|        |           | is 0~14;              |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_02)，value |           |            |
-|        |           | value of              |           |            |
-|        |           | m                     |           |            |
-|        |           | axNoNewOrRepeatedData |           |            |
-|        |           | is 0~15;              |           |            |
-|        |           |                       |           |            |
-|        |           | if the                |           |            |
-|        |           | End                   |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | attribute has a value |           |            |
-|        |           | of PROFILE_04,        |           |            |
-|        |           | PROFILE_05,           |           |            |
-|        |           | PROFILE_06,           |           |            |
-|        |           | PROFILE_07,           |           |            |
-|        |           | PROFILE_11, or        |           |            |
-|        |           | PROFILE_22 then the   |           |            |
-|        |           | multiplicity of the   |           |            |
-|        |           | EndToEndTransf        |           |            |
-|        |           | ormationDescription.m |           |            |
-|        |           | axNoNewOrRepeatedData |           |            |
-|        |           | attribute shall be 0; |           |            |
-|        |           |                       |           |            |
-|        |           | if the                |           |            |
-|        |           | End                   |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | attribute has a value |           |            |
-|        |           | of PROFILE_01 and the |           |            |
-|        |           | value of the          |           |            |
-|        |           | profileBehavior       |           |            |
-|        |           | attribute is R4_2     |           |            |
-|        |           | ,the value of the     |           |            |
-|        |           | EndToEndTransf        |           |            |
-|        |           | ormationDescription.m |           |            |
-|        |           | axNoNewOrRepeatedData |           |            |
-|        |           | attribute shall be    |           |            |
-|        |           | 14;                   |           |            |
-|        |           |                       |           |            |
-|        |           | if the                |           |            |
-|        |           | End                   |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | attribute has a value |           |            |
-|        |           | of PROFILE_02 and the |           |            |
-|        |           | value of the          |           |            |
-|        |           | profileBehavior       |           |            |
-|        |           | attribute is R4_2,the |           |            |
-|        |           | value of the          |           |            |
-|        |           | EndToEndTransf        |           |            |
-|        |           | ormationDescription.m |           |            |
-|        |           | axNoNewOrRepeatedData |           |            |
-|        |           | attribute shall be    |           |            |
-|        |           | 15.                   |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| mi     | 取值范围  | 0~255                 | 默认取值  | 1          |
-| nOkSta |           |                       |           |            |
-| teInit |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 在最近一次 WindowSize |           |            |
-|        |           | 检查中，确定了状态    |           |            |
-|        |           | E2E_SM_INIT 的        |           |            |
-|        |           | ProfileStatus 等于    |           |            |
-|        |           | E2E_P_OK              |           |            |
-|        |           | 的最少检查次数。      |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | 1<=minOkStat          |           |            |
-|        |           | eValid<=minOkStateIni |           |            |
-|        |           | t<=minOkStateInvalid; |           |            |
-|        |           |                       |           |            |
-|        |           | minOkStateInit +      |           |            |
-|        |           | maxErrorStateInit <=  |           |            |
-|        |           | windowSizeValid       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| minOk  | 取值范围  | 0~255                 | 默认取值  | 1          |
-| StateI |           |                       |           |            |
-| nvalid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 在最近一次 WindowSize |           |            |
-|        |           | 检查中，确定了状态    |           |            |
-|        |           | E2E_SM\_ INVALID的    |           |            |
-|        |           | ProfileStatus 等于    |           |            |
-|        |           | E2E_P_OK              |           |            |
-|        |           | 的最少检查次数。      |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | 1<=minOkStat          |           |            |
-|        |           | eValid<=minOkStateIni |           |            |
-|        |           | t<=minOkStateInvalid; |           |            |
-|        |           |                       |           |            |
-|        |           | minOkStateInvalid +   |           |            |
-|        |           | maxErrorStateInvalid  |           |            |
-|        |           | <= windowSizeValid    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| min    | 取值范围  | 0~255                 | 默认取值  | 1          |
-| OkStat |           |                       |           |            |
-| eValid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 在最近一次 WindowSize |           |            |
-|        |           | 检查中，确定了状态    |           |            |
-|        |           | E2E_SM\_ VALID的      |           |            |
-|        |           | ProfileStatus 等于    |           |            |
-|        |           | E2E_P_OK              |           |            |
-|        |           | 的最少检查次数。      |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | 1<=minOkStat          |           |            |
-|        |           | eValid<=minOkStateIni |           |            |
-|        |           | t<=minOkStateInvalid; |           |            |
-|        |           |                       |           |            |
-|        |           | minOkStateValid +     |           |            |
-|        |           | maxErrorStateValid <= |           |            |
-|        |           | windowSizeValid.      |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| offset | 取值范围  | 0~65535               | 默认取值  | 0          |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 数组中端到端报文头    |           |            |
-|        |           | 的偏移量，单位为位。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_0             |           |            |
-|        |           | 1||profile_11),offset |           |            |
-|        |           | multiplicity          |           |            |
-|        |           | attribute shall be 0, |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_              |           |            |
-|        |           | 02||profile_04||profi |           |            |
-|        |           | le_05||profile_06||pr |           |            |
-|        |           | ofile_07||profile_22) |           |            |
-|        |           | offset multiplicity   |           |            |
-|        |           | attribute shall be 1; |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profil                |           |            |
-|        |           | e_02||profile_22),the |           |            |
-|        |           | value of offset shall |           |            |
-|        |           | be 0;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_04||          |           |            |
-|        |           | profile_05||profile_0 |           |            |
-|        |           | 6||profile_07),offset |           |            |
-|        |           | =                     |           |            |
-|        |           | up                    |           |            |
-|        |           | perHeaderBitsToShift. |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| pro    | 取值范围  | Enumeration           | 默认取值  | R4_2       |
-| fileBe |           |                       |           |            |
-| havior |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 检查功能的行为。      |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_01)，value |           |            |
-|        |           | of profileBehavior is |           |            |
-|        |           | R4_2;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | == profile_02)，value |           |            |
-|        |           | of profileBehavior is |           |            |
-|        |           | R4_2;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | profile_04||profile_0 |           |            |
-|        |           | 5||profile_06||profil |           |            |
-|        |           | e_07||profile_11||pro |           |            |
-|        |           | file_22),multiplicity |           |            |
-|        |           | attribute of          |           |            |
-|        |           | profileBehavior shall |           |            |
-|        |           | be 0.                 |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| profi  | 取值范围  | String                | 默认取值  | PROFILE_01 |
-| leName |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 端到端配置文件的定义  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | 无                    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| syn    | 取值范围  | 0~255                 | 默认取值  | 0          |
-| cCount |           |                       |           |            |
-| erInit |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 验证必须用有          |           |            |
-|        |           | 效计数器接收的计数器  |           |            |
-|        |           | 的一致性所需的检查数  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | prof                  |           |            |
-|        |           | ile_01)，multiplicity |           |            |
-|        |           | attribute of          |           |            |
-|        |           | syncCounterInit shall |           |            |
-|        |           | be 1;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | prof                  |           |            |
-|        |           | ile_02)，multiplicity |           |            |
-|        |           | attribute of          |           |            |
-|        |           | syncCounterInit shall |           |            |
-|        |           | be 1;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if the                |           |            |
-|        |           | End                   |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | PROFI                 |           |            |
-|        |           | LE_01||PROFILE_02,and |           |            |
-|        |           | the value of the      |           |            |
-|        |           | profileBehavior       |           |            |
-|        |           | attribute is R4_2     |           |            |
-|        |           | then                  |           |            |
-|        |           | EndToEn               |           |            |
-|        |           | dTransformationDescri |           |            |
-|        |           | ption.syncCounterInit |           |            |
-|        |           | == 1;                 |           |            |
-|        |           |                       |           |            |
-|        |           | if(End                |           |            |
-|        |           | ToEndTransformationDe |           |            |
-|        |           | scription.profileName |           |            |
-|        |           | ==                    |           |            |
-|        |           | p                     |           |            |
-|        |           | rofile_04||profile_05 |           |            |
-|        |           | ||profile_06||profile |           |            |
-|        |           | _07||profile_11||prof |           |            |
-|        |           | ile_22)，multiplicity |           |            |
-|        |           | attribute of          |           |            |
-|        |           | syncCounter shall be  |           |            |
-|        |           | 0.                    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| uppe   | 取值范围  | 0~65535               | 默认取值  | 0          |
-| rHeade |           |                       |           |            |
-| rBitsT |           |                       |           |            |
-| oShift |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 这个属性描述了要      |           |            |
-|        |           | 移动的上层头部的位数  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | if                    |           |            |
-|        |           | (EndToEndTransformati |           |            |
-|        |           | onDescription.profile |           |            |
-|        |           | == profile_02), the   |           |            |
-|        |           | value of              |           |            |
-|        |           | u                     |           |            |
-|        |           | pperHeaderBitsToShift |           |            |
-|        |           | is 0;other profile    |           |            |
-|        |           | this value shall be   |           |            |
-|        |           | n*8(n>=0)             |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| wi     | 取值范围  | 0~255                 | 默认取值  | 1          |
-| ndowSi |           |                       |           |            |
-| zeInit |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | E2E                   |           |            |
-|        |           | Init状                |           |            |
-|        |           | 态机的监控窗口大小。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | windowSizeInit <=     |           |            |
-|        |           | WindowSizeValid       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| win    | 取值范围  | 0~255                 | 默认取值  | 1          |
-| dowSiz |           |                       |           |            |
-| eValid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | E2E                   |           |            |
-|        |           | Valid状               |           |            |
-|        |           | 态机的监控窗口大小。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | The value of the      |           |            |
-|        |           | windowSizeValid       |           |            |
-|        |           | attribute shall be    |           |            |
-|        |           | greater or equal to   |           |            |
-|        |           | 1.                    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| windo  | 取值范围  | 0~255                 | 默认取值  | 1          |
-| wSizeI |           |                       |           |            |
-| nvalid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | E2E                   |           |            |
-|        |           | Invalid状             |           |            |
-|        |           | 态机的监控窗口大小。  |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | WindowSizeInvalid <=  |           |            |
-|        |           | WindowSizeValid       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-| clear  | 取值范围  | TRUE,FALSE            | 默认取值  | TRUE       |
-| FromVa |           |                       |           |            |
-| lidToI |           |                       |           |            |
-| nvalid |           |                       |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 参数描述  | 从状态 Valid          |           |            |
-|        |           | 转换到状态 Invalid    |           |            |
-|        |           | 时清除监控窗口。      |           |            |
-+--------+-----------+-----------------------+-----------+------------+
-|        | 依赖关系  | 无                    |           |            |
-+--------+-----------+-----------------------+-----------+------------+
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|          UI名称         |   描述   |                                                                  |                                                             |                                                              |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| counterOffset           | 取值范围 | 0~65535                                                          | 默认取值                                                    | 8                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 数组中计数器的偏移量(以位为单位)                                                                                                                                                              |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01||profile_11),counteroffset multiplicity attribute shall be   1,                                                              |
+|                         |          | and the value of counterOffset shall be set to n * 8（n > 0）;the   value shall be set to the value of upperHeaderBitsToShift + 8.                                                            |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02||profile_04||profile_05||profile_06||profile_07||profile_22)                                                                 |
+|                         |          | counteroffset multiplicity attribute shall be 0.                                                                                                                                              |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| crcOffset               | 取值范围 | 0~65535                                                          | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 数组中CRC的偏移量，以位为单位。                                                                                                                                                               |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01||profile_11),crcOffset multiplicity attribute shall be 1,                                                                    |
+|                         |          | and   the value of crcOffset shall be the same as upperHeaderBitsToShift;                                                                                                                     |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02||profile_04||profile_05||profile_06||profile_07||profile_22)                                                                 |
+|                         |          | crcoffset multiplicity attribute shall be 0.                                                                                                                                                  |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| dataIdMode              | 取值范围 | Enumeration                                                      | 默认取值                                                    | ALL16BIT                                                     |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 该属性描述了一种包含方式，用于将隐含的两字节数据 ID   包含在 1 字节 CRC 中                                                                                                                    |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01||profile_11),dataIdmode multiplicity attribute shall be 1;                                                                   |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02||profile_04||profile_05||profile_06||profile_07||profile_22)                                                                 |
+|                         | 依赖关系 | dataIdmode multiplicity attribute shall be 0;                                                                                                                                                 |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | If(EndToEndTransformationDescription. profileName == profile_11) then the value of the EndToEndTransformationDescription.                                                                     |
+|                         |          | dataIdMode attribute shall be set to ALL16BIT or LOWER12BIT.                                                                                                                                  |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| dataIdNibbleOffset      | 取值范围 | 0~65535                                                          | 默认取值                                                    | 12                                                           |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | Offset of the Data ID nibble   in the Data[] array in bits.                                                                                                                                   |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01||profile_11)&&(EndToEndTransformationDescription.dataIdMode == lower12Bit   ),                                               |
+|                         |          | dataIdNibbleOffset attribute multiplicity shall be 1;the value shall be set to upperHeaderBitsToShift + 12;                                                                                   |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02||profile_04||profile_05||profile_06||profile_07||profile_22)||(EndToEndTransformationDescription.dataIdMode != lower12Bit ), |
+|                         |          | dataIdNibbleOffset attribute multiplicity shall be 0.                                                                                                                                         |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| maxDeltaCounter         | 取值范围 | 0~65535                                                          | 默认取值                                                    | 1                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 两次连续检查的两个计数器值之间的最大允许间隙。                                                                                                                                                |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01), maxdeltacounter shall be in the range 1-14;                                                                                |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02), maxdeltacounter shall be in the range 1-15;                                                                                |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_04), maxdeltacounter shall be in the range 1-65535;                                                                             |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_05), maxdeltacounter shall be in the range 1-255;                                                                               |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_06), maxdeltacounter shall be in the range 1-255;                                                                               |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_07), maxdeltacounter shall be in the range 1-4294967295;                                                                        |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_11), maxdeltacounter shall be in the range 1-14;                                                                                |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_22), maxdeltacounter shall be in the range 1-15.                                                                                |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| maxErrorStateInit       | 取值范围 | 0~255                                                            | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 在最近一次 WindowSize 检查中，确定了状态 E2E_SM_INIT 的 ProfileStatus 等于 E2E_P_ERROR 的最大检查次数                                                                                         |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | maxErrorStateValid>=maxErrorStateInit>=maxErrorStateInvalid>=0;                                                                                                                               |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | minOkStateInit +   maxErrorStateInit <= windowSizeValid                                                                                                                                       |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| maxErrorStateInvalid    | 取值范围 | 0~255                                                            | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 在最近一次 WindowSize 检查中，确定了状态 E2E_SM_INVALID的 ProfileStatus 等于 E2E_P_ERROR 的最大检查次数                                                                                       |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | maxErrorStateValid>=maxErrorStateInit>=maxErrorStateInvalid>=0;                                                                                                                               |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | minOkStateInvalid   + maxErrorStateInvalid <= windowSizeValid                                                                                                                                 |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| maxErrorStateValid      | 取值范围 | 0~255                                                            | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 在最近一次 WindowSize 检查中，确定了状态 E2E_SM_VALID的 ProfileStatus 等于 E2E_P_ERROR 的最大检查次数                                                                                         |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | maxErrorStateValid>=maxErrorStateInit>=maxErrorStateInvalid>=0;                                                                                                                               |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | minOkStateValid   + maxErrorStateValid <= windowSizeValid                                                                                                                                     |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| maxNoNewOrRepeatedData  | 取值范围 | 0~255                                                            | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 允许连续失败的计数器检查的最大数量。                                                                                                                                                          |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01)，value range of   maxNoNewOrRepeatedData is 0~14;                                                                           |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02)，value value of   maxNoNewOrRepeatedData is 0~15;                                                                           |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if the   EndToEndTransformationDescription.profileName attribute has a value of   PROFILE_04, PROFILE_05, PROFILE_06, PROFILE_07, PROFILE_11, or PROFILE_22                                   |
+|                         | 依赖关系 | then  the multiplicity of the   EndToEndTransformationDescription.maxNoNewOrRepeatedData attribute shall be   0;                                                                              |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if the   EndToEndTransformationDescription.profileName attribute has a value of   PROFILE_01 and the value of the profileBehavior attribute is R4_2 ,                                         |
+|                         |          | the value of the EndToEndTransformationDescription.maxNoNewOrRepeatedData attribute   shall be 14;                                                                                            |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if the EndToEndTransformationDescription.profileName attribute has a value of PROFILE_02 and the value of the profileBehavior attribute is R4_2,                                              |
+|                         |          | the value of the EndToEndTransformationDescription.maxNoNewOrRepeatedData attribute shall be 15.                                                                                              |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| minOkStateInit          | 取值范围 | 0~255                                                            | 默认取值                                                    | 1                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 在最近一次 WindowSize 检查中，确定了状态 E2E_SM_INIT 的 ProfileStatus 等于 E2E_P_OK 的最少检查次数。                                                                                          |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | 1<=minOkStateValid<=minOkStateInit<=minOkStateInvalid;                                                                                                                                        |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | minOkStateInit +   maxErrorStateInit <= windowSizeValid                                                                                                                                       |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| minOkStateInvalid       | 取值范围 | 0~255                                                            | 默认取值                                                    | 1                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 在最近一次 WindowSize 检查中，确定了状态 E2E_SM_INVALID的 ProfileStatus 等于 E2E_P_OK 的最少检查次数。                                                                                        |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | 1<=minOkStateValid<=minOkStateInit<=minOkStateInvalid;                                                                                                                                        |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | minOkStateInvalid   + maxErrorStateInvalid <= windowSizeValid                                                                                                                                 |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| minOkStateValid         | 取值范围 | 0~255                                                            | 默认取值                                                    | 1                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 在最近一次 WindowSize 检查中，确定了状态 E2E\_SM\_VALID的 ProfileStatus 等于 E2E\_P\_OK 的最少检查次数。                                                                                      |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | 1<=minOkStateValid<=minOkStateInit<=minOkStateInvalid;                                                                                                                                        |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | minOkStateValid   + maxErrorStateValid <= windowSizeValid.                                                                                                                                    |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| offset                  | 取值范围 | 0~65535                                                          | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 数组中端到端报文头的偏移量，单位为位。                                                                                                                                                        |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01||profile_11),offset multiplicity attribute shall be 0,                                                                       |
+|                         |          | if(EndToEndTransformationDescription.profileName ==   profile_02||profile_04||profile_05||profile_06||profile_07||profile_22) offset multiplicity attribute shall be 1;                       |
+|                         | 依赖关系 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02||profile_22),the value of offset shall be 0;                                                                                 |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_04||profile_05||profile_06||profile_07),offset =   upperHeaderBitsToShift.                                                      |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| profileBehavior         | 取值范围 | Enumeration                                                      | 默认取值                                                    | R4_2                                                         |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 检查功能的行为。                                                                                                                                                                              |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01)，value of   profileBehavior is R4_2;                                                                                        |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | if(EndToEndTransformationDescription.profileName   == profile_02)，value of   profileBehavior is R4_2;                                                                                        |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   ==   profile_04||profile_05||profile_06||profile_07||profile_11||profile_22),                                                              |
+|                         |          | multiplicity attribute of profileBehavior shall be 0.                                                                                                                                         |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| profileName             | 取值范围 | String                                                           | 默认取值                                                    | PROFILE_01                                                   |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 端到端配置文件的定义                                                                                                                                                                          |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | 无                                                                                                                                                                                            |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| syncCounterInit         | 取值范围 | 0~255                                                            | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 验证必须用有效计数器接收的计数器的一致性所需的检查数                                                                                                                                          |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_01)，multiplicity   attribute of syncCounterInit shall be 1;                                                                    |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_02)，multiplicity   attribute of syncCounterInit shall be 1;                                                                    |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | if the   EndToEndTransformationDescription.profileName == PROFILE_01||PROFILE_02,and the value of the profileBehavior attribute                                                               |
+|                         |          | is R4_2 then EndToEndTransformationDescription.syncCounterInit == 1;                                                                                                                          |
+|                         |          +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         |          | if(EndToEndTransformationDescription.profileName   == profile_04||profile_05||profile_06||profile_07||profile_11||profile_22)，                                                               |
+|                         |          | multiplicity attribute ofsyncCounter shall be 0.                                                                                                                                              |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| upperHeaderBitsToShift  | 取值范围 | 0~65535                                                          | 默认取值                                                    | 0                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 这个属性描述了要移动的上层头部的位数                                                                                                                                                          |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | if(EndToEndTransformationDescription.profile   == profile_02), the value of upperHeaderBitsToShift is 0;other profile this   value shall be n*8(n>=0)                                         |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| windowSizeInit          | 取值范围 | 0~255                                                            | 默认取值                                                    | 1                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | E2E Init状态机的监控窗口大小。                                                                                                                                                                |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | windowSizeInit <=   WindowSizeValid                                                                                                                                                           |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| 　                      | 取值范围 | 0~255                                                            | 默认取值                                                    | 1                                                            |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| windowSizeValid         | 参数描述 | E2E Valid状态机的监控窗口大小。                                                                                                                                                               |
++-------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 　                      | 依赖关系 | The value of the   windowSizeValid attribute shall be greater or equal to 1.                                                                                                                  |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| windowSizeInvalid       | 取值范围 | 0~255                                                            | 默认取值                                                    | 1                                                            |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | E2E Invalid状态机的监控窗口大小。                                                                                                                                                             |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | WindowSizeInvalid <=   WindowSizeValid                                                                                                                                                        |
++-------------------------+----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+| clearFromValidToInvalid | 取值范围 | TRUE,FALSE                                                       | 默认取值                                                    | TRUE                                                         |
+|                         +----------+------------------------------------------------------------------+-------------------------------------------------------------+--------------------------------------------------------------+
+|                         | 参数描述 | 从状态 Valid 转换到状态 Invalid 时清除监控窗口。                                                                                                                                              |
+|                         +----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                         | 依赖关系 | 无                                                                                                                                                                                            |
++-------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 BufferProperty
 ~~~~~~~~~~~~~~
 
 |image12|
 
-图5-8 BufferProperty容器配置图
+图 BufferProperty容器配置图
 
-表5‑8 BufferProperty属性描述
+表  BufferProperty属性描述
 
 +--------+-----------+-----------------------+-----------+------------+
 | **UI   | 描述      |                       |           |            |
