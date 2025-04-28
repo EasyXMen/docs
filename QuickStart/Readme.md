@@ -41,11 +41,14 @@
 ## **2.3 开源小满代码配置工具**
 为了提高开发效率，开源小满针对自身开源的软件模块，也提供了用户可免费申请试用的配置工具。当然，用户也可根据自身的能力和预算，选择其它公司推出的与小满适配的配置工具，或者自行开发轻量化配置文件处理工具，甚至直接编辑相关软件源码，而不使用配置工具。
 
-1. 第一步：申请工具下载，请点击[申请地址](https://register.easyxmen.com/application_pc.html?channel=3)，提交后会收到下载链接。
+1. 第一步：申请工具下载，请点击[申请地址](https://register.easyxmen.com/application_pc.html?channel=3)，提交后会收到下载链接,其中还包含部分示例工程。
 2. 第二步：双击*.exe安装包，按照安装向导完成配置工具安装，复制试用申请邮件中的授权码，填写到序列号位置；
-3. 第三步：桌面双击工具快捷方式进行打开，点击菜单栏File＞New＞Project＞Autosar＞BSW Project创建BSW配置工具，也通过菜单栏File＞New＞Example，创建S32K148示例配置工具。详细工具操作可通过Help＞Open Reference Manual Folder查看使用手册。
+3. 第三步：桌面双击工具快捷方式进行打开，点击菜单栏File＞New＞Project＞Autosar＞BSW Project创建BSW配置工具。详细工具操作可通过Help＞Open Reference Manual Folder查看使用手册。
 
 # **3. 工程开发、编译、烧录与调试**
+安全车控操作系统的开发较为复杂，专业能力要求高，对于初学者，建议此部分基于社区提供的[示例工程](https://register.easyxmen.com/application_pc.html?channel=3)（针对S32K148的示例工程需随工具申请下载）进行操作，示例工程中已完成项目工程的创建、示例功能的配置与开发等，可以跳转到3.4小节，直接进行编译。有关示例工程的使用说明请[点击这里](https://easyxmen.atomgit.net/docs/sub/%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/%E5%B0%8F%E6%BB%A1S32K148%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E.html)查看。
+
+对于有一定基础的开发者，可参考如下步骤，按照自身需求进行开发。
 
 ##  **3.1 开发应用软件**
 开发者根据自身需求，对应用软件进行开发，完成后，推荐在工程根目录下新建"ASW"文件夹，用于存放应用代码，如下图所示。
@@ -63,7 +66,7 @@
 ![Demo配置目录](./figures/Demo_MCALDir_NXPS32K.png)
 
 ## **3.4 编译工程**
-打开 S32 Design Studio，将工程导入其中，点击Build Project即可编译工程。如下图所示。
+打开 S32 Design Studio，新建工程或者导入工程（针对示例工程）后，点击Build Project即可编译工程。如下图所示。
 
 ![Demo配置目录](./figures/Demo_Compiling_NXPS32K.png)
 
