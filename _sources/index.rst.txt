@@ -32,9 +32,6 @@ I-SOFT
    * - 1.1.0
      - 基于V25.04源码更新模块参考手册
      - 2025-04-25
-.. note::
-
-   当前集成手册、工程说明文档尚未匹配V25.04的源码，请谨慎参考
 
 .. tip::
 
@@ -122,8 +119,7 @@ I-SOFT
    sub/集成手册/LinSlave.rst
    sub/集成手册/NVM.rst
    sub/集成手册/OBD.rst
-   sub/集成手册/OS.rst
-   sub/集成手册/OS_添加订阅.rst
+   sub/集成手册/Os.rst
    sub/集成手册/RamTest.rst
    sub/集成手册/SecOC.rst
    sub/集成手册/SOMEIP.rst
@@ -132,9 +128,12 @@ I-SOFT
    sub/集成手册/UDSonLIN.rst
    sub/集成手册/WDG.rst
    sub/集成手册/XCP.rst
+   sub/集成手册/总体架构.rst  
 
 .. toctree::
    :maxdepth: 1
    :caption: 工程说明:
 
-   sub/工程说明/小满S32K148示例工程说明.rst
+   sub/示例工程说明/RH850U2A16_R7F702300BFABA_C_Demo.rst
+   sub/示例工程说明/TC397_Demo.rst
+   sub/示例工程说明/S32K148_Demo.rst
