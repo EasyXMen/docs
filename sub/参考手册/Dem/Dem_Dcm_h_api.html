@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>提供给Dcm的函数（Functions provided to Dcm） &mdash; EasyXMen_docs 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="EasyXMen_docs 1.0.0 documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../../_static/img/xmen_logo.png" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Bfx/Bfx.html">Bfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BswM/BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanIf/CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanNm/CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanSM/CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTp/CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTsyn/CanTsyn.html">CanTsyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Com/Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ComM/ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crc/Crc.html">Crc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Det/Det.html">Det</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CryIf/CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crypto_62/Crypto_62.html">Crypto_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CsM/CsM.html">CsM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dcm/Dcm.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dlt/Dlt.html">Dlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DoIP/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E2E/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EcuM/EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ea/Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Eep_62/Eep_62.html">Eep_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthIf/EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSM/EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTrcv/EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTSyn/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fee/Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fim/Fim.html">Fim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashTest/FlashTest.html">FlsTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IpduM/IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IStdLib/IStdLib.html">IStdLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KeyM/KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LdCom/LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinIf/LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinSM/LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemIf/MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemMap/MemMap.html">MemMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemLayout/MemLayout.html">MemLayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Nm/Nm.html">Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NvM/NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PduR/PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RamTest/RamTest.html">RamTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Rte/Rte.html">Rte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iRte/iRte.html">iRte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sd/Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SecOC/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SoAd/SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SomeIpTp/SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../StbM/StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TcpIp/TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdpNm/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgIf/WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgM/WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Xcp/Xcp.html">Xcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tm/Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CDD_FVM/CDD_FVM.html">CDD_FVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSwt/EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTrcv/CanTrcv.html">CanTrcv</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84.html">总体架构</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/RH850U2A16_R7F702300BFABA_C_Demo.html">RH850U2A16_R7F702300BFABA_C_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/TC397_Demo.html">TC397_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/S32K148_Demo.html">S32K148_Demo</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">提供给Dcm的函数（Functions provided to Dcm）</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Dem/Dem_Dcm_h_api.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="dcm-functions-provided-to-dcm">
+<h1>提供给Dcm的函数（Functions provided to Dcm）<a class="headerlink" href="#dcm-functions-provided-to-dcm" title="Link to this heading">¶</a></h1>
+<section id="dem-setdtcfilterbyextendeddatarecordnumber">
+<h2>Dem_SetDTCFilterByExtendedDataRecordNumber<a class="headerlink" href="#dem-setdtcfilterbyextendeddatarecordnumber" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_SetDTCFilterByExtendedDataRecordNumber</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ClientId</span><span class="p">,</span> <span class="n">Dem_DTCFormatType</span> <span class="n">DTCFormat</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">ExtendedDataRecordNumber</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the DTC Filter based on a given extended data record on the primary fault memory. The server selects all DTCs that have a matching extended data record.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different ClientIds, non reentrant for the same ClientId.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ClientId</p></td>
+<td><p>Unique client id, assigned to the instance of the calling module</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>DTCFormat</p></td>
+<td><p>Defines the DTC format of the requested data. Valid selections are DEM_DTC_FORMAT_UDS and DEM_DTC_FORMAT_OBD_3BYTE.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ExtendedDataRecordNumber</p></td>
+<td><p>the extended data record number the filter is set for. Valid values are within the range of 0x01 and 0xFD.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>DTC filter for requested extended data record successfully set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Indicates an invalid extended data record number was selected.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-setdtcfilterbyreadinessgroup">
+<h2>Dem_SetDTCFilterByReadinessGroup<a class="headerlink" href="#dem-setdtcfilterbyreadinessgroup" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_SetDTCFilterByReadinessGroup</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ClientID</span><span class="p">,</span> <span class="n">Dem_DTCFormatType</span> <span class="n">DTCFormat</span><span class="p">,</span> <span class="n">Dem_EventOBDReadinessGroupType</span> <span class="n">ReadinessGroupNumber</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the DTC Filter based on a given DTC readiness group on the primary fault memory. The server selects all DTCs that have this DTC readiness group configured.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different ClientIds, non reentrant for the same ClientId.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>ClientID</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>DTCFormat</p></td>
+<td><p>Defines the DTC format of the requested data. Valid selections are DEM_DTC_FORMAT_UDS and DEM_DTC_FORMAT_OBD_3BYTE.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ReadinessGroupNumber</p></td>
+<td><p>Specifies the DTC readiness group number defined by SAE J1979-DA.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>DTC filter for requested DTC readiness group successfully set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Indicates an invalid DTC readiness group was selected.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetinfotypevalue08">
+<h2>Dem_DcmGetInfoTypeValue08<a class="headerlink" href="#dem-dcmgetinfotypevalue08" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetInfoTypeValue08</span><span class="p">(</span><span class="n">Dcm_OpStatusType</span> <span class="n">OpStatus</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">Iumprdata08</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">Iumprdata08BufferSize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service is used for requesting IUMPR data according to InfoType $08. This interface is derived from the prototype &lt;Module&gt;_GetInfotypeValueData() defined by the Dcm. Therefore Dcm_OpStatusType and Std_ReturnType are contained. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>OpStatus</p></td>
+<td><p>Only DCM_INITIAL will appear, because this API behaves synchronous.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>Iumprdata08</p></td>
+<td><p>Buffer containing the number of data elements (as defined in ISO-15031-5) and contents of InfoType $08. The buffer is provided by the Dcm.</p></td>
+</tr>
+<tr class="row-even"><td><p>[inout]</p></td>
+<td><p>Iumprdata08BufferSize</p></td>
+<td><p>The maximum number of data bytes that can be written to the Iumprdata08 Buffer. When the function returns, the value is updated with the actual number of data bytes that are written to the Iumprdata08BufferSize.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetinfotypevalue0b">
+<h2>Dem_DcmGetInfoTypeValue0B<a class="headerlink" href="#dem-dcmgetinfotypevalue0b" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetInfoTypeValue0B</span><span class="p">(</span><span class="n">Dcm_OpStatusType</span> <span class="n">OpStatus</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">Iumprdata0B</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">Iumprdata0BBufferSize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service is used for requesting IUMPR data according to InfoType $0B. This interface is derived from the prototype &lt;Module&gt;_GetInfotypeValueData() defined by the Dcm. Therefore Dcm_OpStatusType and Std_ReturnType are contained. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>OpStatus</p></td>
+<td><p>Only DCM_INITIAL will appear, because this API behaves synchronous.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>Iumprdata0B</p></td>
+<td><p>Buffer containing the number of data elements (as defined in ISO-15031-5) and contents of InfoType $0B. The buffer is provided by the Dcm.</p></td>
+</tr>
+<tr class="row-even"><td><p>[inout]</p></td>
+<td><p>Iumprdata0BBufferSize</p></td>
+<td><p>The maximum number of data bytes that can be written to the Iumprdata0B Buffer. When the function returns, the value is updated with the actual number of data bytes that are written to the Iumprdata0BBufferSize.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid01">
+<h2>Dem_DcmReadDataOfPID01<a class="headerlink" href="#dem-dcmreaddataofpid01" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID01</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID01value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $01 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID01value</p></td>
+<td><p>Buffer containing the contents of PID $01 computed by the Dem. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid1c">
+<h2>Dem_DcmReadDataOfPID1C<a class="headerlink" href="#dem-dcmreaddataofpid1c" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID1C</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID1Cvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $1C computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID1Cvalue</p></td>
+<td><p>Buffer containing the contents of PID $1C computed by the Dem. The value of PID$1C is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid21">
+<h2>Dem_DcmReadDataOfPID21<a class="headerlink" href="#dem-dcmreaddataofpid21" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID21</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID21value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $21 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID21value</p></td>
+<td><p>Buffer containing the contents of PID $21 computed by the Dem. The value of PID$21 is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid30">
+<h2>Dem_DcmReadDataOfPID30<a class="headerlink" href="#dem-dcmreaddataofpid30" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID30</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID30value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $30 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID30value</p></td>
+<td><p>Buffer containing the contents of PID $30 computed by the Dem. The value of PID$30 is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid31">
+<h2>Dem_DcmReadDataOfPID31<a class="headerlink" href="#dem-dcmreaddataofpid31" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID31</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID31value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $31 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} == DEM_OBD_MASTER_ECU)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID31value</p></td>
+<td><p>Buffer containing the contents of PID $31 computed by the Dem. The value of PID$31 is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid41">
+<h2>Dem_DcmReadDataOfPID41<a class="headerlink" href="#dem-dcmreaddataofpid41" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID41</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID41value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $41 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} == DEM_OBD_MASTER_ECU)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID41value</p></td>
+<td><p>Buffer containing the contents of PID $41 computed by the Dem. The value of PID$41 is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid4d">
+<h2>Dem_DcmReadDataOfPID4D<a class="headerlink" href="#dem-dcmreaddataofpid4d" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID4D</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID4Dvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $4D computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} == DEM_OBD_MASTER_ECU)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID4Dvalue</p></td>
+<td><p>Buffer containing the contents of PID $4D computed by the Dem. The value of PID$4D is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid4e">
+<h2>Dem_DcmReadDataOfPID4E<a class="headerlink" href="#dem-dcmreaddataofpid4e" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID4E</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID4Evalue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $4E computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} == DEM_OBD_MASTER_ECU)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID4Evalue</p></td>
+<td><p>Buffer containing the contents of PID $4E computed by the Dem. The value of PID$4E is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpid91">
+<h2>Dem_DcmReadDataOfPID91<a class="headerlink" href="#dem-dcmreaddataofpid91" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPID91</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PID91value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of PID $91 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} == DEM_OBD_MASTER_ECU)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PID91value</p></td>
+<td><p>Buffer containing the contents of PID $91 computed by the Dem. The value of PID$91 is configuration within DemOBDCompliancy. The buffer is provided by the Dcm with the appropriate size, i.e. during configuration, the Dcm identifies the required size from the largest PID in order to configure a PIDBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned, as E_NOT_OK will never appear.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofobdfreezeframe">
+<h2>Dem_DcmReadDataOfOBDFreezeFrame<a class="headerlink" href="#dem-dcmreaddataofobdfreezeframe" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfOBDFreezeFrame</span><span class="p">(</span><span class="n">uint8</span> <span class="n">PID</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">DataElementIndexOfPID</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">DestBuffer</span><span class="p">,</span> <span class="n">uint16</span> <span class="o">*</span><span class="n">BufSize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gets data element per PID and index of the most important freeze frame being selected for the output of service $02. The function stores the data in the provided DestBuffer. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>PID</p></td>
+<td><p>This parameter is an identifier for a PID as defined in ISO15031-5.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>DataElementIndexOfPID</p></td>
+<td><p>Data element index of this PID according to the Dcm configuration of service $02. It is zero-based and consecutive, and ordered by the data element positions (configured in Dcm, refer to SWS_Dem_00597).</p></td>
+</tr>
+<tr class="row-even"><td><p>[inout]</p></td>
+<td><p>DestBuffer</p></td>
+<td><p>This parameter contains a byte pointer that points to the buffer, to which the data element of the PID shall be written to. The format is raw hexadecimal values and contains no header-information.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>BufSize</p></td>
+<td><p>When the function is called this parameter contains the maximum number of data bytes that can be written to the buffer. The function returns the actual number of written data bytes in this parameter.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Freeze frame data was successfully reported</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Freeze frame data was not successfully reported</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetdtcofobdfreezeframe">
+<h2>Dem_DcmGetDTCOfOBDFreezeFrame<a class="headerlink" href="#dem-dcmgetdtcofobdfreezeframe" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetDTCOfOBDFreezeFrame</span><span class="p">(</span><span class="n">uint8</span> <span class="n">FrameNumber</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">DTC</span><span class="p">,</span> <span class="n">Dem_DTCFormatType</span> <span class="n">DTCFormat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gets DTC by freeze frame record number. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>FrameNumber</p></td>
+<td><p>Unique identifier for a freeze frame record as defined in ISO 15031-5. The value 0x00 indicates the complete OBD freeze frame. Other values are reserved for future functionality</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>DTC</p></td>
+<td><p>Diagnostic Trouble Code in ODB format. If the return value of the function is other than E_OK this parameter does not contain valid data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>DTCFormat</p></td>
+<td><p>Output format of the DTC value.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>operation was successful</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>no DTC available</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetavailableobdmids">
+<h2>Dem_DcmGetAvailableOBDMIDs<a class="headerlink" href="#dem-dcmgetavailableobdmids" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetAvailableOBDMIDs</span><span class="p">(</span><span class="n">uint8</span> <span class="n">Obdmid</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">Obdmidvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Reports the value of a requested “availability-OBDMID” to the DCM upon a Service $06 request. Derived from that the tester displays the supported tests a mechanic can select from. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>Obdmid</p></td>
+<td><p>Availablity OBDMID ($00,$20, $40…)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>Obdmidvalue</p></td>
+<td><p>Bit coded information on the support of OBDMIDs.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Report of DTR result successful</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetnumtidsofobdmid">
+<h2>Dem_DcmGetNumTIDsOfOBDMID<a class="headerlink" href="#dem-dcmgetnumtidsofobdmid" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetNumTIDsOfOBDMID</span><span class="p">(</span><span class="n">uint8</span> <span class="n">Obdmid</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">numberOfTIDs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gets the number of TIDs per (functional) OBDMID. This can be used by the DCM to iteratively request for OBD/TID result data within a loop from 0….numberOfTIDs-1 API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>Obdmid</p></td>
+<td><p>OBDMID subject of the request to identify the number of assigned TIDs</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>numberOfTIDs</p></td>
+<td><p>Number of assigned TIDs for the requested OBDMID. Used as loop value for the DCM to retrieve all OBD/TID result data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>get number of TIDs successful</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>get number of TIDs failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetdtrdata">
+<h2>Dem_DcmGetDTRData<a class="headerlink" href="#dem-dcmgetdtrdata" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetDTRData</span><span class="p">(</span><span class="n">uint8</span> <span class="n">Obdmid</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">TIDindex</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">TIDvalue</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">UaSID</span><span class="p">,</span> <span class="n">uint16</span> <span class="o">*</span><span class="n">Testvalue</span><span class="p">,</span> <span class="n">uint16</span> <span class="o">*</span><span class="n">Lowlimvalue</span><span class="p">,</span> <span class="n">uint16</span> <span class="o">*</span><span class="n">Upplimvalue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Reports a DTR data along with TID-value, UaSID, test result with lower and upper limit. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if ({ecuc(Dem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>Obdmid</p></td>
+<td><p>Identification of a DTR element by assigned DTRId.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>TIDindex</p></td>
+<td><p>Index of the TID within the DEM. Runs from 0 to “numberOfTIDs” obtained in the call to</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>TIDvalue</p></td>
+<td><p>TID to be put on the tester reponse</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>UaSID</p></td>
+<td><p>UaSID to be put on the tester reponse</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>Testvalue</p></td>
+<td><p>Latest test result</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>Lowlimvalue</p></td>
+<td><p>Lower limit value associated to the latest test result</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>Upplimvalue</p></td>
+<td><p>Upper limit value associated to the latest test result</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Report of DTR result successful</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Report of DTR result failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmgetinfotypevalue79">
+<h2>Dem_DcmGetInfoTypeValue79<a class="headerlink" href="#dem-dcmgetinfotypevalue79" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmGetInfoTypeValue79</span><span class="p">(</span><span class="n">Dcm_OpStatusType</span> <span class="n">OpStatus</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">DataValueBuffer</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">DataValueBufferSize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Service to report the value of monitor activity denominator PID computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if: ({ecucDem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>OpStatus</p></td>
+<td><p>OpStatus “Only DCM_INITIAL will appear, because this API behaves synchronous.”</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>DataValueBuffer</p></td>
+<td><p>Buffer containing the contents of the monitor activity denominator. The buffer is provided by the caller with the appropriate size.</p></td>
+</tr>
+<tr class="row-even"><td><p>[inout]</p></td>
+<td><p>DataValueBufferSize</p></td>
+<td><p>The maximum number of data bytes that can be written to the DataValueBuffer. When the function returns, the value is updated with the actual number of data bytes that are written to the Data ValueBuffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dem-dcmreaddataofpidf501">
+<h2>Dem_DcmReadDataOfPIDF501<a class="headerlink" href="#dem-dcmreaddataofpidf501" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Dem_DcmReadDataOfPIDF501</span><span class="p">(</span><span class="n">uint8</span> <span class="o">*</span><span class="n">PIDF501value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Function to report the value of PID 0xF501 computed by the Dem. API is needed in OBD-relevant ECUs only. API Availability: This API will be available only if: ({ecucDem/DemGeneral.DemOBDSupport)} != DEM_OBD_NO_OBD_SUPPORT)</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>PIDF501value</p></td>
+<td><p>Buffer containing the contents of the PID 0xF501. The buffer is provided by the Dcm with the appropriate size.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Always E_OK is returned</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+</main>
+                        
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">提供给Dcm的函数（Functions provided to Dcm）</a><ul>
+<li><a class="reference internal" href="#dem-setdtcfilterbyextendeddatarecordnumber">Dem_SetDTCFilterByExtendedDataRecordNumber</a></li>
+<li><a class="reference internal" href="#dem-setdtcfilterbyreadinessgroup">Dem_SetDTCFilterByReadinessGroup</a></li>
+<li><a class="reference internal" href="#dem-dcmgetinfotypevalue08">Dem_DcmGetInfoTypeValue08</a></li>
+<li><a class="reference internal" href="#dem-dcmgetinfotypevalue0b">Dem_DcmGetInfoTypeValue0B</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid01">Dem_DcmReadDataOfPID01</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid1c">Dem_DcmReadDataOfPID1C</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid21">Dem_DcmReadDataOfPID21</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid30">Dem_DcmReadDataOfPID30</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid31">Dem_DcmReadDataOfPID31</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid41">Dem_DcmReadDataOfPID41</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid4d">Dem_DcmReadDataOfPID4D</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid4e">Dem_DcmReadDataOfPID4E</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpid91">Dem_DcmReadDataOfPID91</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofobdfreezeframe">Dem_DcmReadDataOfOBDFreezeFrame</a></li>
+<li><a class="reference internal" href="#dem-dcmgetdtcofobdfreezeframe">Dem_DcmGetDTCOfOBDFreezeFrame</a></li>
+<li><a class="reference internal" href="#dem-dcmgetavailableobdmids">Dem_DcmGetAvailableOBDMIDs</a></li>
+<li><a class="reference internal" href="#dem-dcmgetnumtidsofobdmid">Dem_DcmGetNumTIDsOfOBDMID</a></li>
+<li><a class="reference internal" href="#dem-dcmgetdtrdata">Dem_DcmGetDTRData</a></li>
+<li><a class="reference internal" href="#dem-dcmgetinfotypevalue79">Dem_DcmGetInfoTypeValue79</a></li>
+<li><a class="reference internal" href="#dem-dcmreaddataofpidf501">Dem_DcmReadDataOfPIDF501</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

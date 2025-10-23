@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>类型定义（Type definition） &mdash; EasyXMen_docs 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="EasyXMen_docs 1.0.0 documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../../_static/img/xmen_logo.png" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Bfx/Bfx.html">Bfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BswM/BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanIf/CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanSM/CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTp/CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTsyn/CanTsyn.html">CanTsyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Com/Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ComM/ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crc/Crc.html">Crc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Det/Det.html">Det</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CryIf/CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crypto_62/Crypto_62.html">Crypto_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CsM/CsM.html">CsM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dcm/Dcm.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dem/Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dlt/Dlt.html">Dlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DoIP/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E2E/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EcuM/EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ea/Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Eep_62/Eep_62.html">Eep_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthIf/EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSM/EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTrcv/EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTSyn/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fee/Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fim/Fim.html">Fim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashTest/FlashTest.html">FlsTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IpduM/IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IStdLib/IStdLib.html">IStdLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KeyM/KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LdCom/LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinIf/LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinSM/LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemIf/MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemMap/MemMap.html">MemMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemLayout/MemLayout.html">MemLayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Nm/Nm.html">Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NvM/NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PduR/PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RamTest/RamTest.html">RamTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Rte/Rte.html">Rte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iRte/iRte.html">iRte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sd/Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SecOC/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SoAd/SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SomeIpTp/SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../StbM/StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TcpIp/TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdpNm/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgIf/WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgM/WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Xcp/Xcp.html">Xcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tm/Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CDD_FVM/CDD_FVM.html">CDD_FVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSwt/EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTrcv/CanTrcv.html">CanTrcv</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84.html">总体架构</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/RH850U2A16_R7F702300BFABA_C_Demo.html">RH850U2A16_R7F702300BFABA_C_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/TC397_Demo.html">TC397_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/S32K148_Demo.html">S32K148_Demo</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">类型定义（Type definition）</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/CanNm/CanNm_api.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="type-definition">
+<h1>类型定义（Type definition）<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h1>
+</section>
+<section id="provided-services">
+<h1>提供的服务（Provided services）<a class="headerlink" href="#provided-services" title="Link to this heading">¶</a></h1>
+<section id="cannm-init">
+<h2>CanNm_Init<a class="headerlink" href="#cannm-init" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_Init</span><span class="p">(</span><span class="n">const</span> <span class="n">CanNm_ConfigType</span> <span class="o">*</span><span class="n">CanNmConfigPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize the CanNm module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>CanNmConfigPtr</p></td>
+<td><p>Pointer to a selected configuration structure.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="cannm-deinit">
+<h2>CanNm_DeInit<a class="headerlink" href="#cannm-deinit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_DeInit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De-initializes the CanNm module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="cannm-passivestartup">
+<h2>CanNm_PassiveStartUp<a class="headerlink" href="#cannm-passivestartup" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_PassiveStartUp</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Passive startup of the AUTOSAR CAN NM. It triggers the transition from Bus-Sleep Mode or Prepare Bus Sleep Mode to the Network Mode in Repeat Message State.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Asynchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same NM-Channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Passive startup of network management has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-networkrequest">
+<h2>CanNm_NetworkRequest<a class="headerlink" href="#cannm-networkrequest" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_NetworkRequest</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Request the network, since ECU needs to communicate on the bus.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Asynchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same NM-Channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Requesting of network has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-networkrelease">
+<h2>CanNm_NetworkRelease<a class="headerlink" href="#cannm-networkrelease" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_NetworkRelease</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Release the network, since ECU doesn’t have to communicate on the bus.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Asynchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same NM-Channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Releasing of network has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-disablecommunication">
+<h2>CanNm_DisableCommunication<a class="headerlink" href="#cannm-disablecommunication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_DisableCommunication</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Disable the NM PDU transmission ability due to a ISO14229 Communication Control (28hex) service.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Asynchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same NM-Channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Disabling of NM PDU transmission ability has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-enablecommunication">
+<h2>CanNm_EnableCommunication<a class="headerlink" href="#cannm-enablecommunication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_EnableCommunication</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Enable the NM PDU transmission ability due to a ISO14229 Communication Control (28hex) service.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Asynchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same NM-Channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Enabling of NM PDU transmission ability has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-setuserdata">
+<h2>CanNm_SetUserData<a class="headerlink" href="#cannm-setuserdata" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_SetUserData</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">nmUserDataPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Set user data for NM PDUs transmitted next on the bus.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same NM-Channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>nmUserDataPtr</p></td>
+<td><p>Pointer where the user data for the next transmitted NM PDU shall be copied from</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Setting of user data has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getuserdata">
+<h2>CanNm_GetUserData<a class="headerlink" href="#cannm-getuserdata" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_GetUserData</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">nmUserDataPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get user data out of the most recently received NM PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>nmUserDataPtr</p></td>
+<td><p>Pointer where user data out of the most recently received NM PDU shall be copied to</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Getting of user data has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-transmit">
+<h2>CanNm_Transmit<a class="headerlink" href="#cannm-transmit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_Transmit</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">TxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Requests transmission of a PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant(but not for the same PduIds)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TxPduId</p></td>
+<td><p>Identifier of the PDU to be transmitted</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>Length of and pointer to the PDU data and pointer to MetaData.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Transmit request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Transmit request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getnodeidentifier">
+<h2>CanNm_GetNodeIdentifier<a class="headerlink" href="#cannm-getnodeidentifier" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_GetNodeIdentifier</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">nmNodeIdPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get node identifier out of the most recently received NM PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>nmNodeIdPtr</p></td>
+<td><p>Pointer where node identifier out of the most recently received NM PDU shall be copied to.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Getting of the node identifier out of the most recently received NM PDU has failed or is not configured for this network handle.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getlocalnodeidentifier">
+<h2>CanNm_GetLocalNodeIdentifier<a class="headerlink" href="#cannm-getlocalnodeidentifier" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_GetLocalNodeIdentifier</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">nmNodeIdPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get node identifier configured for the local node.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>nmNodeIdPtr</p></td>
+<td><p>Pointer where node identifier of the local node shall be copied to.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Getting of the node identifier of the local node has failed or is not configured for this network handle.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-repeatmessagerequest">
+<h2>CanNm_RepeatMessageRequest<a class="headerlink" href="#cannm-repeatmessagerequest" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_RepeatMessageRequest</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Set Repeat Message Request Bit for NM PDUs transmitted next on the bus.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous (but not for the same NM-channel)</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Setting of Repeat Message Request Bit has failed or is not configured for this network handle.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getpdudata">
+<h2>CanNm_GetPduData<a class="headerlink" href="#cannm-getpdudata" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_GetPduData</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">nmPduDataPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get the whole PDU data out of the most recently received NM PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>nmPduDataPtr</p></td>
+<td><p>Pointer where NM PDU shall be copied to.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Getting of NM PDU Data has failed or is not configured for this network handle.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getstate">
+<h2>CanNm_GetState<a class="headerlink" href="#cannm-getstate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_GetState</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">Nm_StateType</span> <span class="o">*</span><span class="n">nmStatePtr</span><span class="p">,</span> <span class="n">Nm_ModeType</span> <span class="o">*</span><span class="n">nmModePtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the state and the mode of the network management.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>nmStatePtr</p></td>
+<td><p>Pointer where state of the network management shall be copied to</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>nmModePtr</p></td>
+<td><p>Pointer where the mode of the network management shall be copied to</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Getting of NM state has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getversioninfo">
+<h2>CanNm_GetVersionInfo<a class="headerlink" href="#cannm-getversioninfo" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_GetVersionInfo</span><span class="p">(</span><span class="n">Std_VersionInfoType</span> <span class="o">*</span><span class="n">versioninfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service returns the version information of this module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>versioninfo</p></td>
+<td><p>Pointer to where to store the version information of this module.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="cannm-requestbussynchronization">
+<h2>CanNm_RequestBusSynchronization<a class="headerlink" href="#cannm-requestbussynchronization" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_RequestBusSynchronization</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Request bus synchronization.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Requesting of bus synchronization has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-checkremotesleepindication">
+<h2>CanNm_CheckRemoteSleepIndication<a class="headerlink" href="#cannm-checkremotesleepindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_CheckRemoteSleepIndication</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">boolean</span> <span class="o">*</span><span class="n">nmRemoteSleepIndPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check if remote sleep indication takes place or not.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>nmRemoteSleepIndPtr</p></td>
+<td><p>Pointer where check result of remote sleep indication shall be copied to</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Checking of remote sleep indication bits has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-setsleepreadybit">
+<h2>CanNm_SetSleepReadyBit<a class="headerlink" href="#cannm-setsleepreadybit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_SetSleepReadyBit</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">nmSleepReadyBit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Set the NM Coordinator Sleep Ready bit in the Control Bit Vector.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (but not for the same NM-channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>nmSleepReadyBit</p></td>
+<td><p>Pointer where check result of remote sleep indication shall be copied to</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>No error</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Writing of remote sleep indication bit has failed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-rxindication">
+<h2>CanNm_RxIndication<a class="headerlink" href="#cannm-rxindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_RxIndication</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">RxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Indication of a received PDU from a lower layer communication interface module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (but not for the same PduId)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>RxPduId</p></td>
+<td><p>ID of the received PDU.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>Contains the length (SduLength) of the received PDU, a pointer to a buffer (SduDataPtr) containing the PDU, and the MetaData related to this PDU.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="cannm-txconfirmation">
+<h2>CanNm_TxConfirmation<a class="headerlink" href="#cannm-txconfirmation" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_TxConfirmation</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">TxPduId</span><span class="p">,</span> <span class="n">Std_ReturnType</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The lower layer communication interface module confirms the transmission of a PDU, or the failure to transmit a PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (but not for the same PduId)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>TxPduId</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>result</p></td>
+<td><p>E_OK: The PDU was transmitted E_NOT_OK: Transmission of the PDU failed.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="cannm-confirmpnavailability">
+<h2>CanNm_ConfirmPnAvailability<a class="headerlink" href="#cannm-confirmpnavailability" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_ConfirmPnAvailability</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">nmChannelHandle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Enables the PN filter functionality on the indicated NM channel.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (but not for the same NM-channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>Identification of the NM-channel.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="cannm-triggertransmit">
+<h2>CanNm_TriggerTransmit<a class="headerlink" href="#cannm-triggertransmit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanNm_TriggerTransmit</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">TxPduId</span><span class="p">,</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Within this API, the upper layer module (called module) shall check whether the available data fits into the buffer size reported by PduInfoPtr-&gt;SduLength.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (but not for the same PduId)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TxPduId</p></td>
+<td><p>ID of the SDU that is requested to be transmitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be copied, and the available buffer size in SduLengh. On return, the service will indicate the length of the copied SDU data in SduLength.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>SDU has been copied and SduLength indicates the number of copied bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>No SDU data has been copied. PduInfoPtr must not be used since it may contain a NULL pointer or point to invalid data.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-mainfunction">
+<h2>CanNm_MainFunction<a class="headerlink" href="#cannm-mainfunction" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanNm_MainFunction</span><span class="p">(</span><span class="n">CanNm_ChannelIndexType</span> <span class="n">chIndex</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Main function of the CanNm which processes the algorithm describes in that document.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Synchronous</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (but not for the same Identification of the NM-channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>chIndex</p></td>
+<td><p>Identification of the NM-channel</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+</section>
+
+</main>
+                        
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">类型定义（Type definition）</a></li>
+<li><a class="reference internal" href="#provided-services">提供的服务（Provided services）</a><ul>
+<li><a class="reference internal" href="#cannm-init">CanNm_Init</a></li>
+<li><a class="reference internal" href="#cannm-deinit">CanNm_DeInit</a></li>
+<li><a class="reference internal" href="#cannm-passivestartup">CanNm_PassiveStartUp</a></li>
+<li><a class="reference internal" href="#cannm-networkrequest">CanNm_NetworkRequest</a></li>
+<li><a class="reference internal" href="#cannm-networkrelease">CanNm_NetworkRelease</a></li>
+<li><a class="reference internal" href="#cannm-disablecommunication">CanNm_DisableCommunication</a></li>
+<li><a class="reference internal" href="#cannm-enablecommunication">CanNm_EnableCommunication</a></li>
+<li><a class="reference internal" href="#cannm-setuserdata">CanNm_SetUserData</a></li>
+<li><a class="reference internal" href="#cannm-getuserdata">CanNm_GetUserData</a></li>
+<li><a class="reference internal" href="#cannm-transmit">CanNm_Transmit</a></li>
+<li><a class="reference internal" href="#cannm-getnodeidentifier">CanNm_GetNodeIdentifier</a></li>
+<li><a class="reference internal" href="#cannm-getlocalnodeidentifier">CanNm_GetLocalNodeIdentifier</a></li>
+<li><a class="reference internal" href="#cannm-repeatmessagerequest">CanNm_RepeatMessageRequest</a></li>
+<li><a class="reference internal" href="#cannm-getpdudata">CanNm_GetPduData</a></li>
+<li><a class="reference internal" href="#cannm-getstate">CanNm_GetState</a></li>
+<li><a class="reference internal" href="#cannm-getversioninfo">CanNm_GetVersionInfo</a></li>
+<li><a class="reference internal" href="#cannm-requestbussynchronization">CanNm_RequestBusSynchronization</a></li>
+<li><a class="reference internal" href="#cannm-checkremotesleepindication">CanNm_CheckRemoteSleepIndication</a></li>
+<li><a class="reference internal" href="#cannm-setsleepreadybit">CanNm_SetSleepReadyBit</a></li>
+<li><a class="reference internal" href="#cannm-rxindication">CanNm_RxIndication</a></li>
+<li><a class="reference internal" href="#cannm-txconfirmation">CanNm_TxConfirmation</a></li>
+<li><a class="reference internal" href="#cannm-confirmpnavailability">CanNm_ConfirmPnAvailability</a></li>
+<li><a class="reference internal" href="#cannm-triggertransmit">CanNm_TriggerTransmit</a></li>
+<li><a class="reference internal" href="#cannm-mainfunction">CanNm_MainFunction</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

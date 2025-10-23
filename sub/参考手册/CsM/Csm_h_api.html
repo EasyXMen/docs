@@ -1,0 +1,2770 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>外部类型定义 Definition of External Types &mdash; EasyXMen_docs 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="EasyXMen_docs 1.0.0 documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../../_static/img/xmen_logo.png" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Bfx/Bfx.html">Bfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BswM/BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanIf/CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanNm/CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanSM/CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTp/CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTsyn/CanTsyn.html">CanTsyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Com/Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ComM/ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crc/Crc.html">Crc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Det/Det.html">Det</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CryIf/CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crypto_62/Crypto_62.html">Crypto_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CsM.html">CsM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dcm/Dcm.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dem/Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dlt/Dlt.html">Dlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DoIP/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E2E/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EcuM/EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ea/Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Eep_62/Eep_62.html">Eep_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthIf/EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSM/EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTrcv/EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTSyn/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fee/Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fim/Fim.html">Fim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashTest/FlashTest.html">FlsTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IpduM/IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IStdLib/IStdLib.html">IStdLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KeyM/KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LdCom/LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinIf/LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinSM/LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemIf/MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemMap/MemMap.html">MemMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemLayout/MemLayout.html">MemLayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Nm/Nm.html">Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NvM/NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PduR/PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RamTest/RamTest.html">RamTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Rte/Rte.html">Rte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iRte/iRte.html">iRte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sd/Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SecOC/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SoAd/SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SomeIpTp/SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../StbM/StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TcpIp/TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdpNm/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgIf/WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgM/WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Xcp/Xcp.html">Xcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tm/Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CDD_FVM/CDD_FVM.html">CDD_FVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSwt/EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTrcv/CanTrcv.html">CanTrcv</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84.html">总体架构</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/RH850U2A16_R7F702300BFABA_C_Demo.html">RH850U2A16_R7F702300BFABA_C_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/TC397_Demo.html">TC397_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/S32K148_Demo.html">S32K148_Demo</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">外部类型定义 Definition of External Types</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/CsM/Csm_h_api.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="definition-of-external-types">
+<h1>外部类型定义 Definition of External Types<a class="headerlink" href="#definition-of-external-types" title="Link to this heading">¶</a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 37.5%" />
+<col style="width: 12.5%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Csm_ConfigType</p></td>
+<td><p>uint8</p></td>
+<td><p>CSM configuration type.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="services-provided-externally">
+<h1>对外提供的服务 Services Provided Externally<a class="headerlink" href="#services-provided-externally" title="Link to this heading">¶</a></h1>
+<section id="csm-init">
+<h2>Csm_Init<a class="headerlink" href="#csm-init" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Csm_Init</span><span class="p">(</span><span class="n">const</span> <span class="n">Csm_ConfigType</span> <span class="o">*</span><span class="n">configPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes the CSM module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>configPtr</p></td>
+<td><p>Pointer to a selected configuration structure</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="csm-getversioninfo">
+<h2>Csm_GetVersionInfo<a class="headerlink" href="#csm-getversioninfo" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Csm_GetVersionInfo</span><span class="p">(</span><span class="n">Std_VersionInfoType</span> <span class="o">*</span><span class="n">versioninfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the version information of this module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>versioninfo</p></td>
+<td><p>Pointer to where to store the version information of this module.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="csm-hash">
+<h2>Csm_Hash<a class="headerlink" href="#csm-hash" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_Hash</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">resultPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">resultLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uses the given data to perform the hash calculation and stores the hash.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Contains the pointer to the data for which the hash shall be computed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of bytes to be hashed.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>resultPtr</p></td>
+<td><p>Contains the pointer to the data where the hash value shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>resultLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length in bytes is stored. On calling this function, this parameter shall contain the size of the buffer provided by resultPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-macgenerate">
+<h2>Csm_MacGenerate<a class="headerlink" href="#csm-macgenerate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_MacGenerate</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">macPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">macLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uses the given data to perform a MAC generation and stores the MAC in the memory location pointed to by the MAC pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Contains the pointer to the data for which the MAC shall be computed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of bytes to be hashed.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>macPtr</p></td>
+<td><p>Contains the pointer to the data where the MAC shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>macLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length in bytes is stored. On calling this function, this parameter shall contain the size of the buffer provided by macPtr. When the request has finished, the actual length of the returned MAC shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-macverify">
+<h2>Csm_MacVerify<a class="headerlink" href="#csm-macverify" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_MacVerify</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">macPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">macLength</span><span class="p">,</span> <span class="n">Crypto_VerifyResultType</span> <span class="o">*</span><span class="n">verifyPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Verifies the given MAC by comparing if the MAC is generated with the given data.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Holds a pointer to the data for which the MAC shall be verified</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of data bytes for which the MAC shall be verified.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>macPtr</p></td>
+<td><p>Holds a pointer to the MAC to be verified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>macLength</p></td>
+<td><p>Contains the MAC length in BITS to be verified</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>verifyPtr</p></td>
+<td><p>Holds a pointer to the memory location, which will hold the result of the MAC verification.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER:The provided buffer is too small to store the result. CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-encrypt">
+<h2>Csm_Encrypt<a class="headerlink" href="#csm-encrypt" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_Encrypt</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">resultPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">resultLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Encrypts the given data and store the ciphertext in the memory location pointed by the result pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Contains the pointer to the data to be encrypted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of bytes to encrypt.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>resultPtr</p></td>
+<td><p>Contains the pointer to the data where the encrypted data shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>resultLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length information is stored in bytes. On calling this function, this parameter shall contain the size of the buffer provided by resultPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-decrypt">
+<h2>Csm_Decrypt<a class="headerlink" href="#csm-decrypt" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_Decrypt</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">resultPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">resultLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Decrypts the given encrypted data and store the decrypted plaintext in the memory location pointed by the result pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Contains the pointer to the data to be decrypted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of bytes to decrypt.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>resultPtr</p></td>
+<td><p>Contains the pointer to the data where the decrypted data shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>resultLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length information is stored in bytes. On calling this function, this parameter shall contain the size of the buffer provided by resultPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-aeadencrypt">
+<h2>Csm_AEADEncrypt<a class="headerlink" href="#csm-aeadencrypt" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_AEADEncrypt</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">plaintextPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">plaintextLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">associatedDataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">associatedDataLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">ciphertextPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">ciphertextLengthPtr</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">tagPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">tagLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uses the given input data to perform a AEAD encryption and stores the ciphertext and the MAC in the memory locations pointed by the ciphertext.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>plaintextPtr</p></td>
+<td><p>Contains the pointer to the data to be encrypted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>plaintextLength</p></td>
+<td><p>Contains the number of bytes to encrypt</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>associatedDataPtr</p></td>
+<td><p>Contains the pointer to the associated data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>associatedDataLength</p></td>
+<td><p>Contains the number of bytes of the associated data</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>ciphertextPtr</p></td>
+<td><p>Contains the pointer to the data where the encrypted data shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>ciphertextLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length information is stored in bytes. On calling this function, this parameter shall contain the size of the buffer provided by ciphertextPtr.When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>tagPtr</p></td>
+<td><p>Contains the pointer to the data where the Tag shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>tagLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length information is stored in bytes. On calling this function, this parameter shall contain the size of the buffer provided by tagPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER: The provided buffer is too small to store the result CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-aeaddecrypt">
+<h2>Csm_AEADDecrypt<a class="headerlink" href="#csm-aeaddecrypt" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_AEADDecrypt</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">ciphertextPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">ciphertextLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">associatedDataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">associatedDataLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">tagPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">tagLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">plaintextPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">plaintextLengthPtr</span><span class="p">,</span> <span class="n">Crypto_VerifyResultType</span> <span class="o">*</span><span class="n">verifyPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uses the given data to perform an AEAD Decryption and stores the ciphertext and the MAC in the memory locations pointed by the ciphertext pointer and.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ciphertextPtr</p></td>
+<td><p>Contains the pointer to the data to be decrypted..</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>ciphertextLength</p></td>
+<td><p>Contains the number of bytes to decrypt.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>associatedDataPtr</p></td>
+<td><p>Contains the pointer to the associated data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>associatedDataLength</p></td>
+<td><p>Contains the length in bytes of the associated data</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>tagPtr</p></td>
+<td><p>Contains the pointer to the Tag to be verified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>tagLength</p></td>
+<td><p>Contains the length in bytes of the Tag to be verified.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>plaintextPtr</p></td>
+<td><p>Contains the pointer to the data where the decrypted data shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>plaintextLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length information is stored in bytes. On calling this function, this parameter shall contain the size of the buffer provided by plaintextPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>verifyPtr</p></td>
+<td><p>Contains the pointer to the result of the verification.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER: The provided buffer is too small to store the result CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-signaturegenerate">
+<h2>Csm_SignatureGenerate<a class="headerlink" href="#csm-signaturegenerate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_SignatureGenerate</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">resultPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">resultLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uses the given data to perform the signature calculation and stores the signature in the memory location pointed by the result pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Contains the pointer to the data to be signed…</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of bytes to sign.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>resultPtr</p></td>
+<td><p>Contains the pointer to the data where the signature shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>resultLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output length information is stored in bytes. On calling this function, this parameter shall contain the size of the buffer provided by resultPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-signatureverify">
+<h2>Csm_SignatureVerify<a class="headerlink" href="#csm-signatureverify" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_SignatureVerify</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">dataPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">dataLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">signaturePtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">signatureLength</span><span class="p">,</span> <span class="n">Crypto_VerifyResultType</span> <span class="o">*</span><span class="n">verifyPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Verifies the given MAC by comparing if the signature is generated with the given data.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Indicates which operation mode(s) to perfom</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dataPtr</p></td>
+<td><p>Contains the pointer to the data to be verified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>dataLength</p></td>
+<td><p>Contains the number of data bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>signaturePtr</p></td>
+<td><p>Holds a pointer to the signature to be verified</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>signatureLength</p></td>
+<td><p>Contains the signature length in bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>verifyPtr</p></td>
+<td><p>Holds a pointer to the memory location, which will hold the result of the signature verification.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result. CRYPTO_E_KEY_NOT_VALID: request failed, the key’s state is “invalid” CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, a key element has the wrong size CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-randomgenerate">
+<h2>Csm_RandomGenerate<a class="headerlink" href="#csm-randomgenerate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_RandomGenerate</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">uint8</span><span class="o">*</span> <span class="n">resultPtr</span><span class="p">,</span> <span class="n">uint32</span><span class="o">*</span> <span class="n">resultLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Generate a random number and stores it in the memory location pointed by the result pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Sync or Async, dependend on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>resultPtr</p></td>
+<td><p>Holds a pointer to the memory location which will hold the result of the random number generation.</p></td>
+</tr>
+<tr class="row-even"><td><p>[inout]</p></td>
+<td><p>resultLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the result length in bytes is stored. On calling this function, this parameter shall contain the number of random bytes, which shall be stored to the buffer provided by resultPtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_ENTROPY_EXHAUSTED: request failed, entropy of random number generator is exhausted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementset">
+<h2>Csm_KeyElementSet<a class="headerlink" href="#csm-keyelementset" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyElementSet</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">keyPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyLength</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the given key element bytes to the key identified by keyId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyElementId</p></td>
+<td><p>Holds the identifier of the key element to be written.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyPtr</p></td>
+<td><p>Holds the pointer to the key element bytes to be processed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyLength</p></td>
+<td><p>Contains the number of key element bytes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_WRITE_FAIL:Request failed because write access was denied CRYPTO_E_KEY_NOT_AVAILABLE: Request failed because the key is not available. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element size does not match size of provided data.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keysetvalid">
+<h2>Csm_KeySetValid<a class="headerlink" href="#csm-keysetvalid" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeySetValid</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the key state of the key identified by keyId to valid.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be validated.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keysetinvalid">
+<h2>Csm_KeySetInvalid<a class="headerlink" href="#csm-keysetinvalid" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeySetInvalid</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the key state of the key identified by keyId to invalid.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be invalidated.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementget">
+<h2>Csm_KeyElementGet<a class="headerlink" href="#csm-keyelementget" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyElementGet</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementId</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">keyPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">keyLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Retrieves the key element bytes from a specific key element of the key identified by the keyId and stores the key element in the memory location pointed by the key pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key from which a key element shall be extracted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyElementId</p></td>
+<td><p>Holds the identifier of the key element to be extracted</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>keyPtr</p></td>
+<td><p>Holds the pointer to the memory location where the key shall be copied to.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>keyLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the output buffer length in bytes is stored. On calling this function, this parameter shall contain the buffer length in bytes of the keyPtr. When the request has finished, the actual size of the written input bytes shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_AVAILABLE: request failed, the requested key element is not available CRYPTO_E_KEY_READ_FAIL: Request failed because read access was denied CRYPTO_E_SMALL_BUFFER: the provided buffer is too small to store the result. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementcopy">
+<h2>Csm_KeyElementCopy<a class="headerlink" href="#csm-keyelementcopy" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyElementCopy</span><span class="p">(</span><span class="n">const</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint32</span> <span class="n">keyElementId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint32</span> <span class="n">targetKeyElementId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function shall copy a key elements from one key to a target key.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key whose key element shall be the source element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyElementId</p></td>
+<td><p>Holds the identifier of the key element which shall be the source for the copy operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>Holds the identifier of the key whose key element shall be the destination element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>targetKeyElementId</p></td>
+<td><p>Holds the identifier of the key element which shall be the destination for the copy operation. Parameters(INOUT): NA Parameters(OUT): NA Return value: E_OK: request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_AVAILABLE: request failed, the requested key element is not available CRYPTO_E_KEY_READ_FAIL: Request failed because read access was denied CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to write key element. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element sizes are not compatible. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+</section>
+<section id="csm-keycopy">
+<h2>Csm_KeyCopy<a class="headerlink" href="#csm-keycopy" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyCopy</span><span class="p">(</span><span class="n">const</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function shall copy all key elements from the source key to a target key.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key whose key element shall be the source element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>Holds the identifier of the key whose key element shall be the destination element.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_AVAILABLE: request failed, the requested key element is not available CRYPTO_E_KEY_READ_FAIL: Request failed because read access was denied CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to write key element. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element sizes are not compatible. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyelementcopypartial">
+<h2>Csm_KeyElementCopyPartial<a class="headerlink" href="#csm-keyelementcopypartial" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyElementCopyPartial</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementSourceOffset</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementTargetOffset</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementCopyLength</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyElementId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Copies a key element to another key element in the same crypto driver. The keyElementSourceOffset and keyElementCopyLength allows to copy just a part of the source key element into the destination. The offset into the target key is also specified with this function.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key whose key element shall be the source element for copy operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyElementId</p></td>
+<td><p>Holds the identifier of the key element which shall be the source for the copy operation..</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyElementSourceOffset</p></td>
+<td><p>This is the offset of the source key element indicating the start index of the copy operation..</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyElementTargetOffset</p></td>
+<td><p>This is the offset of the destination key element indicating the start index of the copy operation.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyElementCopyLength</p></td>
+<td><p>Specifies the number of bytes that shall be copied.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>target Key Id.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>targetKeyElementId</p></td>
+<td><p>Holds the identifier of the key element which shall be the destination for the copy operation.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_NOT_AVAILABLE: request failed, the requested key element is not available CRYPTO_E_KEY_READ_FAIL: Request failed because read access was denied CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to write key element. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element sizes are not compatible. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-randomseed">
+<h2>Csm_RandomSeed<a class="headerlink" href="#csm-randomseed" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_RandomSeed</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">seedPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">seedLength</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Feeds the key element CRYPTO_KE_RANDOM_SEED with a random seed.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new seed shall be generated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>seedPtr</p></td>
+<td><p>Holds a pointer to the memory location which contains the data to feed the seed.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>seedLength</p></td>
+<td><p>Contains the length of the seed in bytes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keygenerate">
+<h2>Csm_KeyGenerate<a class="headerlink" href="#csm-keygenerate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyGenerate</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Generates new key material and store it in the key identified by keyId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be generated.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”. CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyderive">
+<h2>Csm_KeyDerive<a class="headerlink" href="#csm-keyderive" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyDerive</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Derives a new key by using the key elements in the given key identified by the keyId. The given key contains the key elements for the password and salt. The derived key is stored in the key element with the id 1 of the key identified by targetCryptoKeyId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key which is used for key derivation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>Holds the identifier of the key which is used to store the derived key.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_KEY_READ_FAIL: Request failed because read access was denied CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to write key element. CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”. CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element sizes are not compatible. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyexchangecalcpubval">
+<h2>Csm_KeyExchangeCalcPubVal<a class="headerlink" href="#csm-keyexchangecalcpubval" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyExchangeCalcPubVal</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">publicValuePtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">publicValueLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Calculates the public value of the current user for the key exchange and stores the public key in the memory location pointed by the public value pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key which shall be used for the key exchange protocol.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>publicValuePtr</p></td>
+<td><p>Contains the pointer to the data where the public value shall be stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>[inout]</p></td>
+<td><p>publicValueLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the public value length information is stored. On calling this function, this parameter shall contain the size of the buffer provided by publicValuePtr. When the request has finished, the actual length of the returned value shall be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER: The provided buffer is too small to store the result CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keyexchangecalcsecret">
+<h2>Csm_KeyExchangeCalcSecret<a class="headerlink" href="#csm-keyexchangecalcsecret" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyExchangeCalcSecret</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">partnerPublicValuePtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">partnerPublicValueLength</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Calculates the shared secret key for the key exchange with the key material of the key identified by the keyId and the partner public key. The shared secret key is stored as a key element in the same key.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant, but not for the same keyId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key which shall be used for the key exchange protocol.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>partnerPublicValuePtr</p></td>
+<td><p>Holds the pointer to the memory location which contains the partner’s public value.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>partnerPublicValueLength</p></td>
+<td><p>Contains the length of the partner’s public value in bytes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: request failed, service is still busy CRYPTO_E_SMALL_BUFFER: The provided buffer is too small to store the result CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeysetvalid">
+<h2>Csm_JobKeySetValid<a class="headerlink" href="#csm-jobkeysetvalid" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeySetValid</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Stores the key if necessary and sets the key state of the key identified by keyId to valid.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be validated.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeysetinvalid">
+<h2>Csm_JobKeySetInValid<a class="headerlink" href="#csm-jobkeysetinvalid" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeySetInValid</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Stores the key if necessary and sets the key state of the key identified by keyId to invalid.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be invalidated.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobrandomseed">
+<h2>Csm_JobRandomSeed<a class="headerlink" href="#csm-jobrandomseed" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobRandomSeed</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">seedPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">seedLength</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function shall dispatch the random seed function to the configured crypto driver object.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new seed shall be generated.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>seedPtr</p></td>
+<td><p>Holds a pointer to the memory location which contains the data to feed the seed..</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>seedLength</p></td>
+<td><p>Contains the length of the seed in bytes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeygenerate">
+<h2>Csm_JobKeyGenerate<a class="headerlink" href="#csm-jobkeygenerate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyGenerate</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Generates new key material and stores it in the key identified by keyId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key for which a new material shall be generated.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid” CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeyderive">
+<h2>Csm_JobKeyDerive<a class="headerlink" href="#csm-jobkeyderive" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyDerive</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Derives a new key by using the key elements in the given key identified by the keyId. The given key contains the key elements for the password and salt. The derived key is stored in the key element with the id 1 of the key identified by targetCryptoKeyId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key which is used for key derivation.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>Holds the identifier of the key which is used to store the derived key.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_KEY_READ_FAIL: Request failed, not allowed to extract key element CRYPTO_E_KEY_WRITE_FAIL: Request failed, not allowed to write key element CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid” CRYPTO_E_KEY_SIZE_MISMATCH: Request failed, key element sizes are not compatible CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeyexchangecalcpubval">
+<h2>Csm_JobKeyExchangeCalcPubVal<a class="headerlink" href="#csm-jobkeyexchangecalcpubval" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyExchangeCalcPubVal</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">publicValuePtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">publicValueLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Calculates the public value of the current user for the key exchange and stores the public key in the memory location pointed by the public value pointer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key which shall be used for the key exchange protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>publicValuePtr</p></td>
+<td><p>Contains the pointer to the data where the public value shall be stored.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>publicValueLengthPtr</p></td>
+<td><p>Holds a pointer to the memory location in which the public value length information is stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_SMALL_BUFFER: The provided buffer is too small to store the result CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid” CRYPTO_E_KEY_EMPTY: Request failed because of uninitialized source key element</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-jobkeyexchangecalcsecret">
+<h2>Csm_JobKeyExchangeCalcSecret<a class="headerlink" href="#csm-jobkeyexchangecalcsecret" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_JobKeyExchangeCalcSecret</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">partnerPublicValuePtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">partnerPublicValueLength</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Calculates the shared secret key for the key exchange with the key material of the key identified by the keyId and the partner public key. The shared secret key is stored as a key element in the same key.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE or FALSE, depending on the job configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Holds the identifier of the job using the CSM service.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Holds the identifier of the key which shall be used for the key exchange protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>partnerPublicValuePtr</p></td>
+<td><p>Holds the pointer to the memory location which contains the partner’s public value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>partnerPublicValueLength</p></td>
+<td><p>Contains the length of the partner’s public value in bytes.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>request successful E_NOT_OK: request failed E_BUSY:Request failed, Crypto Driver Object is busy CRYPTO_E_SMALL_BUFFER: The provided buffer is too small to store the result CRYPTO_E_BUSY: Request failed, service is still busy CRYPTO_E_KEY_NOT_VALID: Request failed, the key’s state is “invalid”. CRYPTO_E_KEY_EMPTY:Request failed because of uninitialized source key element.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-canceljob">
+<h2>Csm_CancelJob<a class="headerlink" href="#csm-canceljob" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_CancelJob</span><span class="p">(</span><span class="n">uint32</span> <span class="n">job</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cancels the job processing from asynchronous or streaming jobs.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>job</p></td>
+<td><p>Holds the identifier of the job to be canceled</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Not used, just for interface compatibility provided.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Request successful. Job removed from any queue and potentially from crypto driver hardware. E_NOT_OK: Request failed CRYPTO_E_JOB_CANCELED: Immediate cancelation not possible.The cancelation will be done at next suitable processing step and notified via a negative finish callback.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-keygetstatus">
+<h2>Csm_KeyGetStatus<a class="headerlink" href="#csm-keygetstatus" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_KeyGetStatus</span><span class="p">(</span><span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">Crypto_KeyStatusType</span> <span class="o">*</span><span class="n">keyStatusPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Retrieves the status of a key in the CSM module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Identifier of the key.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>keyStatusPtr</p></td>
+<td><p>Pointer to the variable where the key status will be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Operation successful.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Operation failed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-customservice">
+<h2>Csm_CustomService<a class="headerlink" href="#csm-customservice" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_CustomService</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">Crypto_OperationModeType</span> <span class="n">mode</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">inputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">inputLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">secondaryInputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">secondaryInputLength</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">tertiaryInputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">tertiaryInputLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">outputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">outputLengthPtr</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">secondaryOutputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">secondaryOutputLengthPtr</span><span class="p">,</span> <span class="n">Crypto_VerifyResultType</span> <span class="o">*</span><span class="n">verifyPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Custom service operation for the CSM module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Depends on configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different jobId</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Identifier of the job.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>mode</p></td>
+<td><p>Operation mode (e.g., encryption, decryption, signing, verification).</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>Identifier of the target key.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>inputPtr</p></td>
+<td><p>Pointer to the primary input data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>inputLength</p></td>
+<td><p>Length of the primary input data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>secondaryInputPtr</p></td>
+<td><p>Pointer to the secondary input data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>secondaryInputLength</p></td>
+<td><p>Length of the secondary input data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>tertiaryInputPtr</p></td>
+<td><p>Pointer to the tertiary input data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>tertiaryInputLength</p></td>
+<td><p>Length of the tertiary input data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>outputPtr</p></td>
+<td><p>Pointer to the output data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>outputLengthPtr</p></td>
+<td><p>Pointer to the length of the output data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>secondaryOutputPtr</p></td>
+<td><p>Pointer to the secondary output data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>secondaryOutputLengthPtr</p></td>
+<td><p>Pointer to the length of the secondary output data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>verifyPtr</p></td>
+<td><p>Pointer to the verification result.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Operation successful.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Operation failed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-customsync">
+<h2>Csm_CustomSync<a class="headerlink" href="#csm-customsync" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_CustomSync</span><span class="p">(</span><span class="n">uint32</span> <span class="n">dispatchId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">keyElementId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyId</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">targetKeyElementId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">inputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">inputLength</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">outputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">outputLengthPtr</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">secondaryOutputPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">secondaryOutputLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Custom synchronous operation for the CSM module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>dispatchId</p></td>
+<td><p>Dispatch ID for the operation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>keyId</p></td>
+<td><p>Identifier of the source key.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>keyElementId</p></td>
+<td><p>Identifier of the source key element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>targetKeyId</p></td>
+<td><p>Identifier of the target key.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>targetKeyElementId</p></td>
+<td><p>Identifier of the target key element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>inputPtr</p></td>
+<td><p>Pointer to the input data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>inputLength</p></td>
+<td><p>Length of the input data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>outputPtr</p></td>
+<td><p>Pointer to the output data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>outputLengthPtr</p></td>
+<td><p>Pointer to the length of the output data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>secondaryOutputPtr</p></td>
+<td><p>Pointer to the secondary output data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>secondaryOutputLengthPtr</p></td>
+<td><p>Pointer to the length of the secondary output data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Operation successful.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Operation failed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-savecontextjob">
+<h2>Csm_SaveContextJob<a class="headerlink" href="#csm-savecontextjob" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_SaveContextJob</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">contextBufferPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="o">*</span><span class="n">contextBufferLengthPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Saves the context of a job in the CSM module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Depends on configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Identifier of the job.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>contextBufferPtr</p></td>
+<td><p>Pointer to the buffer where the context data will be stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>contextBufferLengthPtr</p></td>
+<td><p>Pointer to the variable where the length of the context data will be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Operation successful.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Operation failed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csm-restorecontextjob">
+<h2>Csm_RestoreContextJob<a class="headerlink" href="#csm-restorecontextjob" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">Csm_RestoreContextJob</span><span class="p">(</span><span class="n">uint32</span> <span class="n">jobId</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">contextBufferPtr</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">contextBufferLength</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Restores the context of a job in the CSM module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>Depends on configuration</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant This function restores the context of a specified job in the CSM module. It takes the job ID, a pointer to the context buffer, and the length of the context buffer. The function reads the context data from the provided buffer and restores it for the job.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>jobId</p></td>
+<td><p>Identifier of the job.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>contextBufferPtr</p></td>
+<td><p>Pointer to the buffer containing the context data.</p></td>
+</tr>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>contextBufferLength</p></td>
+<td><p>Length of the context data in the buffer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Operation successful.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Operation failed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+</main>
+                        
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">外部类型定义 Definition of External Types</a></li>
+<li><a class="reference internal" href="#services-provided-externally">对外提供的服务 Services Provided Externally</a><ul>
+<li><a class="reference internal" href="#csm-init">Csm_Init</a></li>
+<li><a class="reference internal" href="#csm-getversioninfo">Csm_GetVersionInfo</a></li>
+<li><a class="reference internal" href="#csm-hash">Csm_Hash</a></li>
+<li><a class="reference internal" href="#csm-macgenerate">Csm_MacGenerate</a></li>
+<li><a class="reference internal" href="#csm-macverify">Csm_MacVerify</a></li>
+<li><a class="reference internal" href="#csm-encrypt">Csm_Encrypt</a></li>
+<li><a class="reference internal" href="#csm-decrypt">Csm_Decrypt</a></li>
+<li><a class="reference internal" href="#csm-aeadencrypt">Csm_AEADEncrypt</a></li>
+<li><a class="reference internal" href="#csm-aeaddecrypt">Csm_AEADDecrypt</a></li>
+<li><a class="reference internal" href="#csm-signaturegenerate">Csm_SignatureGenerate</a></li>
+<li><a class="reference internal" href="#csm-signatureverify">Csm_SignatureVerify</a></li>
+<li><a class="reference internal" href="#csm-randomgenerate">Csm_RandomGenerate</a></li>
+<li><a class="reference internal" href="#csm-keyelementset">Csm_KeyElementSet</a></li>
+<li><a class="reference internal" href="#csm-keysetvalid">Csm_KeySetValid</a></li>
+<li><a class="reference internal" href="#csm-keysetinvalid">Csm_KeySetInvalid</a></li>
+<li><a class="reference internal" href="#csm-keyelementget">Csm_KeyElementGet</a></li>
+<li><a class="reference internal" href="#csm-keyelementcopy">Csm_KeyElementCopy</a></li>
+<li><a class="reference internal" href="#csm-keycopy">Csm_KeyCopy</a></li>
+<li><a class="reference internal" href="#csm-keyelementcopypartial">Csm_KeyElementCopyPartial</a></li>
+<li><a class="reference internal" href="#csm-randomseed">Csm_RandomSeed</a></li>
+<li><a class="reference internal" href="#csm-keygenerate">Csm_KeyGenerate</a></li>
+<li><a class="reference internal" href="#csm-keyderive">Csm_KeyDerive</a></li>
+<li><a class="reference internal" href="#csm-keyexchangecalcpubval">Csm_KeyExchangeCalcPubVal</a></li>
+<li><a class="reference internal" href="#csm-keyexchangecalcsecret">Csm_KeyExchangeCalcSecret</a></li>
+<li><a class="reference internal" href="#csm-jobkeysetvalid">Csm_JobKeySetValid</a></li>
+<li><a class="reference internal" href="#csm-jobkeysetinvalid">Csm_JobKeySetInValid</a></li>
+<li><a class="reference internal" href="#csm-jobrandomseed">Csm_JobRandomSeed</a></li>
+<li><a class="reference internal" href="#csm-jobkeygenerate">Csm_JobKeyGenerate</a></li>
+<li><a class="reference internal" href="#csm-jobkeyderive">Csm_JobKeyDerive</a></li>
+<li><a class="reference internal" href="#csm-jobkeyexchangecalcpubval">Csm_JobKeyExchangeCalcPubVal</a></li>
+<li><a class="reference internal" href="#csm-jobkeyexchangecalcsecret">Csm_JobKeyExchangeCalcSecret</a></li>
+<li><a class="reference internal" href="#csm-canceljob">Csm_CancelJob</a></li>
+<li><a class="reference internal" href="#csm-keygetstatus">Csm_KeyGetStatus</a></li>
+<li><a class="reference internal" href="#csm-customservice">Csm_CustomService</a></li>
+<li><a class="reference internal" href="#csm-customsync">Csm_CustomSync</a></li>
+<li><a class="reference internal" href="#csm-savecontextjob">Csm_SaveContextJob</a></li>
+<li><a class="reference internal" href="#csm-restorecontextjob">Csm_RestoreContextJob</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

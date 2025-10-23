@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>MemMap &mdash; EasyXMen_docs 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="EasyXMen_docs 1.0.0 documentation" href="#" />
+            <link rel="next" title="MemLayout" href="../MemLayout/MemLayout.html" />
+            <link rel="prev" title="MemIf" href="../MemIf/MemIf.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../../_static/img/xmen_logo.png" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Bfx/Bfx.html">Bfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BswM/BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanIf/CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanNm/CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanSM/CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTp/CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTsyn/CanTsyn.html">CanTsyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Com/Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ComM/ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crc/Crc.html">Crc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Det/Det.html">Det</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CryIf/CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crypto_62/Crypto_62.html">Crypto_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CsM/CsM.html">CsM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dcm/Dcm.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dem/Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dlt/Dlt.html">Dlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DoIP/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E2E/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EcuM/EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ea/Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Eep_62/Eep_62.html">Eep_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthIf/EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSM/EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTrcv/EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTSyn/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fee/Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fim/Fim.html">Fim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashTest/FlashTest.html">FlsTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IpduM/IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IStdLib/IStdLib.html">IStdLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KeyM/KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LdCom/LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinIf/LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinSM/LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemIf/MemIf.html">MemIf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MemMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemLayout/MemLayout.html">MemLayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Nm/Nm.html">Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NvM/NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PduR/PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RamTest/RamTest.html">RamTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Rte/Rte.html">Rte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iRte/iRte.html">iRte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sd/Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SecOC/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SoAd/SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SomeIpTp/SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../StbM/StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TcpIp/TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdpNm/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgIf/WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgM/WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Xcp/Xcp.html">Xcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tm/Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CDD_FVM/CDD_FVM.html">CDD_FVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSwt/EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTrcv/CanTrcv.html">CanTrcv</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84.html">总体架构</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/RH850U2A16_R7F702300BFABA_C_Demo.html">RH850U2A16_R7F702300BFABA_C_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/TC397_Demo.html">TC397_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/S32K148_Demo.html">S32K148_Demo</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">MemMap</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/MemMap/MemMap.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="memmap">
+<h1>MemMap<a class="headerlink" href="#memmap" title="Link to this heading">¶</a></h1>
+<section id="document-information">
+<h2>文档信息（Document Information）<a class="headerlink" href="#document-information" title="Link to this heading">¶</a></h2>
+<section id="version-history">
+<h3>版本历史（Version History）<a class="headerlink" href="#version-history" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>日期（Date）</p></th>
+<th class="head"><p>作者（Author）</p></th>
+<th class="head"><p>版本（Version）</p></th>
+<th class="head"><p>状态（Status）</p></th>
+<th class="head"><p>说明（Description）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2025/02/10</p></td>
+<td><p>lizhi.huang</p></td>
+<td><p>V0.1</p></td>
+<td><p>发布（Release）</p></td>
+<td><p>首次发布（First release）</p></td>
+</tr>
+<tr class="row-odd"><td><p>2025/04/04</p></td>
+<td><p>lizhi.huang</p></td>
+<td><p>V1.0</p></td>
+<td><p>发布（Release）</p></td>
+<td><p>正式发布（Official release）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reference-document">
+<h3>参考文档（Reference Document）<a class="headerlink" href="#reference-document" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 25.0%" />
+<col style="width: 41.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>编号（Number）</p></th>
+<th class="head"><p>分类（Classification）</p></th>
+<th class="head"><p>标题（Title）</p></th>
+<th class="head"><p>版本（Version）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[1]</p></td>
+<td><p>Autosar</p></td>
+<td><p>AUTOSAR_CP_SWS_MemoryMapping.pdf</p></td>
+<td><p>R23-11</p></td>
+</tr>
+<tr class="row-odd"><td><p>[2]</p></td>
+<td><p>Autosar</p></td>
+<td><p>AUTOSAR_CP_TPS_BSWModuleDescriptionTemplate.pdf</p></td>
+<td><p>R23-11</p></td>
+</tr>
+<tr class="row-even"><td><p>[3]</p></td>
+<td><p>Autosar</p></td>
+<td><p>AUTOSAR_CP_TPS_SoftwareComponentTemplate.pdf</p></td>
+<td><p>R23-11</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="terms-and-abbreviations">
+<h2>术语与简写（Terms and Abbreviations）<a class="headerlink" href="#terms-and-abbreviations" title="Link to this heading">¶</a></h2>
+<section id="term">
+<h3>术语（Term）<a class="headerlink" href="#term" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>术语（Term）</strong></p></th>
+<th class="head"><p><strong>解释（Explanation）</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>内存映射（Memory Mapping）</p></td>
+<td><p>代码和数据映射到特定内存段的机制</p>
+<p>A mechanism for mapping code and data to specific memory segments</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SW-ADDR-METHOD</p></td>
+<td><p>用于为数据或代码对象分配公共的地址方法</p>
+<p>A common address method used to allocate data or code objects</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MEMORY-SECTION</p></td>
+<td><p>提供Implementation中用于代码或数据的抽象内存部分的描述。它应该由Bsw或Swc的Implementation创建</p>
+<p>Provides a description of abstract memory sections used for code or data in the Implementation. It should be created by the Implementation of Bsw or Swc</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>名称推导映射（Name Derivation Mapping）</p></td>
+<td><p>当配置选项AutoMappingByShortName==True时，MemMap模块根据MEMORY-SECTION的名称进行推导映射</p>
+<p>When the configuration option AutoMappingByShortName == True, the MemMap module performs derivation mapping based on the name of MEMORY-SECTION</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>手动映射（Manual Mapping）</p></td>
+<td><p>当配置选项EnableManual==True时，所有模块的相同类型的MEMORY-SECTION映射到同一个抽象的MAKW,并集中放置在MemMap.h文件中,允许修改此文件进行手动映射</p>
+<p>When the configuration option EnableManual == True, MEMORY-SECTIONs of the same type from all modules are mapped to the same abstract MAKW and centrally placed in the MemMap.h file, allowing modification of this file for manual mapping</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>工具配置映射（Tool Configuration Mapping）</p></td>
+<td><p>通过MemMapGenericMapping对SW-ADDR-METHOD进行映射或通过MemMapSectionSpecificMapping对MEMORY-SECTION进行映射</p>
+<p>Mapping SW-ADDR-METHOD through MemMapGenericMapping or mapping MEMORY-SECTION through MemMapSectionSpecificMapping</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>默认映射（Default Mapping）</p></td>
+<td><p>对未使用“工具配置映射”，“名称推导映射”和“手动映射”的MEMORY-SECTION，使用其引用的SW-ADDR-METHOD的映射规则。SW-ADDR-METHOD只能通过工具配置映射，工具会为默认的SW-ADDR-METHOD创建映射规则，自定义的SW-ADDR-METHOD则需要用户通过配置工具映射</p>
+<p>For MEMORY-SECTIONs that do not use “Tool Configuration Mapping”, “Name Derivation Mapping” and “Manual Mapping”, the mapping rules of the referenced SW-ADDR-METHOD are used. SW-ADDR-METHOD can only be mapped through tool configuration. The tool will create mapping rules for the default SW-ADDR-METHOD, while custom SW-ADDR-METHODs require users to map through the configuration tool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="abbreviation">
+<h3>简写（Abbreviation）<a class="headerlink" href="#abbreviation" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 33.3%" />
+<col style="width: 41.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>简写（Abbreviation）</p></th>
+<th class="head"><p>全称（Full name）</p></th>
+<th class="head"><p>解释（Explanation）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MAKW</p></td>
+<td><p>Memory Allocation Key Word</p></td>
+<td><p>内存映射关键字</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="introduction">
+<h2>简介（Introduction）<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>MemMap模块会收集工程中所有的SW-ADDR-METHOD和MEMORY-SECTION，并根据配置信息对其进行内存映射</p>
+<p>The MemMap module collects all SW-ADDR-METHODs and MEMORY-SECTIONs in the project and performs memory mapping for them according to the configuration information.</p>
+<p>通过对工程中的 <strong>代码</strong> , <strong>数据</strong> , <strong>常量</strong> 进行内存映射,能够达到以下目的：</p>
+<p>By performing memory mapping on the <strong>code</strong>, <strong>data</strong>, and <strong>constants</strong> in the project, the following purposes can be achieved:</p>
+<blockquote>
+<div><ul>
+<li><p>避免空间的浪费：通过合理的字节对齐方式,能够将数据进行更紧密的排列</p>
+<p>Avoid waste of space: Through reasonable byte alignment, data can be arranged more closely.</p>
+</li>
+<li><p>特定内存属性的使用：定义变量的初始化模式，例如复位后不进行初始化，复位后清零，复位后需要赋值等</p>
+<p>Use of specific memory attributes: Define the initialization mode of variables, such as no initialization after reset, clearing after reset, requiring assignment after reset, etc.</p>
+</li>
+<li><p>指定RAM的属性：定义代码和常量的位置到RAM空间,提高访问的效率</p>
+<p>Specify RAM attributes: Define the locations of code and constants in the RAM space to improve access efficiency.</p>
+</li>
+<li><p>内存保护和分区：提供硬件内存保护需要的分区地址符号</p>
+<p>Memory protection and partitioning: Provide partition address symbols required for hardware memory protection.</p>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="functional-description">
+<h2>功能描述（Functional Description）<a class="headerlink" href="#functional-description" title="Link to this heading">¶</a></h2>
+<section id="features">
+<h3>特性（Features）<a class="headerlink" href="#features" title="Link to this heading">¶</a></h3>
+<p>MemMap 模块是 AUTOSAR 内存管理的核心枢纽，通过标准化关键字、编译器抽象和配置驱动，实现：</p>
+<p>The MemMap module is the core hub of AUTOSAR memory management, which achieves:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>精准控制代码/数据的内存分配；</p>
+<p>Accurately control the memory allocation of code/data;</p>
+</li>
+<li><p>提升性能（快速内存）与安全性（ASIL 隔离）；</p>
+<p>Improve performance (fast memory) and security (ASIL isolation);</p>
+</li>
+<li><p>确保跨编译器/平台的可移植性；</p>
+<p>Ensure cross compiler/platform portability;</p>
+</li>
+<li><p>为链接器提供标准化输入，完成物理地址映射。</p>
+<p>Provide standardized input for the linker and complete physical address mapping.</p>
+</li>
+</ol>
+</div></blockquote>
+<p>其设计完美契合汽车电子对 确定性内存布局 和 功能安全 的严苛要求。</p>
+<p>Its design perfectly meets the stringent requirements of automotive electronics for deterministic memory layout and functional safety.</p>
+</section>
+<section id="deviation">
+<h3>偏差（deviation）<a class="headerlink" href="#deviation" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+<section id="expansion">
+<h3>扩展（expansion）<a class="headerlink" href="#expansion" title="Link to this heading">¶</a></h3>
+<p>从用户使用的便捷性考虑，MemMap模块在AUTOSAR规范进行了一些的扩展，以支持以下需求：</p>
+<p>The MemMap module has been extended from user convenience, to support the following requirements:</p>
+<section id="name-derivation-mapping">
+<h4>名称推导映射（Name Derivation Mapping）<a class="headerlink" href="#name-derivation-mapping" title="Link to this heading">¶</a></h4>
+<p>此功能提供一种基于MEMORY-SECTION名称的映射方式，对系统中所有的MEMORY-SECTION进行内存映射。</p>
+<p>This function provides a mapping method based on the MEMORY-SECTION name, which maps all MEMORY-SECTIONs in the system.</p>
+</section>
+<section id="manual-mapping">
+<h4>手动映射（Manual Mapping）<a class="headerlink" href="#manual-mapping" title="Link to this heading">¶</a></h4>
+<p>此功能打开后，意味着工具不需要生成链接语句。除了生成模块的MemMap.h文件外，还会额外生成一个MemMap.h文件，用户通过自行修改这些文件，完成内存映射</p>
+<p>When this function is enabled, it means that the tool does not need to generate link statements. In addition to generating the MemMap.h file for the module, an additional MemMap.h file will be generated. Users can complete memory mapping by modifying these files on their own.</p>
+</section>
+</section>
+</section>
+<section id="integration">
+<h2>集成（Integration）<a class="headerlink" href="#integration" title="Link to this heading">¶</a></h2>
+<p>操作步骤如下:</p>
+<p>The operation steps are as follows:</p>
+<p>选择ORIENTAIS配置工具MemMap模块，选择MemMap模块中的Synchronize Module选项并生成配置文件；</p>
+<p>Select the ORIENTIS configuration tool MemLayout module, choose the Synchronize Module option in the MemLayout module, and generate a configuration file;</p>
+<p>打开生成的配置文件，在MemMapGeneration选择映射规则，生成各模块的内存映射头文件；</p>
+<p>Open the generated configuration file, select the mapping rule in MemMapGeneration, and generate the memory mapping header file for each module;</p>
+<p>在IDE中创建新项目；</p>
+<p>Create a new project in the IDE;</p>
+<p>集成工程对应的内存映射头文件，配置文件和其他源文件；</p>
+<p>Integrate the memory mapping header file, configuration file, and other source files;</p>
+<p>构建项目以生成可执行文件。</p>
+<p>Build the project to generate an executable file.</p>
+<section id="file-list">
+<h3>文件列表（File List）<a class="headerlink" href="#file-list" title="Link to this heading">¶</a></h3>
+<section id="static-files">
+<h4>静态文件(static files)<a class="headerlink" href="#static-files" title="Link to this heading">¶</a></h4>
+<p>None</p>
+</section>
+<section id="dynamic-files">
+<h4>动态文件（Dynamic files）<a class="headerlink" href="#dynamic-files" title="Link to this heading">¶</a></h4>
+<p>各模块的内存映射头文件，举例说明：OS模块的MemMap.h文件文件为Os_MemMap.h。</p>
+<p>The memory mapping header files for each module, for example: the MemMap. h file for the OS module is Os_MemMap. h.</p>
+</section>
+</section>
+<section id="error-handling">
+<h3>错误处理(Error Handling)<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+</section>
+<section id="interface-description">
+<h2>接口描述（Interface Description）<a class="headerlink" href="#interface-description" title="Link to this heading">¶</a></h2>
+<p>None</p>
+</section>
+<section id="configuration">
+<h2>配置（Configuration）<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>MemMap模块支持以下4种映射模式</p>
+<p>The MemMap module supports the following 4 mapping modes:</p>
+<ul class="simple">
+<li><p>工具配置映射（Tool configuration mapping）</p></li>
+<li><p>名称推导映射（Name derivation mapping）</p></li>
+<li><p>默认映射（Default mapping）</p></li>
+<li><p>手动映射（Manual mapping）</p></li>
+</ul>
+<p>它们之间的优先级关系：
+工具配置映射(需配置) &gt; 名称推导映射(需开启) &gt; 默认映射(需关联) = 手动映射(需开启)</p>
+<p>The priority relationship among them is as follows:
+Tool configuration mapping (needs configuration) &gt; Name derivation mapping (needs enabling) &gt; Default mapping (needs association) = Manual mapping (needs enabling)</p>
+<p>其中 <a class="reference internal" href="#id2"><span class="std std-ref">名称推导映射</span></a> 与 <a class="reference internal" href="#id5"><span class="std std-ref">手动映射</span></a> 是可选的</p>
+<p>Among them, Name Deduction Mapping and Manual Mapping are optional.</p>
+<figure class="align-center" id="memorysection">
+<img alt="../../../_images/MemorySection%E6%98%A0%E5%B0%84%E9%80%BB%E8%BE%91.png" src="../../../_images/MemorySection%E6%98%A0%E5%B0%84%E9%80%BB%E8%BE%91.png" />
+<figcaption>
+<p><span class="caption-text">MemorySection映射逻辑</span><a class="headerlink" href="#memorysection" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>MemorySection Mapping Logic</p>
+</div>
+</figcaption>
+</figure>
+<figure class="align-center" id="swaddrmethod">
+<img alt="../../../_images/SwAddrMethod%E6%98%A0%E5%B0%84%E9%80%BB%E8%BE%91.png" src="../../../_images/SwAddrMethod%E6%98%A0%E5%B0%84%E9%80%BB%E8%BE%91.png" />
+<figcaption>
+<p><span class="caption-text">SwAddrMethod映射逻辑</span><a class="headerlink" href="#swaddrmethod" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>SwAddrMethod Mapping Logic</p>
+</div>
+</figcaption>
+</figure>
+<section id="tool-configuration-mapping">
+<span id="id1"></span><h3>工具配置映射（Tool Configuration Mapping）<a class="headerlink" href="#tool-configuration-mapping" title="Link to this heading">¶</a></h3>
+<p>工具配置映射是符合AUTOSAR MemMap工具的标准映射方式，需要用户通过：</p>
+<p>Tool configuration mapping is a standard mapping method compliant with the AUTOSAR MemMap tool, which requires users to implement mapping through:</p>
+<ul>
+<li><p>MemMapSectionSpecificMapping容器关联MEMORY-SECTION和MemMapAddressingModeSet</p>
+<p>The MemMapSectionSpecificMapping container to associate MEMORY-SECTION with MemMapAddressingModeSet</p>
+</li>
+<li><p>或通过MemMapGenericMapping容器关联SwAddrMehtod和MemMapAddressingModeSet实现映射</p>
+<p>Or the MemMapGenericMapping container to associate SwAddrMethod with MemMapAddressingModeSet</p>
+</li>
+</ul>
+<figure class="align-center" id="memmapsectionspecificmapping">
+<img alt="../../../_images/MemMapSectionSpecificMapping.png" src="../../../_images/MemMapSectionSpecificMapping.png" />
+<figcaption>
+<p><span class="caption-text">MemMapSectionSpecificMapping为MEMORY-SECTION映射</span><a class="headerlink" href="#memmapsectionspecificmapping" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>MemMapSectionSpecificMapping is for MEMORY-SECTION mapping.</p>
+</div>
+</figcaption>
+</figure>
+<figure class="align-center" id="memmapgenericmappingg">
+<img alt="../../../_images/MemMapGenericMappingg.png" src="../../../_images/MemMapGenericMappingg.png" />
+<figcaption>
+<p><span class="caption-text">MemMapGenericMappingg映射为SW-ADDR-METHOD映射</span><a class="headerlink" href="#memmapgenericmappingg" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>MemMapGenericMapping is mapped as SW-ADDR-METHOD mapping.</p>
+</div>
+</figcaption>
+</figure>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>注意（Note）</p>
+<p>此方式的优先级最高，意味着MEMORY-SECTION或SW-ADDR-METHOD通过此方式配置之后，将不受其他映射规则的影响</p>
+<p>This method has the highest priority, which means that once MEMORY-SECTION or SW-ADDR-METHOD is configured through this method, it will not be affected by other mapping rules.</p>
+</div>
+<section id="memmapaddressingmodeset">
+<h4>MemMapAddressingModeSet<a class="headerlink" href="#memmapaddressingmodeset" title="Link to this heading">¶</a></h4>
+<p>MemMapAddressingModeSet是MemMapAddressingMode的集合，包含一个或者多个MemMapAddressingMode</p>
+<p>MemMapAddressingModeSet is a collection of MemMapAddressingMode, which contains one or more MemMapAddressingMode.</p>
+<ul>
+<li><p>MemMapSupportedSectionType表示MemMapAddressingModeSet下的MemMapAddressingMode支持那种类型的Section，类型不符合的映射会导致工具报错</p>
+<p>MemMapSupportedSectionType indicates the type of Section supported by MemMapAddressingMode under MemMapAddressingModeSet. Mappings with inconsistent types will cause tool errors.</p>
+</li>
+<li><p>MemMapSupportedSectionInitializationPolicy参数只允许在MemMapSupportedSectionType为MEMMAP_SECTION_TYPE_VAR时可选，标志支持的初始化类型（INIT，CLEARED，POWER-ON-CLEARED）</p>
+<p>The MemMapSupportedSectionInitializationPolicy parameter is only optional when MemMapSupportedSectionType is MEMMAP_SECTION_TYPE_VAR, which marks the supported initialization types (INIT, CLEARED, POWER-ON-CLEARED).</p>
+</li>
+</ul>
+<section id="memmapaddressingmode">
+<h5>MemMapAddressingMode<a class="headerlink" href="#memmapaddressingmode" title="Link to this heading">¶</a></h5>
+<p>MemMapAddressingMode表示映射规则，在实际代码中可能由一段#pragma语句实现</p>
+<p>MemMapAddressingMode represents a mapping rule, which may be implemented by a section of #pragma statements in actual code.</p>
+<p>MemMapAddressingModeStart和MemMapAddressingModeStop表示#pragma语句的具体内容，例如</p>
+<p>MemMapAddressingModeStart and MemMapAddressingModeStop represent the specific content of the #pragma statements, for example.</p>
+<figure class="align-center" id="memmapaddressingmodestartmemmapaddressingmodestop">
+<img alt="../../../_images/MemMapAddressingModeStart%E5%92%8CMemMapAddressingModeStop.png" src="../../../_images/MemMapAddressingModeStart%E5%92%8CMemMapAddressingModeStop.png" />
+<figcaption>
+<p><span class="caption-text">MemMapAddressingModeStart和MemMapAddressingModeStop</span><a class="headerlink" href="#memmapaddressingmodestartmemmapaddressingmodestop" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>若不希望通过手动的方式进行映射，可以引用一个的MemLayoutRegion，工具会通过MemLayoutRegion的属性推算出实际的#pragma语句。计算方式另见MemLayout用户手册</p>
+<p>If you do not wish to perform mapping manually, you can reference a MemLayoutRegion. The tool will deduce the actual #pragma statements based on the properties of the MemLayoutRegion. For the calculation method, please refer to the MemLayout User Manual.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>注意（Note）</p>
+<p>MemLayoutRegionRef的配置优先级高于MemMapAddressingModeStart和MemMapAddressingModeStop，这意味着引用MemLayoutRegion之后，手动填写的映射规则将被工具忽略</p>
+<p>The configuration priority of MemLayoutRegionRef is higher than that of MemMapAddressingModeStart and MemMapAddressingModeStop. This means that after referencing a MemLayoutRegion, the manually filled mapping rules will be ignored by the tool.</p>
+<p>MemMapAlignmentSelector表示MemMapAddressingMode支持的对齐方式，对齐方式不匹配的映射会导致工具报错</p>
+<p>MemMapAlignmentSelector indicates the alignment modes supported by MemMapAddressingMode. Mappings with mismatched alignment modes will cause tool errors.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="id2">
+<span id="id3"></span><h3>名称推导映射（Name Derivation Mapping）<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>此功能提供一种基于MEMORY-SECTION名称的映射方式，对系统中所有的MEMORY-SECTION进行内存映射
+需要通过AutoMappingByShortName开关开启</p>
+<p>This function provides a mapping method based on the name of MEMORY-SECTION, which performs memory mapping for all MEMORY-SECTIONs in the system. It needs to be enabled through the AutoMappingByShortName switch.</p>
+<figure class="align-center" id="automappingbyshortname">
+<img alt="../../../_images/AutoMappingByShortName.png" src="../../../_images/AutoMappingByShortName.png" />
+<figcaption>
+<p><span class="caption-text">AutoMappingByShortName</span><a class="headerlink" href="#automappingbyshortname" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.2%" />
+<col style="width: 18.2%" />
+<col style="width: 18.2%" />
+<col style="width: 45.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>关键字（Keywords）</p></th>
+<th class="head"><p>必选（Mandatory）</p></th>
+<th class="head"><p>备注（Remarks）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型（Type）</p></td>
+<td><p>VAR/CODE</p></td>
+<td><p>Y</p></td>
+<td><p>其他类型自动忽略</p>
+<p>Other types are automatically ignored</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>范围（Scope）</p></td>
+<td><p>&lt;Core&gt;
+&lt;PartitionName&gt;
+&lt;TaskName&gt;（仅VAR支持）(only supported by VAR)</p>
+<p>&lt;IsrName&gt;（仅VAR支持）(only supported by VAR)</p>
+</td>
+<td><p>Y</p></td>
+<td><p>未匹配成功则自动忽略</p>
+<p>Automatically ignored if no match is found</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>初始化策略（Initialization Policy）</p></td>
+<td><p>CLEARED</p></td>
+<td><p>N</p></td>
+<td><p>VAR类型有效。仅支持CLEARED,其他初始化策略自动忽略</p>
+<p>Valid for VAR type. Only CLEARED is supported; other initialization policies are automatically ignored</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>对齐方式（Alignment）</p></td>
+<td><p>任何对齐方式（Any alignment method）</p></td>
+<td><p>N</p></td>
+<td><p>未定义则使用UNSPECIFIED</p>
+<p>UNSPECIFIED is used if not defined</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>举例（Example）</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>MEMORY-SECTION.ShortName</p></th>
+<th class="head"><p>映射规则（Mapping Rules）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VAR</p></td>
+<td><p>位置：GLOBAL 初始化策略：CLEARED 对齐：UNSPECIFIED</p>
+<p>Location: GLOBAL Initialization Policy: CLEARED Alignment: UNSPECIFIED</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>VAR_CLEARED</p></td>
+<td><p>位置：GLOBAL 初始化策略：CLEARED 对齐：UNSPECIFIED</p>
+<p>Location: GLOBAL Initialization Policy: CLEARED Alignment: UNSPECIFIED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>VAR_CORE0</p></td>
+<td><p>位置：CORE0 初始化策略：CLEARED 对齐：UNSPECIFIED</p>
+<p>Location: CORE0 Initialization Policy: CLEARED Alignment: UNSPECIFIED</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>VAR_PARTITION0</p></td>
+<td><p>位置：PARTITION0 初始化策略：CLEARED 对齐：UNSPECIFIED</p>
+<p>Location: PARTITION0 Initialization Policy: CLEARED Alignment: UNSPECIFIED</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>VAR_CLEARED_PARTITION0_8</p></td>
+<td><p>位置：PARTITION0 初始化策略：CLEARED 对齐：8</p>
+<p>Location: PARTITION0 Initialization Policy: CLEARED Alignment: 8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CODE_PARTITION0</p></td>
+<td><p>位置：PARTITION0 初始化策略：NONE 对齐：UNSPECIFIED</p>
+<p>Location: PARTITION0 Initialization Policy: NONE Alignment: UNSPECIFIED</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="default-mapping">
+<span id="id4"></span><h3>默认映射（Default Mapping）<a class="headerlink" href="#default-mapping" title="Link to this heading">¶</a></h3>
+<p>默认映射会对未配置 <a class="reference internal" href="#id1"><span class="std std-ref">工具配置映射</span></a> 和没有被 <a class="reference internal" href="#id2"><span class="std std-ref">名称推导映射</span></a> 匹配的MEMORY-SECTION进行映射
+前提条件是MEMORY-SECTION必须关联了一个SW-ADDR-METHOD，且SW-ADDR-METHOD使用了 <a class="reference internal" href="#id1"><span class="std std-ref">工具配置映射</span></a>
+这个MEMORY-SECTION会根据SW-ADDR-METHOD（通过MemMapGenericMapping）的映射规则进行映射</p>
+<p>Default mapping will map MEMORY-SECTIONs that are not configured with :ref:工具配置映射&lt;工具配置映射&gt; and not matched by :ref:名称推导映射&lt;名称推导映射&gt;.
+The prerequisite is that the MEMORY-SECTION must be associated with a SW-ADDR-METHOD, and the SW-ADDR-METHOD uses :ref:工具配置映射&lt;工具配置映射&gt;.
+This MEMORY-SECTION will be mapped according to the mapping rules of the SW-ADDR-METHOD (through MemMapGenericMapping).</p>
+<section id="swaddrmehtod-automatic-mapping-of-default-swaddrmethod">
+<h4>默认SwAddrMehtod自动映射（Automatic Mapping of Default SwAddrMethod）<a class="headerlink" href="#swaddrmehtod-automatic-mapping-of-default-swaddrmethod" title="Link to this heading">¶</a></h4>
+<p>MemMap模块为系统中默认存在的SW-ADDR-METHOD提供了一键创建映射功能，通过MemMap模块的Synchronize Modules按钮即可立即创建所有映射功能</p>
+<p>The MemMap module provides a one-click mapping creation function for the SW-ADDR-METHODs that exist by default in the system. All mapping functions can be created immediately by clicking the Synchronize Modules button of the MemMap module.</p>
+<figure class="align-center" id="synchronizememmap">
+<img alt="../../../_images/SynchronizeMemMap.png" src="../../../_images/SynchronizeMemMap.png" />
+<figcaption>
+<p><span class="caption-text">MemMap Synchronize</span><a class="headerlink" href="#synchronizememmap" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>此功能创建的对象会引用另一个模块（MemLayout）的容器，所以使用它的前提条件是MemLayout模块先使用了Synchronize Modules功能。另见MemLayout用户手册[链接]</p>
+<p>The objects created by this function will reference the containers of another module (MemLayout). Therefore, the prerequisite for using it is that the MemLayout module has first used the Synchronize Modules function. See also the MemLayout User Manual [link].</p>
+<figure class="align-center" id="synchronizememmap-memmapaddressingmodeset">
+<img alt="../../../_images/SynchronizeMemMap_MemMapAddressingModeSet.png" src="../../../_images/SynchronizeMemMap_MemMapAddressingModeSet.png" />
+<figcaption>
+<p><span class="caption-text">MemMap Synchronize后创建的MemMapAddressingModeSet</span><a class="headerlink" href="#synchronizememmap-memmapaddressingmodeset" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>MemMapAddressingModeSet Created after MemMap Synchronize</p>
+</div>
+</figcaption>
+</figure>
+<figure class="align-center" id="synchronizememmap-memmapgenericmapping">
+<img alt="../../../_images/SynchronizeMemMap_MemMapGenericMapping.png" src="../../../_images/SynchronizeMemMap_MemMapGenericMapping.png" />
+<figcaption>
+<p><span class="caption-text">MemMap Synchronize后创建的MemMapGenericMapping</span><a class="headerlink" href="#synchronizememmap-memmapgenericmapping" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>MemMapGenericMapping Created after MemMap Synchronize</p>
+</div>
+</figcaption>
+</figure>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>注意（Note）</p>
+<p>通过SWC工具配置的SW-ADDR-METHOD属于自定义范围，无法使用默认映射，需要使用 <a class="reference internal" href="#id1"><span class="std std-ref">工具配置映射</span></a></p>
+<p>The SW-ADDR-METHOD configured through the SWC tool belongs to the custom scope and cannot use the default mapping. It is required to use <a class="reference internal" href="#id1"><span class="std std-ref">工具配置映射</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="id5">
+<span id="id6"></span><h3>手动映射（Manual Mapping）<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>勾选EnableManual开关后，表示启动手动映射模式</p>
+<p>Checking the EnableManual switch indicates that the manual mapping mode is activated.</p>
+<figure class="align-center" id="enablemanual">
+<img alt="../../../_images/EnableManual.png" src="../../../_images/EnableManual.png" />
+<figcaption>
+<p><span class="caption-text">EnableManual</span><a class="headerlink" href="#enablemanual" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>此功能打开后，意味着工具不需要生成链接语句。除了生成模块的MemMap.h文件外，还会额外生成一个MemMap.h文件，用户通过自行修改这些文件，完成内存映射</p>
+<p>When this function is enabled, it means that the tool does not need to generate link statements. In addition to generating the MemMap.h file for the module, an additional MemMap.h file will be generated. Users can complete memory mapping by modifying these files on their own.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">模块MemMap.h文件示例（Example of the module’s MemMap.h file）</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*Index:3  Section name :CONST_UNSPECIFIED*/</span>
+<span class="cp">#elif defined BSWM_START_SEC_CONST_UNSPECIFIED</span>
+<span class="cp">#undef BSWM_START_SEC_CONST_UNSPECIFIED</span>
+<span class="cp">#undef MEMMAP_ERROR</span>
+<span class="cp">#ifndef MEMMAP_ERROR_SEC_NO_MATCH</span>
+<span class="cp">#define MEMMAP_ERROR_SEC_NO_MATCH</span>
+<span class="cp">#else</span>
+<span class="cp">#error &quot;BswM_MemMap.h, section is used consecutively many times.&quot;</span>
+<span class="cp">#endif</span>
+<span class="cp">#define BSWM_START_SEC_CONST_UNSPECIFIED_NO_MATCH</span>
+<span class="cp">#define START_SEC_CONST_UNSPECIFIED</span>
+
+<span class="cp">#elif defined BSWM_STOP_SEC_CONST_UNSPECIFIED</span>
+<span class="cp">#undef BSWM_STOP_SEC_CONST_UNSPECIFIED</span>
+<span class="cp">#undef MEMMAP_ERROR</span>
+<span class="cp">#ifdef BSWM_START_SEC_CONST_UNSPECIFIED_NO_MATCH</span>
+<span class="cp">#undef BSWM_START_SEC_CONST_UNSPECIFIED_NO_MATCH</span>
+<span class="cp">#else</span>
+<span class="cp">#error &quot;BswM_MemMap.h, no matching section was used.&quot;</span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef MEMMAP_ERROR_SEC_NO_MATCH</span>
+<span class="cp">#undef MEMMAP_ERROR_SEC_NO_MATCH</span>
+<span class="cp">#endif</span>
+<span class="cp">#define STOP_SEC_CONST_UNSPECIFIED</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">MemMap.h文件示例（Example of MemMap.h file）</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* VAR_CLEARED */</span>
+<span class="cp">#if defined START_SEC_VAR_CLEARED</span>
+<span class="cp">#undef START_SEC_VAR_CLEARED</span>
+<span class="cm">/* No Mapping */</span>
+
+<span class="cp">#elif defined STOP_SEC_VAR_CLEARED</span>
+<span class="cp">#undef STOP_SEC_VAR_CLEARED</span>
+<span class="cm">/* No Mapping */</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="../MemIf/MemIf.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>MemIf
+    </a>
+    <a class="float-right" href="../MemLayout/MemLayout.html" title="Next">
+        MemLayout <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">MemMap</a><ul>
+<li><a class="reference internal" href="#document-information">文档信息（Document Information）</a><ul>
+<li><a class="reference internal" href="#version-history">版本历史（Version History）</a></li>
+<li><a class="reference internal" href="#reference-document">参考文档（Reference Document）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#terms-and-abbreviations">术语与简写（Terms and Abbreviations）</a><ul>
+<li><a class="reference internal" href="#term">术语（Term）</a></li>
+<li><a class="reference internal" href="#abbreviation">简写（Abbreviation）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction">简介（Introduction）</a></li>
+<li><a class="reference internal" href="#functional-description">功能描述（Functional Description）</a><ul>
+<li><a class="reference internal" href="#features">特性（Features）</a></li>
+<li><a class="reference internal" href="#deviation">偏差（deviation）</a></li>
+<li><a class="reference internal" href="#expansion">扩展（expansion）</a><ul>
+<li><a class="reference internal" href="#name-derivation-mapping">名称推导映射（Name Derivation Mapping）</a></li>
+<li><a class="reference internal" href="#manual-mapping">手动映射（Manual Mapping）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration">集成（Integration）</a><ul>
+<li><a class="reference internal" href="#file-list">文件列表（File List）</a><ul>
+<li><a class="reference internal" href="#static-files">静态文件(static files)</a></li>
+<li><a class="reference internal" href="#dynamic-files">动态文件（Dynamic files）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-handling">错误处理(Error Handling)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#interface-description">接口描述（Interface Description）</a></li>
+<li><a class="reference internal" href="#configuration">配置（Configuration）</a><ul>
+<li><a class="reference internal" href="#tool-configuration-mapping">工具配置映射（Tool Configuration Mapping）</a><ul>
+<li><a class="reference internal" href="#memmapaddressingmodeset">MemMapAddressingModeSet</a><ul>
+<li><a class="reference internal" href="#memmapaddressingmode">MemMapAddressingMode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">名称推导映射（Name Derivation Mapping）</a></li>
+<li><a class="reference internal" href="#default-mapping">默认映射（Default Mapping）</a><ul>
+<li><a class="reference internal" href="#swaddrmehtod-automatic-mapping-of-default-swaddrmethod">默认SwAddrMehtod自动映射（Automatic Mapping of Default SwAddrMethod）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">手动映射（Manual Mapping）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

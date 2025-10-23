@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>类型定义（Type Definition） &mdash; EasyXMen_docs 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="EasyXMen_docs 1.0.0 documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../../index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../../_static/img/xmen_logo.png" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Bfx/Bfx.html">Bfx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BswM/BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanNm/CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanSM/CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTp/CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTsyn/CanTsyn.html">CanTsyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Com/Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ComM/ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crc/Crc.html">Crc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Det/Det.html">Det</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CryIf/CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Crypto_62/Crypto_62.html">Crypto_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CsM/CsM.html">CsM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dcm/Dcm.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dem/Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Dlt/Dlt.html">Dlt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DoIP/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../E2E/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EcuM/EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ea/Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Eep_62/Eep_62.html">Eep_62</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthIf/EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSM/EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTrcv/EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthTSyn/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fee/Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Fim/Fim.html">Fim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FlashTest/FlashTest.html">FlsTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IpduM/IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IStdLib/IStdLib.html">IStdLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KeyM/KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LdCom/LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinIf/LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinSM/LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemIf/MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemMap/MemMap.html">MemMap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MemLayout/MemLayout.html">MemLayout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Nm/Nm.html">Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NvM/NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PduR/PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RamTest/RamTest.html">RamTst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Rte/Rte.html">Rte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iRte/iRte.html">iRte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sd/Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SecOC/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SoAd/SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SomeIpTp/SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../StbM/StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TcpIp/TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../UdpNm/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgIf/WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../WdgM/WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Xcp/Xcp.html">Xcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tm/Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CDD_FVM/CDD_FVM.html">CDD_FVM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EthSwt/EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CanTrcv/CanTrcv.html">CanTrcv</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/BswM%26EcuM.html">BswM&amp;EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CAN.html">CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CANNM.html">CANNM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/E2E.html">E2E</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/Eth.html">Eth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/FlashTest.html">FlashTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinMaster.html">LinMaster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/LinSlave.html">LINSlave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/NVM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/OBD.html">OBD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/RamTest.html">RamTest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/SOMEIP.html">SOMEIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonCAN.html">UDSOnCan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/UDSonLIN.html">UDSonLIN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/WDG.html">WDG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/XCP.html">XCP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E9%9B%86%E6%88%90%E6%89%8B%E5%86%8C/%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84.html">总体架构</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">工程说明:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/RH850U2A16_R7F702300BFABA_C_Demo.html">RH850U2A16_R7F702300BFABA_C_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/TC397_Demo.html">TC397_Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E/S32K148_Demo.html">S32K148_Demo</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">类型定义（Type Definition）</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/CanIf/CanIf_h_api.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="type-definition">
+<h1>类型定义（Type Definition）<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h1>
+<p>None</p>
+</section>
+<section id="provided-services">
+<h1>提供的服务（Provided services）<a class="headerlink" href="#provided-services" title="Link to this heading">¶</a></h1>
+<section id="canif-init">
+<h2>CanIf_Init<a class="headerlink" href="#canif-init" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_Init</span><span class="p">(</span><span class="n">const</span> <span class="n">CanIf_ConfigType</span> <span class="o">*</span><span class="n">ConfigPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service Initializes internal and external interfaces of the CAN Interface for the further processing.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>Pointer to configuration parameter set, used e.g. for post build parameters.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-deinit">
+<h2>CanIf_DeInit<a class="headerlink" href="#canif-deinit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_DeInit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>De-initializes the CanIf module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-setcontrollermode">
+<h2>CanIf_SetControllerMode<a class="headerlink" href="#canif-setcontrollermode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_SetControllerMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">,</span> <span class="n">Can_ControllerStateType</span> <span class="n">ControllerMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service calls the corresponding CAN Driver service for changing of the CAN controller mode.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>FALSE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (Not for the same controller)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>Abstracted CanIf ControllerId which is assigned to a CAN controller, which is requested for mode transition.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>ControllerMode</p></td>
+<td><p>Requested mode transition.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Controller mode request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Controller mode request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-getcontrollermode">
+<h2>CanIf_GetControllerMode<a class="headerlink" href="#canif-getcontrollermode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_GetControllerMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">,</span> <span class="n">Can_ControllerStateType</span> <span class="o">*</span><span class="n">ControllerModePtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service calls the corresponding CAN Driver service for obtaining the current status of the CAN controller.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>Abstracted CanIf ControllerId which is assigned to a CAN controller, which is requested for current operation mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>ControllerModePtr</p></td>
+<td><p>Pointer to a memory location, where the current mode of the CAN controller will be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Controller mode request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Controller mode request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-transmit">
+<h2>CanIf_Transmit<a class="headerlink" href="#canif-transmit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_Transmit</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">TxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Requests transmission of a PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different PduIds. Non reentrant for the same PduId.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TxPduId</p></td>
+<td><p>Identifier of the PDU to be transmitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>Length of and pointer to the PDU data and pointer to MetaData.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Transmit request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Transmit request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-readrxpdudata">
+<h2>CanIf_ReadRxPduData<a class="headerlink" href="#canif-readrxpdudata" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_ReadRxPduData</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">CanIfRxSduId</span><span class="p">,</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">CanIfRxInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service provides the Data Length and the received data of the requested CanIfRxSduId to the calling upper layer.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>CanIfRxSduId</p></td>
+<td><p>Receive L-SDU handle specifying the corresponding CAN L-SDU ID and implicitly the CAN Driver instance as well as the corresponding CAN controller device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>CanIfRxInfoPtr</p></td>
+<td><p>Contains the length (SduLength) of the received PDU, a pointer to a buffer (SduDataPtr) containing the PDU, and the MetaData related to this PDU.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Request for L-SDU data has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>No valid data has been received.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-readtxnotifstatus">
+<h2>CanIf_ReadTxNotifStatus<a class="headerlink" href="#canif-readtxnotifstatus" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CanIf_NotifStatusType</span> <span class="n">CanIf_ReadTxNotifStatus</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">CanIfTxSduId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service returns the confirmation status (confirmation occurred or not) of a specific static or dynamic CAN Tx L-PDU, requested by the CanIfTxSduId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>CanIfTxSduId</p></td>
+<td><p>L-SDU handle to be transmitted. This handle specifies the corresponding CAN L-SDU ID and implicitly the CAN Driver instance as well as the corresponding CAN controller device.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>CanIf_NotifStatusType</p>
+</dd>
+</dl>
+</section>
+<section id="canif-readrxnotifstatus">
+<h2>CanIf_ReadRxNotifStatus<a class="headerlink" href="#canif-readrxnotifstatus" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CanIf_NotifStatusType</span> <span class="n">CanIf_ReadRxNotifStatus</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">CanIfRxSduId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service returns the indication status (indication occurred or not) of a specific CAN Rx L-PDU, requested by the CanIfRxSduId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>CanIfRxSduId</p></td>
+<td><p>Receive L-SDU handle specifying the corresponding CAN L-SDU ID and implicitly the CAN Driver instance as well as the corresponding CAN controller device.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>CanIf_NotifStatusType</p>
+</dd>
+</dl>
+</section>
+<section id="canif-setpdumode">
+<h2>CanIf_SetPduMode<a class="headerlink" href="#canif-setpdumode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_SetPduMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">,</span> <span class="n">CanIf_PduModeType</span> <span class="n">PduModeRequest</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service sets the requested mode at the L-PDUs of a predefined logical PDU channel.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>All PDUs of the own ECU connected to the corresponding CanIf ControllerId, which is assigned to a physical CAN controller are addressed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>PduModeRequest</p></td>
+<td><p>Requested PDU mode change.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Request for mode transition has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Request for mode transition has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-getpdumode">
+<h2>CanIf_GetPduMode<a class="headerlink" href="#canif-getpdumode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_GetPduMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">,</span> <span class="n">CanIf_PduModeType</span> <span class="o">*</span><span class="n">PduModePtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service reports the current mode of a requested PDU channel.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (Not for the same channel)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>All PDUs of the own ECU connected to the corresponding CanIf ControllerId, which is assigned to a physical CAN controller are addressed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>PduModePtr</p></td>
+<td><p>Pointer to a memory location, where the current mode of the logical PDU channel will be stored.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>PDU mode request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>PDU mode request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-getversioninfo">
+<h2>CanIf_GetVersionInfo<a class="headerlink" href="#canif-getversioninfo" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_GetVersionInfo</span><span class="p">(</span><span class="n">Std_VersionInfoType</span> <span class="o">*</span><span class="n">VersionInfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service returns the version information of the called CAN Interface module.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[out]</p></td>
+<td><p>VersionInfo</p></td>
+<td><p>Pointer to where to store the version information of this module.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-setdynamictxid">
+<h2>CanIf_SetDynamicTxId<a class="headerlink" href="#canif-setdynamictxid" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_SetDynamicTxId</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">CanIfTxSduId</span><span class="p">,</span> <span class="n">Can_IdType</span> <span class="n">CanId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service reconfigures the corresponding CAN identifier of the requested CAN L-PDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>CanIfTxSduId</p></td>
+<td><p>L-SDU handle to be transmitted. This handle specifies the corresponding CAN L-SDU ID and implicitly the CAN Driver instance as well as the corresponding CAN controller device.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>CanId</p></td>
+<td><p>Standard/Extended CAN ID of CAN L-SDU that shall be transmitted as FD or conventional CAN frame.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-settrcvmode">
+<h2>CanIf_SetTrcvMode<a class="headerlink" href="#canif-settrcvmode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_SetTrcvMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">,</span> <span class="n">CanTrcv_TrcvModeType</span> <span class="n">TransceiverMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service changes the operation mode of the tansceiver TransceiverId, via calling the corresponding CAN Transceiver Driver service.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>FALSE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstracted CanIf TransceiverId, which is assigned to a CAN transceiver, which is requested for mode transition</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>TransceiverMode</p></td>
+<td><p>Requested mode transition.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Transceiver mode request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Transceiver mode request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-gettrcvmode">
+<h2>CanIf_GetTrcvMode<a class="headerlink" href="#canif-gettrcvmode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_GetTrcvMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">,</span> <span class="n">CanTrcv_TrcvModeType</span> <span class="o">*</span><span class="n">TransceiverModePtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function invokes CanTrcv_GetOpMode and updates the parameter TransceiverModePtr with the value OpMode provided by CanTrcv.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstracted CanIf TransceiverId, which is assigned to a CAN transceiver, which is requested for current operation mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>TransceiverModePtr</p></td>
+<td><p>Requested mode of requested network the Transceiver is connected to.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Transceiver mode request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Transceiver mode request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-gettrcvwakeupreason">
+<h2>CanIf_GetTrcvWakeupReason<a class="headerlink" href="#canif-gettrcvwakeupreason" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_GetTrcvWakeupReason</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">,</span> <span class="n">CanTrcv_TrcvWakeupReasonType</span> <span class="o">*</span><span class="n">TrcvWuReasonPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service returns the reason for the wake up of the transceiver TransceiverId, via calling the corresponding CAN Transceiver Driver service.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstracted CanIf TransceiverId, which is assigned to a CAN transceiver, which is requested for wake up reason.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[out]</p></td>
+<td><p>TrcvWuReasonPtr</p></td>
+<td><p>Provided pointer to where the requested transceiver wake up reason shall be returned.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Transceiver wake up reason request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Transceiver wake up reason request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-settrcvwakeupmode">
+<h2>CanIf_SetTrcvWakeupMode<a class="headerlink" href="#canif-settrcvwakeupmode" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_SetTrcvWakeupMode</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">,</span> <span class="n">CanTrcv_TrcvWakeupModeType</span> <span class="n">TrcvWakeupMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function shall call CanTrcv_SetTrcvWakeupMode.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Non Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstracted CanIf TransceiverId, which is assigned to a CAN transceiver, which is requested for wake up notification mode transition.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>TrcvWakeupMode</p></td>
+<td><p>Requested transceiver wake up notification mode.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Will be returned, if the wake up notifications state has been changed to the requested mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Will be returned, if the wake up notifications state change has failed or the parameter is out of the allowed range. The previous state has not been changed.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checkwakeup">
+<h2>CanIf_CheckWakeup<a class="headerlink" href="#canif-checkwakeup" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_CheckWakeup</span><span class="p">(</span><span class="n">EcuM_WakeupSourceType</span> <span class="n">WakeupSource</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service checks, whether an underlying CAN driver or a CAN transceiver driver already signals a wakeup event.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>FALSE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>WakeupSource</p></td>
+<td><p>Source device, which initiated the wake up event: CAN controller or CAN transceiver.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Will be returned, if the check wake up request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Will be returned, if the check wake up request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checkvalidation">
+<h2>CanIf_CheckValidation<a class="headerlink" href="#canif-checkvalidation" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_CheckValidation</span><span class="p">(</span><span class="n">EcuM_WakeupSourceType</span> <span class="n">WakeupSource</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service is performed to validate a previous wakeup event.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>WakeupSource</p></td>
+<td><p>Source device which initiated the wake-up event and which has to be validated: CAN controller or CAN transceiver</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Will be returned, if the check validation request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Will be returned, if the check validation request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-gettxconfirmationstate">
+<h2>CanIf_GetTxConfirmationState<a class="headerlink" href="#canif-gettxconfirmationstate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CanIf_NotifStatusType</span> <span class="n">CanIf_GetTxConfirmationState</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service reports, if any TX confirmation has been done for the whole CAN controller since the last CAN controller start.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant (Not for the same controller)</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>Abstracted CanIf ControllerId which is assigned to a CAN controller.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>CanIf_NotifStatusType</p>
+</dd>
+</dl>
+</section>
+<section id="canif-cleartrcvwufflag">
+<h2>CanIf_ClearTrcvWufFlag<a class="headerlink" href="#canif-cleartrcvwufflag" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_ClearTrcvWufFlag</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Requests the CanIf module to clear the WUF flag of the designated CAN transceiver.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>FALSE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different CAN transceivers</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstract CanIf TransceiverId, which is assigned to the designated CAN transceiver.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Request has been accepted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-checktrcvwakeflag">
+<h2>CanIf_CheckTrcvWakeFlag<a class="headerlink" href="#canif-checktrcvwakeflag" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_CheckTrcvWakeFlag</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Requests the CanIf module to check the Wake flag of the designated CAN transceiver.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>FALSE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different CAN transceivers</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstract CanIf TransceiverId, which is assigned to the designated CAN transceiver.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Request has been acceptedl</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Request has not been accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-setbaudrate">
+<h2>CanIf_SetBaudrate<a class="headerlink" href="#canif-setbaudrate" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_SetBaudrate</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">,</span> <span class="n">uint16</span> <span class="n">BaudRateConfigID</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service shall set the baud rate configuration of the CAN controller. Depending on necessary baud rate modifications the controller might have to reset.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different ControllerIds. Non reentrant for the same ControllerId.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>Abstract CanIf ControllerId which is assigned to a CAN controller, whose baud rate shall be set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>BaudRateConfigID</p></td>
+<td><p>References a baud rate configuration by ID.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>Service request accepted, setting of (new) baud rate started.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>Service request not accepted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-confirmpnavailability">
+<h2>CanIf_ConfirmPnAvailability<a class="headerlink" href="#canif-confirmpnavailability" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_ConfirmPnAvailability</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates that the transceiver is running in PN communication mode referring to the corresponding CAN transceiver with the abstract CanIf TransceiverId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstract CanIf TransceiverId, which is assigned to a CAN transceiver, which was checked for PN availability.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-cleartrcvwufflagindication">
+<h2>CanIf_ClearTrcvWufFlagIndication<a class="headerlink" href="#canif-cleartrcvwufflagindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_ClearTrcvWufFlagIndication</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates that the transceiver has cleared the WufFlag referring to the corresponding CAN transceiver with the abstract CanIf TransceiverId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstract CanIf TransceiverId, which is assigned to a CAN transceiver, for which this function was called.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-checktrcvwakeflagindication">
+<h2>CanIf_CheckTrcvWakeFlagIndication<a class="headerlink" href="#canif-checktrcvwakeflagindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_CheckTrcvWakeFlagIndication</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates that the check of the transceiver’s wake-up flag has been finished by the corresponding CAN transceiver with the abstract CanIf TransceiverId. This indication is used to cope with the asynchronous transceiver communication.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstract CanIf TransceiverId, which is assigned to a CAN transceiver, for which this function was called.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-trcvmodeindication">
+<h2>CanIf_TrcvModeIndication<a class="headerlink" href="#canif-trcvmodeindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_TrcvModeIndication</span><span class="p">(</span><span class="n">uint8</span> <span class="n">TransceiverId</span><span class="p">,</span> <span class="n">CanTrcv_TrcvModeType</span> <span class="n">TransceiverMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates a transceiver state transition referring to the corresponding CAN transceiver with the abstract CanIf TransceiverId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TransceiverId</p></td>
+<td><p>Abstract CanIf TransceiverId, which is assigned to a CAN transceiver, which state has been transitioned.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>TransceiverMode</p></td>
+<td><p>Mode to which the CAN transceiver transitioned.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-triggertransmit">
+<h2>CanIf_TriggerTransmit<a class="headerlink" href="#canif-triggertransmit" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">CanIf_TriggerTransmit</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">TxPduId</span><span class="p">,</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Within this API, the upper layer module (called module) shall check whether the available data fits into the buffer size reported by PduInfoPtr-&gt;SduLength. If it fits, it shall copy its data into the buffer provided by PduInfoPtr-&gt;SduDataPtr and update the length of the actual copied data in PduInfoPtr-&gt;SduLength. If not, it returns E_NOT_OK without changing PduInfoPtr.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant for different PduIds. Non reentrant for the same PduId.</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>TxPduId</p></td>
+<td><p>ID of the SDU that is requested to be transmitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[inout]</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be copied, and the available buffer size in SduLengh. On return, the service will indicate the length of the copied SDU data in SduLength.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>Std_ReturnType</p>
+</dd>
+</dl>
+<p><strong>Return values</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E_OK</p></td>
+<td><p>SDU has been copied and SduLength indicates the number of copied bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>E_NOT_OK</p></td>
+<td><p>No SDU data has been copied. PduInfoPtr must not be used since it may contain a NULL pointer or point to invalid data.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="canif-txconfirmation">
+<h2>CanIf_TxConfirmation<a class="headerlink" href="#canif-txconfirmation" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_TxConfirmation</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">CanTxPduId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service confirms a previously successfully processed transmission of a CAN TxPDU.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>CanTxPduId</p></td>
+<td><p>L-PDU handle of CAN L-PDU successfully transmitted.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-rxindication">
+<h2>CanIf_RxIndication<a class="headerlink" href="#canif-rxindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_RxIndication</span><span class="p">(</span><span class="n">const</span> <span class="n">Can_HwType</span> <span class="o">*</span><span class="n">Mailbox</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates a successful reception of a received CAN Rx L-PDU to the CanIf after passing all filters and validation checks.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>Mailbox</p></td>
+<td><p>Identifies the HRH and its corresponding CAN Controller.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>Pointer to the received L-PDU.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-controllerbusoff">
+<h2>CanIf_ControllerBusOff<a class="headerlink" href="#canif-controllerbusoff" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_ControllerBusOff</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates a Controller BusOff event referring to the corresponding CAN Controller with the abstract CanIf ControllerId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>Abstract CanIf ControllerId which is assigned to a CAN controller, where a BusOff occured.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+<section id="canif-controllermodeindication">
+<h2>CanIf_ControllerModeIndication<a class="headerlink" href="#canif-controllermodeindication" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">CanIf_ControllerModeIndication</span><span class="p">(</span><span class="n">uint8</span> <span class="n">ControllerId</span><span class="p">,</span> <span class="n">Can_ControllerStateType</span> <span class="n">ControllerMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This service indicates a controller state transition referring to the corresponding CAN controller with the abstract CanIf ControllerId.</p>
+<dl class="simple">
+<dt><strong>Sync/Async</strong></dt><dd><p>TRUE</p>
+</dd>
+<dt><strong>Reentrancy</strong></dt><dd><p>Reentrant</p>
+</dd>
+</dl>
+<p><strong>Parameters</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dir</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[in]</p></td>
+<td><p>ControllerId</p></td>
+<td><p>Abstract CanIf ControllerId which is assigned to a CAN controller, which state has been transitioned.</p></td>
+</tr>
+<tr class="row-odd"><td><p>[in]</p></td>
+<td><p>ControllerMode</p></td>
+<td><p>Mode to which the CAN controller transitioned.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt><strong>Return type</strong></dt><dd><p>void</p>
+</dd>
+</dl>
+</section>
+</section>
+
+</main>
+                        
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">类型定义（Type Definition）</a></li>
+<li><a class="reference internal" href="#provided-services">提供的服务（Provided services）</a><ul>
+<li><a class="reference internal" href="#canif-init">CanIf_Init</a></li>
+<li><a class="reference internal" href="#canif-deinit">CanIf_DeInit</a></li>
+<li><a class="reference internal" href="#canif-setcontrollermode">CanIf_SetControllerMode</a></li>
+<li><a class="reference internal" href="#canif-getcontrollermode">CanIf_GetControllerMode</a></li>
+<li><a class="reference internal" href="#canif-transmit">CanIf_Transmit</a></li>
+<li><a class="reference internal" href="#canif-readrxpdudata">CanIf_ReadRxPduData</a></li>
+<li><a class="reference internal" href="#canif-readtxnotifstatus">CanIf_ReadTxNotifStatus</a></li>
+<li><a class="reference internal" href="#canif-readrxnotifstatus">CanIf_ReadRxNotifStatus</a></li>
+<li><a class="reference internal" href="#canif-setpdumode">CanIf_SetPduMode</a></li>
+<li><a class="reference internal" href="#canif-getpdumode">CanIf_GetPduMode</a></li>
+<li><a class="reference internal" href="#canif-getversioninfo">CanIf_GetVersionInfo</a></li>
+<li><a class="reference internal" href="#canif-setdynamictxid">CanIf_SetDynamicTxId</a></li>
+<li><a class="reference internal" href="#canif-settrcvmode">CanIf_SetTrcvMode</a></li>
+<li><a class="reference internal" href="#canif-gettrcvmode">CanIf_GetTrcvMode</a></li>
+<li><a class="reference internal" href="#canif-gettrcvwakeupreason">CanIf_GetTrcvWakeupReason</a></li>
+<li><a class="reference internal" href="#canif-settrcvwakeupmode">CanIf_SetTrcvWakeupMode</a></li>
+<li><a class="reference internal" href="#canif-checkwakeup">CanIf_CheckWakeup</a></li>
+<li><a class="reference internal" href="#canif-checkvalidation">CanIf_CheckValidation</a></li>
+<li><a class="reference internal" href="#canif-gettxconfirmationstate">CanIf_GetTxConfirmationState</a></li>
+<li><a class="reference internal" href="#canif-cleartrcvwufflag">CanIf_ClearTrcvWufFlag</a></li>
+<li><a class="reference internal" href="#canif-checktrcvwakeflag">CanIf_CheckTrcvWakeFlag</a></li>
+<li><a class="reference internal" href="#canif-setbaudrate">CanIf_SetBaudrate</a></li>
+<li><a class="reference internal" href="#canif-confirmpnavailability">CanIf_ConfirmPnAvailability</a></li>
+<li><a class="reference internal" href="#canif-cleartrcvwufflagindication">CanIf_ClearTrcvWufFlagIndication</a></li>
+<li><a class="reference internal" href="#canif-checktrcvwakeflagindication">CanIf_CheckTrcvWakeFlagIndication</a></li>
+<li><a class="reference internal" href="#canif-trcvmodeindication">CanIf_TrcvModeIndication</a></li>
+<li><a class="reference internal" href="#canif-triggertransmit">CanIf_TriggerTransmit</a></li>
+<li><a class="reference internal" href="#canif-txconfirmation">CanIf_TxConfirmation</a></li>
+<li><a class="reference internal" href="#canif-rxindication">CanIf_RxIndication</a></li>
+<li><a class="reference internal" href="#canif-controllerbusoff">CanIf_ControllerBusOff</a></li>
+<li><a class="reference internal" href="#canif-controllermodeindication">CanIf_ControllerModeIndication</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=f281be69"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
