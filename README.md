@@ -6,14 +6,14 @@ This repository is the documentation repository for EasyXMen. You can use Pages 
 
 ## 目录结构 Directory Structure
 ```
-|── QuickStart              # 快速上手指南（Quick Start Guide）
-|── ReleaseNotes            # 版本发布说明 （Version Release Notes）
-|── source                  # 文档文件夹 （Documentation Folder）
-│   ├── _static             # 文档图片相关静态资料 （Static Materials Related to Document Images）
-│   └──  sub                # 文档文本内容 （Document Text Content）
-|── LICENSE.txt             # license 说明 （Document Text Content）
-|── make.bat                # 本地查阅文档批处理文件（Batch File for Viewing Documents Locally）
-└── README.md               # 仓库说明文档 （Document Text Content）
+|── QuickStart              # 快速上手指南 (Quick Start Guide)
+|── ReleaseNotes            # 版本发布说明 (Version Release Notes)
+|── source                  # 文档文件夹 (Documentation Folder)
+│   ├── _static             # 文档图片相关静态资料 (Static Materials Related to Document Images)
+│   └──  sub                # 文档文本内容 (Document Text Content)
+|── LICENSE.txt             # license 说明 (License Description)
+|── make.bat                # 本地查阅文档批处理文件 (Batch File for Viewing Documents Locally)
+└── README.md               # 仓库说明文档 (Repository Description Document)
 ```
 ## 开源许可
 
