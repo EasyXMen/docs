@@ -1,12 +1,12 @@
 
-类型定义（Type Definition）
+类型定义(Type Definition)
 -----------------------------------
 .. 如果没有就不存在该章节，或为None
 
 None
 
       
-提供的服务（Provided services）
+提供的服务(Services)
 --------------------------------
 CanIf_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1075,7 +1075,7 @@ Within this API, the upper layer module (called module) shall check whether the 
      - ID of the SDU that is requested to be transmitted.
    * - [inout]
      - PduInfoPtr
-     - Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be copied, and the available buffer size in SduLengh. On return, the service will indicate the length of the copied SDU data in SduLength.
+     - Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be copied, and the available buffer size in SduLength. On return, the service will indicate the length of the copied SDU data in SduLength.
 
 **Return type**
     Std_ReturnType

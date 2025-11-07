@@ -1,7 +1,7 @@
-E2E_P07m接口描述（E2E_P07m Interface Description）
+E2E_P07m接口描述 E2E_P07m(Interface Description)
 =====================================================
 
-类型定义（Type Definitions）
+类型定义(Type Definitions)
 ----------------------------------
 .. 如果没有就不存在该章节，或为None
 
@@ -31,7 +31,7 @@ E2E_P07m接口描述（E2E_P07m Interface Description）
 
 
       
-提供的服务（Provided Services）
+提供的服务(Services)
 ----------------------------------------
 E2E_P07mProtect
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

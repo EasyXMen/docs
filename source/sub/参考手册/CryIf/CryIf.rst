@@ -67,7 +67,7 @@ CryIf
      - 解释(Explanation)
 
    * - Crypto Driver Object
-     - Crypto Driver实现一个或多个Crypto Driver Object。Crypto Driver Object可通过硬件或软件提供不同的crypto primitive。同一Crypto Driver下的各个Crypto Driver Object彼此独立。每个Crypto Driver Object仅拥有一个workspace（即同一时间只能执行一个 crypto primitive）。(Crypto Driver realizes one or more Crypto Driver Objects.The Crypto Driver Object can provide different crypto primitives via either hardware or software. Each Crypto Driver Object under the same Crypto Driver is independent from each other. Each Crypto Driver Object has one workspace only (i.e. only one crypto primitive can be executed each time).) 
+     - Crypto Driver实现一个或多个Crypto Driver Object。Crypto Driver Object可通过硬件或软件提供不同的crypto primitive。同一Crypto Driver下的各个Crypto Driver Object彼此独立。每个Crypto Driver Object仅拥有一个workspace(即同一时间只能执行一个 crypto primitive)。(Crypto Driver realizes one or more Crypto Driver Objects.The Crypto Driver Object can provide different crypto primitives via either hardware or software. Each Crypto Driver Object under the same Crypto Driver is independent from each other. Each Crypto Driver Object has one workspace only (i.e. only one crypto primitive can be executed each time).) 
 
    * - Key
      - Key可由Csm中的job进行引用。在Crypto Driver中，该Key指向特定的key type。(Key can be referenced by job in Csm.) In Crypto Driver, this key points to the specific key type. 
@@ -76,7 +76,7 @@ CryIf
      - key type由key element构成，且指向这些key element。通常，key type由Crypto Driver的供应商预先配置。(The key type consists of key elements and points to these key elements.) The key type is generally pre-configured by the supplier of the Crypto Driver. 
 
    * - Key Element 
-     - Key element用于存储数据。此类数据例如可以是密钥材料（key material），或是AES加密所需的初始向量（IV）；Key element还可用于配置密钥管理功能（key management functions）的行为。不同Key对应的Key element拥有不同的存储区域（包括非易失性存储区NV和随机存取存储区RAM）。(The key element is used for storing data.) This type of data can be key material or the initial vector (IV) required for AES encryption; furthermore, the Key elements can also be used for configuring the behavior of key management functions. The Key elements corresponding to different keys have different storage areas (including non-volatile memory NV and random access memory RAM).
+     - Key element用于存储数据。此类数据例如可以是密钥材料(key material)，或是AES加密所需的初始向量(IV)；Key element还可用于配置密钥管理功能(key management functions)的行为。不同Key对应的Key element拥有不同的存储区域(包括非易失性存储区NV和随机存取存储区RAM)。(The key element is used for storing data.) This type of data can be key material or the initial vector (IV) required for AES encryption; furthermore, the Key elements can also be used for configuring the behavior of key management functions. The Key elements corresponding to different keys have different storage areas (including non-volatile memory NV and random access memory RAM).
 
    * - Job
      - Job是已完成配置的 “CsmJob”。其中，Job会引用key、cryptographic primitive 以及reference channel等要素。(Job refers to the configured 'CsmJob'.) To be specific, Job will reference elements such as key, cryptographic primitive, and reference channel.
@@ -85,19 +85,19 @@ CryIf
      - channel是从Crypto Service Manager队列经Crypto Interface到特定Crypto Driver Object的路径。(Channel is the path from the Crypto Service Manager queue to a specific Crypto Driver Object via the Crypto Interface.) 
    
    * - Primitive
-     - primitive是在Crypto Driver Object中实现的、已配置的加密算法（cryptographic algorithm）的实例。其中，primitive会引用CSM提供给应用的功能、具体的底层 “algorithmfamily”（如 AES、MD5、RSA等）以及 “algorithmmode”（如 ECB、CBC等）。(primitive is an instance of a configured cryptographic algorithm realized in the Crypto Driver Object.) To be specific, primitive will reference the functions provided by CSM for the application, the specific underlying "algorithm family" (such as AES, MD5, RSA, etc.), and "algorithm mod" (such as ECB, CBC, etc.).
+     - primitive是在Crypto Driver Object中实现的、已配置的加密算法(cryptographic algorithm)的实例。其中，primitive会引用CSM提供给应用的功能、具体的底层 “algorithmfamily”(如 AES、MD5、RSA等)以及 “algorithmmode”(如 ECB、CBC等)。(primitive is an instance of a configured cryptographic algorithm realized in the Crypto Driver Object.) To be specific, primitive will reference the functions provided by CSM for the application, the specific underlying "algorithm family" (such as AES, MD5, RSA, etc.), and "algorithm mod" (such as ECB, CBC, etc.).
 
    * - Operation
-     - crypto primitive的操作（operation）用于声明应执行该加密原语的哪部分功能。存在三种不同的操作类型：(The operation of crypto primitive is used for declaring the specific part of the function of the encryption primitive that should be executed) There're three different operation types:
+     - crypto primitive的操作(operation)用于声明应执行该加密原语的哪部分功能。存在三种不同的操作类型：(The operation of crypto primitive is used for declaring the specific part of the function of the encryption primitive that should be executed) There're three different operation types:
 
    * - START
      - Operation表示一个新的crypto primitive请求，它应取消所有先前的请求，执行必要的初始化，并检查该加密原语是否可被处理。(Operation refers to a new crypto primitive request that should cancel all previous requests, perform necessary initialization, and check if the encryption primitive can be processed.)
 
    * - UPDATE
-     - Operation表示crypto primitive需要输入数据。更新操作（update operation）可提供中间结果。(Operation means that crypto primitive needs data inputting.) The update operation can provide intermediate results.
+     - Operation表示crypto primitive需要输入数据。更新操作(update operation)可提供中间结果。(Operation means that crypto primitive needs data inputting.) The update operation can provide intermediate results.
 
    * - FINISH
-     - Operation表示，至此所有数据已完全输入，crypto primitive可完成最终计算。完成操作（finish operation）可提供最终结果。(Operation means that all data has been fully inputted, and crypto primitive can complete the final calculation.) The finish operation can provide the final results.
+     - Operation表示，至此所有数据已完全输入，crypto primitive可完成最终计算。完成操作(finish operation)可提供最终结果。(Operation means that all data has been fully inputted, and crypto primitive can complete the final calculation.) The finish operation can provide the final results.
 
    * - Priority
      - job的priority定义了其重要程度。priority数值越高，job的执行就越紧急。cryptographic job的priority是配置的一部分。(The priority of job defines its level of importance.) The higher the priority value, the more urgent the job execution. The priority of cryptographic jobs is part of the configuration.
@@ -106,7 +106,7 @@ CryIf
      - 指示job处理的类型。(It indicates the type of job processing.) 
  
    * - Service
-     - service应按照《TR_Glossary》文档中的定义理解：service是一种operation类型，其接口（interface）和行为（behavior）具有公开的规范（published specification），涉及能力提供者（provider of the capability）与潜在客户端（potential clients）之间的约定（contract）。(Service should be understood according to the definition in the TR_Glossary file: Service refers to an operation type, the interface and behavior of which have published specifications. It involves the contract between providers of the capability and potential clients.)
+     - service应按照《TR_Glossary》文档中的定义理解：service是一种operation类型，其接口(interface)和行为(behavior)具有公开的规范(published specification)，涉及能力提供者(provider of the capability)与潜在客户端(potential clients)之间的约定(contract)。(Service should be understood according to the definition in the TR_Glossary file: Service refers to an operation type, the interface and behavior of which have published specifications. It involves the contract between providers of the capability and potential clients.)
 
 简写 Abbreviations
 --------------------------------------------------------------------------------------------------------
@@ -215,7 +215,7 @@ None
    :name: fig_CryIfFilelist
    :align: center
 
-   CryIF组件文件组织结构描述. (Descriptions of CryIf component file organization structure）
+   CryIF组件文件组织结构描述. (Descriptions of CryIf component file organization structure)
 
 如图 :ref:`fig_CryIfFilelist` 所示，CryIf模块的文件引用关系如下：
 

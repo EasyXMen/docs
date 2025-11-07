@@ -1,7 +1,7 @@
-接口描述（Interface Description）
+接口描述(Interface Description)
 ========================================
 
-类型定义（Type Definitions）
+类型定义(Type Definitions)
 -------------------------------------
 
 .. list-table:: 
@@ -16,7 +16,7 @@
      - struct
      - Configuration data structure of the Fee module
       
-提供的服务（Provided services）
+提供的服务 services
 ------------------------------------------------
 
 Fee_Init
@@ -419,7 +419,7 @@ Service to handle the requested read/write/erase jobs and the internal managemen
    void
 
 
-回调函数（Callback Function）
+回调函数(Callback Function)
 -----------------------------------------------------
 
 Fee_JobEndNotification
@@ -442,11 +442,11 @@ Service to report to this module the successful end of an asynchronous operation
    void
 
 
-依赖的服务（Dependent Services）
+依赖的服务(Dependent Services)
 ----------------------------------------------------------
 
 
-强制接口（Mandatory Interface）
+强制接口(Mandatory Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -504,7 +504,7 @@ Service to report to this module the successful end of an asynchronous operation
        successful, the job result is MEMACC_OK. If there was an issue writing the data, the result is MEMACC_FAILED.
 
 
-可选接口（Optional Interfaces）
+可选接口(Optional Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -522,7 +522,7 @@ Service to report to this module the successful end of an asynchronous operation
        blank, the result is MEMACC_OK, otherwise the result is MEMACC_INCONSISTENT.
 
 
-配置函数（Configuration Functions）
+配置函数(Configuration Functions)
 -------------------------------------------
 
 NvM_JobEndNotification

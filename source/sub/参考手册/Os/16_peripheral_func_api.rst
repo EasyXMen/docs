@@ -1,13 +1,13 @@
-Peripheral Functions
+Peripheral(Functions)
 --------------------------------------
 
-在某些MCU架构中，存在内存映射的硬件寄存器（外设区域），这些寄存器只能在特定模式（例如特权模式）下访问。只要任务/中断服务例程（Tasks/ISRs）具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。
+在某些MCU架构中，存在内存映射的硬件寄存器(外设区域)，这些寄存器只能在特定模式(例如特权模式)下访问。只要任务/中断服务例程(Tasks/ISRs)具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。
 
-In some MCU architectures, there are memory-mapped hardware registers (peripheral areas) that can only be accessed in specific modes (such as privileged mode). As long as tasks/interrupt service routines (Tasks/ISRs) have full hardware access permissions, they can access these registers directly. If the operating system uses memory protection, tasks/interrupt service routines of untrusted OS-Applications cannot access these registers directly, as this will be recognized as a memory violation by the operating system.
+In some MCU architectures, memory-mapped hardware registers (peripheral areas) exist that are accessible only in specific modes (e.g., privileged mode). As long as tasks/interrupt service routines (Tasks/ISRs) have full hardware access rights, they can directly access these registers. If the operating system employs memory protection, tasks/ISRs of untrusted OS-Applications cannot access these registers directly, as this is recognized by the OS as a memory violation.
 
 外设访问的接口被划分为8位、16位和32位。为了简化表达，ReadPeripheral<x>代表ReadPeripheral8、ReadPeripheral16、ReadPeripheral32。WritePeripheral<x>代表WritePeripheral8、WritePeripheral16、WritePeripheral32。ModifyPeripheral<x>代表ModifyPeripheral8、ModifyPeripheral16、ModifyPeripheral32。
 
-Interfaces for peripheral access are divided into 8-bit, 16-bit, and 32-bit. For the sake of simplicity, ReadPeripheral<x> represents ReadPeripheral8, ReadPeripheral16, and ReadPeripheral32. WritePeripheral<x> represents WritePeripheral8, WritePeripheral16, and WritePeripheral32. ModifyPeripheral<x> represents ModifyPeripheral8, ModifyPeripheral16, and ModifyPeripheral32.
+Peripheral access interfaces are categorized into 8-bit, 16-bit, and 32-bit types. For simplicity, ReadPeripheral<x> denotes ReadPeripheral8, ReadPeripheral16, and ReadPeripheral32; WritePeripheral<x> denotes WritePeripheral8, WritePeripheral16, and WritePeripheral32; and ModifyPeripheral<x> denotes ModifyPeripheral8, ModifyPeripheral16, and ModifyPeripheral32.
 
 
 ReadPeripheral<x>

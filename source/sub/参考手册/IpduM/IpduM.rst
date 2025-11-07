@@ -107,7 +107,7 @@ IpduM
 简介 Introduction
 ===============================
 
-IpduM实现I-PDU的多路复用功能。发送时，将Com层需要发送的多帧I-PDU进行重新封装，将重新封装得到的新I-PDU进行统一发送。接收时将接收到的I-PDU解析成Com层的多帧I-PDU，分别传递给Com模块（通过PduR传递）。IpduM层I-PDU的封装存在两种方式：（1）Multiplex方式：将Static Pdu和某一Dynamic Pdu按配置Segement段进行重组，新I-PDU的部分数据段来自Static Pdu，部分数据段来自Dynamic Pdu；（2）Container方式：将与Com层Ref的多个Contained Pdus(及其Header),封装到同一个IpduM层I-PDU中进行统一发送。IpduM层I-PDU的解析，与封装相反。
+IpduM实现I-PDU的多路复用功能。发送时，将Com层需要发送的多帧I-PDU进行重新封装，将重新封装得到的新I-PDU进行统一发送。接收时将接收到的I-PDU解析成Com层的多帧I-PDU，分别传递给Com模块(通过PduR传递)。IpduM层I-PDU的封装存在两种方式：(1)Multiplex方式：将Static Pdu和某一Dynamic Pdu按配置Segement段进行重组，新I-PDU的部分数据段来自Static Pdu，部分数据段来自Dynamic Pdu；(2)Container方式：将与Com层Ref的多个Contained Pdus(及其Header),封装到同一个IpduM层I-PDU中进行统一发送。IpduM层I-PDU的解析，与封装相反。
 
 IpduM implements the multiplexing function of I-PDUs. When sending, multiple frames of I-PDUs that need to be sent by the Com layer are re-encapsulated, and the new I-PDUs obtained by re-encapsulation are sent uniformly. When receiving, the received I-PDUs are parsed into multiple frames of I-PDUs in the Com layer and transmitted to the Com module (transmitted through PduR respectively). There are two ways to encapsulate I-PDUs in the IpduM layer: (1) Multiplex method: Reorganize the Static Pdu and a certain Dynamic Pdu according to the configured Segement. Some data segments of the new I-PDU come from the Static Pdu, and some data segments come from the Dynamic Pdu; (2) Container method: Multiple Contained Pdus (and their Headers) Reffed with the Com layer are encapsulated into the same IpduM layer I-PDU for unified sending. The parsing of I-PDUs in the IpduM layer is the opposite of encapsulation.
 
@@ -160,14 +160,14 @@ I-PDU Multiplexing
 MultiplexedIPdu发送 MultiplexedIPdu Transmission
 ****************************************************************************************************************************************************
 
-上层模块调用IpduM_Transmit请求StaticPart PDU/DynamicPart PDU进行发送，IpduM将更新MultiplexedIPdu中相应Segement段数据，以及SF（更新DynamicPart时）。IpduM模块根据MultiplexedIPdu的触发发送条件满足时，调用PduR_IpduMTransmit进行发送，当MultiplexedIPdu发送成功后调用上层模块TxConfirmation通知当前StaticPart PDU/DynamicPart PDU发送成功。
+上层模块调用IpduM_Transmit请求StaticPart PDU/DynamicPart PDU进行发送，IpduM将更新MultiplexedIPdu中相应Segement段数据，以及SF(更新DynamicPart时)。IpduM模块根据MultiplexedIPdu的触发发送条件满足时，调用PduR_IpduMTransmit进行发送，当MultiplexedIPdu发送成功后调用上层模块TxConfirmation通知当前StaticPart PDU/DynamicPart PDU发送成功。
 
 The upper-layer module calls IpduM_Transmit to request the StaticPart PDU/DynamicPart PDU to be sent. IpduM will update the corresponding Segement data in the MultiplexedIPdu, as well as the SF (when updating the DynamicPart). The IpduM module calls PduR_IpduMTransmit to send when the trigger sending condition of the MultiplexedIPdu is met. When the MultiplexedIPdu is sent successfully, the upper-layer module TxConfirmation is called to notify that the current StaticPart PDU/DynamicPart PDU is sent successfully.
 
 MultiplexedIPdu接收 MultiplexedIPdu Reception
 ****************************************************************************************************************************************************
 
-当下层调用IpduM_RxIndication接收到MultiplexedIPdu时，解析MultiplexedIPdu中当前包含的StaticPart PDU/DynamicPart PDU（通过解析SF字段识别），并将接收MultiplexedIPdu数据分别通过上层RxIndication传递给StaticPart PDU/DynamicPart PDU关联的上层Pdu。
+当下层调用IpduM_RxIndication接收到MultiplexedIPdu时，解析MultiplexedIPdu中当前包含的StaticPart PDU/DynamicPart PDU(通过解析SF字段识别)，并将接收MultiplexedIPdu数据分别通过上层RxIndication传递给StaticPart PDU/DynamicPart PDU关联的上层Pdu。
 
 When the lower layer calls IpduM_RxIndication to receive the MultiplexedIPdu, parse the StaticPart PDU/DynamicPart PDU currently contained in the MultiplexedIPdu (identified by parsing the SF field), and transmit the received MultiplexedIPdu data to the upper-layer Pdu associated with the StaticPart PDU/DynamicPart PDU through the upper-layer RxIndication respectively.
 
@@ -176,7 +176,7 @@ When the lower layer calls IpduM_RxIndication to receive the MultiplexedIPdu, pa
 Multiple-PDU-to-Container handling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-IpduM中Container PDU，包含N个Contained PDUs（与Com层PDU关联）。发送时，IpduM将Com层1-N个PDU封装到同一个Container PDU中，通过下层的发送接口进行整体发送；接收时，IpduM将接收到的Container PDU解析成各个Contained PDUs，分别调用上层的RxIndication函数传递给上层。
+IpduM中Container PDU，包含N个Contained PDUs(与Com层PDU关联)。发送时，IpduM将Com层1-N个PDU封装到同一个Container PDU中，通过下层的发送接口进行整体发送；接收时，IpduM将接收到的Container PDU解析成各个Contained PDUs，分别调用上层的RxIndication函数传递给上层。
 
 The Container PDU in IpduM contains N Contained PDUs (associated with the Com layer PDU). When sending, IpduM encapsulates 1-N PDUs of the Com layer into the same Container PDU and sends them as a whole through the sending interface of the lower layer; when receiving, IpduM parses the received Container PDU into each Contained PDU, and calls the RxIndication function of the upper layer to transmit to the upper layer respectively.
 
@@ -190,7 +190,7 @@ The upper-layer module calls IpduM_Transmit to request the ContainedPdu to be se
 ContainerIPdu接收 ContainerIPdu Reception
 ****************************************************************************************************************************************************
 
-当下层调用IpduM_RxIndication接收到ContainerIPdu时，解析ContainerIPdu中当前包含的所有ContainedPdu（通过解析Header信息识别），并将解析出每个ContainedPdu数据通过上层RxIndication传递给上层关联Pdu。
+当下层调用IpduM_RxIndication接收到ContainerIPdu时，解析ContainerIPdu中当前包含的所有ContainedPdu(通过解析Header信息识别)，并将解析出每个ContainedPdu数据通过上层RxIndication传递给上层关联Pdu。
 
 When the lower layer calls IpduM_RxIndication to receive the ContainerIPdu, parse all ContainedPdus currently contained in the ContainerIPdu (identified by parsing the Header information), and transmit the parsed data of each ContainedPdu to the upper-layer associated Pdu through the upper-layer RxIndication.
 
@@ -390,7 +390,7 @@ Whether it is the IPDU of the dynamic part or the static part, the positions of 
 
 .. important::
 
-    如图 :ref:`IpduMMultiplexed` 所示，一个静态（Part）对应的IPDU(IPDU2)分别与两个动态(Part的)IPDU(IPDU1,IPDU3)组合成multiplexed IPDU的情况。这两个实例在通过PduR发送时，它们在PduR拥有同一个PduId（因为它们是同一个multiplexed Pdu的不同实例）。
+    如图 :ref:`IpduMMultiplexed` 所示，一个静态(Part)对应的IPDU(IPDU2)分别与两个动态(Part的)IPDU(IPDU1,IPDU3)组合成multiplexed IPDU的情况。这两个实例在通过PduR发送时，它们在PduR拥有同一个PduId(因为它们是同一个multiplexed Pdu的不同实例)。
 
     As shown in :ref:`IpduMMultiplexed`, the IPDU (IPDU2) corresponding to a static (Part) is combined with two dynamic (Part) IPDUs (IPDU1, IPDU3) to form a multiplexed IPDU. When these two instances are sent through PduR, they have the same PduId in PduR (because they are different instances of the same multiplexed Pdu).
 
@@ -485,7 +485,7 @@ According to the defined assembly rules and the different order of ContainedTxPd
 
 .. important::
 
-   依据ContainerTxPdu中收集的每个ContainedTxPdu的位置是否变化，ContainerTxPdu又可以分为Dynamic ContainerTxPdu与Static ContainerTxPdu（ContainerRxPdu于此类似，下文中Container可泛指ContainerTxPdu或者ContaienrRxPdu，将不在作更近一步的解释）。
+   依据ContainerTxPdu中收集的每个ContainedTxPdu的位置是否变化，ContainerTxPdu又可以分为Dynamic ContainerTxPdu与Static ContainerTxPdu(ContainerRxPdu于此类似，下文中Container可泛指ContainerTxPdu或者ContaienrRxPdu，将不在作更近一步的解释)。
 
    According to whether the position of each ContainedTxPdu collected in the ContainerTxPdu changes, the ContainerTxPdu can be divided into Dynamic ContainerTxPdu and Static ContainerTxPdu (ContainerRxPdu is similar to this. In the following text, Container can generally refer to ContainerTxPdu or ContaienrRxPdu, and no further explanation will be given).
 

@@ -70,7 +70,7 @@ SoAd
      - 解释(Explanation)
 
    * - AUTOSAR Connetor
-     - SoAd（Socket Adaptor）充当不同PDU（协议数据单元）源/供应者与TCP/IP协议栈之间以及TCP/IP协议栈与不同PDU接收者/消费者之间的（解）复用器。术语AUTOSAR连接器指的是PDU的源/供应者或接收者/消费者。(SoAd (Socket Adaptor) serves as a (solution) multiplexer between different PDU (Protocol Data Unit) sources/providers and the TCP/IP protocol stack, as well as between the TCP/IP protocol stack and different PDU receivers/consumers.)  The term AUTOSAR connector refers to the source/supplier or receiver/consumer of PDU.)
+     - SoAd(Socket Adaptor)充当不同PDU(协议数据单元)源/供应者与TCP/IP协议栈之间以及TCP/IP协议栈与不同PDU接收者/消费者之间的(解)复用器。术语AUTOSAR连接器指的是PDU的源/供应者或接收者/消费者。(SoAd (Socket Adaptor) serves as a (solution) multiplexer between different PDU (Protocol Data Unit) sources/providers and the TCP/IP protocol stack, as well as between the TCP/IP protocol stack and different PDU receivers/consumers.)  The term AUTOSAR connector refers to the source/supplier or receiver/consumer of PDU.)
 
    * - TCP socket connection
      - TCP传输协议的套接字连接
@@ -215,7 +215,7 @@ As shown in the figure :ref:`SoAd_Autosar_Architecture` , the SoAd module is in 
 
 .. only:: doc_pbs
 
-  变体（Multi-variant support） Variant (Multi-variant support)
+  变体(Multi-variant support) Variant (Multi-variant support)
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   SoAd 模块支持PduRoute，SocketConnectionGroup,SocketRoute中一些配置项的配置的变体
@@ -225,7 +225,7 @@ As shown in the figure :ref:`SoAd_Autosar_Architecture` , the SoAd module is in 
 Socket Connections 功能 Function of Socket Connections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-为了实现上层 PDUs 与下层 Sockets 之前的通信映射， SoAd 模块定义了 Socket Connection 的概念。一个 Socket Connection 表示一个本端 socket（本端 IP 和本端 Port）与远端 socket（远端 IP 和远端 Port）的链接，以及该链接基于的传 输协议（UDP/TCP），是否使用 PDU Header，是否需求 buffer，传输协议相关参数等。
+为了实现上层 PDUs 与下层 Sockets 之前的通信映射， SoAd 模块定义了 Socket Connection 的概念。一个 Socket Connection 表示一个本端 socket(本端 IP 和本端 Port)与远端 socket(远端 IP 和远端 Port)的链接，以及该链接基于的传 输协议(UDP/TCP)，是否使用 PDU Header，是否需求 buffer，传输协议相关参数等。
 
 The SoAd module defines the concept of Socket Connection to realize the communication mapping between upper level PDUs and lower level Sockets. A Socket Connection indicates the linkage between a local socket (local IP and local Port) and a remote socket (remote IP and remote Port), the transmission protocol (UDP/TCP) on which the linkage is based, and that whether PDU headers are used, and whether buffers and transmission protocol-related parameters are required.
 
@@ -235,23 +235,23 @@ By the definition of SoAd_SoConModeType, each Socket Connection can be divided i
 
 1.Socket Connection Open：
 
-当我们需要使能通信时，首先需要开启相应的 Socket Connections。开启的方式分为两种：手动方式（需上层模块调用 SoAd_OpenSoCon）、自动方式。初始化之后，每个 Socket Connection 都处于 SOAD_SOCON_OFFLINE 模式，执行Open 操作时根据每个 Socket Connection 的配置属性，其模式切换路线分两种：
+当我们需要使能通信时，首先需要开启相应的 Socket Connections。开启的方式分为两种：手动方式(需上层模块调用 SoAd_OpenSoCon)、自动方式。初始化之后，每个 Socket Connection 都处于 SOAD_SOCON_OFFLINE 模式，执行Open 操作时根据每个 Socket Connection 的配置属性，其模式切换路线分两种：
 
 To enable communication, open the corresponding Socket Connections first. There are two ways to enable it: Manual mode (calling SoAd_openSoCon by the upper layer) and automatic mode. After initialization, each Socket Connection will be under SOAD_SOCON_OFFLINE mode. When Open operation is executed, the mode switching line can be divided into two kinds based on the configuration attribute of each Socket Connection:
 
-SOAD_SOCON_OFFLINE→SOAD_SOCON_ONLINE；SOAD_SOCON_OFFLINE→SOAD_SOCON_RECONNECT→SOAD_SOCON_ONLINE。只有当处于 SOAD_SOCON_ONLINE 模式时才能通过该 SocketConnection 发送/接收数据（属于 UDP 的 Socket Connection 可以在SOAD_SOCON_RECONNECT 模式下响应 SoAd_RxIndication，在该 API 中先切换到 SOAD_SOCON_ONLINE 模式，再执行数据接收处理）。
+SOAD_SOCON_OFFLINE→SOAD_SOCON_ONLINE；SOAD_SOCON_OFFLINE→SOAD_SOCON_RECONNECT→SOAD_SOCON_ONLINE。只有当处于 SOAD_SOCON_ONLINE 模式时才能通过该 SocketConnection 发送/接收数据(属于 UDP 的 Socket Connection 可以在SOAD_SOCON_RECONNECT 模式下响应 SoAd_RxIndication，在该 API 中先切换到 SOAD_SOCON_ONLINE 模式，再执行数据接收处理)。
 
 SOAD_SOCON_OFFLINE→SOAD_SOCON_ONLINE; SOAD_SOCON_OFFLINE→SOAD_SOCON_RECONNECT→SOAD_SOCON_ONLINE. Data be sent/received through this SocketConnection only under SOAD_SOCON_ONLINE (Socket Connection that belongs to UDP can respond to SoAd_rxCondition in SOAD_SOCON-CONNECT mode, switch to SOAD_SOCON-ONLINE mode in this API first, and then receive and process data).
 
 2.Socket Connection Close：
 
-Socket Connection 的关闭分为主动请求关闭（上层模块调用 SoAd_CloseSoCon），以及异常关闭，如下层模块检测到错误事件，通过SoAd_TcpIpEvent 通知到 SoAd 模块； UDP 报文接收超时； TP PDU 收发过程中出现错误/取消等。只有在执行主动请求关闭时， Socket Connection 的模式才能切换到 SOAD_SOCON_OFFLINE，别的情况都切换到SOAD_SOCON_RECONNECT 模式。
+Socket Connection 的关闭分为主动请求关闭(上层模块调用 SoAd_CloseSoCon)，以及异常关闭，如下层模块检测到错误事件，通过SoAd_TcpIpEvent 通知到 SoAd 模块； UDP 报文接收超时； TP PDU 收发过程中出现错误/取消等。只有在执行主动请求关闭时， Socket Connection 的模式才能切换到 SOAD_SOCON_OFFLINE，别的情况都切换到SOAD_SOCON_RECONNECT 模式。
 
 The closing Socket Connection can be further divided into active request closing (calling SoAd_ClosseSoCon by upper layer module) and abnormal closing. Upon detecting an error event, the lower layer module will notify the SoAd module through SoAd_TcpIpEvent; UDP packet reception timeout; errors/cancellations occur during the transmission and receiving process of TP PDUs. While executing active request closing, Socket Connection mode will be switched to SOAD_SOCON_OFFLINE but to SOAD_SOCON_RECONNECT mode under other circumstances.
 
 3.Socket Connection Open/Close Sequence Remarks：
 
-Socket Connection 的开启及关闭是异步的，任务队列只能缓存两个不同的任务请求，多余的任务根据策略进行舍弃或者撤销（revoke）队列中的任务。
+Socket Connection 的开启及关闭是异步的，任务队列只能缓存两个不同的任务请求，多余的任务根据策略进行舍弃或者撤销(revoke)队列中的任务。
 
 The opening and closing of Socket Connection are asynchronous. The task queue can only cache two different task requests. Excess tasks will be discarded or revoked from the tasks in the queue according to the strategy.
 
@@ -261,7 +261,7 @@ The opening and closing of Socket Connection are asynchronous. The task queue ca
 
 Switch the mode of Socket Connection after notifying the upper layer module by calling <Up>_SoConModeChg() function.
 
-当 Socket Connection 关联的 IP 地址（本端）状态切换时，可以通过调<Up>_LocalIpAddrAssignmentChg()函数通知上层。
+当 Socket Connection 关联的 IP 地址(本端)状态切换时，可以通过调<Up>_LocalIpAddrAssignmentChg()函数通知上层。
 
 Switch the status of the IP address (local) linked with Socket Connection after notifying the upper layer by calling <Up>_LocalIpAddrAssignmentChg() function.
 
@@ -281,7 +281,7 @@ For PDUs with smaller data lengths, IF transmission is generally used. 1: n rout
 
 2.PDU Transmission via IF-API and nPduUdpTxBuffer：
 
-当 Socket Connection（UDP 类型）关联的所有发送 PDU 都是“IF”类型,使能PDU Header，其关联的 SoAdPduRouteDests 至少有一个 SoAdTxUdpTriggerMode配置为 TRIGGER_NEVER 模式。SoAd 将使能该 Socket Connection 的nPduUdpTxBuffer 机制。
+当 Socket Connection(UDP 类型)关联的所有发送 PDU 都是“IF”类型,使能PDU Header，其关联的 SoAdPduRouteDests 至少有一个 SoAdTxUdpTriggerMode配置为 TRIGGER_NEVER 模式。SoAd 将使能该 Socket Connection 的nPduUdpTxBuffer 机制。
 
 When all PDU sending linked with Socket Connection (UDP type) is of "IF" type and PDU Header is enabled, the linked SoAdPduRouteDests must have at least one SoAdTxUdpTriggerMode that is configured as TRIGGER_NEVER mode. SoAd will enable the nPduUdpTxBuffer mechanism of this Socket Connection.
 
@@ -291,7 +291,7 @@ The nPduUdpTxBuffer mechanism can encapsulate several IF PDUs into one UDP packe
 
 3.PDU Transmission via IfRoutingGroupTransmit API：
 
-SoAd 支持上层模块（通常为 Sd 模块），通过 Trigger Transmit 方式请求RoutingGroup 关联的部分或者所有 IF PDUs 的发送。
+SoAd 支持上层模块(通常为 Sd 模块)，通过 Trigger Transmit 方式请求RoutingGroup 关联的部分或者所有 IF PDUs 的发送。
 
 SoAd supports upper level modules (Sd modules in general) to request the sending of part or all IF PDUs linked with RoutingGroup through Trigger Transmit.
 
@@ -309,21 +309,21 @@ PDUs with longer data lengths in upper level modules are generally sent through 
 PDU Header option 功能 Function of PDU Header option
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SoAd 支持 PDU Header 功能， PDU Header 由 4 字节的 Header ID,4 字节的PDU 数据长度组成（大端字节序）。当 Socket Connection 关联到多个接收 PDU，以及需要用到 nPduUdpTxBuffer 机制等情况时，都需要 PDU Header 功能的支持。
+SoAd 支持 PDU Header 功能， PDU Header 由 4 字节的 Header ID,4 字节的PDU 数据长度组成(大端字节序)。当 Socket Connection 关联到多个接收 PDU，以及需要用到 nPduUdpTxBuffer 机制等情况时，都需要 PDU Header 功能的支持。
 
 SoAd supports PDU Header function. PDU Header consists of a 4-byte Header ID and a 4-byte PDU data length (big endian byte order). PDU Header is required, when Socket Connection links with several receiving PDUs and requires nPduUdpTxBuffer mechanism.
 
 PDU Reception 功能 Function of PDU Reception
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PDU 的接收，在 SoAd 中通过 Socket Route (SoAdSocketRoute,SoAdSocketRouteDest)来实现，将通过 UDP/TCP Socket 获取的报文映射到 PDUs。当前 Socket Route 仅支持 1： 1 路由（即一个 SoAdSocketRoute 只能包含一个SoAdSocketRouteDest），但需注意的是一个 Socket Connection 可以关联多个SoAdSocketRoute。SoAd 与上层模块 PDU 接收同样有两种方式： IF 接收、 TP 接收。
+PDU 的接收，在 SoAd 中通过 Socket Route (SoAdSocketRoute,SoAdSocketRouteDest)来实现，将通过 UDP/TCP Socket 获取的报文映射到 PDUs。当前 Socket Route 仅支持 1： 1 路由(即一个 SoAdSocketRoute 只能包含一个SoAdSocketRouteDest)，但需注意的是一个 Socket Connection 可以关联多个SoAdSocketRoute。SoAd 与上层模块 PDU 接收同样有两种方式： IF 接收、 TP 接收。
 
 In SoAd, PDUs is received through Socket Route (SoAdSocketRoute, SoAdSocketRouteDest) and is  mapped by the message obtained through UDP/TCP Socket. At present, Socket Route only supports 1:1 routing (i.e. one SoAdSocketRoute can only contain one SoAdSocketRouteDest). However, a Socket Connection can be linked with multiple SoAdSocketRoutes. There are two receiving methods for SoAd and upper layer module PDU: IF and TP.
 
 Best Match Algorithm 功能 Function of Best Match Algorithm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-该最佳匹配算法是根据提供的 remote address（IP 和 Port）从 SocketConnection Group 中选择出最佳匹配的 Socket Connection。
+该最佳匹配算法是根据提供的 remote address(IP 和 Port)从 SocketConnection Group 中选择出最佳匹配的 Socket Connection。
 
 The best matching algorithm is the most matched Socket Connection selected from the SocketConnection Group based on the provided remote address (IP and Port).
 
@@ -331,7 +331,7 @@ The best matching algorithm is the most matched Socket Connection selected from 
 Message Acceptance Policy 功能 Function of Message Acceptance Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-该功能用于接收远端节点（remote nodes）发送报文的过滤。当该功能使能时， Socket Connection 只能接收指定的某个/某些远端节点发送来的报文。当该功能不使能时， Socket Connection 将接收所有远端节点发送来的报文。
+该功能用于接收远端节点(remote nodes)发送报文的过滤。当该功能使能时， Socket Connection 只能接收指定的某个/某些远端节点发送来的报文。当该功能不使能时， Socket Connection 将接收所有远端节点发送来的报文。
 
 This function is used for filtering the messages sent by remote nodes. After this function is enabled, Socket Connection can receive messages from the designated one or some remote nodes only. If this function is not enabled, Socket Connection can receive the messages from all remote nodes.
 
@@ -397,7 +397,7 @@ None
      - 描述(Description)
 
    * - SoAd.h
-     - 实现SoAd模块全部外部接口的声明（除了回调函数），以及配置文件中全局变量的声明。(Declares all external interfaces of the SoAd module (except for callback functions) and the global variables in the configuration file.)
+     - 实现SoAd模块全部外部接口的声明(除了回调函数)，以及配置文件中全局变量的声明。(Declares all external interfaces of the SoAd module (except for callback functions) and the global variables in the configuration file.)
 
    * - SoAd_Internal.h
      - 实现SoAd模块内部的数据类型和宏定义，还有接口的声明。(Declares the realization of data types and macro definitions within the SoAd module, as well as interface.)
@@ -717,7 +717,7 @@ The Socket Connection of the SoAd module is configured in the SoAdSocketconnecti
 
    SoAdPduRouteDest
 
-上层发送PDU 是在SoAdPduRoute中配置的，可以配置该PDU路由（SoAdPduRouteDest）到不同的SocketConnection中让后将其发出,SoAdPduRouteDest还可以选择关联RoutingGroup，通过RoutingGroup控制该PDU的发送。
+上层发送PDU 是在SoAdPduRoute中配置的，可以配置该PDU路由(SoAdPduRouteDest)到不同的SocketConnection中让后将其发出,SoAdPduRouteDest还可以选择关联RoutingGroup，通过RoutingGroup控制该PDU的发送。
 
 The PDU sending by upper layer is configured in SoAdPduRoute. The PDU can be routed (SoAdPduRouteDest) to different SocketConnections for sending. SoAdPduRouteDest can also be linked with RoutingGroup to control PDU sending.
 

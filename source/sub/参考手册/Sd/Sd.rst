@@ -120,7 +120,7 @@ Sd
      - 用于查找服务实例的消息条目。(Message entries used for searching service instances.)
 
    * - Event
-     - 由实现服务实例的电子控制单元（ECU）发送给使用该服务实例的电子控制单元（ECU）的消息。(The message sent by the electronic control unit (ECU) for realizing the service instance to the electronic control unit (ECU) using the service instance.)
+     - 由实现服务实例的电子控制单元(ECU)发送给使用该服务实例的电子控制单元(ECU)的消息。(The message sent by the electronic control unit (ECU) for realizing the service instance to the electronic control unit (ECU) using the service instance.)
 
    * - Eventgroup
      - 一个逻辑组合，包含一个或多个事件。事件组是服务的一部分。(One logical combination that contains one or more events.) Eventgroup is part of the service.
@@ -132,10 +132,10 @@ Sd
      - 使用服务。(Services used.)
 
    * - Server
-     - 提供服务器服务的电子控制单元（ECU）。(Electronic control unit (ECU) for providing server service.)
+     - 提供服务器服务的电子控制单元(ECU)。(Electronic control unit (ECU) for providing server service.)
 
    * - Client
-     - 提供客户端服务的电子控制单元（ECU）。(Electronic control unit (ECU) for providing client service.)
+     - 提供客户端服务的电子控制单元(ECU)。(Electronic control unit (ECU) for providing client service.)
 
    * - Endpoint Option
      - 端点选项用于发布单播地址和端口号的组合。(For publishing the combinations of unicast addresses and port numbers.)
@@ -144,10 +144,10 @@ Sd
      - 多播选项用于发布多播地址和端口号的组合。(For publishing the combinations of multicast addresses and port numbers.)
 
    * - Unicast event
-     - 由托管 SdServerService 的 ECU 发送到单播端点的事件。该单播端点由特定的 SdClientService 提供，该 SdClientService 已在引用的 Endpoint Option 中订阅了此 SdServerService（参见已使用事件组的单播端点）。(The event sent by the ECU hosting SdServerService to the unicast endpoint.) This unicast endpoint is provided by the specific SdClientService, which has been subscribed in the referenced Endpoint Option (see unicast endpoints of the used event groups for details).
+     - 由托管 SdServerService 的 ECU 发送到单播端点的事件。该单播端点由特定的 SdClientService 提供，该 SdClientService 已在引用的 Endpoint Option 中订阅了此 SdServerService(参见已使用事件组的单播端点)。(The event sent by the ECU hosting SdServerService to the unicast endpoint.) This unicast endpoint is provided by the specific SdClientService, which has been subscribed in the referenced Endpoint Option (see unicast endpoints of the used event groups for details).
 
    * - Multicast event
-     - 由托管 SdServerService 的 ECU 发送到多播端点的事件。多播端点可以由 SdServerService（参见事件处理器多播端点）和 SdClientService（参见已使用事件组多播端点）提供。(The event sent by the ECU hosting SdServerService to the multicast endpoint.) The multicast endpoints can be provided by SdServerService (see Event Processor Multicast Endpoint for details) and SdClientService (see Used Event Group Multicast Endpoint for details).
+     - 由托管 SdServerService 的 ECU 发送到多播端点的事件。多播端点可以由 SdServerService(参见事件处理器多播端点)和 SdClientService(参见已使用事件组多播端点)提供。(The event sent by the ECU hosting SdServerService to the multicast endpoint.) The multicast endpoints can be provided by SdServerService (see Event Processor Multicast Endpoint for details) and SdClientService (see Used Event Group Multicast Endpoint for details).
 
    * - Eventhandler multicast endpoint
      - 用于描述为 SdServerService 的每个事件处理器预先配置的多播地址和端口的术语。如果已达到订阅客户端具有不同端点信息的阈值，则服务器会将相应的事件发送到此预先配置的多播地址和端口。事件处理器多播端点通过引用 SubscribeEventgroupAck 条目的多播选项进行发布。(The term describing the multicast addresses and ports pre-configured for each event handler of SdServerService.) After reaching the threshold with different endpoint information as subscribed at the client, the server will send the corresponding event to this pre-configured multicast address and port. The event handler multicast endpoint makes publication by referencing the multicast option of the SubscribeEventgroupAck entry.
@@ -221,7 +221,7 @@ OfferService 功能实现 Realization of OfferService Functions
 
 When any service is available or unavailable, SWC should notify BsWM that the service is available/unavailable by calling the interface of BsWM. BsWM will call Sd_ServerServiceSetState(SdServerServiceHandleId，ServerServiceState) interface to declare the status of the service to the Sd module. In particular, SdServerServiceHandleId parameter is used for marking services while ServerServiceState for marking the service status.
 
-Sd 模块会根据当前的状态向外发送 OfferService 或者 StopOfferService 报文。报文中会携带 SdServerServiceHandleId 代表的服务的信息（IP 地址， 端口号等）。其他节点可以利用这些信息定位到该服务， 以使用这些服务。Server 可以提供的服务在配置工具 SdInstanceSdServerService 中配置。
+Sd 模块会根据当前的状态向外发送 OfferService 或者 StopOfferService 报文。报文中会携带 SdServerServiceHandleId 代表的服务的信息(IP 地址， 端口号等)。其他节点可以利用这些信息定位到该服务， 以使用这些服务。Server 可以提供的服务在配置工具 SdInstanceSdServerService 中配置。
 
 The Sd module will send OfferService or StopOfferService messages externally based on the current status. The message will carry the information about the service represented by SdServerServiceHandleId (IP address, port number, etc.). The information can be used by other nodes to locate and use the services. The services that the Server can provide can be configured in the configuration tool SdInstanceSdServerService.
 
@@ -235,11 +235,11 @@ FindService 功能实现 Realization of FindService Functions
 
 When SWC requires certain service as the client, it will notify BsWM of the specific service by calling the interface of BswM. BsWM will call the Sd_ClientServiceSetState(ClientServiceHandleId, ClientServiceState) interface to declare to the Sd module about the specific service required.
 
-Sd 模块会向外发送 FindService 报文。报文中会携带 SdServerServiceHandleId 代表的服务的具体信息（Service ID， 版本号等） 。其他节点理由这些信息判断自己是否可以提供这个服务， 可以提供时会发送 OfferService 通知寻找服务的客户端。
+Sd 模块会向外发送 FindService 报文。报文中会携带 SdServerServiceHandleId 代表的服务的具体信息(Service ID， 版本号等) 。其他节点理由这些信息判断自己是否可以提供这个服务， 可以提供时会发送 OfferService 通知寻找服务的客户端。
 
 Sd  module will send FindService message externally. The message will carry the specific information about the service represented by SdServerServiceHandleId (Service ID, version No., etc.). The information can also be used by other nodes to determine whether they can provide this service. If they can provide the service as well, these nodes will send an OfferService notification to the client looking for the service.
 
-Client 需要的的服务（即需要寻找的服务） 在配置工具 SdInstance->SdClientService 中配置。
+Client 需要的的服务(即需要寻找的服务) 在配置工具 SdInstance->SdClientService 中配置。
 
 The services required by the Client (i.e. the service under search) are configured in the configuration tool SdInstance->SdClientService.
 
@@ -249,7 +249,7 @@ Eventgroup 功能 Eventgroup Functions
 Eventgroup 功能实现 Realization of Eventgroup Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-当 SWC（作为客户端） 需要订阅某个 Eventgroup 时， SWC 会调用 BswM 的接口通知 BswM， BswM 会调用 Sd_ConsumedEventGroupSetState(SdConsumedEventGroupHandleId， ConsumedEventGroupState)接口通知 Sd 模块。当 Sd 模块收到提供该 Eventgroup 的对应服务发送的 OfferService 报文时， Sd 模块会发送包含 SubscribeEventgroup Entry 的报文订阅 Eventgroup。
+当 SWC(作为客户端) 需要订阅某个 Eventgroup 时， SWC 会调用 BswM 的接口通知 BswM， BswM 会调用 Sd_ConsumedEventGroupSetState(SdConsumedEventGroupHandleId， ConsumedEventGroupState)接口通知 Sd 模块。当 Sd 模块收到提供该 Eventgroup 的对应服务发送的 OfferService 报文时， Sd 模块会发送包含 SubscribeEventgroup Entry 的报文订阅 Eventgroup。
 
 When SWC (as a client) needs to subscribe one Eventgroup, SWC will notify BsWM by calling the interface of BswM. BsWM will call Sd_ConsumedEventGroupSetState(SdConsumedEventGroupHandleId， ConsumedEventGroupState) Interface to notify Sd module. Upon receiving the OfferService message sent by the corresponding service providing such Eventgroup, Sd module will send a message containing the SubscribeEventgroup Entry to subscribe to the Eventgroup.
 
@@ -270,15 +270,15 @@ When Client subscribes Eventgroup from Server, the Server should manage the clie
 Eventgroup 管理功能的实现 Realization of Eventgroup Management Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-当 收 到 Client 的 SubscribeEventgroup 报 文 后 ， Server 需 要 和 将 SubscribeEventgroup 报文中的信息（Eventgroup ID， 版本号， Service ID 等） 和配置中保存的信息作比较， 如果一致的情况下， 并且该 Client 之前不在订阅列表中， 则将该 Client 添加到订阅列表中， 向该 Client 应答 SubscribeEventgroupAck 报文。如果该 Client 之前已经在订阅列表中， 则用 SubscribeEventgroup Entry 中的 TTL 时 间 更 新 订 阅 列 表 中 的 TTL 值 。信 息 不 一 致 的 情 况 下 ， 应 答SubscribeEventgroupNAck 报文。
+当 收 到 Client 的 SubscribeEventgroup 报 文 后 ， Server 需 要 和 将 SubscribeEventgroup 报文中的信息(Eventgroup ID， 版本号， Service ID 等) 和配置中保存的信息作比较， 如果一致的情况下， 并且该 Client 之前不在订阅列表中， 则将该 Client 添加到订阅列表中， 向该 Client 应答 SubscribeEventgroupAck 报文。如果该 Client 之前已经在订阅列表中， 则用 SubscribeEventgroup Entry 中的 TTL 时 间 更 新 订 阅 列 表 中 的 TTL 值 。信 息 不 一 致 的 情 况 下 ， 应 答SubscribeEventgroupNAck 报文。
 
 Upon receiving the SubscribeEventgroup message from the Client, the Server should compare the information in the SubscribeEventgroup message (Eventgroup ID, version No., Service ID, etc.) with that saved in the configuration. If the information of the above is consistent and the Client was not included in the subscription list, the Server will add the Client to the list and respond to the SubscribeEventgroupAck message to the Client. If the client has already been included in the subscription list, update the TTL value in the subscription list with the TTL time in the SubscribeEventgroup Entry. If however the information is inconsistent, respond to the SubscribeEventgroupNAck message.
 
-当订阅时间到（SubscribeEventgroup 中携带的 TTL 计时时间到） 或者收到 Client 发送的 StopSubscribeEventgroup Entry， Server 需要将该 Client 从订阅列表中删除。
+当订阅时间到(SubscribeEventgroup 中携带的 TTL 计时时间到) 或者收到 Client 发送的 StopSubscribeEventgroup Entry， Server 需要将该 Client 从订阅列表中删除。
 
 If the subscription time (TTL timing in the SubscribeEventgroup) expires or StopSubscribeEventgroup Entry is received from the client, the Server should remove the Client from the subscription list.
 
-Server 提 供 的 Eventgroup （ 需 要 管 理 的 Eventgroup ） 在 配 置 工 具SdInstance->SdServerService->SdEventHandler 中配置。
+Server 提 供 的 Eventgroup ( 需 要 管 理 的 Eventgroup ) 在 配 置 工 具SdInstance->SdServerService->SdEventHandler 中配置。
 
 The Eventgroup provided by the Server (i.e., the Eventgroup that needs managing) is configured in the configuration tool SdInstance->SdServerService->SdEventHandler.
 
@@ -288,7 +288,7 @@ RoutingPath 控制功能 RoutingPath Control Functions
 RoutingPath 控制功能简介 Introduction to RoutingPath Control Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sd 模块通过控制 SoAd 里面 SoAdRoutingGroup 的状态（Enable/Disable） ，从而达到控制 Event 的接收和发送的路径的通断， 控制 Event 的接收和发送。其中对 Event 发送路径的控制叫 Fan out 控制， 对 Event 接收路径的控制叫 Fan in控制。
+Sd 模块通过控制 SoAd 里面 SoAdRoutingGroup 的状态(Enable/Disable) ，从而达到控制 Event 的接收和发送的路径的通断， 控制 Event 的接收和发送。其中对 Event 发送路径的控制叫 Fan out 控制， 对 Event 接收路径的控制叫 Fan in控制。
 
 The Sd module controls the on/off of the path for receiving and sending Events, as well as the receiving and sending of Event by controlling the status (Enable/Disable) of the SoAdRoutingGroup in SoAd. In particular, the control over the Event sending path is called Fan out control, and that over the Event receiving path is called Fan in control.
 
@@ -298,14 +298,14 @@ RoutingPath 控制功能的实现 Realization of RoutingPath Control Functions
 Fan out 控制 Fan out Control
 ------------------------------------------------
 
-当 Client 订阅 Eventgroup 时， Server 根据 Client 发送的 SubscribeEventgroupEntry 中携带的信息在配置中找到与之匹配的 SdEventHandler， 根据 SdEventHandler 中的 SdEventHandlerTcp/SdEventHandlerUdp 找到对应的 SoAdRoutingGroup（取得 RoutingGroup ID） 。根据 SubscribeEventgroup Entry 中携带的 Endpointoption 信息以及配置中的 SdServerServiceUdpRef/SdServerServiceTcpRef 参数推导出该 Event 发送对应的 SocketConnection（取得 SoConId） ， 然后调用 SoAd_EnableSpecificRouting()或 SoAd_DisableSpecificRouting(RoutingGroupId， SoConId)， 来控制对应的 RoutingGroup。
+当 Client 订阅 Eventgroup 时， Server 根据 Client 发送的 SubscribeEventgroupEntry 中携带的信息在配置中找到与之匹配的 SdEventHandler， 根据 SdEventHandler 中的 SdEventHandlerTcp/SdEventHandlerUdp 找到对应的 SoAdRoutingGroup(取得 RoutingGroup ID) 。根据 SubscribeEventgroup Entry 中携带的 Endpointoption 信息以及配置中的 SdServerServiceUdpRef/SdServerServiceTcpRef 参数推导出该 Event 发送对应的 SocketConnection(取得 SoConId) ， 然后调用 SoAd_EnableSpecificRouting()或 SoAd_DisableSpecificRouting(RoutingGroupId， SoConId)， 来控制对应的 RoutingGroup。
 
 When the Client subscribes Eventgroup, the Server will find the matching SdEventHandler in the configuration based on the information carried in the SubscribeEventgroupEntry sent by the Client, and further the corresponding SoAdRoutingGroup (obtains the RoutingGroup ID) based on the SdEventHandlerTcp/SdEventHandlerUdp in the SdEventHandler. According to the Endpointoption information in the SubscribeEventgroup Entry and the SdServerServiceUdpRef/SdServerServiceTcpRef  parameter in the configuration, deduce the corresponding SocketConnection (obtains the SoConId) sent by the Event, and then call SoAd_EnableSpecificRouting() or SoAd_DisableSpecificRouting(RoutingGroupId， SoConId) to control the corresponding RoutingGroup.
 
 Fan in 控制 Fan in Control
 ------------------------------------------------
 
-当 Client 向 Server 发送 SubscribeEventgroup Entry 向 Server 订阅某个 Eventgroup 时， Client 通过配置中的 SdConsumedEventGroupTcpActivationRef/SdConsumedEventGroupUdpActivationRef 参数找到对应的 SoAdRoutingGroup（取得 RoutingGroup ID） 。根据 OfferService Entry 中携带的 Endpoint option 信息以及配置中的 SdClientServiceUdpRef/SdClientServiceTcpRef 参数推导出该 Event 发送对应的 SocketConnection（取得 SoConId） ， 然后调用 SoAd_EnableSpecificRouting()或 SoAd_DisableSpecificRouting(RoutingGroupId， SoConId)， 来控制对应的 RoutingGroup。
+当 Client 向 Server 发送 SubscribeEventgroup Entry 向 Server 订阅某个 Eventgroup 时， Client 通过配置中的 SdConsumedEventGroupTcpActivationRef/SdConsumedEventGroupUdpActivationRef 参数找到对应的 SoAdRoutingGroup(取得 RoutingGroup ID) 。根据 OfferService Entry 中携带的 Endpoint option 信息以及配置中的 SdClientServiceUdpRef/SdClientServiceTcpRef 参数推导出该 Event 发送对应的 SocketConnection(取得 SoConId) ， 然后调用 SoAd_EnableSpecificRouting()或 SoAd_DisableSpecificRouting(RoutingGroupId， SoConId)， 来控制对应的 RoutingGroup。
 
 When SubscribeEventgroup Entry sent from Client to Server subscribes one Eventgroup from Server, the Client finds the corresponding SoAdRoutingGroup (obtains the RoutingGroup ID) through the SdConsumedEventGroupTcpActivationRef/SdConsumedEventGroupUdpActivationRef parameters in the configuration. According to the Endpointoption information in the OfferService Entry and the SdClientServiceUdpRef/SdClientServiceTcpRef  parameter in the configuration, deduce the corresponding SocketConnection (obtains the SoConId) sent by the Event, and then call SoAd_EnableSpecificRouting() or SoAd_DisableSpecificRouting(RoutingGroupId， SoConId) to control the corresponding RoutingGroup.
 
@@ -465,7 +465,7 @@ Different instance containers should be created for the Sd services using differ
 
 (9)Set the Pdu referenced by the SdInstanceMulticastRxPdu, SdInstanceTxPdu and SdInstanceUnicastRxPdu sub-containers.
 
-(10)设置SdInstanceHostname和SdInstanceLocalAdressCheckLength属性。（可选）
+(10)设置SdInstanceHostname和SdInstanceLocalAdressCheckLength属性。(可选)
 
 (10)Set the attribute of SdInstanceHostname and SdInstanceLocalAdressCheckLength. (Optional)
 
@@ -502,15 +502,15 @@ SdServerTimer container has the following attributes:
 
 (5)SdServerTimerOfferCyclicDelay: Calculates the time interval for sending OfferService after the server instance enters the master node.
 
-(6)SdServerTimerRequestResponseMaxDelay：通过多播接收的条目的最大允许响应延迟（以秒为单位）。
+(6)SdServerTimerRequestResponseMaxDelay：通过多播接收的条目的最大允许响应延迟(以秒为单位)。
 
 (6)SdServerTimerRequestResponseMaxDelay: The maximum allowable response delay for entries received through multicast (in second).
 
-(7)SdServerTimerRequestResponseMinDelay：通过多播接收的条目的最小允许响应延迟（以秒为单位）。
+(7)SdServerTimerRequestResponseMinDelay：通过多播接收的条目的最小允许响应延迟(以秒为单位)。
 
 (7)SdServerTimerRequestResponseMinDelay：The minimum allowable response delay for entries received through multicast (in second).
 
-(8)SdServerTimerTTL：描述服务器实例提供服务和事件的生存时间（以秒为单位）。
+(8)SdServerTimerTTL：描述服务器实例提供服务和事件的生存时间(以秒为单位)。
 
 (8)SdServerTimerTTL: Describes the lifetime of services and events provided by the server instance (by second).
 
@@ -587,7 +587,7 @@ SdClientTimer container has the following attributes:
 
 (7)SdClientTimerTTL: The lifetime of Find and Subscribe.
 
-(8)SdSubscribeEventgroupRetryDelay：如果未收到 SubscribeEventGroupAck 或 SubscribeEventGroupNack，则重新触发对事件组的订阅的时间（以秒为单位）
+(8)SdSubscribeEventgroupRetryDelay：如果未收到 SubscribeEventGroupAck 或 SubscribeEventGroupNack，则重新触发对事件组的订阅的时间(以秒为单位)
 
 (8)SdSubscribeEventgroupRetryDelay: If neither SubscribeEventGroupAck nor SubscribeEventGroupNack is received, the subscription time of event group will be triggered again (by second)
 

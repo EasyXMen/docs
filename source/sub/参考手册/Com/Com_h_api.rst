@@ -1,5 +1,5 @@
 
-类型定义（Type definition）
+类型定义(Type Definitions)
 -------------------------------
 .. list-table::
    :widths: 5 10 30
@@ -8,38 +8,29 @@
    * - Type Name
      - Type
      - Description
+	 
    * - Com_StatusType
      - enum
-     - Com状态类型
-       
-       Com status type
+     - Com状态类型(Com status type)
 
    * - Com_SignalIdType
      - uint16
-     - 表示信号的Id号
-       
-       Indicates the ID number of the signal
+     - 表示信号的Id号(Indicates the ID number of the signal)
 
    * - Com_SignalGroupIdType
      - uint16
-     - 表示信号组的Id号
-       
-       Indicates the ID number of the signal group
+     - 表示信号组的Id号(Indicates the ID number of the signal group)
 
    * - Com_IpduGroupIdType
      - uint16
-     - 表示IpduGroup的Id号
-       
-       Indicates the ID number of the IpduGroup
+     - 表示IpduGroup的Id号(Indicates the ID number of the IpduGroup)
 
    * - Com_ConfigType
      - struct
-     - 表示Com的PB配置结构体
-       
-       Indicates the PB configuration structure of Com
+     - 表示Com的PB配置结构体(Indicates the PB configuration structure of Com)
 
 
-提供的服务（Provided services）
+提供的服务(Services)
 -----------------------------------
 Com_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

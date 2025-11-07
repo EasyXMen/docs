@@ -73,10 +73,10 @@ Eep_62
      - EEPROM中的最小数据实体。该实体在读取、写入、擦除操作中可能存在差异。(The minimum data entity in the EEPROM. This entity may vary in read, write, and erase operations.)
 
    * - Normal mode
-     - 通过串行外设接口（SPI）与EEPROM设备进行的数据交互以块为单位执行。(Data interaction with the EEPROM device through the Serial Peripheral Interface (SPI) is performed in blocks.)
+     - 通过串行外设接口(SPI)与EEPROM设备进行的数据交互以块为单位执行。(Data interaction with the EEPROM device through the Serial Peripheral Interface (SPI) is performed in blocks.)
 
    * - Burst mode
-     - 通过串行外设接口（SPI）与EEPROM设备进行的数据交互以块为单位执行。(Data interaction with the EEPROM device through the Serial Peripheral Interface (SPI) is performed in blocks.)
+     - 通过串行外设接口(SPI)与EEPROM设备进行的数据交互以块为单位执行。(Data interaction with the EEPROM device through the Serial Peripheral Interface (SPI) is performed in blocks.)
 
    * - EEPROM cell
      - EEPROM设备中存储数据的最小物理单元。通常为1字节。(The minimum physical unit for storing data in an EEPROM device. Usually 1 byte.)
@@ -188,7 +188,7 @@ The upper layer of the Eep_62 module interacts with the Ea module and provides A
   变体  Variant
   ~~~~~~~~~~~~~~~
   .. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
-  .. 主要功能必须描述，比较偏尽量描述（不强制）
+  .. 主要功能必须描述，比较偏尽量描述(不强制)
 
   - 支持配置不同EepInitConfiguration容器中的地址大小和模式以及回调通知等
   - Supports configuring the address size, mode, callback notification, etc. in different EepInitConfiguration containers.

@@ -82,7 +82,7 @@ SecOC
      - 认证是与身份识别相关的服务。此功能既适用于实体，也适用于信息本身。进行通信的双方应相互识别。(Authentication refers to the service related to identity recognition.) This function applies to both entities and information. Both parties in communication should identify each other.
      
    * - Authentication Information
-     - 认证信息由新鲜度值（或其一部分）和认证器（或其一部分）组成。认证信息是 SecOC 为实现安全 I-PDU 添加的附加信息。(The authentication information consists of a freshness value (or a part thereof) and an authenticator (or a part thereof).) Authentication information is the additional information added by SecOC to ensure secure I-PDU.
+     - 认证信息由新鲜度值(或其一部分)和认证器(或其一部分)组成。认证信息是 SecOC 为实现安全 I-PDU 添加的附加信息。(The authentication information consists of a freshness value (or a part thereof) and an authenticator (or a part thereof).) Authentication information is the additional information added by SecOC to ensure secure I-PDU.
      
    * - Authenticator
      - 认证器是用于提供消息认证的数据。一般来说，术语“消息认证码 (MAC)”用于对称方法，而术语“签名”或“数字签名”则指具有不同属性和约束的非对称方法。(Authenticator is the data used for message authentication.) In general, the term "Message Authentication Code (MAC)" is used for symmetric methods while the term "signature" or "digital signature" refer to the asymmetric methods with different attributes and constraints.
@@ -178,7 +178,7 @@ Secured I-PDU 中的原始 I-PDU 的长度、新鲜度值和认证器可能因�
 
 The length, freshness value, and authenticator of the original I-PDU in a Secured I-PDU may vary due to a unique undefined Secured I-PDU.
 
-Secured I-PDU 中包含的身份验证器长度（参数 SecOCAuthInfoTruncLength）特定于唯一可识别的Secured I-PDU。通过为每个Secured I-PDU 提供 MAC 截断长度的细粒度配置，这允许在整个系统中提供灵活性（即两个独立的唯一Secured I-PDU 可能具有包含在Secured I-PDU 有效负载中的不同身份验证器长度）。
+Secured I-PDU 中包含的身份验证器长度(参数 SecOCAuthInfoTruncLength)特定于唯一可识别的Secured I-PDU。通过为每个Secured I-PDU 提供 MAC 截断长度的细粒度配置，这允许在整个系统中提供灵活性(即两个独立的唯一Secured I-PDU 可能具有包含在Secured I-PDU 有效负载中的不同身份验证器长度)。
 
 The length of the authenticator (parameter SecOCAuthInfoTruncLength) contained in the Secured I-PDU is specific to the unique identifiable Secured I-PDU. By providing fine-grained configuration of MAC truncation length for each Secured I-PDU, the flexibility in the entire system can be ensured (i.e., two independent unique Secured I-PDUs may have different lengths of authenticators included in the Secured I-PDU payload).
 
@@ -193,7 +193,7 @@ Authenticator 涵盖的数据 Data Covered by Authenticator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-计算认证器所依据的数据包括安全 I-PDU 的数据标识符（参数 SecOCDataId）、真实 I-PDU 数据和完整新鲜度值。这些分别连接在一起，组成位数组，传递给认证算法以生成/验证认证器。
+计算认证器所依据的数据包括安全 I-PDU 的数据标识符(参数 SecOCDataId)、真实 I-PDU 数据和完整新鲜度值。这些分别连接在一起，组成位数组，传递给认证算法以生成/验证认证器。
 
 The data used by the computational authenticator includes the data identifier (parameter SecOCDataId) of the secure I-PDU, real I-PDU data, and complete freshness value. These are connected respectively to form a bit group, which is transmitted to the authentication algorithm to generate/verify the authenticator.
 
@@ -203,7 +203,7 @@ The data used by the computational authenticator includes the data identifier (p
 Freshness Value
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-使用Freshness Values能保证生成Secured I-PDU的新鲜度。通常FreshnessValue由新鲜度管理器（FVM）管理，SecOC使用FreshnessValueId从FVM获取相应的新鲜度值。此外，新鲜度值可以从Authentic I-PDU中截取一部分作为新鲜度值，截取开始的位置和长度由配置确定。
+使用Freshness Values能保证生成Secured I-PDU的新鲜度。通常FreshnessValue由新鲜度管理器(FVM)管理，SecOC使用FreshnessValueId从FVM获取相应的新鲜度值。此外，新鲜度值可以从Authentic I-PDU中截取一部分作为新鲜度值，截取开始的位置和长度由配置确定。
 
 Freshness Values can ensure the freshness of the generated Secured I-PDU. In general, FreshnessValue is managed by the Freshness Value Manager (FVM), and SecOC obtains the corresponding freshness value from FVM by using FreshnessValueId. In addition, a portion of the freshness value can be extracted from the Authentic I-PDU as the freshness value. The starting position and length of the extraction are determined by configuration.
 
@@ -234,7 +234,7 @@ To receive data, SecOC serves as the upper layer module of PduR to receive Secur
    SecOC和PduR的关系. (Relationship Between SecOC and PduR.)
 
 
-认证I-PDU（发送）功能 Certificate I-PDU (Sending) Function
+认证I-PDU(发送)功能 Certificate I-PDU (Sending) Function
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 通过向原始 I-PDU 添加认证信息来创建安全 I-PDU。
@@ -285,11 +285,11 @@ SecOC调用CSM模块的接口，将DataToAuthenticator传递给CSM。CSM模块�
 
 SecOC transmits the DataToAuthenticator to CSM by calling the interface of CSM module. The CSM module calculates and generates an Authenticator based on input parameters such as DataToAuthenticator.
 
-生成Authenticator后，SecOC根据配置生成Secured I-PDU。之后SecOC调用PduR的发送接口将Secured I-PDU一次（If）或者多次（TP）发送出去。
+生成Authenticator后，SecOC根据配置生成Secured I-PDU。之后SecOC调用PduR的发送接口将Secured I-PDU一次(If)或者多次(TP)发送出去。
 
 After generating the Authenticator, SecOC will generate Secured I-PDU based on the configuration. Afterwards, SecOC calls the sending interface of PduR to send the Secured I-PDU (If) once or (TP) several times.
 
-验证I-PDU（接收）功能 Verify I-PDU (Receiving) Function
+验证I-PDU(接收)功能 Verify I-PDU (Receiving) Function
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 将安全 I-PDU 中包含的认证信息与基于本地数据标识符、本地新鲜度值和安全 I-PDU 中包含的原始 I-PDU 计算出的认证信息进行比较的过程。
@@ -329,7 +329,7 @@ PduR收到需要校验的I-PDU时，调用SecOC_RxIndication()或者SecOC_StartO
 
 Upon receiving I-PDU that needs verifying, PduR will call SecOC_RxIndication() or SecOC_StartOfReception() to notify SecOC. SecOC caches the Secured I-PDU locally first and then starts verifying the I-PDU processing flow.
 
-在MainFunction中，SecOC从Secured I-PDU中解析出Authentic I-PDU，FreshnessValue以及Authenticator。从新鲜度值管理器（FVM）中获取FreshnessValue，然后和Authentic I-PDU以及DataId组成DataToAuthenticator。
+在MainFunction中，SecOC从Secured I-PDU中解析出Authentic I-PDU，FreshnessValue以及Authenticator。从新鲜度值管理器(FVM)中获取FreshnessValue，然后和Authentic I-PDU以及DataId组成DataToAuthenticator。
 
 In MainFunction, SecOC parses Authentic I-PDU, FreshnessValue and Authenticator from Secured I-PDU. Get FreshnessValue from the Freshness Value Manager (FVM), and then combine it with Authentic I-PDU and DataId to form a DataToAuthenticator.
 
@@ -341,7 +341,7 @@ SecOC transmits the DataToAuthenticator and the Authenticator parsed from the re
 
 If verification is successful, SecOC will send confirmation message to FVM, which will maintain FV based on the information.
 
-SecOC调用PduR接口将Authentic I-PDU分一次（IF）或多次（TP）传递给上层。
+SecOC调用PduR接口将Authentic I-PDU分一次(IF)或多次(TP)传递给上层。
 
 SecOC transmits the Authentic I-PDU to the upper layer (IF) once or (TP) several times by calling the PduR interface.
 
@@ -368,10 +368,10 @@ Override strategy is shown in the table below:
      - 说明(Description)
 
    * - SECOC_OVERRIDE_DROP_UNTIL_NOTICE
-     - 直至另行通知，不执行验证器验证（无 CSM 呼叫）I-PDU 被丢弃，验证结果设置为 SECOC_NO_VERIFICATION。(Unless otherwise notified, validator verification will not be performed (no CSM call) and I-PDU will be discarded. The verification result will be set to SECOC_NO_VERIFICATION.)
+     - 直至另行通知，不执行验证器验证(无 CSM 呼叫)I-PDU 被丢弃，验证结果设置为 SECOC_NO_VERIFICATION。(Unless otherwise notified, validator verification will not be performed (no CSM call) and I-PDU will be discarded. The verification result will be set to SECOC_NO_VERIFICATION.)
 
    * - SECOC_OVERRIDE_DROP_UNTIL_LIMIT
-     - 直到达到 NumberOfMessagesTo Override，才执行验证器验证（无 CSM 呼叫）I-PDU 被丢弃，验证结果设置为 SECOC_NO_VERIFICATION。(Validator verification will not be performed (no CSM call) and the I-PDU will be discarded until the NumberOfMessages To Override is reached. The verification result will be set to SECOC_NO_VERIFICATION.)
+     - 直到达到 NumberOfMessagesTo Override，才执行验证器验证(无 CSM 呼叫)I-PDU 被丢弃，验证结果设置为 SECOC_NO_VERIFICATION。(Validator verification will not be performed (no CSM call) and the I-PDU will be discarded until the NumberOfMessages To Override is reached. The verification result will be set to SECOC_NO_VERIFICATION.)
 
    * - SECOC_OVERRIDE_CANCEL
      - 取消覆盖 VerifyStatus。(Cancel the coverage of VerifyStatus.)
@@ -395,7 +395,7 @@ Override strategy is shown in the table below:
 
 To provide load distribution between different partitions, different parts of Crypto Stack should be allocated to different partitions. Therefore, this partition should be supported based on encrypted instances; in other words, the encrypted driver instances can be located on different partitions.
 
-SecOC 模块中的主执行线程（即相应的 MainFunctions）可以拆分为不同的 MainFunctions（每个分区至少一个）。
+SecOC 模块中的主执行线程(即相应的 MainFunctions)可以拆分为不同的 MainFunctions(每个分区至少一个)。
 
 The main executing threads (i.e. corresponding MainFunctions) in the SecOC module can be split into different MainFunctions (at least one for each partition).
 
@@ -679,7 +679,7 @@ None
 认证I-PDU配置 Certificate I-PDU Configuration
 ----------------------------------------------------------------------------------------------------
 
-1.认证I-PDU配置主要在SecOCTxPduProcessing中进行，用户需要确认好需要保护的报文和使用的加密方式以及新鲜度管理器， 明确从哪里（上层）发送到哪里（通信栈）。
+1.认证I-PDU配置主要在SecOCTxPduProcessing中进行，用户需要确认好需要保护的报文和使用的加密方式以及新鲜度管理器， 明确从哪里(上层)发送到哪里(通信栈)。
 
 1.The authentication of I-PDU configuration is mainly carried out in SecOCTxPduProcessing. Users should confirm the messages that need protecting, the encryption method used and the freshness manager, and clarify the sending path (from upper layer to communication stack).
 
@@ -731,7 +731,7 @@ None
 校验I-PDU配置 Verify I-PDU Configuration
 ----------------------------------------------------------------------------------------------------
 
-1.校验I-PDU配置主要在SecOCRxPduProcessing中进行，用户需要确认好需要校验的报文和使用的加密方式以及新鲜度管理器， 明确从哪里（通信栈）接收然后传到到哪里（上层）。
+1.校验I-PDU配置主要在SecOCRxPduProcessing中进行，用户需要确认好需要校验的报文和使用的加密方式以及新鲜度管理器， 明确从哪里(通信栈)接收然后传到到哪里(上层)。
 
 1.The verification of I-PDU configuration is mainly carried out in SecOCRxPduProcessing. Users should confirm the messages that need verifying, the encryption method used, and the freshness manager, and clarify the receiving path (from communication stack to upper layer). 
 

@@ -1,5 +1,5 @@
 
-提供给NvM的回调函数（Callback functions provided to NvM）
+提供给NvM的回调函数(Callback functions provided to NvM)
 ----------------------------------------------------------------
 Dem_NvMInitAdminData
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
