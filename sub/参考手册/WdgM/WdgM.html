@@ -182,7 +182,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/WdgM/WdgM.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/WdgM/WdgM.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -310,16 +310,16 @@
 <td><p>配置了Deadline监督的检查点，它是特定Deadline监督的结束点。如果Deadline监督是链式的，有可能某个检查点同时是截止期限开始检查点和截止期限结束检查点。(The checkpoint for Deadline monitoring has been configured and serves as the end point for specific deadline monitoring.) If deadline supervision is of chain type, a checkpoint may be both the deadline start checkpoint and deadline end checkpoint at the same time.</p></td>
 </tr>
 <tr class="row-even"><td><p>Expired Supervision Cycle</p></td>
-<td><p>存活监督未能通过其两个步骤的监督周期（alive counter未能达到预期的alive indications（包括容差）比允许失败的参考周期次数更多）。(Survival supervision fails to pass its two-step supervision cycle (the alive counter fails to achieve the expected alive indications (including tolerances) and has more times than the reference cycles allowed to fail).)</p></td>
+<td><p>存活监督未能通过其两个步骤的监督周期(alive counter未能达到预期的alive indications(包括容差)比允许失败的参考周期次数更多)。(Survival supervision fails to pass its two-step supervision cycle (the alive counter fails to achieve the expected alive indications (including tolerances) and has more times than the reference cycles allowed to fail).)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Failed Supervision Reference Cycle</p></td>
-<td><p>以检测到alive counter与预期alive indications之间存在偏差（包括容差）而结束的监督参考周期。(The supervision reference cycle which ends when a deviation (including tolerance) is detected between the auxiliary counter and the expected auxiliary indications.)</p></td>
+<td><p>以检测到alive counter与预期alive indications之间存在偏差(包括容差)而结束的监督参考周期。(The supervision reference cycle which ends when a deviation (including tolerance) is detected between the auxiliary counter and the expected auxiliary indications.)</p></td>
 </tr>
 <tr class="row-even"><td><p>Global Supervision Status</p></td>
 <td><p>全局监督状态，是汇总所有被监督实体的本地监督状态之后得到的状态。(The global supervision status is the status obtained by summarizing the local supervision status of all supervised entities.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Graph</p></td>
-<td><p>控制流图。一组通过转换（Transitions）连接的检查点（Checkpoints），其中至少有一个检查点是初始检查点（Initial Checkpoint）。图中任意两个检查点之间都存在一条路径（通过Transitions）。(Control flow diagram.) At least one of a set of Checkpoints connected through Transitions is an Initial Checkpoint. A path exists between any two checkpoints in the diagram (via Transitions).</p></td>
+<td><p>控制流图。一组通过转换(Transitions)连接的检查点(Checkpoints)，其中至少有一个检查点是初始检查点(Initial Checkpoint)。图中任意两个检查点之间都存在一条路径(通过Transitions)。(Control flow diagram.) At least one of a set of Checkpoints connected through Transitions is an Initial Checkpoint. A path exists between any two checkpoints in the diagram (via Transitions).</p></td>
 </tr>
 <tr class="row-even"><td><p>External Graph</p></td>
 <td><p>可能涉及多个被监督实体的图。其配置依赖于模式。(The graph that may involve several supervised entities.) Its configuration depends on the specific mode.</p></td>
@@ -331,16 +331,16 @@
 <td><p>表示单个被监督实体当前结果的状态。(It indicates the status of the present result of a single supervised entity.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Logical Supervision</p></td>
-<td><p>一种在线监督软件的方式，用于检查软件（被监督实体或一组被监督实体）是否按照程序员（通过开发的代码）定义的序列执行。(A kind of method of online supervision software used for checking if the software (one or a group of supervised entities) is executing according to the sequence defined by programmer (through developed code).)</p></td>
+<td><p>一种在线监督软件的方式，用于检查软件(被监督实体或一组被监督实体)是否按照程序员(通过开发的代码)定义的序列执行。(A kind of method of online supervision software used for checking if the software (one or a group of supervised entities) is executing according to the sequence defined by programmer (through developed code).)</p></td>
 </tr>
 <tr class="row-even"><td><p>Internal Graph</p></td>
 <td><p>不跨越多个被监督实体的图。其配置与模式无关，并且可以通过禁用相应的被监督实体来禁用。(Graph that does not cross several supervised entities.) Its configuration is not related to mode but can be disabled by disabling the corresponding supervised entity.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Internal Transition</p></td>
-<td><p>属于同一被监督实体的两个检查点之间的转换（Transitions）。(Transitions between two checkpoints falling under the same supervised entity.)</p></td>
+<td><p>属于同一被监督实体的两个检查点之间的转换(Transitions)。(Transitions between two checkpoints falling under the same supervised entity.)</p></td>
 </tr>
 <tr class="row-even"><td><p>Mode</p></td>
-<td><p>模式是一组运行在车辆中的各种状态机的状态集合，这些状态对特定实体（如软件组件、基础软件模块、应用程序或整车）具有相关性。在其生命周期中，实体会在一组互斥的模式之间变化。这些变化由环境数据触发，例如信号接收、操作调用等。在WdgM的上下文中，模式由一组配置选项定义。要监督的被监督实体集合可能随模式而变化。(It refers to the collection of statuses of various state machines running in a vehicle. All these statuses are correlated with specific entities such as software components, basic software modules, applications, or the entire vehicle.) During its lifecycle, entities will change between a set of mutually exclusive modes. All these changes are triggered by environmental data, such as signal receiving, operation calls, etc. In the context of WdgM, mode is defined by a set of configuration options. The set of supervised entities to be supervised may vary along with mode.</p></td>
+<td><p>模式是一组运行在车辆中的各种状态机的状态集合，这些状态对特定实体(如软件组件、基础软件模块、应用程序或整车)具有相关性。在其生命周期中，实体会在一组互斥的模式之间变化。这些变化由环境数据触发，例如信号接收、操作调用等。在WdgM的上下文中，模式由一组配置选项定义。要监督的被监督实体集合可能随模式而变化。(It refers to the collection of statuses of various state machines running in a vehicle. All these statuses are correlated with specific entities such as software components, basic software modules, applications, or the entire vehicle.) During its lifecycle, entities will change between a set of mutually exclusive modes. All these changes are triggered by environmental data, such as signal receiving, operation calls, etc. In the context of WdgM, mode is defined by a set of configuration options. The set of supervised entities to be supervised may vary along with mode.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Supervised Entity</p></td>
 <td><p>包含在看门狗管理器监督中的软件实体。每个被监督实体都有唯一的一个标识符。被监督实体指代软件组件类型或基础软件模块实例内的一组检查点。软件组件类型或基础软件模块的实例中可能有零个、一个或多个被监督实体。(The software entity in the watchdog manager supervision is included.) Each supervised entity has a unique identifier. The supervised entity refers to a set of checkpoints in the software component type or underlying software module instance. The instances of software component types or basic software modules may contain zero, one or several supervised entities.</p></td>
@@ -352,10 +352,10 @@
 <td><p>在被监督实体上下文中，由看门狗管理器在每次监督周期中更新的独立数据资源，该资源用于存活监督算法检查已计数的Alive indications。(In the context of the supervised entity, the independent data resource updated by the watchdog manager in each supervision cycle is used by the survival supervision algorithm to check the counted Alive indications.)</p></td>
 </tr>
 <tr class="row-even"><td><p>Supervision Cycle</p></td>
-<td><p>看门狗管理器监督参考周期的时间基准，在此期间进行周期性的存活监督。它也是更新全局监督状态和执行结果恢复动作的时间间隔。这在所属看门狗管理器主函数的每次调用中完成，并且与模式相关（在切换模式时可能会变化）。(The watchdog manager supervises the time reference of the reference period and conducts periodic survival monitoring in the period above.) It is also the time interval for updating the global supervision status and executing result recovery. It is complete in each call to the main function of the watchdog manager and is related to mode (it may change when switching modes).</p></td>
+<td><p>看门狗管理器监督参考周期的时间基准，在此期间进行周期性的存活监督。它也是更新全局监督状态和执行结果恢复动作的时间间隔。这在所属看门狗管理器主函数的每次调用中完成，并且与模式相关(在切换模式时可能会变化)。(The watchdog manager supervises the time reference of the reference period and conducts periodic survival monitoring in the period above.) It is also the time interval for updating the global supervision status and executing result recovery. It is complete in each call to the main function of the watchdog manager and is related to mode (it may change when switching modes).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Supervision Reference Cycle</p></td>
-<td><p>用于存活监督检查已计数的alive indications（针对每个被监督实体单独进行）的监督周期数量，与模式相关。(The number of supervision cycles for the counted alive indicators (conducted for each supervised entity respectively) used for survival supervision checks; it is related to mode.)</p></td>
+<td><p>用于存活监督检查已计数的alive indications(针对每个被监督实体单独进行)的监督周期数量，与模式相关。(The number of supervision cycles for the counted alive indicators (conducted for each supervised entity respectively) used for survival supervision checks; it is related to mode.)</p></td>
 </tr>
 </tbody>
 </table>
@@ -469,7 +469,7 @@
 </section>
 <section id="wdgm-wdgm-supervision-algorithm">
 <h4>WdgM监督算法 WdgM Supervision Algorithm<a class="headerlink" href="#wdgm-wdgm-supervision-algorithm" title="Link to this heading">¶</a></h4>
-<p>监督模块实现了看门狗WDG的监控功能，也是WDG的主要功能。看门狗WDG在用户选择的特定模式下工作，每种模式有多个监督实体组成，相应的全局监督状态也是由每个监督实体的局部监督状态计算出来的。每一个监督实体都包括几个活动监督（Alive Supervision）、期限监督（Deadline Supervision）和逻辑监督（Logical Supervision）。该监督实体的相应局部监督状态也从相应的活动监督、期限监督和逻辑监督的所有结果中计算出来。</p>
+<p>监督模块实现了看门狗WDG的监控功能，也是WDG的主要功能。看门狗WDG在用户选择的特定模式下工作，每种模式有多个监督实体组成，相应的全局监督状态也是由每个监督实体的局部监督状态计算出来的。每一个监督实体都包括几个活动监督(Alive Supervision)、期限监督(Deadline Supervision)和逻辑监督(Logical Supervision)。该监督实体的相应局部监督状态也从相应的活动监督、期限监督和逻辑监督的所有结果中计算出来。</p>
 <p>The supervision module realizes the monitoring function of the watchdog WDG, and is also the main function of WDG. The watchdog WDG works under the specific mode selected by user. Each mode consists of several supervised entities, and the corresponding global supervised state is also calculated by the local supervised state of each supervised entity. Each supervised entity includes several activity supervisions (Alive Supervision), deadline supervisions (Deadline Supervision), and logical supervisions (Logical Supervision). The corresponding local supervision status of the supervised entity is also calculated by all the results of the corresponding activity supervision, deadline supervision and logical supervision.</p>
 </section>
 <section id="wdgm-wdgm-mode">
@@ -1452,7 +1452,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <p>3.Reference the WdgMWatchdog instance to indicate the watchdog that needs triggering for the current mode.</p>
 <p>4.引用监督实体，将监督实体关联到当前模式。</p>
 <p>4.Reference the supervised entity and link the entity with the current mode.</p>
-<p>5.监督配置，包括Alive、Deadline、External Logical监督。（Internal Logical监督在监督实体内部配置，此处如果需要包含，则只需要引用监督实体即可。）</p>
+<p>5.监督配置，包括Alive、Deadline、External Logical监督。(Internal Logical监督在监督实体内部配置，此处如果需要包含，则只需要引用监督实体即可。)</p>
 <p>5.Supervision configurations, including the supervision of Alive, Deadline, and External Logical. (Internal Logical supervision is configured within the supervised entity. If it needs including here, reference the supervised entity.)</p>
 <figure class="align-center" id="mode">
 <img alt="WdgM模式配置图 (WdgM Mode Configuration Diagram)" src="../../../_images/Mode.png" />
@@ -1493,7 +1493,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <td><p>监督实体，包含分区信息、时间来源和检查点等信息。(Supervised entities, including partition information, time sources, and checkpoint.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>WdgMCheckpoint</p></td>
-<td><p>作为监督算法的监督对象，依赖于监督实体（SupervisedEntity）。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
+<td><p>作为监督算法的监督对象，依赖于监督实体(SupervisedEntity)。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
 </tr>
 <tr class="row-even"><td><p>WdgMMode</p></td>
 <td><p>运行模式，包含看门狗的运行模式，监督实体、Alive、Deadline、External Logical监督配置等。(Operation mode, including watchdog operation mode, supervised entity, Alive, Deadline, External Logical supervision configuration, etc.)</p></td>
@@ -1505,13 +1505,13 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 </table>
 <p>Alive监督的配置需要以下步骤：</p>
 <p>Steps for the configuration of Alive supervision:</p>
-<p>1.配置相应的监督实体（SupervisedEntity）和检查点（Checkpoint）。</p>
+<p>1.配置相应的监督实体(SupervisedEntity)和检查点(Checkpoint)。</p>
 <p>1.Configure the corresponding SupervisedEntity and Checkpoint.</p>
-<p>2.创建模式（如果不存在），并在模式中引用该SE。</p>
+<p>2.创建模式(如果不存在)，并在模式中引用该SE。</p>
 <p>2.Create a mode (if it does not exist) and reference the SE in such mode.</p>
 <p>3.在模式中创建Alive监督，并引用该Checkpoint，设置相应的期待次数和容忍度。</p>
 <p>3.Create Alive supervision in the mode, reference the Checkpoint, and set the corresponding expected frequency and tolerance.</p>
-<p>下图配置了一个监督实体ID为0，检查点ID为0的Alive监督，监督周期为1个MainFunction周期，期待次数为4次，允许的超过次数和少于次数为1（即允许一个周期内报告3-5次）。</p>
+<p>下图配置了一个监督实体ID为0，检查点ID为0的Alive监督，监督周期为1个MainFunction周期，期待次数为4次，允许的超过次数和少于次数为1(即允许一个周期内报告3-5次)。</p>
 <p>The figure below shows an Alive supervision with a supervised entity ID of 0 and a checkpoint ID of 0. The supervision cycle is 1 MainFunction cycle, with 4 expected times. The allowed number of exceeding or insufficient times is 1 (i.e., reporting for 3-5 times within a cycle is allowed).</p>
 <figure class="align-center" id="alivesup">
 <img alt="Alive监督配置(Alive supervision configuration)" src="../../../_images/AliveSup.png" />
@@ -1555,7 +1555,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <td><p>监督实体，包含分区信息、时间来源和检查点等信息。(Supervised entities, including partition information, time sources, and checkpoint.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>WdgMCheckpoint</p></td>
-<td><p>作为监督算法的监督对象，依赖于监督实体（SupervisedEntity）。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
+<td><p>作为监督算法的监督对象，依赖于监督实体(SupervisedEntity)。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
 </tr>
 <tr class="row-even"><td><p>WdgMOSCounter</p></td>
 <td><p>Deadline监督时间戳的获取来源，在Os模块中配置。(The source of getting the deadline supervision timestamp is configured in the Os module.)</p></td>
@@ -1567,15 +1567,15 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 </table>
 <p>Deadline监督的配置需要以下步骤：</p>
 <p>Steps for the configuration of Deadline supervision:</p>
-<p>1.创建监督实体和检查点（至少2个检查点）</p>
+<p>1.创建监督实体和检查点(至少2个检查点)</p>
 <p>1.Create supervised entities and checkpoints (at least 2 checkpoints)</p>
 <p>2.选择OsCounter计时器作为时钟来源。</p>
 <p>2.Choose OsCounter timer as the clock source.</p>
-<p>3.创建模式（如果不存在），并在模式中引用相关SE。</p>
+<p>3.创建模式(如果不存在)，并在模式中引用相关SE。</p>
 <p>3.Create a mode (if it does not exist) and reference relevant SE in such mode.</p>
-<p>4.创建Deadline监督（可多个），引用检查点并设置允许的时间间隔。</p>
+<p>4.创建Deadline监督(可多个)，引用检查点并设置允许的时间间隔。</p>
 <p>4.Create Deadline supervision (more than 1 supervisions allowed), reference checkpoints and set allowed time interval.</p>
-<p>下图配置了一个执行时间在4ms和6ms之间的Deadline监督，且开启了Timout检测（即在报告开始点后，结束点一直不报告的超时情况）。</p>
+<p>下图配置了一个执行时间在4ms和6ms之间的Deadline监督，且开启了Timout检测(即在报告开始点后，结束点一直不报告的超时情况)。</p>
 <p>The figure below displays the Deadline supervision with an execution time between 4ms and 6ms, and Timeout detection is enabled (i.e. timeout not reported after the start and end points).</p>
 <figure class="align-center" id="deadlinesup">
 <img alt="Deadline监督配置(Deadline supervision configuration)" src="../../../_images/DeadlineSup.png" />
@@ -1619,7 +1619,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <td><p>监督实体，包含分区信息、时间来源和检查点等信息。(Supervised entities, including partition information, time sources, and checkpoint.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>WdgMCheckpoint</p></td>
-<td><p>作为监督算法的监督对象，依赖于监督实体（SupervisedEntity）。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
+<td><p>作为监督算法的监督对象，依赖于监督实体(SupervisedEntity)。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
 </tr>
 <tr class="row-even"><td><p>WdgMInternalTransition</p></td>
 <td><p>Internal Logical监督内部转换图，描述2个检查点之间的调用顺序。(Internal Logical supervises the internal transformation graph and describes the calling sequence between two checkpoints.)</p></td>
@@ -1635,9 +1635,9 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <p>1.Create supervised entities (at least 1) and checkpoints (2 checkpoints).</p>
 <p>2.创建内部转换图，描述检查点之间的调用顺序。</p>
 <p>2.Create an internal transformation graph that describes the calling sequence between checkpoints.</p>
-<p>3.指定最终的开始点和结束点（分别需要满足内部监督中第一个转换图开始点和最后一个转换图结束点）。</p>
+<p>3.指定最终的开始点和结束点(分别需要满足内部监督中第一个转换图开始点和最后一个转换图结束点)。</p>
 <p>3.Specify the final start and end points (they should meet the requirements of the start point of the first transition diagram and the end point of the last transition diagram in internal supervision, respectively).</p>
-<p>4.创建模式（如果不存在），并在模式中引用相关SE。</p>
+<p>4.创建模式(如果不存在)，并在模式中引用相关SE。</p>
 <p>4.Create a mode (if it does not exist) and reference relevant SE in such mode.</p>
 <p>下图配置了一个由监督实体ID为1，检查点ID为0、1和2组成的Internal Logical监督，其报告顺序为SE1_CP0-&gt;SE1_CP1-&gt;SE1_CP2(数字代表ID)。</p>
 <p>The figure below displays an Internal Logical supervision consisting of a supervised entity ID of 1 and checkpoint IDs of 0, 1, and 2. The reporting order is SE1_CP0-&gt;SE1_CP1-&gt;SE1_CP2 (numbers represent IDs).</p>
@@ -1650,13 +1650,13 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <figure class="align-center" id="intlogsup-1">
 <img alt="Internal Logical监督配置(Internal Logical supervision configuration)" src="../../../_images/IntLogSup_1.png" />
 <figcaption>
-<p><span class="caption-text">Internal Logical监督配置图-2 （Internal Logical supervision configuration diagram -2）</span><a class="headerlink" href="#intlogsup-1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Internal Logical监督配置图-2 (Internal Logical supervision configuration diagram -2)</span><a class="headerlink" href="#intlogsup-1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="intlogsup-2">
 <img alt="Internal Logical监督配置(Internal Logical supervision configuration)" src="../../../_images/IntLogSup_2.png" />
 <figcaption>
-<p><span class="caption-text">Internal Logical监督配置图-3 （Internal Logical supervision configuration diagram -3）</span><a class="headerlink" href="#intlogsup-2" title="Link to this image">¶</a></p>
+<p><span class="caption-text">Internal Logical监督配置图-3 (Internal Logical supervision configuration diagram -3)</span><a class="headerlink" href="#intlogsup-2" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1681,7 +1681,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <td><p>监督实体，包含分区信息、时间来源和检查点等信息。(Supervised entities, including partition information, time sources, and checkpoint.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>WdgMCheckpoint</p></td>
-<td><p>作为监督算法的监督对象，依赖于监督实体（SupervisedEntity）。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
+<td><p>作为监督算法的监督对象，依赖于监督实体(SupervisedEntity)。(As the supervised object of the supervised algorithm, it depends on the SupervisedEntity.)</p></td>
 </tr>
 <tr class="row-even"><td><p>WdgMExternalLogicalSupervision</p></td>
 <td><p>External Logical监督外部转换图，描述不同SE的2个检查点之间的调用顺序。(External Logical supervises the external transformation graph and describes the call sequence between two checkpoints of different SEs.)</p></td>
@@ -1695,7 +1695,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <p>Steps for External Logical supervision configuration:</p>
 <p>1.创建监督实体和检查点，至少2个监督实体和分别1个检查点。</p>
 <p>1.Create supervised entities (at least 2) and checkpoints (1 checkpoint respectively)</p>
-<p>2.创建模式（如果不存在），并在模式中引用相关SE。</p>
+<p>2.创建模式(如果不存在)，并在模式中引用相关SE。</p>
 <p>2.Create a mode (if it does not exist) and reference relevant SE in such mode.</p>
 <p>3.创建外部监督和外部转换图，描述不同SE的检查点之间的调用顺序。</p>
 <p>3.Create external supervision and external transformation graphs and describe the call sequence between checkpoints of different SEs.</p>
@@ -1712,20 +1712,20 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <figure class="align-center" id="exlogsup-1">
 <img alt="External Logical监督配置(External Logical supervision configuration)" src="../../../_images/ExtLogSup_1.png" />
 <figcaption>
-<p><span class="caption-text">External Logical监督配置图-2 （External Logical supervision configuration diagram -2）</span><a class="headerlink" href="#exlogsup-1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">External Logical监督配置图-2 (External Logical supervision configuration diagram -2)</span><a class="headerlink" href="#exlogsup-1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="extlogsup-2">
 <img alt="External Logical监督配置(External Logical supervision configuration)" src="../../../_images/ExtLogSup_2.png" />
 <figcaption>
-<p><span class="caption-text">External Logical监督配置图-3 （External Logical supervision configuration diagram -3)</span><a class="headerlink" href="#extlogsup-2" title="Link to this image">¶</a></p>
+<p><span class="caption-text">External Logical监督配置图-3 (External Logical supervision configuration diagram -3)</span><a class="headerlink" href="#extlogsup-2" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="descriptions-of-multi-core-multi-partition-configuration">
 <h3>多核多分区配置说明 Descriptions of Multi-core Multi-Partition Configuration<a class="headerlink" href="#descriptions-of-multi-core-multi-partition-configuration" title="Link to this heading">¶</a></h3>
-<p>由于多核Mcu可能存在多个内部看门狗驱动，而每个内部看门狗驱动具有独立的时钟源，需要相对应的核心才能够完成喂狗操作。在多核架构中，每个核心可以单独运行WdgM模块，分别监督当前核心的运行情况，独立喂狗；也可以由多个核心的WdgM组成联合结构，共同维持系统的运行（该情况通常用于整个系统由一个外狗监控）。</p>
+<p>由于多核Mcu可能存在多个内部看门狗驱动，而每个内部看门狗驱动具有独立的时钟源，需要相对应的核心才能够完成喂狗操作。在多核架构中，每个核心可以单独运行WdgM模块，分别监督当前核心的运行情况，独立喂狗；也可以由多个核心的WdgM组成联合结构，共同维持系统的运行(该情况通常用于整个系统由一个外狗监控)。</p>
 <p>The multi-core Mcu may contains several internal watchdog drivers, each of which has an independent clock source. The corresponding core is required to complete feeding. In a multi-core architecture, each core can run the WdgM module independently, monitor the operation of the current core and feed watchdog independently; a joint structure consisting of several core WdgMs is used to jointly maintain system operation (the latter case is generally applicable to the scenario where the entire system is monitored by an external watchdog).</p>
 <p>在多分区架构中，监督实体包含了分区信息，不同分区的监督实体是相互隔离的。</p>
 <p>In a multi-partition architecture, the supervised entity contains partition information. The supervised entities of different partitions are isolated from each other.</p>
@@ -1755,7 +1755,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 </section>
 <section id="structure-configuration-of-combination">
 <h4>联合体结构配置 Structure configuration of combination<a class="headerlink" href="#structure-configuration-of-combination" title="Link to this heading">¶</a></h4>
-<p>联合体（Combination）结构用于将多个核心的WdgM作为整体看待，分为Master和Slave，其中Master是主看门狗，负责监控和喂狗，Slave是从看门狗，负责监控。</p>
+<p>联合体(Combination)结构用于将多个核心的WdgM作为整体看待，分为Master和Slave，其中Master是主看门狗，负责监控和喂狗，Slave是从看门狗，负责监控。</p>
 <p>The Combination structure is used for taking the multi-core WdgMs as a whole. It can be further divided into Master and Slave, of which, the former is the main watchdog responsible for monitoring and feeding dogs, while the latter is the secondary watchdog responsible for monitoring.</p>
 <p>联合体结构配置需要以下步骤：</p>
 <p>Steps for configuring combination structure:</p>
@@ -1772,7 +1772,7 @@ WDGM_GLOBAL_STATUS_DEACTIVATED 4u</p></td>
 <figure class="align-center" id="multiplecores">
 <img alt="多核心Combination配置(Multi-core Combination configuration)" src="../../../_images/MultipleCores.png" />
 <figcaption>
-<p><span class="caption-text">多核心Combination配置图-1 （Configuration diagram of multi-core Combination - 1）</span><a class="headerlink" href="#multiplecores" title="Link to this image">¶</a></p>
+<p><span class="caption-text">多核心Combination配置图-1 (Configuration diagram of multi-core Combination - 1)</span><a class="headerlink" href="#multiplecores" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="multiplecores-2">

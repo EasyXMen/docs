@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Interrupt Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Interrupt(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Interrupt Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Interrupt(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/02_Interrupt_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/02_Interrupt_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,23 +196,23 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="interrupt-functions">
-<h1>Interrupt Functions<a class="headerlink" href="#interrupt-functions" title="Link to this heading">¶</a></h1>
-<p>处理中断的函数（中断服务程序：ISR）分为两类中断：</p>
-<p>Functions that handle interrupts (Interrupt Service Routines: ISRs) are divided into two types of interrupts:</p>
+<h1>Interrupt(Functions)<a class="headerlink" href="#interrupt-functions" title="Link to this heading">¶</a></h1>
+<p>处理中断的函数(中断服务程序：ISR)分为两类中断：</p>
+<p>Functions that handle interrupts (Interrupt Service Routines: ISRs) are categorized into two types:</p>
 <blockquote>
 <div><ul>
 <li><p>1类中断: 此类中断不使用操作系统服务。中断结束后，程序将在发生中断位置继续执行，即中断对任务管理没有影响。此类别的中断具有最小的开销。</p>
-<p>Type 1 Interrupts: This type of interrupt does not use operating system services. After the interrupt ends, the program will continue execution from the location where the interrupt occurred, meaning the interrupt has no impact on task management. Interrupts of this type have minimal overhead.</p>
+<p>Type 1 Interrupts: These interrupts do not use operating system services. After the interrupt ends, the program resumes execution from the point of interruption, meaning the interrupt has no impact on task management. Interrupts in this category have minimal overhead.</p>
 </li>
 <li><p>2类中断: Os提供一个中断框架，为特定的用户程序提供运行环境。这类中断能够使用Os的系统服务。</p>
-<p>Type 2 Interrupts: The Os provides an interrupt framework that offers a runtime environment for specific user programs. This type of interrupt can use the system services of the Os.</p>
+<p>Type 2 Interrupts: The OS provides an interrupt framework that offers an execution environment for specific user programs. This type of interrupt can use the OS system services.</p>
 </li>
 </ul>
 </div></blockquote>
 <figure class="align-center" id="id1">
-<img alt="ORIENTAIS OS的ISR类别" src="../../../_images/ISR%E7%B1%BB%E5%88%AB.png" />
+<img alt="ORIENTAIS OS的ISR类别(ISR Types of ORIENTAIS OS)" src="../../../_images/ISR%E7%B1%BB%E5%88%AB.png" />
 <figcaption>
-<p><span class="caption-text">ORIENTAIS OS的ISR类别（ISR Types of ORIENTAIS OS）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">ORIENTAIS OS的ISR类别 (ISR Types of ORIENTAIS OS)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="enableallinterrupts">
@@ -245,7 +245,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务与DisableAllInterrupts服务相对应，后者必须在之前被调用，其目的是保障代码临界区的完整性。</p>
-<p>This service corresponds to the DisableAllInterrupts service, which must have been called beforehand to ensure the integrity of the code critical section.</p>
+<p>This service corresponds to the DisableAllInterrupts service, which must be called beforehand to ensure the integrity of the code critical section.</p>
 </li>
 </ul>
 </div>
@@ -268,7 +268,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>主要用于某些不能使用ORIENTAIS OS API的临界段。</p>
-<p>It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
+<p>Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
 </li>
 </ul>
 </div>
@@ -315,7 +315,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>SuspendAllInterrupts / ResumeAllInterrupts可以嵌套使用。如果嵌套调用SuspendAllInterrupts和ResumeAllInterrupts，SuspendAllInterrupts第一次调用时保存的中断识别状态将在ResumeAllInterrupts最后一次调用时恢复。</p>
-<p>SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested way. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt identification state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.</p>
+<p>SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested manner. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.</p>
 </li>
 </ul>
 </div>
@@ -338,7 +338,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>主要用于某些不能使用ORIENTAIS OS API的临界段。</p>
-<p>It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
+<p>Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
 </li>
 </ul>
 </div>
@@ -361,10 +361,10 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>SuspendOSInterrupts / ResumeOSInterrupts可以嵌套使用。如果嵌套调用SuspendOSInterrupts和ResumeOSInterrupts，SuspendOSInterrupts的第一次调用时保存的中断识别状态将在ResumeAllInterrupts最后一次调用时恢复。</p>
-<p>SuspendOSInterrupts / ResumeOSInterrupts can be used in a nested manner. If SuspendOSInterrupts and ResumeOSInterrupts are called nestedly, the interrupt identification state saved when SuspendOSInterrupts is first called will be restored when ResumeAllInterrupts is called for the last time.</p>
+<p>SuspendOSInterrupts / ResumeOSInterrupts can be used in a nested manner. If SuspendOSInterrupts and ResumeOSInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendOSInterrupts will be restored during the last call of ResumeOSInterrupts.</p>
 </li>
 <li><p>SuspendOSInterrupts / ResumeOSInterrupts仅对2类中断有影响。</p>
-<p>SuspendOSInterrupts / ResumeOSInterrupts only affect Type 2 Interrupts.</p>
+<p>SuspendOSInterrupts / ResumeOSInterrupts only affect Category 2 Interrupts.</p>
 </li>
 </ul>
 </div>
@@ -387,7 +387,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>主要用于某些不能使用ORIENTAIS OS API的临界段。</p>
-<p>It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
+<p>Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
 </li>
 </ul>
 </div>
@@ -539,7 +539,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务为了短时间屏蔽特定的中断或在特定时间内忽略特定源的中断请求。</p>
-<p>This service is used to mask specific interrupts for a short period of time or ignore interrupt requests from specific sources within a specific time frame.</p>
+<p>This service is used to mask specific interrupts for a short duration or ignore interrupt requests from specific sources within a specified time period.</p>
 </li>
 </ul>
 </div>
@@ -690,7 +690,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务为了短时间屏蔽特定的中断或在特定时间内忽略特定源的中断请求。</p>
-<p>This service is used to mask specific interrupts for a short period of time or ignore interrupt requests from specific sources within a given time frame.</p>
+<p>This service is used to mask specific interrupts for a short duration or ignore interrupt requests from specific sources within a given time frame.</p>
 </li>
 </ul>
 </div>
@@ -705,7 +705,7 @@ TASK(TaskInit)
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Interrupt Functions</a><ul>
+<li><a class="reference internal" href="#">Interrupt(Functions)</a><ul>
 <li><a class="reference internal" href="#enableallinterrupts">EnableAllInterrupts</a></li>
 <li><a class="reference internal" href="#disableallinterrupts">DisableAllInterrupts</a></li>
 <li><a class="reference internal" href="#resumeallinterrupts">ResumeAllInterrupts</a></li>

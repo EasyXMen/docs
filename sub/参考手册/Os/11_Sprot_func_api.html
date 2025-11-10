@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Service Protection Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Service(Protection Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Service Protection Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Service(Protection Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/11_Sprot_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/11_Sprot_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,30 +196,30 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="service-protection-functions">
-<h1>Service Protection Functions<a class="headerlink" href="#service-protection-functions" title="Link to this heading">¶</a></h1>
+<h1>Service(Protection Functions)<a class="headerlink" href="#service-protection-functions" title="Link to this heading">¶</a></h1>
 <p>当OS-Application进行API调用，服务保护需要考虑多种情况：</p>
-<p>When an OS-Application makes an API call, service protection needs to consider various scenarios:</p>
+<p>When an OS-Application makes an API call, service protection must consider various scenarios:</p>
 <blockquote>
 <div><ul>
 <li><p>句柄无效或超出范围</p>
-<p>The handle is invalid or out of range</p>
+<p>The handle is invalid or out of range.</p>
 </li>
 <li><p>在错误的调用场景中，例如在StartupHook中调用ActivateTask()</p>
-<p>In an incorrect calling scenario, such as calling ActivateTask() in StartupHook</p>
+<p>In an incorrect calling context, such as calling ActivateTask() within StartupHook.</p>
 </li>
 <li><p>或未能进行API调用导致ORIENTAIS OS处于未定义状态，例如：在占用资源期间结束任务</p>
-<p>Or failing to make an API call, causing ORIENTAIS OS to be in an undefined state, for example: terminating a task while occupying resources</p>
+<p>Or failure to make proper API calls resulting in ORIENTAIS OS entering an undefined state, for example: terminating a task while holding resources.</p>
 </li>
 <li><p>会影响系统中其他所有OS-Application的行为，例如：ShutdownOS()</p>
-<p>Affecting the behavior of all other OS-Applications in the system, such as: ShutdownOS()</p>
+<p>Affecting the behavior of all other OS-Applications in the system, such as: ShutdownOS().</p>
 </li>
-<li><p>操纵属于另一个OS-Application的操作系统对象（该OS对象没有必需的权限），例如 OS-Application尝试对其不拥有访问权限的任务执行ActivateTask()</p>
-<p>Manipulating operating system objects belonging to another OS-Application (the OS object does not have the necessary permissions), for example, an OS-Application attempts to execute ActivateTask() on a task that it does not have access permissions to</p>
+<li><p>操纵属于另一个OS-Application的操作系统对象(该OS对象没有必需的权限)，例如 OS-Application尝试对其不拥有访问权限的任务执行ActivateTask()</p>
+<p>Manipulating operating system objects belonging to another OS-Application (without the required permissions), for example, an OS-Application attempting to execute ActivateTask() on a task it lacks access permissions for.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>关于系统服务在错误的场景中被调用，请参阅**错误!未找到引用源**。</p>
-<p>For system services being called in incorrect scenarios, please refer to <strong>Error! Reference source not found</strong>.</p>
+<p>For system services called in incorrect contexts, refer to <strong>Error! Reference source not found</strong>.</p>
 <section id="calltrustedfunction">
 <h2>CallTrustedFunction<a class="headerlink" href="#calltrustedfunction" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">CallTrustedFunction</span><span class="p">(</span><span class="n">TrustedFunctionIndexType</span> <span class="n">FunctionIndex</span><span class="p">,</span> <span class="n">TrustedFunctionParameterRefType</span> <span class="n">FunctionParams</span><span class="p">)</span>
@@ -334,7 +334,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Service Protection Functions</a><ul>
+<li><a class="reference internal" href="#">Service(Protection Functions)</a><ul>
 <li><a class="reference internal" href="#calltrustedfunction">CallTrustedFunction</a></li>
 </ul>
 </li>

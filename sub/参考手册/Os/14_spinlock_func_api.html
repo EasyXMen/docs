@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Spinlock Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Spinlock(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Spinlock Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Spinlock(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/14_spinlock_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/14_spinlock_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,15 +196,15 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="spinlock-functions">
-<h1>Spinlock Functions<a class="headerlink" href="#spinlock-functions" title="Link to this heading">¶</a></h1>
+<h1>Spinlock(Functions)<a class="headerlink" href="#spinlock-functions" title="Link to this heading">¶</a></h1>
 <p>在多核中，需要一种新的机制来支持不同核上任务的互斥。这种新机制不适用于同核上的任务，且将返回错误。</p>
-<p>In multi-core systems, a new mechanism is required to support mutual exclusion of tasks on different cores. This new mechanism is not applicable to tasks on the same core and will return an error.</p>
-<p>“SpinlockType”是类似于“ResourceType”，且离线配置的自旋锁。</p>
-<p>“SpinlockType” is a spinlock that is similar to “ResourceType” and configured offline.</p>
-<p>自旋锁是一种繁忙的等待机制，它轮询某个自旋锁变量（Spinlock Variable）直到可用。</p>
+<p>In multi-core systems, a new mechanism is required to support mutual exclusion among tasks on different cores. This new mechanism is not applicable to tasks on the same core and returns an error.</p>
+<p>“SpinlockType”是类似于”ResourceType”，且离线配置的自旋锁。</p>
+<p>“SpinlockType” is a spinlock similar to “ResourceType” and is configured offline.</p>
+<p>自旋锁是一种繁忙的等待机制，它轮询某个自旋锁变量(Spinlock Variable)直到可用。</p>
 <p>A spinlock is a busy-waiting mechanism that polls a spinlock variable until it becomes available.</p>
 <p>一旦自旋锁被任务或2类中断占用，其他内核上的任务或2类中断将无法占用这个自旋锁。自旋锁机制不会在轮询锁定变量时对其他任务进行调度。</p>
-<p>Once a spinlock is occupied by a task or a Class 2 interrupt, tasks or Class 2 interrupts on other cores cannot occupy this spinlock. The spinlock mechanism does not schedule other tasks while polling the lock variable.</p>
+<p>Once a spinlock is acquired by a task or a Category 2 interrupt, tasks or Category 2 interrupts on other cores cannot acquire this spinlock. The spinlock mechanism does not schedule other tasks while polling the lock variable.</p>
 <section id="getspinlock">
 <h2>GetSpinlock<a class="headerlink" href="#getspinlock" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetSpinlock</span><span class="p">(</span><span class="n">SpinlockIdType</span> <span class="n">SpinlockId</span><span class="p">)</span>
@@ -308,7 +308,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>自旋锁机制是一种主动轮询机制。该功能不会引起调度问题。</p>
-<p>The spinlock mechanism is an active polling mechanism. This function does not cause scheduling issues.</p>
+<p>The spinlock mechanism is an active polling mechanism. This functionality does not cause scheduling issues.</p>
 </li>
 </ul>
 </div>
@@ -388,10 +388,10 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>在终止任务之前，必须释放通过GetSpinlock占用的所有自旋锁变量。在调用WaitEvent之前，应释放所有自旋锁。</p>
-<p>All spinlock variables occupied via GetSpinlock must be released before terminating a task. All spinlocks should be released before calling WaitEvent.</p>
+<p>All spinlock variables acquired via GetSpinlock must be released before terminating a task. All spinlocks should be released before calling WaitEvent.</p>
 </li>
 <li><p>如果ReleaseSpinlock尝试释放未获得的自旋锁，则会发生错误。</p>
-<p>If ReleaseSpinlock attempts to release a spinlock that has not been acquired, an error will occur.</p>
+<p>An error occurs if ReleaseSpinlock attempts to release a spinlock that has not been acquired.</p>
 </li>
 </ul>
 </div>
@@ -505,8 +505,8 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>TryToGetSpinlock具有与GetSpinlock相同的功能，不同之处在于，如果自旋锁已被另一个内核上的任务占用，则该函数将设置输出参数“Success”并返回E_OK。</p>
-<p>TryToGetSpinlock has the same function as GetSpinlock, with the difference that if the spinlock is already occupied by a task on another core, this function will set the output parameter “Success” and return E_OK.</p>
+<li><p>TryToGetSpinlock具有与GetSpinlock相同的功能，不同之处在于，如果自旋锁已被另一个内核上的任务占用，则该函数将设置输出参数”Success”并返回E_OK。</p>
+<p>TryToGetSpinlock provides the same functionality as GetSpinlock, except that if the spinlock is already held by a task on another core, this function sets the output parameter “Success” and returns E_OK.</p>
 </li>
 </ul>
 </div>
@@ -521,7 +521,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Spinlock Functions</a><ul>
+<li><a class="reference internal" href="#">Spinlock(Functions)</a><ul>
 <li><a class="reference internal" href="#getspinlock">GetSpinlock</a></li>
 <li><a class="reference internal" href="#releasespinlock">ReleaseSpinlock</a></li>
 <li><a class="reference internal" href="#trytogetspinlock">TryToGetSpinlock</a></li>

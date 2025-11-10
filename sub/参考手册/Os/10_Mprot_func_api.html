@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Memory Protection Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Memory(Protection Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Memory Protection Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Memory(Protection Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/10_Mprot_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/10_Mprot_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,27 +196,27 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="memory-protection-functions">
-<h1>Memory Protection Functions<a class="headerlink" href="#memory-protection-functions" title="Link to this heading">¶</a></h1>
-<p>内存保护策略是基于可执行程序的（数据，代码和堆栈）段。</p>
-<p>The memory protection strategy is based on the (data, code, and stack) segments of the executable program.</p>
+<h1>Memory(Protection Functions)<a class="headerlink" href="#memory-protection-functions" title="Link to this heading">¶</a></h1>
+<p>内存保护策略是基于可执行程序的(数据，代码和堆栈)段。</p>
+<p>The memory protection strategy is based on the segments (data, code, and stack) of the executable program.</p>
 <p>堆栈：OS-Application包含许多任务和中断。根据定义，这些对象的堆栈仅属于所有者，因此即使这些对象属于同一OS-Application，对象之间也不应共享堆栈数据。</p>
-<p>Stack: An OS-Application contains many tasks and interrupts. By definition, the stacks of these objects belong only to their owners, so stack data should not be shared between objects even if they belong to the same OS-Application.</p>
+<p>Stack: An OS-Application contains multiple tasks and interrupts. By definition, the stacks of these objects belong exclusively to their owners; therefore, stack data should not be shared between objects, even if they belong to the same OS-Application.</p>
 <p>任务和中断堆栈的内存保护非常有用，主要有两个原因：</p>
-<p>Memory protection for task and interrupt stacks is very useful for two main reasons:</p>
+<p>Memory protection for task and interrupt stacks is highly beneficial for two main reasons:</p>
 <blockquote>
 <div><ul>
 <li><p>与堆栈监视相比，可以更直接地检测任务或中断的堆栈上溢和下溢</p>
-<p>Compared with stack monitoring, it can more directly detect stack overflows and underflows of tasks or interrupts.</p>
+<p>It enables more direct detection of stack overflow and underflow for tasks or interrupts compared to stack monitoring.</p>
 </li>
 <li><p>在OS-Application的组成部分之间提供保护，例如满足一些安全约束</p>
-<p>It provides protection between components of an OS-Application, such as meeting some security constraints.</p>
+<p>It provides protection between components of an OS-Application, such as fulfilling certain security constraints.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>数据：OS-Application具有私有数据段，而任务/中断具有私有数据段。OS-Application的所有任务/中断共享OS-Application的私有数据段。</p>
-<p>Data: An OS-Application has a private data segment, and tasks/interrupts have their own private data segments. All tasks/interrupts of an OS-Application share the private data segment of the OS-Application.</p>
-<p>代码：代码段是OS-Application专用的，也可以在所有OS-Applications之间共享（以使用共享库）。在不使用代码保护的情况下，执行不正确的代码最终将导致内存，时序或服务冲突。</p>
-<p>Code: Code segments are dedicated to an OS-Application, and can also be shared among all OS-Applications (for using shared libraries). Without code protection, executing incorrect code will eventually lead to memory, timing, or service conflicts.</p>
+<p>Data: An OS-Application has a private data segment, and tasks/interrupts have their own private data segments. All tasks/interrupts within an OS-Application share the OS-Application’s private data segment.</p>
+<p>代码：代码段是OS-Application专用的，也可以在所有OS-Applications之间共享(以使用共享库)。在不使用代码保护的情况下，执行不正确的代码最终将导致内存，时序或服务冲突。</p>
+<p>Code: Code segments are dedicated to an OS-Application but can also be shared among all OS-Applications (e.g., for using shared libraries). Without code protection, executing incorrect code will eventually result in memory, timing, or service conflicts.</p>
 <section id="checkisrmemoryaccess">
 <h2>CheckISRMemoryAccess<a class="headerlink" href="#checkisrmemoryaccess" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AccessType</span> <span class="n">CheckISRMemoryAccess</span><span class="p">(</span><span class="n">ISRType</span> <span class="n">ISRID</span><span class="p">,</span> <span class="n">MemoryStartAddressType</span> <span class="n">Address</span><span class="p">,</span> <span class="n">MemorySizeType</span> <span class="n">Size</span><span class="p">)</span>
@@ -297,7 +297,7 @@
 <p>Valid under SC3 and SC4</p>
 </li>
 <li><p>请在可信OS-Application的任务或中断中调用该服务</p>
-<p>Please call this service in a task or interrupt of a trusted OS-Application</p>
+<p>Call this service from within a task or interrupt of a trusted OS-Application.</p>
 </li>
 </ul>
 </div>
@@ -417,7 +417,7 @@
 <p>Valid under SC3 and SC4</p>
 </li>
 <li><p>请在可信OS-Application的任务或中断中调用该服务</p>
-<p>Please call this service in a task or interrupt of a trusted OS-Application</p>
+<p>Call this service from within a task or interrupt of a trusted OS-Application.</p>
 </li>
 </ul>
 </div>
@@ -432,7 +432,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Memory Protection Functions</a><ul>
+<li><a class="reference internal" href="#">Memory(Protection Functions)</a><ul>
 <li><a class="reference internal" href="#checkisrmemoryaccess">CheckISRMemoryAccess</a></li>
 <li><a class="reference internal" href="#checktaskmemoryaccess">CheckTaskMemoryAccess</a></li>
 </ul>

@@ -396,7 +396,7 @@ Configuring the external watchdog in the WdgIf module requires the following ste
 多实例看门狗配置 Multi-Instance Watchdog Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-由于系统中可能同时存在多个看门狗设备驱动（包含内部看门狗和外部看门狗），所以WdgIf模块也支持多看门狗的配置。
+由于系统中可能同时存在多个看门狗设备驱动(包含内部看门狗和外部看门狗)，所以WdgIf模块也支持多看门狗的配置。
 
 Since multiple watchdog device drivers (including both internal and external watchdogs) may exist in the system simultaneously, the WdgIf module also supports the configuration of multiple watchdogs. 
 

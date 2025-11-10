@@ -1,5 +1,5 @@
 
-类型定义（Type definition）
+类型定义(Type Definitions)
 -------------------------------
 .. 如果没有就不存在该章节，或为None
 
@@ -20,7 +20,7 @@
      - Can specific communication modes / states notified to the BswM module.
 
 
-提供的服务（Provided services）
+提供的服务(Services)
 -------------------------------------
 CanSM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

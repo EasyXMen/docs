@@ -182,7 +182,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/LinIf/LinIf.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/LinIf/LinIf.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -357,9 +357,9 @@
 </section>
 <section id="introduction">
 <h2>简介 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
-<p>本文档是 AUTOSAR R23-11 的 LIN Interface（以下简称 LinIf） 模块参考手册。旨在指导使用 LinIf 模块的用户能够清晰地了解如何去使用 LinIf 模块。</p>
+<p>本文档是 AUTOSAR R23-11 的 LIN Interface(以下简称 LinIf) 模块参考手册。旨在指导使用 LinIf 模块的用户能够清晰地了解如何去使用 LinIf 模块。</p>
 <p>This document is the reference manual for the LIN Interface (hereinafter referred to as LinIf) module of AUTOSAR R23-11. It is intended to provide users of the LinIf module with a clear understanding of how to use it.</p>
-<p>LinIf 模块包括两大功能： 用于通常通信的接口服务（LinIf） 以及用于诊断通信的数据传输服务（LinTp）。LinIf 的下层是 Lin Driver、 Lin Transceiver， 上层是 LinSM、 PduR 等。其主要功能是与通信硬件抽象层和系统服务层产生交互，为相应的通信提供服务接口。</p>
+<p>LinIf 模块包括两大功能： 用于通常通信的接口服务(LinIf) 以及用于诊断通信的数据传输服务(LinTp)。LinIf 的下层是 Lin Driver、 Lin Transceiver， 上层是 LinSM、 PduR 等。其主要功能是与通信硬件抽象层和系统服务层产生交互，为相应的通信提供服务接口。</p>
 <p>The LinIf module includes two main functions: an interface service (LinIf) for normal communication and a data transmission service (LinTp) for diagnostic communication. The lower layers of LinIf are the Lin Driver and Lin Transceiver, while the upper layers include LinSM and PduR. Its primary function is to interact with the communication hardware abstraction layer and the system service layer, providing service interfaces for the corresponding communication.</p>
 <p>本文档主要介绍了 LinIf 模块的接口函数、 类型定义， 以及 LinIf 模块配置工具的使用方法。</p>
 <p>This document primarily introduces the interface functions, type definitions of the LinIf module, and the usage of the LinIf module’s configuration tool.</p>
@@ -375,24 +375,24 @@
 <h4>功能介绍 Functional Description<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
 <p>LinIf 模块支持以下几种类型报文的接收和发送：</p>
 <p>The LinIf module supports the reception and transmission of the following message types:</p>
-<p>1.无条件帧（Unconditional frame）</p>
+<p>1.无条件帧(Unconditional frame)</p>
 <p>1.Unconditional Frame</p>
-<p>2.事件触发帧（Event-triggered frame）</p>
+<p>2.事件触发帧(Event-triggered frame)</p>
 <p>2.Event-triggered Frame</p>
-<p>3.零星帧（Sporadic frame）</p>
+<p>3.零星帧(Sporadic frame)</p>
 <p>3.Sporadic Frame</p>
-<p>4.诊断帧（Diagnostic frames）</p>
+<p>4.诊断帧(Diagnostic frames)</p>
 <p>4.Diagnostic Frames</p>
 </section>
 <section id="id2">
 <h4>功能描述 Functional Description<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
 <section id="unconditional-frame-unconditional-frame">
-<h5>无条件帧（Unconditional frame）：Unconditional Frame:<a class="headerlink" href="#unconditional-frame-unconditional-frame" title="Link to this heading">¶</a></h5>
+<h5>无条件帧(Unconditional frame)：Unconditional Frame:<a class="headerlink" href="#unconditional-frame-unconditional-frame" title="Link to this heading">¶</a></h5>
 <section id="master-node">
 <h6>主节点 Master Node<a class="headerlink" href="#master-node" title="Link to this heading">¶</a></h6>
-<p>根据调度表的配置， 当前帧为发送的无条件帧时， LinIf 调用&lt;User_TriggerTransmit&gt;从上层模块获取数据， 然后调用 Lin_SendFrame(),将第二个参数中的（Lin_PduType 类型） Pid， Cs， Dl 设置为配置数据中的值， 将 Drc设置为发送， 将 SduPtr 设置为存放从上层获取到的数据的地址。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认当前发送的结果。</p>
+<p>根据调度表的配置， 当前帧为发送的无条件帧时， LinIf 调用&lt;User_TriggerTransmit&gt;从上层模块获取数据， 然后调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值， 将 Drc设置为发送， 将 SduPtr 设置为存放从上层获取到的数据的地址。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认当前发送的结果。</p>
 <p>According to the schedule table, when the current frame is a transmitted unconditional frame, LinIf calls &lt;User_TriggerTransmit&gt; to get data from the upper layer module, and then calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to transmit, and setting SduPtr to the address where the data obtained from the upper layer is stored.  Then, when the next schedule table Entry arrives, it calls Lin_GetStatus to confirm the result of the current transmission.</p>
-<p>根据调度表的调度， 当前帧为接收的无条件帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的（Lin_PduType 类型） Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态， 并获取接收到的收据。然后调用&lt;User_RxIndication&gt;将接收到的数据发送给上层模块。</p>
+<p>根据调度表的调度， 当前帧为接收的无条件帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态， 并获取接收到的收据。然后调用&lt;User_RxIndication&gt;将接收到的数据发送给上层模块。</p>
 <p>According to the schedule table, when the current frame is a received unconditional frame, LinIf calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to receive, and setting SduPtr to NULL_PTR.  Then, when the next schedule table Entry arrives, it calls Lin_GetStatus to confirm the reception status and retrieve the received data.  It then calls &lt;User_RxIndication&gt; to send the received data to the upper layer module.</p>
 </section>
 <section id="slave-node">
@@ -408,25 +408,25 @@
 </section>
 </section>
 <section id="event-triggered-frame-event-triggered-frame">
-<h5>事件触发帧（Event-triggered frame）：Event-triggered Frame:<a class="headerlink" href="#event-triggered-frame-event-triggered-frame" title="Link to this heading">¶</a></h5>
+<h5>事件触发帧(Event-triggered frame)：Event-triggered Frame:<a class="headerlink" href="#event-triggered-frame-event-triggered-frame" title="Link to this heading">¶</a></h5>
 <section id="id3">
 <h6>主节点 Master Node<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h6>
-<p>根据调度表的配置， 当前帧为事件触发帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的（Lin_PduType 类型） Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态。如果正确接收则继续按照调度表处理后续报文， 如果总线发生碰撞， 则切换到冲突解决调度表， 将该事件触发帧关联的无条件帧都轮询一遍。</p>
+<p>根据调度表的配置， 当前帧为事件触发帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态。如果正确接收则继续按照调度表处理后续报文， 如果总线发生碰撞， 则切换到冲突解决调度表， 将该事件触发帧关联的无条件帧都轮询一遍。</p>
 <p>According to the schedule table configuration, when the current frame is an event-triggered frame, LinIf calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to receive, and setting SduPtr to NULL_PTR.  Then, when the next schedule table entry arrives, it calls Lin_GetStatus to confirm the reception status.  If the reception is successful, it continues to process subsequent messages according to the schedule table. If a bus collision occurs, it switches to the collision resolution schedule table and polls all the unconditional frames associated with this event-triggered frame.</p>
 </section>
 <section id="id4">
 <h6>从节点 Slave Node<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h6>
-<p>当 LinIf_HeaderIndication(Channel, PduPtr)被 Lin 模块调用时， LinIf 判断是否有发送标志位（LinIf_Transmit 被调用时， LinIf 设置发送标志位）， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则忽略（将 Drc 设置为忽略） 该通知。</p>
+<p>当 LinIf_HeaderIndication(Channel, PduPtr)被 Lin 模块调用时， LinIf 判断是否有发送标志位(LinIf_Transmit 被调用时， LinIf 设置发送标志位)， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则忽略(将 Drc 设置为忽略) 该通知。</p>
 <p>When LinIf_HeaderIndication(Channel, PduPtr) is called by the Lin module, LinIf checks if a transmit flag is set (the transmit flag is set by LinIf when LinIf_Transmit is called). If the transmit flag is set, the process is consistent with that for a normal unconditional frame transmission. Upon receiving LinIf_TxConfirmation(E_OK), the transmit flag is cleared; otherwise, the transmit flag is retained.  If the transmit flag is not set, this notification is ignored (by setting Drc to ignore).</p>
 </section>
 </section>
 <section id="sporadic-frame-sporadic-frame">
-<h5>零星帧（Sporadic frame）：Sporadic Frame<a class="headerlink" href="#sporadic-frame-sporadic-frame" title="Link to this heading">¶</a></h5>
+<h5>零星帧(Sporadic frame)：Sporadic Frame<a class="headerlink" href="#sporadic-frame-sporadic-frame" title="Link to this heading">¶</a></h5>
 <section id="id5">
 <h6>主节点 Master Node<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h6>
 <p>零星帧只有主节点可以发送。</p>
 <p>Only the master node can transmit sporadic frames.</p>
-<p>根据调度表的配置， 当前帧为零星帧时， LinIf 判断是否有发送标志位（LinIf_Transmit 被调用时， LinIf 设置发送标志位）， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到 LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则不需要发送报文。</p>
+<p>根据调度表的配置， 当前帧为零星帧时， LinIf 判断是否有发送标志位(LinIf_Transmit 被调用时， LinIf 设置发送标志位)， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到 LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则不需要发送报文。</p>
 <p>According to the schedule table configuration, when the current frame is a sporadic frame, LinIf checks if a transmit flag is set (the transmit flag is set by LinIf when LinIf_Transmit is called). If the transmit flag is set, the process is consistent with that for a normal unconditional frame transmission. Upon receiving LinIf_TxConfirmation(E_OK), the transmit flag is cleared; otherwise, the transmit flag is retained. If the transmit flag is not set, no message is transmitted.</p>
 </section>
 <section id="id6">
@@ -436,8 +436,8 @@
 </section>
 </section>
 <section id="diagnostic-frames-diagnostic-frames">
-<h5>诊断帧（Diagnostic frames）：Diagnostic Frames:<a class="headerlink" href="#diagnostic-frames-diagnostic-frames" title="Link to this heading">¶</a></h5>
-<p>节点配置（Node configuration） 和诊断使用相同的 MRF 和 SRF。</p>
+<h5>诊断帧(Diagnostic frames)：Diagnostic Frames:<a class="headerlink" href="#diagnostic-frames-diagnostic-frames" title="Link to this heading">¶</a></h5>
+<p>节点配置(Node configuration) 和诊断使用相同的 MRF 和 SRF。</p>
 <p>Node configuration and diagnostics use the same MRF and SRF.</p>
 <section id="id7">
 <h6>主节点 Master Node<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h6>
@@ -464,14 +464,14 @@
 <h4>功能介绍 Functional Description<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h4>
 <p>LIN 通信需要根据提前配置好的调度表进行通信， 一个节点可以有多个调度表， 以便在不同的情况下使用。</p>
 <p>LIN communication must proceed according to a pre-configured schedule table. A node can have multiple schedule tables for use in different situations.</p>
-<p>LinIf 需要根据调度表管理报文的发送（按照次序发送 Header）， 并且能够根据上层模块的要求进行调度表的切换。</p>
+<p>LinIf 需要根据调度表管理报文的发送(按照次序发送 Header)， 并且能够根据上层模块的要求进行调度表的切换。</p>
 <p>LinIf is responsible for managing message transmission (sending headers in sequence) according to the schedule table and must be able to switch schedule tables as requested by upper layer modules.</p>
 <p>只有主节点具有调度表管理功能。</p>
 <p>Only the master node has the schedule table management function.</p>
 </section>
 <section id="functional-implementation">
 <h4>功能实现 Functional Implementation<a class="headerlink" href="#functional-implementation" title="Link to this heading">¶</a></h4>
-<p>上电后 LinIf 默认使用 NULL_SCHEDULE 调度表，该调度表为空调度表，不发送和接收任何报文。当 LinIf_ScheduleRequest ()被调用时， LinIf 记录该请求。在 MainFunction 中，判断是否可以切换调度表（RUN_ONCE 调度表不能被中断），并进行调度表切换。在发生调度表切换时调用&lt;User&gt;_ScheduleRequestConfirmation 将当前切换的调度表通知上层模块。</p>
+<p>上电后 LinIf 默认使用 NULL_SCHEDULE 调度表，该调度表为空调度表，不发送和接收任何报文。当 LinIf_ScheduleRequest ()被调用时， LinIf 记录该请求。在 MainFunction 中，判断是否可以切换调度表(RUN_ONCE 调度表不能被中断)，并进行调度表切换。在发生调度表切换时调用&lt;User&gt;_ScheduleRequestConfirmation 将当前切换的调度表通知上层模块。</p>
 <p>After power-on, LinIf defaults to using the NULL_SCHEDULE, which is an empty schedule table that does not transmit or receive any messages. When LinIf_ScheduleRequest() is called, LinIf records the request. In the MainFunction, it checks if a schedule table switch is possible (a RUN_ONCE schedule table cannot be interrupted) and performs the switch. When a schedule table switch occurs, &lt;User&gt;_ScheduleRequestConfirmation is called to notify the upper layer module of the currently active schedule table.</p>
 </section>
 </section>
@@ -488,7 +488,7 @@
 <h4>功能实现 Functional Implementation<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h4>
 <section id="id12">
 <h5>主节点 Master Node<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h5>
-<p>当 LinIf_GotoSleep()被调用时，LinIf 判断当前通道是否为睡眠状态，如果为非睡眠状态则调用 Lin_GoToSleep()发送睡眠命令，如果当前通道为睡眠状态，则调用 Lin_GoToSleepInternal()接口，进行内部的状态转换。在经过睡眠处理的延时之后（4s-10s， 由配置决定），调用 Lin_GetStatus()查看当前总线是否进入睡眠状态， 如果总线进入睡眠状态，LinIf 切换到睡眠状态，并且调用&lt;User&gt;_GotoSleepConfirmation()通知上层模块。</p>
+<p>当 LinIf_GotoSleep()被调用时，LinIf 判断当前通道是否为睡眠状态，如果为非睡眠状态则调用 Lin_GoToSleep()发送睡眠命令，如果当前通道为睡眠状态，则调用 Lin_GoToSleepInternal()接口，进行内部的状态转换。在经过睡眠处理的延时之后(4s-10s， 由配置决定)，调用 Lin_GetStatus()查看当前总线是否进入睡眠状态， 如果总线进入睡眠状态，LinIf 切换到睡眠状态，并且调用&lt;User&gt;_GotoSleepConfirmation()通知上层模块。</p>
 <p>When LinIf_GotoSleep() is called, LinIf checks if the current channel is in a sleep state. If it is not, it calls Lin_GoToSleep() to send a sleep command. If the channel is already in a sleep state, it calls the Lin_GoToSleepInternal() interface to perform an internal state transition. After a sleep processing delay (4s-10s, determined by configuration), Lin_GetStatus() is called to check if the bus has entered the sleep state. If the bus has entered the sleep state, LinIf switches to the sleep state and calls &lt;User&gt;_GotoSleepConfirmation() to notify the upper layer module.</p>
 </section>
 <section id="id13">
@@ -533,7 +533,7 @@
 </section>
 </section>
 <section id="tp-diagnostic-transport-protocol-tp">
-<h3>诊断传输协议（TP） Diagnostic Transport Protocol (TP)<a class="headerlink" href="#tp-diagnostic-transport-protocol-tp" title="Link to this heading">¶</a></h3>
+<h3>诊断传输协议(TP) Diagnostic Transport Protocol (TP)<a class="headerlink" href="#tp-diagnostic-transport-protocol-tp" title="Link to this heading">¶</a></h3>
 <section id="id20">
 <h4>功能介绍 Functional Description<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h4>
 <p>传输协议实现了 ISO 17987 规范中对诊断传输协议的要求。</p>
@@ -552,7 +552,7 @@
 </section>
 <section id="id23">
 <h5>从节点 Slave Node<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h5>
-<p>LinIf 在接收到 MRF 报文时， 调用 PduR_LinTpStartOfReception()准备接收（FF 或者 SF）， 然后调用 PduR_LinTpCopyRxData()将数据传送到上层模块。后续在接收到 CF 时， 反复调用 PduR_LinTpCopyRxData()向上层传送数据， 直到接收完成， 调用 PduR_LinTpRxIndication()通知上层模块。</p>
+<p>LinIf 在接收到 MRF 报文时， 调用 PduR_LinTpStartOfReception()准备接收(FF 或者 SF)， 然后调用 PduR_LinTpCopyRxData()将数据传送到上层模块。后续在接收到 CF 时， 反复调用 PduR_LinTpCopyRxData()向上层传送数据， 直到接收完成， 调用 PduR_LinTpRxIndication()通知上层模块。</p>
 <p>When LinIf receives an MRF message, it calls PduR_LinTpStartOfReception() to prepare for reception (of an FF or SF) and then calls PduR_LinTpCopyRxData() to transfer the data to the upper layer module. Subsequently, upon receiving CFs, it repeatedly calls PduR_LinTpCopyRxData() to transfer data to the upper layer until reception is complete, and then calls PduR_LinTpRxIndication() to notify the upper layer module.</p>
 <p>用户调用 LinTp_Transmit()发起报文发送请求， 当收到 SRF 时， LinIf 模块重复调用 PduR_LinTpCopyTxData()从上层获取数据， 在发送完最后一帧数据后调用 PduR_LinTpTxConfirmation()通知上层模块。</p>
 <p>The user initiates a message transmission request by calling LinTp_Transmit(). When an SRF is received, the LinIf module repeatedly calls PduR_LinTpCopyTxData() to retrieve data from the upper layer. After the last frame is transmitted, it calls PduR_LinTpTxConfirmation() to notify the upper layer module.</p>
@@ -598,7 +598,7 @@
 <td><p>LinIf 模块函数和变量存储位置定义文件。(Storage position definition files of functions and variables for the LinIf module.)</p></td>
 </tr>
 <tr class="row-even"><td><p>LinIf.h</p></td>
-<td><p>LinIf 模块头文件，通过加载该头文件访问LinIf（包括LinTp）公开的函数和数据类型。（外部模块使用时只需要加载 LinIf.h， LinTp.h包含在 LinIf.h 中）。(LinIf module header file; access the public functions and data types of LinIf by loading this header file) (External modules only need to load LinIf.h, as LinTp.h is included within LinIf.h.)</p></td>
+<td><p>LinIf 模块头文件，通过加载该头文件访问LinIf(包括LinTp)公开的函数和数据类型。(外部模块使用时只需要加载 LinIf.h， LinTp.h包含在 LinIf.h 中)。(LinIf module header file; access the public functions and data types of LinIf by loading this header file) (External modules only need to load LinIf.h, as LinTp.h is included within LinIf.h.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>LinIf.c</p></td>
 <td><p>LinIf 模块实现源文件， 各 API 实现在该文件中。(LinIf module implementation source file; various APIs are implemented in this file.)</p></td>
@@ -2655,22 +2655,22 @@ ChannelRef</p></td>
 <li><a class="reference internal" href="#message-transmission">报文传输 Message Transmission</a><ul>
 <li><a class="reference internal" href="#id1">功能介绍 Functional Description</a></li>
 <li><a class="reference internal" href="#id2">功能描述 Functional Description</a><ul>
-<li><a class="reference internal" href="#unconditional-frame-unconditional-frame">无条件帧（Unconditional frame）：Unconditional Frame:</a><ul>
+<li><a class="reference internal" href="#unconditional-frame-unconditional-frame">无条件帧(Unconditional frame)：Unconditional Frame:</a><ul>
 <li><a class="reference internal" href="#master-node">主节点 Master Node</a></li>
 <li><a class="reference internal" href="#slave-node">从节点 Slave Node</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#event-triggered-frame-event-triggered-frame">事件触发帧（Event-triggered frame）：Event-triggered Frame:</a><ul>
+<li><a class="reference internal" href="#event-triggered-frame-event-triggered-frame">事件触发帧(Event-triggered frame)：Event-triggered Frame:</a><ul>
 <li><a class="reference internal" href="#id3">主节点 Master Node</a></li>
 <li><a class="reference internal" href="#id4">从节点 Slave Node</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sporadic-frame-sporadic-frame">零星帧（Sporadic frame）：Sporadic Frame</a><ul>
+<li><a class="reference internal" href="#sporadic-frame-sporadic-frame">零星帧(Sporadic frame)：Sporadic Frame</a><ul>
 <li><a class="reference internal" href="#id5">主节点 Master Node</a></li>
 <li><a class="reference internal" href="#id6">从节点 Slave Node</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#diagnostic-frames-diagnostic-frames">诊断帧（Diagnostic frames）：Diagnostic Frames:</a><ul>
+<li><a class="reference internal" href="#diagnostic-frames-diagnostic-frames">诊断帧(Diagnostic frames)：Diagnostic Frames:</a><ul>
 <li><a class="reference internal" href="#id7">主节点 Master Node</a></li>
 <li><a class="reference internal" href="#id8">从节点 Slave Node</a></li>
 </ul>
@@ -2707,7 +2707,7 @@ ChannelRef</p></td>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#tp-diagnostic-transport-protocol-tp">诊断传输协议（TP） Diagnostic Transport Protocol (TP)</a><ul>
+<li><a class="reference internal" href="#tp-diagnostic-transport-protocol-tp">诊断传输协议(TP) Diagnostic Transport Protocol (TP)</a><ul>
 <li><a class="reference internal" href="#id20">功能介绍 Functional Description</a></li>
 <li><a class="reference internal" href="#id21">功能实现 Functional Implementation</a><ul>
 <li><a class="reference internal" href="#id22">主节点 Master Node</a></li>

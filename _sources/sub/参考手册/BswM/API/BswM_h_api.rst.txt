@@ -19,7 +19,7 @@
      - BswM_PbConfigType
      - Manager. A pointer to this structure is passed to the BSW Mode Manager initialization function for configuration. This container exists once per partition.
 
-提供的服务(Provided services)
+提供的服务 (Services)
 ------------------------------------
 
 BswM_Init

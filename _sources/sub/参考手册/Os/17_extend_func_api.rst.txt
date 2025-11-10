@@ -1,9 +1,9 @@
-Extend Functions
+Extend(Functions)
 --------------------------------------
 
 Extend模块为用户提供了一些扩展功能：获取系统堆栈、任务堆栈、ISR堆栈使用情况的接口，检查版本信息的接口，获取检查ISR中断源的接口，检查CPU信息的接口。
 
-The Extend module provides users with several extended functions: interfaces for obtaining the usage of system stacks, task stacks, and ISR stacks; interfaces for checking version information; interfaces for obtaining and checking ISR interrupt sources; and interfaces for checking CPU information.
+The Extend module provides users with several extended functions: interfaces for obtaining system stack, task stack, and ISR stack usage; interfaces for checking version information; interfaces for acquiring and checking ISR interrupt sources; and interfaces for checking CPU information.
 
 
 OSGetVersionInfo

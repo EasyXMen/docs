@@ -182,7 +182,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/UdpNm/UdpNm.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/UdpNm/UdpNm.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -399,7 +399,7 @@
 <h2>简介 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>UdpNm模块的核心功能是协调网络正常运行和总线睡眠模式之间的转换，除此之外，还提供了可选功能，例如检测当前节点或检测其他所有节点是否准备休眠等。</p>
 <p>The core function of the UdpNm module is to coordinate the transition between normal network running and bus-sleep mode. In addition, it provides optional functions, such as detecting whether the local node or all other nodes are ready to sleep.</p>
-<p>UdpNm提供网络管理接口（Nm）和TCP/IP协议栈之间的适配。UdpNm通过调用SoAd模块的发送API来传输数据，并提供接收API给SoAd用于接收下层网络管理报文。Nm模块调用UdpNm模块API来更改UdpNm的当前状态机状态，UdpNm的状态机模式切换需要通知给Nm模块。</p>
+<p>UdpNm提供网络管理接口(Nm)和TCP/IP协议栈之间的适配。UdpNm通过调用SoAd模块的发送API来传输数据，并提供接收API给SoAd用于接收下层网络管理报文。Nm模块调用UdpNm模块API来更改UdpNm的当前状态机状态，UdpNm的状态机模式切换需要通知给Nm模块。</p>
 <p>UdpNm provides the adaptation between the Network Management interface (Nm) and the TCP/IP protocol stack. UdpNm transmits data by calling the transmission APIs of the SoAd module and provides reception APIs for SoAd to receive network management messages from the lower layers. The Nm module calls the APIs of the UdpNm module to change the current state machine state of UdpNm, and state machine mode switches in the UdpNm module need to be notified to the Nm module.</p>
 <figure class="align-center" id="id3">
 <img alt="Autosar通信栈 (Autosar Communication Stack)" src="../../../_images/ComStack.png" />
@@ -418,14 +418,14 @@
 <p>The AUTOSAR UdpNm coordination algorithm is based on periodic NM packets, which are received via broadcast by all nodes in the cluster. The reception of an NM packet indicates that the sending node wants to keep the NM cluster awake. If any node is ready to enter the bus-sleep mode, it stops sending NM packets but postpones the transition to bus-sleep mode as long as it receives NM packets from other nodes. If no NM packets are received before a dedicated timer expires, each node initiates the transition to the bus-sleep mode. UdpNm accomplishes this coordination algorithm through state machine switches and the management of various state timers.</p>
 <section id="channel-state-management-function">
 <h4>通道状态管理功能 Channel State Management Function<a class="headerlink" href="#channel-state-management-function" title="Link to this heading">¶</a></h4>
-<p>从网络管理集群中单个节点的角度来看，AUTOSAR UdpNm状态机包含算法所需的状态、切换和触发。通道的状态切换在触发切换后的下一个主函数中处理，且每当模式切换完成后通过API将状态通知到上层节点（NmIf）。</p>
+<p>从网络管理集群中单个节点的角度来看，AUTOSAR UdpNm状态机包含算法所需的状态、切换和触发。通道的状态切换在触发切换后的下一个主函数中处理，且每当模式切换完成后通过API将状态通知到上层节点(NmIf)。</p>
 <p>From the perspective of a single node in the network management cluster, the AUTOSAR UdpNm state machine contains the states, switches, and triggers required by the algorithm. Channel state switches are processed in the next main function after a switch is triggered, and whenever a mode switch is completed, the state is notified to the upper layer module (NmIf) via an API.</p>
-<p>AUTOSAR UdpNm状态机包含三种操作模式（Mode）：</p>
+<p>AUTOSAR UdpNm状态机包含三种操作模式(Mode)：</p>
 <p>The AUTOSAR UdpNm state machine consists of three operating modes:</p>
 <ul class="simple">
-<li><p>Network Mode（网络模式）</p></li>
-<li><p>Prepare Bus-Sleep Mode（总线预睡眠模式）</p></li>
-<li><p>Bus-Sleep Mode（总线睡眠模式）</p></li>
+<li><p>Network Mode(网络模式)</p></li>
+<li><p>Prepare Bus-Sleep Mode(总线预睡眠模式)</p></li>
+<li><p>Bus-Sleep Mode(总线睡眠模式)</p></li>
 </ul>
 <figure class="align-center" id="id4">
 <img alt="UdpNmStackMachine" src="../../../_images/UdpNmStateMachine.png" />
@@ -435,20 +435,20 @@
 </figure>
 <section id="network-mode">
 <h5>网络模式 Network Mode<a class="headerlink" href="#network-mode" title="Link to this heading">¶</a></h5>
-<p>网络模式包含以下三个子状态（State）：</p>
+<p>网络模式包含以下三个子状态(State)：</p>
 <p>The Network Mode contains the following three sub-states:</p>
 <ul class="simple">
-<li><p>Repeat Message State（重复报文状态）</p></li>
-<li><p>Normal Operation State（正常运行状态）</p></li>
-<li><p>Ready Sleep State（准备睡眠状态）</p></li>
+<li><p>Repeat Message State(重复报文状态)</p></li>
+<li><p>Normal Operation State(正常运行状态)</p></li>
+<li><p>Ready Sleep State(准备睡眠状态)</p></li>
 </ul>
 <section id="repeat-message-state">
 <h6>重复报文状态 Repeat Message State<a class="headerlink" href="#repeat-message-state" title="Link to this heading">¶</a></h6>
 <p>当节点配置为Passive Mode的节点，意味着该节点只能接受报文而不能传输任何报文，关于Passive Mode具体的将在下面章节中进行说明。</p>
 <p>When a node is configured in Passive Mode, it means that the node can only receive messages and cannot transmit any messages. Passive Mode will be explained in more detail in a later section.</p>
-<p>对于非Passive Mode的节点，Repeat Message State可确保从Bus-Sleep或Prepare Bus-Sleep到Network Mode的任何过渡对于网络上的其他节点都是可见的。此外，它确保所有节点在UdpNmRepeatMessageTime（配置参数）内保持活动状态。当UdpNmRepeatMessageTime配置为0，表示未配置Repeat Message State。这意味着Repeat Message State是瞬态的，在进入后立即离开，因此无法保证启动稳定性，并且无法执行节点检测过程。当UdpNmRepeatMessageTime超时后，节点将离开Repeat Message State而切至其他状态。若当前网络状态为请求，切换到Normal Operation State，若当前网络状态为释放，切换到Ready Sleep State。</p>
+<p>对于非Passive Mode的节点，Repeat Message State可确保从Bus-Sleep或Prepare Bus-Sleep到Network Mode的任何过渡对于网络上的其他节点都是可见的。此外，它确保所有节点在UdpNmRepeatMessageTime(配置参数)内保持活动状态。当UdpNmRepeatMessageTime配置为0，表示未配置Repeat Message State。这意味着Repeat Message State是瞬态的，在进入后立即离开，因此无法保证启动稳定性，并且无法执行节点检测过程。当UdpNmRepeatMessageTime超时后，节点将离开Repeat Message State而切至其他状态。若当前网络状态为请求，切换到Normal Operation State，若当前网络状态为释放，切换到Ready Sleep State。</p>
 <p>For nodes not in Passive Mode, the Repeat Message State ensures that any transition from Bus-Sleep or Prepare Bus-Sleep to Network Mode is visible to other nodes on the network. Furthermore, it ensures that all nodes remain active within the UdpNmRepeatMessageTime (a configuration parameter). If UdpNmRepeatMessageTime is configured to 0, it indicates that the Repeat Message State is not configured. This means that the Repeat Message State is transient and is exited immediately upon entry. Consequently, startup stability cannot be guaranteed, and the node detection procedure cannot be performed. When UdpNmRepeatMessageTime expires, the node will leave the Repeat Message State and transition to another state. If the current network state is “requested”, it switches to the Normal Operation State. If the current network state is “released”, it switches to the Ready Sleep State.</p>
-<p>当非Passive Mode的节点从Bus-Sleep Mode, Prepare-Bus-Sleep Mode，Normal Operation State或Ready Sleep State进入Repeat Message State时，传输功能应该被重启，为了防止总线数据爆发，降低负载，每次进入Repeat Message State时，都要延迟UdpNmMsgCycleOffset（配置参数）段时间后，再开始传输数据，若配置UdpNmImmediateNmTransmissions并且网络被请求则不需要延迟UdpNmMsgCycleOffset时间。</p>
+<p>当非Passive Mode的节点从Bus-Sleep Mode, Prepare-Bus-Sleep Mode，Normal Operation State或Ready Sleep State进入Repeat Message State时，传输功能应该被重启，为了防止总线数据爆发，降低负载，每次进入Repeat Message State时，都要延迟UdpNmMsgCycleOffset(配置参数)段时间后，再开始传输数据，若配置UdpNmImmediateNmTransmissions并且网络被请求则不需要延迟UdpNmMsgCycleOffset时间。</p>
 <p>When a non-Passive Mode node enters the Repeat Message State from Bus-Sleep Mode, Prepare-Bus-Sleep Mode, Normal Operation State, or Ready Sleep State, the transmission function shall be restarted. To prevent a burst of data on the bus and to reduce the load, a delay of UdpNmMsgCycleOffset (a configuration parameter) is introduced each time the Repeat Message State is entered before data transmission begins. However, if UdpNmImmediateNmTransmissions is configured and the network is requested, the UdpNmMsgCycleOffset delay is not necessary.</p>
 </section>
 <section id="normal-operation-state">
@@ -460,7 +460,7 @@
 <h6>准备睡眠状态 Ready Sleep State<a class="headerlink" href="#ready-sleep-state" title="Link to this heading">¶</a></h6>
 <p>Ready Sleep State可确保NM群集中的任何节点都在等待过渡到Prepare Bus-Sleep Mode。</p>
 <p>The Ready Sleep State ensures that any node in the NM cluster is waiting to transition to the Prepare Bus-Sleep Mode.</p>
-<p>当进入Ready Sleep State，本节点就不再传输数据。当节点接收到其他节点传输的报文时，会将NM-Timeout定时器重置，当NM-Timeout定时器超时且处于Ready Sleep State时，网络管理进入Prepare Bus-Sleep Mode。其中NM-Timeout定时器的时间是由UdpNmTimeoutTime（配置参数）决定的。</p>
+<p>当进入Ready Sleep State，本节点就不再传输数据。当节点接收到其他节点传输的报文时，会将NM-Timeout定时器重置，当NM-Timeout定时器超时且处于Ready Sleep State时，网络管理进入Prepare Bus-Sleep Mode。其中NM-Timeout定时器的时间是由UdpNmTimeoutTime(配置参数)决定的。</p>
 <p>Upon entering the Ready Sleep State, the local node stops transmitting data. When the node receives a message transmitted by another node, it resets the NM-Timeout timer. When the NM-Timeout timer expires and the node is in the Ready Sleep State, the network management enters the Prepare Bus-Sleep Mode. The duration of the NM-Timeout timer is determined by UdpNmTimeoutTime (a configuration parameter).</p>
 </section>
 </section>
@@ -468,11 +468,11 @@
 <h5>总线预睡眠模式 Prepare Bus-Sleep Mode<a class="headerlink" href="#prepare-bus-sleep-mode" title="Link to this heading">¶</a></h5>
 <p>Prepare Bus Sleep state目的是确保所有节点都有时间在进入总线休眠状态之前停止其网络活动，使总线活动平静下来，最后在“准备总线睡眠模式”下总线上没有任何活动。</p>
 <p>The purpose of the Prepare Bus Sleep state is to ensure that all nodes have time to stop their network activities before entering the bus-sleep state, allowing bus activity to quiet down. Ultimately, there shall be no activity on the bus in the “Prepare Bus-Sleep Mode”.</p>
-<p>当本节点进入Prepare Bus-Sleep Mode，UdpNmWaitBusSleepTime（配置参数）定时器被启动，当UdpNmWaitBusSleepTime定时器超时，当前状态将由Prepare Bus-Sleep Mode切换至Bus-Sleep Mode。</p>
+<p>当本节点进入Prepare Bus-Sleep Mode，UdpNmWaitBusSleepTime(配置参数)定时器被启动，当UdpNmWaitBusSleepTime定时器超时，当前状态将由Prepare Bus-Sleep Mode切换至Bus-Sleep Mode。</p>
 <p>When the local node enters the Prepare Bus-Sleep Mode, the UdpNmWaitBusSleepTime (a configuration parameter) timer is started. When the UdpNmWaitBusSleepTime timer expires, the current state switches from Prepare Bus-Sleep Mode to Bus-Sleep Mode.</p>
 <p>如果在Prepare Bus-Sleep Mode接收到其他节点传输的网络管理报文时，当前UdpNm状态将由Prepare Bus-Sleep Mode切换至Network Mode， 默认情况下，将进入Repeat Message State。</p>
 <p>If a network management message from another node is received in the Prepare Bus-Sleep Mode, the current UdpNm state will switch from Prepare Bus-Sleep Mode to Network Mode, and by default, will enter the Repeat Message State.</p>
-<p>如果在Prepare Bus-Sleep Mode接收到网络请求时，当前状态将由Prepare Bus-Sleep Mode切换至Network Mode， 默认情况下，将进入Repeat Message State。如果UdpNmImmediateRestartEnabled（配置参数）被设置为TRUE，那么在这种情况下会立刻触发一次传输，这样做的理由是：集群中的其他节点仍处于Prepare Bus-Sleep Mode，在这种特殊情况下，应避免过渡到Bus-Sleep Mode，并应尽快恢复总线通信。由于UdpNm中网络管理PDU的传输偏移导致，处于Repeat Message State的第一个网络管理PDU的传输可能会大大延迟。为了避免延迟重新启动网络可以立即请求发送网络管理PDU。</p>
+<p>如果在Prepare Bus-Sleep Mode接收到网络请求时，当前状态将由Prepare Bus-Sleep Mode切换至Network Mode， 默认情况下，将进入Repeat Message State。如果UdpNmImmediateRestartEnabled(配置参数)被设置为TRUE，那么在这种情况下会立刻触发一次传输，这样做的理由是：集群中的其他节点仍处于Prepare Bus-Sleep Mode，在这种特殊情况下，应避免过渡到Bus-Sleep Mode，并应尽快恢复总线通信。由于UdpNm中网络管理PDU的传输偏移导致，处于Repeat Message State的第一个网络管理PDU的传输可能会大大延迟。为了避免延迟重新启动网络可以立即请求发送网络管理PDU。</p>
 <p>If a network request is received in the Prepare Bus-Sleep Mode, the current state will switch from Prepare Bus-Sleep Mode to Network Mode, and by default, will enter the Repeat Message State. If UdpNmImmediateRestartEnabled (a configuration parameter) is set to TRUE, a transmission will be triggered immediately in this case. The rationale for this is that other nodes in the cluster are still in the Prepare Bus-Sleep Mode, and in this specific situation, the transition to Bus-Sleep Mode shall be avoided, and bus communication shall be restored as quickly as possible. Due to the transmission offset of the network management PDU in UdpNm, the transmission of the first network management PDU in the Repeat Message State can be significantly delayed.  To avoid a delayed network restart, a request to send the network management PDU can be made immediately.</p>
 </section>
 <section id="bus-sleep-mode">
@@ -545,38 +545,38 @@
 <h5>检测远程睡眠指示 Remote Sleep Indication Detection<a class="headerlink" href="#remote-sleep-indication-detection" title="Link to this heading">¶</a></h5>
 <p>远程睡眠指示应用于一种情况，当处于Normal Operation State的节点发现集群中的所有其他节点都准备睡眠，但处于Normal Operation State状态的节点仍将保持总线苏醒。为了避免这种情况，可以使能远程睡眠指示功能。</p>
 <p>Remote sleep indication is used in a situation where a node in the Normal Operation State detects that all other nodes in the cluster are ready to sleep, but the node in the Normal Operation State would otherwise keep the bus awake. To avoid this, the remote sleep indication function can be enabled.</p>
-<p>如果当前UdpNm状态为Normal Operation State，并且在UdpNmRemoteSleepIndTime（配置参数）定时器内未收到其他节点发送的网络管理报文，则通知上层Nm模块集群内的其他节点均已准备睡眠。</p>
+<p>如果当前UdpNm状态为Normal Operation State，并且在UdpNmRemoteSleepIndTime(配置参数)定时器内未收到其他节点发送的网络管理报文，则通知上层Nm模块集群内的其他节点均已准备睡眠。</p>
 <p>If the current UdpNm state is Normal Operation State and no network management messages have been received from other nodes within the UdpNmRemoteSleepIndTime (a configuration parameter) timer, the upper-layer Nm module is notified that all other nodes in the cluster are ready to sleep.</p>
 <p>如果UdpNm已通知上层Nm模块，而在Normal Operation State或Ready Sleep State下又收到了网络管理报文，或者UdpNm从Normal Operation State切换至Repeat Message State，UdpNm需要通知上层Nm模块集群中的某些节点不再准备睡眠。</p>
 <p>If UdpNm has already notified the upper-layer Nm module, and a network management message is received in the Normal Operation State or Ready Sleep State, or if UdpNm switches from the Normal Operation State to the Repeat Message State, UdpNm needs to notify the upper-layer Nm module that some nodes in the cluster are no longer ready to sleep.</p>
 </section>
 <section id="user-data">
 <h5>用户数据 User Data<a class="headerlink" href="#user-data" title="Link to this heading">¶</a></h5>
-<p>使用UdpNmUserDataEnabled开关（配置参数）对NM用户数据的支持进行静态配置。</p>
+<p>使用UdpNmUserDataEnabled开关(配置参数)对NM用户数据的支持进行静态配置。</p>
 <p>Support for NM user data is statically configured using the UdpNmUserDataEnabled switch (a configuration parameter).</p>
 <p>当用户数据功能使能，可以调用UdpNm_SetUserData，该函数可以设置总线上接下来发送的NM数据包的NM用户数据。也可以调用UdpNm_GetUserDat，该函数可以提供包含在最近接收到的NM PDU的有效载荷中的NM用户数据。</p>
 <p>When the user data function is enabled, UdpNm_SetUserData can be called to set the NM user data for the next NM packet to be sent on the bus. UdpNm_GetUserData can also be called to retrieve the NM user data contained in the payload of the most recently received NM PDU.</p>
-<p>如果UdpNmComUserDataSupport（配置参数）配置为使能，UdpNm将在每次请求发送相应的NM消息之前从引用的NM I-PDU收集NM用户数据，并将用户数据与其他NM字节合并。此时就不能再通过UdpNm_SetUserData函数设置用户数据。</p>
+<p>如果UdpNmComUserDataSupport(配置参数)配置为使能，UdpNm将在每次请求发送相应的NM消息之前从引用的NM I-PDU收集NM用户数据，并将用户数据与其他NM字节合并。此时就不能再通过UdpNm_SetUserData函数设置用户数据。</p>
 <p>If UdpNmComUserDataSupport (a configuration parameter) is enabled, UdpNm will collect the NM user data from the referenced NM I-PDU before each request to send the corresponding NM message and will merge the user data with the other NM bytes. In this case, the UdpNm_SetUserData function can no longer be used to set the user data.</p>
 </section>
 <section id="passive-mode">
 <h5>被动模式 Passive Mode<a class="headerlink" href="#passive-mode" title="Link to this heading">¶</a></h5>
-<p>在被动模式下，节点仅接收NM消息，但不发送任何NM消息。被动模式应使用UdpNmPassiveModeEnabled开关（配置参数）进行静态配置。</p>
+<p>在被动模式下，节点仅接收NM消息，但不发送任何NM消息。被动模式应使用UdpNmPassiveModeEnabled开关(配置参数)进行静态配置。</p>
 <p>In passive mode, the node only receives NM messages but does not send any NM messages. Passive mode shall be statically configured using the UdpNmPassiveModeEnabled switch (a configuration parameter).</p>
 </section>
 <section id="nm-pdu-nm-pdu-reception">
 <h5>NM-Pdu接收 NM-Pdu Reception<a class="headerlink" href="#nm-pdu-nm-pdu-reception" title="Link to this heading">¶</a></h5>
-<p>若UdpNmPduRxIndicationEnabled（配置参数）使能，在成功接收NM PDU时，UdpNm应通过调用Nm_PduRxIndication通知上层</p>
+<p>若UdpNmPduRxIndicationEnabled(配置参数)使能，在成功接收NM PDU时，UdpNm应通过调用Nm_PduRxIndication通知上层</p>
 <p>If UdpNmPduRxIndicationEnabled (a configuration parameter) is enabled, UdpNm shall notify the upper layer by calling Nm_PduRxIndication upon the successful reception of an NM PDU.</p>
 </section>
 <section id="state-change-notification">
 <h5>状态改变通知 State Change Notification<a class="headerlink" href="#state-change-notification" title="Link to this heading">¶</a></h5>
-<p>如果UdpNmStateChangeIndEnabled（配置参数）使能，则UdpNm需要将UdpNm状态的所有更改通知上层Nm。</p>
+<p>如果UdpNmStateChangeIndEnabled(配置参数)使能，则UdpNm需要将UdpNm状态的所有更改通知上层Nm。</p>
 <p>If UdpNmStateChangeIndEnabled (a configuration parameter) is enabled, UdpNm needs to notify the upper layer Nm of all changes to the UdpNm state.</p>
 </section>
 <section id="communication-control">
 <h5>通信控制 Communication Control<a class="headerlink" href="#communication-control" title="Link to this heading">¶</a></h5>
-<p>使用UdpNmComControlEnabled开关（配置参数），可以静态配置通信控制。当UdpNm_DisableCommunication函数被调用，UdpNm模块NM报文的传输能力将被停止，直到调用UdpNm_EnableCommunication，UdpNm的nm报文传输能力被恢复。</p>
+<p>使用UdpNmComControlEnabled开关(配置参数)，可以静态配置通信控制。当UdpNm_DisableCommunication函数被调用，UdpNm模块NM报文的传输能力将被停止，直到调用UdpNm_EnableCommunication，UdpNm的nm报文传输能力被恢复。</p>
 <p>Communication control can be statically configured using the UdpNmComControlEnabled switch (a configuration parameter). When the UdpNm_DisableCommunication function is called, the NM message transmission capability of the UdpNm module is stopped until UdpNm_EnableCommunication is called, at which point the NM message transmission capability of UdpNm is restored.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -597,9 +597,9 @@
 </section>
 <section id="car-wake-up">
 <h5>车辆唤醒 Car Wake-up<a class="headerlink" href="#car-wake-up" title="Link to this heading">¶</a></h5>
-<p>当UdpNmCarWakeUpRxEnabled（配置参数）使能时，车辆唤醒功能被启用，目前暂时没有使用场景。如果任何接收到的NM-PDU中的Car Wakeup位为1，都会通知上层Nm。</p>
+<p>当UdpNmCarWakeUpRxEnabled(配置参数)使能时，车辆唤醒功能被启用，目前暂时没有使用场景。如果任何接收到的NM-PDU中的Car Wakeup位为1，都会通知上层Nm。</p>
 <p>When UdpNmCarWakeUpRxEnabled (a configuration parameter) is enabled, the vehicle wake-up function is enabled. There are currently no use cases for this. If the Car Wakeup bit in any received NM-PDU is 1, the upper layer Nm will be notified.</p>
-<p>当UdpNmCarWakeUpRxEnabled（配置参数）使能，UdpNmCarWakeUpFilterEnabled（配置参数）也使能时，只有收到NodeId等于UdpNmCarWakeUpFilterNodeId的报文时，才会通知上层。</p>
+<p>当UdpNmCarWakeUpRxEnabled(配置参数)使能，UdpNmCarWakeUpFilterEnabled(配置参数)也使能时，只有收到NodeId等于UdpNmCarWakeUpFilterNodeId的报文时，才会通知上层。</p>
 <p>When UdpNmCarWakeUpRxEnabled (a configuration parameter) is enabled and UdpNmCarWakeUpFilterEnabled (a configuration parameter) is also enabled, the upper layer will be notified only when a message with a NodeId equal to UdpNmCarWakeUpFilterNodeId is received.</p>
 </section>
 <section id="pnc">
@@ -631,7 +631,7 @@
 </section>
 <section id="transmission">
 <h6>发送 Transmission<a class="headerlink" href="#transmission" title="Link to this heading">¶</a></h6>
-<p>如果网络被请求并且UdpNmPnHandleMultipleNetworkRequests（配置参数）设置为TRUE，无论UdpNm处于Ready Sleep State，Normal Operation State或Repeat Message State，UdpNm应更改为或重新启动为Repeat Message State。并且，UdpNm会传输UdpNmImmediateNmTransmissions（配置参数）数量的报文，其中第一条报文立即传输，其他报文按UdpNmImmediateNmCycleTime传输（配置参数）。</p>
+<p>如果网络被请求并且UdpNmPnHandleMultipleNetworkRequests(配置参数)设置为TRUE，无论UdpNm处于Ready Sleep State，Normal Operation State或Repeat Message State，UdpNm应更改为或重新启动为Repeat Message State。并且，UdpNm会传输UdpNmImmediateNmTransmissions(配置参数)数量的报文，其中第一条报文立即传输，其他报文按UdpNmImmediateNmCycleTime传输(配置参数)。</p>
 <p>If the network is requested and UdpNmPnHandleMultipleNetworkRequests (a configuration parameter) is set to TRUE, regardless of whether UdpNm is in the Ready Sleep State, Normal Operation State, or Repeat Message State, UdpNm shall change to or restart in the Repeat Message State. Furthermore, UdpNm will transmit a number of messages equal to UdpNmImmediateNmTransmissions (a configuration parameter), with the first message being transmitted immediately and the others being transmitted according to UdpNmImmediateNmCycleTime (a configuration parameter).</p>
 <p>当通道使能UdpNmPnEnabled为TRUE，每次发送网络管理报文时，提供PNC bit vector字段起始地址调用Nm_PncBitVectorTxIndication接口以填充该字段。</p>
 <p>When UdpNmPnEnabled for a channel is TRUE, each time a network management message is sent, the Nm_PncBitVectorTxIndication interface is called with the starting address of the PNC bit vector field to fill that field.</p>

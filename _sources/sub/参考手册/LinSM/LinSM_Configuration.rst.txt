@@ -8,7 +8,7 @@ Lin通道在启动Wake up进程时需要加载的超时计时器以及重试计�
 
 The timeout timer and retry counter that the Lin channel needs to load when starting the Wake up process are determined by configuration.The timeout timer is configured independently for each channel, and the configuration item is located at LinSMChannel/LinSMConfirmationTimeout. This configuration parameter is of floating-point type, with a range of [0 .. INF] in seconds. The timer decrements in the periodic scheduling function LinSM_MainFunction(), so it is recommended that the actual value be an integer multiple of the main function running period. When this value is configured as 0, it means that the timeout will never be triggered.
 
-1.LinSMConfirmationTimeout配置截图：（单位：s，参数值要大于唤醒命令在Lin通道上的传播时间）
+1.LinSMConfirmationTimeout配置截图：(单位：s，参数值要大于唤醒命令在Lin通道上的传播时间)
 
 1.Screenshot of LinSMConfirmationTimeout configuration: (Unit: s, the parameter value must be greater than the propagation time of the wakeup command on the Lin channel)
 
@@ -18,7 +18,7 @@ The timeout timer and retry counter that the Lin channel needs to load when star
 
    fig_LinSMConfirmationTimeout
 
-- LinSMMainProcessingPeriod配置截图：（单位：s）
+- LinSMMainProcessingPeriod配置截图：(单位：s)
 - Screenshot of LinSMMainProcessingPeriod configuration: (Unit: s)
 
 .. figure:: ../../../_static/参考手册/LinSM/LinSMMainProcessingPeriod.png
@@ -48,7 +48,7 @@ The number of wakeup failure retries is determined by the global configuration L
 
 The schedule table configuration is located in the sub-container under the configuration of each channel: LinSMChannel/LinSMSchedule. The schedule table configuration and corresponding function features only support MASTER nodes. To use the schedule table configuration, the channel type (LinSMChannel/LinSMNodeType) must first be configured as MASTER.
 
-1.LinSMNodeType配置截图：（下拉框选择配置参数）
+1.LinSMNodeType配置截图：(下拉框选择配置参数)
 
 1.Screenshot of LinSMNodeType configuration: (Select configuration parameters from the drop-down box)
 

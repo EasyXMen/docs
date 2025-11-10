@@ -1,33 +1,33 @@
-Service Protection Functions
+Service(Protection Functions)
 --------------------------------------
 
 当OS-Application进行API调用，服务保护需要考虑多种情况：
 
-When an OS-Application makes an API call, service protection needs to consider various scenarios:
+When an OS-Application makes an API call, service protection must consider various scenarios:
 
    - 句柄无效或超出范围
 
-     The handle is invalid or out of range
+     The handle is invalid or out of range.
 
    - 在错误的调用场景中，例如在StartupHook中调用ActivateTask()
 
-     In an incorrect calling scenario, such as calling ActivateTask() in StartupHook
+     In an incorrect calling context, such as calling ActivateTask() within StartupHook.
 
    - 或未能进行API调用导致ORIENTAIS OS处于未定义状态，例如：在占用资源期间结束任务
 
-     Or failing to make an API call, causing ORIENTAIS OS to be in an undefined state, for example: terminating a task while occupying resources
+     Or failure to make proper API calls resulting in ORIENTAIS OS entering an undefined state, for example: terminating a task while holding resources.
 
    - 会影响系统中其他所有OS-Application的行为，例如：ShutdownOS()
 
-     Affecting the behavior of all other OS-Applications in the system, such as: ShutdownOS()
+     Affecting the behavior of all other OS-Applications in the system, such as: ShutdownOS().
 
-   - 操纵属于另一个OS-Application的操作系统对象（该OS对象没有必需的权限），例如 OS-Application尝试对其不拥有访问权限的任务执行ActivateTask()
+   - 操纵属于另一个OS-Application的操作系统对象(该OS对象没有必需的权限)，例如 OS-Application尝试对其不拥有访问权限的任务执行ActivateTask()
 
-     Manipulating operating system objects belonging to another OS-Application (the OS object does not have the necessary permissions), for example, an OS-Application attempts to execute ActivateTask() on a task that it does not have access permissions to
+     Manipulating operating system objects belonging to another OS-Application (without the required permissions), for example, an OS-Application attempting to execute ActivateTask() on a task it lacks access permissions for.
 
 关于系统服务在错误的场景中被调用，请参阅**错误!未找到引用源**。
 
-For system services being called in incorrect scenarios, please refer to **Error! Reference source not found**.
+For system services called in incorrect contexts, refer to **Error! Reference source not found**.
 
 
 CallTrustedFunction

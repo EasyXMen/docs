@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Peripheral Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Peripheral(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Peripheral Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Peripheral(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/16_peripheral_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/16_peripheral_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,11 +196,11 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="peripheral-functions">
-<h1>Peripheral Functions<a class="headerlink" href="#peripheral-functions" title="Link to this heading">¶</a></h1>
-<p>在某些MCU架构中，存在内存映射的硬件寄存器（外设区域），这些寄存器只能在特定模式（例如特权模式）下访问。只要任务/中断服务例程（Tasks/ISRs）具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。</p>
-<p>In some MCU architectures, there are memory-mapped hardware registers (peripheral areas) that can only be accessed in specific modes (such as privileged mode). As long as tasks/interrupt service routines (Tasks/ISRs) have full hardware access permissions, they can access these registers directly. If the operating system uses memory protection, tasks/interrupt service routines of untrusted OS-Applications cannot access these registers directly, as this will be recognized as a memory violation by the operating system.</p>
+<h1>Peripheral(Functions)<a class="headerlink" href="#peripheral-functions" title="Link to this heading">¶</a></h1>
+<p>在某些MCU架构中，存在内存映射的硬件寄存器(外设区域)，这些寄存器只能在特定模式(例如特权模式)下访问。只要任务/中断服务例程(Tasks/ISRs)具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。</p>
+<p>In some MCU architectures, memory-mapped hardware registers (peripheral areas) exist that are accessible only in specific modes (e.g., privileged mode). As long as tasks/interrupt service routines (Tasks/ISRs) have full hardware access rights, they can directly access these registers. If the operating system employs memory protection, tasks/ISRs of untrusted OS-Applications cannot access these registers directly, as this is recognized by the OS as a memory violation.</p>
 <p>外设访问的接口被划分为8位、16位和32位。为了简化表达，ReadPeripheral&lt;x&gt;代表ReadPeripheral8、ReadPeripheral16、ReadPeripheral32。WritePeripheral&lt;x&gt;代表WritePeripheral8、WritePeripheral16、WritePeripheral32。ModifyPeripheral&lt;x&gt;代表ModifyPeripheral8、ModifyPeripheral16、ModifyPeripheral32。</p>
-<p>Interfaces for peripheral access are divided into 8-bit, 16-bit, and 32-bit. For the sake of simplicity, ReadPeripheral&lt;x&gt; represents ReadPeripheral8, ReadPeripheral16, and ReadPeripheral32. WritePeripheral&lt;x&gt; represents WritePeripheral8, WritePeripheral16, and WritePeripheral32. ModifyPeripheral&lt;x&gt; represents ModifyPeripheral8, ModifyPeripheral16, and ModifyPeripheral32.</p>
+<p>Peripheral access interfaces are categorized into 8-bit, 16-bit, and 32-bit types. For simplicity, ReadPeripheral&lt;x&gt; denotes ReadPeripheral8, ReadPeripheral16, and ReadPeripheral32; WritePeripheral&lt;x&gt; denotes WritePeripheral8, WritePeripheral16, and WritePeripheral32; and ModifyPeripheral&lt;x&gt; denotes ModifyPeripheral8, ModifyPeripheral16, and ModifyPeripheral32.</p>
 <section id="readperipheral-x">
 <h2>ReadPeripheral&lt;x&gt;<a class="headerlink" href="#readperipheral-x" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">ReadPeripheral8</span><span class="p">(</span><span class="n">AreaIdType</span> <span class="n">Area</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">Address</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">ReadValue</span><span class="p">)</span>
@@ -475,7 +475,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Peripheral Functions</a><ul>
+<li><a class="reference internal" href="#">Peripheral(Functions)</a><ul>
 <li><a class="reference internal" href="#readperipheral-x">ReadPeripheral&lt;x&gt;</a></li>
 <li><a class="reference internal" href="#writeperipheral-x">WritePeripheral&lt;x&gt;</a></li>
 <li><a class="reference internal" href="#modifyperipheral-x">ModifyPeripheral&lt;x&gt;</a></li>

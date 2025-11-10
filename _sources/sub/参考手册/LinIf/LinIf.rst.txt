@@ -119,11 +119,11 @@ LinIf
 简介 Introduction
 ==================================
 
-本文档是 AUTOSAR R23-11 的 LIN Interface（以下简称 LinIf） 模块参考手册。旨在指导使用 LinIf 模块的用户能够清晰地了解如何去使用 LinIf 模块。
+本文档是 AUTOSAR R23-11 的 LIN Interface(以下简称 LinIf) 模块参考手册。旨在指导使用 LinIf 模块的用户能够清晰地了解如何去使用 LinIf 模块。
 
 This document is the reference manual for the LIN Interface (hereinafter referred to as LinIf) module of AUTOSAR R23-11. It is intended to provide users of the LinIf module with a clear understanding of how to use it.
 
-LinIf 模块包括两大功能： 用于通常通信的接口服务（LinIf） 以及用于诊断通信的数据传输服务（LinTp）。LinIf 的下层是 Lin Driver、 Lin Transceiver， 上层是 LinSM、 PduR 等。其主要功能是与通信硬件抽象层和系统服务层产生交互，为相应的通信提供服务接口。
+LinIf 模块包括两大功能： 用于通常通信的接口服务(LinIf) 以及用于诊断通信的数据传输服务(LinTp)。LinIf 的下层是 Lin Driver、 Lin Transceiver， 上层是 LinSM、 PduR 等。其主要功能是与通信硬件抽象层和系统服务层产生交互，为相应的通信提供服务接口。
 
 The LinIf module includes two main functions: an interface service (LinIf) for normal communication and a data transmission service (LinTp) for diagnostic communication. The lower layers of LinIf are the Lin Driver and Lin Transceiver, while the upper layers include LinSM and PduR. Its primary function is to interact with the communication hardware abstraction layer and the system service layer, providing service interfaces for the corresponding communication.
 
@@ -150,36 +150,36 @@ LinIf 模块支持以下几种类型报文的接收和发送：
 
 The LinIf module supports the reception and transmission of the following message types:
 
-1.无条件帧（Unconditional frame）
+1.无条件帧(Unconditional frame)
 
 1.Unconditional Frame
 
-2.事件触发帧（Event-triggered frame）
+2.事件触发帧(Event-triggered frame)
 
 2.Event-triggered Frame
 
-3.零星帧（Sporadic frame）
+3.零星帧(Sporadic frame)
 
 3.Sporadic Frame
 
-4.诊断帧（Diagnostic frames）
+4.诊断帧(Diagnostic frames)
 
 4.Diagnostic Frames
 
 功能描述 Functional Description
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-无条件帧（Unconditional frame）：Unconditional Frame:
+无条件帧(Unconditional frame)：Unconditional Frame:
 ***************************************************************************************************************************************
 
 主节点 Master Node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-根据调度表的配置， 当前帧为发送的无条件帧时， LinIf 调用<User_TriggerTransmit>从上层模块获取数据， 然后调用 Lin_SendFrame(),将第二个参数中的（Lin_PduType 类型） Pid， Cs， Dl 设置为配置数据中的值， 将 Drc设置为发送， 将 SduPtr 设置为存放从上层获取到的数据的地址。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认当前发送的结果。
+根据调度表的配置， 当前帧为发送的无条件帧时， LinIf 调用<User_TriggerTransmit>从上层模块获取数据， 然后调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值， 将 Drc设置为发送， 将 SduPtr 设置为存放从上层获取到的数据的地址。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认当前发送的结果。
 
 According to the schedule table, when the current frame is a transmitted unconditional frame, LinIf calls <User_TriggerTransmit> to get data from the upper layer module, and then calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to transmit, and setting SduPtr to the address where the data obtained from the upper layer is stored.  Then, when the next schedule table Entry arrives, it calls Lin_GetStatus to confirm the result of the current transmission.
 
-根据调度表的调度， 当前帧为接收的无条件帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的（Lin_PduType 类型） Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态， 并获取接收到的收据。然后调用<User_RxIndication>将接收到的数据发送给上层模块。
+根据调度表的调度， 当前帧为接收的无条件帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态， 并获取接收到的收据。然后调用<User_RxIndication>将接收到的数据发送给上层模块。
 
 According to the schedule table, when the current frame is a received unconditional frame, LinIf calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to receive, and setting SduPtr to NULL_PTR.  Then, when the next schedule table Entry arrives, it calls Lin_GetStatus to confirm the reception status and retrieve the received data.  It then calls <User_RxIndication> to send the received data to the upper layer module.
 
@@ -202,24 +202,24 @@ If this node needs to receive data, it sets the Cs and Dl of the PduPtr to the c
 
 If this node does not need to respond to this PID, it sets Drc to ignore.
 
-事件触发帧（Event-triggered frame）：Event-triggered Frame:
+事件触发帧(Event-triggered frame)：Event-triggered Frame:
 **********************************************************************************************************************************************
 
 主节点 Master Node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-根据调度表的配置， 当前帧为事件触发帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的（Lin_PduType 类型） Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态。如果正确接收则继续按照调度表处理后续报文， 如果总线发生碰撞， 则切换到冲突解决调度表， 将该事件触发帧关联的无条件帧都轮询一遍。
+根据调度表的配置， 当前帧为事件触发帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态。如果正确接收则继续按照调度表处理后续报文， 如果总线发生碰撞， 则切换到冲突解决调度表， 将该事件触发帧关联的无条件帧都轮询一遍。
 
 According to the schedule table configuration, when the current frame is an event-triggered frame, LinIf calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to receive, and setting SduPtr to NULL_PTR.  Then, when the next schedule table entry arrives, it calls Lin_GetStatus to confirm the reception status.  If the reception is successful, it continues to process subsequent messages according to the schedule table. If a bus collision occurs, it switches to the collision resolution schedule table and polls all the unconditional frames associated with this event-triggered frame.
 
 从节点 Slave Node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-当 LinIf_HeaderIndication(Channel, PduPtr)被 Lin 模块调用时， LinIf 判断是否有发送标志位（LinIf_Transmit 被调用时， LinIf 设置发送标志位）， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则忽略（将 Drc 设置为忽略） 该通知。
+当 LinIf_HeaderIndication(Channel, PduPtr)被 Lin 模块调用时， LinIf 判断是否有发送标志位(LinIf_Transmit 被调用时， LinIf 设置发送标志位)， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则忽略(将 Drc 设置为忽略) 该通知。
 
 When LinIf_HeaderIndication(Channel, PduPtr) is called by the Lin module, LinIf checks if a transmit flag is set (the transmit flag is set by LinIf when LinIf_Transmit is called). If the transmit flag is set, the process is consistent with that for a normal unconditional frame transmission. Upon receiving LinIf_TxConfirmation(E_OK), the transmit flag is cleared; otherwise, the transmit flag is retained.  If the transmit flag is not set, this notification is ignored (by setting Drc to ignore).
 
-零星帧（Sporadic frame）：Sporadic Frame
+零星帧(Sporadic frame)：Sporadic Frame
 ******************************************************************************************************************
 
 主节点 Master Node
@@ -229,7 +229,7 @@ When LinIf_HeaderIndication(Channel, PduPtr) is called by the Lin module, LinIf 
 
 Only the master node can transmit sporadic frames.
 
-根据调度表的配置， 当前帧为零星帧时， LinIf 判断是否有发送标志位（LinIf_Transmit 被调用时， LinIf 设置发送标志位）， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到 LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则不需要发送报文。
+根据调度表的配置， 当前帧为零星帧时， LinIf 判断是否有发送标志位(LinIf_Transmit 被调用时， LinIf 设置发送标志位)， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到 LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则不需要发送报文。
 
 According to the schedule table configuration, when the current frame is a sporadic frame, LinIf checks if a transmit flag is set (the transmit flag is set by LinIf when LinIf_Transmit is called). If the transmit flag is set, the process is consistent with that for a normal unconditional frame transmission. Upon receiving LinIf_TxConfirmation(E_OK), the transmit flag is cleared; otherwise, the transmit flag is retained. If the transmit flag is not set, no message is transmitted.
 
@@ -240,10 +240,10 @@ According to the schedule table configuration, when the current frame is a spora
 
 The slave node's handling of sporadic frames is consistent with that of unconditional frames.
 
-诊断帧（Diagnostic frames）：Diagnostic Frames:
+诊断帧(Diagnostic frames)：Diagnostic Frames:
 ******************************************************************************************************************
 
-节点配置（Node configuration） 和诊断使用相同的 MRF 和 SRF。
+节点配置(Node configuration) 和诊断使用相同的 MRF 和 SRF。
 
 Node configuration and diagnostics use the same MRF and SRF.
 
@@ -283,7 +283,7 @@ LIN 通信需要根据提前配置好的调度表进行通信， 一个节点可
 
 LIN communication must proceed according to a pre-configured schedule table. A node can have multiple schedule tables for use in different situations.
 
-LinIf 需要根据调度表管理报文的发送（按照次序发送 Header）， 并且能够根据上层模块的要求进行调度表的切换。
+LinIf 需要根据调度表管理报文的发送(按照次序发送 Header)， 并且能够根据上层模块的要求进行调度表的切换。
 
 LinIf is responsible for managing message transmission (sending headers in sequence) according to the schedule table and must be able to switch schedule tables as requested by upper layer modules.
 
@@ -294,7 +294,7 @@ Only the master node has the schedule table management function.
 功能实现 Functional Implementation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-上电后 LinIf 默认使用 NULL_SCHEDULE 调度表，该调度表为空调度表，不发送和接收任何报文。当 LinIf_ScheduleRequest ()被调用时， LinIf 记录该请求。在 MainFunction 中，判断是否可以切换调度表（RUN_ONCE 调度表不能被中断），并进行调度表切换。在发生调度表切换时调用<User>_ScheduleRequestConfirmation 将当前切换的调度表通知上层模块。
+上电后 LinIf 默认使用 NULL_SCHEDULE 调度表，该调度表为空调度表，不发送和接收任何报文。当 LinIf_ScheduleRequest ()被调用时， LinIf 记录该请求。在 MainFunction 中，判断是否可以切换调度表(RUN_ONCE 调度表不能被中断)，并进行调度表切换。在发生调度表切换时调用<User>_ScheduleRequestConfirmation 将当前切换的调度表通知上层模块。
 
 After power-on, LinIf defaults to using the NULL_SCHEDULE, which is an empty schedule table that does not transmit or receive any messages. When LinIf_ScheduleRequest() is called, LinIf records the request. In the MainFunction, it checks if a schedule table switch is possible (a RUN_ONCE schedule table cannot be interrupted) and performs the switch. When a schedule table switch occurs, <User>_ScheduleRequestConfirmation is called to notify the upper layer module of the currently active schedule table.
 
@@ -318,7 +318,7 @@ When a slave node receives a go-to-sleep command or detects bus inactivity, it n
 主节点 Master Node
 ******************************************************************************************************************
 
-当 LinIf_GotoSleep()被调用时，LinIf 判断当前通道是否为睡眠状态，如果为非睡眠状态则调用 Lin_GoToSleep()发送睡眠命令，如果当前通道为睡眠状态，则调用 Lin_GoToSleepInternal()接口，进行内部的状态转换。在经过睡眠处理的延时之后（4s-10s， 由配置决定），调用 Lin_GetStatus()查看当前总线是否进入睡眠状态， 如果总线进入睡眠状态，LinIf 切换到睡眠状态，并且调用<User>_GotoSleepConfirmation()通知上层模块。
+当 LinIf_GotoSleep()被调用时，LinIf 判断当前通道是否为睡眠状态，如果为非睡眠状态则调用 Lin_GoToSleep()发送睡眠命令，如果当前通道为睡眠状态，则调用 Lin_GoToSleepInternal()接口，进行内部的状态转换。在经过睡眠处理的延时之后(4s-10s， 由配置决定)，调用 Lin_GetStatus()查看当前总线是否进入睡眠状态， 如果总线进入睡眠状态，LinIf 切换到睡眠状态，并且调用<User>_GotoSleepConfirmation()通知上层模块。
 
 When LinIf_GotoSleep() is called, LinIf checks if the current channel is in a sleep state. If it is not, it calls Lin_GoToSleep() to send a sleep command. If the channel is already in a sleep state, it calls the Lin_GoToSleepInternal() interface to perform an internal state transition. After a sleep processing delay (4s-10s, determined by configuration), Lin_GetStatus() is called to check if the bus has entered the sleep state. If the bus has entered the sleep state, LinIf switches to the sleep state and calls <User>_GotoSleepConfirmation() to notify the upper layer module.
 
@@ -373,7 +373,7 @@ The master node performs node configuration through node configuration commands 
 
 After receiving a node configuration command, the slave node executes the relevant operations according to the command and responds with the execution result upon receiving an SRF.
 
-诊断传输协议（TP） Diagnostic Transport Protocol (TP)
+诊断传输协议(TP) Diagnostic Transport Protocol (TP)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 功能介绍 Functional Description
@@ -404,7 +404,7 @@ LinIf repeatedly sends SRFs to retrieve the response. Upon receiving an SF or FF
 从节点 Slave Node
 ****************************************************************
 
-LinIf 在接收到 MRF 报文时， 调用 PduR_LinTpStartOfReception()准备接收（FF 或者 SF）， 然后调用 PduR_LinTpCopyRxData()将数据传送到上层模块。后续在接收到 CF 时， 反复调用 PduR_LinTpCopyRxData()向上层传送数据， 直到接收完成， 调用 PduR_LinTpRxIndication()通知上层模块。
+LinIf 在接收到 MRF 报文时， 调用 PduR_LinTpStartOfReception()准备接收(FF 或者 SF)， 然后调用 PduR_LinTpCopyRxData()将数据传送到上层模块。后续在接收到 CF 时， 反复调用 PduR_LinTpCopyRxData()向上层传送数据， 直到接收完成， 调用 PduR_LinTpRxIndication()通知上层模块。
 
 When LinIf receives an MRF message, it calls PduR_LinTpStartOfReception() to prepare for reception (of an FF or SF) and then calls PduR_LinTpCopyRxData() to transfer the data to the upper layer module. Subsequently, upon receiving CFs, it repeatedly calls PduR_LinTpCopyRxData() to transfer data to the upper layer until reception is complete, and then calls PduR_LinTpRxIndication() to notify the upper layer module.
 
@@ -447,7 +447,7 @@ None
    * - LinIf_MemMap.h
      - LinIf 模块函数和变量存储位置定义文件。(Storage position definition files of functions and variables for the LinIf module.)
    * - LinIf.h
-     - LinIf 模块头文件，通过加载该头文件访问LinIf（包括LinTp）公开的函数和数据类型。（外部模块使用时只需要加载 LinIf.h， LinTp.h包含在 LinIf.h 中）。(LinIf module header file; access the public functions and data types of LinIf by loading this header file) (External modules only need to load LinIf.h, as LinTp.h is included within LinIf.h.)
+     - LinIf 模块头文件，通过加载该头文件访问LinIf(包括LinTp)公开的函数和数据类型。(外部模块使用时只需要加载 LinIf.h， LinTp.h包含在 LinIf.h 中)。(LinIf module header file; access the public functions and data types of LinIf by loading this header file) (External modules only need to load LinIf.h, as LinTp.h is included within LinIf.h.)
    * - LinIf.c
      - LinIf 模块实现源文件， 各 API 实现在该文件中。(LinIf module implementation source file; various APIs are implemented in this file.)
    * - LinIf_Master.c

@@ -1,4 +1,4 @@
-Multi-Core Functions
+Multi-Core(Functions)
 --------------------------------------
 
 
@@ -221,9 +221,9 @@ Start the specified non-Autosar core.
 
 .. note::
 
-   - 该函数仅允许启动非Autosar内核。
+    - 该函数仅允许启动非Autosar内核。
 
-     This function only allows starting non-Autosar kernels.
+     This function permits starting only non-AUTOSAR kernels.
 
 
 ShutdownAllCores
@@ -289,9 +289,9 @@ Get the logical ID of the currently executing core.
 
 .. note::
 
-   - 该服务调用者所属OS-Application必须是可信OS-Application。
+    - 该服务调用者所属OS-Application必须是可信OS-Application。
 
-     The OS-Application to which the caller of this service belongs must be a trusted OS-Application.
+     The calling OS-Application of this service must be a trusted OS-Application.
 
 
 ControlIdle

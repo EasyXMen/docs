@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>OS-APP Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>OS-APP(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">OS-APP Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">OS-APP(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/09_app_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/09_app_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,44 +196,44 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="os-app-functions">
-<h1>OS-APP Functions<a class="headerlink" href="#os-app-functions" title="Link to this heading">¶</a></h1>
-<p>Os能够支持一系列操作系统对象的集合（任务，中断，Alarm，调度表，计数器）。该对象集合称为OS-Application。</p>
-<p>Os can support a collection of a series of operating system objects (tasks, interrupts, Alarms, schedule tables, counters). This collection of objects is called an OS-Application.</p>
+<h1>OS-APP(Functions)<a class="headerlink" href="#os-app-functions" title="Link to this heading">¶</a></h1>
+<p>Os能够支持一系列操作系统对象的集合(任务，中断，Alarm，调度表，计数器)。该对象集合称为OS-Application。</p>
+<p>The OS can support a collection of operating system objects (tasks, interrupts, alarms, schedule tables, counters). This object collection is called an OS-Application.</p>
 <p>存在两类OS-Application：</p>
 <p>There are two types of OS-Applications:</p>
 <blockquote>
 <div><ul>
 <li><p>可信OS-Application在监视或保护功能关闭的情况下运行。他们能够无限制地访问内存，操作系统模块的API，并且不需要在运行时受到强制时间限制。当处理器支持的情况下，允许它们在特权模式下运行。</p>
-<p>Trusted OS-Applications run with monitoring or protection functions turned off. They have unrestricted access to memory, APIs of operating system modules, and do not need to be subject to mandatory time limits during runtime. When supported by the processor, they are allowed to run in privileged mode.</p>
+<p>Trusted OS-Applications run with monitoring or protection functions disabled. They have unrestricted access to memory and OS module APIs, and are not subject to mandatory time constraints during runtime. When processor support is available, they are permitted to run in privileged mode.</p>
 </li>
 <li><p>不可信任的OS-Application在监视或保护功能开启的情况下运行。它们对内存的访问受到限制，对操作系统模块的API的访问受到限制，并且需要在运行时进行强制时间限制。当处理器支持时，不允许它们在特权模式下运行。</p>
-<p>Untrusted OS-Applications run with monitoring or protection functions turned on. Their access to memory is restricted, access to APIs of operating system modules is restricted, and they are subject to mandatory time limits during runtime. When supported by the processor, they are not allowed to run in privileged mode.</p>
+<p>Untrusted OS-Applications run with monitoring or protection functions enabled. Their access to memory is restricted, access to OS module APIs is limited, and they are subject to mandatory time constraints during runtime. When processor support is available, they are not permitted to run in privileged mode.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>ORIENTAIS OS提供一些服务，这些服务向调用者提供有关访问权限和对象成员身份的信息。这些服务主要在OS-Application之间检查访问权限和参数的情况下使用。</p>
-<p>ORIENTAIS OS provides some services that provide callers with information about access rights and object membership. These services are mainly used in situations where access rights and parameters are checked between OS-Applications.</p>
+<p>ORIENTAIS OS provides services that supply callers with information about access rights and object membership. These services are primarily used to check access rights and parameters between OS-Applications.</p>
 <p>OS-Applications的状态决定其操作系统对象从其他OS-Applications访问的范围。每个OS-Application始终处于以下状态之一：</p>
-<p>The state of OS-Applications determines the scope of access to its operating system objects from other OS-Applications. Each OS-Application is always in one of the following states:</p>
+<p>The state of an OS-Application determines the accessibility scope of its operating system objects from other OS-Applications. Each OS-Application is always in one of the following states:</p>
 <blockquote>
 <div><ul>
-<li><p>激活且可访问的（APPLICATION_ACCESSIBLE）：可以从其他OS-Applications访问操作系统对象。这是启动时的默认状态。</p>
+<li><p>激活且可访问的(APPLICATION_ACCESSIBLE)：可以从其他OS-Applications访问操作系统对象。这是启动时的默认状态。</p>
 <p>Active and accessible (APPLICATION_ACCESSIBLE): Operating system objects can be accessed from other OS-Applications. This is the default state at startup.</p>
 </li>
-<li><p>当前处于重启阶段（APPLICATION_RESTART）。无法从其他OS-Applications访问操作系统对象。状态有效，直到OS-Application调用AllowAccess。</p>
-<p>Currently in the restart phase (APPLICATION_RESTART). Operating system objects cannot be accessed from other OS-Applications. The state remains valid until the OS-Application calls AllowAccess.</p>
+<li><p>当前处于重启阶段(APPLICATION_RESTART)。无法从其他OS-Applications访问操作系统对象。状态有效，直到OS-Application调用AllowAccess。</p>
+<p>Currently in restart phase (APPLICATION_RESTART): Operating system objects cannot be accessed from other OS-Applications. This state remains valid until the OS-Application calls AllowAccess.</p>
 </li>
-<li><p>已终止且不可访问（APPLICATION_TERMINATED）：不能从其他OS-Applications访问操作系统对象。状态不会改变。</p>
-<p>Terminated and inaccessible (APPLICATION_TERMINATED): Operating system objects cannot be accessed from other OS-Applications. The state does not change.</p>
+<li><p>已终止且不可访问(APPLICATION_TERMINATED)：不能从其他OS-Applications访问操作系统对象。状态不会改变。</p>
+<p>Terminated and inaccessible (APPLICATION_TERMINATED): Operating system objects cannot be accessed from other OS-Applications. This state does not change.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>Figure显示了状态的转换：</p>
-<p>Figure shows the state transitions:</p>
+<p>The figure shows the state transitions:</p>
 <figure class="align-center" id="id1">
-<img alt="APP状态图" src="../../../_images/OS-Applications%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
+<img alt="APP状态图 (OS-Application State Diagram)" src="../../../_images/OS-Applications%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
 <figcaption>
-<p><span class="caption-text">OS-Applications状态图（OS-Applications state diagram）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">OS-Applications状态图 (OS-Application State Diagram)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="getapplicationid">
@@ -352,7 +352,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>GetApplicationID和GetCurrentApplicationID区别在于GetApplicationID可以获取可信函数的应用程序ID。</p>
-<p>The difference between GetApplicationID and GetCurrentApplicationID is that GetApplicationID can obtain the application ID of a trusted function.</p>
+<p>The difference between GetApplicationID and GetCurrentApplicationID is that GetApplicationID can retrieve the application ID of a trusted function.</p>
 </li>
 <li><p>在SC3、SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -444,7 +444,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>请确保对象类型和对象ID是匹配的。</p>
-<p>Please ensure that the object type and object ID match.</p>
+<p>Ensure that the object type and object ID match.</p>
 </li>
 <li><p>在SC3，SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -532,7 +532,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>请确保对象类型和对象ID是匹配的。</p>
-<p>Please ensure that the object type and object ID match.</p>
+<p>Ensure that the object type and object ID match.</p>
 </li>
 <li><p>在SC3，SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -717,7 +717,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果重新启动的OS-Application配置了重启任务，则该任务将在重新启动时被激活。</p>
-<p>If the OS-Application to be restarted is configured with a restart task, this task will be activated during the restart.</p>
+<p>If the OS-Application to be restarted is configured with a restart task, that task is activated during the restart.</p>
 </li>
 <li><p>在SC3，SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -910,7 +910,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">OS-APP Functions</a><ul>
+<li><a class="reference internal" href="#">OS-APP(Functions)</a><ul>
 <li><a class="reference internal" href="#getapplicationid">GetApplicationID</a></li>
 <li><a class="reference internal" href="#getcurrentapplicationid">GetCurrentApplicationID</a></li>
 <li><a class="reference internal" href="#checkobjectaccess">CheckObjectAccess</a></li>

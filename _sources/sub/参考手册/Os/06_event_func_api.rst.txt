@@ -1,25 +1,25 @@
-Event Functions
+Event(Functions)
 --------------------------------------
 
-事件机制（Event Mechanism）：
+事件机制(Event Mechanism)：
 
  - 是一种同步手段
    
-   It is a synchronization method.
+   It is a synchronization mechanism.
 
  - 仅拓展任务可用
 
-   Only extended tasks can use it.
+   Only extended tasks can use events.
 
 Figure解释了在完全抢占式调度的情况下通过设置事件使扩展任务的同步，其中扩展任务T1具有更高的优先级。
 
-Figure explains the synchronization of extended tasks by setting events under fully preemptive scheduling, where the extended task T1 has a higher priority.
+The figure illustrates the synchronization of extended tasks through event setting under fully preemptive scheduling, where extended task T1 has a higher priority.
 
 .. figure:: ../../../_static/参考手册/Os/event同步任务.png
-   :alt: 可抢占扩展任务的同步
+   :alt: 可抢占扩展任务的同步 (Synchronization of Preemptible Extended Tasks)
    :align: center
 
-   可抢占扩展任务的同步（Synchronization of Preemptive Extended Tasks）
+   可抢占扩展任务的同步 (Synchronization of Preemptible Extended Tasks)
 
 
 SetEvent
@@ -87,13 +87,13 @@ The events of task <TaskID> are set according to the event mask <Mask>. Calling 
 
 .. note::
 
-   - 事件的状态以‘位’为单位，事件中未设置的位保持不变。
+   - 事件的状态以'位'为单位，事件中未设置的位保持不变。
 
-     The state of an event is in "bit" units, and the bits not set in the event remain unchanged.
+     The state of an event is measured in bits, and unset bits within the event remain unchanged.
 
    - 任务可以自行设置事件。
 
-     A task can set events by itself.
+     A task can set events autonomously.
 
    - 在ECC1，ECC2下有效。
 
@@ -154,11 +154,11 @@ The events of the extended task calling ClearEvent are cleared according to the 
 
    - 仅拓展任务可用。
 
-     Only extended tasks are available to use it.
+     Only extended tasks can use this feature.
 
    - 在ECC1，ECC2下有效。
 
-     It is valid under ECC1 and ECC2.
+     This is valid under ECC1 and ECC2.
 
 
 GetEvent
@@ -224,11 +224,11 @@ This service returns the current state of all event bits of the task <TaskID>, n
 
    - 用户可以获取当前正在运行的任务的事件。
 
-     Users can obtain the events of the task that is currently running.
+     Users can retrieve the events of the currently running task.
 
    - 在ECC1，ECC2下有效。
 
-     It is valid under ECC1 and ECC2.
+     This operation is valid under ECC1 and ECC2.
 
 
 WaitEvent
@@ -316,23 +316,23 @@ The state of the calling task is set to waiting, unless at least one of the even
 
    - 在ECC1，ECC2下有效。
 
-     It is valid under ECC1 and ECC2.
+     This service is valid under ECC1 and ECC2.
 
    - 仅拓展任务可用。
 
-     Only extended tasks can use it.
+     Only extended tasks can use this service.
 
    - 如果等待的事件未被设置，则当前任务进入等待状态并进行任务切换。如果等待的事件已被设置，则继续执行当前任务。
 
-     If the event being waited for is not set, the current task enters the waiting state and task switching occurs. If the event being waited for has been set, the current task continues to execute.
+     If the waited event is not set, the current task enters the waiting state and a task switch occurs. If the waited event is already set, the current task continues execution.
 
    - 调用前必须释放占据的资源。
 
-     Occupied resources must be released before calling.
+     Occupied resources must be released before invocation.
 
    - 设置的事件不会被主动清除。用户必须调用ClearEvent来清除事件。
 
-     The set event will not be actively cleared. Users must call ClearEvent to clear the event.
+     Set events are not automatically cleared. Users must call ClearEvent to clear events.
 
 
 WaitAllEvents

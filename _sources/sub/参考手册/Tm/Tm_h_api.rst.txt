@@ -1,5 +1,5 @@
 
-类型定义（Type Definitions）
+类型定义(Type Definitions)
 -------------------------------------
 
 .. list-table:: 
@@ -27,7 +27,7 @@
      - Data type of Time Service Predef Timer 100µs32bit. The structure contains the reference time.
      
       
-提供的服务（Provided Services）
+提供的服务(Services)
 ----------------------------------
 
 Tm_GetVersionInfo

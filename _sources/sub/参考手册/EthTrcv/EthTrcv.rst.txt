@@ -128,11 +128,11 @@ None
 
 In the AUTOSAR layered software architecture, EthTrcv belongs to the Microcontroller Abstraction Layer, and it is a driver module for the Ethernet transceiver.
 
-EthTrcv模块的主要任务是向上层（以太网接口）提供独立于硬件的接口，因为包括多个相同的收发器，
+EthTrcv模块的主要任务是向上层(以太网接口)提供独立于硬件的接口，因为包括多个相同的收发器，
 
 The main task of the EthTrcv module is to provide a hardware-independent interface to the upper layer (Ethernet Interface). Since multiple identical transceivers are included,
 
-所以对于所有的收发器来说，接口应该统一，这样上层（以太网接口）可以以统一的方式访问底层总线系统。
+所以对于所有的收发器来说，接口应该统一，这样上层(以太网接口)可以以统一的方式访问底层总线系统。
 
 the interface shall be unified for all transceivers, so that the upper layer (Ethernet Interface) can access the underlying bus system in a unified manner.
 
@@ -168,12 +168,12 @@ If the Ethernet Transceiver Driver detects a wakeup, it maps the wakeup reason p
 
 The Ethernet Transceiver Driver shall support the following scenarios:
 
-1.休眠的ECU 和休眠的总线 -> 通过EthTrcv_Init唤醒检测（在开机期间调用）
+1.休眠的ECU 和休眠的总线 -> 通过EthTrcv_Init唤醒检测(在开机期间调用)
 
 1.Dormant ECU and dormant bus -> Wakeup detection via EthTrcv_Init (called during power-on)
 
 
-2.唤醒的ECU 和休眠的总线 -> 通过EthTrcv_MainFunction或唤醒中断处理程序唤醒检测（由EcuM中的CheckWakeup检查）
+2.唤醒的ECU 和休眠的总线 -> 通过EthTrcv_MainFunction或唤醒中断处理程序唤醒检测(由EcuM中的CheckWakeup检查)
 
 2.Awake ECU and dormant bus -> Wakeup detection via EthTrcv_MainFunction or wakeup interrupt handler (checked by CheckWakeup in EcuM)
 
@@ -202,7 +202,7 @@ The Ethernet Transceiver Driver shall support the following scenarios:
      - 描述(Description)
 
    * - EthTrcv.h
-     - 声明EthTrcv模块的全部外部接口（除了回调函数），以及配置文件中的全局变量。(Declares all external interfaces of the EthTrcv module (except callback functions) and global variables in the configuration file.)
+     - 声明EthTrcv模块的全部外部接口(除了回调函数)，以及配置文件中的全局变量。(Declares all external interfaces of the EthTrcv module (except callback functions) and global variables in the configuration file.)
 
    * - EthTrcv.c
      - 作为EthTrcv模块的核心文件，实现EthTrcv模块全部对外接口，以及实现EthTrcv模块功能所必须的local函数，local宏定义，local变量定义。(Serves as the core file of the EthTrcv module; implements all external interfaces of the EthTrcv module, as well as local functions, local macros, and local variable definitions necessary for implementing the functions of the EthTrcv module.)

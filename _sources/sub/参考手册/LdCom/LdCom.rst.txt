@@ -123,7 +123,7 @@ None
 ================================
 
 
-LdCom 模块主要实现用户（RTE）与 PduR 之间 I-PDU 的传递作用，实现 IF PDU 与 TP PDU 的发送与接收传递。所谓的“Large Data”指的是每个 Pdu即为一个信号，而非大数据的 PDU， LdCom 只执行简单的 Pdu 收发，不涉及信号解析。
+LdCom 模块主要实现用户(RTE)与 PduR 之间 I-PDU 的传递作用，实现 IF PDU 与 TP PDU 的发送与接收传递。所谓的“Large Data”指的是每个 Pdu即为一个信号，而非大数据的 PDU， LdCom 只执行简单的 Pdu 收发，不涉及信号解析。
 
 The LdCom module is mainly used for transmitting I-PDU between users (RTE) and PduR, to realize transmission and reception of IF PDU and TP PDU. The so-called "Large Data" means each Pdu is a signal, rather than a PDU of big data. LdCom performs simple Pdu transmission and receiving only with no signal parsing.
 
@@ -142,7 +142,7 @@ The LdCom module is mainly used for transmitting I-PDU between users (RTE) and P
 
 As shown in the figure :ref:`LdCom_AUTOSAR_Arch` , the LdCom module is in the communication service layer of the AUTOSAR architecture. The modules below and above it are PduR module and the RTE respectively.
 
-LdCom 实现了与上下层模块间基于 I-PDU 传输的接口传递，包括 IF Pdu 的发送（Direct 发送/TriggerTransmit 发送）， IF Pdu 的接收， TP Pdu 的发送， TP Pdu的接收，以及 DET 检测报错。
+LdCom 实现了与上下层模块间基于 I-PDU 传输的接口传递，包括 IF Pdu 的发送(Direct 发送/TriggerTransmit 发送)， IF Pdu 的接收， TP Pdu 的发送， TP Pdu的接收，以及 DET 检测报错。
 
 LdCom can realize interface transfer based on I-PDU transmission between the modules of upper and lower layers, including sending IF Pdu (Direct sending/sending via TriggerTransmit), receiving IF Pdu, sending TP Pdu, receiving TP Pdu, and detecting DET errors.
 
@@ -233,7 +233,7 @@ When the lower level module calls LdCom_StartOfReception, LdCom_CpyRxData, and L
 
 偏差 Deviation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1.调用上层（用户层）的回调接口暂不支持入参 LdComUserCbkHandleId，涉及到的回调接口有LdComUser_LdComCbkCopyTxData,
+1.调用上层(用户层)的回调接口暂不支持入参 LdComUserCbkHandleId，涉及到的回调接口有LdComUser_LdComCbkCopyTxData,
 LdComUser_LdComCbkTpTxConfirmation,LdComUser_LdComCbkStartOfReception,LdComUser_LdComCbkCopyRxData,
 LdComUser_LdComCbkTpRxIndication,LdComUser_LdComCbkRxIndication,LdComUser_LdComCbkTriggerTransmit,
 LdComUser_LdComCbkTxConfirmation
@@ -243,7 +243,7 @@ The callback interfaces include LdComUser_LdComCbkCopyTxData,LdComUser_LdComCbkT
 LdComUser_LdComCbkCopyRxData,LdComUser_LdComCbkTpRxIndication,LdComUser_LdComCbkRxIndication,
 LdComUser_LdComCbkTriggerTransmit,LdComUser_LdComCbkTxConfirmation
 
-2.配置工具中LdComIPdu的配置中增加了调用上层（用户层）回调接口配置，具体有LdComRxCopyRxData,LdComRxIndication,LdComRxStartOfReception,LdComTpRxIndication,
+2.配置工具中LdComIPdu的配置中增加了调用上层(用户层)回调接口配置，具体有LdComRxCopyRxData,LdComRxIndication,LdComRxStartOfReception,LdComTpRxIndication,
 LdComTpTxConfirmation,LdComTxCopyTxData,LdComTxTriggerTransmit
 
 2.The configuration of calling the callback interface of the upper layer (user layer is added in the configuration tool LdComIPdu, 

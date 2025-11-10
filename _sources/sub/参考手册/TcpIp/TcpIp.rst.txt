@@ -105,7 +105,7 @@ TcpIp
 
 In the AUTOSAR architecture, the TcpIp module is located between the SoAd module and the EthIf module.The software design of the TcpIp module is developed based on the lwip code while complying with the AUTOSAR R23-11 specification.
 
-由于开发需求（暂时只实现IPv4），AUTOSAR规范本身存在的一些问题，以及lwip实现的功能情况，TcpIp模块代码并未完全实现AUTOSAR规范所有功能。
+由于开发需求(暂时只实现IPv4)，AUTOSAR规范本身存在的一些问题，以及lwip实现的功能情况，TcpIp模块代码并未完全实现AUTOSAR规范所有功能。
 
 Due to development requirements (only IPv4 is implemented temporarily), certain issues existing in the AUTOSAR specification itself, and the functional implementation status of lwip,the TcpIp module code does not fully implement all functions specified in the AUTOSAR specification.
 
@@ -113,7 +113,7 @@ TcpIp模块的主要功能为：
 
 The main functions of the TcpIp module are as follows:
 
-1.为上层模块提供TCP、UDP数据报的收发接口（TCP涉及链接）；
+1.为上层模块提供TCP、UDP数据报的收发接口(TCP涉及链接)；
 
 1.Provide upper-layer modules with interfaces for sending and receiving TCP and UDP datagrams (TCP involves connections);
 
@@ -142,7 +142,7 @@ The main functions of the TcpIp module are as follows:
 System Scalability功能介绍 Introduction to System Scalability Function
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-根据不同的应用情况，TcpIp模块的功能（对IP协议的支持情况）分为三个等级。因开发需求，目前只支持IPv4，因此只支持SC1功能。
+根据不同的应用情况，TcpIp模块的功能(对IP协议的支持情况)分为三个等级。因开发需求，目前只支持IPv4，因此只支持SC1功能。
 
 According to different application scenarios, the functions of the TcpIp module (support for IP protocols) are divided into three levels. Due to development requirements, only IPv4 is supported currently, so only the SC1 function is supported.
 
@@ -155,15 +155,15 @@ According to different application scenarios, the functions of the TcpIp module 
 Internet Protocol Version 4功能介绍 Introduction to Internet Protocol Version 4 Function
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-IP协议是整个TCP/IP协议的核心，UDP、TCP、ICMP等协议都是基于IP来传送协议数据。IP协议是一种不可靠，尽最大努力，无连接的网络层协议。除了实现最基本的IP数据报的收发外，还需要完成IP数据报（长度较大）的分片和重组功能。
+IP协议是整个TCP/IP协议的核心，UDP、TCP、ICMP等协议都是基于IP来传送协议数据。IP协议是一种不可靠，尽最大努力，无连接的网络层协议。除了实现最基本的IP数据报的收发外，还需要完成IP数据报(长度较大)的分片和重组功能。
 
 The IP protocol is the core of the entire TCP/IP protocol suite. Protocols such as UDP, TCP, and ICMP all transmit protocol data based on IP. The IP protocol is an unreliable, best-effort, connectionless network-layer protocol. In addition to implementing the basic sending and receiving of IP datagrams, it is also necessary to complete the fragmentation and reassembly functions for IP datagrams (with large lengths).
 
-ARP协议，译作地址解析协议，ARP只适用于IPv4，在以太网中ARP数据报封装在以太网帧中进行发送。ARP协议的基本功能是使用目标主机的IP地址，查询其对应的MAC地址，以保证底层链路上数据报通信的进行。为了实现在网络接口中物理地址与IP地址间的转换，ARP协议中引入了缓存表的概念（记录了一条一条的<IP地址，MAC地址>对）。
+ARP协议，译作地址解析协议，ARP只适用于IPv4，在以太网中ARP数据报封装在以太网帧中进行发送。ARP协议的基本功能是使用目标主机的IP地址，查询其对应的MAC地址，以保证底层链路上数据报通信的进行。为了实现在网络接口中物理地址与IP地址间的转换，ARP协议中引入了缓存表的概念(记录了一条一条的<IP地址，MAC地址>对)。
 
 The ARP protocol, translated as Address Resolution Protocol, is only applicable to IPv4. In Ethernet, ARP datagrams are encapsulated in Ethernet frames for transmission.The basic function of the ARP protocol is to use the IP address of the target host to query its corresponding MAC address, so as to ensure the transmission of datagrams on the underlying link.To realize the conversion between physical addresses and IP addresses in network interfaces, the ARP protocol introduces the concept of a cache table (which records <IP address, MAC address> pairs one by one).
 
-AUTOIP协议是一个不用服务器来获取IP地址方法的协议，而DHCP需要一个服务器。一个配置了AUTOIP的主机将会得到一个高16 位为0xa9fe的IP地址（即169.254.xxx.xxx）。
+AUTOIP协议是一个不用服务器来获取IP地址方法的协议，而DHCP需要一个服务器。一个配置了AUTOIP的主机将会得到一个高16 位为0xa9fe的IP地址(即169.254.xxx.xxx)。
 
 The AUTOIP protocol is a protocol that obtains an IP address without a server, whereas DHCP requires a server.A host configured with AUTOIP will obtain an IP address whose upper 16 bits are 0xa9fe (i.e., 169.254.xxx.xxx).
 
@@ -171,18 +171,18 @@ IP协议完成了数据报在各个主机之间的递交，但是它并不完美
 
 The IP protocol completes the delivery of datagrams between various hosts, but it is not perfect. As mentioned earlier,it provides a connectionless and unreliable datagram delivery service, and the protocol itself does not provide any error checking and recovery mechanisms.
 
-为了弥补IP协议的缺陷，出现了ICMP协议。ICMP协议用于在主机、路由器之间传递控制消息（如数据报错误信息、网络状况信息、主机状况信息等）。ICMP协议配合IP协议完成数据报的递交，提高数据报递交的有效性，但是ICMP协议报文有着自己的组织结构，且ICMP报文是被封装在IP数据报中发送的。此外，ping命令，其本质上就是发送一个ICMP回送请求报文。
+为了弥补IP协议的缺陷，出现了ICMP协议。ICMP协议用于在主机、路由器之间传递控制消息(如数据报错误信息、网络状况信息、主机状况信息等)。ICMP协议配合IP协议完成数据报的递交，提高数据报递交的有效性，但是ICMP协议报文有着自己的组织结构，且ICMP报文是被封装在IP数据报中发送的。此外，ping命令，其本质上就是发送一个ICMP回送请求报文。
 
 To make up for the shortcomings of the IP protocol, the ICMP protocol was introduced. The ICMP protocol is used to transmit control messages (such as datagram error information, network status information, host status information, etc.) between hosts and routers. The ICMP protocol cooperates with the IP protocol to complete the delivery of datagrams and improve the effectiveness of datagram delivery. However, ICMP protocol messages have their own organizational structure, and ICMP messages are encapsulated in IP datagrams for transmission. In addition, the ping command essentially sends an ICMP echo request message.
 
 IP Based Protocols功能介绍 Introduction to IP Based Protocols Function
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-TcpIp模块维护一个本端IP地址表，每个本端IP地址的配置参见配置TcpIpLocalAddr，主要实现IP地址由何种方式分配，每个TcpIpLocalAddr有唯一的ID号（TcpIpAddrId）表示。
+TcpIp模块维护一个本端IP地址表，每个本端IP地址的配置参见配置TcpIpLocalAddr，主要实现IP地址由何种方式分配，每个TcpIpLocalAddr有唯一的ID号(TcpIpAddrId)表示。
 
 The TcpIp module maintains a local IP address table. The configuration of each local IP address refers to the configuration of TcpIpLocalAddr,which mainly specifies how the IP address is assigned. Each TcpIpLocalAddr is represented by a unique ID (TcpIpAddrId).
 
-虽然按AUTOSAR标准，可支持N个本端IP地址关联到同一个硬件Controller，但限于LwIP功能实现，我们目前只支持每个TcpIpCtrl只能被一个单播（TCPIP_UNICAST）TcpIpLocalAddr关联。
+虽然按AUTOSAR标准，可支持N个本端IP地址关联到同一个硬件Controller，但限于LwIP功能实现，我们目前只支持每个TcpIpCtrl只能被一个单播(TCPIP_UNICAST)TcpIpLocalAddr关联。
 
 Although according to the AUTOSAR standard, N local IP addresses can be associated with the same hardware Controller, limited by the functional implementation of LwIP,currently we only support that each TcpIpCtrl can be associated with only one unicast (TCPIP_UNICAST) TcpIpLocalAddr.
 
@@ -207,7 +207,7 @@ TCP称为传输控制协议，是一种面向连接的、可靠的、基于字�
 TCP, known as Transmission Control Protocol, is a connection-oriented, reliable, byte-stream-based transport layer protocol.
 To ensure the reliability and efficiency of transmission, TCP provides a series of mechanisms,such as a handshake mechanism, positive acknowledgment, timeout retransmission, and various timing mechanisms.
 
-AUTOSAR标准中涉及的机制（TCP配置 ）有：超时重传；慢启动与拥塞避免；快速重传与快速恢复；NAGLE算法；保活机制；收发窗口机制；定时机制。
+AUTOSAR标准中涉及的机制(TCP配置 )有：超时重传；慢启动与拥塞避免；快速重传与快速恢复；NAGLE算法；保活机制；收发窗口机制；定时机制。
 
 The mechanisms involved in the AUTOSAR standard (TCP configuration) include: timeout retransmission; slow start and congestion avoidance; fast retransmission and fast recovery; NAGLE algorithm; keep-alive mechanism; send and receive window mechanisms; timing mechanisms.
 
@@ -274,7 +274,7 @@ None
      - 描述(Description)
 
    * - TcpIp.h
-     - 声明TcpIp模块的全部外部接口（除了回调函数），以及配置文件中的全局变量。(Declares all external interfaces of the TcpIp module (except callback functions) and global variables in the configuration file.)
+     - 声明TcpIp模块的全部外部接口(除了回调函数)，以及配置文件中的全局变量。(Declares all external interfaces of the TcpIp module (except callback functions) and global variables in the configuration file.)
 
    * - TcpIp.c
      - 作为TcpIp模块的核心文件，实现TcpIp模块全部对外接口， 以及实现TcpIp模块功能所必须的local函数，local宏定义，local变量定义。(Serves as the core file of the TcpIp module, implementing all external interfaces of the TcpIp module, as well as local functions, local macros, and local variable definitions necessary for implementing the functions of the TcpIp module.)
@@ -430,7 +430,7 @@ System Scalability功能 System Scalability Function
 
 The configuration of the TcpIp function level is implemented according to the configuration item TcpIpGeneral->TcpIpScalabilityClass. Currently, the tool fixes the configuration to SC1, which cannot be modified.
 
-因为SC1只支持基于IPv4协议实现的功能，所以关于IPv6的配置（配置时，忽略所有IPv6相关配置项）、API等都不支持。
+因为SC1只支持基于IPv4协议实现的功能，所以关于IPv6的配置(配置时，忽略所有IPv6相关配置项)、API等都不支持。
 
 Since SC1 only supports functions implemented based on the IPv4 protocol, configurations (all IPv6-related configuration items are ignored during configuration), APIs, etc., related to IPv6 are not supported.
 
@@ -452,11 +452,11 @@ The functions of this part are mainly reflected in the configuration Container o
 
 1.TcpIpArpEnabled: Whether to enable the ARP function;
 
-2.TcpIpAutoIpEnabled：是否使能AUTOIP功能（未实现）；
+2.TcpIpAutoIpEnabled：是否使能AUTOIP功能(未实现)；
 
 2.TcpIpAutoIpEnabled: Whether to enable the AUTOIP function (not implemented);
 
-3.TcpIpDhcpClientEnabled：是否使能DHCP客户端功能（未实现）；
+3.TcpIpDhcpClientEnabled：是否使能DHCP客户端功能(未实现)；
 
 3.TcpIpDhcpClientEnabled: Whether to enable the DHCP client function (not implemented);
 
@@ -468,15 +468,15 @@ The functions of this part are mainly reflected in the configuration Container o
 
 5.TcpIpIpV4Enabled: Whether to enable the IPv4 function;
 
-6.TcpIpLocalAddrIpv4EntriesMax：限制TcpIpLocalAddr配置项（IPv4）的总数目；
+6.TcpIpLocalAddrIpv4EntriesMax：限制TcpIpLocalAddr配置项(IPv4)的总数目；
 
 6.TcpIpLocalAddrIpv4EntriesMax: Limits the total number of TcpIpLocalAddr configuration items (for IPv4);
 
-7.TcpIpPathMtuDiscoveryEnabled：是否使能MTU发现机制（未实现）。
+7.TcpIpPathMtuDiscoveryEnabled：是否使能MTU发现机制(未实现)。
 
 7.TcpIpPathMtuDiscoveryEnabled: Whether to enable the MTU discovery mechanism (not implemented).
 
-我们根据AUTOSAR配置，转化成lwIP的配置（工具生成lwipopts.h文件），进而实现功能的可配置性。
+我们根据AUTOSAR配置，转化成lwIP的配置(工具生成lwipopts.h文件)，进而实现功能的可配置性。
 
 We convert the AUTOSAR configuration into the configuration of lwIP (the tool generates the lwipopts.h file), thereby realizing the configurability of functions.
 
@@ -496,15 +496,15 @@ IPv4: The functions of this part are mainly reflected in the reassembly function
 
 1.TcpIpIpFragmentationRxEnabled: Whether to enable the receive reassembly function;
 
-2.TcpIpIpNumFragments：每个IP数据报最多的分片数目（在TcpIpIpFragmentationRxEnabled使能的情况下）；
+2.TcpIpIpNumFragments：每个IP数据报最多的分片数目(在TcpIpIpFragmentationRxEnabled使能的情况下)；
 
 2.TcpIpIpNumFragments: The maximum number of fragments for each IP datagram (when TcpIpIpFragmentationRxEnabled is enabled);
 
-3.TcpIpIpFragmentationRxEnabled：并行处理多少IP数据报的接收重组（在TcpIpIpFragmentationRxEnabled使能的情况下）；
+3.TcpIpIpFragmentationRxEnabled：并行处理多少IP数据报的接收重组(在TcpIpIpFragmentationRxEnabled使能的情况下)；
 
 3.TcpIpIpFragmentationRxEnabled: The number of IP datagrams for which receive reassembly is processed in parallel (when TcpIpIpFragmentationRxEnabled is enabled);
 
-4.TcpIpIpReassTimeout：重组超时时间（在TcpIpIpFragmentationRxEnabled使能的情况下）。
+4.TcpIpIpReassTimeout：重组超时时间(在TcpIpIpFragmentationRxEnabled使能的情况下)。
 
 4.TcpIpIpReassTimeout: The reassembly timeout period (when TcpIpIpFragmentationRxEnabled is enabled).
 
@@ -520,7 +520,7 @@ ARP：该部分的功能体现在TcpIpIpConfig->TcpIpIpV4Config->TcpIpArpConfig�
 
 ARP: The functions of this part are reflected in the configuration Container of TcpIpIpConfig->TcpIpIpV4Config->TcpIpArpConfig. The involved configuration parameters and their functions are as follows:
 
-1.TcpIpArpNumGratuitousARPonStartup：当获取到IP地址对外广播自己的<IP地址，MAC地址>，该参数为广播的次数，因基于LwIP实现（固定为1次，不可改配置）；
+1.TcpIpArpNumGratuitousARPonStartup：当获取到IP地址对外广播自己的<IP地址，MAC地址>，该参数为广播的次数，因基于LwIP实现(固定为1次，不可改配置)；
 
 1.TcpIpArpNumGratuitousARPonStartup: When an IP address is obtained, the <IP address, MAC address> of the host is broadcast to the outside. This parameter specifies the number of broadcasts. Due to the implementation based on LwIP (fixed to 1 time, which cannot be modified in configuration);
 
@@ -528,11 +528,11 @@ ARP: The functions of this part are reflected in the configuration Container of 
 
 2.TcpIpArpPacketQueueEnabled: Whether to enable ARP to cache IP packets that request to be sent before obtaining the destination MAC address;
 
-3.TcpIpArpTableEntryTimeout：ARP缓存表（Entry）的生存时间（超时则从缓存表中移除该Entry）；
+3.TcpIpArpTableEntryTimeout：ARP缓存表(Entry)的生存时间(超时则从缓存表中移除该Entry)；
 
 3.TcpIpArpTableEntryTimeout: The lifetime of an entry in the ARP cache table (the entry will be removed from the cache table when it times out);
 
-4.TcpIpArpTableSizeMax：ARP缓存表的Size（即Entry的数目）。
+4.TcpIpArpTableSizeMax：ARP缓存表的Size(即Entry的数目)。
 
 4.TcpIpArpTableSizeMax: The size of the ARP cache table (i.e., the number of entries).
 
@@ -548,15 +548,15 @@ ICMP：该部分的功能体现在TcpIpIpConfig->TcpIpIpV4Config->TcpIpIcmpConfi
 
 ICMP: The functions of this part are reflected in the configuration Container of TcpIpIpConfig->TcpIpIpV4Config->TcpIpIcmpConfig. The involved configuration parameters and their functions are as follows:
 
-1.TcpIpIcmpTtl：ICMP数据报Ttl参数（该参数封装在IP报首部）；
+1.TcpIpIcmpTtl：ICMP数据报Ttl参数(该参数封装在IP报首部)；
 
 1.TcpIpIcmpTtl: The Ttl parameter of the ICMP datagram (this parameter is encapsulated in the header of the IP packet);
 
-2.TcpIpIcmpMsgHandler（包含参数TcpIpIcmpMsgHandlerHeaderFileName和TcpIpIcmpMsgHandlerName）：主要是配置ICMP报文的接收函数，TcpIp接收到ICMP报文时调用该配置API传递给上层模块。该功能未实现，在工具上对该配置Container进行了限制（无法添加）。
+2.TcpIpIcmpMsgHandler(包含参数TcpIpIcmpMsgHandlerHeaderFileName和TcpIpIcmpMsgHandlerName)：主要是配置ICMP报文的接收函数，TcpIp接收到ICMP报文时调用该配置API传递给上层模块。该功能未实现，在工具上对该配置Container进行了限制(无法添加)。
 
 2.TcpIpIcmpMsgHandler (including parameters TcpIpIcmpMsgHandlerHeaderFileName and TcpIpIcmpMsgHandlerName): It is mainly used to configure the receiving function for ICMP messages. When the TcpIp module receives an ICMP message, it calls this configured API to pass the message to the upper-layer module. This function is not implemented, and restrictions have been imposed on this configuration Container in the tool (cannot be added).
 
-3.TcpIp模块除了在lwip代码中实现部分ICMP常用功能，还为上层模块提供ICMPv4数据报发送接口TcpIp_IcmpTransmit。但未实现ICMP数据报上传上层模块的功能（参见配置TcpIpIcmpMsgHandler说明）。
+3.TcpIp模块除了在lwip代码中实现部分ICMP常用功能，还为上层模块提供ICMPv4数据报发送接口TcpIp_IcmpTransmit。但未实现ICMP数据报上传上层模块的功能(参见配置TcpIpIcmpMsgHandler说明)。
 
 3.In addition to implementing some common ICMP functions in the lwIP code, the TcpIp module also provides the upper-layer module with the ICMPv4 datagram sending interface TcpIp_IcmpTransmit. However, the function of uploading ICMP datagrams to the upper-layer module is not implemented (see the description of configuring TcpIpIcmpMsgHandler).
 
@@ -574,15 +574,15 @@ IP Based Protocols功能 IP Based Protocols Function
 
 In each TcpIpLocalAddr configuration Container, the main function is to implement the IP address assignment mechanism TcpIpAddrAssignment (considering the current imperfection of the standard and the complexity of code implementation, only one IP assignment mechanism can be configured temporarily). Among them,
 
-1.TcpIpAssignmentLifetime用以实现分配永久IP的功能未实现（暂无该需求）；
+1.TcpIpAssignmentLifetime用以实现分配永久IP的功能未实现(暂无该需求)；
 
 1.The function of TcpIpAssignmentLifetime for implementing permanent IP assignment is not implemented (no such requirement currently);
 
-2.TcpIpAssignmentMethod项可根据需求选择何种分配方式（DHCP/AUTO-IP/STATIC等）；
+2.TcpIpAssignmentMethod项可根据需求选择何种分配方式(DHCP/AUTO-IP/STATIC等)；
 
 2.The TcpIpAssignmentMethod item allows selecting the assignment method (DHCP/AUTO-IP/STATIC, etc.) according to requirements;
 
-3.TcpIpAssignmentPriority分配方式优先级，用于配置了多个TcpIpAddrAssignment时（目前不支持）；
+3.TcpIpAssignmentPriority分配方式优先级，用于配置了多个TcpIpAddrAssignment时(目前不支持)；
 
 3.TcpIpAssignmentPriority is the priority of the assignment method, which is used when multiple TcpIpAddrAssignment configurations are set (not supported currently);
 
@@ -602,12 +602,12 @@ When TcpIpAssignmentMethod is configured as TCPIP_STATIC, you can choose whether
    TcpIpUdpConfig
 
 
-UDP的配置参数只有TcpIpUdpTtl，该信息封装在相应IP报的首部。TcpIp为上层模块提供接口TcpIp_UdpTransmit来发送UDP报文，当收到UDP接收报文时，通过调用Up_RxIndication（一般为SoAd_RxIndication）传递给上层。
+UDP的配置参数只有TcpIpUdpTtl，该信息封装在相应IP报的首部。TcpIp为上层模块提供接口TcpIp_UdpTransmit来发送UDP报文，当收到UDP接收报文时，通过调用Up_RxIndication(一般为SoAd_RxIndication)传递给上层。
 
 The only configuration parameter for UDP is TcpIpUdpTtl, and this information is encapsulated in the header of the corresponding IP packet. The TcpIp module provides the interface TcpIp_UdpTransmit for the upper-layer module to send UDP messages. When a UDP receive message is received, it is passed to the upper layer by calling Up_RxIndication (generally SoAd_RxIndication).
 
 
-TcpIp模块除了为上层模块提供了发送接口TcpIp_TcpTransmit，收到TCP报文通过调用Up_RxIndication（一般为SoAd_RxIndication）传递给上层外，还涉及，
+TcpIp模块除了为上层模块提供了发送接口TcpIp_TcpTransmit，收到TCP报文通过调用Up_RxIndication(一般为SoAd_RxIndication)传递给上层外，还涉及，
 
 In addition to providing the upper-layer module with the sending interface TcpIp_TcpTransmit, and passing received TCP messages to the upper layer by calling Up_RxIndication (generally SoAd_RxIndication), the TcpIp module also involves the following:
 
@@ -615,11 +615,11 @@ In addition to providing the upper-layer module with the sending interface TcpIp
 
 1.TcpIp_TcpConnect: The connection interface used as a client;
 
-2.作为服务端进入监听模式（等待客户端发起链接请求）接口TcpIp_TcpListen
+2.作为服务端进入监听模式(等待客户端发起链接请求)接口TcpIp_TcpListen
 
 2.TcpIp_TcpListen: The interface for the server to enter the listening mode (waiting for connection requests initiated by the client);
 
-3.增大接收窗口的接口TcpIp_TcpReceived（上层模块接收到数据需要调用该接口来释放TcpIp模块中TCP的接收窗口）
+3.增大接收窗口的接口TcpIp_TcpReceived(上层模块接收到数据需要调用该接口来释放TcpIp模块中TCP的接收窗口)
 
 3.TcpIp_TcpReceived: The interface for increasing the receive window (the upper-layer module needs to call this interface to release the TCP receive window in the TcpIp module after receiving data).
 
@@ -631,19 +631,19 @@ In addition to providing the upper-layer module with the sending interface TcpIp
    TcpIpTcpConfig
 
 
-通过配置TcpIpTcpConfig（Container）的各个配置参数来说明TCP的功能实现：
+通过配置TcpIpTcpConfig(Container)的各个配置参数来说明TCP的功能实现：
 
 The functional implementation of TCP is illustrated by configuring each configuration parameter in TcpIpTcpConfig (Container):
 
-1.TcpIpTcpCongestionAvoidanceEnabled：拥塞避免功能（固定使能）；
+1.TcpIpTcpCongestionAvoidanceEnabled：拥塞避免功能(固定使能)；
 
 1.TcpIpTcpCongestionAvoidanceEnabled: Congestion avoidance function (enabled by default);
 
-2.TcpIpTcpFastRecoveryEnabled：快速恢复功能（固定使能）；
+2.TcpIpTcpFastRecoveryEnabled：快速恢复功能(固定使能)；
 
 2.TcpIpTcpFastRecoveryEnabled: Fast recovery function (enabled by default);
 
-3.TcpIpTcpFastRetransmitEnabled：快速重传功能（固定使能）；
+3.TcpIpTcpFastRetransmitEnabled：快速重传功能(固定使能)；
 
 3.TcpIpTcpFastRetransmitEnabled: Fast retransmission function (enabled by default);
 
@@ -655,19 +655,19 @@ The functional implementation of TCP is illustrated by configuring each configur
 
 5.TcpIpTcpKeepAliveEnabled: Whether to enable the TCP keep-alive mechanism;
 
-6.TcpIpTcpKeepAliveInterval：（在TcpIpTcpKeepAliveEnabled使能前提下才有效）保活探测报文的发送间隔时间；
+6.TcpIpTcpKeepAliveInterval：(在TcpIpTcpKeepAliveEnabled使能前提下才有效)保活探测报文的发送间隔时间；
 
 6.TcpIpTcpKeepAliveInterval: (Effective only when TcpIpTcpKeepAliveEnabled is enabled) The interval for sending keep-alive probe messages;
 
-7.TcpIpTcpKeepAliveProbesMax：（在TcpIpTcpKeepAliveEnabled使能前提下才有效）保活探测报文的发送最大次数；
+7.TcpIpTcpKeepAliveProbesMax：(在TcpIpTcpKeepAliveEnabled使能前提下才有效)保活探测报文的发送最大次数；
 
 7.TcpIpTcpKeepAliveProbesMax: (Effective only when TcpIpTcpKeepAliveEnabled is enabled) The maximum number of keep-alive probe messages to be sent;
 
-8.TcpIpTcpKeepAliveTime：（在TcpIpTcpKeepAliveEnabled使能前提下才有效）TCP最后一次通信，与第一次保活探测报文发送的时间间隔；
+8.TcpIpTcpKeepAliveTime：(在TcpIpTcpKeepAliveEnabled使能前提下才有效)TCP最后一次通信，与第一次保活探测报文发送的时间间隔；
 
 8.TcpIpTcpKeepAliveTime: (Effective only when TcpIpTcpKeepAliveEnabled is enabled) The time interval between the last TCP communication and the first keep-alive probe message;
 
-9.TcpIpTcpMaxRtx：TCP报文最大重传次数（LwIP最大支持13次）；
+9.TcpIpTcpMaxRtx：TCP报文最大重传次数(LwIP最大支持13次)；
 
 9.TcpIpTcpMaxRtx: The maximum number of retransmissions for TCP messages (lwIP supports a maximum of 13 times);
 
@@ -675,7 +675,7 @@ The functional implementation of TCP is illustrated by configuring each configur
 
 10.TcpIpTcpMsl: The TCP client needs to wait for 2×MSL time in the TIME_WAIT state before switching to the CLOSED state;
 
-11.TcpIpTcpNagleEnabled：糊涂窗口避免功能（固定使能）；
+11.TcpIpTcpNagleEnabled：糊涂窗口避免功能(固定使能)；
 
 11.TcpIpTcpNagleEnabled: Silly window avoidance function (enabled by default);
 
@@ -683,15 +683,15 @@ The functional implementation of TCP is illustrated by configuring each configur
 
 12.TcpIpTcpReceiveWindowMax: The maximum value of the receive window;
 
-13.TcpIpTcpRetransmissionTimeout：超时重传的超时时间，不支持（LWIP中重传超时RTT是根据网络状况动态计算的，不是固定配置值）；
+13.TcpIpTcpRetransmissionTimeout：超时重传的超时时间，不支持(LWIP中重传超时RTT是根据网络状况动态计算的，不是固定配置值)；
 
 13.TcpIpTcpRetransmissionTimeout: The timeout period for timeout retransmission (not supported; the retransmission timeout RTT in LWIP is dynamically calculated based on network conditions, not a fixed configuration value);
 
-14.TcpIpTcpSlowStartEnabled：慢启动功能（固定使能）；
+14.TcpIpTcpSlowStartEnabled：慢启动功能(固定使能)；
 
 14.TcpIpTcpSlowStartEnabled: Slow start function (enabled by default);
 
-15.TcpIpTcpSynMaxRtx：链接请求重传最大次数（LwIP最大支持13次）；
+15.TcpIpTcpSynMaxRtx：链接请求重传最大次数(LwIP最大支持13次)；
 
 15.TcpIpTcpSynMaxRtx: The maximum number of retransmissions for connection requests (lwIP supports a maximum of 13 times);
 

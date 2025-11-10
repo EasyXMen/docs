@@ -112,11 +112,11 @@ None
 
    * - DAQ
      - Data AcQuisition, Data AcQuisition Packet 
-     - 数据采集包（一般指ECU把观测量通过DAQ上传到上位机）       
+     - 数据采集包(一般指ECU把观测量通过DAQ上传到上位机)       
 
    * - STIM
      - Data Stimulation 
-     - 数据采集包（一般指上位机把观测量通过STIM下发到ECU）  
+     - 数据采集包(一般指上位机把观测量通过STIM下发到ECU)  
 
    * - CTO
      - Packet for transferring generic control commands 
@@ -129,7 +129,7 @@ None
 简介 Introduction
 ================================================
 
-Xcp全称Universal Measurement and Calibration Protocol（统一测量和标定协议），“X”代表支持多总线传输层。该协议由ASAM组织制定并标准化。Xcp协议继承于Ccp协议，在Ccp协议的基础上扩展了对多总线通信协议（如Ethernet、FlexRay等）的支持。Xcp协议主要功能是为Ecu标定提供一个标准协议，用户以主从的方式去访问Ecu内变量，以实现测量和标定的功能。
+Xcp全称Universal Measurement and Calibration Protocol(统一测量和标定协议)，“X”代表支持多总线传输层。该协议由ASAM组织制定并标准化。Xcp协议继承于Ccp协议，在Ccp协议的基础上扩展了对多总线通信协议(如Ethernet、FlexRay等)的支持。Xcp协议主要功能是为Ecu标定提供一个标准协议，用户以主从的方式去访问Ecu内变量，以实现测量和标定的功能。
 
 Xcp is short for Universal Measurement and Calibration Protocol, "X" means it supports multibus transfer layer. This protocol is formulated and standardized by ASAM. Xcp protocol inherits Ccp protocol. On basis of Ccp protocol, Xcp protocol extends the support of multibus communication protocol (such as Ethernet, FlexRay). Xcp protocol is a standard protocol that is mainly used for Ecu calibration. The user can have access to variable of Ecu by means of master/slave, to realize the measurement and calibration function.
 
@@ -162,15 +162,15 @@ This section describes the Xcp protocol in two parts. Firstly, it will introduce
 基本概念介绍 Introduction to Basic Concept
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-AUTOSAR XCP功能继承于ASAM XCP，核心功能是用于定义MCS（测量和标定系统）和ECU之间通信的协议，从而以实现通过MCS对ECU上数据进行标定调优的功能。
+AUTOSAR XCP功能继承于ASAM XCP，核心功能是用于定义MCS(测量和标定系统)和ECU之间通信的协议，从而以实现通过MCS对ECU上数据进行标定调优的功能。
 
 AUTOSAR XCP, which inherits the function of ASAM XCP, has the core function of defining the communication protocol between MCS (measurement and calibration system) and ECU, to realize calibration and optimization of data on ECU through MCS.
 
-XCP采用Master-Slave（主从式）通信方式，一般来讲标定上位机称为“XCP Master-主节点”，被标定的ECU称为“XCP Slave-从节点”。
+XCP采用Master-Slave(主从式)通信方式，一般来讲标定上位机称为“XCP Master-主节点”，被标定的ECU称为“XCP Slave-从节点”。
 
 The Master-Slave communication mode is adopted in XCP. In general, the calibrating upper computer is called “XCP Master-master node”, while the calibrated ECU is called “XCP Slave-slave node”.
 
-主从节点通信过程中，主节点用于发送协议命令，从节点对命令进行解析并返回对应的响应，通信内容称为XCP数据包（XCP PACKET，包含CTO和DTO），通信示意图如下：
+主从节点通信过程中，主节点用于发送协议命令，从节点对命令进行解析并返回对应的响应，通信内容称为XCP数据包(XCP PACKET，包含CTO和DTO)，通信示意图如下：
 
 During communication of master-slave node, the master node sends the protocol command, and the slave node analyzes the command and returns the corresponding response. The communication content is called XCP data packet (XCP PACKET, containing CTO and DTO). The diagram of communication is as follows:
 
@@ -186,11 +186,11 @@ XCP状态机 XCP state machine
 
 XCP协议栈从上电开始，包含三种状态：
 
-     - 恢复状态（RESUME）：ECU上电后，会先检查非易失性存储区是否保存了需要恢复的DAQ配置列表，如果存在的话，上电后会立即切换到恢复状态（RESUME），ECU会自动上传被恢复的DAQ列表，在此状态下，ECU会忽略除CONNECT命令之外的其他命令，如果收到CONNECT命令后，将会切换为连接状态；
+     - 恢复状态(RESUME)：ECU上电后，会先检查非易失性存储区是否保存了需要恢复的DAQ配置列表，如果存在的话，上电后会立即切换到恢复状态(RESUME)，ECU会自动上传被恢复的DAQ列表，在此状态下，ECU会忽略除CONNECT命令之外的其他命令，如果收到CONNECT命令后，将会切换为连接状态；
 
-     - 断开状态（DISCONNECT）：如果不存在需要恢复的DAQ列表，那么XCP会自动切换到断开状态（DISCONNECT），在此状态下，ECU同样会忽略除CONNECT命令之外的其他命令，直到收到CONNECT命令，进入到连接状态（CONNECT）；
+     - 断开状态(DISCONNECT)：如果不存在需要恢复的DAQ列表，那么XCP会自动切换到断开状态(DISCONNECT)，在此状态下，ECU同样会忽略除CONNECT命令之外的其他命令，直到收到CONNECT命令，进入到连接状态(CONNECT)；
 
-     - 连接状态（CONNECT）：在连接状态下，ECU可以处理所有的命令操作，直到收到DISCONNECT命令，进入到断开状态。
+     - 连接状态(CONNECT)：在连接状态下，ECU可以处理所有的命令操作，直到收到DISCONNECT命令，进入到断开状态。
 
 XCP protocol stack, which starts from power-on, contains three states:
 
@@ -218,9 +218,9 @@ XCP通信方式 XCP communication mode
 主从节点通信方式又细分为三种模式，分别是标准模式，块传输和交替模式，其主要特征如下：
 
 
-     - 标准模式（ Standard Communication Model）：一问一答式交互，主节点发送一条命令，从节点就回复一次；
-     - 块传输模式（Master/Slave Block Transfer Model）：块传输又分为Master Block Transfer（主块传输模式：主节点连续发生多次命令，从节点只回复一次）和Slave Block Transfer（从块传输模式：主节点发送一次，从节点回复多次）；
-     - 交替模式（Interleaved Communication Model）：主节点在不同时间内联系发送多条不同报文，从节点也在相应的时间分别进行回复.
+     - 标准模式( Standard Communication Model)：一问一答式交互，主节点发送一条命令，从节点就回复一次；
+     - 块传输模式(Master/Slave Block Transfer Model)：块传输又分为Master Block Transfer(主块传输模式：主节点连续发生多次命令，从节点只回复一次)和Slave Block Transfer(从块传输模式：主节点发送一次，从节点回复多次)；
+     - 交替模式(Interleaved Communication Model)：主节点在不同时间内联系发送多条不同报文，从节点也在相应的时间分别进行回复.
 
 The master-slave node communication mode is divided into three models: Standard communication model, block transfer and interleaved communication model, of which the main characteristics are as follows:
 
@@ -242,7 +242,7 @@ Xcp协议适用于多种传输层，因此Xcp数据包格式具有通用性。
 
 Xcp data packet format is universal, for Xcp protocol applies to multiple transfer layers.
 
-Xcp数据包格式包括Xcp头部（XCP Header）、Xcp协议包（XCP Packet）以及Xcp尾部（XCP Tail），不同的传输层的头部和尾部可能不存在差异。如Xcp报文在以太网中进行传输时，需要在Xcp头部（XCP Header）添加消息长度和计数值；
+Xcp数据包格式包括Xcp头部(XCP Header)、Xcp协议包(XCP Packet)以及Xcp尾部(XCP Tail)，不同的传输层的头部和尾部可能不存在差异。如Xcp报文在以太网中进行传输时，需要在Xcp头部(XCP Header)添加消息长度和计数值；
 
 Xcp data packet format includes Xcp header (XCP Header), Xcp protocol packet (XCP Packet) and Xcp tail (XCP Tail). The head and tail at different layers may be different. When Xcp message is transferred in Ethernet, the message length and count value should be added at the Xcp header (XCP Header);
 
@@ -253,7 +253,7 @@ Xcp data packet format includes Xcp header (XCP Header), Xcp protocol packet (XC
 
    Xcp数据包 (Xcp data packet)
 
-其中Xcp协议包（XCP Packet）分为CTO（command transfer object）和DTO（data transfer object）两种。CTO用于主从之间传输控制命令，主要包括发送命令（CMD）/响应应 答（RES）/错误帧应答（RES）/事件（EV）/服务请求处理（SERV），而DTO用来传 输同步数据包，包括数据采集（DAQ）和数据激励（STIM）。
+其中Xcp协议包(XCP Packet)分为CTO(command transfer object)和DTO(data transfer object)两种。CTO用于主从之间传输控制命令，主要包括发送命令(CMD)/响应应 答(RES)/错误帧应答(RES)/事件(EV)/服务请求处理(SERV)，而DTO用来传 输同步数据包，包括数据采集(DAQ)和数据激励(STIM)。
 
 In which, Xcp protocol packet (XCP Packet) is divided into CTO (command transfer object) and DTO (data transfer object). CTO is used for transferring control commands between master and slave, including sending command (CMD)/response (RES)/wrong frame response (RES)/Event (EV)/Service request handling, while DTO is used for transferring synchronous data packet, including data acquisition (DAQ) and data stimulation (STIM).
 
@@ -308,18 +308,18 @@ The types of PID data packets at different transfer directions and corresponding
 特性 Features
 ------------------------------------------------------------------------
 
-数据观测（Measurement） Data observation (Measurement)
+数据观测(Measurement) Data observation (Measurement)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Xcp数据测量主要有两种方式：
 
 There are two methods of Xcp data measurement:
 
-1.异步测量（Polling模式）
+1.异步测量(Polling模式)
 
 1.Asynchronous measurement (Polling model)
 
-2.同步测量（DAQ模式）
+2.同步测量(DAQ模式)
 
 2.Synchronous measurement (DAQ model)
 
@@ -345,7 +345,7 @@ During Polling measurement, the general commands used are as follows:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -363,11 +363,11 @@ During Polling measurement, the general commands used are as follows:
 DAQ测量模式 DAQ measurement model
 *****************************************************************************************************************************************
 
-DAQ测量功能主要是为了上传观测量，DAQ由ODT组成，ODT由ODT Entry组成。从通讯角度ODT就是每一帧数据（如一帧CAN报文），而ODT Entry代表一帧数据中（如CAN报文中）的字节内容。在实际应用中，一个周期内一般采集非常多的数据（超过一帧），那么就需要把多个ODT组合起来，这种组合在XCP中称为DAQ List。
+DAQ测量功能主要是为了上传观测量，DAQ由ODT组成，ODT由ODT Entry组成。从通讯角度ODT就是每一帧数据(如一帧CAN报文)，而ODT Entry代表一帧数据中(如CAN报文中)的字节内容。在实际应用中，一个周期内一般采集非常多的数据(超过一帧)，那么就需要把多个ODT组合起来，这种组合在XCP中称为DAQ List。
 
 DAQ measurement function is to upload the observed quantity. DAQ consists of ODT, while ODT consists of ODT Entry. From the perspective of communication, ODT refers to the data per frame (such as CAN message of one frame), while ODT Entry represents the byte content in one frame data (such as CAN message). Multiple ODT needs to be combined in actual application, for many data (over 1 frame) will be collected in one period, and such combination is called DAQ List in XCP.
 
-DAQ模式测量中一般会在ECU内部定义多个周期性事件（XcpEvent），如1ms/2ms/5ms/10ms/100ms等，上位机通过DAQ命令把需要测量的变量配置成DAQ表与对应的事件进行关联，按照命令中的参数配置组包并根据设定的周期进行上传。
+DAQ模式测量中一般会在ECU内部定义多个周期性事件(XcpEvent)，如1ms/2ms/5ms/10ms/100ms等，上位机通过DAQ命令把需要测量的变量配置成DAQ表与对应的事件进行关联，按照命令中的参数配置组包并根据设定的周期进行上传。
 
 In general, multiple periodic events (XcpEvent) will be defined in ECU during DAQ measurement, such as 1ms/2ms/5ms/10ms/100ms. The upper computer configures the to-be-measured variables into DAQ table through DAQ command, to have association with the corresponding events; then forms packet according to parameter configuration in command and uploads them according to the set period.
 
@@ -387,19 +387,19 @@ Static DAQ command:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
 
    * - CLEAR_DAQ_LIST  
      - 0xE3
-     - 清除DAQ配置列表（用于静态DAQ）(Clear DAQ configuration list (for static DAQ))
+     - 清除DAQ配置列表(用于静态DAQ)(Clear DAQ configuration list (for static DAQ))
      - 是(Yes)
 
    * - GET_DAQ_LIST_INFO  
      - 0xD8
-     - 获取DAQ List信息（用于静态DAQ）(Acquire DAQ List information (for static DAQ))
+     - 获取DAQ List信息(用于静态DAQ)(Acquire DAQ List information (for static DAQ))
      - 是(Yes)
 
 动态DAQ命令：
@@ -410,7 +410,7 @@ Dynamic DAQ command:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -443,7 +443,7 @@ Universal DAQ command:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -480,7 +480,7 @@ Universal DAQ command:
 
    * - GET_DAQ_CLOCK    
      - 0xDC
-     - 获取DAQ采样时间（基于OS Tick）(Get DAQ sampling time (based on OS Tick))
+     - 获取DAQ采样时间(基于OS Tick)(Get DAQ sampling time (based on OS Tick))
      - 是(Yes)
 
    * - READ_DAQ   
@@ -490,7 +490,7 @@ Universal DAQ command:
 	 	 
    * - GET_DAQ_PROCESSOR_INFO   
      - 0xDA
-     - 获取一些DAQ的通用信息（如最大DAQ个数）(Get some universal information of DAQ (such as max. count of DAQ))
+     - 获取一些DAQ的通用信息(如最大DAQ个数)(Get some universal information of DAQ (such as max. count of DAQ))
      - 是(Yes)
 	 	 
    * - GET_DAQ_RESOLUTION_INFO   
@@ -500,7 +500,7 @@ Universal DAQ command:
 	 	 
    * - GET_DAQ_EVENT_INFO   
      - 0xD7
-     - 获取指定的通道事件（XcpEvent）的基本信息(Get the basic information of designated channel event (XcpEvent))
+     - 获取指定的通道事件(XcpEvent)的基本信息(Get the basic information of designated channel event (XcpEvent))
      - 是(Yes)
 	 	 
    * - WRITE_DAQ_MULTIPLE   
@@ -515,7 +515,7 @@ Resume功能 Resume function
 
 Observed quantity is uploaded through DAQ. Interaction of several commands between Master and Slave is required to realize the interaction of DAQ. Interaction through DAQ command is not required by Resume function during power-on, which means, DAQ that is configured as Resume mode can be uploaded automatically.
 
-Resume本质上也是上传DAQ，实现方式也是基于DAQ的命令组。唯一的区别在于START_STOP_DAQ_LIST命令发送时Mode需要设置为02（select），且紧接着需要发送SET_REQUEST（STORE_DAQ_REQ_RESUME）。
+Resume本质上也是上传DAQ，实现方式也是基于DAQ的命令组。唯一的区别在于START_STOP_DAQ_LIST命令发送时Mode需要设置为02(select)，且紧接着需要发送SET_REQUEST(STORE_DAQ_REQ_RESUME)。
 
 The essence of Resume is to upload DAQ through the DAQ-based command group. The only difference is, Mode should be set as 02 (select) while sending the START_STOP_DAQ_LIST command, and then it needs to send SET_REQUEST (STORE_DAQ_REQ_RESUME).
 
@@ -527,7 +527,7 @@ The Resume function-associated commands are as follows:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -539,10 +539,10 @@ The Resume function-associated commands are as follows:
 
 
 
-在线标定（Calibration）Online calibration (Calibration)
+在线标定(Calibration)Online calibration (Calibration)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-标定数据本质上看是固定的参数（eg：ECU中一些重要的参数），因此他们会实际被配置到FLASH中。而这些数据在开发阶段同时需要被实时标定，那么因此标准数据也需要具备被修改的属性，即RAM属性。在线标定本质上就是修改存放在RAM中的标定数据。
+标定数据本质上看是固定的参数(eg：ECU中一些重要的参数)，因此他们会实际被配置到FLASH中。而这些数据在开发阶段同时需要被实时标定，那么因此标准数据也需要具备被修改的属性，即RAM属性。在线标定本质上就是修改存放在RAM中的标定数据。
 
 The calibration data are essentially the fixed parameters (eg: Some important parameters in ECU); so, they will be configured in FLASH. These data need to be calibrated in real time during development; so, the standard data should also have modified attribute, i.e. RAM attribute. The essence of online calibration is to modify the calibration data stored in RAM.
 
@@ -561,7 +561,7 @@ The online calibration commands in Xcp protocol stack are as follows:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -609,11 +609,11 @@ The online calibration commands in Xcp protocol stack are as follows:
 Page页切换 Page switching
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-程序运行时将存放在Flash存储器中的标定参数拷贝到RAM存储器中执行。存储器划分为多个扇区（Sector），每个扇区划分为多个段（Segment），每个段又包含多个页（Page）。
+程序运行时将存放在Flash存储器中的标定参数拷贝到RAM存储器中执行。存储器划分为多个扇区(Sector)，每个扇区划分为多个段(Segment)，每个段又包含多个页(Page)。
 
 While program is running, the calibration data in Flash memory will be copied in RAM memory for execution. The memory is divided into different sectors, each sector is divided into multiple segments, and each segment contains multiple pages.
 
-Flash中的标定数据就称为参考页（Reference Page），RAM中的标定数据就成为工作页（Working Page），一般情况下它们是一一对应的。
+Flash中的标定数据就称为参考页(Reference Page)，RAM中的标定数据就成为工作页(Working Page)，一般情况下它们是一一对应的。
 
 The calibration data in Flash are called reference page. The calibration data in RAM are the working page and have one-to-one correspondence in general.
 
@@ -629,7 +629,7 @@ The general commands of page switching are as follows:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -677,7 +677,7 @@ The general commands of page switching are as follows:
 Flash刷写 Flashing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Flash刷写功能主要是用于把标定得到的数据烧写到Flash中，固化标定到内存（也可以刷写可执行代码）。
+Flash刷写功能主要是用于把标定得到的数据烧写到Flash中，固化标定到内存(也可以刷写可执行代码)。
 
 Flashing function is used for writing the data, which is acquired through calibration, into the Flash and fixing the calibration data in memory (the executable codes can also have flashing).
 
@@ -697,7 +697,7 @@ The base address of flashing is set through SET_MTA command in absolute mode, t
 
 The byte filled by SET_MTA under function mode is not regarded as base address, but the count value of block sequence, which avoids the errors of flashing sending sequence when there’s large amount of flashing requests.
 
-通过PROGRAM_CLEAR命令获取刷写基地址，然后将数据刷写至Flash内存中（当前Flash刷写只支持绝对模式）。
+通过PROGRAM_CLEAR命令获取刷写基地址，然后将数据刷写至Flash内存中(当前Flash刷写只支持绝对模式)。
 
 Get base address of flashing through PROGRAM_CLEAR command, then flash data in Flash memory (current flashing supports absolute mode only).
 
@@ -709,7 +709,7 @@ The general commands of flashing are as follows:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -794,7 +794,7 @@ Seed&Key commands are as follows:
    :widths: 10 5 15 5 
    :header-rows: 1
 
-   * - 命令（CMD）(Command (CMD))
+   * - 命令(CMD)(Command (CMD))
      - PID
      - 功能描述(Functional Description)
      - 是否支持(Support or not)
@@ -856,7 +856,7 @@ Seed&Key commands are as follows:
      - 暂不支持(Not supported temporarily) 
 
    * - 多总线标定共存(Coexistence of multibus calibration) 
-     - 暂不支持，目前工程仅支持同时存在一种总线（CAN或者ETH）(Not supported temporarily, only one bus (CAN or ETH) is supported simultaneously by the project at present) 
+     - 暂不支持，目前工程仅支持同时存在一种总线(CAN或者ETH)(Not supported temporarily, only one bus (CAN or ETH) is supported simultaneously by the project at present) 
 
 
 
@@ -994,7 +994,7 @@ None
 传输层配置 Transfer layer configuration
 ----------------------------------------------------------------------------------------------------
 
-Xcp协议栈目前支持基于CAN（支持CAN和CANFD）和ETH总线的总线标定协议。不同的传输层，Xcp数据包长度（CTO和DTO）均可配置。并且Xcp数据帧的传输速率也根据传输层不一样而会有不同。
+Xcp协议栈目前支持基于CAN(支持CAN和CANFD)和ETH总线的总线标定协议。不同的传输层，Xcp数据包长度(CTO和DTO)均可配置。并且Xcp数据帧的传输速率也根据传输层不一样而会有不同。
 
 At presence, the Xcp protocol stack supports the bus calibration protocol that is based on CAN (support CAN and CANFD) and ETH bus. The Xcp data packet length (CTO and DTO) can be configured for different transfer layers. The transfer rate of Xcp data frame varies along with transfer layer.
 
@@ -1071,7 +1071,7 @@ The value range of CTO and DTO is as follows:
 PDU关联 PDU association
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Xcp在AUTOSAR中，其下层模块分别为CanIf（XcpOnCan）、Soad(XcpOnEth)，其模块之间是通过PDU进行交互。
+Xcp在AUTOSAR中，其下层模块分别为CanIf(XcpOnCan)、Soad(XcpOnEth)，其模块之间是通过PDU进行交互。
 
 The lower module of Xcp in AUTOSAR is CanIf (XcpOnCan) and Soad(XcpOnEth) respectively, and the interaction between modules is realized through PDU.
 
@@ -1089,11 +1089,11 @@ The associated configuration items are as follows:
 
    * - XcpConfig->XcpPdu
      - XcpRxPdu
-     - 选择传输层交互的接收PDU（从CanIf或者Soad收上来）(Select receiving PDU (from CanIf or Soad) that has interaction in transfer layer)
+     - 选择传输层交互的接收PDU(从CanIf或者Soad收上来)(Select receiving PDU (from CanIf or Soad) that has interaction in transfer layer)
 
    * - XcpConfig->XcpPdu
      - XcpTxPdu
-     - 选择传输层交互的发送PDU（从Xcp下发到CanIf或者Soad）(Select sending PDU (distributed to CanIf or Soad from Xcp) that has interaction in transfer layer)
+     - 选择传输层交互的发送PDU(从Xcp下发到CanIf或者Soad)(Select sending PDU (distributed to CanIf or Soad from Xcp) that has interaction in transfer layer)
 
 .. figure:: ../../../_static/参考手册/Xcp/XcpPdu.png
    :alt: XcpPdu
@@ -1102,7 +1102,7 @@ The associated configuration items are as follows:
 
    Xcp PDU关联 (Xcp PDU association)
 
-且XcpRxPdu和XcpTxPdu通过XcpRxPduRef引用的PDU必须在传输层（CanIf或者Soad）被引用。下图以XcpOnCan进行举例说明：
+且XcpRxPdu和XcpTxPdu通过XcpRxPduRef引用的PDU必须在传输层(CanIf或者Soad)被引用。下图以XcpOnCan进行举例说明：
 
 PDU that is quoted by XcpRxPdu and XcpTxPdu through XcpRxPduRef must be quoted in transfer layer (CanIf or Soad). Taking XcpOnCan as example in picture below:
    
@@ -1135,7 +1135,7 @@ Xcp协议栈目前仅支持同一时间内在一种总线上进行标定，因�
 
 At presence, Xcp protocol stack supports calibration of one bus simultaneously; therefore, the partitioning of Xcp depends on the transfer layer.
 
-多分区系统下，Xcp需要强制要求XcpRxPdu和XcpTxPdu所在分区需一致（通过ECUC进行分区匹配），Xcp协议栈的分区即为收发PDU所在分区。
+多分区系统下，Xcp需要强制要求XcpRxPdu和XcpTxPdu所在分区需一致(通过ECUC进行分区匹配)，Xcp协议栈的分区即为收发PDU所在分区。
 
 For multi-partition system, the partition for XcpRxPdu and XcpTxPdu must be consistent (partition is matched through ECUC) compulsorily; the partition of Xcp is the partition of receiving/distribution PDU.
 
@@ -1171,7 +1171,7 @@ As the carrier that is periodically uploaded by DAQ, XcpEventchannel configurat
 
    * - XcpEventChannel
      - XcpEventChannelNumber
-     - 定义此通道的索引（默认生成）(Define the index of this channel (generated by default))
+     - 定义此通道的索引(默认生成)(Define the index of this channel (generated by default))
 
    * - XcpEventChannel
      - XcpEventChannelConsistency
@@ -1183,23 +1183,23 @@ As the carrier that is periodically uploaded by DAQ, XcpEventchannel configurat
 
    * - XcpEventChannel
      - XcpEventChannelPriority
-     - 定义此通道的发送优先级（暂不支持）(Define the sending priority of this channel (not supported temporarily))	 
+     - 定义此通道的发送优先级(暂不支持)(Define the sending priority of this channel (not supported temporarily))	 
 
    * - XcpEventChannel
      - XcpEventChannelTimeCycle
-     - 与XcpEventChannelTimeUnit配置一起确认此通道的周期信息（用于A2L文件）(Confirm the period information of this channel along with XcpEventChannelTimeUnit (used for A2L file))	
+     - 与XcpEventChannelTimeUnit配置一起确认此通道的周期信息(用于A2L文件)(Confirm the period information of this channel along with XcpEventChannelTimeUnit (used for A2L file))	
  	 
    * - XcpEventChannel
      - XcpEventChannelTimeUnit
-     - 与XcpEventChannelTimeCycle配置一起确认此通道的周期信息（用于A2L文件）(Confirm the period information of this channel along with XcpEventChannelTimeCycle (used for A2L file))
+     - 与XcpEventChannelTimeCycle配置一起确认此通道的周期信息(用于A2L文件)(Confirm the period information of this channel along with XcpEventChannelTimeCycle (used for A2L file))
 
    * - XcpEventChannel
      - XcpEventChannelType
-     - 定义此通道上能够承载的DAQ类型（DAQ或者STIM）(Define the type of DAQ (DAQ or STIM) that can be carried by this channel)
+     - 定义此通道上能够承载的DAQ类型(DAQ或者STIM)(Define the type of DAQ (DAQ or STIM) that can be carried by this channel)
 	 
    * - XcpEventChannel
      - XcpEventChannelTriggeredDaqListRef
-     - 定义此通道上能够承载的DAQ索引（仅适用于静态DAQ）(Define the DAQ index (applies to static DAQ only) that can be carried by this channel)
+     - 定义此通道上能够承载的DAQ索引(仅适用于静态DAQ)(Define the DAQ index (applies to static DAQ only) that can be carried by this channel)
 	 
 .. figure:: ../../../_static/参考手册/Xcp/XcpEvent.png
    :alt: XcpEvent
@@ -1212,7 +1212,7 @@ As the carrier that is periodically uploaded by DAQ, XcpEventchannel configurat
 DAQ配置 DAQ configuration
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-动态DAQ（推荐） Dynamic DAQ (recommended)
+动态DAQ(推荐) Dynamic DAQ (recommended)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DAQ作为Xcp协议栈中非常重要的一个功能，简化了工程的集成难度，相对于静态DAQ，不用配置XcpDaqList，仅需配置如下动态参数即可：
@@ -1237,15 +1237,15 @@ As an important function of Xcp protocol stack, DAQ simplifies the integration o
 
    * - XcpGeneral->DAQFormat
      - XcpDaqCount
-     - 动态分配的DAQ最大数量（ALLOC_DAQ）(The max. number of dynamically distributed DAQ (ALLOC_DAQ))
+     - 动态分配的DAQ最大数量(ALLOC_DAQ)(The max. number of dynamically distributed DAQ (ALLOC_DAQ))
 	 
    * - XcpGeneral->DAQFormat
      - XcpOdtCount
-     - 动态分配的ODT最大数量（ALLOC_ODT）(The max. number of dynamically distributed ODT (ALLOC_ODT))
+     - 动态分配的ODT最大数量(ALLOC_ODT)(The max. number of dynamically distributed ODT (ALLOC_ODT))
 	
    * - XcpGeneral->DAQFormat
      - XcpOdtEntriesCount
-     - 动态分配的ODT Entry最大数量（ALLOC_ODT_ENTRY）(The max. Number of dynamically distributed ODT Entry (ALLOC_ODT_ENTRY))	
+     - 动态分配的ODT Entry最大数量(ALLOC_ODT_ENTRY)(The max. Number of dynamically distributed ODT Entry (ALLOC_ODT_ENTRY))	
 	 
 .. figure:: ../../../_static/参考手册/Xcp/XcpDynDaq.png
    :alt: XcpDynDaq
@@ -1279,19 +1279,19 @@ As the feature of static DAQ, the number of DAQ, ODT and ODT Entry needs to be 
 
    * - XcpDaqList
      - XcpDaqListType
-     - 表示此DAQ List的方向（DAQ或者STIM）(The direction of this DAQ List (DAQ or STIM))
+     - 表示此DAQ List的方向(DAQ或者STIM)(The direction of this DAQ List (DAQ or STIM))
 
    * - XcpDaqList
      - XcpMaxOdt
-     - 表示此DAQ List最多能创建多少个ODT（根据创建的ODT个数默认生成）(The max. number of ODT (which is generated according to number of created ODT by default) that can be created by DAQ List)
+     - 表示此DAQ List最多能创建多少个ODT(根据创建的ODT个数默认生成)(The max. number of ODT (which is generated according to number of created ODT by default) that can be created by DAQ List)
 
    * - XcpDaqList
      - XcpMaxOdtEntries
-     - 表示此DAQ List中任一一个ODT最大能创建的ODT Entry数量（默认生成）(The max. Number of ODT Entry (created by default) that can be created by any ODT in this DAQ list)
+     - 表示此DAQ List中任一一个ODT最大能创建的ODT Entry数量(默认生成)(The max. Number of ODT Entry (created by default) that can be created by any ODT in this DAQ list)
 
    * - XcpDaqList
      - XcpDto
-     - DAQ List可通过此配置选择接收的PDU（暂不支持）(DAQ List can configure the received PDU (not supported temporarily) through this configuration)
+     - DAQ List可通过此配置选择接收的PDU(暂不支持)(DAQ List can configure the received PDU (not supported temporarily) through this configuration)
 	 
    * - XcpDaqList
      - XcpOdt
@@ -1307,19 +1307,19 @@ As the feature of static DAQ, the number of DAQ, ODT and ODT Entry needs to be 
 
    * - XcpOdtEntry
      - XcpOdtEntryAddress
-     - ODT Entry地址（暂不可配，通过WRITE_DAQ写入）(ODT Entry address (not configurable at presence, written in through WRITE_DAQ))
+     - ODT Entry地址(暂不可配，通过WRITE_DAQ写入)(ODT Entry address (not configurable at presence, written in through WRITE_DAQ))
 	
    * - XcpOdtEntry
      - XcpOdtEntryBitOffset
-     - ODT Entry位偏移（暂不可配，通过WRITE_DAQ写入）(ODT Entry bit offset (not configurable at presence, written in through WRITE_DAQ))
+     - ODT Entry位偏移(暂不可配，通过WRITE_DAQ写入)(ODT Entry bit offset (not configurable at presence, written in through WRITE_DAQ))
 
    * - XcpOdtEntry
      - XcpOdtEntryLength
-     - ODT Entry长度（暂不可配，通过WRITE_DAQ写入）(ODT Entry length (not configurable at presence, written in through WRITE_DAQ))
+     - ODT Entry长度(暂不可配，通过WRITE_DAQ写入)(ODT Entry length (not configurable at presence, written in through WRITE_DAQ))
 
    * - XcpOdtEntry
      - XcpOdtEntryNumber
-     - ODT Entry索引（暂不可配，通过WRITE_DAQ写入）(ODT Entry index (not configurable at presence, written in through WRITE_DAQ))	 
+     - ODT Entry索引(暂不可配，通过WRITE_DAQ写入)(ODT Entry index (not configurable at presence, written in through WRITE_DAQ))	 
 
    * - XcpEventChannel
      - XcpEventChannelTriggeredDaqListRef
@@ -1357,11 +1357,11 @@ DAQ Resume function is to store DAQ List in Nvm through SET_REQUEST command. T
 
    * - XcpCommand->XcpDaqStim
      - XcpDaqResumeModeEnable
-     - DAQ Resume功能使能开关（仅在XcpDaqEnable使能时可配）(Enable switch of DAQ Resume function (configurable only when XcpDaqEnable is enabled))
+     - DAQ Resume功能使能开关(仅在XcpDaqEnable使能时可配)(Enable switch of DAQ Resume function (configurable only when XcpDaqEnable is enabled))
 
    * - XcpCommand->XcpDaqStim
      - XcpNvRamBlockIdRef
-     - DAQ List需要存储到的目标Nvm块（仅在XcpDaqResumeModeEnable使能时可配）(DAQ List needs to be stored in the target Nvm block (configurable only when XcpDaqResumeModeEnable is enabled))
+     - DAQ List需要存储到的目标Nvm块(仅在XcpDaqResumeModeEnable使能时可配)(DAQ List needs to be stored in the target Nvm block (configurable only when XcpDaqResumeModeEnable is enabled))
 
 DAQ观测地址检测 DAQ observation address detection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1384,7 +1384,7 @@ Xcp protocol stack supports limiting of DAQ observation address. When the observ
 
    * - XcpCommand->XcpDaqStim
      - XcpMeaAddrCfgs
-     - DAQ观测地址集（可配置多个），不配置代表不对观测地址做限制，配置则代表通过WRITE_DAQ命令写入的DAQ地址必须在XcpMeaAddrCfgs配置集中（仅在XcpDaqEnable使能时可配）(DAQ observation address set (multiple sets can be configured); the observation address is not limited when it is not configured; when it is configured, the DAQ address that is written through WRITE_DAQ command must be within the XcpMeaAddrCfgs configuration set (configurable only when XcpDaqEnable is enabled))
+     - DAQ观测地址集(可配置多个)，不配置代表不对观测地址做限制，配置则代表通过WRITE_DAQ命令写入的DAQ地址必须在XcpMeaAddrCfgs配置集中(仅在XcpDaqEnable使能时可配)(DAQ observation address set (multiple sets can be configured); the observation address is not limited when it is not configured; when it is configured, the DAQ address that is written through WRITE_DAQ command must be within the XcpMeaAddrCfgs configuration set (configurable only when XcpDaqEnable is enabled))
 
    * - XcpMeaAddrCfgs
      - XcpMeasuremenAddr
@@ -1411,7 +1411,7 @@ Xcp协议栈中页切换功能主要是RP和WP之间做切换，通过软件方�
 
 The page switching function of Xcp protocol stack is mainly used for switching between RP and WP, and creating a cache region through software, to copy the intermediate data between RP and WP.
 
-但目前MCU中大部分都自带硬件单元模块（如英飞凌Overlay）用于页切换，因此配置数据中可由用户自定义去配置页切换使能与实现方式，相关配置如下：
+但目前MCU中大部分都自带硬件单元模块(如英飞凌Overlay)用于页切换，因此配置数据中可由用户自定义去配置页切换使能与实现方式，相关配置如下：
 
 Most of MCU is fitted with hardware unit module (such as Infineon Overlay) for page switching; so, the configuration data can be customized by user to configure the enabling and realization method of page switching. The relevant configurations are as follows:
 
@@ -1459,11 +1459,11 @@ The relevant configuration items are as follows:
 
    * - XcpCommand->XcpStandard
      - XcpSlaveBlockMode
-     - Slave块传输模式（主要指UPLOAD块传输）(Slave block transfer model (mainly refers to UPLOAD block transfer))	 
+     - Slave块传输模式(主要指UPLOAD块传输)(Slave block transfer model (mainly refers to UPLOAD block transfer))	 
 
    * - XcpCommand->XcpStandard
      - XcpMasterBlockMode
-     - Master块传输模式（主要指DOWNLOAD和PROGRAM块传输，使用相同的Minst和MaxBs），其功能与交替模式为互斥配置(Master block transfer model (mainly refers to DOWNLOAD and PROGRAM block transfer, using the same Minst and MaxBs); its function and interleaved mode are mutual exclusion configurations)
+     - Master块传输模式(主要指DOWNLOAD和PROGRAM块传输，使用相同的Minst和MaxBs)，其功能与交替模式为互斥配置(Master block transfer model (mainly refers to DOWNLOAD and PROGRAM block transfer, using the same Minst and MaxBs); its function and interleaved mode are mutual exclusion configurations)
 
    * - XcpCommand->XcpStandard
      - XcpMinSt

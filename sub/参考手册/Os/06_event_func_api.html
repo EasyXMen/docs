@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Event Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Event(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Event Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Event(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/06_event_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/06_event_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,24 +196,24 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="event-functions">
-<h1>Event Functions<a class="headerlink" href="#event-functions" title="Link to this heading">¶</a></h1>
-<p>事件机制（Event Mechanism）：</p>
+<h1>Event(Functions)<a class="headerlink" href="#event-functions" title="Link to this heading">¶</a></h1>
+<p>事件机制(Event Mechanism)：</p>
 <blockquote>
 <div><ul>
 <li><p>是一种同步手段</p>
-<p>It is a synchronization method.</p>
+<p>It is a synchronization mechanism.</p>
 </li>
 <li><p>仅拓展任务可用</p>
-<p>Only extended tasks can use it.</p>
+<p>Only extended tasks can use events.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>Figure解释了在完全抢占式调度的情况下通过设置事件使扩展任务的同步，其中扩展任务T1具有更高的优先级。</p>
-<p>Figure explains the synchronization of extended tasks by setting events under fully preemptive scheduling, where the extended task T1 has a higher priority.</p>
+<p>The figure illustrates the synchronization of extended tasks through event setting under fully preemptive scheduling, where extended task T1 has a higher priority.</p>
 <figure class="align-center" id="id1">
-<img alt="可抢占扩展任务的同步" src="../../../_images/event%E5%90%8C%E6%AD%A5%E4%BB%BB%E5%8A%A1.png" />
+<img alt="可抢占扩展任务的同步 (Synchronization of Preemptible Extended Tasks)" src="../../../_images/event%E5%90%8C%E6%AD%A5%E4%BB%BB%E5%8A%A1.png" />
 <figcaption>
-<p><span class="caption-text">可抢占扩展任务的同步（Synchronization of Preemptive Extended Tasks）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">可抢占扩展任务的同步 (Synchronization of Preemptible Extended Tasks)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="setevent">
@@ -303,11 +303,11 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>事件的状态以‘位’为单位，事件中未设置的位保持不变。</p>
-<p>The state of an event is in “bit” units, and the bits not set in the event remain unchanged.</p>
+<li><p>事件的状态以’位’为单位，事件中未设置的位保持不变。</p>
+<p>The state of an event is measured in bits, and unset bits within the event remain unchanged.</p>
 </li>
 <li><p>任务可以自行设置事件。</p>
-<p>A task can set events by itself.</p>
+<p>A task can set events autonomously.</p>
 </li>
 <li><p>在ECC1，ECC2下有效。</p>
 <p>Valid under ECC1 and ECC2.</p>
@@ -384,10 +384,10 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅拓展任务可用。</p>
-<p>Only extended tasks are available to use it.</p>
+<p>Only extended tasks can use this feature.</p>
 </li>
 <li><p>在ECC1，ECC2下有效。</p>
-<p>It is valid under ECC1 and ECC2.</p>
+<p>This is valid under ECC1 and ECC2.</p>
 </li>
 </ul>
 </div>
@@ -474,10 +474,10 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>用户可以获取当前正在运行的任务的事件。</p>
-<p>Users can obtain the events of the task that is currently running.</p>
+<p>Users can retrieve the events of the currently running task.</p>
 </li>
 <li><p>在ECC1，ECC2下有效。</p>
-<p>It is valid under ECC1 and ECC2.</p>
+<p>This operation is valid under ECC1 and ECC2.</p>
 </li>
 </ul>
 </div>
@@ -581,19 +581,19 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>在ECC1，ECC2下有效。</p>
-<p>It is valid under ECC1 and ECC2.</p>
+<p>This service is valid under ECC1 and ECC2.</p>
 </li>
 <li><p>仅拓展任务可用。</p>
-<p>Only extended tasks can use it.</p>
+<p>Only extended tasks can use this service.</p>
 </li>
 <li><p>如果等待的事件未被设置，则当前任务进入等待状态并进行任务切换。如果等待的事件已被设置，则继续执行当前任务。</p>
-<p>If the event being waited for is not set, the current task enters the waiting state and task switching occurs. If the event being waited for has been set, the current task continues to execute.</p>
+<p>If the waited event is not set, the current task enters the waiting state and a task switch occurs. If the waited event is already set, the current task continues execution.</p>
 </li>
 <li><p>调用前必须释放占据的资源。</p>
-<p>Occupied resources must be released before calling.</p>
+<p>Occupied resources must be released before invocation.</p>
 </li>
 <li><p>设置的事件不会被主动清除。用户必须调用ClearEvent来清除事件。</p>
-<p>The set event will not be actively cleared. Users must call ClearEvent to clear the event.</p>
+<p>Set events are not automatically cleared. Users must call ClearEvent to clear events.</p>
 </li>
 </ul>
 </div>
@@ -816,7 +816,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Event Functions</a><ul>
+<li><a class="reference internal" href="#">Event(Functions)</a><ul>
 <li><a class="reference internal" href="#setevent">SetEvent</a></li>
 <li><a class="reference internal" href="#clearevent">ClearEvent</a></li>
 <li><a class="reference internal" href="#getevent">GetEvent</a></li>

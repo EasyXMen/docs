@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Resource Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Resource(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Resource Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Resource(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/04_resource_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/04_resource_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,21 +196,21 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="resource-functions">
-<h1>Resource Functions<a class="headerlink" href="#resource-functions" title="Link to this heading">¶</a></h1>
-<p>资源管理用于协调具有不同优先级的多个任务对共享资源的并发访问，例如：管理的实体（调度器），程序，内存或硬件区域。</p>
-<p>Resource management is used to coordinate the concurrent access of multiple tasks with different priorities to shared resources, such as managed entities (schedulers), programs, memory, or hardware regions.</p>
+<h1>Resource(Functions)<a class="headerlink" href="#resource-functions" title="Link to this heading">¶</a></h1>
+<p>资源管理用于协调具有不同优先级的多个任务对共享资源的并发访问，例如：管理的实体(调度器)，程序，内存或硬件区域。</p>
+<p>Resource management is used to coordinate concurrent access by multiple tasks with different priorities to shared resources, such as managed entities (schedulers), programs, memory areas, or hardware regions.</p>
 <p>在系统生成时，会为每个资源静态分配其自己的最高优先级。用户可以通过在任务/中断中调用GetResource / ReleaseResource来获取/释放标准资源。运行任务/中断的优先级暂时设置为资源的优先级，直到释放资源为止。</p>
-<p>During system generation, each resource is statically assigned its own highest priority. Users can acquire/release standard resources by calling GetResource / ReleaseResource in tasks/interrupts. The priority of the running task/interrupt is temporarily set to the priority of the resource until the resource is released.</p>
+<p>During system generation, each resource is statically assigned its own highest priority. Users can acquire/release standard resources by calling GetResource/ReleaseResource in tasks/interrupts. The priority of the running task/interrupt is temporarily elevated to the resource’s priority until the resource is released.</p>
 <figure class="align-center" id="id1">
-<img alt="可抢占任务间优先级天花板的资源分配" src="../../../_images/%E8%B5%84%E6%BA%90%E5%A4%A9%E8%8A%B1%E6%9D%BF%E6%9C%BA%E5%88%B6.png" />
+<img alt="可抢占任务间优先级天花板的资源分配 Resource Allocation with Priority Ceiling Among Preemptive Tasks" src="../../../_images/%E8%B5%84%E6%BA%90%E5%A4%A9%E8%8A%B1%E6%9D%BF%E6%9C%BA%E5%88%B6.png" />
 <figcaption>
-<p><span class="caption-text">可抢占任务间优先级天花板的资源分配（Resource Allocation with Priority Ceiling Among Preemptive Tasks）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">可抢占任务间优先级天花板的资源分配 (Resource Allocation with Priority Ceiling Among Preemptive Tasks)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>内部资源是用户不可见的资源，因此系统功能GetResource和ReleaseResource无法操作内部资源。它们在一组明确定义的系统功能内部严格管理。除此之外，内部资源的行为与标准资源完全相同。</p>
-<p>Internal resources are invisible to users; therefore, the system functions GetResource and ReleaseResource cannot operate on internal resources. They are strictly managed within a well-defined set of system functions. Beyond this, the behavior of internal resources is identical to that of standard resources.</p>
+<p>Internal resources are invisible to users; therefore, the system functions GetResource and ReleaseResource cannot operate on internal resources. They are strictly managed within a well-defined set of system functions. Apart from this, internal resources behave identically to standard resources.</p>
 <p>占用标准资源时，不得调用TerminateTask，ChainTask，Schedule，WaitEvent。中断服务程序不应在占据资源的情况下结束。</p>
-<p>When occupying standard resources, TerminateTask, ChainTask, Schedule, and WaitEvent must not be called. Interrupt Service Routines (ISRs) should not terminate while occupying resources.</p>
+<p>When holding standard resources, TerminateTask, ChainTask, Schedule, and WaitEvent must not be called. Interrupt Service Routines (ISRs) should not terminate while holding resources.</p>
 <section id="getresource">
 <h2>GetResource<a class="headerlink" href="#getresource" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetResource</span><span class="p">(</span><span class="n">ResourceType</span> <span class="n">ResID</span><span class="p">)</span>
@@ -309,14 +309,14 @@ TASK(TaskInit)
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>同一资源不能嵌套获取。用户可以多次获得不同的资源，并且以后进先出（LIFO）的顺序进行操作。</p>
+<li><p>同一资源不能嵌套获取。用户可以多次获得不同的资源，并且以后进先出(LIFO)的顺序进行操作。</p>
 <p>The same resource cannot be acquired in a nested manner. Users can acquire different resources multiple times and operate on them in Last-In-First-Out (LIFO) order.</p>
 </li>
 <li><p>建议对GetResource和ReleaseResource的调用尽可能出现在同一函数中。</p>
-<p>It is recommended that calls to GetResource and ReleaseResource appear in the same function whenever possible.</p>
+<p>It is recommended that calls to GetResource and ReleaseResource appear within the same function whenever possible.</p>
 </li>
-<li><p>任务获取资源后，系统不允许为不可抢占任务的发起重调度的服务（例如：TerminateTask，ChainTask，Schedule和WaitEvent）。</p>
-<p>After a task acquires a resource, the system does not allow services that initiate rescheduling for non-preemptive tasks (e.g., TerminateTask, ChainTask, Schedule, and WaitEvent).</p>
+<li><p>任务获取资源后，系统不允许为不可抢占任务的发起重调度的服务(例如：TerminateTask，ChainTask，Schedule和WaitEvent)。</p>
+<p>After a task acquires a resource, the system does not allow services that trigger rescheduling for non-preemptive tasks (e.g., TerminateTask, ChainTask, Schedule, and WaitEvent).</p>
 </li>
 </ul>
 </div>
@@ -411,7 +411,7 @@ TASK(TaskInit)
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Resource Functions</a><ul>
+<li><a class="reference internal" href="#">Resource(Functions)</a><ul>
 <li><a class="reference internal" href="#getresource">GetResource</a></li>
 <li><a class="reference internal" href="#releaseresource">ReleaseResource</a></li>
 </ul>

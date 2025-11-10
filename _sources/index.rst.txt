@@ -126,7 +126,7 @@ I-SOFT
    sub/集成手册/LinSlave.rst
    sub/集成手册/NVM.rst
    sub/集成手册/OBD.rst
-   sub/集成手册/Os.rst
+   sub/集成手册/OS.rst
    sub/集成手册/RamTest.rst
    sub/集成手册/SecOC.rst
    sub/集成手册/SOMEIP.rst

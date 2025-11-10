@@ -1,4 +1,4 @@
-类型定义（Type definition）
+类型定义(Type Definitions)
 ---------------------------
 .. list-table::
    :widths: 5 10 30
@@ -24,7 +24,7 @@
      - Communication inhibition status and counter
 
 
-提供的服务（Provided services）
+提供的服务(Services)
 -------------------------------------------
 ComM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

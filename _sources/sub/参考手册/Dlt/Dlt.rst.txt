@@ -112,10 +112,10 @@ Dlt
      - 包含通过VFB传递信息的跟踪消息。(It contains trace messages transmitted via VFB.)
 
    * - ECU ID
-     - ECU的名称标识，由4个8位ASCII字符组成（例如：ABS0或COMB）。(The name identifier of the ECU; it consists of four 8-bit ASCII characters (e.g. ABS0 or COMB).)
+     - ECU的名称标识，由4个8位ASCII字符组成(例如：ABS0或COMB)。(The name identifier of the ECU; it consists of four 8-bit ASCII characters (e.g. ABS0 or COMB).)
 
    * - Session
-     - 日志/跟踪消息源的逻辑实体。当应用/SW-C被多次实例化时，每个实例会获得全局唯一的会话ID。一个应用/SW-C可同时拥有多个日志/跟踪会话（通过多个打开的Dlt端口）。由于AUTOSAR未规定SW-C的会话ID，应使用端口定义的参数值。(The logical entity of the log/trace message source.) When the application/SW-C is instantiated for many times, each instance will obtain a globally unique session ID. An application/SW-C can have several log/trace sessions simultaneously (via multiple opened Dlt ports). AUTOSAR does not specify the session ID for SW-C, so the parameter values defined by port should be used.
+     - 日志/跟踪消息源的逻辑实体。当应用/SW-C被多次实例化时，每个实例会获得全局唯一的会话ID。一个应用/SW-C可同时拥有多个日志/跟踪会话(通过多个打开的Dlt端口)。由于AUTOSAR未规定SW-C的会话ID，应使用端口定义的参数值。(The logical entity of the log/trace message source.) When the application/SW-C is instantiated for many times, each instance will obtain a globally unique session ID. An application/SW-C can have several log/trace sessions simultaneously (via multiple opened Dlt ports). AUTOSAR does not specify the session ID for SW-C, so the parameter values defined by port should be used.
 
    * - Session ID
      - 日志/跟踪会话的唯一标识编号。(Unique identification number for the log/trace session.)
@@ -220,11 +220,11 @@ Dlt
 简介 Introduction
 ==================================================================
 
-DLT模块为使用者提供了通用的日志和跟踪记录消息功能。该模块可接收来自DET（默认错误跟踪器）、DEM（诊断事件管理器）、软件组件（SW-C）的日志信息，以及来自RTE的跟踪信息。DLT模块通过通信总线传输这些数据，使外部可观测ECU的运行信息。
+DLT模块为使用者提供了通用的日志和跟踪记录消息功能。该模块可接收来自DET(默认错误跟踪器)、DEM(诊断事件管理器)、软件组件(SW-C)的日志信息，以及来自RTE的跟踪信息。DLT模块通过通信总线传输这些数据，使外部可观测ECU的运行信息。
 
 The DLT module provides universal log and trace message recording functions for users. This module can receive log information from DET (default error tracker), DEM (diagnostic event manager), software components (SW-C), as well as trace information from RTE. The DLT module transmits the data via communication bus, making it possible to observe the operation information of the ECU externally.
 
-此外，该模块可选择通过NvM（非易失性存储器）模块持久化存储更新后的DLT过滤器设置。此功能使得ECU在每次启动时，无需接收显式设置请求，即可直接按预设级别传输日志/跟踪信息。
+此外，该模块可选择通过NvM(非易失性存储器)模块持久化存储更新后的DLT过滤器设置。此功能使得ECU在每次启动时，无需接收显式设置请求，即可直接按预设级别传输日志/跟踪信息。
 
 In addition, the module can store the updated DLT filter settings permanently via the NvM (non-volatile memory) module. With this function, the ECU can transmit log/trace information directly at the preset level without receiving explicit setting requests during each startup.
 
@@ -663,7 +663,7 @@ None
 
    * - Gpt_EnableNotification
      - Gpt.h
-     - 启用指定定时器通道的中断通知功能（适用于正常模式）。(Enable the interruption notification function for the specified timer channel (applicable to normal mode).)
+     - 启用指定定时器通道的中断通知功能(适用于正常模式)。(Enable the interruption notification function for the specified timer channel (applicable to normal mode).)
 
    * - Gpt_StartTimer
      - Gpt.h
@@ -835,12 +835,12 @@ As shown in the figure :ref: DltLogLevelSetting, the DltLogLevelSetting containe
      - 参数描述(Parameter descriptions)
      - 依赖关系(Dependence)
    * - DltDefaultLogLevel
-     - 枚举值（DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN）(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))
+     - 枚举值(DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN)(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))
      - 无(None)
      - 当没有过滤器匹配给定的AppicationId和Context时使用的默认日志级别。相当于一个带有AppicationId和Contexts通配符的全局过滤器，当无其他匹配规则时生效。(The default log level used for AppationId and Context without being matched with filter.) Equivalent to a global filter with AppationId and Contexts wildcard characters; it takes effect when other matching rules do not exist.
      - 无(None)
    * - Threshold
-     - 枚举值（DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN）(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))
+     - 枚举值(DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN)(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))
      - 无(None)
      - 为特定AppicationId和Context组合配置初始日志级别阈值(Configure initial log level threshold for a specific AppationId and Context combination)
      - 无(None)
@@ -888,12 +888,12 @@ As shown in the figure :ref: DltLogChannel, DltLogChannel should set the log cha
    * - DltLogChannelBufferOverflowTimer
      - 0.001...1
      - 0
-     - 指定发生缓冲区溢出时重置缓冲区溢出标志的周期时间（单位：秒）(Specify the cycle for resetting the buffer overflow flag upon the occurrence of buffer overflow (in s))
+     - 指定发生缓冲区溢出时重置缓冲区溢出标志的周期时间(单位：秒)(Specify the cycle for resetting the buffer overflow flag upon the occurrence of buffer overflow (in s))
      - 无(None)
    * - DltLogChannelBufferSize
      - 0...4294967295
      - 0
-     - 日志通道特定消息缓冲区的缓冲区大小（单位：字节）(The buffer size of the specific message buffer of log channel (in byte))
+     - 日志通道特定消息缓冲区的缓冲区大小(单位：字节)(The buffer size of the specific message buffer of log channel (in byte))
      - 无(None)
    * - DltLogChannelId
      - 0...255
@@ -913,17 +913,17 @@ As shown in the figure :ref: DltLogChannel, DltLogChannel should set the log cha
    * - DltLogChannelThreshold
      - DLT_LOG_OFF至DLT_LOG_VERBOSE (DLT_LOG_OFF to DLT_LOG_VERBOSE)
      - DLT_LOG_OFF
-     - 为日志通道设置的日志级别阈值（包含7个标准级别）(The log level threshold set for the log channel (including 7 standard levels))
+     - 为日志通道设置的日志级别阈值(包含7个标准级别)(The log level threshold set for the log channel (including 7 standard levels))
      - 无(None)
    * - DltLogChannelTrafficShapingBandwidth
      - 0...18446744073709551615
      - 0
-     - 流量整形允许的最大带宽（单位：位/秒）(Max. bandwidth allowed for traffic shaping (in bits/second))
+     - 流量整形允许的最大带宽(单位：位/秒)(Max. bandwidth allowed for traffic shaping (in bits/second))
      - 依赖于通信总线的实际速率(Depend on the actual speed of communication bus)
    * - DltLogChannelTransmitCycle
      - 0.001...1
      - 0
-     - 日志通道传输功能的周期时间（单位：秒）(Cycle of log channel transmission function (in second))
+     - 日志通道传输功能的周期时间(单位：秒)(Cycle of log channel transmission function (in second))
      - 无(None)
    * - DltLogTraceStatusFlag
      - STD_ON/STD_OFF
@@ -1206,12 +1206,12 @@ As shown in the figure :ref: DltSwc, it contains the configuration parameters re
    * - MaxSwcLogMessageLength
      - 0...65535
      - 0
-     - SW-C日志消息的最大允许长度（字节）(Max. allowed length of SW-C log messages (in byte))
+     - SW-C日志消息的最大允许长度(字节)(Max. allowed length of SW-C log messages (in byte))
      - 无(None)
    * - MaxSwcTraceMessageLength
      - 0...65535
      - 0
-     - SW-C跟踪消息的最大允许长度（字节）(Max. allowed length of SW-C trace messages (in byte))
+     - SW-C跟踪消息的最大允许长度(字节)(Max. allowed length of SW-C trace messages (in byte))
      - 无(None)
    * - DltSwcSupportLogLevelChangeNotification
      - TRUE/FALSE
