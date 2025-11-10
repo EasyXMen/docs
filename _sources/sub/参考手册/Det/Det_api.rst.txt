@@ -1,7 +1,7 @@
-接口描述（Interface Description）
+接口描述(Interface Description)
 ===================================
 
-导入类型（Import Types）
+导入类型(Import Types)
 -----------------------------------
 
 .. list-table:: 
@@ -20,7 +20,7 @@
      - Std_Types.h
      - Std_VersionInfoType
 
-类型定义（Type Definitions）
+类型定义(Type Definitions)
 --------------------------------------
 
 .. list-table:: 
@@ -37,7 +37,7 @@
      - Configuration data structure of the Det module
      - N/A
       
-提供的服务（Provided Services）
+提供的服务(Services)
 -----------------------------------------
 
 Det_Init
@@ -639,13 +639,13 @@ If Det_ReportTransientFault function is called, all configured callout functions
 **Available via**
    Det_Externals.h
 
-配置函数（Configuration Functions）
+配置函数(Configuration Functions)
 ----------------------------------------
 格式同提供的服务
 
 The format is the same as the provided services
 
-依赖的服务（Dependent Services）
+依赖的服务(Dependent Services)
 -------------------------------------
 格式同提供的服务
 

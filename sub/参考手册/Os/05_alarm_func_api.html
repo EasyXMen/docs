@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>Alarm Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>Alarm(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Alarm Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">Alarm(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/05_alarm_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/05_alarm_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,19 +196,19 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="alarm-functions">
-<h1>Alarm Functions<a class="headerlink" href="#alarm-functions" title="Link to this heading">¶</a></h1>
+<h1>Alarm(Functions)<a class="headerlink" href="#alarm-functions" title="Link to this heading">¶</a></h1>
 <p>Os提供用于处理重复事件的服务，例如在Alarm到期时激活任务，设置事件或调用AlarmCallBack回调函数。Alarm回调函数是应用程序提供的简短函数。</p>
-<p>The Os provides services for handling recurring events, such as activating tasks when an Alarm expires, setting events, or calling the AlarmCallBack callback function. The Alarm callback function is a short function provided by the application.</p>
+<p>The OS provides services for handling recurring events, such as activating tasks upon alarm expiration, setting events, or invoking the AlarmCallback function. The alarm callback is a short function supplied by the application.</p>
 <figure class="align-center" id="id1">
-<img alt="Alarm的分层模型" src="../../../_images/alarm%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png" />
+<img alt="Alarm的分层模型 Alarm Layered Model" src="../../../_images/alarm%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png" />
 <figcaption>
-<p><span class="caption-text">管理Alarm的分层模型（Hierarchical Model for Managing Alarms）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">管理Alarm的分层模型 (Hierarchical Model for Alarm Management)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Counter和Alarm是静态定义的。Counter到Alarm的分配以及Alarm到期时要执行的具体操作也是静态定义的。</p>
-<p>Counters and Alarms are defined statically. The assignment of Counters to Alarms and the specific actions to be performed when an Alarm expires are also defined statically.</p>
+<p>Counters and alarms are statically defined. The assignment of counters to alarms and the specific actions to be executed upon alarm expiration are also statically defined.</p>
 <p>动态参数是Alarm到期时的计数器值，以及周期性Alarm的周期时间。</p>
-<p>Dynamic parameters include the counter value when the Alarm expires and the cycle time for periodic Alarms.</p>
+<p>Dynamic parameters include the counter value at alarm expiration and the cycle time for periodic alarms.</p>
 <section id="getalarmbase">
 <h2>GetAlarmBase<a class="headerlink" href="#getalarmbase" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetAlarmBase</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">,</span> <span class="n">AlarmBaseRefType</span> <span class="n">Info</span><span class="p">)</span>
@@ -421,7 +421,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果&lt;AlarmID&gt;没有定义，则&lt;Tick&gt;指向的内容不会改变。</p>
-<p>If &lt;AlarmID&gt; is not defined, the content pointed to by &lt;Tick&gt; will not change.</p>
+<p>If &lt;AlarmID&gt; is not defined, the content pointed to by &lt;Tick&gt; remains unchanged.</p>
 </li>
 </ul>
 </div>
@@ -521,10 +521,10 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>预设时间到期，将根据配置情况触发相关服务，例如：激活任务，设置事件，回调等。</p>
-<p>When the preset time expires, the relevant services will be triggered according to the configuration, such as activating tasks, setting events, and callbacks.</p>
+<p>When the preset time expires, relevant services are triggered based on the configuration, such as task activation, event setting, and callback execution.</p>
 </li>
 <li><p>如果相对时间为零，将立即触发相关服务。</p>
-<p>If the relative time is zero, the relevant services will be triggered immediately.</p>
+<p>If the relative time is zero, the relevant services are triggered immediately.</p>
 </li>
 </ul>
 </div>
@@ -644,13 +644,13 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>预设时间到期，将根据配置情况触发相关服务，例如：激活任务，设置事件，回调等。</p>
-<p>When the preset time expires, the relevant services will be triggered according to the configuration, such as activating tasks, setting events, and callbacks.</p>
+<p>When the preset time expires, relevant services are triggered according to the configuration, such as task activation, event setting, and callback execution.</p>
 </li>
 <li><p>如果绝对时间等于或接近当前时间，将立即触发相关服务。</p>
-<p>If the absolute time is equal to or close to the current time, the relevant services will be triggered immediately.</p>
+<p>If the absolute time equals or is close to the current time, the relevant services are triggered immediately.</p>
 </li>
 <li><p>如果绝对时间已过，相关服务将在下次到达时触发。</p>
-<p>If the absolute time has passed, the relevant services will be triggered when the time is reached next time.</p>
+<p>If the absolute time has passed, the relevant services are triggered upon the next occurrence.</p>
 </li>
 </ul>
 </div>
@@ -767,7 +767,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">Alarm Functions</a><ul>
+<li><a class="reference internal" href="#">Alarm(Functions)</a><ul>
 <li><a class="reference internal" href="#getalarmbase">GetAlarmBase</a></li>
 <li><a class="reference internal" href="#getalarm">GetAlarm</a></li>
 <li><a class="reference internal" href="#setrelalarm">SetRelAlarm</a></li>

@@ -162,15 +162,15 @@ Simply broadcasting time information from Time Masters to Time Slaves may lead t
 
 In practice, this latency is minimized by implementing the following two-step algorithm:
 
-第一步：发送方（Time Master）首先记录当前的同步时间（SYNC）以及本地时间(T0VLT)并在第一个广播信息（所谓的SYNC信息）里，把同步好的时间的秒部分（SYNCSEC）作为内容发送。
+第一步：发送方(Time Master)首先记录当前的同步时间(SYNC)以及本地时间(T0VLT)并在第一个广播信息(所谓的SYNC信息)里，把同步好的时间的秒部分(SYNCSEC)作为内容发送。
 
 Step 1: The sender (Time Master) first records the current synchronized time (SYNC) and the local time (T0VLT), and in the first broadcast message (the SYNC message), sends the seconds part of the synchronized time (SYNCSEC). 
 
-发送方在收到 “CAN transmit confirmation”时记录时间戳来得到信息实际发送的时间点（T1VLT）。接收方（Time Slave）收到信息 “CAN receive indication”时记录时间戳来检测信息实际收到的时间点（T2VLT）。
+发送方在收到 “CAN transmit confirmation”时记录时间戳来得到信息实际发送的时间点(T1VLT)。接收方(Time Slave)收到信息 “CAN receive indication”时记录时间戳来检测信息实际收到的时间点(T2VLT)。
 
 The sender records the timestamp Upon receiving "CAN transmit confirmation" to get the actual transmission time of the message (T1VLT). The receiver (Time Slave) records the timestamp upon receiving "CAN receive indication" to detect the actual time the message was received (T2VLT).
 
-第二步：在第二个同步信息（所谓的FUP（follow-up）信息）里，发送方发送T4作为内容，T4为SYNC消息准备发送和实际发送的时间差（T1VLT-T0VLT）加上T0SYNCNS（同步时间的纳秒部分）（T4=T0SYNCNS+(T1VLT-T0VLT)）。对于发送方来说，此时T0SYNCSEC+T4就为同步时间。Time Slave现在从SYNC和FUP消息里获取了足够的信息，再加上先前记录的时间戳T2VLT，就可以确定更加确切的时间信息。接收方将(T0SYNCSEC+T4)和T2VLT时间对信息传给StbM, StbM即可计算同步时间，完成一次Time Master和Time Slave之间的时间同步。
+第二步：在第二个同步信息(所谓的FUP(follow-up)信息)里，发送方发送T4作为内容，T4为SYNC消息准备发送和实际发送的时间差(T1VLT-T0VLT)加上T0SYNCNS(同步时间的纳秒部分)(T4=T0SYNCNS+(T1VLT-T0VLT))。对于发送方来说，此时T0SYNCSEC+T4就为同步时间。Time Slave现在从SYNC和FUP消息里获取了足够的信息，再加上先前记录的时间戳T2VLT，就可以确定更加确切的时间信息。接收方将(T0SYNCSEC+T4)和T2VLT时间对信息传给StbM, StbM即可计算同步时间，完成一次Time Master和Time Slave之间的时间同步。
 
 Step 2: In the second synchronization message (the FUP, or follow-up, message), the sender transmits T4 as the content. T4 is the difference between the intended and actual transmission time of the SYNC message (T1VLT - T0VLT), plus the nanoseconds part of the synchronized time (T0SYNCNS). Thus, T4 = T0SYNCNS + (T1VLT - T0VLT). For the sender, the synchronized time at this point is T0SYNCSEC + T4. Time Slave now has obtained sufficient information from the SYNC and FUP messages, and along with its previously recorded timestamp T2VLT, it can determine a more precise time. The receiver passes the time pair information, (T0SYNCSEC + T4) and T2VLT, to StbM. StbM can then calculate the synchronized time, completing the time synchronization cycle between Time Master and Time Slave.
 
@@ -182,7 +182,7 @@ Step 2: In the second synchronization message (the FUP, or follow-up, message), 
   变体 Variant
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   .. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
-  .. 主要功能必须描述，比较偏尽量描述（不强制）
+  .. 主要功能必须描述，比较偏尽量描述(不强制)
 
   - 支持同一个时间域配置不同的SYNC报文DataIDList进行CRC校验。
   - Support configuring different SYNC message DataIDLists under the same time domain for CRC checksum.
@@ -506,7 +506,7 @@ Right-click to add a new time domain.
    :alt: CanTSyn_3
    :align: center
 
-1.配置CanTSynGlobalTimeDomainId时间域的ID。（主从时间域ID必须一致才可进行同步，用于划分不同的同步局域网）
+1.配置CanTSynGlobalTimeDomainId时间域的ID。(主从时间域ID必须一致才可进行同步，用于划分不同的同步局域网)
 
 1.Configure the time domain ID CanTSynGlobalTimeDomainId. (The Master and Slave time domain IDs must be identical for synchronization. This is used to create separate synchronization networks.)
 
@@ -530,7 +530,7 @@ Right-click to add a new time domain.
 
 2.Set CanTSynGlobalTimeDebounceTime, which specifies the time interval between the SYNC and FUP messages.
 
-3.CanTSynGlobalTimeTxCrcSecured可选择支持或不支持CRC校验。（CRC校验会校验报文中的sequenceID，DomainID等信息）此处选择不支持。注意：若选择支持，则需要配置CanTSynGlobalTimeFupDataIDList和CanTSynGlobalTimeSyncDataIDList。
+3.CanTSynGlobalTimeTxCrcSecured可选择支持或不支持CRC校验。(CRC校验会校验报文中的sequenceID，DomainID等信息)此处选择不支持。注意：若选择支持，则需要配置CanTSynGlobalTimeFupDataIDList和CanTSynGlobalTimeSyncDataIDList。
 
 3.Set CanTSynGlobalTimeTxCrcSecured to either enable or disable CRC checksum. (CRC checksum checks information in the message such as the sequence ID and Domain ID). Here, it is set to disabled. Note: If enabled, CanTSynGlobalTimeFupDataIDList and CanTSynGlobalTimeSyncDataIDList must be configured.
 

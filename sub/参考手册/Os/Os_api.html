@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>接口描述（Interface Description） &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>接口描述(Interface Description) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">接口描述（Interface Description）</li>
+        <li class="breadcrumb-item active" aria-current="page">接口描述(Interface Description)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/Os_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/Os_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,21 +196,21 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="interface-description">
-<h1>接口描述（Interface Description）<a class="headerlink" href="#interface-description" title="Link to this heading">¶</a></h1>
+<h1>接口描述(Interface Description)<a class="headerlink" href="#interface-description" title="Link to this heading">¶</a></h1>
 <section id="task-functions">
-<h2>Task Functions<a class="headerlink" href="#task-functions" title="Link to this heading">¶</a></h2>
+<h2>Task(Functions)<a class="headerlink" href="#task-functions" title="Link to this heading">¶</a></h2>
 <p>ORIENTAIS OS提供两种类型的任务:</p>
-<p>The ORIENTAIS OS provides two types of tasks:</p>
+<p>ORIENTAIS OS provides two types of tasks:</p>
 <ul class="simple">
-<li><p>基本任务（Basic Task）</p></li>
-<li><p>拓展任务（Extended Task）</p></li>
+<li><p>基本任务 Basic Task</p></li>
+<li><p>拓展任务 Extended Task</p></li>
 </ul>
 <p>拓展任务与基本任务的区别是，拓展任务允许使用系统服务WaitEvent，这可能会使任务进入Waiting状态。</p>
 <p>The difference between an Extended Task and a Basic Task is that the Extended Task is allowed to use the system service WaitEvent, which may cause the task to enter the Waiting state.</p>
 <figure class="align-center" id="id1">
 <img alt="Basic Task State Model" src="../../../_images/Basic_Task_State_Model.png" />
 <figcaption>
-<p><span class="caption-text">基本任务状态模型（Basic Task State Model）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">基本任务状态模型 (Basic Task State Model)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default">
@@ -221,47 +221,39 @@
 <col style="width: 57.1%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>过度（Transition）</p></th>
-<th class="head"><p>历史状态（Previous State）</p></th>
-<th class="head"><p>新状态（New State）</p></th>
-<th class="head"><p>描述（Description）</p></th>
+<tr class="row-odd"><th class="head"><p>过度(Transition)</p></th>
+<th class="head"><p>历史状态(Previous State)</p></th>
+<th class="head"><p>新状态(New State)</p></th>
+<th class="head"><p>描述(Description)</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>activate</strong></p></td>
 <td><p>suspended</p></td>
 <td><p>ready</p></td>
-<td><p>系统服务将新任务设置为就绪状态。ORIENTAIS OS确保任务的执行将从第一条指令开始。</p>
-<p>The system service sets the new task to the Ready state. ORIENTAIS OS ensures that the task execution starts from the first instruction.</p>
-</td>
+<td><p>系统服务将新任务设置为就绪状态。ORIENTAIS OS确保任务的执行将从第一条指令开始。(The system service sets the new task to the Ready state. ORIENTAIS OS ensures that the task execution starts from the first instruction.)</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>start</strong></p></td>
 <td><p>ready</p></td>
 <td><p>running</p></td>
-<td><p>执行调度器选择的就绪任务。</p>
-<p>Execute the ready task selected by the scheduler.</p>
-</td>
+<td><p>执行调度器选择的就绪任务。 (Execute the ready task selected by the scheduler.)</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>preempt</strong></p></td>
 <td><p>running</p></td>
 <td><p>ready</p></td>
-<td><p>调度程序尝试启动另一个任务。正在运行的任务变为就绪状态。（通常是在低优先级任务的运行过程中，激活或者释放更高优先级任务）</p>
-<p>The scheduler attempts to start another task. The currently running task transitions to the Ready state. (Typically, this occurs when a higher-priority task is activated or released during the execution of a lower-priority task)</p>
-</td>
+<td><p>调度程序尝试启动另一个任务。正在运行的任务变为就绪状态。(通常是在低优先级任务的运行过程中，激活或者释放更高优先级任务) (The scheduler attempts to start another task. The currently running task transitions to the Ready state. (Typically, this occurs when a higher-priority task is activated or released during the execution of a lower-priority task.))</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>terminate</strong></p></td>
 <td><p>running</p></td>
 <td><p>suspended</p></td>
-<td><p>正在运行的任务通过系统服务使其转变为挂起状态。</p>
-<p>The running task transitions to the Suspended state via a system service.</p>
-</td>
+<td><p>正在运行的任务通过系统服务使其转变为挂起状态。(The running task transitions to the Suspended state via a system service.)</p></td>
 </tr>
 </tbody>
 </table>
 <figure class="align-center" id="id2">
 <img alt="Extend Task State Model" src="../../../_images/Extend_Task_State_Model.png" />
 <figcaption>
-<p><span class="caption-text">拓展任务状态模型（Extended Task State Model）</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<p><span class="caption-text">拓展任务状态模型(Extended Task State Model)</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-default">
@@ -272,54 +264,42 @@
 <col style="width: 57.1%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>过度（Transition）</p></th>
-<th class="head"><p>历史状态（Previous State）</p></th>
-<th class="head"><p>新状态（New State）</p></th>
-<th class="head"><p>描述（Description）</p></th>
+<tr class="row-odd"><th class="head"><p>过度(Transition)</p></th>
+<th class="head"><p>历史状态(Previous State)</p></th>
+<th class="head"><p>新状态(New State)</p></th>
+<th class="head"><p>描述(Description)</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>activate</strong></p></td>
 <td><p>suspended</p></td>
 <td><p>ready</p></td>
-<td><p>系统服务将新任务设置为就绪状态。ORIENTAIS OS确保任务的执行将从第一条指令开始。</p>
-<p>The system service sets the new task to the Ready state. ORIENTAIS OS ensures that the task execution starts from the first instruction.</p>
-</td>
+<td><p>系统服务将新任务设置为就绪状态。ORIENTAIS OS确保任务的执行将从第一条指令开始。 (The system service sets the new task to the Ready state. ORIENTAIS OS ensures that the task execution starts from the first instruction.)</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>start</strong></p></td>
 <td><p>ready</p></td>
 <td><p>running</p></td>
-<td><p>执行调度器选择的就绪任务。</p>
-<p>Execute the ready task selected by the scheduler.</p>
-</td>
+<td><p>执行调度器选择的就绪任务。 (Execute the ready task selected by the scheduler.)</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>wait</strong></p></td>
 <td><p>running</p></td>
 <td><p>waiting</p></td>
-<td><p>过渡到等待状态是由系统服务引起的（例如：WaitEvent）。为了任务能够继续运行，需要为该任务设置一个它所等待的事件。</p>
-<p>The transition to the Waiting state is triggered by a system service (e.g., WaitEvent). For the task to resume running, an event that the task is waiting for must be set for it.</p>
-</td>
+<td><p>过渡到等待状态是由系统服务引起的(例如：WaitEvent)。为了任务能够继续运行，需要为该任务设置一个它所等待的事件。(The transition to the Waiting state is triggered by a system service (e.g., WaitEvent). For the task to resume running, an event that the task is waiting for must be set for it.)</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>release</strong></p></td>
 <td><p>waiting</p></td>
 <td><p>ready</p></td>
-<td><p>设置至少一个任务等待的事件。</p>
-<p>Set at least one event that the task is waiting for.</p>
-</td>
+<td><p>设置至少一个任务等待的事件。(Set at least one event that the task waits for.)</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>preempt</strong></p></td>
 <td><p>running</p></td>
 <td><p>ready</p></td>
-<td><p>调度程序尝试启动另一个任务。正在运行的任务变为就绪状态。（通常是在低优先级任务的运行过程中，激活或者释放更高优先级任务）</p>
-<p>The scheduler attempts to start another task. The currently running task transitions to the Ready state. (Typically, this happens when a higher-priority task is activated or released during the execution of a lower-priority task)</p>
-</td>
+<td><p>调度程序尝试启动另一个任务。正在运行的任务变为就绪状态。(通常是在低优先级任务的运行过程中，激活或者释放更高优先级任务)(The scheduler attempts to start another task. The currently running task transitions to the Ready state. (Typically, this happens when a higher-priority task is activated or released during the execution of a lower-priority task.))</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>terminate</strong></p></td>
 <td><p>running</p></td>
 <td><p>suspended</p></td>
-<td><p>正在运行的任务通过系统服务使其转变为挂起状态。</p>
-<p>The running task transitions to the Suspended state through a system service.</p>
-</td>
+<td><p>正在运行的任务通过系统服务使其转变为挂起状态。(The running task transitions to the Suspended state through a system service.)</p></td>
 </tr>
 </tbody>
 </table>
@@ -434,13 +414,13 @@ ret = ActivateTask(Task0);
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果有多个激活请求，ActivateTask不会立即更改任务状态。如果任务不为挂起状态，任务的激活次数将被记录，并在之后执行激活。</p>
-<p>If there are multiple activation requests, ActivateTask will not change the task state immediately. If the task is not in the Suspended state, the number of activation times of the task will be recorded and the activation will be executed later.</p>
+<p>If there are multiple activation requests, ActivateTask does not change the task state immediately. If the task is not in the Suspended state, the number of activations for the task is recorded and the activation is performed later.</p>
 </li>
 <li><p>ActivateTask激活一个与运行中的任务拥有相同内部资源的任务，该任务不会直接执行。</p>
-<p>ActivateTask activates a task that shares the same internal resources as the running task, and this task will not be executed directly.</p>
+<p>ActivateTask activates a task that shares the same internal resources as the currently running task; this task will not be executed directly.</p>
 </li>
 <li><p>激活任务后，激活计数将增加。如果激活计数超过配置的计数值，那么本次ActivateTask的调用无效。</p>
-<p>After the task is activated, the activation count will increase. If the activation count exceeds the configured count value, the current call to ActivateTask will be invalid.</p>
+<p>After activating a task, the activation count increases. If the activation count exceeds the configured limit, the current call to ActivateTask is invalid.</p>
 </li>
 </ul>
 </div>
@@ -508,7 +488,7 @@ TASK(TaskInit)
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>严格禁止在未调用TerminateTask或ChainTask的情况下结束任务功能（请勿使用“ return”），并且可能会使系统处于不确定状态。</p>
+<li><p>严格禁止在未调用TerminateTask或ChainTask的情况下结束任务功能(请勿使用“ return”)，并且可能会使系统处于不确定状态。</p>
 <p>It is strictly prohibited to terminate a task function without calling TerminateTask or ChainTask (do not use “return”), as this may leave the system in an undefined state.</p>
 </li>
 <li><p>任务必须释放占用的标准资源后才能使用该服务。</p>
@@ -624,16 +604,16 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果后续任务与当前任务相同，则不会导致多个请求。任务不会转移到挂起状态，但是会立即再次准备就绪。</p>
-<p>If the subsequent task is the same as the current task, it will not result in multiple requests. The task will not transition to the Suspended state, but will immediately become Ready again.</p>
+<p>If the subsequent task is the same as the current task, it will not result in multiple requests. The task will not transition to the Suspended state but will immediately become ready again.</p>
 </li>
 <li><p>即使后续任务与当前任务相同，分配给调用任务的内部资源也会自动释放。</p>
-<p>Even if the subsequent task is the same as the current task, the internal resources allocated to the calling task will be automatically released.</p>
+<p>Even if the subsequent task is the same as the current task, the internal resources allocated to the calling task are automatically released.</p>
 </li>
 <li><p>调用任务所占用的非内部资源应在调用ChainTask之前释放。</p>
-<p>The non-internal resources occupied by the calling task should be released before calling ChainTask.</p>
+<p>Non-internal resources occupied by the calling task should be released before calling ChainTask.</p>
 </li>
 <li><p>激活任务后，计数将增加。如果激活计数超过配置的计数，本次ChainTask调用无效。</p>
-<p>After the task is activated, the count will increase. If the activation count exceeds the configured count, the current call to ChainTask will be invalid.</p>
+<p>After the task is activated, the count increases. If the activation count exceeds the configured limit, the current call to ChainTask is invalid.</p>
 </li>
 </ul>
 </div>
@@ -704,7 +684,7 @@ TASK(TaskInit)
 <p>This service has an impact on tasks allocated with internal resources.</p>
 </li>
 <li><p>任务必须释放占用的非内部资源后才能调用。</p>
-<p>The task must release the occupied non-internal resources before calling this service.</p>
+<p>The task must release any occupied non-internal resources before calling this service.</p>
 </li>
 </ul>
 </div>
@@ -916,10 +896,10 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>在完全抢占式系统中从任务进行调用时，返回时结果可能已经不正确。</p>
-<p>When invoking from a task in a fully preemptive system, the result may no longer be correct upon return.</p>
+<p>When called from a task in a fully preemptive system, the result might already be incorrect by the time of return.</p>
 </li>
-<li><p>如果为某个任务（多次激活）调用服务，则如果该任务的任何实例正在运行，则状态将设置为“正在运行”。</p>
-<p>If the service is called for a specific task (with multiple activations), the status will be set to “Running” if any instance of that task is currently running.</p>
+<li><p>如果为某个任务(多次激活)调用服务，则如果该任务的任何实例正在运行，则状态将设置为“正在运行”。</p>
+<p>If the service is called for a task (with multiple activations), and if any instance of that task is currently running, the state will be set to “running”.</p>
 </li>
 </ul>
 </div>
@@ -1020,30 +1000,30 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果待激活的任务与当前任务不在同一个核，ActivateTaskAsyn()采用异步的方式激活该任务。</p>
-<p>If the task to be activated is not on the same core as the current task, ActivateTaskAsyn() activates the task in an asynchronous manner.</p>
+<p>If the task to be activated is not on the same core as the current task, ActivateTaskAsyn() activates the task asynchronously.</p>
 </li>
 </ul>
 </div>
 </section>
 </section>
 <section id="interrupt-functions">
-<h2>Interrupt Functions<a class="headerlink" href="#interrupt-functions" title="Link to this heading">¶</a></h2>
-<p>处理中断的函数（中断服务程序：ISR）分为两类中断：</p>
-<p>Functions that handle interrupts (Interrupt Service Routines: ISRs) are divided into two types of interrupts:</p>
+<h2>Interrupt(Functions)<a class="headerlink" href="#interrupt-functions" title="Link to this heading">¶</a></h2>
+<p>处理中断的函数(中断服务程序：ISR)分为两类中断：</p>
+<p>Functions that handle interrupts (Interrupt Service Routines: ISRs) are categorized into two types:</p>
 <blockquote>
 <div><ul>
 <li><p>1类中断: 此类中断不使用操作系统服务。中断结束后，程序将在发生中断位置继续执行，即中断对任务管理没有影响。此类别的中断具有最小的开销。</p>
-<p>Type 1 Interrupts: This type of interrupt does not use operating system services. After the interrupt ends, the program will continue execution from the location where the interrupt occurred, meaning the interrupt has no impact on task management. Interrupts of this type have minimal overhead.</p>
+<p>Type 1 Interrupts: These interrupts do not use operating system services. After the interrupt ends, the program resumes execution from the point of interruption, meaning the interrupt has no impact on task management. Interrupts in this category have minimal overhead.</p>
 </li>
 <li><p>2类中断: Os提供一个中断框架，为特定的用户程序提供运行环境。这类中断能够使用Os的系统服务。</p>
-<p>Type 2 Interrupts: The Os provides an interrupt framework that offers a runtime environment for specific user programs. This type of interrupt can use the system services of the Os.</p>
+<p>Type 2 Interrupts: The OS provides an interrupt framework that offers an execution environment for specific user programs. This type of interrupt can use the OS system services.</p>
 </li>
 </ul>
 </div></blockquote>
 <figure class="align-center" id="id3">
-<img alt="ORIENTAIS OS的ISR类别" src="../../../_images/ISR%E7%B1%BB%E5%88%AB.png" />
+<img alt="ORIENTAIS OS的ISR类别(ISR Types of ORIENTAIS OS)" src="../../../_images/ISR%E7%B1%BB%E5%88%AB.png" />
 <figcaption>
-<p><span class="caption-text">ORIENTAIS OS的ISR类别（ISR Types of ORIENTAIS OS）</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<p><span class="caption-text">ORIENTAIS OS的ISR类别 (ISR Types of ORIENTAIS OS)</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="enableallinterrupts">
@@ -1076,7 +1056,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务与DisableAllInterrupts服务相对应，后者必须在之前被调用，其目的是保障代码临界区的完整性。</p>
-<p>This service corresponds to the DisableAllInterrupts service, which must have been called beforehand to ensure the integrity of the code critical section.</p>
+<p>This service corresponds to the DisableAllInterrupts service, which must be called beforehand to ensure the integrity of the code critical section.</p>
 </li>
 </ul>
 </div>
@@ -1099,7 +1079,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>主要用于某些不能使用ORIENTAIS OS API的临界段。</p>
-<p>It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
+<p>Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
 </li>
 </ul>
 </div>
@@ -1146,7 +1126,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>SuspendAllInterrupts / ResumeAllInterrupts可以嵌套使用。如果嵌套调用SuspendAllInterrupts和ResumeAllInterrupts，SuspendAllInterrupts第一次调用时保存的中断识别状态将在ResumeAllInterrupts最后一次调用时恢复。</p>
-<p>SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested way. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt identification state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.</p>
+<p>SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested manner. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.</p>
 </li>
 </ul>
 </div>
@@ -1169,7 +1149,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>主要用于某些不能使用ORIENTAIS OS API的临界段。</p>
-<p>It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
+<p>Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
 </li>
 </ul>
 </div>
@@ -1192,10 +1172,10 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>SuspendOSInterrupts / ResumeOSInterrupts可以嵌套使用。如果嵌套调用SuspendOSInterrupts和ResumeOSInterrupts，SuspendOSInterrupts的第一次调用时保存的中断识别状态将在ResumeAllInterrupts最后一次调用时恢复。</p>
-<p>SuspendOSInterrupts / ResumeOSInterrupts can be used in a nested manner. If SuspendOSInterrupts and ResumeOSInterrupts are called nestedly, the interrupt identification state saved when SuspendOSInterrupts is first called will be restored when ResumeAllInterrupts is called for the last time.</p>
+<p>SuspendOSInterrupts / ResumeOSInterrupts can be used in a nested manner. If SuspendOSInterrupts and ResumeOSInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendOSInterrupts will be restored during the last call of ResumeOSInterrupts.</p>
 </li>
 <li><p>SuspendOSInterrupts / ResumeOSInterrupts仅对2类中断有影响。</p>
-<p>SuspendOSInterrupts / ResumeOSInterrupts only affect Type 2 Interrupts.</p>
+<p>SuspendOSInterrupts / ResumeOSInterrupts only affect Category 2 Interrupts.</p>
 </li>
 </ul>
 </div>
@@ -1218,7 +1198,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>主要用于某些不能使用ORIENTAIS OS API的临界段。</p>
-<p>It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
+<p>Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.</p>
 </li>
 </ul>
 </div>
@@ -1370,7 +1350,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务为了短时间屏蔽特定的中断或在特定时间内忽略特定源的中断请求。</p>
-<p>This service is used to mask specific interrupts for a short period of time or ignore interrupt requests from specific sources within a specific time frame.</p>
+<p>This service is used to mask specific interrupts for a short duration or ignore interrupt requests from specific sources within a specified time period.</p>
 </li>
 </ul>
 </div>
@@ -1521,25 +1501,25 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务为了短时间屏蔽特定的中断或在特定时间内忽略特定源的中断请求。</p>
-<p>This service is used to mask specific interrupts for a short period of time or ignore interrupt requests from specific sources within a given time frame.</p>
+<p>This service is used to mask specific interrupts for a short duration or ignore interrupt requests from specific sources within a given time frame.</p>
 </li>
 </ul>
 </div>
 </section>
 </section>
 <section id="counter-functions">
-<h2>Counter Functions<a class="headerlink" href="#counter-functions" title="Link to this heading">¶</a></h2>
+<h2>Counter(Functions)<a class="headerlink" href="#counter-functions" title="Link to this heading">¶</a></h2>
 <p>一个计数器由一个以“滴答”为单位表示的计数器值和一些计数器特定的常数。 Os提供标准化的API，以直接操作计数器。
 Os提供了两种不同的计数器：</p>
-<p>A counter consists of a counter value represented in “tick” units and some counter-specific constants. The Os provides standardized APIs to directly manipulate counters.
-The Os offers two distinct types of counters:</p>
+<p>A counter consists of a counter value represented in “tick” units and some counter-specific constants. The OS provides standardized APIs to directly manipulate counters.
+The OS offers two distinct types of counters:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>硬件Counter（Hardware Counter）</p></li>
-<li><p>软件Counter（Software Counter）</p></li>
+<li><p>硬件Counter(Hardware Counter)</p></li>
+<li><p>软件Counter(Software Counter)</p></li>
 </ul>
 </div></blockquote>
-<p><strong>硬件Counter:</strong> 由硬件（例如定时器）增加计数器的计数值。计数值由外围设备“在硬件中”维护。</p>
+<p><strong>硬件Counter:</strong> 由硬件(例如定时器)增加计数器的计数值。计数值由外围设备“在硬件中”维护。</p>
 <p><strong>Hardware Counter</strong>: The counter value is incremented by hardware (e.g., a timer). The counter value is maintained “in hardware” by peripheral devices.</p>
 <p><strong>软件Counter:</strong> 通过调用IncrementCounter增加计数器的计数值。计数值由ORIENTAIS OS “在软件中”维护。</p>
 <p><strong>Software Counter</strong>: The counter value is incremented by calling IncrementCounter. The counter value is maintained “in software” by ORIENTAIS OS.</p>
@@ -1734,7 +1714,7 @@ The Os offers two distinct types of counters:</p>
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果计数器是由硬件驱动的，则返回硬件计数器的计数值；如果计数器是由软件驱动的，则返回软件计数器的计数值。</p>
-<p>If the counter is driven by hardware, it returns the count value of the hardware counter; if the counter is driven by software, it returns the count value of the software counter.</p>
+<p>If the counter is hardware-driven, it returns the hardware counter’s count value; if the counter is software-driven, it returns the software counter’s count value.</p>
 </li>
 </ul>
 </div>
@@ -1846,21 +1826,21 @@ GetCounterValue(Counter_0,&amp;tick2);
 </section>
 </section>
 <section id="resource-functions">
-<h2>Resource Functions<a class="headerlink" href="#resource-functions" title="Link to this heading">¶</a></h2>
-<p>资源管理用于协调具有不同优先级的多个任务对共享资源的并发访问，例如：管理的实体（调度器），程序，内存或硬件区域。</p>
-<p>Resource management is used to coordinate the concurrent access of multiple tasks with different priorities to shared resources, such as managed entities (schedulers), programs, memory, or hardware regions.</p>
+<h2>Resource(Functions)<a class="headerlink" href="#resource-functions" title="Link to this heading">¶</a></h2>
+<p>资源管理用于协调具有不同优先级的多个任务对共享资源的并发访问，例如：管理的实体(调度器)，程序，内存或硬件区域。</p>
+<p>Resource management is used to coordinate concurrent access by multiple tasks with different priorities to shared resources, such as managed entities (schedulers), programs, memory areas, or hardware regions.</p>
 <p>在系统生成时，会为每个资源静态分配其自己的最高优先级。用户可以通过在任务/中断中调用GetResource / ReleaseResource来获取/释放标准资源。运行任务/中断的优先级暂时设置为资源的优先级，直到释放资源为止。</p>
-<p>During system generation, each resource is statically assigned its own highest priority. Users can acquire/release standard resources by calling GetResource / ReleaseResource in tasks/interrupts. The priority of the running task/interrupt is temporarily set to the priority of the resource until the resource is released.</p>
+<p>During system generation, each resource is statically assigned its own highest priority. Users can acquire/release standard resources by calling GetResource/ReleaseResource in tasks/interrupts. The priority of the running task/interrupt is temporarily elevated to the resource’s priority until the resource is released.</p>
 <figure class="align-center" id="id4">
-<img alt="可抢占任务间优先级天花板的资源分配" src="../../../_images/%E8%B5%84%E6%BA%90%E5%A4%A9%E8%8A%B1%E6%9D%BF%E6%9C%BA%E5%88%B6.png" />
+<img alt="可抢占任务间优先级天花板的资源分配 Resource Allocation with Priority Ceiling Among Preemptive Tasks" src="../../../_images/%E8%B5%84%E6%BA%90%E5%A4%A9%E8%8A%B1%E6%9D%BF%E6%9C%BA%E5%88%B6.png" />
 <figcaption>
-<p><span class="caption-text">可抢占任务间优先级天花板的资源分配（Resource Allocation with Priority Ceiling Among Preemptive Tasks）</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<p><span class="caption-text">可抢占任务间优先级天花板的资源分配 (Resource Allocation with Priority Ceiling Among Preemptive Tasks)</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>内部资源是用户不可见的资源，因此系统功能GetResource和ReleaseResource无法操作内部资源。它们在一组明确定义的系统功能内部严格管理。除此之外，内部资源的行为与标准资源完全相同。</p>
-<p>Internal resources are invisible to users; therefore, the system functions GetResource and ReleaseResource cannot operate on internal resources. They are strictly managed within a well-defined set of system functions. Beyond this, the behavior of internal resources is identical to that of standard resources.</p>
+<p>Internal resources are invisible to users; therefore, the system functions GetResource and ReleaseResource cannot operate on internal resources. They are strictly managed within a well-defined set of system functions. Apart from this, internal resources behave identically to standard resources.</p>
 <p>占用标准资源时，不得调用TerminateTask，ChainTask，Schedule，WaitEvent。中断服务程序不应在占据资源的情况下结束。</p>
-<p>When occupying standard resources, TerminateTask, ChainTask, Schedule, and WaitEvent must not be called. Interrupt Service Routines (ISRs) should not terminate while occupying resources.</p>
+<p>When holding standard resources, TerminateTask, ChainTask, Schedule, and WaitEvent must not be called. Interrupt Service Routines (ISRs) should not terminate while holding resources.</p>
 <section id="getresource">
 <h3>GetResource<a class="headerlink" href="#getresource" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetResource</span><span class="p">(</span><span class="n">ResourceType</span> <span class="n">ResID</span><span class="p">)</span>
@@ -1959,14 +1939,14 @@ TASK(TaskInit)
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>同一资源不能嵌套获取。用户可以多次获得不同的资源，并且以后进先出（LIFO）的顺序进行操作。</p>
+<li><p>同一资源不能嵌套获取。用户可以多次获得不同的资源，并且以后进先出(LIFO)的顺序进行操作。</p>
 <p>The same resource cannot be acquired in a nested manner. Users can acquire different resources multiple times and operate on them in Last-In-First-Out (LIFO) order.</p>
 </li>
 <li><p>建议对GetResource和ReleaseResource的调用尽可能出现在同一函数中。</p>
-<p>It is recommended that calls to GetResource and ReleaseResource appear in the same function whenever possible.</p>
+<p>It is recommended that calls to GetResource and ReleaseResource appear within the same function whenever possible.</p>
 </li>
-<li><p>任务获取资源后，系统不允许为不可抢占任务的发起重调度的服务（例如：TerminateTask，ChainTask，Schedule和WaitEvent）。</p>
-<p>After a task acquires a resource, the system does not allow services that initiate rescheduling for non-preemptive tasks (e.g., TerminateTask, ChainTask, Schedule, and WaitEvent).</p>
+<li><p>任务获取资源后，系统不允许为不可抢占任务的发起重调度的服务(例如：TerminateTask，ChainTask，Schedule和WaitEvent)。</p>
+<p>After a task acquires a resource, the system does not allow services that trigger rescheduling for non-preemptive tasks (e.g., TerminateTask, ChainTask, Schedule, and WaitEvent).</p>
 </li>
 </ul>
 </div>
@@ -2053,19 +2033,19 @@ TASK(TaskInit)
 </section>
 </section>
 <section id="alarm-functions">
-<h2>Alarm Functions<a class="headerlink" href="#alarm-functions" title="Link to this heading">¶</a></h2>
+<h2>Alarm(Functions)<a class="headerlink" href="#alarm-functions" title="Link to this heading">¶</a></h2>
 <p>Os提供用于处理重复事件的服务，例如在Alarm到期时激活任务，设置事件或调用AlarmCallBack回调函数。Alarm回调函数是应用程序提供的简短函数。</p>
-<p>The Os provides services for handling recurring events, such as activating tasks when an Alarm expires, setting events, or calling the AlarmCallBack callback function. The Alarm callback function is a short function provided by the application.</p>
+<p>The OS provides services for handling recurring events, such as activating tasks upon alarm expiration, setting events, or invoking the AlarmCallback function. The alarm callback is a short function supplied by the application.</p>
 <figure class="align-center" id="id5">
-<img alt="Alarm的分层模型" src="../../../_images/alarm%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png" />
+<img alt="Alarm的分层模型 Alarm Layered Model" src="../../../_images/alarm%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png" />
 <figcaption>
-<p><span class="caption-text">管理Alarm的分层模型（Hierarchical Model for Managing Alarms）</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<p><span class="caption-text">管理Alarm的分层模型 (Hierarchical Model for Alarm Management)</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Counter和Alarm是静态定义的。Counter到Alarm的分配以及Alarm到期时要执行的具体操作也是静态定义的。</p>
-<p>Counters and Alarms are defined statically. The assignment of Counters to Alarms and the specific actions to be performed when an Alarm expires are also defined statically.</p>
+<p>Counters and alarms are statically defined. The assignment of counters to alarms and the specific actions to be executed upon alarm expiration are also statically defined.</p>
 <p>动态参数是Alarm到期时的计数器值，以及周期性Alarm的周期时间。</p>
-<p>Dynamic parameters include the counter value when the Alarm expires and the cycle time for periodic Alarms.</p>
+<p>Dynamic parameters include the counter value at alarm expiration and the cycle time for periodic alarms.</p>
 <section id="getalarmbase">
 <h3>GetAlarmBase<a class="headerlink" href="#getalarmbase" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetAlarmBase</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">,</span> <span class="n">AlarmBaseRefType</span> <span class="n">Info</span><span class="p">)</span>
@@ -2278,7 +2258,7 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果&lt;AlarmID&gt;没有定义，则&lt;Tick&gt;指向的内容不会改变。</p>
-<p>If &lt;AlarmID&gt; is not defined, the content pointed to by &lt;Tick&gt; will not change.</p>
+<p>If &lt;AlarmID&gt; is not defined, the content pointed to by &lt;Tick&gt; remains unchanged.</p>
 </li>
 </ul>
 </div>
@@ -2378,10 +2358,10 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>预设时间到期，将根据配置情况触发相关服务，例如：激活任务，设置事件，回调等。</p>
-<p>When the preset time expires, the relevant services will be triggered according to the configuration, such as activating tasks, setting events, and callbacks.</p>
+<p>When the preset time expires, relevant services are triggered based on the configuration, such as task activation, event setting, and callback execution.</p>
 </li>
 <li><p>如果相对时间为零，将立即触发相关服务。</p>
-<p>If the relative time is zero, the relevant services will be triggered immediately.</p>
+<p>If the relative time is zero, the relevant services are triggered immediately.</p>
 </li>
 </ul>
 </div>
@@ -2501,13 +2481,13 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>预设时间到期，将根据配置情况触发相关服务，例如：激活任务，设置事件，回调等。</p>
-<p>When the preset time expires, the relevant services will be triggered according to the configuration, such as activating tasks, setting events, and callbacks.</p>
+<p>When the preset time expires, relevant services are triggered according to the configuration, such as task activation, event setting, and callback execution.</p>
 </li>
 <li><p>如果绝对时间等于或接近当前时间，将立即触发相关服务。</p>
-<p>If the absolute time is equal to or close to the current time, the relevant services will be triggered immediately.</p>
+<p>If the absolute time equals or is close to the current time, the relevant services are triggered immediately.</p>
 </li>
 <li><p>如果绝对时间已过，相关服务将在下次到达时触发。</p>
-<p>If the absolute time has passed, the relevant services will be triggered when the time is reached next time.</p>
+<p>If the absolute time has passed, the relevant services are triggered upon the next occurrence.</p>
 </li>
 </ul>
 </div>
@@ -2616,24 +2596,24 @@ TASK(TaskInit)
 </section>
 </section>
 <section id="event-functions">
-<h2>Event Functions<a class="headerlink" href="#event-functions" title="Link to this heading">¶</a></h2>
-<p>事件机制（Event Mechanism）：</p>
+<h2>Event(Functions)<a class="headerlink" href="#event-functions" title="Link to this heading">¶</a></h2>
+<p>事件机制(Event Mechanism)：</p>
 <blockquote>
 <div><ul>
 <li><p>是一种同步手段</p>
-<p>It is a synchronization method.</p>
+<p>It is a synchronization mechanism.</p>
 </li>
 <li><p>仅拓展任务可用</p>
-<p>Only extended tasks can use it.</p>
+<p>Only extended tasks can use events.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>Figure解释了在完全抢占式调度的情况下通过设置事件使扩展任务的同步，其中扩展任务T1具有更高的优先级。</p>
-<p>Figure explains the synchronization of extended tasks by setting events under fully preemptive scheduling, where the extended task T1 has a higher priority.</p>
+<p>The figure illustrates the synchronization of extended tasks through event setting under fully preemptive scheduling, where extended task T1 has a higher priority.</p>
 <figure class="align-center" id="id6">
-<img alt="可抢占扩展任务的同步" src="../../../_images/event%E5%90%8C%E6%AD%A5%E4%BB%BB%E5%8A%A1.png" />
+<img alt="可抢占扩展任务的同步 (Synchronization of Preemptible Extended Tasks)" src="../../../_images/event%E5%90%8C%E6%AD%A5%E4%BB%BB%E5%8A%A1.png" />
 <figcaption>
-<p><span class="caption-text">可抢占扩展任务的同步（Synchronization of Preemptive Extended Tasks）</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<p><span class="caption-text">可抢占扩展任务的同步 (Synchronization of Preemptible Extended Tasks)</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="setevent">
@@ -2723,11 +2703,11 @@ TASK(TaskInit)
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>事件的状态以‘位’为单位，事件中未设置的位保持不变。</p>
-<p>The state of an event is in “bit” units, and the bits not set in the event remain unchanged.</p>
+<li><p>事件的状态以’位’为单位，事件中未设置的位保持不变。</p>
+<p>The state of an event is measured in bits, and unset bits within the event remain unchanged.</p>
 </li>
 <li><p>任务可以自行设置事件。</p>
-<p>A task can set events by itself.</p>
+<p>A task can set events autonomously.</p>
 </li>
 <li><p>在ECC1，ECC2下有效。</p>
 <p>Valid under ECC1 and ECC2.</p>
@@ -2804,10 +2784,10 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅拓展任务可用。</p>
-<p>Only extended tasks are available to use it.</p>
+<p>Only extended tasks can use this feature.</p>
 </li>
 <li><p>在ECC1，ECC2下有效。</p>
-<p>It is valid under ECC1 and ECC2.</p>
+<p>This is valid under ECC1 and ECC2.</p>
 </li>
 </ul>
 </div>
@@ -2894,10 +2874,10 @@ TASK(TaskInit)
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>用户可以获取当前正在运行的任务的事件。</p>
-<p>Users can obtain the events of the task that is currently running.</p>
+<p>Users can retrieve the events of the currently running task.</p>
 </li>
 <li><p>在ECC1，ECC2下有效。</p>
-<p>It is valid under ECC1 and ECC2.</p>
+<p>This operation is valid under ECC1 and ECC2.</p>
 </li>
 </ul>
 </div>
@@ -3001,19 +2981,19 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>在ECC1，ECC2下有效。</p>
-<p>It is valid under ECC1 and ECC2.</p>
+<p>This service is valid under ECC1 and ECC2.</p>
 </li>
 <li><p>仅拓展任务可用。</p>
-<p>Only extended tasks can use it.</p>
+<p>Only extended tasks can use this service.</p>
 </li>
 <li><p>如果等待的事件未被设置，则当前任务进入等待状态并进行任务切换。如果等待的事件已被设置，则继续执行当前任务。</p>
-<p>If the event being waited for is not set, the current task enters the waiting state and task switching occurs. If the event being waited for has been set, the current task continues to execute.</p>
+<p>If the waited event is not set, the current task enters the waiting state and a task switch occurs. If the waited event is already set, the current task continues execution.</p>
 </li>
 <li><p>调用前必须释放占据的资源。</p>
-<p>Occupied resources must be released before calling.</p>
+<p>Occupied resources must be released before invocation.</p>
 </li>
 <li><p>设置的事件不会被主动清除。用户必须调用ClearEvent来清除事件。</p>
-<p>The set event will not be actively cleared. Users must call ClearEvent to clear the event.</p>
+<p>Set events are not automatically cleared. Users must call ClearEvent to clear events.</p>
 </li>
 </ul>
 </div>
@@ -3228,48 +3208,47 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="scheduletable-functions">
-<h2>ScheduleTable Functions<a class="headerlink" href="#scheduletable-functions" title="Link to this heading">¶</a></h2>
+<h2>ScheduleTable(Functions)<a class="headerlink" href="#scheduletable-functions" title="Link to this heading">¶</a></h2>
 <p>调度表类似于使用Counter和一系列自动启动的Alarms来实现静态定义的任务激活机制。</p>
-<p>A schedule table is similar to a statically defined task activation mechanism implemented using a Counter and a series of automatically started Alarms.</p>
+<p>A schedule table is analogous to a statically defined task activation mechanism implemented using a Counter and a series of auto-started Alarms.</p>
 <p>调度表提供了一组静态定义的溢出点封装。每个溢出点定义：</p>
-<p>A schedule table provides a set of statically defined overflow point encapsulations. Each overflow point defines:</p>
+<p>A schedule table provides a set of statically defined expiry point encapsulations. Each expiry point defines:</p>
 <blockquote>
 <div><ul>
-<li><p>处理溢出点时，将执行动作（通过ORIENTAIS配置工具OS模块配置）。动作是任务的激活或事件的设置。</p>
-<p>When processing the overflow point, an action (configured via the OS module of the ORIENTAIS configuration tool) will be executed. The action is either the activation of a task or the setting of an event.</p>
+<li><p>处理溢出点时，将执行动作(通过ORIENTAIS配置工具OS模块配置)。动作是任务的激活或事件的设置。</p>
+<p>When processing the expiry point, an action (configured via the OS module of the ORIENTAIS configuration tool) is executed. The action is either task activation or event setting.</p>
 </li>
-<li><p>从调度表的开始处以“滴答”为单位的偏移量。</p>
+<li><p>从调度表的开始处以”滴答”为单位的偏移量。</p>
 <p>An offset in “tick” units from the start of the schedule table.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>在运行时，ORIENTAIS OS将遍历调度表，依次处理每个溢出点。调度表由一个计数器驱动。计数器的属性会影响调度表中允许配置的内容。</p>
-<p>During runtime, the ORIENTAIS OS traverses the schedule table and processes each overflow point in sequence. The schedule table is driven by a counter, and the properties of the counter affect the configurable content allowed in the schedule table.</p>
+<p>During runtime, ORIENTAIS OS traverses the schedule table and processes each expiry point sequentially. The schedule table is driven by a counter, and the counter’s properties affect the configurable content within the schedule table.</p>
 <p>用户可以为调度表设置为同步模式。ORIENTAIS OS通过两种方式提供对同步的支持：</p>
-<p>Users can set the schedule table to synchronous mode. The ORIENTAIS OS provides support for synchronization in two ways:</p>
+<p>Users can configure the schedule table for synchronous mode. ORIENTAIS OS provides synchronization support in two ways:</p>
 <ul>
-<li><p>隐式同步：驱动调度表的计数器要求是同步计数器。这通常是采用时间触发的网络技术（例如FlexRay，TTP）实现同步的方式-底层硬件管理网络时间同步，并简单地将时间显示为ORIENTAIS OS的输出/比较计时器接口。Figure显示了隐式同步调度表可能出现的状态。</p>
-<p>Implicit Synchronization: The counter driving the schedule table is required to be a synchronous counter. This is typically a synchronization method implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and simply presents the time as an output/compare timer interface for the ORIENTAIS OS. Figure 5-7 shows the possible states of a schedule table with implicit synchronization.</p>
+<li><p>隐式同步：驱动调度表的计数器要求是同步计数器。这通常是采用时间触发的网络技术(例如FlexRay，TTP)实现同步的方式-底层硬件管理网络时间同步，并简单地将时间显示为ORIENTAIS OS的输出/比较计时器接口。Figure显示了隐式同步调度表可能出现的状态。</p>
+<p>Implicit Synchronization: The counter driving the schedule table must be a synchronous counter. This is typically implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and presents the time simply as an output/compare timer interface to ORIENTAIS OS. The figure shows possible states of an implicitly synchronized schedule table.</p>
 </li>
 </ul>
 <figure class="align-center" id="id7">
-<img alt="隐式同步调度表的状态图" src="../../../_images/%E9%9A%90%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
+<img alt="隐式同步调度表的状态图 States of Implicitly Synchronized Schedule Table" src="../../../_images/%E9%9A%90%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
 <figcaption>
-<p><span class="caption-text">隐式同步调度表的状态（States of Schedule Table with Implicit Synchronization）</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+<p><span class="caption-text">隐式同步调度表的状态 (States of Implicitly Synchronized Schedule Table)</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
 <li><p>显式同步：调度表由ORIENTAIS OS计数器驱动，而不要求是同步的计数器。ORIENTAIS OS还提供一些其他功能，以使其计数器驱动的调度表与同步计数器同步。通常，这是与定期广播全局时间进行同步的方式。Figure显示了显式同步调度表可能出现的状态。</p>
-<p>Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be a synchronous counter. The ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this is a method of synchronizing with periodically broadcast global time. Figure 5-8 shows the possible states of a schedule table with explicit synchronization.</p>
+<p>Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be synchronous. ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this synchronizes with a periodically broadcast global time. The figure shows possible states of an explicitly synchronized schedule table.</p>
 </li>
 </ul>
 <figure class="align-center" id="id8">
-<img alt="显式同步调度表的状态图" src="../../../_images/%E6%98%BE%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
+<img alt="显式同步调度表的状态图 (States of Explicitly Synchronized Schedule Table)" src="../../../_images/%E6%98%BE%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
 <figcaption>
-<p><span class="caption-text">显式同步调度表的状态（图中未显示所有的跳转条件）</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+<p><span class="caption-text">显式同步调度表的状态(图中未显示所有的跳转条件) (States of Explicitly Synchronized Schedule Table - Not all transition conditions are shown)</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>States of Schedule Table with Explicit Synchronization (not all transition conditions are shown in the diagram)</p>
 <section id="startscheduletablerel">
 <h3>StartScheduleTableRel<a class="headerlink" href="#startscheduletablerel" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">StartScheduleTableRel</span><span class="p">(</span><span class="n">ScheduleTableType</span> <span class="n">ScheduleTableID</span><span class="p">,</span> <span class="n">TickType</span> <span class="n">Offset</span><span class="p">)</span>
@@ -3769,7 +3748,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅在SC3、SC4下有效</p>
-<p>It is only valid under SC3 and SC4.</p>
+<p>This is valid only under SC3 and SC4.</p>
 </li>
 <li><p>调度表同步策略必须是显性。</p>
 <p>The schedule table synchronization strategy must be explicit.</p>
@@ -3879,7 +3858,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅在SC3、SC4下有效</p>
-<p>It is only valid under SC3 and SC4.</p>
+<p>It is  valid only under SC3 and SC4.</p>
 </li>
 <li><p>调度表同步策略必须是显性</p>
 <p>The schedule table synchronization strategy must be explicit.</p>
@@ -3988,7 +3967,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅在SC3、SC4下有效</p>
-<p>It is only valid under SC3 and SC4.</p>
+<p>It is valid only under SC3 and SC4.</p>
 </li>
 <li><p>调度表同步策略必须是显性</p>
 <p>The schedule table synchronization strategy must be explicit.</p>
@@ -4083,9 +4062,9 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="hook-functions">
-<h2>Hook Functions<a class="headerlink" href="#hook-functions" title="Link to this heading">¶</a></h2>
-<p>ORIENTAIS OS为用户提供了一系列钩子函数功能（Hook）。例如在钩子函数StartupHook中初始化一些硬件，在钩子函数ErrorHook中捕获并处理的一些错误。</p>
-<p>ORIENTAIS OS provides users with a series of hook function features (Hook). For example, some hardware can be initialized in the hook function StartupHook, and some errors can be captured and handled in the hook function ErrorHook.</p>
+<h2>Hook(Functions)<a class="headerlink" href="#hook-functions" title="Link to this heading">¶</a></h2>
+<p>ORIENTAIS OS为用户提供了一系列钩子函数功能(Hook)。例如在钩子函数StartupHook中初始化一些硬件，在钩子函数ErrorHook中捕获并处理的一些错误。</p>
+<p>ORIENTAIS OS provides users with a series of hook functions. For example, hardware can be initialized in the StartupHook function, and errors can be captured and handled in the ErrorHook function.</p>
 <section id="errorhook">
 <h3>ErrorHook<a class="headerlink" href="#errorhook" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">ErrorHook</span><span class="p">(</span><span class="n">StatusType</span> <span class="n">Error</span><span class="p">)</span>
@@ -4145,10 +4124,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>执行错误处理。该接口由用户实现错误处理，并由ORIENTAIS OS调用。</p>
-<p>Executes error handling. This interface is implemented by the user for error handling and called by ORIENTAIS OS.</p>
+<p>Performs error handling. This interface is implemented by the user for error handling and is called by ORIENTAIS OS.</p>
 </li>
-<li><p>用户可以通过输入参数&lt; Error &gt;的值来了解错误类型。</p>
-<p>Users can learn about the error type through the value of the input parameter &lt; Error &gt;.</p>
+<li><p>用户可以通过输入参数&lt;Error&gt;的值来了解错误类型。</p>
+<p>Users can determine the error type from the value of the input parameter &lt;Error&gt;.</p>
 </li>
 </ul>
 </div>
@@ -4191,7 +4170,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
@@ -4237,7 +4216,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
@@ -4275,7 +4254,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
@@ -4336,7 +4315,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
@@ -4421,10 +4400,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现错误处理，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user for error handling and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user for error handling and is called by ORIENTAIS OS.</p>
 </li>
 <li><p>用户可以通过返回值来选择五种处理方式中的一种处理。</p>
-<p>Users can select one of the five processing methods through the return value.</p>
+<p>Users can select one of five processing methods through the return value.</p>
 </li>
 </ul>
 </div>
@@ -4447,10 +4426,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 <li><p>如果没有正在运行的任务/中断，则调用此接口。</p>
-<p>This interface is called if there is no running task/interrupt.</p>
+<p>This interface is called when no task or interrupt is running.</p>
 </li>
 </ul>
 </div>
@@ -4495,7 +4474,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
@@ -4518,7 +4497,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
@@ -4563,51 +4542,51 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该接口由用户实现，并由ORIENTAIS OS调用。</p>
-<p>This interface is implemented by the user and called by ORIENTAIS OS.</p>
+<p>This interface is implemented by the user and is called by ORIENTAIS OS.</p>
 </li>
 </ul>
 </div>
 </section>
 </section>
 <section id="os-app-functions">
-<h2>OS-APP Functions<a class="headerlink" href="#os-app-functions" title="Link to this heading">¶</a></h2>
-<p>Os能够支持一系列操作系统对象的集合（任务，中断，Alarm，调度表，计数器）。该对象集合称为OS-Application。</p>
-<p>Os can support a collection of a series of operating system objects (tasks, interrupts, Alarms, schedule tables, counters). This collection of objects is called an OS-Application.</p>
+<h2>OS-APP(Functions)<a class="headerlink" href="#os-app-functions" title="Link to this heading">¶</a></h2>
+<p>Os能够支持一系列操作系统对象的集合(任务，中断，Alarm，调度表，计数器)。该对象集合称为OS-Application。</p>
+<p>The OS can support a collection of operating system objects (tasks, interrupts, alarms, schedule tables, counters). This object collection is called an OS-Application.</p>
 <p>存在两类OS-Application：</p>
 <p>There are two types of OS-Applications:</p>
 <blockquote>
 <div><ul>
 <li><p>可信OS-Application在监视或保护功能关闭的情况下运行。他们能够无限制地访问内存，操作系统模块的API，并且不需要在运行时受到强制时间限制。当处理器支持的情况下，允许它们在特权模式下运行。</p>
-<p>Trusted OS-Applications run with monitoring or protection functions turned off. They have unrestricted access to memory, APIs of operating system modules, and do not need to be subject to mandatory time limits during runtime. When supported by the processor, they are allowed to run in privileged mode.</p>
+<p>Trusted OS-Applications run with monitoring or protection functions disabled. They have unrestricted access to memory and OS module APIs, and are not subject to mandatory time constraints during runtime. When processor support is available, they are permitted to run in privileged mode.</p>
 </li>
 <li><p>不可信任的OS-Application在监视或保护功能开启的情况下运行。它们对内存的访问受到限制，对操作系统模块的API的访问受到限制，并且需要在运行时进行强制时间限制。当处理器支持时，不允许它们在特权模式下运行。</p>
-<p>Untrusted OS-Applications run with monitoring or protection functions turned on. Their access to memory is restricted, access to APIs of operating system modules is restricted, and they are subject to mandatory time limits during runtime. When supported by the processor, they are not allowed to run in privileged mode.</p>
+<p>Untrusted OS-Applications run with monitoring or protection functions enabled. Their access to memory is restricted, access to OS module APIs is limited, and they are subject to mandatory time constraints during runtime. When processor support is available, they are not permitted to run in privileged mode.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>ORIENTAIS OS提供一些服务，这些服务向调用者提供有关访问权限和对象成员身份的信息。这些服务主要在OS-Application之间检查访问权限和参数的情况下使用。</p>
-<p>ORIENTAIS OS provides some services that provide callers with information about access rights and object membership. These services are mainly used in situations where access rights and parameters are checked between OS-Applications.</p>
+<p>ORIENTAIS OS provides services that supply callers with information about access rights and object membership. These services are primarily used to check access rights and parameters between OS-Applications.</p>
 <p>OS-Applications的状态决定其操作系统对象从其他OS-Applications访问的范围。每个OS-Application始终处于以下状态之一：</p>
-<p>The state of OS-Applications determines the scope of access to its operating system objects from other OS-Applications. Each OS-Application is always in one of the following states:</p>
+<p>The state of an OS-Application determines the accessibility scope of its operating system objects from other OS-Applications. Each OS-Application is always in one of the following states:</p>
 <blockquote>
 <div><ul>
-<li><p>激活且可访问的（APPLICATION_ACCESSIBLE）：可以从其他OS-Applications访问操作系统对象。这是启动时的默认状态。</p>
+<li><p>激活且可访问的(APPLICATION_ACCESSIBLE)：可以从其他OS-Applications访问操作系统对象。这是启动时的默认状态。</p>
 <p>Active and accessible (APPLICATION_ACCESSIBLE): Operating system objects can be accessed from other OS-Applications. This is the default state at startup.</p>
 </li>
-<li><p>当前处于重启阶段（APPLICATION_RESTART）。无法从其他OS-Applications访问操作系统对象。状态有效，直到OS-Application调用AllowAccess。</p>
-<p>Currently in the restart phase (APPLICATION_RESTART). Operating system objects cannot be accessed from other OS-Applications. The state remains valid until the OS-Application calls AllowAccess.</p>
+<li><p>当前处于重启阶段(APPLICATION_RESTART)。无法从其他OS-Applications访问操作系统对象。状态有效，直到OS-Application调用AllowAccess。</p>
+<p>Currently in restart phase (APPLICATION_RESTART): Operating system objects cannot be accessed from other OS-Applications. This state remains valid until the OS-Application calls AllowAccess.</p>
 </li>
-<li><p>已终止且不可访问（APPLICATION_TERMINATED）：不能从其他OS-Applications访问操作系统对象。状态不会改变。</p>
-<p>Terminated and inaccessible (APPLICATION_TERMINATED): Operating system objects cannot be accessed from other OS-Applications. The state does not change.</p>
+<li><p>已终止且不可访问(APPLICATION_TERMINATED)：不能从其他OS-Applications访问操作系统对象。状态不会改变。</p>
+<p>Terminated and inaccessible (APPLICATION_TERMINATED): Operating system objects cannot be accessed from other OS-Applications. This state does not change.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>Figure显示了状态的转换：</p>
-<p>Figure shows the state transitions:</p>
+<p>The figure shows the state transitions:</p>
 <figure class="align-center" id="id9">
-<img alt="APP状态图" src="../../../_images/OS-Applications%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
+<img alt="APP状态图 (OS-Application State Diagram)" src="../../../_images/OS-Applications%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
 <figcaption>
-<p><span class="caption-text">OS-Applications状态图（OS-Applications state diagram）</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+<p><span class="caption-text">OS-Applications状态图 (OS-Application State Diagram)</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="getapplicationid">
@@ -4726,7 +4705,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>GetApplicationID和GetCurrentApplicationID区别在于GetApplicationID可以获取可信函数的应用程序ID。</p>
-<p>The difference between GetApplicationID and GetCurrentApplicationID is that GetApplicationID can obtain the application ID of a trusted function.</p>
+<p>The difference between GetApplicationID and GetCurrentApplicationID is that GetApplicationID can retrieve the application ID of a trusted function.</p>
 </li>
 <li><p>在SC3、SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -4818,7 +4797,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>请确保对象类型和对象ID是匹配的。</p>
-<p>Please ensure that the object type and object ID match.</p>
+<p>Ensure that the object type and object ID match.</p>
 </li>
 <li><p>在SC3，SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -4906,7 +4885,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>请确保对象类型和对象ID是匹配的。</p>
-<p>Please ensure that the object type and object ID match.</p>
+<p>Ensure that the object type and object ID match.</p>
 </li>
 <li><p>在SC3，SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -5091,7 +5070,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>如果重新启动的OS-Application配置了重启任务，则该任务将在重新启动时被激活。</p>
-<p>If the OS-Application to be restarted is configured with a restart task, this task will be activated during the restart.</p>
+<p>If the OS-Application to be restarted is configured with a restart task, that task is activated during the restart.</p>
 </li>
 <li><p>在SC3，SC4下有效</p>
 <p>Valid under SC3 and SC4</p>
@@ -5276,27 +5255,27 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="memory-protection-functions">
-<h2>Memory Protection Functions<a class="headerlink" href="#memory-protection-functions" title="Link to this heading">¶</a></h2>
-<p>内存保护策略是基于可执行程序的（数据，代码和堆栈）段。</p>
-<p>The memory protection strategy is based on the (data, code, and stack) segments of the executable program.</p>
+<h2>Memory(Protection Functions)<a class="headerlink" href="#memory-protection-functions" title="Link to this heading">¶</a></h2>
+<p>内存保护策略是基于可执行程序的(数据，代码和堆栈)段。</p>
+<p>The memory protection strategy is based on the segments (data, code, and stack) of the executable program.</p>
 <p>堆栈：OS-Application包含许多任务和中断。根据定义，这些对象的堆栈仅属于所有者，因此即使这些对象属于同一OS-Application，对象之间也不应共享堆栈数据。</p>
-<p>Stack: An OS-Application contains many tasks and interrupts. By definition, the stacks of these objects belong only to their owners, so stack data should not be shared between objects even if they belong to the same OS-Application.</p>
+<p>Stack: An OS-Application contains multiple tasks and interrupts. By definition, the stacks of these objects belong exclusively to their owners; therefore, stack data should not be shared between objects, even if they belong to the same OS-Application.</p>
 <p>任务和中断堆栈的内存保护非常有用，主要有两个原因：</p>
-<p>Memory protection for task and interrupt stacks is very useful for two main reasons:</p>
+<p>Memory protection for task and interrupt stacks is highly beneficial for two main reasons:</p>
 <blockquote>
 <div><ul>
 <li><p>与堆栈监视相比，可以更直接地检测任务或中断的堆栈上溢和下溢</p>
-<p>Compared with stack monitoring, it can more directly detect stack overflows and underflows of tasks or interrupts.</p>
+<p>It enables more direct detection of stack overflow and underflow for tasks or interrupts compared to stack monitoring.</p>
 </li>
 <li><p>在OS-Application的组成部分之间提供保护，例如满足一些安全约束</p>
-<p>It provides protection between components of an OS-Application, such as meeting some security constraints.</p>
+<p>It provides protection between components of an OS-Application, such as fulfilling certain security constraints.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>数据：OS-Application具有私有数据段，而任务/中断具有私有数据段。OS-Application的所有任务/中断共享OS-Application的私有数据段。</p>
-<p>Data: An OS-Application has a private data segment, and tasks/interrupts have their own private data segments. All tasks/interrupts of an OS-Application share the private data segment of the OS-Application.</p>
-<p>代码：代码段是OS-Application专用的，也可以在所有OS-Applications之间共享（以使用共享库）。在不使用代码保护的情况下，执行不正确的代码最终将导致内存，时序或服务冲突。</p>
-<p>Code: Code segments are dedicated to an OS-Application, and can also be shared among all OS-Applications (for using shared libraries). Without code protection, executing incorrect code will eventually lead to memory, timing, or service conflicts.</p>
+<p>Data: An OS-Application has a private data segment, and tasks/interrupts have their own private data segments. All tasks/interrupts within an OS-Application share the OS-Application’s private data segment.</p>
+<p>代码：代码段是OS-Application专用的，也可以在所有OS-Applications之间共享(以使用共享库)。在不使用代码保护的情况下，执行不正确的代码最终将导致内存，时序或服务冲突。</p>
+<p>Code: Code segments are dedicated to an OS-Application but can also be shared among all OS-Applications (e.g., for using shared libraries). Without code protection, executing incorrect code will eventually result in memory, timing, or service conflicts.</p>
 <section id="checkisrmemoryaccess">
 <h3>CheckISRMemoryAccess<a class="headerlink" href="#checkisrmemoryaccess" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AccessType</span> <span class="n">CheckISRMemoryAccess</span><span class="p">(</span><span class="n">ISRType</span> <span class="n">ISRID</span><span class="p">,</span> <span class="n">MemoryStartAddressType</span> <span class="n">Address</span><span class="p">,</span> <span class="n">MemorySizeType</span> <span class="n">Size</span><span class="p">)</span>
@@ -5377,7 +5356,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p>Valid under SC3 and SC4</p>
 </li>
 <li><p>请在可信OS-Application的任务或中断中调用该服务</p>
-<p>Please call this service in a task or interrupt of a trusted OS-Application</p>
+<p>Call this service from within a task or interrupt of a trusted OS-Application.</p>
 </li>
 </ul>
 </div>
@@ -5497,37 +5476,37 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p>Valid under SC3 and SC4</p>
 </li>
 <li><p>请在可信OS-Application的任务或中断中调用该服务</p>
-<p>Please call this service in a task or interrupt of a trusted OS-Application</p>
+<p>Call this service from within a task or interrupt of a trusted OS-Application.</p>
 </li>
 </ul>
 </div>
 </section>
 </section>
 <section id="service-protection-functions">
-<h2>Service Protection Functions<a class="headerlink" href="#service-protection-functions" title="Link to this heading">¶</a></h2>
+<h2>Service(Protection Functions)<a class="headerlink" href="#service-protection-functions" title="Link to this heading">¶</a></h2>
 <p>当OS-Application进行API调用，服务保护需要考虑多种情况：</p>
-<p>When an OS-Application makes an API call, service protection needs to consider various scenarios:</p>
+<p>When an OS-Application makes an API call, service protection must consider various scenarios:</p>
 <blockquote>
 <div><ul>
 <li><p>句柄无效或超出范围</p>
-<p>The handle is invalid or out of range</p>
+<p>The handle is invalid or out of range.</p>
 </li>
 <li><p>在错误的调用场景中，例如在StartupHook中调用ActivateTask()</p>
-<p>In an incorrect calling scenario, such as calling ActivateTask() in StartupHook</p>
+<p>In an incorrect calling context, such as calling ActivateTask() within StartupHook.</p>
 </li>
 <li><p>或未能进行API调用导致ORIENTAIS OS处于未定义状态，例如：在占用资源期间结束任务</p>
-<p>Or failing to make an API call, causing ORIENTAIS OS to be in an undefined state, for example: terminating a task while occupying resources</p>
+<p>Or failure to make proper API calls resulting in ORIENTAIS OS entering an undefined state, for example: terminating a task while holding resources.</p>
 </li>
 <li><p>会影响系统中其他所有OS-Application的行为，例如：ShutdownOS()</p>
-<p>Affecting the behavior of all other OS-Applications in the system, such as: ShutdownOS()</p>
+<p>Affecting the behavior of all other OS-Applications in the system, such as: ShutdownOS().</p>
 </li>
-<li><p>操纵属于另一个OS-Application的操作系统对象（该OS对象没有必需的权限），例如 OS-Application尝试对其不拥有访问权限的任务执行ActivateTask()</p>
-<p>Manipulating operating system objects belonging to another OS-Application (the OS object does not have the necessary permissions), for example, an OS-Application attempts to execute ActivateTask() on a task that it does not have access permissions to</p>
+<li><p>操纵属于另一个OS-Application的操作系统对象(该OS对象没有必需的权限)，例如 OS-Application尝试对其不拥有访问权限的任务执行ActivateTask()</p>
+<p>Manipulating operating system objects belonging to another OS-Application (without the required permissions), for example, an OS-Application attempting to execute ActivateTask() on a task it lacks access permissions for.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>关于系统服务在错误的场景中被调用，请参阅**错误!未找到引用源**。</p>
-<p>For system services being called in incorrect scenarios, please refer to <strong>Error! Reference source not found</strong>.</p>
+<p>For system services called in incorrect contexts, refer to <strong>Error! Reference source not found</strong>.</p>
 <section id="calltrustedfunction">
 <h3>CallTrustedFunction<a class="headerlink" href="#calltrustedfunction" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">CallTrustedFunction</span><span class="p">(</span><span class="n">TrustedFunctionIndexType</span> <span class="n">FunctionIndex</span><span class="p">,</span> <span class="n">TrustedFunctionParameterRefType</span> <span class="n">FunctionParams</span><span class="p">)</span>
@@ -5634,7 +5613,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="system-control-functions">
-<h2>System Control Functions<a class="headerlink" href="#system-control-functions" title="Link to this heading">¶</a></h2>
+<h2>System(Control Functions)<a class="headerlink" href="#system-control-functions" title="Link to this heading">¶</a></h2>
 <section id="startos">
 <h3>StartOS<a class="headerlink" href="#startos" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">StartOS</span><span class="p">(</span><span class="n">AppModeType</span> <span class="n">Mode</span><span class="p">)</span>
@@ -5678,7 +5657,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p>This interface must be used during system initialization.</p>
 </li>
 <li><p>所有核必须以相同模式启动。</p>
-<p>All cores must start in the same mode.</p>
+<p>All cores must boot in the same mode.</p>
 </li>
 </ul>
 </div>
@@ -5723,7 +5702,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>该服务调用者所属OS-Application必须是可信OS-Application</p>
-<p>The OS-Application to which the caller of this service belongs must be a trusted OS-Application.</p>
+<p>The OS-Application to which the service caller belongs must be a trusted OS-Application.</p>
 </li>
 </ul>
 </div>
@@ -5763,7 +5742,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="multi-core-functions">
-<h2>Multi-Core Functions<a class="headerlink" href="#multi-core-functions" title="Link to this heading">¶</a></h2>
+<h2>Multi-Core(Functions)<a class="headerlink" href="#multi-core-functions" title="Link to this heading">¶</a></h2>
 <section id="getcoreid">
 <h3>GetCoreID<a class="headerlink" href="#getcoreid" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CoreIdType</span> <span class="n">GetCoreID</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -5992,11 +5971,12 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul>
-<li><p>该函数仅允许启动非Autosar内核。</p>
-<p>This function only allows starting non-Autosar kernels.</p>
-</li>
+<ul class="simple">
+<li><p>该函数仅允许启动非Autosar内核。</p></li>
 </ul>
+<blockquote>
+<div><p>This function permits starting only non-AUTOSAR kernels.</p>
+</div></blockquote>
 </div>
 </section>
 <section id="shutdownallcores">
@@ -6072,11 +6052,12 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul>
-<li><p>该服务调用者所属OS-Application必须是可信OS-Application。</p>
-<p>The OS-Application to which the caller of this service belongs must be a trusted OS-Application.</p>
-</li>
+<ul class="simple">
+<li><p>该服务调用者所属OS-Application必须是可信OS-Application。</p></li>
 </ul>
+<blockquote>
+<div><p>The calling OS-Application of this service must be a trusted OS-Application.</p>
+</div></blockquote>
 </div>
 </section>
 <section id="controlidle">
@@ -6159,15 +6140,15 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="spinlock-functions">
-<h2>Spinlock Functions<a class="headerlink" href="#spinlock-functions" title="Link to this heading">¶</a></h2>
+<h2>Spinlock(Functions)<a class="headerlink" href="#spinlock-functions" title="Link to this heading">¶</a></h2>
 <p>在多核中，需要一种新的机制来支持不同核上任务的互斥。这种新机制不适用于同核上的任务，且将返回错误。</p>
-<p>In multi-core systems, a new mechanism is required to support mutual exclusion of tasks on different cores. This new mechanism is not applicable to tasks on the same core and will return an error.</p>
-<p>“SpinlockType”是类似于“ResourceType”，且离线配置的自旋锁。</p>
-<p>“SpinlockType” is a spinlock that is similar to “ResourceType” and configured offline.</p>
-<p>自旋锁是一种繁忙的等待机制，它轮询某个自旋锁变量（Spinlock Variable）直到可用。</p>
+<p>In multi-core systems, a new mechanism is required to support mutual exclusion among tasks on different cores. This new mechanism is not applicable to tasks on the same core and returns an error.</p>
+<p>“SpinlockType”是类似于”ResourceType”，且离线配置的自旋锁。</p>
+<p>“SpinlockType” is a spinlock similar to “ResourceType” and is configured offline.</p>
+<p>自旋锁是一种繁忙的等待机制，它轮询某个自旋锁变量(Spinlock Variable)直到可用。</p>
 <p>A spinlock is a busy-waiting mechanism that polls a spinlock variable until it becomes available.</p>
 <p>一旦自旋锁被任务或2类中断占用，其他内核上的任务或2类中断将无法占用这个自旋锁。自旋锁机制不会在轮询锁定变量时对其他任务进行调度。</p>
-<p>Once a spinlock is occupied by a task or a Class 2 interrupt, tasks or Class 2 interrupts on other cores cannot occupy this spinlock. The spinlock mechanism does not schedule other tasks while polling the lock variable.</p>
+<p>Once a spinlock is acquired by a task or a Category 2 interrupt, tasks or Category 2 interrupts on other cores cannot acquire this spinlock. The spinlock mechanism does not schedule other tasks while polling the lock variable.</p>
 <section id="getspinlock">
 <h3>GetSpinlock<a class="headerlink" href="#getspinlock" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetSpinlock</span><span class="p">(</span><span class="n">SpinlockIdType</span> <span class="n">SpinlockId</span><span class="p">)</span>
@@ -6271,7 +6252,7 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>自旋锁机制是一种主动轮询机制。该功能不会引起调度问题。</p>
-<p>The spinlock mechanism is an active polling mechanism. This function does not cause scheduling issues.</p>
+<p>The spinlock mechanism is an active polling mechanism. This functionality does not cause scheduling issues.</p>
 </li>
 </ul>
 </div>
@@ -6351,10 +6332,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>在终止任务之前，必须释放通过GetSpinlock占用的所有自旋锁变量。在调用WaitEvent之前，应释放所有自旋锁。</p>
-<p>All spinlock variables occupied via GetSpinlock must be released before terminating a task. All spinlocks should be released before calling WaitEvent.</p>
+<p>All spinlock variables acquired via GetSpinlock must be released before terminating a task. All spinlocks should be released before calling WaitEvent.</p>
 </li>
 <li><p>如果ReleaseSpinlock尝试释放未获得的自旋锁，则会发生错误。</p>
-<p>If ReleaseSpinlock attempts to release a spinlock that has not been acquired, an error will occur.</p>
+<p>An error occurs if ReleaseSpinlock attempts to release a spinlock that has not been acquired.</p>
 </li>
 </ul>
 </div>
@@ -6468,17 +6449,17 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li><p>TryToGetSpinlock具有与GetSpinlock相同的功能，不同之处在于，如果自旋锁已被另一个内核上的任务占用，则该函数将设置输出参数“Success”并返回E_OK。</p>
-<p>TryToGetSpinlock has the same function as GetSpinlock, with the difference that if the spinlock is already occupied by a task on another core, this function will set the output parameter “Success” and return E_OK.</p>
+<li><p>TryToGetSpinlock具有与GetSpinlock相同的功能，不同之处在于，如果自旋锁已被另一个内核上的任务占用，则该函数将设置输出参数”Success”并返回E_OK。</p>
+<p>TryToGetSpinlock provides the same functionality as GetSpinlock, except that if the spinlock is already held by a task on another core, this function sets the output parameter “Success” and returns E_OK.</p>
 </li>
 </ul>
 </div>
 </section>
 </section>
 <section id="ioc-functions">
-<h2>IOC Functions<a class="headerlink" href="#ioc-functions" title="Link to this heading">¶</a></h2>
+<h2>IOC(Functions)<a class="headerlink" href="#ioc-functions" title="Link to this heading">¶</a></h2>
 <p>IOC负责Os-Application之间的通信，特别是跨越核心或存储器保护边界的通信。 其内部功能与操作系统密切相关。IOC 支持 1:1、N:1 和 N:M 通信。同时支持队列和非队列通信。</p>
-<p>IOC is responsible for communication between Os-Applications, especially communication across core or memory protection boundaries. Its internal functions are closely related to the operating system. IOC supports 1:1, N:1, and N:M communication. It also supports both queued and non-queued communication.</p>
+<p>The IOC is responsible for communication between OS-Applications, particularly across core or memory protection boundaries. Its internal functionality is closely tied to the operating system. The IOC supports 1:1, N:1, and N:M communication, as well as both queued and non-queued communication.</p>
 <section id="iocsend-iocid-senderid">
 <h3>IocSend_&lt;IocId&gt;[_&lt;SenderId&gt;]<a class="headerlink" href="#iocsend-iocid-senderid" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">IocSend_</span><span class="o">&lt;</span><span class="n">IocId</span><span class="o">&gt;</span><span class="p">[</span><span class="n">_</span><span class="o">&lt;</span><span class="n">SenderId</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span> <span class="n">IN</span><span class="p">,</span> <span class="p">[</span><span class="n">uint16</span> <span class="n">numberOfBytesIN</span><span class="p">])</span>
@@ -6578,10 +6559,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -6678,10 +6659,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -6791,10 +6772,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -6904,10 +6885,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -7010,10 +6991,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -7110,10 +7091,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -7223,10 +7204,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -7330,10 +7311,10 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
@@ -7405,21 +7386,21 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>此接口一般直接由RTE进行调用。</p>
-<p>This interface is generally called directly by the RTE.</p>
+<p>This interface is typically called directly by the RTE.</p>
 </li>
 <li><p>ORIENTAIS OS支持无RTE时直接调用。</p>
-<p>ORIENTAIS OS supports direct calling without the RTE.</p>
+<p>ORIENTAIS OS supports direct invocation without the RTE.</p>
 </li>
 </ul>
 </div>
 </section>
 </section>
 <section id="peripheral-functions">
-<h2>Peripheral Functions<a class="headerlink" href="#peripheral-functions" title="Link to this heading">¶</a></h2>
-<p>在某些MCU架构中，存在内存映射的硬件寄存器（外设区域），这些寄存器只能在特定模式（例如特权模式）下访问。只要任务/中断服务例程（Tasks/ISRs）具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。</p>
-<p>In some MCU architectures, there are memory-mapped hardware registers (peripheral areas) that can only be accessed in specific modes (such as privileged mode). As long as tasks/interrupt service routines (Tasks/ISRs) have full hardware access permissions, they can access these registers directly. If the operating system uses memory protection, tasks/interrupt service routines of untrusted OS-Applications cannot access these registers directly, as this will be recognized as a memory violation by the operating system.</p>
+<h2>Peripheral(Functions)<a class="headerlink" href="#peripheral-functions" title="Link to this heading">¶</a></h2>
+<p>在某些MCU架构中，存在内存映射的硬件寄存器(外设区域)，这些寄存器只能在特定模式(例如特权模式)下访问。只要任务/中断服务例程(Tasks/ISRs)具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。</p>
+<p>In some MCU architectures, memory-mapped hardware registers (peripheral areas) exist that are accessible only in specific modes (e.g., privileged mode). As long as tasks/interrupt service routines (Tasks/ISRs) have full hardware access rights, they can directly access these registers. If the operating system employs memory protection, tasks/ISRs of untrusted OS-Applications cannot access these registers directly, as this is recognized by the OS as a memory violation.</p>
 <p>外设访问的接口被划分为8位、16位和32位。为了简化表达，ReadPeripheral&lt;x&gt;代表ReadPeripheral8、ReadPeripheral16、ReadPeripheral32。WritePeripheral&lt;x&gt;代表WritePeripheral8、WritePeripheral16、WritePeripheral32。ModifyPeripheral&lt;x&gt;代表ModifyPeripheral8、ModifyPeripheral16、ModifyPeripheral32。</p>
-<p>Interfaces for peripheral access are divided into 8-bit, 16-bit, and 32-bit. For the sake of simplicity, ReadPeripheral&lt;x&gt; represents ReadPeripheral8, ReadPeripheral16, and ReadPeripheral32. WritePeripheral&lt;x&gt; represents WritePeripheral8, WritePeripheral16, and WritePeripheral32. ModifyPeripheral&lt;x&gt; represents ModifyPeripheral8, ModifyPeripheral16, and ModifyPeripheral32.</p>
+<p>Peripheral access interfaces are categorized into 8-bit, 16-bit, and 32-bit types. For simplicity, ReadPeripheral&lt;x&gt; denotes ReadPeripheral8, ReadPeripheral16, and ReadPeripheral32; WritePeripheral&lt;x&gt; denotes WritePeripheral8, WritePeripheral16, and WritePeripheral32; and ModifyPeripheral&lt;x&gt; denotes ModifyPeripheral8, ModifyPeripheral16, and ModifyPeripheral32.</p>
 <section id="readperipheral-x">
 <h3>ReadPeripheral&lt;x&gt;<a class="headerlink" href="#readperipheral-x" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">ReadPeripheral8</span><span class="p">(</span><span class="n">AreaIdType</span> <span class="n">Area</span><span class="p">,</span> <span class="n">const</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">Address</span><span class="p">,</span> <span class="n">uint8</span> <span class="o">*</span><span class="n">ReadValue</span><span class="p">)</span>
@@ -7686,9 +7667,9 @@ GetEvent(Task0, &amp;eventmask);/* eventmask &amp; Event_0 = Event_0 */
 </section>
 </section>
 <section id="extend-functions">
-<h2>Extend Functions<a class="headerlink" href="#extend-functions" title="Link to this heading">¶</a></h2>
+<h2>Extend(Functions)<a class="headerlink" href="#extend-functions" title="Link to this heading">¶</a></h2>
 <p>Extend模块为用户提供了一些扩展功能：获取系统堆栈、任务堆栈、ISR堆栈使用情况的接口，检查版本信息的接口，获取检查ISR中断源的接口，检查CPU信息的接口。</p>
-<p>The Extend module provides users with several extended functions: interfaces for obtaining the usage of system stacks, task stacks, and ISR stacks; interfaces for checking version information; interfaces for obtaining and checking ISR interrupt sources; and interfaces for checking CPU information.</p>
+<p>The Extend module provides users with several extended functions: interfaces for obtaining system stack, task stack, and ISR stack usage; interfaces for checking version information; interfaces for acquiring and checking ISR interrupt sources; and interfaces for checking CPU information.</p>
 <section id="osgetversioninfo">
 <h3>OSGetVersionInfo<a class="headerlink" href="#osgetversioninfo" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">OSGetVersionInfo</span><span class="p">(</span><span class="n">Std_VersionInfoType</span> <span class="o">*</span><span class="n">osVerInfoPtr</span><span class="p">)</span>
@@ -7916,8 +7897,8 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">接口描述（Interface Description）</a><ul>
-<li><a class="reference internal" href="#task-functions">Task Functions</a><ul>
+<li><a class="reference internal" href="#">接口描述(Interface Description)</a><ul>
+<li><a class="reference internal" href="#task-functions">Task(Functions)</a><ul>
 <li><a class="reference internal" href="#activatetask">ActivateTask</a></li>
 <li><a class="reference internal" href="#terminatetask">TerminateTask</a></li>
 <li><a class="reference internal" href="#chaintask">ChainTask</a></li>
@@ -7927,7 +7908,7 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#activatetaskasyn">ActivateTaskAsyn</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#interrupt-functions">Interrupt Functions</a><ul>
+<li><a class="reference internal" href="#interrupt-functions">Interrupt(Functions)</a><ul>
 <li><a class="reference internal" href="#enableallinterrupts">EnableAllInterrupts</a></li>
 <li><a class="reference internal" href="#disableallinterrupts">DisableAllInterrupts</a></li>
 <li><a class="reference internal" href="#resumeallinterrupts">ResumeAllInterrupts</a></li>
@@ -7940,18 +7921,18 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#clearpendinginterrupt">ClearPendingInterrupt</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#counter-functions">Counter Functions</a><ul>
+<li><a class="reference internal" href="#counter-functions">Counter(Functions)</a><ul>
 <li><a class="reference internal" href="#incrementcounter">IncrementCounter</a></li>
 <li><a class="reference internal" href="#getcountervalue">GetCounterValue</a></li>
 <li><a class="reference internal" href="#getelapsedvalue">GetElapsedValue</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#resource-functions">Resource Functions</a><ul>
+<li><a class="reference internal" href="#resource-functions">Resource(Functions)</a><ul>
 <li><a class="reference internal" href="#getresource">GetResource</a></li>
 <li><a class="reference internal" href="#releaseresource">ReleaseResource</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#alarm-functions">Alarm Functions</a><ul>
+<li><a class="reference internal" href="#alarm-functions">Alarm(Functions)</a><ul>
 <li><a class="reference internal" href="#getalarmbase">GetAlarmBase</a></li>
 <li><a class="reference internal" href="#getalarm">GetAlarm</a></li>
 <li><a class="reference internal" href="#setrelalarm">SetRelAlarm</a></li>
@@ -7959,7 +7940,7 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#cancelalarm">CancelAlarm</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#event-functions">Event Functions</a><ul>
+<li><a class="reference internal" href="#event-functions">Event(Functions)</a><ul>
 <li><a class="reference internal" href="#setevent">SetEvent</a></li>
 <li><a class="reference internal" href="#clearevent">ClearEvent</a></li>
 <li><a class="reference internal" href="#getevent">GetEvent</a></li>
@@ -7968,7 +7949,7 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#seteventasyn">SetEventAsyn</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#scheduletable-functions">ScheduleTable Functions</a><ul>
+<li><a class="reference internal" href="#scheduletable-functions">ScheduleTable(Functions)</a><ul>
 <li><a class="reference internal" href="#startscheduletablerel">StartScheduleTableRel</a></li>
 <li><a class="reference internal" href="#startscheduletableabs">StartScheduleTableAbs</a></li>
 <li><a class="reference internal" href="#stopscheduletable">StopScheduleTable</a></li>
@@ -7979,7 +7960,7 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#getscheduletablestatus">GetScheduleTableStatus</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hook-functions">Hook Functions</a><ul>
+<li><a class="reference internal" href="#hook-functions">Hook(Functions)</a><ul>
 <li><a class="reference internal" href="#errorhook">ErrorHook</a></li>
 <li><a class="reference internal" href="#posttaskhook">PostTaskHook</a></li>
 <li><a class="reference internal" href="#pretaskhook">PreTaskHook</a></li>
@@ -7992,7 +7973,7 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#shutdownhook-applicationname">ShutdownHook_&lt;ApplicationName&gt;</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#os-app-functions">OS-APP Functions</a><ul>
+<li><a class="reference internal" href="#os-app-functions">OS-APP(Functions)</a><ul>
 <li><a class="reference internal" href="#getapplicationid">GetApplicationID</a></li>
 <li><a class="reference internal" href="#getcurrentapplicationid">GetCurrentApplicationID</a></li>
 <li><a class="reference internal" href="#checkobjectaccess">CheckObjectAccess</a></li>
@@ -8002,22 +7983,22 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#getapplicationstate">GetApplicationState</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#memory-protection-functions">Memory Protection Functions</a><ul>
+<li><a class="reference internal" href="#memory-protection-functions">Memory(Protection Functions)</a><ul>
 <li><a class="reference internal" href="#checkisrmemoryaccess">CheckISRMemoryAccess</a></li>
 <li><a class="reference internal" href="#checktaskmemoryaccess">CheckTaskMemoryAccess</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#service-protection-functions">Service Protection Functions</a><ul>
+<li><a class="reference internal" href="#service-protection-functions">Service(Protection Functions)</a><ul>
 <li><a class="reference internal" href="#calltrustedfunction">CallTrustedFunction</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#system-control-functions">System Control Functions</a><ul>
+<li><a class="reference internal" href="#system-control-functions">System(Control Functions)</a><ul>
 <li><a class="reference internal" href="#startos">StartOS</a></li>
 <li><a class="reference internal" href="#shutdownos">ShutdownOS</a></li>
 <li><a class="reference internal" href="#getactiveapplicationmode">GetActiveApplicationMode</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#multi-core-functions">Multi-Core Functions</a><ul>
+<li><a class="reference internal" href="#multi-core-functions">Multi-Core(Functions)</a><ul>
 <li><a class="reference internal" href="#getcoreid">GetCoreID</a></li>
 <li><a class="reference internal" href="#getnumberofactivatedcores">GetNumberOfActivatedCores</a></li>
 <li><a class="reference internal" href="#startcore">StartCore</a></li>
@@ -8026,13 +8007,13 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#controlidle">ControlIdle</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#spinlock-functions">Spinlock Functions</a><ul>
+<li><a class="reference internal" href="#spinlock-functions">Spinlock(Functions)</a><ul>
 <li><a class="reference internal" href="#getspinlock">GetSpinlock</a></li>
 <li><a class="reference internal" href="#releasespinlock">ReleaseSpinlock</a></li>
 <li><a class="reference internal" href="#trytogetspinlock">TryToGetSpinlock</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ioc-functions">IOC Functions</a><ul>
+<li><a class="reference internal" href="#ioc-functions">IOC(Functions)</a><ul>
 <li><a class="reference internal" href="#iocsend-iocid-senderid">IocSend_&lt;IocId&gt;[_&lt;SenderId&gt;]</a></li>
 <li><a class="reference internal" href="#iocwrite-iocid-senderid">IocWrite_&lt;IocId&gt;[_&lt;SenderId&gt;]</a></li>
 <li><a class="reference internal" href="#iocsendgroup-iocid">IocSendGroup_&lt;IocId&gt;</a></li>
@@ -8044,13 +8025,13 @@ ISR(ISR_DMA_SF_DMA0_CH_0)
 <li><a class="reference internal" href="#iocemptyqueue-iocid">IocEmptyQueue_&lt;IocId&gt;</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#peripheral-functions">Peripheral Functions</a><ul>
+<li><a class="reference internal" href="#peripheral-functions">Peripheral(Functions)</a><ul>
 <li><a class="reference internal" href="#readperipheral-x">ReadPeripheral&lt;x&gt;</a></li>
 <li><a class="reference internal" href="#writeperipheral-x">WritePeripheral&lt;x&gt;</a></li>
 <li><a class="reference internal" href="#modifyperipheral-x">ModifyPeripheral&lt;x&gt;</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extend-functions">Extend Functions</a><ul>
+<li><a class="reference internal" href="#extend-functions">Extend(Functions)</a><ul>
 <li><a class="reference internal" href="#osgetversioninfo">OSGetVersionInfo</a></li>
 <li><a class="reference internal" href="#osgetstackusage">OSGetStackUsage</a></li>
 <li><a class="reference internal" href="#oscheckisrsource">OSCheckISRSource</a></li>

@@ -168,7 +168,7 @@ SOME/IP TP makes it possible to send SOME/IP messages with a length greater than
    SomeIpTp分片 (SomeIpTp Fragmentation)
 
 
-SOMEIP-TP协议在原有的SOMEIP协议中改造了MessageType区域的构造（增加了TP-Flag位），并扩展了4个字节（分为Offset，Res，M区域）用于控制传输TP报文。SomeIpTp模块完成TP相关位的填充和解析，以支持大数据传输。
+SOMEIP-TP协议在原有的SOMEIP协议中改造了MessageType区域的构造(增加了TP-Flag位)，并扩展了4个字节(分为Offset，Res，M区域)用于控制传输TP报文。SomeIpTp模块完成TP相关位的填充和解析，以支持大数据传输。
 
 The SOMEIP-TP protocol modifies the structure of the MessageType field in the original SOMEIP protocol (adding a TP-Flag bit) and extends 4 bytes (divided into Offset, Res, and M fields) to control the transmission of TP messages. The SomeIpTp module completes the filling and parsing of TP-related bits to support large data transmission.
 

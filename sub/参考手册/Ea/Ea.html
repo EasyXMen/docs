@@ -182,7 +182,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Ea/Ea.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Ea/Ea.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -282,7 +282,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>(Logical) block</p></td>
-<td><p>模块用户可见的最小可写/可擦除单元。由一个或多个虚拟页（virtual pages）构成。(The minimum writable/erasable unit visible to the module user. It is composed of one or more virtual pages.)</p></td>
+<td><p>模块用户可见的最小可写/可擦除单元。由一个或多个虚拟页(virtual pages)构成。(The minimum writable/erasable unit visible to the module user. It is composed of one or more virtual pages.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Virtual page</p></td>
 <td><p>可由一个或多个物理页构成，以简化逻辑块的处理与地址计算流程(It can be composed of one or more physical pages to simplify the processing of logical blocks and address calculation procedures.)</p></td>
@@ -291,13 +291,13 @@
 <td><p>由16位块编号和逻辑块内的16位偏移量组成。(It is composed of a 16-bit block number and a 16-bit offset within the logical block.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Physical address</p></td>
-<td><p>设备特定格式的地址信息（取决于底层EEPROM驱动程序和设备）用于访问逻辑块。(Address information in a device-specific format (depending on the underlying EEPROM driver and device) used to access logical blocks.)</p></td>
+<td><p>设备特定格式的地址信息(取决于底层EEPROM驱动程序和设备)用于访问逻辑块。(Address information in a device-specific format (depending on the underlying EEPROM driver and device) used to access logical blocks.)</p></td>
 </tr>
 <tr class="row-even"><td><p>Dataset</p></td>
-<td><p>非易失性内存管理器（NVRAM manager）中的概念：用户可寻址的、由相同大小块组成的数组。例如，对于应用软件（如车门模块）完全相同的ECU，该数组可用于为CAN驱动程序提供不同的配置设置（如CAN标识符、过滤器设置等）。(A concept in the NVRAM (Non-Volatile RAM) Manager: an array of blocks of the same size that can be addressed by the user. For example, for ECUs with identical application software (such as door modules), this array can be used to provide different configuration settings (such as CAN identifiers, filter settings, etc.) for the CAN driver.)</p></td>
+<td><p>非易失性内存管理器(NVRAM manager)中的概念：用户可寻址的、由相同大小块组成的数组。例如，对于应用软件(如车门模块)完全相同的ECU，该数组可用于为CAN驱动程序提供不同的配置设置(如CAN标识符、过滤器设置等)。(A concept in the NVRAM (Non-Volatile RAM) Manager: an array of blocks of the same size that can be addressed by the user. For example, for ECUs with identical application software (such as door modules), this array can be used to provide different configuration settings (such as CAN identifiers, filter settings, etc.) for the CAN driver.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Redundant copy</p></td>
-<td><p>非易失性内存管理器（NVRAM manager）中的概念：将相同信息存储两次，以提高数据存储的可靠性。(A concept in the NVRAM (Non-Volatile RAM) Manager: storing the same information twice to improve the reliability of data storage.)</p></td>
+<td><p>非易失性内存管理器(NVRAM manager)中的概念：将相同信息存储两次，以提高数据存储的可靠性。(A concept in the NVRAM (Non-Volatile RAM) Manager: storing the same information twice to improve the reliability of data storage.)</p></td>
 </tr>
 </tbody>
 </table>
@@ -357,19 +357,19 @@
 </section>
 <section id="task-processing">
 <h4>任务处理 Task Processing<a class="headerlink" href="#task-processing" title="Link to this heading">¶</a></h4>
-<p>EA的主要工作是对EEPROM内存块进行逻辑块的划分（逻辑块的大小根据配置可能不同），以及地址映射。EA的读取、写入、擦除的最小单位为逻辑块。</p>
+<p>EA的主要工作是对EEPROM内存块进行逻辑块的划分(逻辑块的大小根据配置可能不同)，以及地址映射。EA的读取、写入、擦除的最小单位为逻辑块。</p>
 <p>The main task of EA is to divide the EEPROM memory blocks into logical blocks (the size of logical blocks may vary according to configuration) and perform address mapping. The minimum unit for reading, writing, and erasing of the EA module is a logical block.</p>
 <p>EA模块一次只能接受一个作业任务，即模块不能为挂起的作业提供队列。</p>
 <p>The EA module can only accept one job task at a time, which means the module cannot provide a queue for pending jobs.</p>
 </section>
 <section id="data-storage-management">
 <h4>数据存储管理 Data Storage Management<a class="headerlink" href="#data-storage-management" title="Link to this heading">¶</a></h4>
-<p>管理EEPROM中的逻辑块（Logical Blocks），每个逻辑块可以存储一定量的数据。支持对逻辑块的读写、擦除操作。</p>
+<p>管理EEPROM中的逻辑块(Logical Blocks)，每个逻辑块可以存储一定量的数据。支持对逻辑块的读写、擦除操作。</p>
 <p>Manages logical blocks in the EEPROM. Each logical block can store a certain amount of data. Supports read, write, and erase operations on logical blocks.</p>
 </section>
 <section id="error-detection-and-handling">
 <h4>错误检测与处理 Error Detection and Handling<a class="headerlink" href="#error-detection-and-handling" title="Link to this heading">¶</a></h4>
-<p>检测EEPROM操作中的错误（如写入失败、读取失败等）。提供错误通知机制，将错误信息传递给上层模块。</p>
+<p>检测EEPROM操作中的错误(如写入失败、读取失败等)。提供错误通知机制，将错误信息传递给上层模块。</p>
 <p>Detects errors during EEPROM operations (such as write failure, read failure, etc.). Provides an error notification mechanism to pass error information to the upper layer modules.</p>
 </section>
 <section id="erasure-cycle-limitation">
@@ -379,7 +379,7 @@
 </section>
 <section id="managing-logical-block-information">
 <h4>管理逻辑块信息 Managing Logical Block Information<a class="headerlink" href="#managing-logical-block-information" title="Link to this heading">¶</a></h4>
-<p>Ea模块应该从EA模块的角度来管理每个块的信息，即该块是否为“有效”。该一致性信息仅涉及块的内部处理，而不涉及块的内容；当块写入操作启动时，Ea模块将相应的块标记为不一致。在块写入操作成功结束后，Ea模块应将块标记为一致（再次）。</p>
+<p>Ea模块应该从EA模块的角度来管理每个块的信息，即该块是否为“有效”。该一致性信息仅涉及块的内部处理，而不涉及块的内容；当块写入操作启动时，Ea模块将相应的块标记为不一致。在块写入操作成功结束后，Ea模块应将块标记为一致(再次)。</p>
 <p>The Ea module shall manage the information of each block from the perspective of the EA module, i.e., whether the block is “valid”. This consistency information is only related to the internal processing of the block, not the content of the block; when a block write operation starts, the Ea module marks the corresponding block as inconsistent. After the block write operation ends successfully, the Ea module shall mark the block as consistent (again).</p>
 </section>
 </section>

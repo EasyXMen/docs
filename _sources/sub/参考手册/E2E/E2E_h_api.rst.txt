@@ -1,8 +1,8 @@
 
-E2E接口描述（E2E Interface Description）
+E2E接口描述 E2E(Interface Description)
 =========================================
 
-类型定义（type definition）
+类型定义(Type Definitions)
 ---------------------------------
 .. 如果没有就不存在该章节，或为None
 
@@ -32,7 +32,7 @@ E2E接口描述（E2E Interface Description）
 
 
       
-提供的服务（Provided Services）
+提供的服务(Services)
 ----------------------------------------
 E2E_GetVersionInfo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

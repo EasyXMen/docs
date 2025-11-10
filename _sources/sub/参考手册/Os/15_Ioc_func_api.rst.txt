@@ -1,8 +1,8 @@
-IOC Functions
+IOC(Functions)
 --------------------------------------
 IOC负责Os-Application之间的通信，特别是跨越核心或存储器保护边界的通信。 其内部功能与操作系统密切相关。IOC 支持 1:1、N:1 和 N:M 通信。同时支持队列和非队列通信。
 
-IOC is responsible for communication between Os-Applications, especially communication across core or memory protection boundaries. Its internal functions are closely related to the operating system. IOC supports 1:1, N:1, and N:M communication. It also supports both queued and non-queued communication.
+The IOC is responsible for communication between OS-Applications, particularly across core or memory protection boundaries. Its internal functionality is closely tied to the operating system. The IOC supports 1:1, N:1, and N:M communication, as well as both queued and non-queued communication.
 
 
 IocSend_<IocId>[_<SenderId>]
@@ -92,11 +92,11 @@ Send data to implement 1:1 or N:1 queue communication between Os-Applications lo
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 IocWrite_<IocId>[_<SenderId>]
@@ -181,11 +181,11 @@ Send data to implement 1:1 or N:1 non-queue communication between Os-Application
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 
@@ -282,11 +282,11 @@ Send a set of data to implement 1:1 or N:1 queue communication between Os-Applic
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 IocWriteGroup_<IocId>
@@ -382,11 +382,11 @@ Send a set of data to achieve 1:1 or N:1 non-queue communication between Os-Appl
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 IocReceive_<IocId>
@@ -475,11 +475,11 @@ Receive data and implement 1:1 or N:1 queue communication between Os-Application
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 IocRead_<IocId>[_<ReceiverId>]
@@ -564,11 +564,11 @@ Receive data to implement 1:1 or N:1 non-queue communication between Os-Applicat
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 IocReceiveGroup_<IocId>
@@ -664,11 +664,11 @@ Receive a set of data to implement 1:1 or N:1 queue communication between Os-App
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 IocReadGroup_<IocId>
@@ -760,11 +760,11 @@ Receives a set of data to implement 1:1 or N:1 non-queue communication between O
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 
@@ -835,11 +835,11 @@ If the <IocId> in the function name identifies queued communication, this interf
 
    - 此接口一般直接由RTE进行调用。
 
-     This interface is generally called directly by the RTE.
+     This interface is typically called directly by the RTE.
 
    - ORIENTAIS OS支持无RTE时直接调用。
 
-     ORIENTAIS OS supports direct calling without the RTE.
+     ORIENTAIS OS supports direct invocation without the RTE.
 
 
 

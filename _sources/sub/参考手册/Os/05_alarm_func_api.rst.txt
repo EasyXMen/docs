@@ -1,23 +1,23 @@
-Alarm Functions
+Alarm(Functions)
 --------------------------------------
 
 Os提供用于处理重复事件的服务，例如在Alarm到期时激活任务，设置事件或调用AlarmCallBack回调函数。Alarm回调函数是应用程序提供的简短函数。
 
-The Os provides services for handling recurring events, such as activating tasks when an Alarm expires, setting events, or calling the AlarmCallBack callback function. The Alarm callback function is a short function provided by the application.
+The OS provides services for handling recurring events, such as activating tasks upon alarm expiration, setting events, or invoking the AlarmCallback function. The alarm callback is a short function supplied by the application.
 
 .. figure:: ../../../_static/参考手册/Os/alarm分层模型.png
-   :alt: Alarm的分层模型
+   :alt: Alarm的分层模型 Alarm Layered Model
    :align: center
 
-   管理Alarm的分层模型（Hierarchical Model for Managing Alarms）
+   管理Alarm的分层模型 (Hierarchical Model for Alarm Management)
 
 Counter和Alarm是静态定义的。Counter到Alarm的分配以及Alarm到期时要执行的具体操作也是静态定义的。
 
-Counters and Alarms are defined statically. The assignment of Counters to Alarms and the specific actions to be performed when an Alarm expires are also defined statically.
+Counters and alarms are statically defined. The assignment of counters to alarms and the specific actions to be executed upon alarm expiration are also statically defined.
 
 动态参数是Alarm到期时的计数器值，以及周期性Alarm的周期时间。
 
-Dynamic parameters include the counter value when the Alarm expires and the cycle time for periodic Alarms.
+Dynamic parameters include the counter value at alarm expiration and the cycle time for periodic alarms.
 
 GetAlarmBase
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,7 +194,7 @@ The system service GetAlarm returns the relative value in ticks before the alarm
 
    - 如果<AlarmID>没有定义，则<Tick>指向的内容不会改变。
     
-     If <AlarmID> is not defined, the content pointed to by <Tick> will not change.
+     If <AlarmID> is not defined, the content pointed to by <Tick> remains unchanged.
 
 
 SetRelAlarm
@@ -269,11 +269,11 @@ The system service occupies the alarm <AlarmID> element. After <increment> ticks
 
    - 预设时间到期，将根据配置情况触发相关服务，例如：激活任务，设置事件，回调等。
 
-     When the preset time expires, the relevant services will be triggered according to the configuration, such as activating tasks, setting events, and callbacks.
+     When the preset time expires, relevant services are triggered based on the configuration, such as task activation, event setting, and callback execution.
 
    - 如果相对时间为零，将立即触发相关服务。
 
-     If the relative time is zero, the relevant services will be triggered immediately.
+     If the relative time is zero, the relevant services are triggered immediately.
 
 
 SetAbsAlarm
@@ -370,15 +370,15 @@ The system service occupies the alarm <AlarmID> element. When <start> ticks are 
 
    - 预设时间到期，将根据配置情况触发相关服务，例如：激活任务，设置事件，回调等。
 
-     When the preset time expires, the relevant services will be triggered according to the configuration, such as activating tasks, setting events, and callbacks.
+     When the preset time expires, relevant services are triggered according to the configuration, such as task activation, event setting, and callback execution.
 
    - 如果绝对时间等于或接近当前时间，将立即触发相关服务。
 
-     If the absolute time is equal to or close to the current time, the relevant services will be triggered immediately.
+     If the absolute time equals or is close to the current time, the relevant services are triggered immediately.
 
    - 如果绝对时间已过，相关服务将在下次到达时触发。
 
-     If the absolute time has passed, the relevant services will be triggered when the time is reached next time.
+     If the absolute time has passed, the relevant services are triggered upon the next occurrence.
 
 
 CancelAlarm

@@ -1,4 +1,4 @@
-提供给Dcm的函数（Functions provided to Dcm）
+提供给Dcm的函数(Functions provided to Dcm)
 ----------------------------------------------------------
 Dem_SetDTCFilterByExtendedDataRecordNumber
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

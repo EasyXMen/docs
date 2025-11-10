@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>配置（configuration） &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>配置(Configuration) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">配置（configuration）</li>
+        <li class="breadcrumb-item active" aria-current="page">配置(Configuration)</li>
     </ol>
 </nav>
                     </div>
@@ -196,51 +196,63 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="configuration">
-<h1>配置（configuration）<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
+<h1>配置(Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
 <section id="basic-configuration">
-<h2>基础配置（Basic configuration）<a class="headerlink" href="#basic-configuration" title="Link to this heading">¶</a></h2>
+<h2>基础配置(Basic Configuration)<a class="headerlink" href="#basic-configuration" title="Link to this heading">¶</a></h2>
 <ul>
-<li><p>CanNmGlobalConfig需要配置CanNmMainFunctionPeriod，单位为毫秒（ms）。作为CanNm主函数的运行周期，所有的计时器都在每次主函数中递减一次。</p>
-<p>The CanNmGlobalConfig needs to configure CanNmMainFunctionPeriod, with the unit being milliseconds (ms). As the running cycle of the CanNm main function, all timers are decremented once in each main function execution.</p>
+<li><p>CanNmGlobalConfig需要配置CanNmMainFunctionPeriod，单位为毫秒(ms)。作为CanNm主函数的运行周期，所有的计时器都在每次主函数中递减一次。</p>
+<p>The CanNmGlobalConfig requires configuration of the CanNmMainFunctionPeriod in milliseconds (ms). This period defines the execution cycle of the CanNm main function, during which all managed timers are decremented once.</p>
 </li>
 </ul>
 <figure class="align-center" id="id1">
-<img alt="CanNmGlobalConfig基础配置" src="../../../_images/CanNmGlobalConfig%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
+<img alt="CanNmGlobalConfig基础配置(CanNmGlobalConfig Basic Configuration)" src="../../../_images/CanNmGlobalConfig%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
 <figcaption>
 <p><span class="caption-text">CanNmGlobalConfig基础配置</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>CanNmGlobalConfig Basic Configuration</p>
+</div>
 </figcaption>
 </figure>
 <ul>
 <li><p>CanNmChannelConfig中为该通道配置基础的运行参数，包括报文发送周期、自动流转状态的持续时间、引用ComM的Channel配置。</p>
-<p>In CanNmChannelConfig, basic operating parameters are configured for the channel, including the message transmission period, the duration of automatic state transition, and the Channel configuration referencing ComM.</p>
+<p>The CanNmChannelConfig configures basic channel parameters, including the message transmission period, the duration for automatic state transitions, and a reference to the ComM Channel configuration.</p>
 </li>
 </ul>
 <figure class="align-center" id="id2">
-<img alt="CanNmChannelConfig基础配置" src="../../../_images/CanNmChannelConfig%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
+<img alt="CanNmChannelConfig基础配置(CanNmChannelConfig Basic Configuration)" src="../../../_images/CanNmChannelConfig%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
 <figcaption>
 <p><span class="caption-text">CanNmChannelConfig基础配置</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>CanNmChannelConfig Basic Configuration</p>
+</div>
 </figcaption>
 </figure>
 <ul>
 <li><p>每个CanNmChannelConfig需要创建CanNmRxPdu和CanNmTxPdu。CanNmRxPdu可以创建多个，CanNmTxPdu仅一个。</p>
-<p>Each CanNmChannelConfig needs to create CanNmRxPdu and CanNmTxPdu. Multiple CanNmRxPdus can be created, while only one CanNmTxPdu is allowed.</p>
+<p>Each CanNmChannelConfig must define one CanNmTxPdu and may define multiple CanNmRxPdus.</p>
 </li>
 </ul>
 <figure class="align-center" id="id3">
-<img alt="CanNmPdu基础配置" src="../../../_images/CanNmPdu%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
+<img alt="CanNmPdu基础配置(CanNmPdu Basic Configuration)" src="../../../_images/CanNmPdu%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
 <figcaption>
 <p><span class="caption-text">CanNmPdu基础配置</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>CanNmPdu Basic Configuration</p>
+</div>
 </figcaption>
 </figure>
 <ul>
 <li><p>每个容器引用的Pdu需要绑定在CanIf模块，根据收发防线配置到CanIfInitCfg/CanIfRxPduCfg和CanIfInitCfg/CanIfTxPduCfg</p>
-<p>The Pdu referenced by each container needs to be bound to the CanIf module, and configured to CanIfInitCfg/CanIfRxPduCfg and CanIfInitCfg/CanIfTxPduCfg according to the receiving and sending directions.</p>
+<p>Each container’s referenced PDU must be bound to the CanIf module. Based on its transmission or reception direction, it is then defined in either CanIfInitCfg/CanIfTxPduCfg or CanIfInitCfg/CanIfRxPduCfg.</p>
 </li>
 </ul>
 <figure class="align-center" id="id4">
-<img alt="CanIfPdu基础配置" src="../../../_images/CanIfPdu%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
+<img alt="CanIfPdu基础配置(CanIfPdu Basic Configuration)" src="../../../_images/CanIfPdu%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.png" />
 <figcaption>
 <p><span class="caption-text">CanIfPdu基础配置</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>CanIfPdu Basic Configuration</p>
+</div>
 </figcaption>
 </figure>
 </section>
@@ -248,7 +260,7 @@
 <h2>UserData<a class="headerlink" href="#userdata" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>启动CanNm的UserData功能需要在Nm模块勾选NmGlobalFeatre/NmUserDataEnabled，将默认勾选所有&lt;Bus&gt;NmUserDataEnabled</p>
-<p>To enable the UserData function of CanNm, you need to check NmGlobalFeature/NmUserDataEnabled in the Nm module, which will by default check all &lt;Bus&gt;NmUserDataEnabled.</p>
+<p>To enable the CanNm UserData feature, select NmGlobalFeature/NmUserDataEnabled in the Nm module. This action automatically enables all corresponding &lt;Bus&gt;NmUserDataEnabled configurations by default.</p>
 </li>
 </ul>
 <figure class="align-center" id="id5">
@@ -259,7 +271,7 @@
 </figure>
 <ul>
 <li><p>此时CanNmComUserDataSupport未勾选则启动API方式通过Nm模块透传设置网络管理报文UserData字段</p>
-<p>If CanNmComUserDataSupport is not checked at this time, the API mode will be enabled to transparently transmit and set the UserData field of the network management message through the Nm module.</p>
+<p>If CanNmComUserDataSupport is disabled, the API method is used to directly set the NM PDU’s UserData field through the Nm module via pass-through.</p>
 </li>
 </ul>
 <figure class="align-center" id="id6">
@@ -270,7 +282,7 @@
 </figure>
 <ul>
 <li><p>若CanNmComUserDataSupport勾选，则屏蔽掉API，使能ComSignal形式设置网络管理报文UserData字段。此时需要配置CanNmUserDataTxPdu，该容器每个通道仅可配置一个。需要在PduR配置PduRRoutingPath将该Pdu配置到PduRDestPdu，并配置ComSignal以及相应的Pdu到PduRSrcPdu</p>
-<p>If CanNmComUserDataSupport is checked, the API will be blocked, and the ComSignal form will be enabled to set the UserData field of the network management message. In this case, CanNmUserDataTxPdu needs to be configured, and only one such container can be configured per channel. It is necessary to configure the PduRRoutingPath in PduR to map this Pdu to PduRDestPdu, and configure the ComSignal as well as the corresponding Pdu to PduRSrcPdu.</p>
+<p>If CanNmComUserDataSupport is enabled, the API method is disabled and the ComSignal mechanism is used to set the NM PDU’s UserData field. This requires configuration of a CanNmUserDataTxPdu container (limited to one per channel). In PduR, configure a PduRRoutingPath to route this PDU to a PduRDestPdu, and map the corresponding ComSignal and its source PDU to a PduRSrcPdu.</p>
 </li>
 </ul>
 <figure class="align-center" id="id7">
@@ -281,9 +293,9 @@
 </figure>
 </section>
 <section id="fast-transmission">
-<h2>快速发送（Fast transmission）<a class="headerlink" href="#fast-transmission" title="Link to this heading">¶</a></h2>
+<h2>快速发送(Fast Transmission)<a class="headerlink" href="#fast-transmission" title="Link to this heading">¶</a></h2>
 <p>快速发送机制需要先配置CanNmImmediateNmTransmission决定快速发送的次数，当CanNmImmediateNmTransmission &gt; 0时才可配置CanNmImmediateNmCycleTime报文的快速发送周期</p>
-<p>The fast transmission mechanism first requires configuring CanNmImmediateNmTransmission to determine the number of fast transmissions. Only when CanNmImmediateNmTransmission &gt; 0 can the fast transmission cycle of CanNmImmediateNmCycleTime messages be configured.</p>
+<p>The fast transmission mechanism first requires configuring CanNmImmediateNmTransmission to determine the maximum count of fast transmissions. CanNmImmediateNmTransmission &gt; 0 is the prequisite for configuring the fast transmission cycle of CanNmImmediateNmCycleTime messages.</p>
 <figure class="align-center" id="id8">
 <img alt="CanNmImmediateNmTransmission" src="../../../_images/CanNmImmediateNmTransmission.png" />
 <figcaption>
@@ -292,38 +304,44 @@
 </figure>
 </section>
 <section id="reduction-of-bus-load">
-<h2>总线负载降低（Reduction of bus load）<a class="headerlink" href="#reduction-of-bus-load" title="Link to this heading">¶</a></h2>
+<h2>总线负载降低(Reduction of Bus Load)<a class="headerlink" href="#reduction-of-bus-load" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>使用总线负载降低机制首先需要在CanNmGlobalConfig勾选CanNmBusLoadReductionEnabled</p>
-<p>To use the bus load reduction mechanism, you first need to check CanNmBusLoadReductionEnabled in CanNmGlobalConfig</p>
+<p>To enable the bus load reduction mechanism, first ensure that CanNmBusLoadReductionEnabled is selected in the CanNmGlobalConfig.</p>
 </li>
 </ul>
 <figure class="align-center" id="id9">
-<img alt="CanNmGlobalConfig负载降低" src="../../../_images/CanNmGlobalConfig%E8%B4%9F%E8%BD%BD%E9%99%8D%E4%BD%8E.png" />
+<img alt="CanNmGlobalConfig负载降低(CanNmGlobalConfig load reduction)" src="../../../_images/CanNmGlobalConfig%E8%B4%9F%E8%BD%BD%E9%99%8D%E4%BD%8E.png" />
 <figcaption>
 <p><span class="caption-text">CanNmGlobalConfig负载降低</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>CanNmGlobalConfig load reduction</p>
+</div>
 </figcaption>
 </figure>
 <ul>
 <li><p>然后在CanNmChannelConfig中勾选CanNmBusLoadReductionActive后配置CanNmMsgReducedTime</p>
-<p>Then check CanNmBusLoadReductionActive in CanNmChannelConfig and configure CanNmMsgReducedTime</p>
+<p>Then enable CanNmBusLoadReductionActive in CanNmChannelConfig and configure CanNmMsgReducedTime</p>
 </li>
 </ul>
 <figure class="align-center" id="id10">
-<img alt="CanNmChannelConfig负载降低" src="../../../_images/CanNmChannelConfig%E8%B4%9F%E8%BD%BD%E9%99%8D%E4%BD%8E.png" />
+<img alt="CanNmChannelConfig负载降低(CanNmChannelConfig load reduction)" src="../../../_images/CanNmChannelConfig%E8%B4%9F%E8%BD%BD%E9%99%8D%E4%BD%8E.png" />
 <figcaption>
 <p><span class="caption-text">CanNmChannelConfig负载降低</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+<div class="legend">
+<p>(CanNmChannelConfig load reduction)</p>
+</div>
 </figcaption>
 </figure>
 </section>
 <section id="vehicle-wake-up">
-<h2>车辆唤醒（Vehicle wake-up）<a class="headerlink" href="#vehicle-wake-up" title="Link to this heading">¶</a></h2>
-<p>车辆唤醒功能是通过在接收到的网络管理报文中检测UserData字段中指定bit触发。
-首先需要勾选CanNmChannelConfig/CanNmCarWakeUpRxEnabled，在配置CanNmCarWakeUpBitPosition和CanNmCarWakeUpBytePosition。
-若要启动过滤功能则勾选CanNmChannelConfig/CanNmCarWakeUpFilterNodeId，并填写指定的NodeId到CanNmCarWakeUpFilterNodeId</p>
-<p>The vehicle wake-up function is triggered by detecting the specified bit in the UserData field of the received network management message.
-First, you need to check CanNmChannelConfig/CanNmCarWakeUpRxEnabled, and then configure CanNmCarWakeUpBitPosition and CanNmCarWakeUpBytePosition.
-To enable the filtering function, check CanNmChannelConfig/CanNmCarWakeUpFilterNodeId, and fill in the specified NodeId into CanNmCarWakeUpFilterNodeId.</p>
+<h2>车辆唤醒 Vehicle Wake-up<a class="headerlink" href="#vehicle-wake-up" title="Link to this heading">¶</a></h2>
+<p>车辆唤醒功能是通过在接收到的网络管理报文中检测UserData字段中指定bit触发。</p>
+<p>The vehicle wake-up function is triggered by detecting a specified bit in the UserData field of an incoming Network Management (Nm) message.</p>
+<p>首先需要勾选CanNmChannelConfig/CanNmCarWakeUpRxEnabled，在配置CanNmCarWakeUpBitPosition和CanNmCarWakeUpBytePosition。</p>
+<p>First, enable CanNmChannelConfig/CanNmCarWakeUpRxEnabled; then set the values for CanNmCarWakeUpBitPosition and CanNmCarWakeUpBytePosition.</p>
+<p>若要启动过滤功能则勾选CanNmChannelConfig/CanNmCarWakeUpFilterNodeId，并填写指定的NodeId到CanNmCarWakeUpFilterNodeId</p>
+<p>To enable the filtering function, enable CanNmChannelConfig/CanNmCarWakeUpFilterNodeId, and fill in the specified NodeId into CanNmCarWakeUpFilterNodeId.</p>
 <figure class="align-center" id="id11">
 <img alt="CanNmCarWakeUp" src="../../../_images/CanNmCarWakeUp.png" />
 <figcaption>
@@ -341,12 +359,12 @@ To enable the filtering function, check CanNmChannelConfig/CanNmCarWakeUpFilterN
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">配置（configuration）</a><ul>
-<li><a class="reference internal" href="#basic-configuration">基础配置（Basic configuration）</a></li>
+<li><a class="reference internal" href="#">配置(Configuration)</a><ul>
+<li><a class="reference internal" href="#basic-configuration">基础配置(Basic Configuration)</a></li>
 <li><a class="reference internal" href="#userdata">UserData</a></li>
-<li><a class="reference internal" href="#fast-transmission">快速发送（Fast transmission）</a></li>
-<li><a class="reference internal" href="#reduction-of-bus-load">总线负载降低（Reduction of bus load）</a></li>
-<li><a class="reference internal" href="#vehicle-wake-up">车辆唤醒（Vehicle wake-up）</a></li>
+<li><a class="reference internal" href="#fast-transmission">快速发送(Fast Transmission)</a></li>
+<li><a class="reference internal" href="#reduction-of-bus-load">总线负载降低(Reduction of Bus Load)</a></li>
+<li><a class="reference internal" href="#vehicle-wake-up">车辆唤醒 Vehicle Wake-up</a></li>
 </ul>
 </li>
 </ul>

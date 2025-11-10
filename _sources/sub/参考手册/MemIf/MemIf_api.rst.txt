@@ -1,4 +1,4 @@
-类型定义（Type Definitions ）
+类型定义(Type Definitions)
 -------------------------------------------
 
 .. list-table:: 
@@ -22,7 +22,7 @@
      - Denotes the mode type of the lower layer.(Reserved for compatibility with older versions of Mcal)
 
 
-提供的服务（Provided Services）
+提供的服务(Services)
 -------------------------------------------------
 MemIf_Read
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

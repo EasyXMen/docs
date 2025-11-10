@@ -4,43 +4,43 @@ Rte
 
 
 
-文档信息（Document Information）
+文档信息(Document Information)
 =======================================
 
-版本历史（Version History）
+版本历史(Version History)
 -----------------------------------
 
 .. list-table::
    :widths: 10 10 10 10 20
    :header-rows: 1
 
-   * - 日期（Date）
-     - 作者（Author）
-     - 版本（Version）
-     - 状态（Status）
-     - 说明（Description）
+   * - 日期(Date)
+     - 作者(Author)
+     - 版本(Version)
+     - 状态(Status)
+     - 说明(Description)
    * - 2024/12/10
      - Haiyun.Lian、Enjing.Cui、Lianru.Hong、Chunhui.Wang
      - V0.1
-     - 发布（Release）
-     - 首次发布（First release）
+     - 发布(Release)
+     - 首次发布(First release)
    * - 2025/04/04
      - Haiyun.Lian、Enjing.Cui、Lianru.Hong、Chunhui.Wang
      - V1.0
-     - 发布（Release）
-     - 正式发布（Official release）
+     - 发布(Release)
+     - 正式发布(Official release)
 
-参考文档（Reference Document）
+参考文档(References)
 ----------------------------------
 
 .. list-table::
    :widths: 10 15 25 10
    :header-rows: 1
 
-   * - 编号（Number）
-     - 分类（Classification）
-     - 标题（Title）
-     - 版本（Version）
+   * - 编号(Number)
+     - 分类(Classification)
+     - 标题(Title)
+     - 版本(Version)
    * - 1
      - Autosar
      - AUTOSAR_CP_TPS_SystemTemplate.pdf
@@ -82,119 +82,83 @@ Rte
      - AUTOSAR_CP_SWS_LargeDataCOM.pdf
      - R23-11
 
-术语与简写（Terms and Abbreviations）
+术语与简写(Terms and Abbreviations)
 ========================================
 
-术语（Term）
+术语(Terms)
 ----------------
 .. list-table::
    :widths: 25 35
    :header-rows: 1
 
-   * - 术语（Term）
-     - 解释（Explanation）
+   * - 术语(Term)
+     - 解释(Explanation)
 
    * - RunnableEntity
-     - SWC运行实体
-     
-       A RunnableEntity represents the smallest code-fragment that is provided by an AtomicSwComponent Type and are executed under control of the RTE
+     - SWC运行实体(SWC runnable entity)
 
    * - BswSchduleEntity
-     - Bsw模块调度实体
-
-       Specifies the smallest code fragment which can be described for a BSW module
+     - BSW模块调度实体(BSW module scheduling entity)
 
    * - ExecutableEntity
-     - 运行实体,RunnableEntity与BswSchduleEntity的统称
-
-       RunnableEntity and BswSchduleEntity
+     - 运行实体，RunnableEntity与BswSchduleEntity的统称(Executable entity - collective term for RunnableEntity and BswSchduleEntity)
 
    * - Client-server Communication
-     - CS通信
-
-       Client-server communication involves two entities, the client which is the requirer (or user) of a service and the server that provides the service
+     - CS通信(Client-server communication)
 
    * - Sender-receiver Communication
-     - SR通信
-
-       Sender-receiver communication involves the transmission and reception of signals consisting of atomic data elements that are sent by one component and received by one or more components
+     - SR通信(Sender-receiver communication)
        
    * - Trigger Communication
-     - 内外部触发
-
-       External and Internal Trigger Communication.A software component is able to request the activation of RunnableEntities of connected software components
+     - 内外部触发(Internal and external trigger communication)
 
    * - Mode Switch Notification
-     - 模式切换通知
-
-       The communication of a mode switch from the mode manager to the mode user
+     - 模式切换通知(Mode switch notification)
 
    * - Inter-ECU communication
-     - ECU间通信
-
-       The communication between ECUs, typically using COM is called inter-ECU communication
+     - ECU间通信(Inter-ECU communication)
 
    * - Inter-Partition communication
-     - 分区间通信
-
-       The communication within one ECU but between different partitions, represented by different OS applications
+     - 分区间通信(Inter-partition communication)
 
    * - Intra-ECU communication
-     - ECU内通信
-
-       The communication within one ECU 
+     - ECU内通信(Intra-ECU communication)
 
    * - Intra-Partition communication
-     - 分区内通信
-
-       The communication within one partition of one ECU
+     - 分区内通信(Intra-partition communication)
 
    * - Implicit Read
-     - 隐式读
-
-       Implicit Read based Sender-Receiver Communication
+     - 隐式读(Implicit read)
 
    * - Implicit Write
-     - 隐式写
-
-       Implicit Write based Sender-Receiver Communication
+     - 隐式写(Implicit write)
 
    * - Explicit Read
-     - 显式读
-
-       Explicit Read based Sender-Receiver Communication
+     - 显式读(Explicit read)
 
    * - Explicit Write
-     - 显式写
-
-       Explicit Write based Sender-Receiver Communication
+     - 显式写(Explicit write)
  
    * - Unconnected Port
-     - 端口未连接
-
-       A RPortPrototype or PPortPrototype referenced by no AssemblySwConnectors and/or DelegationSwConnectors
+     - 端口未连接(Unconnected port)
 
    * - Initialization Task
-     -  初始化Task，即自启动Task
-
-        AutoStart OsTask
+     - 初始化Task，即自启动Task(Initialization task - auto-start OS task)
 
    * - iSoft Initialization Task
-     - 由ORIENTAIS自动创建的初始化Task
-     
-       AutoStart OsTask with prefix "iSoft_Auto", created by RTE automatically
+     - 由ORIENTAIS自动创建的初始化Task(iSoft initialization task - auto-created by ORIENTAIS)
 
  
 
-简写（Abbreviation）
+简写(Abbreviations)
 --------------------------
 .. list-table::
    :widths: 15 25 20
    :header-rows: 1
 
-   * - 简写（Abbreviation）
-     - 全称（Full name）
-     - 解释（Explanation）
+   * - 简写(Abbreviation)
+     - 全称(Full name)
+     - 解释(Explanation)
    * - RTE
      - Runtime Environment
      - 运行时环境
@@ -241,24 +205,24 @@ Rte
      - Schedule Manager
      - 调度管理
 
-简介（Introduction）
+简介(Introduction)
 ==============================
 RTE 是 AUTOSAR 虚拟功能总线 (VFB) 基于特定 ECU
 的实现，分解为针对Application的Rte和针对BSW的SchM功能。Rte 为整个AUTOSAR基础软件的接口层，为整个ECU提供了运行时环境：
 
-RTE is the realization (for a particular ECU) of the interfaces of the AUTOSAR Virtual Function Bus (VFB), decomposed into Rte for Application and SchM for BSW. RTE providing a runtime environment for the entire ECU:
+RTE implements the AUTOSAR Virtual Function Bus (VFB) for specific ECUs, comprising Rte for Applications and SchM for BSW modules. As the interface layer for AUTOSAR basic software, RTE provides a runtime environment for the entire ECU:
 
 -  生成TASK函数，负责映射到Task的RunnableEntity的运行调度；
 
-   Generates TASK functions, responsible for the operation scheduling of RunnableEntities mapped to Tasks;
+   Generates TASK functions responsible for scheduling RunnableEntities mapped to Tasks;
 
--  为SWC实例与SWC实例间，SWC实例与BSW实例间提供基于S/R（包括NVM读写）、C/S的通信接口；
+-  为SWC实例与SWC实例间，SWC实例与BSW实例间提供基于S/R(包括NVM读写)、C/S的通信接口；
    
-   Provides S/R(including NVM read/write) and C/S communication interfaces between SWC instances, and between SWC instances and BSW instances;
+   Provides S/R (including NVM read/write) and C/S communication interfaces between SWC instances and between SWC and BSW instances;
 
 -  为SWC实例提供标定数据读取接口，模式切换接口，独占区接口，内外部触发接口；
 
-   Provides interfaces of calibration , notification of mode switches, exclusive area, and internal/external triggering for SWC instances;
+   Provides calibration data access, mode switch notification, exclusive area, and internal/external trigger interfaces for SWC instances;
 
 -  为SWC实例内部提供IRV通信接口；
    
@@ -266,63 +230,61 @@ RTE is the realization (for a particular ECU) of the interfaces of the AUTOSAR V
 
 -  为每个SWC实例提供PIM接口；
    
-   Supplies PIM interfaces for each SWC instance;
+   Provides PIM interfaces for each SWC instance;
 
 SchM
-作为简化版“Rte”，实现BSW间C/S通信，实现BswEntity的运行调度，为BSW数据一致性保护提供独占区接口。
+作为简化版"Rte"，实现BSW间C/S通信，实现BswEntity的运行调度，为BSW数据一致性保护提供独占区接口。
 
 SchM
-as a simplified version of "Rte", implements C/S communication between BSWs, realizes the scheduling of BswEntities, and provides exclusive area interfaces for BSW data consistency protection.
+serves as a simplified "Rte", implementing BSW C/S communication, scheduling BswEntities, and providing exclusive area interfaces for BSW data consistency protection.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_1_1.png
-   :name: RTE_1_1
+   :name: RTE_architecture
    :align: center
    :width: 800
 
-   图 1-1 AUTOSAR 体系结构
-
-   Figure 1-1 AUTOSAR Architecture
+   图 1-1 AUTOSAR 体系结构(Figure 1-1 AUTOSAR Architecture)
 
 
-功能描述（Functional Description）
+功能描述(Functional Description)
 ==========================================
 
 详细描述面向应用Application的Rte功能，SchM功能适配BSW实现需求进行简要描述。
 
-Describe in detail the Rte functions for the application layer (Application), and briefly describe the SchM functions adapted to the requirements of BSW.
+Describes Rte functions for the application layer in detail, and briefly outlines SchM functions adapted to BSW requirements.
 
-Rte特性（Rte Features）
+Rte特性(Rte Features)
 ---------------------------------------
 Rte实现Application RunnableEntity的调度，SWC内部通信，SWC与SWC间基于Port的通信，SWC与BSW服务间基于Port的通信。
 Rte功能描述分为通用功能和具体功能点(如SR通信、CS通信等)，具体功能点为面向Application直接使用的功能描述，通用功能为支撑具体功能点实现的基础功能。
 
-Rte implements the scheduling of Application RunnableEntities, internal communication of SWCs, Port-based communication between SWCs, and Port-based communication between SWCs and BSW services.
-The description of Rte functions is divided into general functions and specific function points (such as SR communication, CS communication, etc.). The specific function points are descriptions of functions directly used by the Application, while the general functions are the basic functions that support the implementation of specific function points.
+Rte schedules Application RunnableEntities, handles SWC internal communication, port-based communication between SWCs, and port-based communication between SWCs and BSW services.
+Rte functionality is categorized into general functions and specific features (e.g., SR communication, CS communication). Specific features are directly used by applications, while general functions provide foundational support.
 
-通用功能（General Functions）
+通用功能(General Functions)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  数据类型：实现数据类型的定义；
 
-   Data types:  Definition of ImplementationDataType;
+   Data types: Implements data type definitions;
 
 -  TASK调度：调度所有映射到Task的Application RunnableEntity；
 
-   TASK scheduling: Schedule all Application RunnableEntities mapped to Tasks;
+   TASK scheduling: Schedules all Application RunnableEntities mapped to Tasks;
 
 -  CTS实例化：SwComponentType支持多实例化；
 
-   CTS instantiation: SwComponentType supports multiple instantiations;
+   CTS instantiation: Supports multiple instantiations of SwComponentType;
 
 -  序列化：实现ECU间通信序列化SomeIpXf、ComXf、E2EXf；
    
-   Serialization: Implement inter-ECU communication serialization such as SomeIpXf, ComXf, and E2EXf;
+   Serialization: Implements inter-ECU communication serialization (SomeIpXf, ComXf, E2EXf);
 
 -  生命周期：实现Rte模块的Start和Stop；
    
-   Lifecycle: Implement the Start and Stop of the Rte module;
+   Lifecycle: Implements Rte module Start and Stop;
 
-数据类型（Data Types）
+数据类型(Data Types)
 *******************************************
 
 +-----------------+--------------------------------------------------------------------------------------------+
@@ -389,7 +351,7 @@ The description of Rte functions is divided into general functions and specific 
 +-------------------------+--------------------------------------------------------------------------------------------+
 
 
-TASK调度（TASK Scheduling）
+TASK调度(TASK Scheduling)
 ***********************************
 
 +-----------------------+-------------------------------------------------------------------------------------+
@@ -500,7 +462,7 @@ TASK调度（TASK Scheduling）
 +-------------------------+-------------------------------------------------------------------------------------+
 
 
-CTS实例化（CTS Instantiation）
+CTS实例化(CTS Instantiation)
 ****************************************************
 
 +------------------------+------------------------------+
@@ -526,10 +488,10 @@ CTS实例化（CTS Instantiation）
 +-----------------------------+---------------------------------------------------+
 
 
-序列化（Serialization）
+序列化(Serialization)
 *****************************************
 
-序列化功能仅支持ECU间通信（CS和SR）。
+序列化功能仅支持ECU间通信(CS和SR)。
 
 The serialization function only supports inter-ECU communication (CS and SR).
 
@@ -583,7 +545,7 @@ The serialization function only supports inter-ECU communication (CS and SR).
 +-------------------------+---------------------------------------------------------------------------------------------------+
 
 
-生命周期（Lifecycle）
+生命周期(Lifecycle)
 *************************************
 
 +-----------------+---------------------------------------------------------------------------------------------------+
@@ -621,7 +583,7 @@ The serialization function only supports inter-ECU communication (CS and SR).
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-SR通信（SR Communication）
+SR通信(SR Communication)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SR通信负责组件实例间基于Port进行数据传输。
@@ -838,7 +800,7 @@ SR communication is responsible for data transmission between component instance
 +-------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-CS通信（CS Communication）
+CS通信(CS Communication)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CS通信负责组件实例间基于Port进行函数调用。
@@ -963,7 +925,7 @@ CS communication is responsible for function calls between component instances b
 +-----------------------------+---------------------------------------------------------------+
 
 
-模式管理（Mode Management）
+模式管理(Mode Management)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 实现Mode Manager与Mode User基于Port的模式切换通信。
@@ -1083,7 +1045,7 @@ Implement notification of mode switches between Mode Manager and Mode User based
 +------------------------------------+--------------------------------------------------------------------+
 
 
-存储NV（Storage of NV）
+存储NV(Storage of NV)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Rte内部实现NvM Block数据的读写供应用通过SR接口进行读写。
@@ -1131,7 +1093,7 @@ The Rte internally implements the reading and writing of NvM Block data, which a
 | 收发通信组数目                  | N：1（Nv数据的写操作）                 |
 |                                 +----------------------------------------+
 |                                 |                                        |
-|                                 | 1：N（Nv数据的读操作)                  |
+|                                 | 1：N（Nv数据的读操作）                 |
 +---------------------------------+----------------------------------------+
 
 +---------------------------------+--------------------------------------------------+
@@ -1165,7 +1127,7 @@ The Rte internally implements the reading and writing of NvM Block data, which a
 +---------------------------------+--------------------------------------------------+
 
 
-IRV通信（IRV Communication）
+IRV通信(IRV Communication)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IRV实现同一组件实例内部RunnableEntity间的通信。
@@ -1193,12 +1155,12 @@ IRV implements communication between RunnableEntities within the same component 
 +----------------------------+----------------------------------------------+
 
 
-内外部Trigger（Internal and External Triggers）
+内外部Trigger(Internal and External Triggers)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 实现组件实例内部/外部RunnableEntity的触发。
 
-Implement the triggering of RunnableEntities inside/outside the component instance.
+Implements the triggering of RunnableEntities inside/outside the component instance.
 
 +-------------+-------------------------------------------------------+
 |             |                                                       |
@@ -1238,7 +1200,7 @@ Implement the triggering of RunnableEntities inside/outside the component instan
 +---------------+-------------------------------------------------------+
 
 
-测量标定（Calibration and Measurement）
+测量标定(Calibration and Measurement)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------+-----------------------------------------------------+
@@ -1310,12 +1272,12 @@ Implement the triggering of RunnableEntities inside/outside the component instan
 +----------------+-----------------------------------------------------+
 
 
-独占区Rte API（Exclusive Area Rte API）
+独占区Rte(API Exclusive Area Rte API)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 为Application RunnableEntity提供独占区保护接口。
 
-Provide exclusive area protection interfaces for Application RunnableEntities.
+Provides exclusive area protection interfaces for Application RunnableEntities.
 
 +-------------------+------------------------------------------------+
 |                   |                                                |
@@ -1362,12 +1324,12 @@ Provide exclusive area protection interfaces for Application RunnableEntities.
 +-------------------+---------------------+-----------------------------+
 
 
-Indirect API
+Indirect(API)
 ~~~~~~~~~~~~~~~~~~~~~
 
 为Application RunnableEntity提供基于Port的Rte API函数指针。
 
-Provide Port-based Rte API function pointers for Application RunnableEntities.
+Provides Port-based Rte API function pointers for Application RunnableEntities.
 
 +--------------+------------------------------------------+
 |              |                                          |
@@ -1399,7 +1361,7 @@ PIM
 
 为Application RunnableEntity提供组件实例内部内存空间地址。
 
-Provide the internal memory space address of the component instance for the Application RunnableEntity.
+Provides the internal memory space address of the component instance for the Application RunnableEntity.
 
 +----------------+-----------------------------+
 |                |                             |
@@ -1422,7 +1384,7 @@ Provide the internal memory space address of the component instance for the Appl
 +-------------------+-----------------------------+
 
 
-SchM特性（SchM Features）
+SchM特性(SchM Features)
 -------------------------------
 
 SchM功能支撑BSW的实现，与应用无交互，工程配置、集成时客户无需额外关注。
@@ -1472,275 +1434,183 @@ The SchM supports the implementation of BSW, has no interaction with application
 +-----------------------+---------------------------------------------------------------------------+
 
 
-偏差（Deviation）
+偏差(Deviation)
 ------------------------------
-外部队列触发（External Queue Trigger）
+外部队列触发(External Queue Trigger)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 外部队列触发时，同组Trigger sink需要在同一分区。
 
-When an external queue is triggered, trigger sinks in the same group need to be in the same partition.
+When external queue triggering occurs, trigger sinks within the same group must reside in the same partition.
 
-配置（configuration）
+配置 configuration
 ****************************
-None。
+None
 
-接口（Interface） 
+接口(Interface)
 ******************************
-None。
+None
 
-SchM的实现对模型有所简化（The implementation of SchM simplifies the model）
+SchM的实现对模型有所简化(SchM Implementation Model Simplification)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SchM只需要适配BSW的实现需求，与应用无交互，因此对模型有所裁剪。
 
-SchM only adapt to the implementation requirements of BSW and has no interaction with applications, so the model is partially trimmed.
+SchM only needs to adapt to BSW implementation requirements and has no interaction with applications, thus the model has been appropriately trimmed.
 
-配置（configuration）
+配置 configuration
 ***************************
 None
 
-接口（Interface）
+接口(Interface)
 ***************************
 None
 
-扩展（Extension）
+扩展(Extension)
 ------------------------
-None。
+None
 
-集成（Integration）
+集成(Integration)
 ============================
 
-文件列表（File List）
+文件列表(File List)
 ----------------------------------
 
-静态文件（Static Files）
+静态文件(Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 无。
 
-动态文件（Dynamic Files）
+None
+
+动态文件(Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 10 30
    :header-rows: 1
 
-   * - 文件（File）
-     - 描述（Description）
+   * - 文件(File)
+     - 描述(Description)
    
    * - Rte.c
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
+       - 生命周期函数定义(Rte_Start、Rte_Stop、SchM_Init等)；(Lifecycle function definitions (Rte_Start, Rte_Stop, SchM_Init, etc.))
 
-       - 生命周期函数定义（Rte_Start、Rte_Stop、SchM_Init等）；
+       - 定义多实例变量(Rte_Instance)、公用状态变量(类似Rte_State等)；(Multi-instance variable definitions (Rte_Instance), common state variables (e.g., Rte_State))
 
-         Definition of lifecycle functions(Rte_Start, Rte_Stop, SchM_Init, etc.);
+       - 定义OsTask，填充其内容；(OsTask definitions and task body implementations)
 
-       - 定义多实例变量（Rte_Instance）、公用状态变量（类似Rte_State等）；
+       - 定义临界区访问函数；(Rte_Enter/Rte_Exit等)；(Exclusive area access function definitions (Rte_Enter/Rte_Exit, etc.))
 
-         Definition of multi-instance variables (Rte_Instance), common state variables (such as Rte_State, etc.);
+       - 定义Com/LdCom通信的回调函数，如Rte_Cbkxxx等；(Callback function definitions for Com/LdCom communication (e.g., Rte_Cbkxxx))
 
-       - 定义OsTask，填充其内容；
-
-         Definition of OsTask and body of the OsTask;
-
-       - 定义临界区访问函数；（Rte_Enter/Rte_Exit等）；
-
-         Definition of exclusive area functions; (Rte_Enter/Rte_Exit, etc.);
-
-       - 定义Com/LdCom通信的回调函数，如Rte_Cbkxxx等；
-
-         Definition of callback functions for Com/LdCom communication, such as Rte_Cbkxxx, etc.;
-
-       - 定义与关联SWC有关的接口，如Rte_Write/Rte_Read等；
-
-         Definition of interfaces needed by SWCs, such as Rte_Write/Rte_Read, etc.;
+       - 定义与关联SWC有关的接口，如Rte_Write/Rte_Read等；(Interface definitions for associated SWCs (e.g., Rte_Write/Rte_Read))
 
    * - Rte_<Swc>.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
+       - SWC定义的RteEvent触发的Runnable函数声明；(Declaration of Runnable functions triggered by SWC-defined RteEvents)
 
-       - SWC定义的RteEvent触发的Runnable函数声明；
+       - SWC的Runnable中要用到的Rte函数的声明，如Rte_Write等；(Declaration of Rte functions used in SWC Runnables (e.g., Rte_Write))
 
-         Declaration of Runnable functions triggered by RteEvent defined by SWC;
+       - 定义CDS结构(Rte_Instance)；(CDS structure definition (Rte_Instance))
 
-       - SWC的Runnable中要用到的Rte函数的声明，如Rte_Write等；
+       - 定义S/R(或者NV)端口配置的初始值；(Initial value definition for S/R (or NV) port configuration)
 
-         Declaration of Rte functions to be used in the Runnable of SWC, such as Rte_Write, etc.;
+       - 定义PerInstanceMemory类型；(PerInstanceMemory type definition)
 
-       - 定义CDS结构(Rte_Instance)；
-
-         Definition of CDS structure (Rte_Instance);
-
-       - 定义S/R（或者NV）端口配置的初始值；
-
-         Definition of initValue for S/R (or NV) port;
-
-       - 定义PerInstanceMemory类型；
-
-         Definition of PerInstanceMemory type;
-
-       - 定义C/S通信的应用特定的错误返回类型值；
-
-         Definition of ApplicationError for C/S communication;
+       - 定义C/S通信的应用特定的错误返回类型值；(Application-specific error return type definition for C/S communication)
 
    * - Rte_<Swc>_Type.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
+       - 定义Enumeration Data Types (5.5.4)；(Enumeration Data Types definition (5.5.4))
 
-       - 定义Enumeration Data Types （5.5.4）；
+       - 定义Range Data Types (5.5.5)；(Range Data Types definition (5.5.5))
 
-         Definition of Enumeration Data Types (5.5.4);
-
-       - 定义Range Data Types （5.5.5）；
-
-         Definition of Range Data Types (5.5.5);
-
-       - 重定义定义Implementation Data Type symbols；
-
-         Redefinition of Implementation Data Type symbols;
+       - 重定义定义Implementation Data Type symbols；(Implementation Data Type symbols redefinition)
 
    * - Rte_Cbk.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - 回调函数头文件；
-
-         Header file for callback functions;
+       - 回调函数头文件；(Callback functions header file)
 
    * - Rte_DataHandleType.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - 定义CDS结构里面Data Handle Type结构体；
-
-         Definition of Data Handle Type structure necessary for CDS structure;
+       - 定义CDS结构里面Data Handle Type结构体；(Definition of Data Handle Type structure within CDS structure)
          
-       - data element without status ；
-       - data element with status；
-       - data element with extended status；
+       - data element without status；(Data element without status)
+       - data element with status；(Data element with status)
+       - data element with extended status；(Data element with extended status)
 
    * - Rte_Type.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
+       - 针对所有的AUTOSAR Data Types：type declarations、structure defintions以及union definitions；(For all AUTOSAR Data Types: type declarations, structure definitions and union definitions)
 
-       - 针对所有的AUTOSAR Data Types：type declarations、structure defintions以及union definitions；
+       - 定义Inter-ECU C/S通信的数据结构Rte_Cs_TransactionHandleType；(Definition of Rte_Cs_TransactionHandleType data structure for Inter-ECU C/S communication)
 
-         For all AUTOSAR Data Types: type declarations, structure definitions and union definitions;
-
-       - 定义Inter-ECU C/S通信的数据结构Rte_Cs_TransactionHandleType ；
-
-         Definition of data structure Rte_Cs_TransactionHandleType for Inter-ECU C/S communication;
-
-       - 定义RTE Modes；
-
-         Definition of RTE Modes;
+       - 定义RTE Modes；(Definition of RTE Modes)
 
 
    * - Rte_Main.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - 声明生命周期函数；
-
-         Declaration of lifecycle functions;
+       - 声明生命周期函数；(Declaration of lifecycle functions)
         
 
    * - Rte.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
+       - 定义版本号；(Version number definition)
 
-       - 定义版本号；
-
-         Definition of version number;
-
-       - 定义错误返回值；
-
-         Definition of error return values;
+       - 定义错误返回值；(Error return value definition)
 
 
    * - SchM.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - SchM 外部函数的声明； 
-
-         Declaration of SchM external functions;
+       - SchM 外部函数的声明；(Declaration of SchM external functions)
 
    * - SchM.c
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
+       - SchM 生命周期函数定义；(Definition of SchM lifecycle functions)
 
-       - SchM 生命周期函数定义；
-
-         Definition of SchM lifecycle functions;
-
-       - SchM 内部函数的实现； 
-         
-         Implementation of SchM internal functions;      
+       - SchM 内部函数的实现；(Implementation of SchM internal functions)      
 
    * - SchM_Type.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - SchM 内部数据类型/宏定义的实现；
-
-         Implementation of SchM internal data types/macro definitions;
+       - SchM 内部数据类型/宏定义的实现；(Implementation of SchM internal data types/macro definitions)
 
    * - SchM_Internal.h
-     - 包含如下内容：
-
-       Contains the following contents:
+     - 包含如下内容：(Contains the following contents:)
        
-       - SchM 内部函数的声明； 
-
-         Declaration of SchM internal functions;
+       - SchM 内部函数的声明；(Declaration of SchM internal functions)
 
    * - SchM_<Mip>.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - SchM 接口声明； 
-
-         SchM interface declarations;
+       - SchM 接口声明；(SchM interface declarations)
        
-       - BswSchduleEntity和BswCalledEntity原型声明；
-
-         Declarations of BswSchduleEntity and BswCalledEntity prototypes;
+       - BswSchduleEntity和BswCalledEntity原型声明；(BswSchduleEntity and BswCalledEntity prototype declarations)
 
    * - SchM_<Mip>_Type.h
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - Bsw模块使用的数据类型定义；
-
-         Definition of data types used by Bsw modules;
+       - Bsw模块使用的数据类型定义；(Data type definitions for BSW modules)
 
    * - SchM_<Mip>.c
-     - 包含如下内容：
+     - 包含如下内容：(Contains the following contents:)
 
-       Contains the following contents:
-
-       - SchM接口实现；
-
-         Implementation of SchM interfaces;
+       - SchM接口实现；(SchM interface implementation)
 
 
-错误处理（Error handling）
+错误处理(Error Handling)
 --------------------------------
 
-开发错误（Development errors）
+开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -1783,11 +1653,11 @@ None。
      - The received data is out of range.
 
 
-产品错误（Product error）
+产品错误(Product Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None。
 
-运行时错误（Runtime error）
+运行时错误(Runtime Error)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -1844,29 +1714,30 @@ None。
 
 .. _develop_flow:
 
-ORIENTAIS工具开发流程概述（Overview of ORIENTAIS Development Process）
+ORIENTAIS工具开发流程概述(Overview of ORIENTAIS Development Process)
 -----------------------------------------------------------------------
-- 导入ECU萃取arxml文件（包含完整的SWC组件，BSW服务，Port连接关系，信号映射等信息）；
 
-  Import ECU extracted arxml files (including complete SWC components, BSW services, Port connection, signal mappings, etc.);
+- 导入ECU萃取arxml文件(包含完整的SWC组件，BSW服务，Port连接关系，信号映射等信息)；
+
+  Import ECU extracted ARXML files (containing complete SWC components, BSW services, port connections, signal mappings, etc.);
 
 - 完成除OS和RTE之外的所有BSW模块配置；
 
-  Complete the configuration of all BSW modules except OS and RTE;
+  Complete configuration for all BSW modules except OS and RTE;
 
 - 补充必要的OS信息如OS核数；
 
-  Supplement necessary OS information such as the number of OS cores;
+  Supplement necessary OS information, such as number of OS cores;
 
 - 更新全部BSW模块的模块描述文件(包括RTE本身的模块描述文件)；
 
-  Update the Bswmd files of all BSW modules (including the bswmd file of RTE itself);
+  Update module description files for all BSW modules (including RTE's own module description file);
 
 - 进行RTE、OS模块集成配置，主要可通过以下三种方式进行配置:
 
   Perform integration configuration of RTE and OS modules, which can be mainly done through the following three methods:
 
-  #. 全自动配置集成：通过RTE-OS同步功能自动生成RTE、OS模块的推荐Demo配置，综合使用场景进行调整适配（如OsTask堆栈大小）；
+  #. 全自动配置集成：通过RTE-OS同步功能自动生成RTE、OS模块的推荐Demo配置，综合使用场景进行调整适配(如OsTask堆栈大小)；
 
      Fully automatic configuration integration: Automatically generate recommended Demo configurations for RTE and OS modules through "Synchronized RTE-OS ", and adapt them according to comprehensive usage scenarios (such as stack size of OsTask);
   #. 半自动配置集成：手动创建OsTask，通过RTE第二界面手动拖拽Runnable至目标OsTask；
@@ -1875,11 +1746,12 @@ ORIENTAIS工具开发流程概述（Overview of ORIENTAIS Development Process）
   #. 全手动配置集成：RTE、OS模块完全手动配置；
 
      Fully manual configuration integration: Completely manual configuration of RTE and OS modules;
-- 先生成RTE代码，后生成OS代码（全工程生成顺序为其它BSW→RTE→OS）；
+
+- 先生成RTE代码，后生成OS代码(全工程生成顺序为其它BSW→RTE→OS)；
 
   Generate RTE code first, then generate OS code (the generation order of the entire project is other BSW → RTE → OS);
 
-导入ECU萃取arxml文件（Import ECU extracted arxml files）
+导入ECU萃取arxml文件(Import ECU extracted arxml files)
 -----------------------------------------------------------
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_13.png
@@ -1887,11 +1759,11 @@ ORIENTAIS工具开发流程概述（Overview of ORIENTAIS Development Process）
    :align: center
  
 
-   导入ECU萃取arxml文件 
+   导入ECU萃取arxml文件 (Import ECU extracted arxml files)
 
-   Import ECU extracted arxml files
 
-RTE同步（RTE Synchronization）
+
+RTE同步(RTE Synchronization)
 ---------------------------------
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_15.png
@@ -1899,50 +1771,52 @@ RTE同步（RTE Synchronization）
    :align: center
 
 
-   打开RTE第二界面
+   打开RTE第二界面 (Open the Rte Editor)
 
-   Open the Rte Editor
+
  
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_14.png
    :name: RTE_4_14
    :align: center
    
 
-   进行ECU萃取导入
+   进行ECU萃取导入 (Import ECU extract file)
 
-   Pick and Synchronize ECU extract
   
 导入ECU萃取文件后，在RTE第二界面"Pick ECU extract"中选择萃取文件中的System，点击"Synchronize ECU Extract"，将萃取文件内容进行导入RTE。
-导入后，RTE模块将增量为SWC实例创建RteSwcComponentInstance,并为每个RTEEvent创建RteEventToTaskMapping组件。
 
 After importing the ECU extract file, select the System in the extract file in the "Pick ECU extract" section of the Rte Editor, and click "Synchronize ECU Extract" to import the contents of the extract file into RTE.
+
+导入后，RTE模块将增量为SWC实例创建RteSwcComponentInstance,并为每个RTEEvent创建RteEventToTaskMapping组件。
+
 After import, the RTE module will incrementally create RteSwcComponentInstance for SWC instances and create RteEventToTaskMapping components for each RTEEvent.
 
-Bswmd文件更新（Bswmd File Update）
+Bswmd文件更新(Bswmd File Update)
 ---------------------------------------
+
 基于BSW模块的设计，ORIENTAIS可更新全部或单个描述文件,用来描述BSW模块在接口层面、 BswEntity调度的需求 ，内存映射信息。
 
-ORIENTAIS can update all or individual description files for module design to meet the requirements of BSW modules at the interface level, BswEntity scheduling, and memory mapping information.
+Based on BSW module design, ORIENTAIS can update all or individual description files to describe BSW module requirements at the interface level, BswEntity scheduling, and memory mapping information.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_3.png
    :name: RTE_4_3
    :align: center
    
 
-   更新全部Bswmd文件  
+   更新全部Bswmd文件 (Update all Bswmd files) 
 
-   Update all Bswmd files
+
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_4.png
    :name: RTE_4_4
    :align: center
    
 
-   更新单个模块Bswmd文件  
+   更新单个模块Bswmd文件 (Update Bswmd file of a single module)
 
-   Update Bswmd file of a single module
+   
 
-RTE-OS集成配置（RTE-OS Integration Configuration）
+RTE-OS集成配置 RTE-OS(Integration Configuration)
 -------------------------------------------------------
 RTE、OS模块的集成配置，可以通过三种方式进行：
 
@@ -1960,39 +1834,41 @@ The integration configuration of RTE and OS modules can be performed through thr
 
   Fully manual configuration integration
    
-全自动配置集成（Fully Automatic Configuration Integration）
+全自动配置集成(Fully Automatic Configuration Integration)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 全自动配置集成主要通过RTE-OS自动同步功能，自动生成RTE、OS模块的推荐Demo配置。
+
+Fully automatic configuration integration automatically generates recommended demo configurations for RTE and OS modules through the RTE-OS synchronization function.
+
 集成人员可根据实际场景，对Demo的部分配置进行微调，比如OsTask的堆栈大小等。
 
-Fully automatic configuration integration mainly generates recommended Demo configurations for RTE and OS modules automatically through "synchronized RTE-OS" function.
-Integrators can fine-tune some configurations of the Demo according to actual scenarios, such as the stack size of OsTask.
+Integrators can fine-tune certain demo configurations based on actual scenarios, such as OsTask stack size.
 
-RTE-OS自动同步（Synchronized RTE-OS）
+RTE-OS自动同步 Synchronized RTE-OS
 **********************************************************
 基于ECU萃取文件、BSW的模块描述文件，根据模型需求自动配置OS模块。
 
-Automatically configure the OS module according to model requirements based on the ECU extract file and Bswmd files.
+Automatically configures the OS module based on model requirements using ECU extract files and BSW module description files.
 
 **自动配置的内容主要分为两类：**
 
-**The automatically configured contents are mainly divided into two categories:**
+**Automated configuration content is primarily categorized into two types:**
 
 - 与RTE实现相关，OS必须按实现需求进行配置且客户不能修改；
 
-  Related to RTE implementation, the OS must be configured according to implementation requirements and cannot be modified by customers;
+  RTE implementation-related configurations that must be set according to implementation requirements and cannot be modified by customers;
 
 - 为客户提供配置Demo，简化客户手动配置工作量，客户根据应用场景在自动配置的基础上调整、适配。
 
-  Provide configuration Demos for customers to simplify manual configuration workload, and customers can adjust and adapt based on automatic configurations according to application scenarios.
+  Provides configuration demos to reduce manual configuration effort; customers can adjust and adapt these based on application scenarios.
 
 **自动配置主要实现的功能配置：**
 
-**Main functions implemented by automatic configuration:**
+**Main functional configurations implemented through automation:**
 
-- 周期运行实体的调度（提供OsAlarm或OsScheduleTable两种触发方式）
+- 周期运行实体的调度(提供OsAlarm或OsScheduleTable两种触发方式)
 
-  Scheduling of periodic runnable entities (providing two triggering methods: OsAlarm or OsScheduleTable)
+  Scheduling of periodic runnable entities (supports OsAlarm or OsScheduleTable triggering methods)
 
 - 事件型运行实体的调度
 
@@ -2004,25 +1880,24 @@ Automatically configure the OS module according to model requirements based on t
 
 - OsTask的部分配置，如内部各运行实体的调度顺序、优先级等。
 
-  Partial configuration of OsTask, such as the scheduling order of runnable entities and priority .
+  Partial OsTask configuration, including runnable entity scheduling order and priority.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_1.png
    :name: RTE_4_1
    :align: center
   
 
-   RTE-OS同步流程
+   RTE-OS同步流程 (RTE-OS Synchronization Process)
 
-   RTE-OS Synchronization Process
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_2.png
    :name: RTE_4_2
    :align: center
  
 
-   RTE-OS自动同步配置
+   RTE-OS自动同步配置 (Synchronized RTE-OS Configuration)
 
-   Synchronized RTE-OS Configuration
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_11.png
    :name: RTE_4_11
@@ -2037,241 +1912,240 @@ RTE-OS自动同步为周期运行实体提供两种触发方式：
 
 Synchronized RTE-OS provides two triggering methods for periodic runnable entities:
 
- - OsAlarm触发（OsAlarm triggering）
- - OsScheduleTable触发（OsScheduleTable triggering）
+ - OsAlarm触发 (OsAlarm triggering)
+ - OsScheduleTable触发 (OsScheduleTable triggering)
 
 选择后，统一按照选择的方式自动配置周期触发。
 
-After selection, the periodic triggering will be automatically configured uniformly according to the selected method.
+After selection, all periodic triggers will be automatically configured uniformly using the selected method.
 
-半自动配置集成（Semi-Automatic Configuration Integration）
+半自动配置集成 Semi-Automatic(Configuration Integration)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 半自动配置集成主要利用RTE第二界面拖拽功能，手动将执行实体拖拽至目标OsTask，拖拽后，ORIENTAIS将根据执行实体的属性，比如周期执行实体，自动生成剩余的所有配置参数。
 
-Semi-automatic configuration integration mainly utilizes the drag-and-drop function of the Rte Editor. Manually drag the runnable entity to the target OsTask. After dragging, ORIENTAIS will automatically generate all remaining configuration parameters according to the attributes of the runnable entity, such as periodic runnable entities.
+Semi-automatic configuration integration primarily utilizes the drag-and-drop functionality in the Rte Editor to manually place runnable entities into target OsTasks. After placement, ORIENTAIS automatically generates all remaining configuration parameters based on the runnable entity attributes, such as for periodic runnable entities.
 
-手动创建OsTask（Manually Creating OsTask）
+手动创建OsTask(Manually Creating OsTask)
 ************************************************
 根据实际场景，手动创建Os的配置，比如创建OsTask。
 
-Create Os configurations manually according to actual scenarios, such as creating OsTask.
+Manually create OS configurations according to actual scenarios, such as creating OsTasks.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_12.png
    :name: RTE_4_12
    :align: center
  
 
-   在OS模块配置界面手动创建OsTask
+   在OS模块配置界面手动创建OsTask (Manually creating OsTask in the OS module configuration interface)
 
-   Manually creating OsTask in the OS module configuration interface
+   
 
-RTE第二界面拖拽（Drag-and-Drop in the Rte Editor）
+RTE第二界面拖拽 Drag-and-Drop in the(Rte Editor)
 ****************************************************************
 ORIENTAIS支持将执行实体拖入目标OsTask中，同时根据执行实体周期属性，自动创建关联相关的OsAlarm/OsScheduleTable，以及RteOsInteraction等相关配置。
 
-ORIENTAIS supports dragging runnable entities into the target OsTask. At the same time, according to the periodic attributes of the runnable entities, it automatically creates and associates related configurations such as OsAlarm/OsScheduleTable and RteOsInteraction.
+ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the runnable entities' periodic attributes, it automatically creates and associates related configurations including OsAlarm/OsScheduleTable and RteOsInteraction.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_6.png
    :name: RTE_4_6
    :align: center
    
 
-   打开RTE第二界面
+   打开RTE第二界面 (Opening the Rte Editor)
 
-   Opening the Rte Editor
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_7.png
    :name: RTE_4_7
    :align: center
   
 
-   执行实体信息显示
+   执行实体信息显示 (Display of runnable entity information)
 
-   Display of runnable entity information
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_8.png
    :name: RTE_4_8
    :align: center
  
 
-   拖动执行实体至相应分区的OsTask,如果是周期执行实体,弹出激活方式选择窗口
+拖动执行实体至相应分区的OsTask,如果是周期执行实体,弹出激活方式选择窗口
 
-   Dragging the runnable entity to the OsTask of the corresponding partition; if it is a periodic runnable entity, a window for selecting the activation mode will pop up
+Dragging a runnable entity to an OsTask in the corresponding partition; if it is a periodic runnable entity, an activation method selection window pops up
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_9.png
    :name: RTE_4_9
    :align: center
   
 
-   自动生成周期执行实体的相关Os配置
+   自动生成周期执行实体的相关Os配置 (Automatically generating relevant OS configurations for periodic runnable entities)
 
-   Automatically generating relevant Os configurations for periodic runnable entities
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_10.png
    :name: RTE_4_10
    :align: center
    
 
-   自动生成周期执行实体的RteOsInteraction配置
+   自动生成周期执行实体的RteOsInteraction配置 (Automatically generating RteOsInteraction configurations for periodic runnable entities)
+   
 
-   Automatically generate RteOsInteraction configurations for periodic runnable entities
-
-全手动配置集成（Fully Manual Configuration Integration）
+全手动配置集成(Fully Manual Configuration Integration)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 全手动配置集成表示RTE、OS模块完全手动配置，不借助ORIENTAIS的自动配置功能。
 
-Fully manual configuration integration means that the RTE and OS modules are completely configured manually without relying on ORIENTAIS automatic configuration functions.
+Fully manual configuration integration means that RTE and OS modules are configured entirely manually without using ORIENTAIS automatic configuration functions.
 
 .. _app_stub:
 
-Application RunnableEntity桩代码生成（Application RunnableEntity Stub Code Generation）
+Application RunnableEntity桩代码生成(Application RunnableEntity Stub Code Generation)
 ------------------------------------------------------------------------------------------
-可选操作， 如果应用开发未完成，可使ORIENTAIS生成 Application RunnableEntity的桩代码。
+可选操作，如果应用开发未完成，可使ORIENTAIS生成 Application RunnableEntity的桩代码。
 
-Optional operation. If application development is not completed, ORIENTAIS can be used to generate stub code for Application RunnableEntity.
+Optional operation. If application development is not completed, ORIENTAIS can generate stub code for Application RunnableEntity.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_5.png
    :name: RTE_4_5
    :align: center
    
 
-   应用桩代码生成 
+   应用桩代码生成 (Application stub code generation)
 
-   Application stub code generation 
+   
 
-RTE及Application RunnableEntity桩代码同时生成（Simultaneous Generation of RTE and Application RunnableEntity Stub Code）
+RTE及Application RunnableEntity桩代码同时生成(Simultaneous Generation of RTE and Application RunnableEntity Stub Code)
 ----------------------------------------------------------------------------------------------------------------------------
-可选操作， 可使ORIENTAIS同时生成RTE及 Application RunnableEntity的桩代码。
+可选操作，可使ORIENTAIS同时生成RTE及 Application RunnableEntity的桩代码。
 
-Optional operation.ORIENTAIS can be used to generate both RTE and Application RunnableEntity stub code at the same time.
+Optional operation. ORIENTAIS can generate both RTE and Application RunnableEntity stub code simultaneously.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_4_16.png
    :name: RTE_4_16
    :align: center
   
 
-   RTE及应用桩代码同时生成 
+   RTE及应用桩代码同时生成 (Simultaneous generation of RTE and application stub code)
 
-   Simultaneous generation of RTE and application stub code 
+   
 
-集成流程概述（Overview of Integration Process）
+集成流程概述(Overview of Integration Process)
 --------------------------------------------------
-按照 :ref:`develop_flow` 完成工程的配置，生所有BSW（包括 OS 、RTE 、MCAL ）动态配置代码后， 基于芯片、编译器搭建代码工程，集成BSW静态代码以及ORIENTAIS生成的动态代码, 再加上Application RunnableEntity代码（若应用开发未完成，可使用 :ref:`app_stub` 生成应用桩代码），基于内存布局需求、以及BSW和Application RunnableEntity的MemMap进行编译、链接。
+按照 :ref:`develop_flow` 完成工程的配置，生所有BSW(包括 OS 、RTE 、MCAL )动态配置代码后，基于芯片、编译器搭建代码工程，集成BSW静态代码以及ORIENTAIS生成的动态代码, 再加上Application RunnableEntity代码(若应用开发未完成，可使用 :ref:`app_stub` 生成应用桩代码)，基于内存布局需求、以及BSW和Application RunnableEntity的MemMap进行编译、链接。
 
-Complete the project configuration according to :ref:`develop_flow`, generate all dynamic configuration code of BSW(including OS, RTE, MCAL) , then build the code project with BSW static code, and Application RunnableEntity code (if application development is not completed, :ref:`app_stub` can be used to generate application stub code), and compile and link the MemMap based on memory layout requirements of BSW and Application RunnableEntity.
+After completing project configuration according to :ref:`develop_flow` and generating all BSW dynamic configuration code (including OS, RTE, MCAL), build the code project based on the target chip and compiler. Integrate BSW static code with ORIENTAIS-generated dynamic code, plus Application RunnableEntity code (if application development is incomplete, use :ref:`app_stub` to generate application stub code). Then compile and link based on memory layout requirements and MemMap configurations for both BSW and Application RunnableEntity.
 
 .. 引用接口描述。来自于code->doxygen->latex->rst
 .. include:: Rte_api.rst
 
 
-配置（configuration）
+配置 configuration
 ==========================
 
 .. _rte_osinteraction:
 
-RTE调度Os（Interaction of the RTE with the Os）
+RTE调度Os(Interaction of the RTE with the OS)
 ----------------------------------------------------
 相关配置RteOsInteraction，主要涉及RTE对OsAlarm、OsTask、OsScheduleTable的启动配置。
 常用场景：
 
-The relevant configuration RteOsInteraction mainly involves the startup configuration of OsAlarm, OsTask, and OsScheduleTable by RTE.
+The RteOsInteraction configuration primarily involves RTE startup configuration for OsAlarm, OsTask, and OsScheduleTable.
 Common scenarios:
 
-- 激活扩展任务;
+- 激活扩展任务；
 
-  Activate extended tasks;
+  Activating extended tasks;
 
-- 激活周期事件对应的OsAlarm;
+- 激活周期事件对应的OsAlarm；
 
-  Activate OsAlarm corresponding to periodic events;
+  Activating OsAlarm for periodic events;
 
 - 激活周期事件对应的OsScheduleTable。
 
-  Activate OsScheduleTable corresponding to periodic events.
+  Activating OsScheduleTable for periodic events.
 
-RTE激活OsTask（RTE Activating OsTask）
+RTE激活OsTask(RTE Activating OsTask)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_1.png
    :name: RTE_5_1
    :align: center
    
 
-   RTE激活OsTask配置示例
+   RTE激活OsTask配置示例 (Example of RTE activating OsTask configuration)
 
-   Example of RTE activating OsTask configuration
+   
 
-RTE激活OsAlarm（RTE Activating OsAlarm）
+RTE激活OsAlarm(RTE Activating OsAlarm)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_2.png
    :name: RTE_5_2
    :align: center
   
 
-   RTE激活OsAlarm配置示例
+   RTE激活OsAlarm配置示例 (Example of RTE activating OsAlarm configuration)
 
    Example of RTE activating OsAlarm configuration
 
-RTE激活OsScheduleTable（RTE Activating OsScheduleTable）
+RTE激活OsScheduleTable(RTE Activating OsScheduleTable)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_3.png
    :name: RTE_5_3
    :align: center
   
 
-   RTE激活OsScheduleTable配置示例
+   RTE激活OsScheduleTable配置示例 (Example of RTE activating OsScheduleTable configuration)
 
    Example of RTE activating OsScheduleTable configuration
 
-Swc在Ecu中的配置（Configuration of Swc in Ecu）
+Swc在Ecu中的配置(Configuration of SWC in ECU)
 -------------------------------------------------
 相关配置RteSwcComponentInstance,将Swc实例关联至RteSoftwareComponentInstanceRef中。
 
-Relevant configuration RteSwcComponentInstance, associating the Swc instance to RteSoftwareComponentInstanceRef.
+The RteSwcComponentInstance configuration associates SWC instances with RteSoftwareComponentInstanceRef.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_4.png
    :name: RTE_5_4
    :align: center
   
 
-   RteSwcComponentInstance配置示例
+   RteSwcComponentInstance配置示例 (Example of RteSwcComponentInstance configuration)
 
    Example of RteSwcComponentInstance configuration
 
-RunnableEntity映射（RunnableEntity Mapping）
+RunnableEntity映射(RunnableEntity Mapping)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 相关配置RteEventToTaskMapping。
 
-Relevant configuration RteEventToTaskMapping.
+Relevant configuration: RteEventToTaskMapping.
 
 将RteEvent映射至OsTask，定义Runnable在OsTask中的Position，使Task能够调度对应的RunnableEntity。
 
-Map RteEvent to OsTask, define the Position of Runnable in OsTask, so that the Task can schedule the corresponding RunnableEntity.
+Maps RteEvent to OsTask, defines Runnable position within OsTask, enabling Task to schedule corresponding RunnableEntity.
 
-映射至Basic Task（Mapping to Basic Task）
+映射至Basic(Task Mapping to Basic Task)
 *********************************************
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_5.png
    :name: RTE_5_5
    :align: center
    
 
-   RunnableEntity映射至Basic Task配置示例
+   RunnableEntity映射至Basic Task配置示例 (Example of RunnableEntity mapping to Basic Task configuration)
 
-   Example of RunnableEntity mapping to Basic Task configuration
+   
 
 .. attention::
 
    映射至Basic Task的RteEvent，均不能映射OsEvent。
 
-   RteEvents mapped to Basic Task cannot be mapped to OsEvent.
+   RteEvents mapped to Basic Task cannot map OsEvent.
 
-映射至Extended Task（Mapping to Extended Task）
+映射至Extended(Task Mapping to Extended Task)
 **************************************************
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_6.png
    :name: RTE_5_6
    :align: center
   
 
-   RunnableEntity映射至Extended Task配置示例
+   RunnableEntity映射至Extended Task配置示例 (Example of RunnableEntity mapping to Extended Task configuration)
 
    Example of RunnableEntity mapping to Extended Task configuration
 
@@ -2280,32 +2154,32 @@ Map RteEvent to OsTask, define the Position of Runnable in OsTask, so that the T
 
    映射至Extended Task的RteEvent，均需要映射OsEvent。
 
-   RteEvents mapped to Extended Task need to be mapped to OsEvent.
+   RteEvents mapped to Extended Task must map OsEvent.
 
-映射至Background Task（Mapping to Background Task）
+映射至Background(Task Mapping to Background Task)
 ********************************************************
-Background Task即只映射了BackgroundEvent/BswBackgroundEvent事件，是不定周期Task，具体最低优先级（默认为1）且不能映射OsEvent。
+Background Task即只映射了BackgroundEvent/BswBackgroundEvent事件，是不定周期Task，具体最低优先级(默认为1)且不能映射OsEvent。
 Background Task由RTE激活后，在Task运行结尾使用ChainTask再次激活自己，实现不定周期特征。
 
-Background Task is a task that only maps BackgroundEvent/BswBackgroundEvent events, it has no fixed time period and is typically activated only with lowest priority (default 1) and cannot map OsEvent.
-After being activated by RTE, the Background Task reactivate itself after its termination by usaged of ChainTask to achieve the aperiodic characteristic.
+Background Task maps only BackgroundEvent/BswBackgroundEvent events, is aperiodic, has lowest priority (default 1), and cannot map OsEvent.
+After RTE activation, Background Task reactivates itself using ChainTask upon termination to achieve aperiodic behavior.
 
-初始化Runnable映射（Initialization Runnable Mapping）
+初始化Runnable映射(Initialization Runnable Mapping)
 **********************************************************
 支持初始化Runnable(由InitEvent触发)映射至自定义初始化Task(Basic Task)。
 如果初始化Runnable未映射至初始化Task，则由Rte_Start统一调用，由Rte_Start调用的初始化Runnable，支持在RteEventToTaskMapping中设置RtePositionInTask信息，作为在Rte_Start中调用顺序的依据，未设置位置信息的默认最后调用。
 
-Supports mapping initialization Runnables (triggered by InitEvent) to a custom Initialization Task (Basic Task).
-If the initialization Runnable is not mapped to the Initialization Task, it will be directly called by Rte_Start. RtePositionInTask in RteEventToTaskMapping can be set as the calling order in Rte_Start. Those without position information set will be called last by default.
+Supports mapping initialization Runnables (triggered by InitEvent) to custom Initialization Task (Basic Task).
+If not mapped to Initialization Task, initialization Runnables are called by Rte_Start. RtePositionInTask in RteEventToTaskMapping determines calling order in Rte_Start; unmapped Runnables are called last by default.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_7.png
    :name: RTE_5_7
    :align: center
   
 
-   初始化Runnable映射配置示例
+   初始化Runnable映射配置示例 (Example of initialization Runnable mapping configuration)
 
-   Example of initialization Runnable mapping configuration
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_8.png
    :name: RTE_5_8
@@ -2321,9 +2195,9 @@ If the initialization Runnable is not mapped to the Initialization Task, it will
    :align: center
    
 
-   只设置位置信息的初始化Runnable配置示例
+   只设置位置信息的初始化Runnable配置示例 (Example of initialization Runnable configuration with only position information set)
 
-   Example of initialization Runnable configuration with only position information set
+   
 
 
 .. attention::
@@ -2334,30 +2208,30 @@ If the initialization Runnable is not mapped to the Initialization Task, it will
 
 .. _swc_te:
 
-周期RunnableEntity映射（Periodic RunnableEntity Mapping）
+周期RunnableEntity映射(Periodic RunnableEntity Mapping)
 *************************************************************
 支持OsAlarm、OsScheduleTable周期性触发OsTask或OsEvent，从而实现RunnableEntity的周期性调度。
 配置的OsAlarm、OsScheduleTable以及扩展任务，需要同步在 :ref:`rte_osinteraction` 中激活。
 
-Supports OsAlarm and OsScheduleTable to periodically trigger OsTask or OsEvent, thereby realizing periodic scheduling of RunnableEntity.
-The OsAlarm, OsScheduleTable, and extended tasks need to be activated synchronously in :ref:`rte_osinteraction`.
+Supports OsAlarm and OsScheduleTable periodically triggering OsTask or OsEvent to achieve periodic scheduling of RunnableEntity.
+Configured OsAlarm, OsScheduleTable, and extended tasks must be synchronously activated in :ref:`rte_osinteraction`.
 
-OsAlarm触发Basic Task（OsAlarm Triggering Basic Task）
+OsAlarm触发Basic(Task OsAlarm Triggering Basic Task)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 需要Basic Task映射同周期的RunnableEntity,同时设置OsAlarm的周期与RunnableEntity周期一致。
 
-A Basic Task needs to be mapped by RunnableEntities with the same period, and the period of OsAlarm should be same with the period of the RunnableEntity.
+Requires Basic Task to map RunnableEntities with the same period, and set OsAlarm period to match the RunnableEntity period.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_9.png
    :name: RTE_5_9
    :align: center
    
 
-   由OsAlarm触发Basic Task配置示例
+   由OsAlarm触发Basic Task配置示例 (Example of Basic Task triggered by OsAlarm configuration)
 
-   Example of Basic Task triggered by OsAlarm configuration
+   
 
-OsAlarm触发Extended Task(OsAlarm Triggering Extended Task)
+OsAlarm触发Extended(Task OsAlarm Triggering Extended Task)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 支持一个Task映射不同周期的RunnableEntity。
 
@@ -2368,59 +2242,59 @@ Supports a Task mapping RunnableEntities with different periods.
    :align: center
    
 
-   由OsAlarm触发Extended Task配置示例
+   由OsAlarm触发Extended Task配置示例 (Example of Extended Task triggered by OsAlarm configuration)
 
-   Example of Extended Task triggered by OsAlarm configuration
+   
 
-OsScheduleTable触发周期RunnableEntity（OsScheduleTable Triggering Periodic RunnableEntity）
+OsScheduleTable触发周期RunnableEntity(OsScheduleTable Triggering Periodic RunnableEntity)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 采用调度表可以通过调度点设置激活偏移，从而一定程度达到均衡负载的效果。
 
-Using OsScheduleTableExpiryPoint to set activation offsets, to achieving load balancing to a certain extent.
+Using schedule tables with expiry points to set activation offsets can achieve load balancing to some extent.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_11.png
    :name: RTE_5_11
    :align: center
    
 
-   OsScheduleTable配置示例
+   OsScheduleTable配置示例 (Example of OsScheduleTable configuration)
 
-   Example of OsScheduleTable configuration
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_12.png
    :name: RTE_5_12
    :align: center
 
 
-   OsScheduleTableExpiryPoint配置示例
+   OsScheduleTableExpiryPoint配置示例 (Example of OsScheduleTableExpiryPoint configuration)
 
-   Example of OsScheduleTableExpiryPoint configuration
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_13.png
    :name: RTE_5_13
    :align: center
    
 
-   OsScheduleTableExpiryPoint激活Basic Task配置示例
+   OsScheduleTableExpiryPoint激活Basic Task配置示例 (Example of OsScheduleTableExpiryPoint activating Basic Task configuration)
 
-   Example of OsScheduleTableExpiryPoint activating Basic Task configuration
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_14.png
    :name: RTE_5_14
    :align: center
    
 
-   OsScheduleTableExpiryPoint激活OsEvent配置示例
+   OsScheduleTableExpiryPoint激活OsEvent配置示例 (Example of OsScheduleTableExpiryPoint activating OsEvent configuration)
 
-   Example of OsScheduleTableExpiryPoint activating OsEvent configuration
+   
 
-独占区配置（Exclusive Area Configuration）
+独占区配置(Exclusive Area Configuration)
 **************************************************
 相关配置RteExclusiveAreaImplementation。
 RTE为Swc的独占区提供四个配置选择:
 
 Relevant configuration RteExclusiveAreaImplementation.
-RTE provides four configuration options for the exclusive area of Swc:
+RTE provides four configuration options for SWC exclusive areas:
 
 - ALL_INTERRUPT_BLOCKING
 - OS_INTERRUPT_BLOCKING
@@ -2432,72 +2306,74 @@ RTE provides four configuration options for the exclusive area of Swc:
    :align: center
    
 
-   RteExclusiveAreaImplementation配置示例
+   RteExclusiveAreaImplementation配置示例 (Example of RteExclusiveAreaImplementation configuration)
 
-   Example of RteExclusiveAreaImplementation configuration
+   
 
-Trigger队列配置（Trigger Queue Configuration）
+Trigger队列配置(Trigger Queue Configuration)
 *****************************************************
 相关配置RteExternalTriggerConfig/RteInternalTriggerConfig。
-RTE支持内外部队列触发，且队列长度（\>=1）的ECUC配置优先级高于SWC侧的配置，即即使SWC配置的Trigger的swImplPolicy为"QUEUED"，ECUC中未配置队列长度，当作非队列处理。
+RTE支持内外部队列触发，且队列长度(≥1)的ECUC配置优先级高于SWC侧的配置，即即使SWC配置的Trigger的swImplPolicy为"QUEUED"，ECUC中未配置队列长度，当作非队列处理。
 当前队列触发的trigger sink需要在同一分区，建议不设置内外部触发队列。
 
 Relevant configuration RteExternalTriggerConfig/RteInternalTriggerConfig.
-RTE supports internal and external queue triggering, and the ECUC configuration priority of the queue length (≥1) is higher than the configuration on the SWC side. That is, even if the swImplPolicy of the Trigger configured in SWC is "QUEUED", if the queue length is not configured in ECUC, it will be treated as "STANDARD".
-Currently, trigger sinks for queuing of trigger need to be in the same partition. It is recommended not to set internal and external trigger queues.
+RTE supports internal and external queue triggering, with ECUC queue length (≥1) configuration taking priority over SWC-side configuration. Even if SWC Trigger swImplPolicy is "QUEUED", unconfigured queue length in ECUC results in "STANDARD" treatment.
+Currently, queued trigger sinks must reside in the same partition. Configuring internal/external trigger queues is not recommended.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_25.png
    :name: RTE_5_25
    :align: center
    
 
-   RteExternalTriggerConfig配置示例
+   RteExternalTriggerConfig配置示例 (Example of RteExternalTriggerConfig configuration)
 
-   Example of RteExternalTriggerConfig configuration
+   
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_26.png
    :name: RTE_5_26
    :align: center
   
 
-   RteInternalTriggerConfig配置示例
+   RteInternalTriggerConfig配置示例 (Example of RteInternalTriggerConfig configuration)
 
-   Example of RteInternalTriggerConfig configuration
+  
 
-NvM分配（NvM Allocation）
+NvM分配(NvM Allocation)
 ********************************
 
-通过NvMSwC来进行相关的NvM分配（Perform relevant NvM allocation through NvMSwC）
+通过NvMSwC来进行相关的NvM分配(NvM Allocation via NvMSwC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 需要在NvMSwC的对应实例下的RteNvRamAllocation映射NvMSwC的RteSwNvBlockDescriptor和NvM模块的NvBlockDescriptor
 
-It is necessary to map RteSwNvBlockDescriptor of NvMSwC and NvBlockDescriptor of NvM module in RteNvRamAllocation under the corresponding instance of NvMSwC.
+RteNvRamAllocation under corresponding NvMSwC instances must map NvMSwC RteSwNvBlockDescriptor to NvM module NvBlockDescriptor.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_27.png
    :name: RTE_5_27
    :align: center
   
 
-   RteNvRamAllocation通过NvMSwC来映射NvM
+   RteNvRamAllocation通过NvMSwC来映射NvM (RteNvRamAllocation mapping NvM via NvMSwC)
 
-Bsw模块在Ecu中的配置（Configuration of Bsw Module in Ecu）
+   
+
+Bsw模块在Ecu中的配置(Configuration of BSW Module in ECU)
 --------------------------------------------------------------
 Bsw模块在Ecu中的配置依赖各Bsw模块的模块描述文件作为输入。
 相关配置RteBswModuleInstance,将BswImplementation(定义在模块描述文件中)关联至RteBswImplementationRef中。
 
-The configuration of Bsw modules in Ecu depends on Bswmd files of each Bsw module.
-Relevant configuration RteBswModuleInstance, associating BswImplementation (defined in Bswmd file) to RteBswImplementationRef.
+BSW module configuration in ECU relies on BSW module description files as input.
+Relevant configuration RteBswModuleInstance associates BswImplementation (defined in BSW module description file) with RteBswImplementationRef.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_19.png
    :name: RTE_5_19
    :align: center
    
 
-   RteBswModuleInstance配置示例
+   RteBswModuleInstance配置示例 (Example of RteBswModuleInstance configuration)
 
-   Example of RteBswModuleInstance configuration
+   
 
-BswSchduleEntity映射（BswSchduleEntity Mapping）
+BswSchduleEntity映射(BswSchduleEntity Mapping)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 相关配置RteBswEventToTaskMapping。
 
@@ -2505,9 +2381,9 @@ Relevant configuration RteBswEventToTaskMapping.
 
 将BswEvent映射至OsTask，从而使Task能够调度对应的BswSchduleEntity。
 
-Map BswEvent to OsTask, so that the Task can schedule the corresponding BswSchduleEntity.
+Maps BswEvent to OsTask, enabling Task to schedule corresponding BswSchduleEntity.
 
-映射至Basic Task（Mapping to Basic Task）
+映射至Basic(Task Mapping to Basic Task)
 ********************************************
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_20.png
@@ -2515,18 +2391,18 @@ Map BswEvent to OsTask, so that the Task can schedule the corresponding BswSchdu
    :align: center
    
 
-   BswSchduleEntity映射至Basic Task配置示例
+   BswSchduleEntity映射至Basic Task配置示例 (Example of BswSchduleEntity mapping to Basic Task configuration)
 
-   Example of BswSchduleEntity mapping to Basic Task configuration
+   
 
 .. attention::
 
    映射至Basic Task的BswEvent，均不能映射OsEvent。
 
-   BswEvents mapped to Basic Task cannot be mapped to OsEvent.
+   BswEvents mapped to Basic Task cannot map OsEvent.
 
 
-映射至Extended Task（Mapping to Extended Task）
+映射至Extended(Task Mapping to Extended Task)
 ***************************************************
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_21.png
@@ -2534,41 +2410,41 @@ Map BswEvent to OsTask, so that the Task can schedule the corresponding BswSchdu
    :align: center
    
 
-   BswSchduleEntity映射至Extended Task配置示例
+   BswSchduleEntity映射至Extended Task配置示例 (Example of BswSchduleEntity mapping to Extended Task configuration)
 
-   Example of BswSchduleEntity mapping to Extended Task configuration
+   
 
 .. attention::
 
    映射至Extended Task的BswEvent，均需要映射OsEvent。
 
-   BswEvents mapped to Extended Task need to be mapped to OsEvent.
+   BswEvents mapped to Extended Task must map OsEvent.
 
 
-映射至Background Task（Mapping to Background Task）
+映射至Background(Task Mapping to Background Task)
 ****************************************************
-Background Task即只映射了BackgroundEvent/BswBackgroundEvent事件，是不定周期Task，具体最低优先级（默认为1）且不能映射OsEvent。
+Background Task即只映射了BackgroundEvent/BswBackgroundEvent事件，是不定周期Task，具体最低优先级(默认为1)且不能映射OsEvent。
 Background Task由RTE激活后，在Task运行结尾使用ChainTask再次激活自己，实现不定周期特征。
 
-Background Task is a task that only maps BackgroundEvent/BswBackgroundEvent events, is an aperiodic task, has the lowest priority (default 1) and no OsEvent referenced.
-After being activated by RTE, the Background Task reactivate itself after its termination by usaged of ChainTask to achieve the aperiodic characteristic.
+Background Task maps only BackgroundEvent/BswBackgroundEvent events, is aperiodic, has lowest priority (default 1), and cannot map OsEvent.
+After RTE activation, Background Task reactivates itself using ChainTask upon termination to achieve aperiodic behavior.
 
 
-周期BswSchduleEntity映射（Periodic BswSchduleEntity Mapping）
+周期BswSchduleEntity映射(Periodic BswSchduleEntity Mapping)
 ****************************************************************
 支持OsAlarm、OsScheduleTable周期性触发OsTask或OsEvent，从而实现ExecutableEntity的周期性调度。
 参考 :ref:`swc_te`。
 
-Supports OsAlarm and OsScheduleTable to periodically trigger OsTask or OsEvent, thereby realizing periodic scheduling of ExecutableEntity.
+Supports OsAlarm and OsScheduleTable periodically triggering OsTask or OsEvent to achieve periodic scheduling of ExecutableEntity.
 Refer to :ref:`swc_te`.
 
-独占区配置（Exclusive Area Configuration）
+独占区配置(Exclusive Area Configuration)
 *********************************************
 相关配置RteBswExclusiveAreaImpl。
 RTE为BswModule的独占区提供五个配置选择:
 
 Relevant configuration RteBswExclusiveAreaImpl.
-RTE provides five configuration options for the exclusive area of BswModule:
+RTE provides five configuration options for BSW module exclusive areas:
 
 - ALL_INTERRUPT_BLOCKING
 - OS_INTERRUPT_BLOCKING
@@ -2581,22 +2457,22 @@ RTE provides five configuration options for the exclusive area of BswModule:
    :align: center
 
 
-   RteBswExclusiveAreaImpl配置示例
+   RteBswExclusiveAreaImpl配置示例 (Example of RteBswExclusiveAreaImpl configuration)
 
-   Example of RteBswExclusiveAreaImpl configuration
+   
 
-独占区保护开关（Exclusive Area Protection Switch）
+独占区保护开关(Exclusive Area Protection Switch)
 ------------------------------------------------------
 RteInExclusiveAreaCheckEnabled勾选时开启独占区保护。
 
-Exclusive area protection is enabled when RteInExclusiveAreaCheckEnabled is checked.
+Exclusive area protection is enabled when RteInExclusiveAreaCheckEnabled is selected.
 
-独占区保护（Exclusive area protection）：
+独占区保护 Exclusive area protection：
     RTE的阻塞式API，不能运行在独占区中，造成中断时间过长，引发系统问题。打开独占区保护，如果在独占区中调用阻塞式API，API会直接返回RTE_E_IN_EXCLUSIVE_AREA。
 
-    Blocking APIs of RTE cannot run in exclusive areas, as this will cause excessive interrupt time and trigger system problems. When enable RteInExclusiveAreaCheckEnabled , if a blocking API is called in an exclusive area, the API will directly return RTE_E_IN_EXCLUSIVE_AREA.
+    RTE blocking APIs cannot execute within exclusive areas, as this causes excessive interrupt latency and system issues. When exclusive area protection is enabled, calling blocking APIs within exclusive areas returns RTE_E_IN_EXCLUSIVE_AREA directly.
 
-API示例（API examples）:
+API示例 API examples：
     Rte_Call,Rte_Result,Rte_Feedback,Rte_SwitchAck,Rte_Receive等
 
     Rte_Call, Rte_Result, Rte_Feedback, Rte_SwitchAck, Rte_Receive, etc.
@@ -2606,43 +2482,43 @@ API示例（API examples）:
    :align: center
   
 
-   RteInExclusiveAreaCheckEnabled配置示例
+   RteInExclusiveAreaCheckEnabled配置示例 (Example of RteInExclusiveAreaCheckEnabled configuration)
 
-   Example of RteInExclusiveAreaCheckEnabled configuration
+   
 
-原子型数据一致性保护开关（Atomic Data Consistency Protection Switch）
+原子型数据一致性保护开关(Atomic Data Consistency Protection Switch)
 ---------------------------------------------------------------------
 RteAtomicDataProtection勾选时开启原子型数据的数据一致性保护。
 
-Atomic data consistency protection is enabled when RteAtomicDataProtection is checked.
+Atomic data consistency protection is enabled when RteAtomicDataProtection is selected.
 
-数据一致性保护（Data consistency protection）：
+数据一致性保护 Data consistency protection：
     利用开关中断等手段保证数据的一致性，AUTOSAR规范要求Primitive数据同样需要进行数据一致性保护，但这样会给系统带来一定开销，可以通过开关控制是否开启对此类数据的数据一致性保护。
 
-    Ensure data consistency by means such as enabling and disabling interrupts. AUTOSAR specifications require that Primitive data also needs data consistency protection, but this will bring a certain overhead to the system. The switch can be used to control whether to enable data consistency protection for such data.
+    Ensures data consistency through methods like interrupt disabling. AUTOSAR specifications require primitive data to have consistency protection, but this introduces system overhead. The switch controls whether to enable consistency protection for such data.
 
-原子数据示例（Examples of atomic data）：
+原子数据示例 Examples of atomic data：
     映射至VALUE实现数据类型的变量等。
 
-    Variables mapped to Promitive Implementation Data Type, etc.
+    Variables mapped to primitive implementation data types, etc.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_31.png
    :name: RTE_5_31
    :align: center
    
 
-   RteAtomicDataProtection配置示例
+   RteAtomicDataProtection配置示例 (Example of RteAtomicDataProtection configuration)
 
-   Example of RteAtomicDataProtection configuration
+   
 
 
-RTE的多核支持（Multi-Core Support of RTE）
+RTE的多核支持 Multi-Core(Support of RTE)
 ---------------------------------------------
 
-分区映射（Partition Mapping）
+分区映射(Partition Mapping)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Core Definition
+Core(Definition)
 ********************
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_15.png
@@ -2650,110 +2526,110 @@ Core Definition
    :align: center
 
 
-   EcucCoreDefinition配置示例
+   EcucCoreDefinition配置示例 (Example of EcucCoreDefinition configuration)
 
-   Example of EcucCoreDefinition configuration
+   
 
-EcucPartition分区定义（EcucPartition Definition）
+EcucPartition分区定义(EcucPartition Definition)
 *****************************************************
 EcucPartition需要映射至Core上，并且需要设置一个默认分区。
 Swc与Bsw模块需要映射至EcucPartition，表示被划分在该分区。
 
-EcucPartition needs to be mapped to a Core, and a default partition needs to be set up.
-Swc and Bsw modules need to be mapped to EcucPartition, indicating that they are divided into that partition.
+EcucPartition must be mapped to a Core, and a default partition must be established.
+SWC and BSW modules must be mapped to EcucPartition, indicating assignment to that partition.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_16.png
    :name: RTE_5_16
    :align: center
   
 
-   EcucPartition配置示例
+   EcucPartition配置示例 (Example of EcucPartition configuration)
 
-   Example of EcucPartition configuration
+   
 
 .. attention::
 
    Bsw模块只能映射至可信分区。
 
-   Bsw modules can only be mapped to trusted partitions.
+   BSW modules can only be mapped to trusted partitions.
 
-OsApplication与分区配置（OsApplication and Partition Configuration）
+OsApplication与分区配置(OsApplication and Partition Configuration)
 **************************************************************************
-OsApplication是系统对象（如OsTask、OsAlarm、OsResource等）进行分组的逻辑模块，需要与EcucPartition 1:1对应创建，承载该分区的系统资源。
+OsApplication是系统对象(如OsTask、OsAlarm、OsResource等)进行分组的逻辑模块，需要与EcucPartition 1:1对应创建，承载该分区的系统资源。
 OsTask、OsAlarm、OsResource等系统对象需要映射至OsApplication，表示被划分在该分区。
 
-OsApplication is a logical module for grouping system objects (such as OsTask, OsAlarm, OsResource, etc.) and needs to be created in a 1:1 correspondence with EcucPartition to carry the system resources of that partition.
-System objects such as OsTask, OsAlarm, and OsResource need to be mapped to OsApplication, indicating that they are divided into that partition.
+OsApplication is a logical module grouping system objects (e.g., OsTask, OsAlarm, OsResource) and must be created in 1:1 correspondence with EcucPartition to host partition system resources.
+System objects like OsTask, OsAlarm, and OsResource must be mapped to OsApplication, indicating assignment to that partition.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_17.png
    :name: RTE_5_17
    :align: center
   
 
-   OsApplication配置示例
+   OsApplication配置示例 (Example of OsApplication configuration)
 
-   Example of OsApplication configuration
+   
 
-RTE启动（RTE Startup）
+RTE启动(RTE Startup)
 ----------------------
 
 Rte_Start
 ~~~~~~~~~~~~~~~~~~
 
-可信分区/无分区系统（Trusted Partition / Non-Partitioned System）
+可信分区/无分区系统 Trusted Partition / Non-Partitioned(System)
 **********************************************************************
-可信分区/无分区系统由BswM调用Rte_Start，需要在BswM的配置中为可信分区添加“Rte_Start”的Action.
+可信分区/无分区系统由BswM调用Rte_Start，需要在BswM的配置中为可信分区添加"Rte_Start"的Action。
 
-The trusted partition / non-partitioned system calls Rte_Start by BswM. It is necessary to add the "Rte_Start" Action for the trusted partition in the BswM configuration.
+Trusted partitions/non-partitioned systems call Rte_Start via BswM. The "Rte_Start" Action must be added for trusted partitions in BswM configuration.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_30.png
    :name: RTE_5_30
    :align: center
    
 
-   BswMModeControl配置示例
+   BswMModeControl配置示例 (Example of BswMModeControl configuration)
 
-   Example of BswMModeControl configuration
+   
 
-不可信分区（Untrusted Partition）
+不可信分区(Untrusted Partition)
 ***********************************
 不可信分区由该分区的初始化Task调用Rte_Start,RTE代码默认生成。
 
-The untrusted partition calls Rte_Start by the initialization Task of that partition, which is generated by RTE by default.
+Untrusted partitions call Rte_Start via their initialization Task, generated by RTE by default.
 
 EcuM_StartupTwo
 ~~~~~~~~~~~~~~~~~~
 
-无分区系统（Non-Partitioned System）
+无分区系统 Non-Partitioned(System)
 *****************************************
-RTE默认在名为“iSoft_Auto_DEFAULT_OsTask_Init”的初始化Task中调用EcuM_StartupTwo,继而启动SchM。
+RTE默认在名为"iSoft_Auto_DEFAULT_OsTask_Init"的初始化Task中调用EcuM_StartupTwo,继而启动SchM。
 
-RTE calls EcuM_StartupTwo in the initialization Task named "iSoft_Auto_DEFAULT_OsTask_Init" by default, and then SchM will be startup.
+RTE calls EcuM_StartupTwo in the initialization Task named "iSoft_Auto_DEFAULT_OsTask_Init" by default, subsequently starting SchM.
 
-多分区/多核系统（Multi-Partition / Multi-Core System）
+多分区/多核系统 Multi-Partition / Multi-Core(System)
 **********************************************************
 RTE识别EcuM配置中的分区，以该分区的初始化Task中启动EcuM_StartupTwo。
-每个核选一个分区（可信）填入EcuMFlexConfiguration的配置中，即EcuM_StartupTwo的启动数与核数相同。
+每个核选一个分区(可信)填入EcuMFlexConfiguration的配置中，即EcuM_StartupTwo的启动数与核数相同。
 
-RTE identifies the partitions in the EcuM configuration and starts EcuM_StartupTwo in the initialization Task of that partition.
-One partition (trusted) is selected for each core and filled into the configuration of EcuMFlexConfiguration, that is, the number of EcuM_StartupTwo startups is the same as the number of cores.
+RTE identifies partitions in EcuM configuration and starts EcuM_StartupTwo within each partition's initialization Task.
+One trusted partition per core is selected for EcuMFlexConfiguration, so EcuM_StartupTwo starts match core count.
 
 .. figure:: ../../../_static/参考手册/Rte/RTE_5_18.png
    :name: RTE_5_18
    :align: center
    
 
-   EcuMFlexConfiguration配置示例
+   EcuMFlexConfiguration配置示例 (Example of EcuMFlexConfiguration configuration)
 
-   Example of EcuMFlexConfiguration
+   
 
-RTE的PBS支持（PBS Support of RTE）
+RTE的PBS支持(PBS Support of RTE)
 --------------------------------------
 RTE不支持SWC的变体，可适配BSW模块的PBS变体，主要涉及Com及LdCom的部分变体。
 
-RTE does not support variants of SWC, but can adapt to PBS variants of BSW modules, mainly involving some variants of Com and LdCom.
+RTE does not support SWC variants but adapts to BSW module PBS variants, primarily involving certain Com and LdCom variants.
 
-PBS支持约束（PBS Support Constraints）
+PBS支持约束(PBS Support Constraints)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -2763,8 +2639,8 @@ PBS支持约束（PBS Support Constraints）
    * - 支持Com、LdCom变体，不支持属性变体
      - Supports Com and LdCom variants; does not support attribute variants
    * - 信号/信号组/LdComIPdu在所有变体下唯一
-     - Signals/Signal groups/LdComIPdu are unique across all variants  
+     - Signals/signal groups/LdComIPdu must be unique across all variants  
    * - 同一个信号/信号组在不同变体下分区需一致
-     - The partition of the same signal/signal group must be consistent across different variants 
+     - Partitions for identical signals/signal groups must be consistent across variants 
    * - ISignalToIPduMapping在不同变体下映射的Pdu分区需一致，PduLength需相同
-     - For ISignalToIPduMapping, the partition mapped by Pdu must be consistent across different variants, and PduLength must be the same  
+     - ISignalToIPduMapping must have consistent Pdu partitions and identical PduLength across variants

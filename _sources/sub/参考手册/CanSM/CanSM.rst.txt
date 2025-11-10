@@ -4,43 +4,43 @@ CanSM
 .. 标题标识符“===”的长度必须要大于其内容的长度，否则会报错，其他标题亦是如此
 
 
-文档信息（Document Information）
+文档信息(Document Information)
 =====================================
 
-版本历史（Version History）
+版本历史(Version History)
 ---------------------------------
 
 .. list-table::
    :widths: 10 10 10 10 20
    :header-rows: 1
 
-   * - 日期（Date）
-     - 作者（Author）
-     - 版本（Version）
-     - 状态（Status）
-     - 说明（Description）
+   * - 日期(Date)
+     - 作者(Author)
+     - 版本(Version)
+     - 状态(Status)
+     - 说明(Description)
    * - 2025/3/7
      - xiaojian.liang
      - V0.1
-     - 发布（Release）
-     - 首次发布（First release）
+     - 发布(Release)
+     - 首次发布(First Release)
    * - 2025/04/04
      - xiaojian.liang
      - V1.0
-     - 发布（Release）
-     - 正式发布（Official release）
+     - 发布(Release)
+     - 正式发布(Official Release)
 
-参考文档（Reference Document）
+参考文档(References)
 --------------------------------
 
 .. list-table::
    :widths: 10 10 30 10
    :header-rows: 1
 
-   * - 编号（Number）
-     - 分类（Classification）
-     - 标题（Title）
-     - 版本（Version）
+   * - 编号(Number)
+     - 分类(Classification)
+     - 标题(Title)
+     - 版本(Version)
    * - 1
      - AUTOSAR
      - AUTOSAR_SWS_CANStateManager.pdf
@@ -66,26 +66,26 @@ CanSM
      - AUTOSAR_SWS_CANNetworkManagement.pdf
      - R23-11
 
-术语与简写（Terms and Abbreviations）
+术语与简写(Terms and Abbreviations)
 ==========================================
 
 
-术语（Terms）
+术语(Terms)
 -------------------------
-   .. :align: center   表格内容居中
+   .. :align: center   表格内容居中(Table contents are centered)
 
 None
 
-简写（Abbreviation）
+简写(Abbreviations)
 ----------------------------
 
 .. list-table::
    :widths: 10 20 30
    :header-rows: 1
 
-   * - 缩写词（Abbreviation）
-     - 英文全称（Full English name）
-     - 中文解释（Chinese explanation）
+   * - 缩写词(Abbreviation)
+     - 英文全称(Full English name)
+     - 中文解释(Chinese explanation)
 
    * - CanSM
      - CAN State Manager
@@ -123,13 +123,13 @@ None
      - Com Manager
      - 通讯管理模块
 
-简介（Introduction）
+简介(Introduction)
 =========================
 
 
 CanSM 模块负责 CAN 网络的控制流抽象，它使用 CanIf 模块的 API，根据 ComM 模块的模式请求更改已配置的 CAN 网络的通信模式。CAN 控制器模式和 CAN 收发器模式的任何更改将由 CanIf 模块通知 CanSM 模块。根据 CanIf 通知和 CanSM 状态机的状态，CanSM 模块将通知 ComM 和 BswM。
 
-The CanSM module is responsible for the control flow abstraction of the CAN network. It uses the API of the CanIf module to change the communication mode of the configured CAN network according to the mode request from the ComM module. Any changes in the CAN controller mode and CAN transceiver mode will be notified to the CanSM module by the CanIf module. Based on the CanIf notification and the state of the CanSM state machine, the CanSM module will notify the ComM and BswM.
+The CanSM module is responsible for the control flow abstraction of the CAN network. It uses the API of the CanIf module to change the communication mode of the configured CAN network according to the mode request from the ComM module. Any changes in the CAN controller mode and CAN transceiver mode will be notified to the CanSM module by the CanIf module. Based on the CanIf notification and the state of the CanSM state machine, the CanSM module will notify ComM and BswM.
 
 .. figure:: ../../../_static/参考手册/CanSM/Layered-Software-Architecture-from-CanSM-point-of-view.png
    :alt: Layered Software Architecture from-CanSM point of view
@@ -139,16 +139,16 @@ The CanSM module is responsible for the control flow abstraction of the CAN netw
    Layered Software Architecture from-CanSM point of view
 
 
-功能描述（Functional Description）
+功能描述(Functional Description)
 ====================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-特性（Features）
+特性(Features)
 -----------------------
 
 .. only:: doc_pbs
   
-  变体（Variant）
+  变体(Variant)
   ~~~~~~~~~~~~~~~~~~~~~~~
     
   - 支持在不同变体中配置不同的 `CanSMModeRequestRepetitionMax` 和 `CanSMModeRequestRepetitionTime`。
@@ -163,10 +163,10 @@ The CanSM module is responsible for the control flow abstraction of the CAN netw
   
     Support that the product errors `CANSM_E_BUS_OFF` and `CANSM_E_MODE_REQUEST_TIMEOUT` of the same CAN network in different variants use different Dem Events.
   
-状态机（State machine）
+状态机(State machine)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CAN 总线的状态管理器 CanSM，负责实现 CAN 网络控制流程的抽象。CanSM 提供 API 以便 ComM 来请求 CAN 网络进行通信模式的切换。ComM 请求切换网络模式的时候，会传递一个参数（用来标识是哪个网络）。对应网络收到这个请求之后，会执行对应的通信模式切换。在网络通信模式切换的过程中，会执行对应的 CAN 外设控制和 PDU 处理。
+CAN 总线的状态管理器 CanSM，负责实现 CAN 网络控制流程的抽象。CanSM 提供 API 以便 ComM 来请求 CAN 网络进行通信模式的切换。ComM 请求切换网络模式的时候，会传递一个参数(用来标识是哪个网络)。对应网络收到这个请求之后，会执行对应的通信模式切换。在网络通信模式切换的过程中，会执行对应的 CAN 外设控制和 PDU 处理。
 
 CanSM, the state manager of the CAN bus, is responsible for implementing the abstraction of CAN network control processes. CanSM provides an API for ComM to request the CAN network to switch communication modes. When ComM requests to switch the network mode, it will pass a parameter (used to identify which network it is). After receiving this request, the corresponding network will execute the corresponding communication mode switch. During the switching of network communication modes, the corresponding CAN peripheral control and PDU processing will be performed.
 
@@ -179,11 +179,11 @@ CanSM, the state manager of the CAN bus, is responsible for implementing the abs
 
 上电后，CanSM 会默认处于 CANSM_BSM_S_NOT_INITIALIZED 状态，在经过初始化后，状态将切换至 CANSM_BSM_S_PRE_NOCOM。如果 EcuM 调用 CanSM_StartWakeUpSource 通知 CanSM 唤醒源被启动，那么状态机将切换至 CANSM_BSM_WUVALIDATION 状态。如果接收到 ComM 的 FULL_COMMUNICATION 请求，那么状态机将切换至 CANSM_BSM_S_PRE_FULLCOM 状态。在 CanSM 通知上层 ComM 和 BswM 底层网络已经切换至 FULL_COMMUNICATION，并且调用 CanIf_SetPduMode 更新 PDU 通道状态后，状态机将切换至 CANSM_BSM_S_FULLCOM。
 
-After power-on, CanSM will be in the CANSM_BSM_S_NOT_INITIALIZED state by default. After initialization, the state will switch to CANSM_BSM_S_PRE_NOCOM. If EcuM calls CanSM_StartWakeUpSource to notify CanSM that the wake-up source has been activated, the state machine will switch to the CANSM_BSM_WUVALIDATION state. If a FULL_COMMUNICATION request from ComM is received, the state machine will switch to the CANSM_BSM_S_PRE_FULLCOM state. After CanSM notifies the upper-layer ComM and BswM that the underlying network has switched to FULL_COMMUNICATION and calls CanIf_SetPduMode to update the PDU channel state, the state machine will switch to CANSM_BSM_S_FULLCOM.
+After power-on, CanSM defaults to the CANSM_BSM_S_NOT_INITIALIZED state. After initialization, the state switches to CANSM_BSM_S_PRE_NOCOM. If EcuM calls CanSM_StartWakeUpSource to notify CanSM that the wake-up source has been activated, the state machine switches to the CANSM_BSM_WUVALIDATION state. If a FULL_COMMUNICATION request from ComM is received, the state machine switches to the CANSM_BSM_S_PRE_FULLCOM state. After CanSM notifies the upper-layer ComM and BswM that the underlying network has switched to FULL_COMMUNICATION and calls CanIf_SetPduMode to update the PDU channel state, the state machine switches to CANSM_BSM_S_FULLCOM.
 
 在 CANSM_BSM_S_FULLCOM 状 态 中 如 果 接 收 到 ComM 的 SILENT_COMMUNICATION 请求，状态将切换至 CANSM_BSM_S_SILENTCOM，或接收到 ComM 的 NO_COMMUNICATION 请求，状态将切换至 CANSM_BSM_S_PRE_NOCOM。
 
-In the CANSM_BSM_S_FULLCOM state, if a SILENT_COMMUNICATION request from ComM is received, the state will switch to CANSM_BSM_S_SILENTCOM; or if a NO_COMMUNICATION request from ComM is received, the state will switch to CANSM_BSM_S_PRE_NOCOM.
+In the CANSM_BSM_S_FULLCOM state, if a SILENT_COMMUNICATION request from ComM is received, the state switches to CANSM_BSM_S_SILENTCOM; or if a NO_COMMUNICATION request from ComM is received, the state switches to CANSM_BSM_S_PRE_NOCOM.
 
 在CANSM_BSM_S_FULLCOM 状态中如果 CanSM_SetBaudrate 接口被上层调用，需要调用 BswM_CanSM_CurrentState 通知 BSWM 当前状态为 CANSM_BSWM_CHANGE_BAUDRATE，状态机将切换至 CANSM_BSM_S_CHANGE_BAUDRATE。
 
@@ -193,96 +193,80 @@ In the CANSM_BSM_S_FULLCOM state, if the CanSM_SetBaudrate interface is called b
 
 In CANSM_BSM_S_CHANGE_BAUDRATE, perform operations related to baud rate modification. After the operations are completed, determine which state the state machine switches to based on the existing network request status of ComM.
 
-Bus-off 恢复功能（Bus-off recovery function）
+Bus-off 恢复功能 Bus-Off(Recovery Function)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 CanSM 可以配置快恢复时间 CanSMBorTimeL1 和慢恢复时时间 CanSMBorTimeL2，以及经过多少次快恢复切换为慢恢复的次数 CanSMBorCounterL1ToL2。当底层发生 bus-off 时，会调用 CanSM 的 CanSM_ControllerBusOff 函数进行通知。CanSM 会调用 CanIf 的 CanIf_SetControllerMode 函数将控制器状态设置为 CAN_CS_STARTED，当接收到底层调用的 CanSM_ControllerModeIndication 的设置成功的通知后，开始 bus-off 定时器的计时，当 bus-off 快恢复的时间超时后，调用 CanIf_SetPduMode 设置 Pdu 传输状态为 CANIF_ONLINE，当快恢复的次数超过配置参数 CanSMBorCounterL1ToL2 时，将按照慢恢复的时间进行恢复。
 
-CanSM can be configured with a fast recovery time (CanSMBorTimeL1), a slow recovery time (CanSMBorTimeL2), and the number of fast recoveries after which it switches to slow recovery (CanSMBorCounterL1ToL2). When a bus-off occurs at the underlying layer, the CanSM_ControllerBusOff function of CanSM will be called for notification. CanSM will invoke the CanIf_SetControllerMode function of CanIf to set the controller state to CAN_CS_STARTED. After receiving a successful setting notification from the underlying layer via CanSM_ControllerModeIndication, it starts the timing of the bus-off timer. When the bus-off fast recovery time times out, CanIf_SetPduMode is called to set the PDU transmission state to CANIF_ONLINE. When the number of fast recoveries exceeds the configured parameter CanSMBorCounterL1ToL2, recovery will be performed according to the slow recovery time.
+CanSM can be configured with a fast recovery time (CanSMBorTimeL1), a slow recovery time (CanSMBorTimeL2), and the number of fast recoveries after which it switches to slow recovery (CanSMBorCounterL1ToL2). When a bus-off occurs at the underlying layer, the CanSM_ControllerBusOff function of CanSM is called for notification. CanSM calls the CanIf_SetControllerMode function of CanIf to set the controller state to CAN_CS_STARTED. After receiving a successful setting notification from the underlying layer via CanSM_ControllerModeIndication, it starts the bus-off timer. When the bus-off fast recovery time times out, CanIf_SetPduMode is called to set the PDU transmission state to CANIF_ONLINE. When the number of fast recoveries exceeds the configured parameter CanSMBorCounterL1ToL2, recovery is performed according to the slow recovery time.
 
-偏差（Deviation）
+偏差(Deviation)
 -------------------------
 .. 有序列表示例
 
 None
 
 
-扩展（Extension）
+扩展(Extension)
 -------------------------
 
 None
 
 
-集成（Integration）
+集成(Integration)
 =========================
 
-文件列表（File list）
+文件列表(File List)
 -----------------------------
 
-静态文件（Static files）
+静态文件(Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 10 30
    :header-rows: 1
 
-   * - 文件（File）
-     - 描述（Description）
+   * - 文件(File)
+     - 描述(Description)
 
    * - CanSM.h
-     - CanSM 模块头文件，通过加载该头文件访问 CanSM 公开的函数和数据类型
-        
-       CanSM module header file, through which the public functions and data types of CanSM can be accessed by including this header file
+     - CanSM 模块头文件，通过加载该头文件访问 CanSM 公开的函数和数据类型(CanSM module header file, through which the public functions and data types of CanSM can be accessed by including this header file)
 
    * - CanSM_CanIf.h
-     - CanSM模块提供给CanIf，CanNm 模块使用的函数
-      
-       The CanSM module provides functions for the CanIf and CanNm modules to use
+     - CanSM 模块提供给 CanIf、CanNm 模块使用的函数(The CanSM module provides functions for the CanIf and CanNm modules to use)
 
    * - CanSM.c
-     - CanSM模块实现源文件，各API实现在该文件中
-      
-       CanSM module implementation source file, where all API implementations are contained
+     - CanSM 模块实现源文件，各 API 实现在该文件中(CanSM module implementation source file, where all API implementations are contained)
 
-动态文件（Dynamic file）
+动态文件(Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :widths: 10 30
    :header-rows: 1
 
-   * - 文件（File）
-     - 描述（Description）
+   * - 文件(File)
+     - 描述(Description)
 
    * - CanSM_Cfg.h
-     - 用于定义 CanSM 模块预编译时用到的非 PB 宏
-      
-       Used to define non-PB macros used by the CanSM module during precompilation
+     - 用于定义 CanSM 模块预编译时用到的非 PB 宏(Used to define non-PB macros used by the CanSM module during precompilation)
 
    * - CanSM_PBcfg.h
-     - 用于定义 CanSM 模块预编译时用到的 PB 宏和数据类型定义
-      
-       Used to define PB macros and data type definitions used by the CanSM module during precompilation
+     - 用于定义 CanSM 模块预编译时用到的 PB 宏和数据类型定义(Used to define PB macros and data type used by the CanSM module during precompilation)
 
    * - CanSM_Cfg.c
-     - 配置参数源文件，包含各个非 PB 配置项的定义
-      
-       Configuration parameter source file, containing definitions of various non-PB configuration items
+     - 配置参数源文件，包含各个非 PB 配置项的定义(Configuration parameter source file, containing definitions of various non-PB configuration items)
 
    * - CanSM_PBcfg.c
-     - 配置参数源文件，包含各个PB 配置项的定义
-      
-       Configuration parameter source file, containing definitions of various PB configuration items
+     - 配置参数源文件，包含各个 PB 配置项的定义(Configuration parameter source file, containing definitions of various PB configuration items)
 
    * - CanSM_MemMap.h
-     - CanSM 模块函数和变量存储位置定义文件
-      
-       File for defining the storage locations of CanSM module functions and variables
+     - CanSM 模块函数和变量存储位置定义文件(File for defining the storage locations of CanSM module functions and variables)
 
 
-错误处理（Error handling）
+错误处理(Error Handling)
 ----------------------------
 
-开发错误（Development errors）
+开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table::
    :widths: 20 10 30
@@ -325,7 +309,7 @@ None
      - DeInit API service called when not all CAN networks are in state CANSM_NO_COMMUNICATION
 
 
-产品错误（Product error）
+产品错误(Product Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table::
    :widths: 10 20
@@ -338,7 +322,7 @@ None
      - The bus-off recovery state machine of a CAN network has detected a certain amount of sequential bus-offs without successful recovery
 
 
-运行时错误（Runtime error）
+运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table::
    :widths: 20 10 30
@@ -353,7 +337,7 @@ None
      - Mode request for a network failed more often than allowed by configuration
 
 
-接口描述（Interface Description）
+接口描述(Interface Description)
 ======================================
 
 .. 目前能够自动生成的有类型定义，普通函数，回调函数。
@@ -362,7 +346,7 @@ None
 .. include:: CanSM_h_api.rst
 .. include:: CanSM_CanIf_h_api.rst
 
-配置函数（Configuration function）
+配置函数(Configuration Function)
 ---------------------------------------
 .. 可选的章节，根据模块实际情况确定
 .. 格式同提供的服务
@@ -388,10 +372,10 @@ Scheduled function of the CanSM.
    void
 
 
-依赖的服务（Dependent services）
+依赖的服务(Dependent Services)
 ------------------------------------
 
-强制接口（Mandatory interface）
+强制接口(Mandatory Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 
@@ -451,7 +435,7 @@ Scheduled function of the CanSM.
      - Det.h
      - Service to report runtime errors. If a callout has been configured then this callout shall be called.
 
-可选接口（Optional interface）
+可选接口(Optional Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 .. 格式同强制接口
@@ -473,7 +457,7 @@ Scheduled function of the CanSM.
      - Service to report development errors.
 
 
-配置接口（Configuration interface）
+配置接口Configuration(Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 .. 格式同强制接口
@@ -491,12 +475,12 @@ Scheduled function of the CanSM.
      - This callout function returns the number of CanSM base cycles to wait additionally to L1/L2 after a BusOff occurred.
 
 
-配置（configuration）
+配置 configuration
 ===========================
 
 因 CanSM 依赖 CanNM 接口 CanNm_ConfirmPnAvailability，所以需要确保 CanNM 在 CanSM 之前初始化，这通常是在 EcuMDriverInitListBswM 中配置的。
 
-Since CanSM depends on the CanNM interface CanNm_ConfirmPnAvailability, it is necessary to ensure that CanNM is initialized before CanSM. This is usually configured in EcuMDriverInitListBswM.
+Since CanSM depends on the CanNM interface CanNm_ConfirmPnAvailability, CanNM must be initialized before CanSM. This is usually configured in EcuMDriverInitListBswM.
 
 .. figure:: ../../../_static/参考手册/CanSM/EcuMDriverInitListBswM.png
    :name: EcuMDriverInitListBswM

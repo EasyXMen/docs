@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-        <title>ScheduleTable Functions &mdash; EasyXMen_docs 1.0.0 documentation</title>
+        <title>ScheduleTable(Functions) &mdash; EasyXMen_docs 1.0.0 documentation</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
@@ -168,7 +168,7 @@
                         <nav aria-label="breadcrumb">
     <ol class="breadcrumb m-0 p-0 bg-transparent">
         <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
-        <li class="breadcrumb-item active" aria-current="page">ScheduleTable Functions</li>
+        <li class="breadcrumb-item active" aria-current="page">ScheduleTable(Functions)</li>
     </ol>
 </nav>
                     </div>
@@ -180,7 +180,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/07_ScheduleTable_func_api.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Os/07_ScheduleTable_func_api.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -196,48 +196,47 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="scheduletable-functions">
-<h1>ScheduleTable Functions<a class="headerlink" href="#scheduletable-functions" title="Link to this heading">¶</a></h1>
+<h1>ScheduleTable(Functions)<a class="headerlink" href="#scheduletable-functions" title="Link to this heading">¶</a></h1>
 <p>调度表类似于使用Counter和一系列自动启动的Alarms来实现静态定义的任务激活机制。</p>
-<p>A schedule table is similar to a statically defined task activation mechanism implemented using a Counter and a series of automatically started Alarms.</p>
+<p>A schedule table is analogous to a statically defined task activation mechanism implemented using a Counter and a series of auto-started Alarms.</p>
 <p>调度表提供了一组静态定义的溢出点封装。每个溢出点定义：</p>
-<p>A schedule table provides a set of statically defined overflow point encapsulations. Each overflow point defines:</p>
+<p>A schedule table provides a set of statically defined expiry point encapsulations. Each expiry point defines:</p>
 <blockquote>
 <div><ul>
-<li><p>处理溢出点时，将执行动作（通过ORIENTAIS配置工具OS模块配置）。动作是任务的激活或事件的设置。</p>
-<p>When processing the overflow point, an action (configured via the OS module of the ORIENTAIS configuration tool) will be executed. The action is either the activation of a task or the setting of an event.</p>
+<li><p>处理溢出点时，将执行动作(通过ORIENTAIS配置工具OS模块配置)。动作是任务的激活或事件的设置。</p>
+<p>When processing the expiry point, an action (configured via the OS module of the ORIENTAIS configuration tool) is executed. The action is either task activation or event setting.</p>
 </li>
-<li><p>从调度表的开始处以“滴答”为单位的偏移量。</p>
+<li><p>从调度表的开始处以”滴答”为单位的偏移量。</p>
 <p>An offset in “tick” units from the start of the schedule table.</p>
 </li>
 </ul>
 </div></blockquote>
 <p>在运行时，ORIENTAIS OS将遍历调度表，依次处理每个溢出点。调度表由一个计数器驱动。计数器的属性会影响调度表中允许配置的内容。</p>
-<p>During runtime, the ORIENTAIS OS traverses the schedule table and processes each overflow point in sequence. The schedule table is driven by a counter, and the properties of the counter affect the configurable content allowed in the schedule table.</p>
+<p>During runtime, ORIENTAIS OS traverses the schedule table and processes each expiry point sequentially. The schedule table is driven by a counter, and the counter’s properties affect the configurable content within the schedule table.</p>
 <p>用户可以为调度表设置为同步模式。ORIENTAIS OS通过两种方式提供对同步的支持：</p>
-<p>Users can set the schedule table to synchronous mode. The ORIENTAIS OS provides support for synchronization in two ways:</p>
+<p>Users can configure the schedule table for synchronous mode. ORIENTAIS OS provides synchronization support in two ways:</p>
 <ul>
-<li><p>隐式同步：驱动调度表的计数器要求是同步计数器。这通常是采用时间触发的网络技术（例如FlexRay，TTP）实现同步的方式-底层硬件管理网络时间同步，并简单地将时间显示为ORIENTAIS OS的输出/比较计时器接口。Figure显示了隐式同步调度表可能出现的状态。</p>
-<p>Implicit Synchronization: The counter driving the schedule table is required to be a synchronous counter. This is typically a synchronization method implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and simply presents the time as an output/compare timer interface for the ORIENTAIS OS. Figure 5-7 shows the possible states of a schedule table with implicit synchronization.</p>
+<li><p>隐式同步：驱动调度表的计数器要求是同步计数器。这通常是采用时间触发的网络技术(例如FlexRay，TTP)实现同步的方式-底层硬件管理网络时间同步，并简单地将时间显示为ORIENTAIS OS的输出/比较计时器接口。Figure显示了隐式同步调度表可能出现的状态。</p>
+<p>Implicit Synchronization: The counter driving the schedule table must be a synchronous counter. This is typically implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and presents the time simply as an output/compare timer interface to ORIENTAIS OS. The figure shows possible states of an implicitly synchronized schedule table.</p>
 </li>
 </ul>
 <figure class="align-center" id="id1">
-<img alt="隐式同步调度表的状态图" src="../../../_images/%E9%9A%90%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
+<img alt="隐式同步调度表的状态图 States of Implicitly Synchronized Schedule Table" src="../../../_images/%E9%9A%90%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
 <figcaption>
-<p><span class="caption-text">隐式同步调度表的状态（States of Schedule Table with Implicit Synchronization）</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">隐式同步调度表的状态 (States of Implicitly Synchronized Schedule Table)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
 <li><p>显式同步：调度表由ORIENTAIS OS计数器驱动，而不要求是同步的计数器。ORIENTAIS OS还提供一些其他功能，以使其计数器驱动的调度表与同步计数器同步。通常，这是与定期广播全局时间进行同步的方式。Figure显示了显式同步调度表可能出现的状态。</p>
-<p>Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be a synchronous counter. The ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this is a method of synchronizing with periodically broadcast global time. Figure 5-8 shows the possible states of a schedule table with explicit synchronization.</p>
+<p>Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be synchronous. ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this synchronizes with a periodically broadcast global time. The figure shows possible states of an explicitly synchronized schedule table.</p>
 </li>
 </ul>
 <figure class="align-center" id="id2">
-<img alt="显式同步调度表的状态图" src="../../../_images/%E6%98%BE%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
+<img alt="显式同步调度表的状态图 (States of Explicitly Synchronized Schedule Table)" src="../../../_images/%E6%98%BE%E5%BC%8F%E5%90%8C%E6%AD%A5%E8%B0%83%E5%BA%A6%E8%A1%A8%E7%9A%84%E7%8A%B6%E6%80%81%E5%9B%BE.png" />
 <figcaption>
-<p><span class="caption-text">显式同步调度表的状态（图中未显示所有的跳转条件）</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<p><span class="caption-text">显式同步调度表的状态(图中未显示所有的跳转条件) (States of Explicitly Synchronized Schedule Table - Not all transition conditions are shown)</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>States of Schedule Table with Explicit Synchronization (not all transition conditions are shown in the diagram)</p>
 <section id="startscheduletablerel">
 <h2>StartScheduleTableRel<a class="headerlink" href="#startscheduletablerel" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">StartScheduleTableRel</span><span class="p">(</span><span class="n">ScheduleTableType</span> <span class="n">ScheduleTableID</span><span class="p">,</span> <span class="n">TickType</span> <span class="n">Offset</span><span class="p">)</span>
@@ -737,7 +736,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅在SC3、SC4下有效</p>
-<p>It is only valid under SC3 and SC4.</p>
+<p>This is valid only under SC3 and SC4.</p>
 </li>
 <li><p>调度表同步策略必须是显性。</p>
 <p>The schedule table synchronization strategy must be explicit.</p>
@@ -847,7 +846,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅在SC3、SC4下有效</p>
-<p>It is only valid under SC3 and SC4.</p>
+<p>It is  valid only under SC3 and SC4.</p>
 </li>
 <li><p>调度表同步策略必须是显性</p>
 <p>The schedule table synchronization strategy must be explicit.</p>
@@ -956,7 +955,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li><p>仅在SC3、SC4下有效</p>
-<p>It is only valid under SC3 and SC4.</p>
+<p>It is valid only under SC3 and SC4.</p>
 </li>
 <li><p>调度表同步策略必须是显性</p>
 <p>The schedule table synchronization strategy must be explicit.</p>
@@ -1059,7 +1058,7 @@
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             <ul>
-<li><a class="reference internal" href="#">ScheduleTable Functions</a><ul>
+<li><a class="reference internal" href="#">ScheduleTable(Functions)</a><ul>
 <li><a class="reference internal" href="#startscheduletablerel">StartScheduleTableRel</a></li>
 <li><a class="reference internal" href="#startscheduletableabs">StartScheduleTableAbs</a></li>
 <li><a class="reference internal" href="#stopscheduletable">StopScheduleTable</a></li>

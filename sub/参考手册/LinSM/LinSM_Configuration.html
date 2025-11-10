@@ -201,7 +201,7 @@
 <h2>唤醒超时计时器 Wakeup Timeout Timer<a class="headerlink" href="#wakeup-timeout-timer" title="Link to this heading">¶</a></h2>
 <p>Lin通道在启动Wake up进程时需要加载的超时计时器以及重试计数器根据配置决定超时计时器各通道间独立配置，配置项位于LinSMChannel/LinSMConfirmationTimeout。该配置参数为浮点型，范围大小为[0 ..INF]，单位为秒。计时器在周期性调度函数LinSM_MainFunction()中递减，所以建议实际值为主函数运行周期的整数倍。当该值配置为0时意为永不会触发超时。</p>
 <p>The timeout timer and retry counter that the Lin channel needs to load when starting the Wake up process are determined by configuration.The timeout timer is configured independently for each channel, and the configuration item is located at LinSMChannel/LinSMConfirmationTimeout. This configuration parameter is of floating-point type, with a range of [0 .. INF] in seconds. The timer decrements in the periodic scheduling function LinSM_MainFunction(), so it is recommended that the actual value be an integer multiple of the main function running period. When this value is configured as 0, it means that the timeout will never be triggered.</p>
-<p>1.LinSMConfirmationTimeout配置截图：（单位：s，参数值要大于唤醒命令在Lin通道上的传播时间）</p>
+<p>1.LinSMConfirmationTimeout配置截图：(单位：s，参数值要大于唤醒命令在Lin通道上的传播时间)</p>
 <p>1.Screenshot of LinSMConfirmationTimeout configuration: (Unit: s, the parameter value must be greater than the propagation time of the wakeup command on the Lin channel)</p>
 <figure class="align-center" id="id1">
 <img alt="LinSMConfirmationTimeout的图片 (Image of LinSMConfirmationTimeout)" src="../../../_images/LinSMConfirmationTimeout.png" />
@@ -210,7 +210,7 @@
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>LinSMMainProcessingPeriod配置截图：（单位：s）</p></li>
+<li><p>LinSMMainProcessingPeriod配置截图：(单位：s)</p></li>
 <li><p>Screenshot of LinSMMainProcessingPeriod configuration: (Unit: s)</p></li>
 </ul>
 <figure class="align-center" id="id2">
@@ -234,7 +234,7 @@
 <h2>调度表配置 Schedule Table Configuration<a class="headerlink" href="#schedule-table-configuration" title="Link to this heading">¶</a></h2>
 <p>调度表配置位于各通道的配置下子容器：LinSMChannel/LinSMSchedule，调度表配置以及相应函数功能仅支持MASTER节点，使用调度表配置需要先将通道类型LinSMChannel/LinSMNodeType配置为MASTER</p>
 <p>The schedule table configuration is located in the sub-container under the configuration of each channel: LinSMChannel/LinSMSchedule. The schedule table configuration and corresponding function features only support MASTER nodes. To use the schedule table configuration, the channel type (LinSMChannel/LinSMNodeType) must first be configured as MASTER.</p>
-<p>1.LinSMNodeType配置截图：（下拉框选择配置参数）</p>
+<p>1.LinSMNodeType配置截图：(下拉框选择配置参数)</p>
 <p>1.Screenshot of LinSMNodeType configuration: (Select configuration parameters from the drop-down box)</p>
 <figure class="align-center" id="id4">
 <img alt="LinSMNodeType的图片 (Image of LinSMNodeType)" src="../../../_images/LinSMNodeType.png" />

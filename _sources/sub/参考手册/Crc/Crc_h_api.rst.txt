@@ -1,14 +1,14 @@
-接口描述（Interface Description）
+接口描述(Interface Description)
 ====================================
 
-类型定义（Type definition）
+类型定义(Type Definitions)
 -------------------------------
 .. 如果没有就不存在该章节，或为None
 
 None
 
       
-提供的服务（Provided services）
+提供的服务(Services)
 ----------------------------------
 Crc_GetVersionInfo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

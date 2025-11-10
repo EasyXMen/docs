@@ -182,7 +182,7 @@
                             <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
                             <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
                         </button>
-    <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Dlt/Dlt.rst.txt" rel="nofollow">
+        <a class="btn btn-sm btn-light text-decoration-none" href="../../../_sources/sub/参考手册/Dlt/Dlt.rst.txt" rel="nofollow">
         <span class="btn-icon"><span class="fas fa-code"></span></span>
         <span class="btn-text">View source</span>
     </a>
@@ -329,10 +329,10 @@
 <td><p>包含通过VFB传递信息的跟踪消息。(It contains trace messages transmitted via VFB.)</p></td>
 </tr>
 <tr class="row-even"><td><p>ECU ID</p></td>
-<td><p>ECU的名称标识，由4个8位ASCII字符组成（例如：ABS0或COMB）。(The name identifier of the ECU; it consists of four 8-bit ASCII characters (e.g. ABS0 or COMB).)</p></td>
+<td><p>ECU的名称标识，由4个8位ASCII字符组成(例如：ABS0或COMB)。(The name identifier of the ECU; it consists of four 8-bit ASCII characters (e.g. ABS0 or COMB).)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Session</p></td>
-<td><p>日志/跟踪消息源的逻辑实体。当应用/SW-C被多次实例化时，每个实例会获得全局唯一的会话ID。一个应用/SW-C可同时拥有多个日志/跟踪会话（通过多个打开的Dlt端口）。由于AUTOSAR未规定SW-C的会话ID，应使用端口定义的参数值。(The logical entity of the log/trace message source.) When the application/SW-C is instantiated for many times, each instance will obtain a globally unique session ID. An application/SW-C can have several log/trace sessions simultaneously (via multiple opened Dlt ports). AUTOSAR does not specify the session ID for SW-C, so the parameter values defined by port should be used.</p></td>
+<td><p>日志/跟踪消息源的逻辑实体。当应用/SW-C被多次实例化时，每个实例会获得全局唯一的会话ID。一个应用/SW-C可同时拥有多个日志/跟踪会话(通过多个打开的Dlt端口)。由于AUTOSAR未规定SW-C的会话ID，应使用端口定义的参数值。(The logical entity of the log/trace message source.) When the application/SW-C is instantiated for many times, each instance will obtain a globally unique session ID. An application/SW-C can have several log/trace sessions simultaneously (via multiple opened Dlt ports). AUTOSAR does not specify the session ID for SW-C, so the parameter values defined by port should be used.</p></td>
 </tr>
 <tr class="row-even"><td><p>Session ID</p></td>
 <td><p>日志/跟踪会话的唯一标识编号。(Unique identification number for the log/trace session.)</p></td>
@@ -462,9 +462,9 @@
 </section>
 <section id="introduction">
 <h2>简介 Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
-<p>DLT模块为使用者提供了通用的日志和跟踪记录消息功能。该模块可接收来自DET（默认错误跟踪器）、DEM（诊断事件管理器）、软件组件（SW-C）的日志信息，以及来自RTE的跟踪信息。DLT模块通过通信总线传输这些数据，使外部可观测ECU的运行信息。</p>
+<p>DLT模块为使用者提供了通用的日志和跟踪记录消息功能。该模块可接收来自DET(默认错误跟踪器)、DEM(诊断事件管理器)、软件组件(SW-C)的日志信息，以及来自RTE的跟踪信息。DLT模块通过通信总线传输这些数据，使外部可观测ECU的运行信息。</p>
 <p>The DLT module provides universal log and trace message recording functions for users. This module can receive log information from DET (default error tracker), DEM (diagnostic event manager), software components (SW-C), as well as trace information from RTE. The DLT module transmits the data via communication bus, making it possible to observe the operation information of the ECU externally.</p>
-<p>此外，该模块可选择通过NvM（非易失性存储器）模块持久化存储更新后的DLT过滤器设置。此功能使得ECU在每次启动时，无需接收显式设置请求，即可直接按预设级别传输日志/跟踪信息。</p>
+<p>此外，该模块可选择通过NvM(非易失性存储器)模块持久化存储更新后的DLT过滤器设置。此功能使得ECU在每次启动时，无需接收显式设置请求，即可直接按预设级别传输日志/跟踪信息。</p>
 <p>In addition, the module can store the updated DLT filter settings permanently via the NvM (non-volatile memory) module. With this function, the ECU can transmit log/trace information directly at the preset level without receiving explicit setting requests during each startup.</p>
 <figure class="align-center" id="dlt-autosar-architecture">
 <img alt="Dlt_AUTOSAR_Architecture" src="../../../_images/Dlt_AUTOSAR_Architecture.png" />
@@ -1501,7 +1501,7 @@
 </tr>
 <tr class="row-odd"><td><p>Gpt_EnableNotification</p></td>
 <td><p>Gpt.h</p></td>
-<td><p>启用指定定时器通道的中断通知功能（适用于正常模式）。(Enable the interruption notification function for the specified timer channel (applicable to normal mode).)</p></td>
+<td><p>启用指定定时器通道的中断通知功能(适用于正常模式)。(Enable the interruption notification function for the specified timer channel (applicable to normal mode).)</p></td>
 </tr>
 <tr class="row-even"><td><p>Gpt_StartTimer</p></td>
 <td><p>Gpt.h</p></td>
@@ -1696,13 +1696,13 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>DltDefaultLogLevel</p></td>
-<td><p>枚举值（DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN）(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))</p></td>
+<td><p>枚举值(DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN)(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))</p></td>
 <td><p>无(None)</p></td>
 <td><p>当没有过滤器匹配给定的AppicationId和Context时使用的默认日志级别。相当于一个带有AppicationId和Contexts通配符的全局过滤器，当无其他匹配规则时生效。(The default log level used for AppationId and Context without being matched with filter.) Equivalent to a global filter with AppationId and Contexts wildcard characters; it takes effect when other matching rules do not exist.</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Threshold</p></td>
-<td><p>枚举值（DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN）(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))</p></td>
+<td><p>枚举值(DLT_LOG_DEBUG、DLT_LOG_ERROR、DLT_LOG_FATAL、DLT_LOG_INFO、DLT_LOG_OFF、DLT_LOG_VERBOSE、DLT_LOG_WARN)(Enumerator (DLT_LOG_DEBUG, DLT_LOG_ERROR, DLT_LOG_FATAL, DLT_LOG_INFO, DLT_LOG_OFF, DLT_LOG_VERBOSE, DLT_LOG_WARN))</p></td>
 <td><p>无(None)</p></td>
 <td><p>为特定AppicationId和Context组合配置初始日志级别阈值(Configure initial log level threshold for a specific AppationId and Context combination)</p></td>
 <td><p>无(None)</p></td>
@@ -1755,13 +1755,13 @@
 <tr class="row-even"><td><p>DltLogChannelBufferOverflowTimer</p></td>
 <td><p>0.001…1</p></td>
 <td><p>0</p></td>
-<td><p>指定发生缓冲区溢出时重置缓冲区溢出标志的周期时间（单位：秒）(Specify the cycle for resetting the buffer overflow flag upon the occurrence of buffer overflow (in s))</p></td>
+<td><p>指定发生缓冲区溢出时重置缓冲区溢出标志的周期时间(单位：秒)(Specify the cycle for resetting the buffer overflow flag upon the occurrence of buffer overflow (in s))</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-odd"><td><p>DltLogChannelBufferSize</p></td>
 <td><p>0…4294967295</p></td>
 <td><p>0</p></td>
-<td><p>日志通道特定消息缓冲区的缓冲区大小（单位：字节）(The buffer size of the specific message buffer of log channel (in byte))</p></td>
+<td><p>日志通道特定消息缓冲区的缓冲区大小(单位：字节)(The buffer size of the specific message buffer of log channel (in byte))</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-even"><td><p>DltLogChannelId</p></td>
@@ -1785,19 +1785,19 @@
 <tr class="row-odd"><td><p>DltLogChannelThreshold</p></td>
 <td><p>DLT_LOG_OFF至DLT_LOG_VERBOSE (DLT_LOG_OFF to DLT_LOG_VERBOSE)</p></td>
 <td><p>DLT_LOG_OFF</p></td>
-<td><p>为日志通道设置的日志级别阈值（包含7个标准级别）(The log level threshold set for the log channel (including 7 standard levels))</p></td>
+<td><p>为日志通道设置的日志级别阈值(包含7个标准级别)(The log level threshold set for the log channel (including 7 standard levels))</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-even"><td><p>DltLogChannelTrafficShapingBandwidth</p></td>
 <td><p>0…18446744073709551615</p></td>
 <td><p>0</p></td>
-<td><p>流量整形允许的最大带宽（单位：位/秒）(Max. bandwidth allowed for traffic shaping (in bits/second))</p></td>
+<td><p>流量整形允许的最大带宽(单位：位/秒)(Max. bandwidth allowed for traffic shaping (in bits/second))</p></td>
 <td><p>依赖于通信总线的实际速率(Depend on the actual speed of communication bus)</p></td>
 </tr>
 <tr class="row-odd"><td><p>DltLogChannelTransmitCycle</p></td>
 <td><p>0.001…1</p></td>
 <td><p>0</p></td>
-<td><p>日志通道传输功能的周期时间（单位：秒）(Cycle of log channel transmission function (in second))</p></td>
+<td><p>日志通道传输功能的周期时间(单位：秒)(Cycle of log channel transmission function (in second))</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-even"><td><p>DltLogTraceStatusFlag</p></td>
@@ -2131,13 +2131,13 @@
 <tr class="row-even"><td><p>MaxSwcLogMessageLength</p></td>
 <td><p>0…65535</p></td>
 <td><p>0</p></td>
-<td><p>SW-C日志消息的最大允许长度（字节）(Max. allowed length of SW-C log messages (in byte))</p></td>
+<td><p>SW-C日志消息的最大允许长度(字节)(Max. allowed length of SW-C log messages (in byte))</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-odd"><td><p>MaxSwcTraceMessageLength</p></td>
 <td><p>0…65535</p></td>
 <td><p>0</p></td>
-<td><p>SW-C跟踪消息的最大允许长度（字节）(Max. allowed length of SW-C trace messages (in byte))</p></td>
+<td><p>SW-C跟踪消息的最大允许长度(字节)(Max. allowed length of SW-C trace messages (in byte))</p></td>
 <td><p>无(None)</p></td>
 </tr>
 <tr class="row-even"><td><p>DltSwcSupportLogLevelChangeNotification</p></td>

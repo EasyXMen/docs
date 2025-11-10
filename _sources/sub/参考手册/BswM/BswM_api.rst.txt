@@ -1,7 +1,7 @@
-接口描述（Interface Description）
+接口描述(Interface Description)
 =====================================
 
-类型定义（Type definition）
+类型定义(Type Definitions)
 -----------------------------
 
 .. include::  API/BswM_Types_h_api.rst

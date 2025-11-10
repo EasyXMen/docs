@@ -154,11 +154,11 @@ FlsTst supports a variety of test algorithms, such as CRC8, CRC16, CRC32, block 
 
   2.Support configuration of different Completed callback notifications
 
-  3.支持配置不同的前台测试block属性（index除外）
+  3.支持配置不同的前台测试block属性(index除外)
 
   3.Support configuration of different foreground test block attributes (except index)
 
-  4.支持配置不同的后台测试block属性（index除外）
+  4.支持配置不同的后台测试block属性(index除外)
 
   4.Support configuration of different background test block attributes (except index)
 
@@ -217,7 +217,7 @@ The test interval of the background test uses an identifier, which is automatica
 
 ECC测试算法 ECC Test Algorithm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-提供一种算法来检查Flash中的数据和冗余位的正确性。（若需要使用ECC测试，则用户需要考虑硬件是否具备ECC功能的情况下才能进行ECC测试）
+提供一种算法来检查Flash中的数据和冗余位的正确性。(若需要使用ECC测试，则用户需要考虑硬件是否具备ECC功能的情况下才能进行ECC测试)
 
 Provide an algorithm to check the correctness of data and redundant bits in Flash. (If ECC test needs to be used, the user needs to consider whether the hardware has ECC function before performing ECC test)
 

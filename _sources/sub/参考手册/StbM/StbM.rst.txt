@@ -89,7 +89,7 @@ StbM
 
    * - Notification Time Base Customer
      - 当发生如下事件时，时间基客户端将会被同步时间管理器通知：(The time base customer will be notified by the synchronized time manager when the following events occur:)
-       时间基状态发生了变化（例如，时间基发生了超时）(The time base status changes (for example, the time base times out))
+       时间基状态发生了变化(例如，时间基发生了超时)(The time base status changes (for example, the time base times out))
        时间基准值已经达到了用户预先设定的一个值(The time base value has reached a value preset by the user)
 
    * - Offset Correction
@@ -191,7 +191,7 @@ StbM
 简介 Introduction
 ==================================
 
-StbM（Synchronization TimeBase Manager，时间同步管理器），负责在分布式车载系统中实现时间同步，确保相关模块在同一时间基准下运行。时间同步支持多种同步协议，这部分主要在<bus>TSyn模块中实现，StbM对这些模块进行统一的抽象和管理，对上提供服务。StbM在AutoSAR中软件层级架构如下图。
+StbM(Synchronization TimeBase Manager，时间同步管理器)，负责在分布式车载系统中实现时间同步，确保相关模块在同一时间基准下运行。时间同步支持多种同步协议，这部分主要在<bus>TSyn模块中实现，StbM对这些模块进行统一的抽象和管理，对上提供服务。StbM在AutoSAR中软件层级架构如下图。
 
 StbM (Synchronization TimeBase Manager) is responsible for implementing time synchronization in distributed in-vehicle systems to ensure that related modules run under the same time base. Time synchronization supports multiple synchronization protocols, which are mainly implemented in the <bus>TSyn module. StbM provides unified abstraction and management for these modules and offers services to the upper layer. The software layer architecture of StbM in AutoSAR is as follows.
 
@@ -222,9 +222,9 @@ The main functions of StbM include two aspects: one is to enable time synchroniz
   变体 Variant
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     .. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
-    .. 主要功能必须描述，比较偏尽量描述（不强制）
+    .. 主要功能必须描述，比较偏尽量描述(不强制)
 
-  支持将同一个同步时间基配置为全局时间基或者非全局时间基（StbMIsSystemWideGlobalTimeMaster属性）。
+  支持将同一个同步时间基配置为全局时间基或者非全局时间基(StbMIsSystemWideGlobalTimeMaster属性)。
 
   Support configuring the same synchronized time base as a global time base or a non-global time base (StbMIsSystemWideGlobalTimeMaster attribute).
 
@@ -1075,7 +1075,7 @@ Right-click on StbMSynchronizedTimeBase to create a new time base.
    :alt: StbM_3
    :align: center
 
-StbMNotificationInterface配置为NO_NOTIFICATION。时间基标识StbMSynchronizedTimeBaseIdentifier配置为0（用于时间同步的时间基StbMSynchronizedTimeBaseIdentifier范围为0-15，如果是纯本地时间基则为32-127。偏移时间基已经被移除）。
+StbMNotificationInterface配置为NO_NOTIFICATION。时间基标识StbMSynchronizedTimeBaseIdentifier配置为0(用于时间同步的时间基StbMSynchronizedTimeBaseIdentifier范围为0-15，如果是纯本地时间基则为32-127。偏移时间基已经被移除)。
 
 StbMNotificationInterface is configured as NO_NOTIFICATION. The time base identifier StbMSynchronizedTimeBaseIdentifier is configured as 0 (The range of StbMSynchronizedTimeBaseIdentifier for the time base used for time synchronization is 0-15, and 32-127 for the pure local time base. The offset time base has been removed).
 
