@@ -67,7 +67,7 @@ CDD_FVM
      - 解释(Explanation)
 
    * - Authentication
-     - 身份验证是与标识相关的服务。此功能适用于实体和信息本身。参与交流的两个政党应互相识别。通过通道传递的信息应验证有关来源，原始日期，数据内容，发送的时间等。由于这些原因，密码学的这一方面通常被细分为两个主要类别：实体身份验证和数据来源身份验证。数据来源身份验证隐式提供数据完整性（因为如果修改了消息，则源已更改）。(Authentication is a service related to identification. This function applies to both entities and the information itself. The two parties involved in communication shall identify each other. The information transmitted through the channel shall be verified regarding its source, original date, data content, transmission time, etc. For these reasons, this aspect of cryptography is usually divided into two main categories: entity authentication and data origin authentication. Data origin authentication implicitly provides data integrity (because if the message is modified, the source has changed).)
+     - 身份验证是与标识相关的服务。此功能适用于实体和信息本身。参与交流的两个政党应互相识别。通过通道传递的信息应验证有关来源，原始日期，数据内容，发送的时间等。由于这些原因，密码学的这一方面通常被细分为两个主要类别：实体身份验证和数据来源身份验证。数据来源身份验证隐式提供数据完整性(因为如果修改了消息，则源已更改)。(Authentication is a service related to identification. This function applies to both entities and the information itself. The two parties involved in communication shall identify each other. The information transmitted through the channel shall be verified regarding its source, original date, data content, transmission time, etc. For these reasons, this aspect of cryptography is usually divided into two main categories: entity authentication and data origin authentication. Data origin authentication implicitly provides data integrity (because if the message is modified, the source has changed).)
 
    * - Authentic I-PDU
      - 原始的I-PDU是一种任意的AutoSar I-PDU，其内容在网络传输过程中通过安全的I-PDU确保。(An Authentic I-PDU is an arbitrary AUTOSAR I-PDU whose content is ensured by a Secured I-PDU during network transmission.)
@@ -102,7 +102,7 @@ CDD_FVM
 简介 Introduction
 ===================================================
 
-FVM模块主要为模块SecOC提供新鲜度值（FV），提供多种方式管理新鲜度值。
+FVM模块主要为模块SecOC提供新鲜度值(FV)，提供多种方式管理新鲜度值。
 
 The FVM module mainly provides Freshness Values (FV) for the SecOC module and supports multiple methods for managing Freshness Values.
 
@@ -135,18 +135,18 @@ Before providing authentication information to the SecOC on the receiver side, t
 
 To ensure freshness, the Freshness Counters on both sides of the communication channel shall be incremented synchronously.
 
-对于每一条预期在接收方被识别为单个传入消息的传出消息，新鲜度计数器都必须递增。在接收端，每个接收到的消息（包括计数器更新）的MAC验证应精确执行一次。
+对于每一条预期在接收方被识别为单个传入消息的传出消息，新鲜度计数器都必须递增。在接收端，每个接收到的消息(包括计数器更新)的MAC验证应精确执行一次。
 
 For each outgoing message that is expected to be identified as a single incoming message at the receiver, the Freshness Counter must be incremented. On the receiver side, the MAC verification for each received message (including counter updates) shall be performed exactly once.
 
-FVM模块应构建新鲜度验证值（即用于验证的新鲜度值）并将其提供给SecOC。如果完整的新鲜度值在安全的I-PDU中传输，则需要验证构造的新鲜度验证值是否大于最后存储的新鲜度价值概念。如果它不大于最后存储的新鲜度值概念，FVM应停止验证并丢弃安全I-PDU
+FVM模块应构建新鲜度验证值(即用于验证的新鲜度值)并将其提供给SecOC。如果完整的新鲜度值在安全的I-PDU中传输，则需要验证构造的新鲜度验证值是否大于最后存储的新鲜度价值概念。如果它不大于最后存储的新鲜度值概念，FVM应停止验证并丢弃安全I-PDU
 
 The FVM module shall construct the Freshness Verification Value (i.e., the Freshness Value used for verification) and provide it to the SecOC. If the complete Freshness Value is transmitted in the Secured I-PDU, it is necessary to verify whether the constructed Freshness Verification Value is greater than the last stored Freshness Value concept. If it is not greater than the last stored Freshness Value concept, the FVM shall stop the verification and discard the Secured I-PDU.
 
-基于多个新鲜度计数器的新鲜度值（前提条件：截断新鲜度值） Freshness Value Based on Multiple Freshness Counters (Prerequisite: Truncated Freshness Value)
+基于多个新鲜度计数器的新鲜度值(前提条件：截断新鲜度值) Freshness Value Based on Multiple Freshness Counters (Prerequisite: Truncated Freshness Value)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-从解耦计数器构建新鲜度值。新鲜度值管理器（FVM）（SW-C或CDD）向SecOC提供新鲜度值（FV）。
+从解耦计数器构建新鲜度值。新鲜度值管理器(FVM)(SW-C或CDD)向SecOC提供新鲜度值(FV)。
 
 The Freshness Value is constructed from decoupled counters. The Freshness Value Manager (FVM) (SW-C or CDD) provides the Freshness Value (FV) to the SecOC.
 
@@ -198,21 +198,21 @@ The description of each counter is as follows:
      - Description  
 
    * - Trip Counter (TripCnt)
-     - FV管理主ECU以行程为单位递增此计数器。通过单一FV管理主方法，FV管理主ECU向发送方ECU和接收方ECU发送新的TripCnt作为同步消息（TripResetSyncMsg）。所有发送器和接收器ECU都保持此值。通过多FV管理主方法，发送方ECU向接收方ECU发送新的TripCnt作为同步消息。接收器ECU保持此值(The FV management master ECU increments this counter in units of trips. Through the single FV management master method, the FV management master ECU sends a new TripCnt to the sender ECU and receiver ECU as a synchronization message (TripResetSyncMsg). All sender and receiver ECUs maintain this value. Through the multi-FV management master method, the sender ECU sends a new TripCnt to the receiver ECU as a synchronization message. The receiver ECU maintains this value.)
+     - FV管理主ECU以行程为单位递增此计数器。通过单一FV管理主方法，FV管理主ECU向发送方ECU和接收方ECU发送新的TripCnt作为同步消息(TripResetSyncMsg)。所有发送器和接收器ECU都保持此值。通过多FV管理主方法，发送方ECU向接收方ECU发送新的TripCnt作为同步消息。接收器ECU保持此值(The FV management master ECU increments this counter in units of trips. Through the single FV management master method, the FV management master ECU sends a new TripCnt to the sender ECU and receiver ECU as a synchronization message (TripResetSyncMsg). All sender and receiver ECUs maintain this value. Through the multi-FV management master method, the sender ECU sends a new TripCnt to the receiver ECU as a synchronization message. The receiver ECU maintains this value.)
 
    * - Reset counter (ResetCnt)
-     - FV管理主ECU在ResetCycle配置的周期内定期递增此计数器。通过单一FV管理主方法，FV管理主ECU向发送方ECU和接收方ECU发送新的ResetCnt作为同步消息（TripResetSyncMsg）。所有发送器和接收器ECU都保持此值。通过多FV管理主方法，发送方ECU向接收方ECU发送新的ResetCnt作为同步消息。接收器ECU保持该值。(The FV management master ECU increments this counter periodically within the period configured by ResetCycle. Through the single FV management master method, the FV management master ECU sends a new ResetCnt to the sender ECU and receiver ECU as a synchronization message (TripResetSyncMsg). All sender and receiver ECUs maintain this value. Through the multi-FV management master method, the sender ECU sends a new ResetCnt to the receiver ECU as a synchronization message. The receiver ECU maintains this value.)
+     - FV管理主ECU在ResetCycle配置的周期内定期递增此计数器。通过单一FV管理主方法，FV管理主ECU向发送方ECU和接收方ECU发送新的ResetCnt作为同步消息(TripResetSyncMsg)。所有发送器和接收器ECU都保持此值。通过多FV管理主方法，发送方ECU向接收方ECU发送新的ResetCnt作为同步消息。接收器ECU保持该值。(The FV management master ECU increments this counter periodically within the period configured by ResetCycle. Through the single FV management master method, the FV management master ECU sends a new ResetCnt to the sender ECU and receiver ECU as a synchronization message (TripResetSyncMsg). All sender and receiver ECUs maintain this value. Through the multi-FV management master method, the sender ECU sends a new ResetCnt to the receiver ECU as a synchronization message. The receiver ECU maintains this value.)
 
    * - Message counter (MsgCnt)
-     - 此计数器随着发送器ECU的每次消息传输而递增。它由发送方ECU为每条安全消息进行管理。“MsgCntLow”是指消息计数器传输的截断新鲜度值中包含的范围（在SecOCFreshnessValueTxLength内）。“MsgCntUpper”是指未包含在消息计数器传输的截断新鲜度值中的范围（SecOCFreshnessValueTxLength之外）。(This counter is incremented with each message transmission by the sender ECU. It is managed by the sender ECU for each Secured Message. "MsgCntLow" refers to the range included in the truncated Freshness Value transmitted by the Message Counter (within SecOCFreshnessValueTxLength). "MsgCntUpper" refers to the range not included in the truncated Freshness Value transmitted by the Message Counter (outside SecOCFreshnessValueTxLength).)
+     - 此计数器随着发送器ECU的每次消息传输而递增。它由发送方ECU为每条安全消息进行管理。“MsgCntLow”是指消息计数器传输的截断新鲜度值中包含的范围(在SecOCFreshnessValueTxLength内)。“MsgCntUpper”是指未包含在消息计数器传输的截断新鲜度值中的范围(SecOCFreshnessValueTxLength之外)。(This counter is incremented with each message transmission by the sender ECU. It is managed by the sender ECU for each Secured Message. "MsgCntLow" refers to the range included in the truncated Freshness Value transmitted by the Message Counter (within SecOCFreshnessValueTxLength). "MsgCntUpper" refers to the range not included in the truncated Freshness Value transmitted by the Message Counter (outside SecOCFreshnessValueTxLength).)
 
    * - Reset Flag (ResetFlag)
-     - 此标志与重置计数器同步更新。它是重置计数器下端的ResetFlagLength（位）值。(This flag is updated synchronously with the Reset Counter. It is the value of ResetFlagLength (in bits) at the lower end of the Reset Counter.)
+     - 此标志与重置计数器同步更新。它是重置计数器下端的ResetFlagLength(位)值。(This flag is updated synchronously with the Reset Counter. It is the value of ResetFlagLength (in bits) at the lower end of the Reset Counter.)
 
 用于构建新鲜度值的计数器规范 Counter Specifications for Constructing Freshness Values
 ********************************************************************************************************************************************************************************
 
-新鲜度值的长度（SecOCFreshnessValueLength）不能超过64位，因此必须单独采用三个计数器（跳闸计数器、重置计数器、消息计数器）和重置标志中的每一个的长度，以满足其总长度不超过64位的要求。
+新鲜度值的长度(SecOCFreshnessValueLength)不能超过64位，因此必须单独采用三个计数器(跳闸计数器、重置计数器、消息计数器)和重置标志中的每一个的长度，以满足其总长度不超过64位的要求。
 
 The length of the Freshness Value (SecOCFreshnessValueLength) shall not exceed 64 bits. Therefore, the length of each of the three counters (Trip Counter, Reset Counter, Message Counter) and the Reset Flag must be selected individually to meet the requirement that their total length does not exceed 64 bits.
 
@@ -327,7 +327,7 @@ None
      - CDD_FVM定义的数据类型定义(Definitions of data types defined by CDD_FVM)
 
    * - CDD_FVM.c
-     - FVM模块提供的API（不与其他模块交互），以及内部函数等(APIs provided by the FVM module (that do not interact with other modules), as well as internal functions, etc.)
+     - FVM模块提供的API(不与其他模块交互)，以及内部函数等(APIs provided by the FVM module (that do not interact with other modules), as well as internal functions, etc.)
 
 动态文件 Dynamic Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

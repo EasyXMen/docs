@@ -1,24 +1,24 @@
-Interrupt Functions
+Interrupt(Functions)
 --------------------------------------
 
-处理中断的函数（中断服务程序：ISR）分为两类中断：
+处理中断的函数(中断服务程序：ISR)分为两类中断：
 
-Functions that handle interrupts (Interrupt Service Routines: ISRs) are divided into two types of interrupts:
+Functions that handle interrupts (Interrupt Service Routines: ISRs) are categorized into two types:
 
  - 1类中断: 此类中断不使用操作系统服务。中断结束后，程序将在发生中断位置继续执行，即中断对任务管理没有影响。此类别的中断具有最小的开销。
 
-   Type 1 Interrupts: This type of interrupt does not use operating system services. After the interrupt ends, the program will continue execution from the location where the interrupt occurred, meaning the interrupt has no impact on task management. Interrupts of this type have minimal overhead.
+   Type 1 Interrupts: These interrupts do not use operating system services. After the interrupt ends, the program resumes execution from the point of interruption, meaning the interrupt has no impact on task management. Interrupts in this category have minimal overhead.
 
  - 2类中断: Os提供一个中断框架，为特定的用户程序提供运行环境。这类中断能够使用Os的系统服务。
 
-   Type 2 Interrupts: The Os provides an interrupt framework that offers a runtime environment for specific user programs. This type of interrupt can use the system services of the Os.
+   Type 2 Interrupts: The OS provides an interrupt framework that offers an execution environment for specific user programs. This type of interrupt can use the OS system services.
 
 
 .. figure:: ../../../_static/参考手册/Os/ISR类别.png
-   :alt: ORIENTAIS OS的ISR类别
+   :alt: ORIENTAIS OS的ISR类别(ISR Types of ORIENTAIS OS)
    :align: center
 
-   ORIENTAIS OS的ISR类别（ISR Types of ORIENTAIS OS）
+   ORIENTAIS OS的ISR类别 (ISR Types of ORIENTAIS OS)
 
 
 EnableAllInterrupts
@@ -58,7 +58,7 @@ This service restores the state saved by DisableAllInterrupts.
 
     - 该服务与DisableAllInterrupts服务相对应，后者必须在之前被调用，其目的是保障代码临界区的完整性。
 
-      This service corresponds to the DisableAllInterrupts service, which must have been called beforehand to ensure the integrity of the code critical section.
+      This service corresponds to the DisableAllInterrupts service, which must be called beforehand to ensure the integrity of the code critical section.
 
 
 DisableAllInterrupts
@@ -84,7 +84,7 @@ This service disables all interrupts for which the hardware supports disabling. 
 
     - 主要用于某些不能使用ORIENTAIS OS API的临界段。
 
-      It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
+      Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
 
 
 ResumeAllInterrupts
@@ -136,7 +136,7 @@ This service restores t he recognition status of all interrupts saved by the Sus
 
     - SuspendAllInterrupts / ResumeAllInterrupts可以嵌套使用。如果嵌套调用SuspendAllInterrupts和ResumeAllInterrupts，SuspendAllInterrupts第一次调用时保存的中断识别状态将在ResumeAllInterrupts最后一次调用时恢复。
 
-      SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested way. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt identification state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.
+      SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested manner. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.
 
 SuspendAllInterrupts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -161,7 +161,7 @@ This service saves the re cognition status of all interrupts and disables all in
 
     - 主要用于某些不能使用ORIENTAIS OS API的临界段。
 
-      It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
+      Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
 
 
 ResumeOSInterrupts
@@ -187,11 +187,11 @@ This service restores the recognition status of interrupts saved by the SuspendO
 
     - SuspendOSInterrupts / ResumeOSInterrupts可以嵌套使用。如果嵌套调用SuspendOSInterrupts和ResumeOSInterrupts，SuspendOSInterrupts的第一次调用时保存的中断识别状态将在ResumeAllInterrupts最后一次调用时恢复。
     
-      SuspendOSInterrupts / ResumeOSInterrupts can be used in a nested manner. If SuspendOSInterrupts and ResumeOSInterrupts are called nestedly, the interrupt identification state saved when SuspendOSInterrupts is first called will be restored when ResumeAllInterrupts is called for the last time.
+      SuspendOSInterrupts / ResumeOSInterrupts can be used in a nested manner. If SuspendOSInterrupts and ResumeOSInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendOSInterrupts will be restored during the last call of ResumeOSInterrupts.
     
     - SuspendOSInterrupts / ResumeOSInterrupts仅对2类中断有影响。
 
-      SuspendOSInterrupts / ResumeOSInterrupts only affect Type 2 Interrupts.
+      SuspendOSInterrupts / ResumeOSInterrupts only affect Category 2 Interrupts.
 
 SuspendOSInterrupts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -216,7 +216,7 @@ This service saves the recognition status of interrupts of category 2 and disabl
 
     - 主要用于某些不能使用ORIENTAIS OS API的临界段。
 
-      It is mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
+      Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
 
 GetISRID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -351,7 +351,7 @@ Enables the interrupt source by modifying the interrupt controller registers. Ad
 
     - 该服务为了短时间屏蔽特定的中断或在特定时间内忽略特定源的中断请求。
 
-      This service is used to mask specific interrupts for a short period of time or ignore interrupt requests from specific sources within a specific time frame.
+      This service is used to mask specific interrupts for a short duration or ignore interrupt requests from specific sources within a specified time period.
 
 
 DisableInterruptSource
@@ -473,7 +473,7 @@ Clears the interrupt pending flag by modifying the interrupt controller register
 
     - 该服务为了短时间屏蔽特定的中断或在特定时间内忽略特定源的中断请求。
 
-      This service is used to mask specific interrupts for a short period of time or ignore interrupt requests from specific sources within a given time frame.
+      This service is used to mask specific interrupts for a short duration or ignore interrupt requests from specific sources within a given time frame.
 
 
 

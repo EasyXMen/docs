@@ -1,51 +1,49 @@
-ScheduleTable Functions
+ScheduleTable(Functions)
 --------------------------------------
 
 调度表类似于使用Counter和一系列自动启动的Alarms来实现静态定义的任务激活机制。
 
-A schedule table is similar to a statically defined task activation mechanism implemented using a Counter and a series of automatically started Alarms.
+A schedule table is analogous to a statically defined task activation mechanism implemented using a Counter and a series of auto-started Alarms.
 
 调度表提供了一组静态定义的溢出点封装。每个溢出点定义：
 
-A schedule table provides a set of statically defined overflow point encapsulations. Each overflow point defines:
+A schedule table provides a set of statically defined expiry point encapsulations. Each expiry point defines:
 
-   - 处理溢出点时，将执行动作（通过ORIENTAIS配置工具OS模块配置）。动作是任务的激活或事件的设置。
+   - 处理溢出点时，将执行动作(通过ORIENTAIS配置工具OS模块配置)。动作是任务的激活或事件的设置。
 
-     When processing the overflow point, an action (configured via the OS module of the ORIENTAIS configuration tool) will be executed. The action is either the activation of a task or the setting of an event.
+     When processing the expiry point, an action (configured via the OS module of the ORIENTAIS configuration tool) is executed. The action is either task activation or event setting.
 
-   - 从调度表的开始处以“滴答”为单位的偏移量。
+   - 从调度表的开始处以"滴答"为单位的偏移量。
 
      An offset in "tick" units from the start of the schedule table.
 
 在运行时，ORIENTAIS OS将遍历调度表，依次处理每个溢出点。调度表由一个计数器驱动。计数器的属性会影响调度表中允许配置的内容。
 
-During runtime, the ORIENTAIS OS traverses the schedule table and processes each overflow point in sequence. The schedule table is driven by a counter, and the properties of the counter affect the configurable content allowed in the schedule table.
+During runtime, ORIENTAIS OS traverses the schedule table and processes each expiry point sequentially. The schedule table is driven by a counter, and the counter's properties affect the configurable content within the schedule table.
 
 用户可以为调度表设置为同步模式。ORIENTAIS OS通过两种方式提供对同步的支持：
 
-Users can set the schedule table to synchronous mode. The ORIENTAIS OS provides support for synchronization in two ways:
+Users can configure the schedule table for synchronous mode. ORIENTAIS OS provides synchronization support in two ways:
 
-- 隐式同步：驱动调度表的计数器要求是同步计数器。这通常是采用时间触发的网络技术（例如FlexRay，TTP）实现同步的方式-底层硬件管理网络时间同步，并简单地将时间显示为ORIENTAIS OS的输出/比较计时器接口。Figure显示了隐式同步调度表可能出现的状态。
+- 隐式同步：驱动调度表的计数器要求是同步计数器。这通常是采用时间触发的网络技术(例如FlexRay，TTP)实现同步的方式-底层硬件管理网络时间同步，并简单地将时间显示为ORIENTAIS OS的输出/比较计时器接口。Figure显示了隐式同步调度表可能出现的状态。
 
-  Implicit Synchronization: The counter driving the schedule table is required to be a synchronous counter. This is typically a synchronization method implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and simply presents the time as an output/compare timer interface for the ORIENTAIS OS. Figure 5-7 shows the possible states of a schedule table with implicit synchronization.
+  Implicit Synchronization: The counter driving the schedule table must be a synchronous counter. This is typically implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and presents the time simply as an output/compare timer interface to ORIENTAIS OS. The figure shows possible states of an implicitly synchronized schedule table.
 
 .. figure:: ../../../_static/参考手册/Os/隐式同步调度表的状态图.png
-   :alt: 隐式同步调度表的状态图
+   :alt: 隐式同步调度表的状态图 States of Implicitly Synchronized Schedule Table
    :align: center
 
-   隐式同步调度表的状态（States of Schedule Table with Implicit Synchronization）
+   隐式同步调度表的状态 (States of Implicitly Synchronized Schedule Table)
 
 - 显式同步：调度表由ORIENTAIS OS计数器驱动，而不要求是同步的计数器。ORIENTAIS OS还提供一些其他功能，以使其计数器驱动的调度表与同步计数器同步。通常，这是与定期广播全局时间进行同步的方式。Figure显示了显式同步调度表可能出现的状态。
 
-  Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be a synchronous counter. The ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this is a method of synchronizing with periodically broadcast global time. Figure 5-8 shows the possible states of a schedule table with explicit synchronization.
+  Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be synchronous. ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this synchronizes with a periodically broadcast global time. The figure shows possible states of an explicitly synchronized schedule table.
 
 .. figure:: ../../../_static/参考手册/Os/显式同步调度表的状态图.png
-   :alt: 显式同步调度表的状态图
+   :alt: 显式同步调度表的状态图 (States of Explicitly Synchronized Schedule Table)
    :align: center
 
-   显式同步调度表的状态（图中未显示所有的跳转条件）
-
-States of Schedule Table with Explicit Synchronization (not all transition conditions are shown in the diagram)
+   显式同步调度表的状态(图中未显示所有的跳转条件) (States of Explicitly Synchronized Schedule Table - Not all transition conditions are shown)
 
 StartScheduleTableRel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -454,7 +452,7 @@ This service starts an explicitly synchronized schedule table synchronously.
 
    - 仅在SC3、SC4下有效
 
-     It is only valid under SC3 and SC4.
+     This is valid only under SC3 and SC4.
 
    - 调度表同步策略必须是显性。
 
@@ -546,7 +544,7 @@ This service provides the schedule table with a synchronization count and start 
 
    - 仅在SC3、SC4下有效
 
-     It is only valid under SC3 and SC4.
+     It is  valid only under SC3 and SC4.
 
    - 调度表同步策略必须是显性
 
@@ -639,7 +637,7 @@ Stop schedule table explicit sync and set state to running.
 
    - 仅在SC3、SC4下有效
 
-     It is only valid under SC3 and SC4.
+     It is valid only under SC3 and SC4.
 
    - 调度表同步策略必须是显性
 

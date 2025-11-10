@@ -1,7 +1,7 @@
-接口描述（Interface Description）
+接口描述(Interface Description)
 =====================================
 
-类型定义（Type Definitions）
+类型定义(Type Definitions)
 ----------------------------------
 
 .. include::  API/EcuM_Types_h_api.rst

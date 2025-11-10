@@ -171,7 +171,7 @@ As shown in the figure, the EthTSyn module is located in the system service laye
 周期时间同步 Periodic Time Synchronization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-EthTSyn默认采用的是周期时间同步，作为主时钟（TIME_MASTER）的端口将以可配置的周期循环发送SYNC和FOLLOWUP报文。其中的全局同步时间将在FOLLOWUP报文中携带。从时钟（TIME_SLAVE）收到SYNC报文后，将会记下当前时间。当收到FOLLOWUP报文后，解析出携带的全局同步时间，最后计算出本地需要更新的全局时间进行最终的同步。
+EthTSyn默认采用的是周期时间同步，作为主时钟(TIME_MASTER)的端口将以可配置的周期循环发送SYNC和FOLLOWUP报文。其中的全局同步时间将在FOLLOWUP报文中携带。从时钟(TIME_SLAVE)收到SYNC报文后，将会记下当前时间。当收到FOLLOWUP报文后，解析出携带的全局同步时间，最后计算出本地需要更新的全局时间进行最终的同步。
 
 EthTSyn adopts periodic time synchronization by default. The port acting as the master clock (TIME_MASTER) will send SYNC and FOLLOWUP messages cyclically at a configurable period. The global synchronization time is carried in the FOLLOWUP message. After receiving the SYNC message, the slave clock (TIME_SLAVE) will record the current time. After receiving the FOLLOWUP message, parse out the carried global synchronization time, and finally calculate the global time that needs to be updated locally for final synchronization.
 
@@ -501,7 +501,7 @@ In EthTSynGlobalTimeDomain, configure the relevant parameters of the time domain
 
 .. attention::
 
-  一个时间域可以配置多个Port，EthTSynGlobalTimeHardware是指当前时间域关联的StbM时间基所配的时钟源来自哪个以太网Port。EthTSynGlobalTimeHardware当且仅当该时间域所配的时间基（EthTSynSchronizedTimeBaseRef）下的StbMLocalTimeClock关联的为以太网时钟时，才会生效。
+  一个时间域可以配置多个Port，EthTSynGlobalTimeHardware是指当前时间域关联的StbM时间基所配的时钟源来自哪个以太网Port。EthTSynGlobalTimeHardware当且仅当该时间域所配的时间基(EthTSynSchronizedTimeBaseRef)下的StbMLocalTimeClock关联的为以太网时钟时，才会生效。
 
   A time domain can be configured with multiple Ports. EthTSynGlobalTimeHardware refers to which Ethernet Port the clock source configured for the StbM time base associated with the current time domain comes from. EthTSynGlobalTimeHardware takes effect if and only if the time base (EthTSynSchronizedTimeBaseRef) configured in the time domain is associated with the Ethernet clock in StbMLocalTimeClock.
 

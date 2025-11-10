@@ -173,7 +173,7 @@ UdpNm模块的核心功能是协调网络正常运行和总线睡眠模式之间
 
 The core function of the UdpNm module is to coordinate the transition between normal network running and bus-sleep mode. In addition, it provides optional functions, such as detecting whether the local node or all other nodes are ready to sleep.
 
-UdpNm提供网络管理接口（Nm）和TCP/IP协议栈之间的适配。UdpNm通过调用SoAd模块的发送API来传输数据，并提供接收API给SoAd用于接收下层网络管理报文。Nm模块调用UdpNm模块API来更改UdpNm的当前状态机状态，UdpNm的状态机模式切换需要通知给Nm模块。
+UdpNm提供网络管理接口(Nm)和TCP/IP协议栈之间的适配。UdpNm通过调用SoAd模块的发送API来传输数据，并提供接收API给SoAd用于接收下层网络管理报文。Nm模块调用UdpNm模块API来更改UdpNm的当前状态机状态，UdpNm的状态机模式切换需要通知给Nm模块。
 
 UdpNm provides the adaptation between the Network Management interface (Nm) and the TCP/IP protocol stack. UdpNm transmits data by calling the transmission APIs of the SoAd module and provides reception APIs for SoAd to receive network management messages from the lower layers. The Nm module calls the APIs of the UdpNm module to change the current state machine state of UdpNm, and state machine mode switches in the UdpNm module need to be notified to the Nm module.
 

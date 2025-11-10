@@ -1,5 +1,5 @@
 
-类型定义（Type Definition）
+类型定义(Type Definitions)
 --------------------------------------
 .. list-table::
    :widths: 5 10 30
@@ -10,12 +10,10 @@
      - Description
    * - CanTp_ConfigType
      - Structure
-     - 表示CanTp的PB配置结构体
-       
-       Represents the PB configuration structure of CanTp
+     - 表示CanTp的PB配置结构体 (Represents the PB configuration structure of CanTp)
 
       
-提供的服务（Provided services）
+提供的服务(Services)
 -----------------------------------------
 CanTp_RxIndication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

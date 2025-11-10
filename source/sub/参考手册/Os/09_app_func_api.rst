@@ -1,9 +1,9 @@
-OS-APP Functions
+OS-APP(Functions)
 --------------------------------------
 
-Os能够支持一系列操作系统对象的集合（任务，中断，Alarm，调度表，计数器）。该对象集合称为OS-Application。
+Os能够支持一系列操作系统对象的集合(任务，中断，Alarm，调度表，计数器)。该对象集合称为OS-Application。
 
-Os can support a collection of a series of operating system objects (tasks, interrupts, Alarms, schedule tables, counters). This collection of objects is called an OS-Application.
+The OS can support a collection of operating system objects (tasks, interrupts, alarms, schedule tables, counters). This object collection is called an OS-Application.
 
 存在两类OS-Application：
 
@@ -11,42 +11,41 @@ There are two types of OS-Applications:
 
    - 可信OS-Application在监视或保护功能关闭的情况下运行。他们能够无限制地访问内存，操作系统模块的API，并且不需要在运行时受到强制时间限制。当处理器支持的情况下，允许它们在特权模式下运行。
    
-     Trusted OS-Applications run with monitoring or protection functions turned off. They have unrestricted access to memory, APIs of operating system modules, and do not need to be subject to mandatory time limits during runtime. When supported by the processor, they are allowed to run in privileged mode.
+     Trusted OS-Applications run with monitoring or protection functions disabled. They have unrestricted access to memory and OS module APIs, and are not subject to mandatory time constraints during runtime. When processor support is available, they are permitted to run in privileged mode.
    
    - 不可信任的OS-Application在监视或保护功能开启的情况下运行。它们对内存的访问受到限制，对操作系统模块的API的访问受到限制，并且需要在运行时进行强制时间限制。当处理器支持时，不允许它们在特权模式下运行。
 
-     Untrusted OS-Applications run with monitoring or protection functions turned on. Their access to memory is restricted, access to APIs of operating system modules is restricted, and they are subject to mandatory time limits during runtime. When supported by the processor, they are not allowed to run in privileged mode.
+     Untrusted OS-Applications run with monitoring or protection functions enabled. Their access to memory is restricted, access to OS module APIs is limited, and they are subject to mandatory time constraints during runtime. When processor support is available, they are not permitted to run in privileged mode.
 
 ORIENTAIS OS提供一些服务，这些服务向调用者提供有关访问权限和对象成员身份的信息。这些服务主要在OS-Application之间检查访问权限和参数的情况下使用。
 
-ORIENTAIS OS provides some services that provide callers with information about access rights and object membership. These services are mainly used in situations where access rights and parameters are checked between OS-Applications.
+ORIENTAIS OS provides services that supply callers with information about access rights and object membership. These services are primarily used to check access rights and parameters between OS-Applications.
 
 OS-Applications的状态决定其操作系统对象从其他OS-Applications访问的范围。每个OS-Application始终处于以下状态之一：
 
-The state of OS-Applications determines the scope of access to its operating system objects from other OS-Applications. Each OS-Application is always in one of the following states:
+The state of an OS-Application determines the accessibility scope of its operating system objects from other OS-Applications. Each OS-Application is always in one of the following states:
 
-   - 激活且可访问的（APPLICATION_ACCESSIBLE）：可以从其他OS-Applications访问操作系统对象。这是启动时的默认状态。
+   - 激活且可访问的(APPLICATION_ACCESSIBLE)：可以从其他OS-Applications访问操作系统对象。这是启动时的默认状态。
 
      Active and accessible (APPLICATION_ACCESSIBLE): Operating system objects can be accessed from other OS-Applications. This is the default state at startup.
 
-   - 当前处于重启阶段（APPLICATION_RESTART）。无法从其他OS-Applications访问操作系统对象。状态有效，直到OS-Application调用AllowAccess。
+   - 当前处于重启阶段(APPLICATION_RESTART)。无法从其他OS-Applications访问操作系统对象。状态有效，直到OS-Application调用AllowAccess。
 
-     Currently in the restart phase (APPLICATION_RESTART). Operating system objects cannot be accessed from other OS-Applications. The state remains valid until the OS-Application calls AllowAccess.
+     Currently in restart phase (APPLICATION_RESTART): Operating system objects cannot be accessed from other OS-Applications. This state remains valid until the OS-Application calls AllowAccess.
 
-   - 已终止且不可访问（APPLICATION_TERMINATED）：不能从其他OS-Applications访问操作系统对象。状态不会改变。
+   - 已终止且不可访问(APPLICATION_TERMINATED)：不能从其他OS-Applications访问操作系统对象。状态不会改变。
 
-     Terminated and inaccessible (APPLICATION_TERMINATED): Operating system objects cannot be accessed from other OS-Applications. The state does not change.
-
+     Terminated and inaccessible (APPLICATION_TERMINATED): Operating system objects cannot be accessed from other OS-Applications. This state does not change.
 
 Figure显示了状态的转换：
 
-Figure shows the state transitions:
+The figure shows the state transitions:
 
 .. figure:: ../../../_static/参考手册/Os/OS-Applications状态图.png
-   :alt: APP状态图
+   :alt: APP状态图 (OS-Application State Diagram)
    :align: center
 
-   OS-Applications状态图（OS-Applications state diagram）
+   OS-Applications状态图 (OS-Application State Diagram)
 
 
 
@@ -162,7 +161,7 @@ Get the OS-Application ID to which the currently running Task/ISR/Hook belongs.
 
    - GetApplicationID和GetCurrentApplicationID区别在于GetApplicationID可以获取可信函数的应用程序ID。
 
-     The difference between GetApplicationID and GetCurrentApplicationID is that GetApplicationID can obtain the application ID of a trusted function.
+     The difference between GetApplicationID and GetCurrentApplicationID is that GetApplicationID can retrieve the application ID of a trusted function.
 
    - 在SC3、SC4下有效
 
@@ -242,7 +241,7 @@ This service determines if the OS-Applications, given by ApplID, is allowed to u
 
    - 请确保对象类型和对象ID是匹配的。
 
-     Please ensure that the object type and object ID match.
+     Ensure that the object type and object ID match.
 
    - 在SC3，SC4下有效
 
@@ -319,7 +318,7 @@ This service determines to which OS-Application a given Task, ISR, Resource, Cou
 
    - 请确保对象类型和对象ID是匹配的。
 
-     Please ensure that the object type and object ID match.
+     Ensure that the object type and object ID match.
 
    - 在SC3，SC4下有效
 
@@ -489,7 +488,7 @@ This service returns the current state of an OS-Application.
 
    - 如果重新启动的OS-Application配置了重启任务，则该任务将在重新启动时被激活。
 
-     If the OS-Application to be restarted is configured with a restart task, this task will be activated during the restart.
+     If the OS-Application to be restarted is configured with a restart task, that task is activated during the restart.
 
    - 在SC3，SC4下有效
 

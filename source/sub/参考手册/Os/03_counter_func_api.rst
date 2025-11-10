@@ -1,16 +1,16 @@
-Counter Functions
+Counter(Functions)
 --------------------------------------
 
 一个计数器由一个以“滴答”为单位表示的计数器值和一些计数器特定的常数。 Os提供标准化的API，以直接操作计数器。
 Os提供了两种不同的计数器：
 
-A counter consists of a counter value represented in "tick" units and some counter-specific constants. The Os provides standardized APIs to directly manipulate counters.
-The Os offers two distinct types of counters:
+A counter consists of a counter value represented in "tick" units and some counter-specific constants. The OS provides standardized APIs to directly manipulate counters.
+The OS offers two distinct types of counters:
 
- - 硬件Counter（Hardware Counter）
- - 软件Counter（Software Counter）
+ - 硬件Counter(Hardware Counter)
+ - 软件Counter(Software Counter)
 
-**硬件Counter:** 由硬件（例如定时器）增加计数器的计数值。计数值由外围设备“在硬件中”维护。
+**硬件Counter:** 由硬件(例如定时器)增加计数器的计数值。计数值由外围设备“在硬件中”维护。
 
 **Hardware Counter**: The counter value is incremented by hardware (e.g., a timer). The counter value is maintained "in hardware" by peripheral devices.
 
@@ -174,7 +174,7 @@ This service reads the current count value of a counter .
 
    - 如果计数器是由硬件驱动的，则返回硬件计数器的计数值；如果计数器是由软件驱动的，则返回软件计数器的计数值。
 
-     If the counter is driven by hardware, it returns the count value of the hardware counter; if the counter is driven by software, it returns the count value of the software counter.
+     If the counter is hardware-driven, it returns the hardware counter's count value; if the counter is software-driven, it returns the software counter's count value.
 
 
 GetElapsedValue

@@ -100,7 +100,7 @@ None
 
    * - MII
      - Media Independent Interface (standardized interface provided by Ethernet controllers to access Ethernet transceivers)
-     - 媒体独立接口（以太网控制器提供的标准化接口，用于访问以太网收发器）
+     - 媒体独立接口(以太网控制器提供的标准化接口，用于访问以太网收发器)
 
    * - MDIO
      - Management Data Input/Output

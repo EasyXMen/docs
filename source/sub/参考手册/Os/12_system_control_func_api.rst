@@ -1,4 +1,4 @@
-System Control Functions
+System(Control Functions)
 --------------------------------------
 
 
@@ -42,7 +42,7 @@ The user can call this system service to start the operating system in a specifi
 
     - 所有核必须以相同模式启动。
 
-      All cores must start in the same mode.
+      All cores must boot in the same mode.
 
 
 ShutdownOS
@@ -80,7 +80,7 @@ The user can call this system service to abort the overall system (e.g. emergenc
 
     - 该服务调用者所属OS-Application必须是可信OS-Application
 
-      The OS-Application to which the caller of this service belongs must be a trusted OS-Application.
+      The OS-Application to which the service caller belongs must be a trusted OS-Application.
 
 
 GetActiveApplicationMode

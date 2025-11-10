@@ -1,14 +1,14 @@
-接口描述（Interface Description）
+接口描述(Interface Description)
 ==========================================
 
-类型定义（Type Definitions）
+类型定义(Type Definitions)
 ---------------------------------------------
 .. include:: PduR_Types_h_api.rst
 
 None
 
       
-提供的服务（Provided Services）
+提供的服务(Services)
 ------------------------------------------------
 PduR_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

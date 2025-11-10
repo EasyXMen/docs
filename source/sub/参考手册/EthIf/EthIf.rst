@@ -80,16 +80,16 @@ EthIf
      - 解释(Explanation)
 
    * - Eth
-     - 以太网控制器驱动程序（AUTOSAR BSW 模块）(Ethernet Controller Driver (AUTOSAR BSW Module))
+     - 以太网控制器驱动程序(AUTOSAR BSW 模块)(Ethernet Controller Driver (AUTOSAR BSW Module))
 
    * - EthIf
-     - 以太网接口（AUTOSAR BSW 模块）(Ethernet Interface (AUTOSAR BSW Module))
+     - 以太网接口(AUTOSAR BSW 模块)(Ethernet Interface (AUTOSAR BSW Module))
 
    * - EthSM
-     - 以太网状态管理器（AUTOSAR BSW 模块）(Ethernet State Manager (AUTOSAR BSW Module))
+     - 以太网状态管理器(AUTOSAR BSW 模块)(Ethernet State Manager (AUTOSAR BSW Module))
 
    * - EthTrcv
-     - 以太网收发器驱动程序（AUTOSAR BSW 模块）(Ethernet Transceiver Driver (AUTOSAR BSW Module))
+     - 以太网收发器驱动程序(AUTOSAR BSW 模块)(Ethernet Transceiver Driver (AUTOSAR BSW Module))
 
    * - CBR
      - 信道繁忙率(Channel Busy Ratio)
@@ -98,7 +98,7 @@ EthIf
      - 信道空闲时间(Channel Idle Time)
 
    * - CV2x
-     - 蜂窝车联网直连通信驱动程序（AUTOSAR BSW 模块）(Cellular Vehicle-to-Everything Driver (AUTOSAR BSW Module))
+     - 蜂窝车联网直连通信驱动程序(AUTOSAR BSW 模块)(Cellular Vehicle-to-Everything Driver (AUTOSAR BSW Module))
 
    * - CIT
      - 信道空闲时间(Channel Idle Time)
@@ -204,7 +204,7 @@ As shown in Figure :ref:`EthIf_fig_arch`, EthIf interacts downward with Ethernet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-EthIf将下层以太网硬件（例如Ethernet Controller,Ethernet transceiver以及Ethernet switch等）提供的接口抽象到EthIf中，由EthIf在上层模块与以太网硬件间扮演接口传递的角色。
+EthIf将下层以太网硬件(例如Ethernet Controller,Ethernet transceiver以及Ethernet switch等)提供的接口抽象到EthIf中，由EthIf在上层模块与以太网硬件间扮演接口传递的角色。
 
 EthIf abstracts the interfaces provided by the underlying Ethernet hardware (such as Ethernet Controller, Ethernet Transceiver, and Ethernet Switch) into itself, and EthIf acts as an interface transmission role between the upper-layer modules and the Ethernet hardware.
 
@@ -221,7 +221,7 @@ EthIf is responsible for the VLAN tag removal/insertion operations for VLAN fram
 通讯与控制 Communication and Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-EthIf提供了许多对以太网硬件进行通讯模式与状态控制的接口，例如涉及Ethernet Controller,Ethernet transceiver以及Ethernet switch等硬件的API。同时也提供通过以太网硬件发送与接收以太网数据的接口，以及它们数据的获取方式（这里指中断方式与轮询方式）等。
+EthIf提供了许多对以太网硬件进行通讯模式与状态控制的接口，例如涉及Ethernet Controller,Ethernet transceiver以及Ethernet switch等硬件的API。同时也提供通过以太网硬件发送与接收以太网数据的接口，以及它们数据的获取方式(这里指中断方式与轮询方式)等。
 
 EthIf provides a number of interfaces for controlling the communication mode and state of Ethernet hardware, such as APIs related to Ethernet Controllers, Ethernet Transceivers, and Ethernet Switches. It also provides interfaces for sending and receiving Ethernet data through Ethernet hardware, as well as methods for obtaining such data (referring to interrupt mode and polling mode here).
 
@@ -244,7 +244,7 @@ EthIf provides a number of interfaces for controlling the communication mode and
 
 2.EthIfPhysCtrlRxMainFunctionIngressQueueProcessing: The EthIfPhysCtrlRxMainFunctionIngressQueueProcessing configuration item under EthIfPhysController is not currently supported because there is no corresponding version of the Eth driver for verification.
 
-3.EthIfFrameOwnerPdu: 位于EthIfFrameOwnerConfig下的EthIfFrameOwnerPdu配置项因为它相关功能的实现需要依赖L-SDU（该模块本阶段未实现），所以该配置及其子配置项目前不支持。
+3.EthIfFrameOwnerPdu: 位于EthIfFrameOwnerConfig下的EthIfFrameOwnerPdu配置项因为它相关功能的实现需要依赖L-SDU(该模块本阶段未实现)，所以该配置及其子配置项目前不支持。
 
 3.EthIfFrameOwnerPdu: The EthIfFrameOwnerPdu configuration item under EthIfFrameOwnerConfig is not currently supported, along with its sub-configuration items, because the implementation of its related functions depends on L-SDU (this module is not implemented in this phase).
 
@@ -323,7 +323,7 @@ None
      - 定义EthIf模块内部结构体以及相应宏常量(Defines the internal structures and corresponding macro constants of the EthIf module)
 
    * - EthIf_Cfg.c
-     - 定义EthIf模块内部描述各个以太网硬件资源（例如controller,transceiver以及siwtch与相关的switch port等）状态的变量(Defines variables in the EthIf module that describe the status of various Ethernet hardware resources (such as controllers, transceivers, switches, and related switch ports))
+     - 定义EthIf模块内部描述各个以太网硬件资源(例如controller,transceiver以及siwtch与相关的switch port等)状态的变量(Defines variables in the EthIf module that describe the status of various Ethernet hardware resources (such as controllers, transceivers, switches, and related switch ports))
 
    * - EthIf_PBcfg.c
      - 定义EthIf模块PB配置的结构体参数(Defines the structure parameters for the PB configuration of the EthIf module)
@@ -411,7 +411,7 @@ None
 
 OverView
 --------------------------------------------
-如下图所示EthIfConfigSet与EthIfGeneral页面上的内容是按照AUTOSAR的规范进行开发设置的，另外的EthTrcv_DriverApiConfigSet，Eth_DriverApiConfigSet与EthSwt_DriverApiConfigSet分别用于配置Ethernet Transceiver，Ethernet Driver与Ethnernet Switch相关的驱动的API（后续称这三个页面为驱动具体名称配置页面）。
+如下图所示EthIfConfigSet与EthIfGeneral页面上的内容是按照AUTOSAR的规范进行开发设置的，另外的EthTrcv_DriverApiConfigSet，Eth_DriverApiConfigSet与EthSwt_DriverApiConfigSet分别用于配置Ethernet Transceiver，Ethernet Driver与Ethnernet Switch相关的驱动的API(后续称这三个页面为驱动具体名称配置页面)。
 
 As shown in the figure below, the contents on the EthIfConfigSet and EthIfGeneral pages are developed and set in accordance with AUTOSAR specifications. In addition, EthTrcv_DriverApiConfigSet, Eth_DriverApiConfigSet, and EthSwt_DriverApiConfigSet are used to configure the APIs of drivers related to Ethernet Transceiver, Ethernet Driver, and Ethernet Switch respectively (these three pages are referred to as "Driver-Specific Name Configuration Pages" hereinafter).
 
@@ -434,7 +434,7 @@ EthIfConfigSet中的容器 Containers in EthIfConfigSet
 容器EthIfPhysController Container EthIfPhysController
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-这个容器主要是用于EthIf层抽象的EthIfPhysController关联Ethernet Driver（后续也可以是WEthernet与CanXL）的物理以太网控制器。在多分区的工程中这里还需要配置EthIfCtrlPartitionRef。
+这个容器主要是用于EthIf层抽象的EthIfPhysController关联Ethernet Driver(后续也可以是WEthernet与CanXL)的物理以太网控制器。在多分区的工程中这里还需要配置EthIfCtrlPartitionRef。
 
 This container is mainly used for the EthIfPhysController abstracted by the EthIf layer to associate the physical Ethernet Controller of the Ethernet Driver (which can also be WEthernet and CanXL hereinafter). In a multi-partition project, EthIfCtrlPartitionRef also needs to be configured here.
 
@@ -507,7 +507,7 @@ The container EthIfTxConfirmationConfig is used to configure that when the EthIf
    EthIf_TxConfirmation回调函数可以配置成NULL_PTR (The EthIf_TxConfirmation callback function can be configured as NULL_PTR)
 
 .. important::
-   在EthIf模块内部会维护EthIfFrameOwnerConfig中配置的报文类型相关的数据，在收到以太网报文时将遍历EthIfFrameOwnerConfig中的配置，当EthIfFramType与收到的报文匹配时将根据当前EthIfFrameOwnerConfig中配置的EthIfOwner（它是从0开始计数的）调用EthIfRxIndicationConfig中对应条目中的回调函数。
+   在EthIf模块内部会维护EthIfFrameOwnerConfig中配置的报文类型相关的数据，在收到以太网报文时将遍历EthIfFrameOwnerConfig中的配置，当EthIfFramType与收到的报文匹配时将根据当前EthIfFrameOwnerConfig中配置的EthIfOwner(它是从0开始计数的)调用EthIfRxIndicationConfig中对应条目中的回调函数。
 
    The EthIf module will maintain data related to the frame type configured in EthIfFrameOwnerConfig internally. When an Ethernet frame is received, it will traverse the configurations in EthIfFrameOwnerConfig. When the EthIfFramType matches the received frame, it will call the callback function in the corresponding entry of EthIfRxIndicationConfig according to the EthIfOwner (counted from 0) configured in the current EthIfFrameOwnerConfig.
 

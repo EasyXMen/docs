@@ -1,9 +1,9 @@
-Hook Functions
+Hook(Functions)
 --------------------------------------
 
-ORIENTAIS OS为用户提供了一系列钩子函数功能（Hook）。例如在钩子函数StartupHook中初始化一些硬件，在钩子函数ErrorHook中捕获并处理的一些错误。
+ORIENTAIS OS为用户提供了一系列钩子函数功能(Hook)。例如在钩子函数StartupHook中初始化一些硬件，在钩子函数ErrorHook中捕获并处理的一些错误。
 
-ORIENTAIS OS provides users with a series of hook function features (Hook). For example, some hardware can be initialized in the hook function StartupHook, and some errors can be captured and handled in the hook function ErrorHook.
+ORIENTAIS OS provides users with a series of hook functions. For example, hardware can be initialized in the StartupHook function, and errors can be captured and handled in the ErrorHook function.
 
 
 ErrorHook
@@ -62,11 +62,11 @@ The specific error hook is called whenever a Task or ISR calls system service to
 
     - 执行错误处理。该接口由用户实现错误处理，并由ORIENTAIS OS调用。
 
-      Executes error handling. This interface is implemented by the user for error handling and called by ORIENTAIS OS.
+      Performs error handling. This interface is implemented by the user for error handling and is called by ORIENTAIS OS.
 
-    - 用户可以通过输入参数< Error >的值来了解错误类型。
+    - 用户可以通过输入参数<Error>的值来了解错误类型。
 
-      Users can learn about the error type through the value of the input parameter < Error >.
+      Users can determine the error type from the value of the input parameter <Error>.
 
 
 
@@ -115,7 +115,7 @@ This hook routine is called by ORIENTAIS OS after executing the current task, bu
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
 PreTaskHook
@@ -166,7 +166,7 @@ This hook routine is called by ORIENTAIS OS before executing a new task, but aft
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
 StartupHook
@@ -209,7 +209,7 @@ This hook routine is called by the operating system at the end of the operating 
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
        
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
 ShutdownHook
@@ -265,7 +265,7 @@ This hook routine is called by the operating system when the OS service Shutdown
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
 ProtectionHook
@@ -345,11 +345,11 @@ This hook routine is called by the operating system when the OS service protecti
 
     - 该接口由用户实现错误处理，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user for error handling and called by ORIENTAIS OS.
+      This interface is implemented by the user for error handling and is called by ORIENTAIS OS.
 
     - 用户可以通过返回值来选择五种处理方式中的一种处理。
 
-      Users can select one of the five processing methods through the return value.
+      Users can select one of five processing methods through the return value.
 
 
 
@@ -376,11 +376,11 @@ This HOOK is called when ORIENTAIS OS enters an idle task.
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
     - 如果没有正在运行的任务/中断，则调用此接口。
 
-      This interface is called if there is no running task/interrupt.
+      This interface is called when no task or interrupt is running.
 
 
 ErrorHook_<ApplicationName>
@@ -418,7 +418,7 @@ This HOOK is called when ORIENTAIS OS enters an idle task.
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
 StartupHook_<ApplicationName>
@@ -444,7 +444,7 @@ When a specific application has the startup hook function enabled, ORIENTAIS OS 
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
 ShutdownHook_<ApplicationName>
@@ -482,6 +482,6 @@ When a specific application has the shutdown hook function enabled, ORIENTAIS OS
 
     - 该接口由用户实现，并由ORIENTAIS OS调用。
 
-      This interface is implemented by the user and called by ORIENTAIS OS.
+      This interface is implemented by the user and is called by ORIENTAIS OS.
 
 
