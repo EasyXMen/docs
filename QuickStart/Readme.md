@@ -1,10 +1,10 @@
 #  **1. 下载源码**
-开发者可从 [AtomGit仓库](https://atomgit.com/easyxmen)，或者 [码云镜像仓](https://gitee.com/easyxmen) 和 [GitHub镜像仓](https://github.com/EasyXMen) 获取项目最新代码及相关文档。下面以AtomGit平台为例进行介绍，其它代码托管平台操作类似。
+开发者可从 [AtomGit仓库](https://atomgit.com/easyxmen)，或者 [Gitee镜像仓](https://gitee.com/easyxmen) 和 [GitHub镜像仓](https://github.com/EasyXMen) 获取项目最新代码及相关文档。下面以AtomGit平台为例进行介绍，其它代码托管平台操作类似。
 
 ## **前提条件**
 1. 注册 AtomGit 账户
-2. 配置SSH密钥，具体请参考帮助文档[配置SSH密钥](https://docs.atomgit.com/user/sshkey)
-3. 安装Git客户端并配置，具体请参考[Git入门](https://docs.atomgit.com/git)
+2. 配置SSH密钥，具体请参考帮助文档[配置SSH密钥](https://docs.atomgit.com/docs/help/home/user_center/security_management/)
+3. 安装Git客户端并配置，具体请参考[Git入门](https://docs.atomgit.com/docs/help/home/general-reference/git)
 
 ## **具体操作**
 以在本地新建EasyXMen文件夹为例，克隆远端仓库至本地，并建立自己的分支
