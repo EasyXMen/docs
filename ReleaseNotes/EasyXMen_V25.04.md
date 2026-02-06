@@ -69,7 +69,7 @@ In addition to the above improvements, "EasyXMen V25.04" version also has a seri
 
 ## **工具链申请地址（Toolchains request address）**
 
-https://register.easyxmen.com/application_pc.html?channel=3
+https://register.easyxmen.com/welcome.html?channel=3
 
 ## **代码地址（Code address）**
 
