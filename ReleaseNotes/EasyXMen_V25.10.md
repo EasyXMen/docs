@@ -155,7 +155,7 @@ Please note that the upgrade work shall be completed before November 24, 2025. A
 
 ## 工具申请地址 Tool application Address
 
-https://register.easyxmen.com/agreement.html?channel=3
+https://register.easyxmen.com/welcome.html?channel=3
 
 ## 代码仓地址 Code Repository Address
 
