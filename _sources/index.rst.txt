@@ -1,12 +1,16 @@
-开源小满EasyXMen技术文档
+开源小满EasyXMen技术文档(EasyXMen Technical Documentation)
 ================================================================
 
 本仓库为开源小满EasyXMen的文档仓库
 
-开源许可
+This repository is the documentation repository for EasyXMen.
+
+开源许可(License)
 ================================================================
 
 本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的 LICENSE.txt
+
+This repository is based on the GNU Free Documentation License, Version 1.3 (FDL 1.3), see the LICENSE.txt in this repository for details.
 
 Copyright (C) 2024 Isoft Infrastructure Software Co., Ltd.
 Permission is granted to copy, distribute and/or modify this document
@@ -23,30 +27,28 @@ I-SOFT
    :widths: 10 60 20
    :header-rows: 1
 
-   * - 版本
-     - 描述
-     - 日期
+   * - 版本(Version)
+     - 描述(Description)
+     - 日期(Date)
    * - 1.0.0
-     - 发布
+     - 发布(Release)
      - 2024-10-24
    * - 1.1.0
-     - 基于V25.04源码更新模块参考手册
+     - 基于V25.04源码更新模块参考手册(Update module reference manual based on V25.04 source code)
      - 2025-04-25
    * - 1.2.0
-     - 基于V25.10源码更新模块参考手册
+     - 基于V25.10源码更新模块参考手册(Update module reference manual based on V25.10 source code)
      - 2025-10-24
 
 .. tip::
 
    版本发布说明请参考链接 https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
 
-.. toctree::
-   :maxdepth: 1
-   :caption: 参考手册:
+   Version release notes please refer to the link https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
 
 .. toctree::
    :maxdepth: 1
-   :caption: 参考手册:
+   :caption: 参考手册(Module Reference Manual):
 
    sub/参考手册/Bfx/Bfx.rst
    sub/参考手册/BswM/BswM.rst
@@ -111,7 +113,7 @@ I-SOFT
 
 .. toctree::
    :maxdepth: 1
-   :caption: 集成手册:
+   :caption: 集成手册(Integration Instruction Manual):
 
    sub/集成手册/BswM&EcuM.rst
    sub/集成手册/CAN.rst
@@ -135,11 +137,11 @@ I-SOFT
    sub/集成手册/UDSonLIN.rst
    sub/集成手册/WDG.rst
    sub/集成手册/XCP.rst
-   sub/集成手册/总体架构.rst  
+   sub/集成手册/总体架构.rst
 
 .. toctree::
    :maxdepth: 1
-   :caption: 工程说明:
+   :caption: 工程说明(Demo Project Description):
 
    sub/示例工程说明/RH850U2A16_R7F702300BFABA_C_Demo.rst
    sub/示例工程说明/TC397_Demo.rst
