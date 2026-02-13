@@ -15,7 +15,7 @@ This repository is the documentation repository for EasyXMen. You can use Pages 
 |── make.bat                # 本地查阅文档批处理文件 (Batch File for Viewing Documents Locally)
 └── README.md               # 仓库说明文档 (Repository Description Document)
 ```
-## 开源许可
+## 开源许可 License
 
 本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的[LICENSE.txt](./LICENSE.txt)
 
