@@ -29,3 +29,13 @@ language = 'en'
 extensions.append("sphinx_wagtail_theme")
 html_theme = 'sphinx_wagtail_theme'
 html_static_path = ['_static']
+
+# Theme options
+html_theme_options = {
+    'logo': 'img/xmen_logo.png',
+    'logo_alt': 'EasyXMen',
+    'logo_height': 59,
+    'logo_width': 45,
+    'logo_url': '',
+    'project_name': '开源小满EasyXMen',
+}
