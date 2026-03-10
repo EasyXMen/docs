@@ -138,7 +138,7 @@ Mode Arbitration: initiates mode switching based on the arbitration results of r
 
 Mode Control: executes the mode switch by performing an action list that include mode switching operations of other BSW modules.
 
-.. figure:: ../../../_static/参考手册/BswM/BswM架构图.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/BswM架构图.png
    :alt: BswM模块层次图(BswM Module Hierarchy Diagram)
    :name: fig_BswMarch
    :align: center
@@ -205,7 +205,7 @@ If a condition references a BswMEventRequestPort, it checks whether the request 
 
 The BswMEventRequestPort enters the SET state upon the requester sending or invoking an event. The BswM can then place the port into the CLEAR state by executing the BswMClearEventRequest operation. An example comprising two conditions is shown in Figure :ref:fig_BswM01.
 
-.. figure:: ../../../_static/参考手册/BswM/仲裁规则.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/仲裁规则.png
    :alt: BswM仲裁示例图(BswM Arbitration Example Diagram)
    :name: fig_BswM01
    :align: center
@@ -240,7 +240,7 @@ The actions in the action list can be divided into three types:
 
 Typical use cases are shown in :ref:`fig_BswM02` below:
 
-.. figure:: ../../../_static/参考手册/BswM/动作列表.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/动作列表.png
    :alt: BswM动作列表示例图(BswM Action List Example Diagram)
    :name: fig_BswM02
    :align: center
@@ -552,7 +552,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the actions to be executed when the arbitration result of the Rule is true by configuring BswMRuleTrueActionList.
 
-.. figure:: ../../../_static/参考手册/BswM/RuleConfig.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/RuleConfig.png
    :alt: Rule configuration
    :name: fig_BswM03
    :align: center
@@ -578,7 +578,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the operand of the logical expression by configuring BswMArgumentRef.
 
-.. figure:: ../../../_static/参考手册/BswM/LogicalExpression.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/LogicalExpression.png
    :alt: LogicalExpression configuration
    :name: fig_BswM04
    :align: center
@@ -601,7 +601,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the object on the left side of the equation by configuring BswMConditionMode,
 
-   .. figure:: ../../../_static/参考手册/BswM/ModeConditionLeft.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeConditionLeft.png
     :alt: condition configuration
     :name: fig_BswM05
     :align: center
@@ -617,7 +617,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select right-side value of the equation by configuring BswMBswRequestedMode or BswModeCompareValue under BswMBswMode.
 
-   .. figure:: ../../../_static/参考手册/BswM/ModeConditionRight.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeConditionRight.png
     :alt: 比较模式配置(Comparison type configuration)
     :name: fig_BswM06
     :align: center
@@ -656,14 +656,14 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the source of the mode request by configuring BswMRequestSource. The BswMEventRequestPort is shown in Figure :ref:`fig_BswM07`, and the BswMModeRequestPort is shown in Figure :ref:`fig_BswM08`.
      
-     .. figure:: ../../../_static/参考手册/BswM/BswMEventRequestSource.png
+     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/BswMEventRequestSource.png
       :alt: Event request source configuration
       :name: fig_BswM07
       :align: center
 
       BswMEventRequestSource
 
-     .. figure:: ../../../_static/参考手册/BswM/ModeRequestSource.png
+     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeRequestSource.png
       :alt: Mode request source configuration
       :name: fig_BswM08
       :align: center
@@ -684,7 +684,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the action type (trigger execution or conditional execution) by configuring BswMActionListExecution.
 
-     .. figure:: ../../../_static/参考手册/BswM/ActionList.png
+     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ActionList.png
         :alt: Action List configuration
         :name: fig_BswM09
         :align: center
@@ -698,7 +698,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the actions to be executed in the action list by configuring BswMActionListItem
 
-     .. figure:: ../../../_static/参考手册/BswM/ActionListItem.png
+     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ActionListItem.png
         :alt: Action List Item configuration
         :name: fig_BswM10
         :align: center
@@ -716,7 +716,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the action to be executed by configuring BswMAction->BswMAvailableActions
 
-     .. figure:: ../../../_static/参考手册/BswM/Action.png
+     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/Action.png
       :alt: Action configuration
       :name: fig_BswM11
       :align: center
@@ -740,7 +740,7 @@ BswM存在于每个分区中，每个分区有单独的BswMConfig实例，在多
 BswM resides in each partition, with a dedicated BswMConfig instance per partition. In a multi-partition system, users need to configure multiple BswMConfig instances.
 As these BswM instances operate in isolation, their configuration data must be shared via the RTE or user-defined global variables. The following figure illustrates the multi-partition configuration:
 
- .. figure:: ../../../_static/参考手册/BswM/MultiPartition.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/MultiPartition.png
    :alt: MultiPartition
    :name: fig_BswM12
    :align: center
@@ -757,7 +757,7 @@ BswM提供模式管理和模式请求两种方式来与SWC或其他基础软件�
 
 BswM provides two ways, namely mode management and mode request, to interact with SWC or other basic software modules. BswM can act as both a mode user and a mode provider.
 
- .. figure:: ../../../_static/参考手册/BswM/ModeCtrl.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeCtrl.png
    :alt: Mode Control
    :name: fig_BswM13
    :align: center
@@ -771,7 +771,7 @@ Port0)连接到 BSW 模式管理器的相应模式请求端口。
 
 The following figure illustrates the port connections between an Application SW-C and the BSW Mode Manager. The Application Mode Manager SW-C is equipped with a Mode Request Port and a Mode Switch R-Port (named modeNotificationPort to distinguish it from the Mode Switch P-Port). The former is used to request changes to its application mode, while the latter is used to receive notifications when BswM executes a mode change. The Mode Request Port (modeRequestPort0) of the Application Mode Manager is connected to the corresponding Mode Request Port of the BSW Mode Manager.
 
- .. figure:: ../../../_static/参考手册/BswM/ModeManager.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeManager.png
    :alt: Mode Management
    :name: fig_BswM14
    :align: center

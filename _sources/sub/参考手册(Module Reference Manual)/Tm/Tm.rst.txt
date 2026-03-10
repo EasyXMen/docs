@@ -107,7 +107,7 @@ As shown in the figure, the Tm module is located in system services accessible t
 
 Complex drivers and the ECU Abstraction Layer interact with GPT but remain unaffected by the Tm module.
 
-.. figure:: ../../../_static/参考手册/Tm/Tm_ArchitectureFig.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_ArchitectureFig.png
    :alt: Tm架构层次图 (Tm Architecture Hierarchy Diagram)
    :name: fig_arch
    :align: center
@@ -279,7 +279,7 @@ Tm模块提供TmDevErrorDetection开关，用于控制是否开启Tm模块的开
 
 The Tm module provides the TmDevErrorDetection switch, which is used to control whether to enable the development error detection function of the Tm module.
 
-.. figure:: ../../../_static/参考手册/Tm/Tm_cfg_det.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_det.png
    :alt: Tm配置-开发错误检测开关(Tm Configuration - Development Error Detection Switch)
    :name: fig_cfg_det
    :align: center
@@ -295,7 +295,7 @@ Tm模块支持4种预定时器，分别是1us16bit，1us24bit,1us32bit和100us32
 
 The Tm module supports 4 types of predefined timers, namely 1us16bit, 1us24bit, 1us32bit, and 100us32bit, and provides corresponding switches to control whether to enable the corresponding timer interfaces.
 
-.. figure:: ../../../_static/参考手册/Tm/Tm_cfg_predefTimer.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_predefTimer.png
    :alt: Tm配置-预定时器接口使能开关 (Tm Configuration - Predefined Timer Interface Enable Switches)
    :name: fig_cfg_predefTimer
    :align: center
@@ -310,7 +310,7 @@ Tm模块提供版本获取开关，用于控制是否获取版本号。
 
 The Tm module provides a version acquisition switch to control version number retrieval.
 
-.. figure:: ../../../_static/参考手册/Tm/Tm_cfg_version.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_version.png
    :alt: Tm配置-版本获取开关 (Tm Configuration - Version Acquisition Switch)
    :name: fig_cfg_version
    :align: center

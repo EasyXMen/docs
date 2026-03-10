@@ -228,7 +228,7 @@ The DLT module provides universal log and trace message recording functions for 
 
 In addition, the module can store the updated DLT filter settings permanently via the NvM (non-volatile memory) module. With this function, the ECU can transmit log/trace information directly at the preset level without receiving explicit setting requests during each startup.
 
-.. figure:: ../../../_static/参考手册/Dlt/Dlt_AUTOSAR_Architecture.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/Dlt_AUTOSAR_Architecture.png
    :alt: Dlt_AUTOSAR_Architecture
    :name: Dlt_AUTOSAR_Architecture
    :align: center
@@ -700,7 +700,7 @@ On the basis of **function**, this chapter explains the key, common and represen
 DltGeneral配置 DltGeneral Configuration
 ------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/Dlt/Dlt_General.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/Dlt_General.png
    :alt: Dlt_General
    :name: Dlt_General
    :align: center
@@ -813,7 +813,7 @@ DltConfigSet contains such containers as DltLogLevelSettings, DltLogOutputs, Dlt
 Dltlog级别阈值设置 Settings of Dltlog Level Threshold
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Dlt/DltLogLevelSetting.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltLogLevelSetting.png
    :alt: DltLogLevelSetting
    :name: DltLogLevelSetting
    :align: center
@@ -854,7 +854,7 @@ As shown in the figure :ref: DltLogLevelSetting, the DltLogLevelSetting containe
 日志与跟踪消息发送 Sending of log and trace information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Dlt/DltLogOutput.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltLogOutput.png
    :alt: DltLogOutput
    :name: DltLogOutput
    :align: center
@@ -865,7 +865,7 @@ As shown in the figure :ref: DltLogLevelSetting, the DltLogLevelSetting containe
 
 As shown in the figure :ref: 'DltLogOutput', DltLogOutputsg contains settings for log/trace message output. The default log channel DltDDefault LogChannelRef needs configuring for log/trace output. It also contains the following two containers: DltLogChannel and DltLogChannelAssignment
 
-.. figure:: ../../../_static/参考手册/Dlt/DltLogChannel.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltLogChannel.png
    :alt: DltLogChannel
    :name: DltLogChannel
    :align: center
@@ -962,7 +962,7 @@ It is also used for the transmission of PduId configured with DltIPduCallout and
 - 依赖于ECU和PDUR模块配置(Depend on the configuration of ECU and PDUR module)
 
 
-.. figure:: ../../../_static/参考手册/Dlt/DltLogChannelAssignment.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltLogChannelAssignment.png
    :alt: DltLogChannelAssignment
    :name: DltLogChannelAssignment
    :align: center
@@ -997,7 +997,7 @@ As shown in the figure :ref: DltLogChannelAssignment, DltLogChannelAssignments c
 日志与跟踪消息协议信息 Information of Log and Trace Information Protocol
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Dlt/DltProtocol.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltProtocol.png
    :alt: DltProtocol
    :name: DltProtocol
    :align: center
@@ -1068,7 +1068,7 @@ There are two ways to get EcuId, of which, one is by configuring callout, and th
 接收控制命令请求 Request for Receiving Control Command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Dlt/DltRxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltRxPdu.png
    :alt: DltRxPdu
    :name: DltRxPdu
    :align: center
@@ -1120,7 +1120,7 @@ As shown in the figure :ref: DltRxPdu, PDU parameters are configured for the rec
 Dlt默认跟踪状态 Dlt Default Trace Status
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Dlt/DltTraceStatusAssignment.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltTraceStatusAssignment.png
    :alt: DltTraceStatusAssignment
    :name: DltTraceStatusAssignment
    :align: center
@@ -1171,7 +1171,7 @@ As shown in the figure :ref: DltTraceStatus Assignment, the initial default trac
 DltSWC用户配置 DltSWC User Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Dlt/DltSwc.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dlt/DltSwc.png
    :alt: DltSwc
    :name: DltSwc
    :align: center

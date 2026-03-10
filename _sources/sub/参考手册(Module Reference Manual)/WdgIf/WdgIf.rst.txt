@@ -126,7 +126,7 @@ ORIENTAIS WDG的架构如下图所示，其中WdgIf的架构如下图所示。
 
 The architecture of the ORIENTAIS WDG is shown in the figure below, which also shows the architecture of WdgIf.
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_ArchitectureFigure.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_ArchitectureFigure.png
    :alt: WdgIf架构层次图 (WdgIf Architecture Hierarchy Diagram)
    :name: WdgIf_arch
    :align: center
@@ -343,7 +343,7 @@ To use the internal watchdog, first ensure that the watchdog driver module (Wdg)
 
 4.Reference the watchdog driver device.
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Int.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Int.png
    :alt: WdgIf内部看门狗配置图-1(WdgIf Internal Watchdog Configuration Diagram - 1)
    :name: WdgIf_Int
    :align: center
@@ -351,7 +351,7 @@ To use the internal watchdog, first ensure that the watchdog driver module (Wdg)
    WdgIf内部看门狗配置图-1 (WdgIf Internal Watchdog Configuration Diagram - 1)
 
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Int2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Int2.png
    :alt: WdgIf内部看门狗配置图-2(WdgIf Internal Watchdog Configuration Diagram - 2)
    :name: WdgIf_Int2
    :align: center
@@ -379,14 +379,14 @@ Configuring the external watchdog in the WdgIf module requires the following ste
 
 3.Configure the TriggerCondition and SetMode functions to map to the corresponding driver interfaces.
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Ext.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Ext.png
    :alt: WdgIf外部看门狗配置图-1(WdgIf External Watchdog Configuration Diagram - 1)
    :name: WdgIf_Ext
    :align: center
 
    WdgIf外部看门狗配置图-1 (WdgIf External Watchdog Configuration Diagram - 1)
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Ext2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Ext2.png
    :alt: WdgIf外部看门狗配置图-2(WdgIf External Watchdog Configuration Diagram - 2)
    :name: WdgIf_Ext2
    :align: center
@@ -416,21 +416,21 @@ Configuring multiple watchdogs in the WdgIf module requires the following steps:
 
 3.Configure the TriggerCondition and SetMode functions to map to the corresponding driver interfaces.
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Multiple.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Multiple.png
    :alt: WdgIf多看门狗配置图-1(WdgIf Multi-Watchdog Configuration Diagram - 1)
    :name: WdgIf_Multiple
    :align: center
 
    WdgIf多看门狗实例配置图-1 (WdgIf Multi-Watchdog Instance Configuration Diagram - 1)
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Multiple2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Multiple2.png
    :alt: WdgIf多看门狗配置图-2(WdgIf Multi-Watchdog Configuration Diagram - 2)
    :name: WdgIf_Multiple2
    :align: center
 
    WdgIf多看门狗实例配置图-2 (WdgIf Multi-Watchdog Instance Configuration Diagram - 2)
 
-.. figure:: ../../../_static/参考手册/WdgIf/WdgIf_Multiple3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgIf/WdgIf_Multiple3.png
    :alt: WdgIf多看门狗配置图-3(WdgIf Multi-Watchdog Configuration Diagram - 3)
    :name: WdgIf_Multiple3
    :align: center

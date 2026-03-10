@@ -27,7 +27,7 @@ The AUTOSAR CanNm state machine includes three operating modes.
 - Prepare Bus-Sleep Mode(总线预睡眠模式)
 - Bus-Sleep Mode(总线睡眠模式)
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmStateMachine.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmStateMachine.png
    :alt: CanNmStackMachine
    :align: center
 
@@ -117,7 +117,7 @@ AUTOSAR NM 报文有特定的格式要求，NM报文总长度视总线特性而�
 
 AUTOSAR NM messages have specific format requirements. The total NM message length depends on the bus characteristics and is limited by the bus MTU. The message data segment format is as follows:
 
-.. figure:: ../../../_static/参考手册/Nm/NM_message_layout_example.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/NM_message_layout_example.png
    :alt: Nm报文格式图
    :align: center
 
@@ -127,7 +127,7 @@ AUTOSAR NM messages have specific format requirements. The total NM message leng
 
    Control Bit Vector (CBV): An optional one-byte field. Depending on configuration, it can be in the first or second byte of the NM message, or not used at all. For FlexRay bus, it can only be in the first byte or not used. The byte layout is shown below.
 
-.. figure:: ../../../_static/参考手册/Nm/CBV_layout.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/CBV_layout.png
    :alt: CBV排版图(CBV layout)
    :align: center
 

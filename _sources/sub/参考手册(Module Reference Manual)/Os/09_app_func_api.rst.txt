@@ -41,7 +41,7 @@ Figure显示了状态的转换：
 
 The figure shows the state transitions:
 
-.. figure:: ../../../_static/参考手册/Os/OS-Applications状态图.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/OS-Applications状态图.png
    :alt: APP状态图 (OS-Application State Diagram)
    :align: center
 

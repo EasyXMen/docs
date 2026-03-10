@@ -206,14 +206,14 @@ None
 
 Before synchronization, the configuration of EcucCoreDefinition in EcuC needs to be completed.
 
-.. figure:: ../../../_static/参考手册/MemLayout/SynchronizeMemLayout.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemLayout/SynchronizeMemLayout.png
    :name: SynchronizeMemLayout
    :align: center
 
    Synchronize MemLayout
 
 
-.. figure:: ../../../_static/参考手册/MemLayout/HwMemory.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemLayout/HwMemory.png
    :name: HwMemory
    :align: center
 
@@ -221,7 +221,7 @@ Before synchronization, the configuration of EcucCoreDefinition in EcuC needs to
 
    Automatically created HwMemory
 
-.. figure:: ../../../_static/参考手册/MemLayout/SectionGroup.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemLayout/SectionGroup.png
    :name: SectionGroup
    :align: center
 
@@ -291,7 +291,7 @@ The following takes the CLONE region in a multi-core scenario as an example.
 
 First, create a MemoryType whose Name attribute matches the corresponding Memory name in the main link file.
 
-.. figure:: ../../../_static/参考手册/MemLayout/HwMemoryClone.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemLayout/HwMemoryClone.png
    :name: HwMemoryClone
    :align: center
 
@@ -304,7 +304,7 @@ First, create a MemoryType whose Name attribute matches the corresponding Memory
 
 Associate the Clone-type SectionGroup in the system with this HwMemory.
 
-.. figure:: ../../../_static/参考手册/MemLayout/SectionGroupClone.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemLayout/SectionGroupClone.png
    :name: SectionGroupClone
    :align: center
 

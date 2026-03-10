@@ -314,7 +314,7 @@ Crc64Mode
 
 Enables Crc64 support; optional methods include CRC_TABLE, CRC_RUNTIME, and CRC_HARDWARE
 
-.. figure:: ../../../_static/参考手册/Crc/CRC容器配置图.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crc/CRC容器配置图.png
    :alt: CRC容器配置图 (CRC Container Configuration Diagram)
    :name: fig_event-handler
    :align: center

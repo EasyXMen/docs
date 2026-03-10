@@ -156,7 +156,7 @@ CryIf 模块位于底层密码解决方案(Crypto Driver 和基于 sw 的 CDD)�
 
 The CryIf module is between the underlying cryptographic solutions (Crypto Driver and SW based CDD) and the upper layer service layer (CSM). It indicates the interface of the password driver service to the upper layer service layer. The CryIf module provides a unique interface, which can manage different password HW and SW solutions, such as HSM, SHE, or SW-based CDD. Therefore, based on the mapping scheme maintained by the Crypto interface, the Crypto service management module can utilize many kinds of underlying internal and external encryption HW and SW solutions
 
-.. figure:: ../../../_static/参考手册/CryIf/Architecture.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CryIf/Architecture.png
    :alt: Architecture描述(Architecture Description)
    :name: fig_Architecture
    :align: center
@@ -210,7 +210,7 @@ None
 文件列表 File List
 --------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CryIf/Filelist.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CryIf/Filelist.png
    :alt: CryIf组件文件组织结构描述(Description of CryIf component file organization structure)
    :name: fig_CryIfFilelist
    :align: center
@@ -318,7 +318,7 @@ To configure the CryIf module, make sure the CryptoDriver is available in projec
 CryIfInclude配置 Configuration of CryIfInclude
 ----------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CryIf/CryIfInclude.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CryIf/CryIfInclude.png
    :alt:  CryIfInclude配置图 (CryIfInclude Configuration Diagram)
    :name: fig_CryIfInclude
    :align: center
@@ -333,7 +333,7 @@ IncludeName: This parameter is used for referencing the header file for cryif co
 CryIfGeneral配置 Configuration of CryIfGeneral
 ----------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CryIf/CryIfGeneral.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CryIf/CryIfGeneral.png
    :alt:  CryIfGeneral配置图 (CryIfGeneral Configuration Diagram)
    :name: fig_CryIfGeneral
    :align: center
@@ -351,7 +351,7 @@ CryIfVersions InfoApi: Switch for controlling version information retrieval inte
 CryIfChannel配置 Configuration of CryIfChannel
 ----------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CryIf/CryIfChannel.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CryIf/CryIfChannel.png
    :alt:  CryIfChannel配置图 (CryIfChannel Configuration Diagram)
    :name: fig_CryIfChannel
    :align: center
@@ -370,7 +370,7 @@ CryIfDriver Object Ref: This parameter references the encrypted driver object.) 
 CryIfKey配置 Configuration of CryIfKey
 ----------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CryIf/CryIfKey.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CryIf/CryIfKey.png
    :alt:  CryIfKey配置图 (CryIfKey Configuration Diagram)
    :name: fig_CryIfKey
    :align: center

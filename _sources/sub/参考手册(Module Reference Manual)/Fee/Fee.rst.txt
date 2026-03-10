@@ -147,7 +147,7 @@ Fee模块处于AUTOSAR架构中的存储服务层，其下层模块为Flash模�
 
 The Fee module is located in the storage service layer of the AUTOSAR architecture. Its lower layer module is the Flash module, and its upper layer module is the MemIf module. The module architecture is shown in Figure :ref:`Fee_AUTOSAR_Arch`.
 
-.. figure:: ../../../_static/参考手册/Fee/Fee_AUTOSAR_Architecture.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_AUTOSAR_Architecture.png
    :alt: Fee模块层次图(Fee Module Hierarchy Diagram)
    :name: Fee_AUTOSAR_Arch
    :align: center
@@ -158,7 +158,7 @@ Fee接口调用关系如图 :ref:`Fee_Interface` 所示，接口的详细内容�
 
 The Fee interface calling relationship is shown in Figure :ref:`Fee_Interface`. For detailed interface information, please refer to the "Interface Description" chapter.
 
-.. figure:: ../../../_static/参考手册/Fee/Fee_Interface_Relationship.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_Interface_Relationship.png
    :alt: Fee模块接口关系图(Fee Module Interface Relationship Diagram)
    :name: Fee_Interface
    :align: center
@@ -368,7 +368,7 @@ FeeBank
 Due to Flash Driver write operation characteristics, at least 2 Fee_Banks need to be configured for Fee module page switching functionality.
 As shown in Figure :ref:`Fee_Bank_Config`, it displays the Fee_Bank configuration interface, where Bank index value, Bank start address, Bank size, association with specific Flash driver sector, etc. can be configured.
 
-.. figure:: ../../../_static/参考手册/Fee/Fee_Bank.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_Bank.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Fee_Bank_Config
    :align: center
@@ -384,7 +384,7 @@ As shown in Figure :ref:`Fee_Bank_Config`, it displays the Fee_Bank configuratio
 During Fee module usage, the underlying Flash Driver module is required. Due to MCAL vendor file naming differences, file name and type name mismatches may occur. Therefore, in the Fee module, the Flash Driver header file #include "xxx.h" needs to be included in the configuration.
 As shown in Figure :ref:`Fee_Header_Including`.
 
-.. figure:: ../../../_static/参考手册/Fee/Fee_Header_Including.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_Header_Including.png
    :alt: Fee模块配置图 (Fee Module Configuration Diagram)
    :name: Fee_Header_Including
    :align: center

@@ -602,123 +602,123 @@ NvM调度集成步骤如下（以底层使用Flash为例）：
 #. NvM_WriteAll()，在系统准备休眠时需要调用NvM_WriteAll()接口使Ram\_
    Block中的数据存储到Nv_Block中。（一般使BSWM负责调用）
 
-.. |image1| image:: /_static/集成手册/集成手册_NVM/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image2.png
    :width: 5.14514in
    :height: 3.67222in
-.. |image2| image:: /_static/集成手册/集成手册_NVM/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image3.png
    :width: 5.37083in
    :height: 3.83333in
-.. |image3| image:: /_static/集成手册/集成手册_NVM/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image4.png
    :width: 5.39861in
    :height: 3.83333in
-.. |image4| image:: /_static/集成手册/集成手册_NVM/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image5.png
    :width: 5.44514in
    :height: 3.90139in
-.. |image5| image:: /_static/集成手册/集成手册_NVM/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image6.png
    :width: 4.68333in
    :height: 2.58472in
-.. |image6| image:: /_static/集成手册/集成手册_NVM/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image7.png
    :width: 5.0875in
    :height: 3.67014in
-.. |image7| image:: /_static/集成手册/集成手册_NVM/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image8.png
    :width: 4.14583in
    :height: 3.97639in
-.. |image8| image:: /_static/集成手册/集成手册_NVM/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image9.png
    :width: 4.40625in
    :height: 4.16319in
-.. |image9| image:: /_static/集成手册/集成手册_NVM/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image10.png
    :width: 2.51875in
    :height: 1.71389in
-.. |image10| image:: /_static/集成手册/集成手册_NVM/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image11.png
    :width: 3.60694in
    :height: 3.52153in
-.. |image11| image:: /_static/集成手册/集成手册_NVM/image12.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image12.png
    :width: 3.91042in
    :height: 3.70556in
-.. |image12| image:: /_static/集成手册/集成手册_NVM/image13.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image13.png
    :width: 3.61111in
    :height: 2.06319in
-.. |image13| image:: /_static/集成手册/集成手册_NVM/image14.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image14.png
    :width: 3.1625in
    :height: 1.75903in
-.. |image14| image:: /_static/集成手册/集成手册_NVM/image15.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image15.png
    :width: 2.62083in
    :height: 2.74375in
-.. |image15| image:: /_static/集成手册/集成手册_NVM/image16.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image16.png
    :width: 5.76736in
    :height: 2.40347in
-.. |image16| image:: /_static/集成手册/集成手册_NVM/image17.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image17.png
    :width: 5.76736in
    :height: 1.71389in
-.. |image17| image:: /_static/集成手册/集成手册_NVM/image18.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image18.png
    :width: 1.90625in
    :height: 2.375in
-.. |image18| image:: /_static/集成手册/集成手册_NVM/image19.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image19.png
    :width: 3.83611in
    :height: 3.63333in
-.. |image19| image:: /_static/集成手册/集成手册_NVM/image20.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image20.png
    :width: 2.91528in
    :height: 2.80139in
-.. |image20| image:: /_static/集成手册/集成手册_NVM/image21.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image21.png
    :width: 5.76181in
    :height: 1.79375in
-.. |image21| image:: /_static/集成手册/集成手册_NVM/image22.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image22.png
    :width: 5.62778in
    :height: 1.61042in
-.. |image22| image:: /_static/集成手册/集成手册_NVM/image23.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image23.png
    :width: 3.49861in
    :height: 1.32292in
-.. |image23| image:: /_static/集成手册/集成手册_NVM/image24.png
+.. |image23| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image24.png
    :width: 3.43958in
    :height: 3.29861in
-.. |image24| image:: /_static/集成手册/集成手册_NVM/image25.png
+.. |image24| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image25.png
    :width: 3.32014in
    :height: 3.30069in
-.. |image25| image:: /_static/集成手册/集成手册_NVM/image26.png
+.. |image25| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image26.png
    :width: 5.76458in
    :height: 2.63611in
-.. |image26| image:: /_static/集成手册/集成手册_NVM/image27.png
+.. |image26| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image27.png
    :width: 4.75139in
    :height: 2.84097in
-.. |image27| image:: /_static/集成手册/集成手册_NVM/image28.png
+.. |image27| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image28.png
    :width: 5.19444in
    :height: 2.37569in
-.. |image28| image:: /_static/集成手册/集成手册_NVM/image29.png
+.. |image28| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image29.png
    :width: 3.22083in
    :height: 3.08819in
-.. |image29| image:: /_static/集成手册/集成手册_NVM/image30.png
+.. |image29| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image30.png
    :width: 3.33611in
    :height: 3.61458in
-.. |image30| image:: /_static/集成手册/集成手册_NVM/image31.png
+.. |image30| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image31.png
    :width: 3.26944in
    :height: 3.12778in
-.. |image31| image:: /_static/集成手册/集成手册_NVM/image32.png
+.. |image31| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image32.png
    :width: 4.78681in
    :height: 3.95833in
-.. |image32| image:: /_static/集成手册/集成手册_NVM/image33.png
+.. |image32| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image33.png
    :width: 5.14514in
    :height: 2.20903in
-.. |image33| image:: /_static/集成手册/集成手册_NVM/image34.png
+.. |image33| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image34.png
    :width: 3.67778in
    :height: 3.23889in
-.. |image34| image:: /_static/集成手册/集成手册_NVM/image35.png
+.. |image34| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image35.png
    :width: 3.22986in
    :height: 2.86944in
-.. |image35| image:: /_static/集成手册/集成手册_NVM/image36.png
+.. |image35| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image36.png
    :width: 4.41042in
    :height: 3.96875in
-.. |image36| image:: /_static/集成手册/集成手册_NVM/image37.png
+.. |image36| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image37.png
    :width: 5.28472in
    :height: 2.49444in
-.. |image37| image:: /_static/集成手册/集成手册_NVM/image38.png
+.. |image37| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image38.png
    :width: 2.76389in
    :height: 2.10347in
-.. |image38| image:: /_static/集成手册/集成手册_NVM/image39.png
+.. |image38| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image39.png
    :width: 5.76597in
    :height: 1.64931in
-.. |image39| image:: /_static/集成手册/集成手册_NVM/image40.png
+.. |image39| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image40.png
    :width: 5.22014in
    :height: 2.57847in
-.. |image40| image:: /_static/集成手册/集成手册_NVM/image41.png
+.. |image40| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_NVM/image41.png
    :width: 3.88819in
    :height: 2.84861in

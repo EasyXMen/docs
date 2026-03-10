@@ -395,115 +395,115 @@ EthTSyn模块配置
 
    图 时间同步模块验证结果
 
-.. |image1| image:: /_static/集成手册/集成手册_EthTSyn/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image2.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image2| image:: /_static/集成手册/集成手册_EthTSyn/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image3.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image3| image:: /_static/集成手册/集成手册_EthTSyn/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image4.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image4| image:: /_static/集成手册/集成手册_EthTSyn/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image5.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image5| image:: /_static/集成手册/集成手册_EthTSyn/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image6.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image6| image:: /_static/集成手册/集成手册_EthTSyn/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image7.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image7| image:: /_static/集成手册/集成手册_EthTSyn/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image8.png
    :width: 5.76736in
    :height: 4.2125in
 
 
-.. |image8| image:: /_static/集成手册/集成手册_EthTSyn/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image9.png
    :width: 5.76736in
    :height: 4.9125in
 
 
-.. |image9| image:: /_static/集成手册/集成手册_EthTSyn/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image10.png
    :width: 4.76736in
    :height: 1.9125in
 
 
-.. |image10| image:: /_static/集成手册/集成手册_EthTSyn/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image11.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image11| image:: /_static/集成手册/集成手册_EthTSyn/image12.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image12.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image12| image:: /_static/集成手册/集成手册_EthTSyn/image13.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image13.png
    :width: 12.76736in
    :height: 5.9125in
 
 
-.. |image13| image:: /_static/集成手册/集成手册_EthTSyn/image14.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image14.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image14| image:: /_static/集成手册/集成手册_EthTSyn/image15.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image15.png
    :width: 7.76736in
    :height: 4.9125in
 
 
-.. |image15| image:: /_static/集成手册/集成手册_EthTSyn/image16.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image16.png
    :width: 9.76736in
    :height: 3.4825in
 
 
-.. |image16| image:: /_static/集成手册/集成手册_EthTSyn/image17.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image17.png
    :width: 6.96736in
    :height: 2.9125in
 
 
-.. |image17| image:: /_static/集成手册/集成手册_EthTSyn/image18.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image18.png
    :width: 5.76736in
    :height: 2.4825in
 
-.. |image18| image:: /_static/集成手册/集成手册_EthTSyn/image19.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image19.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image19| image:: /_static/集成手册/集成手册_EthTSyn/image20.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image20.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image20| image:: /_static/集成手册/集成手册_EthTSyn/image21.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image21.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image21| image:: /_static/集成手册/集成手册_EthTSyn/image22.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image22.png
    :width: 5.76736in
    :height: 2.9125in
 
 
-.. |image22| image:: /_static/集成手册/集成手册_EthTSyn/image23.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image23.png
    :width: 4.76736in
    :height: 3.9125in
 
 
-.. |image23| image:: /_static/集成手册/集成手册_EthTSyn/image24.png
+.. |image23| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_EthTSyn/image24.png
    :width: 5.76736in
    :height: 2.9125in

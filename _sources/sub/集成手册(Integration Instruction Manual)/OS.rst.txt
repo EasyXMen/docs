@@ -592,111 +592,111 @@ MCU初始化相关的代码，在下方的main.c文件中给出重点标注。
 
 在调试软件界面点击全速运行，周期任务能够按照周期时间执行，达到了集成目标的要求。
 
-.. |image1| image:: /_static/集成手册/集成手册_Os/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image2.png
    :width: 8.76736in
    :height: 5.2125in
 
 
-.. |image2| image:: /_static/集成手册/集成手册_Os/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image3.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image3| image:: /_static/集成手册/集成手册_Os/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image4.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image4| image:: /_static/集成手册/集成手册_Os/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image5.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image5| image:: /_static/集成手册/集成手册_Os/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image6.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image6| image:: /_static/集成手册/集成手册_Os/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image7.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image7| image:: /_static/集成手册/集成手册_Os/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image8.png
    :width: 5.76736in
    :height: 6.0125in
 
 
-.. |image8| image:: /_static/集成手册/集成手册_Os/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image9.png
    :width: 5.76736in
    :height: 5.2125in
 
 
-.. |image9| image:: /_static/集成手册/集成手册_Os/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image10.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image10| image:: /_static/集成手册/集成手册_Os/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image11.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image11| image:: /_static/集成手册/集成手册_Os/image12.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image12.png
    :width: 5.76736in
    :height: 6.0125in
 
 
-.. |image12| image:: /_static/集成手册/集成手册_Os/image13.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image13.png
    :width: 3.76736in
    :height: 7.2125in
 
 
-.. |image13| image:: /_static/集成手册/集成手册_Os/image14.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image14.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image14| image:: /_static/集成手册/集成手册_Os/image15.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image15.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image15| image:: /_static/集成手册/集成手册_Os/image16.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image16.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image16| image:: /_static/集成手册/集成手册_Os/image17.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image17.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image17| image:: /_static/集成手册/集成手册_Os/image18.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image18.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image18| image:: /_static/集成手册/集成手册_Os/image19.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image19.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image19| image:: /_static/集成手册/集成手册_Os/image20.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image20.png
    :width: 5.76736in
    :height: 4.3125in
 
 
-.. |image20| image:: /_static/集成手册/集成手册_Os/image21.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image21.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image21| image:: /_static/集成手册/集成手册_Os/image22.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image22.png
    :width: 4.76736in
    :height: 3.9125in
 
 
-.. |image22| image:: /_static/集成手册/集成手册_Os/image23.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_Os/image23.png
    :width: 5.76736in
    :height: 3.2125in

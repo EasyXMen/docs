@@ -134,7 +134,7 @@ CanIf主要功能包含L-PDU的接收指示，L-PDU的发送及发送确认等�
 
 The main functions of CanIf include communication functions such as L-PDU reception indication, L-PDU transmission and transmission confirmation,as well as CAN controller/Trcv management, covering mode control, baud rate switching, and sleep/wake-up capabilities.
 
-.. figure:: ../../../_static/参考手册/CanIf/image1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image1.png
    :name: CanIf_arch
    :align: center
 
@@ -513,19 +513,19 @@ None
  
 To configure the data transmission path, reference the Pdu of the upper-layer EcuC and the CanController of the lower-layer CanDrv, then configure CanIfTxPduCfg, CanIfBufferCfg, CanIfHthCfg, and CanIfCtrlCfg layer by layer.
 
-.. figure:: ../../../_static/参考手册/CanIf/image2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image2.png
    :name: CanIf_CanIfTxPduCfg
    :align: center
 
    CanIfTxPduCfg
 
-.. figure:: ../../../_static/参考手册/CanIf/image3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image3.png
    :name: CanIf_CanIfBufferCfg
    :align: center
 
    CanIfBufferCfg
 
-.. figure:: ../../../_static/参考手册/CanIf/image4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image4.png
    :name: CanIf_Pdu
    :align: center
 
@@ -544,13 +544,13 @@ As shown in the figure,
    The configuration item CanIfTxPduCfg/CanIfTxPduBufferRef references the lower-layer CanIfBufferCfg.
 
 
-.. figure:: ../../../_static/参考手册/CanIf/image5.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image5.png
    :name: CanIf_CanIfHthCfg
    :align: center
 
    CanIfHthCfg
 
-.. figure:: ../../../_static/参考手册/CanIf/image6.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image6.png
    :name: CanIf_CanIfCtrlCfg
    :align: center
 
@@ -576,13 +576,13 @@ As shown in the figure,
 
 To configure the data reception path, reference the Pdu of the upper-layer EcuC and the CanController of the lower-layer CanDrv, and configure CanIfTxPduCfg, CanIfHrhCfg, and CanIfCtrlCfg layer by layer.
 
-.. figure:: ../../../_static/参考手册/CanIf/image7.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image7.png
    :name: CanIf_CanIfRxPduCfg
    :align: center
 
    CanIfRxPduCfg
 
-.. figure:: ../../../_static/参考手册/CanIf/image8.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanIf/image8.png
    :name: CanIf_CanIfHrhCfg
    :align: center
 

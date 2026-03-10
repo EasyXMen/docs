@@ -131,7 +131,7 @@ The LinIf module includes two main functions: an interface service (LinIf) for n
 
 This document primarily introduces the interface functions, type definitions of the LinIf module, and the usage of the LinIf module's configuration tool.
 
-.. image:: ../../../_static/参考手册/LinIf/软件架构.png
+.. image:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/软件架构.png
 
 注： 本文后面的描述为了区分 LinIf 模块和 LinIf 功能， 在描述时如果使用 LinIf模块， 则指 LinIf 模块整体， 包含 LinIf 和 LinTp 功能。如果使用 LinIf 功能则单指 LinIf 模块下的 LinIf 功能部分。
 
@@ -594,7 +594,7 @@ None
 LinIfGeneral
 --------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/LinIf/LinIf_General.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/LinIf_General.png
    :alt: LinIf_General
    :align: center
    
@@ -683,7 +683,7 @@ LinIf模块集成 LinIf Module Integration
 
 To integrate master and slave node functions in the LinIf module, first create LinIfChannel in the LinIfGlobalConfig container. Then, configure the parameters for the LinIf channel in the right-hand panel.
 
-.. figure:: ../../../_static/参考手册/LinIf/CreateLinIfChannelContainr.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfChannelContainr.png
    :alt: CreateLinIfChannelContainr
    :align: center
    
@@ -700,7 +700,7 @@ To integrate master and slave node functions in the LinIf module, first create L
 
 To use the master node function in the LinIf module, create a new sub-container named LinIfMaster in the LinIfNodeType container.
 
-.. figure:: ../../../_static/参考手册/LinIf/LinIfMaster.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/LinIfMaster.png
    :alt: LinIfMaster
    :align: center
    
@@ -846,7 +846,7 @@ When the frame type is selected as SRF, it indicates that the frame is a slave r
 
 For the LinIf master node to be able to send Lin requests and responses, a schedule table must be created for each LinIf master node. To create a schedule table, add a LinIfScheduleTableContainer in the LinIfChannelContainer and configure the LinIfResumePosition and LinIfRunMode parameters on the right-hand side. If a LinIf master node requires multiple schedule tables, simply add multiple LinIfScheduleTableContainers in the LinIfChannelContainer.
 
-.. figure:: ../../../_static/参考手册/LinIf/CreateLinIfScheduleTable.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfScheduleTable.png
    :alt: CreateLinIfScheduleTable
    :align: center
    
@@ -878,7 +878,7 @@ To add a message to the schedule table, create a LinIfEntry container. The LinIf
 
 Note: When the associated frame is an event-triggered frame, the LinIfCollisionResolving configuration shall be enabled, and the corresponding collision resolution table for that event-triggered frame must be selected.
 
-.. figure:: ../../../_static/参考手册/LinIf/CreateLinIfEntry.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfEntry.png
    :alt: CreateLinIfEntry
    :align: center
    
@@ -905,7 +905,7 @@ The master node needs to set LinGetStatus, LinGoToSleep, LinGoToSleepInternal, L
 
 To use the slave node function in the LinIf module, create a new container named LinIfSlave in the LinIfNodeTypeContainer.
 
-.. figure:: ../../../_static/参考手册/LinIf/LinIfSlave.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/LinIfSlave.png
    :alt: LinIfSlave
    :align: center
    
@@ -1024,7 +1024,7 @@ The LinTpChannelConfig container describes the basic configuration of a LinTp ch
 
 The following chapters describe a LinTp node associated with a LinIf slave node as a LinTp slave node, and a LinTp node associated with a LinIf master node as a LinTp master node.
 
-.. figure:: ../../../_static/参考手册/LinIf/CreateLinTpChannelConfig.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpChannelConfig.png
    :alt: CreateLinTpChannelConfig
    :align: center
    
@@ -1075,7 +1075,7 @@ The configuration items for the LinTpChannelConfig container are shown in the ta
 
 If a Lin node expects to receive response messages for MRF or SRF frames from the Lin bus, the LinTp module needs to create a LinTpRxSdu container. This container sets the NAD of the LinTp node, as well as the ComM channel and PduId associated with the LinTp node. After LinIf receives a response message for an MRF or SRF, it will forward non-node-configuration messages to the RxNSdu with the same ComM channel based on the NAD.
 
-.. figure:: ../../../_static/参考手册/LinIf/CreateLinTpRxNSdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpRxNSdu.png
    :alt: CreateLinTpRxNSdu
    :align: center
    
@@ -1126,7 +1126,7 @@ The detailed configuration of the LinTpRxNSdu container is shown in the table be
 
 If a Lin node expects to send response messages for MRF or SRF frames to the bus, a LinTpTxNSdu container needs to be created in the LinTp module. The parameters in the LinTpTxNSdu container specify the NAD, ComM channel, and PDU of the Lin node.
 
-.. figure:: ../../../_static/参考手册/LinIf/CreateLinTpTxNSdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpTxNSdu.png
    :alt: CreateLinTpTxNSdu
    :align: center
    

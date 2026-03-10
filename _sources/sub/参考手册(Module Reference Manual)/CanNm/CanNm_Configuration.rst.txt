@@ -8,7 +8,7 @@
 
   The CanNmGlobalConfig requires configuration of the CanNmMainFunctionPeriod in milliseconds (ms). This period defines the execution cycle of the CanNm main function, during which all managed timers are decremented once.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmGlobalConfig基础配置.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmGlobalConfig基础配置.png
    :alt: CanNmGlobalConfig基础配置(CanNmGlobalConfig Basic Configuration)
    :align: center
    
@@ -20,7 +20,7 @@
 
   The CanNmChannelConfig configures basic channel parameters, including the message transmission period, the duration for automatic state transitions, and a reference to the ComM Channel configuration.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmChannelConfig基础配置.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmChannelConfig基础配置.png
    :alt: CanNmChannelConfig基础配置(CanNmChannelConfig Basic Configuration)
    :align: center
    
@@ -32,7 +32,7 @@
 
   Each CanNmChannelConfig must define one CanNmTxPdu and may define multiple CanNmRxPdus.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmPdu基础配置.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmPdu基础配置.png
    :alt: CanNmPdu基础配置(CanNmPdu Basic Configuration)
    :align: center
    
@@ -44,7 +44,7 @@
 
   Each container's referenced PDU must be bound to the CanIf module. Based on its transmission or reception direction, it is then defined in either CanIfInitCfg/CanIfTxPduCfg or CanIfInitCfg/CanIfRxPduCfg.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanIfPdu基础配置.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanIfPdu基础配置.png
    :alt: CanIfPdu基础配置(CanIfPdu Basic Configuration)
    :align: center
    
@@ -59,7 +59,7 @@ UserData
 
   To enable the CanNm UserData feature, select NmGlobalFeature/NmUserDataEnabled in the Nm module. This action automatically enables all corresponding <Bus>NmUserDataEnabled configurations by default.
 
-.. figure:: ../../../_static/参考手册/CanNm/NmUserDataEnabled.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/NmUserDataEnabled.png
    :alt: NmUserDataEnabled
    :align: center
    
@@ -69,7 +69,7 @@ UserData
 
   If CanNmComUserDataSupport is disabled, the API method is used to directly set the NM PDU's UserData field through the Nm module via pass-through.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmUserData.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmUserData.png
    :alt: CanNmUserData
    :align: center
    
@@ -79,7 +79,7 @@ UserData
 
   If CanNmComUserDataSupport is enabled, the API method is disabled and the ComSignal mechanism is used to set the NM PDU's UserData field. This requires configuration of a CanNmUserDataTxPdu container (limited to one per channel). In PduR, configure a PduRRoutingPath to route this PDU to a PduRDestPdu, and map the corresponding ComSignal and its source PDU to a PduRSrcPdu.
   
-.. figure:: ../../../_static/参考手册/CanNm/CanNmUserDataTxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmUserDataTxPdu.png
    :alt: CanNmUserDataTxPdu
    :align: center
    
@@ -92,7 +92,7 @@ UserData
 
 The fast transmission mechanism first requires configuring CanNmImmediateNmTransmission to determine the maximum count of fast transmissions. CanNmImmediateNmTransmission > 0 is the prequisite for configuring the fast transmission cycle of CanNmImmediateNmCycleTime messages.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmImmediateNmTransmission.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmImmediateNmTransmission.png
    :alt: CanNmImmediateNmTransmission
    :align: center
    
@@ -105,7 +105,7 @@ The fast transmission mechanism first requires configuring CanNmImmediateNmTrans
    
   To enable the bus load reduction mechanism, first ensure that CanNmBusLoadReductionEnabled is selected in the CanNmGlobalConfig.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmGlobalConfig负载降低.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmGlobalConfig负载降低.png
    :alt: CanNmGlobalConfig负载降低(CanNmGlobalConfig load reduction)
    :align: center
    
@@ -117,7 +117,7 @@ The fast transmission mechanism first requires configuring CanNmImmediateNmTrans
 
   Then enable CanNmBusLoadReductionActive in CanNmChannelConfig and configure CanNmMsgReducedTime
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmChannelConfig负载降低.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmChannelConfig负载降低.png
    :alt: CanNmChannelConfig负载降低(CanNmChannelConfig load reduction)
    :align: center
    
@@ -140,7 +140,7 @@ First, enable CanNmChannelConfig/CanNmCarWakeUpRxEnabled; then set the values fo
 
 To enable the filtering function, enable CanNmChannelConfig/CanNmCarWakeUpFilterNodeId, and fill in the specified NodeId into CanNmCarWakeUpFilterNodeId.
 
-.. figure:: ../../../_static/参考手册/CanNm/CanNmCarWakeUp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmCarWakeUp.png
    :alt: CanNmCarWakeUp
    :align: center
    

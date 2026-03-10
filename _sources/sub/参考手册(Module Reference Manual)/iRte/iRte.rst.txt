@@ -396,14 +396,14 @@ Bswmd文件更新 Updating of Bswmd File
 
 Based on the BSW module design, the tool can update all or one description file for module design; update all or one description file for module design; update all or one description file for interface level, BswEntity scheduling requirements, and memory mapping information of the BSW module.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_4_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_3.png
    :name: iRTE_4_3
    :align: center
    :width: 800
 
    更新全部Bswmd文件 (Update all Bswmd files)
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_4_4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_4.png
    :name: iRTE_4_4
    :align: center
    :width: 800
@@ -455,14 +455,14 @@ Automatically configure the OS module according to the BSW module description fi
 - SchM独占区保护的配置(Configuration of SchM exclusive area protection)
 - OTask的部分配置，如内各运行实体的调度顺序、优先级等。(Some configuration of OTask, such as the scheduling order and priority of each internal running entity)
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_4_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_1.png
    :name: iRTE_4_1
    :align: center
    :width: 800
 
    iRTE-OS同步流程 (IRTE OS Synchronization Process)
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_4_2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_2.png
    :name: iRTE_4_2
    :align: center
    :width: 800
@@ -558,7 +558,7 @@ Common scenarios:
 
 iRTE激活OsTask OsTask Activation by iRTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_1.png
    :name: iRTE_5_1
    :align: center
    
@@ -567,7 +567,7 @@ iRTE激活OsTask OsTask Activation by iRTE
 
 iRTE激活OsAlarm OsAlarm Activation by iRTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_2.png
    :name: iRTE_5_2
    :align: center
    
@@ -576,7 +576,7 @@ iRTE激活OsAlarm OsAlarm Activation by iRTE
 
 iRTE激活OsScheduleTable OsScheduleTable Activation by iRTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_3.png
    :name: iRTE_5_3
    :align: center
    
@@ -593,7 +593,7 @@ The configuration of Bsw modules in Ecu takes the module description files of ea
 
 Link relevant configurations RteBswModulus Instance to BswImplementation (defined in the module description file) with RteBswImplementeRef.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_19.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_19.png
    :name: iRTE_5_19
    :align: center
    
@@ -613,7 +613,7 @@ Map BswEvent to OsTask so that Task could schedule the corresponding BswSchduleE
 映射至Basic Task Mapping to Basic Task
 *****************************************************************************************************************************************
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_20.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_20.png
    :name: iRTE_5_20
    :align: center
    
@@ -631,7 +631,7 @@ Map BswEvent to OsTask so that Task could schedule the corresponding BswSchduleE
 映射至Extended Task Mapping to Extended Task
 *****************************************************************************************************************************************
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_21.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_21.png
    :name: iRTE_5_21
    :align: center
  
@@ -674,7 +674,7 @@ OsAlarm触发Basic Task Basic Task Triggering by OsAlarm
 
 Basic Task should map RunnableEntity with the same cycle, and the cycle of OsAlarm should be set consistent with that of RunnableEntity
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_9.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_9.png
    :name: iRTE_5_9
    :align: center
  
@@ -687,7 +687,7 @@ OsAlarm触发Extended Task Extended Task Triggering by OsAlarm
 
 One Task can map RunnableEntities of different cycles.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_10.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_10.png
    :name: iRTE_5_10
    :align: center
  
@@ -700,28 +700,28 @@ OsScheduleTable触发周期RunnableEntity Periodical RunnableEntity Triggering b
 
 Activation offsets can be set using scheduling table through scheduling points, in order to realize certain load balancing effect.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_11.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_11.png
    :name: iRTE_5_11
    :align: center
   
 
    OsScheduleTable配置示例 (Configuration Instance of OsScheduleTable)
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_12.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_12.png
    :name: iRTE_5_12
    :align: center
    
 
    OsScheduleTableExpiryPoint配置示例 (Configuration instance of OsScheduleTableExpiryPoint)
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_13.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_13.png
    :name: iRTE_5_13
    :align: center
 
 
    OsScheduleTableExpiryPoint激活Basic Task配置示例 (Configuration instance of Basic Task activation by OsScheduleTableExpiryPoint)
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_14.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_14.png
    :name: iRTE_5_14
    :align: center
 
@@ -745,7 +745,7 @@ RTE includes five configuration options for the exclusive area of Bswmodule:
 - OS_SPINLOCK
 - NONE
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_23.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_23.png
    :name: iRTE_5_23
    :align: center
 
@@ -761,7 +761,7 @@ iRTE的多核支持 Multi-core support of iRTE
 Core Definition
 ********************************************************************************
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_15.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_15.png
    :name: iRTE_5_15
    :align: center
  
@@ -779,7 +779,7 @@ Swc与Bsw模块需要映射至EcucPartition，表示被划分在该分区。
 
 Swc and Bsw modules should be mapped to EcucPartition, indicating that they are divided into that partition.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_16.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_16.png
    :name: iRTE_5_16
    :align: center
 
@@ -804,7 +804,7 @@ OsTask、OsAlarm、OsResource等系统对象需要映射至OsApplication，表�
 
 The system objects such as OsTask, OsAlarm, and OsResource should be mapped to OsApplication, indicating that they are divided into that partition.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_17.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_17.png
    :name: iRTE_5_17
    :align: center
   
@@ -835,7 +835,7 @@ IRTE identifies the partition in the EcuM configuration and starts EcuM.StartupT
 
 Select one partition (trusted) for each core and fill it into the configuration of EcuMFlexConfiguration, i.e., the number of startups for EcuM.StartupTwo is the same as the number of cores.
 
-.. figure:: ../../../_static/参考手册/iRte/iRTE_5_18.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_18.png
    :name: iRTE_5_18
    :align: center
  
