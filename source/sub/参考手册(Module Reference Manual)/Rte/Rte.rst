@@ -238,7 +238,7 @@ SchM
 SchM
 serves as a simplified "Rte", implementing BSW C/S communication, scheduling BswEntities, and providing exclusive area interfaces for BSW data consistency protection.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_1_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_1_1.png
    :name: RTE_architecture
    :align: center
    :width: 800
@@ -1754,7 +1754,7 @@ ORIENTAIS工具开发流程概述(Overview of ORIENTAIS Development Process)
 导入ECU萃取arxml文件(Import ECU extracted arxml files)
 -----------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_13.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_13.png
    :name: RTE_4_13
    :align: center
  
@@ -1766,7 +1766,7 @@ ORIENTAIS工具开发流程概述(Overview of ORIENTAIS Development Process)
 RTE同步(RTE Synchronization)
 ---------------------------------
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_15.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_15.png
    :name: RTE_4_15
    :align: center
 
@@ -1775,7 +1775,7 @@ RTE同步(RTE Synchronization)
 
 
  
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_14.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_14.png
    :name: RTE_4_14
    :align: center
    
@@ -1798,7 +1798,7 @@ Bswmd文件更新(Bswmd File Update)
 
 Based on BSW module design, ORIENTAIS can update all or individual description files to describe BSW module requirements at the interface level, BswEntity scheduling, and memory mapping information.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_3.png
    :name: RTE_4_3
    :align: center
    
@@ -1807,7 +1807,7 @@ Based on BSW module design, ORIENTAIS can update all or individual description f
 
 
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_4.png
    :name: RTE_4_4
    :align: center
    
@@ -1882,7 +1882,7 @@ Automatically configures the OS module based on model requirements using ECU ext
 
   Partial OsTask configuration, including runnable entity scheduling order and priority.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_1.png
    :name: RTE_4_1
    :align: center
   
@@ -1891,7 +1891,7 @@ Automatically configures the OS module based on model requirements using ECU ext
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_2.png
    :name: RTE_4_2
    :align: center
  
@@ -1899,7 +1899,7 @@ Automatically configures the OS module based on model requirements using ECU ext
    RTE-OS自动同步配置 (Synchronized RTE-OS Configuration)
 
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_11.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_11.png
    :name: RTE_4_11
    :align: center
  
@@ -1931,7 +1931,7 @@ Semi-automatic configuration integration primarily utilizes the drag-and-drop fu
 
 Manually create OS configurations according to actual scenarios, such as creating OsTasks.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_12.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_12.png
    :name: RTE_4_12
    :align: center
  
@@ -1946,7 +1946,7 @@ ORIENTAIS支持将执行实体拖入目标OsTask中，同时根据执行实体�
 
 ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the runnable entities' periodic attributes, it automatically creates and associates related configurations including OsAlarm/OsScheduleTable and RteOsInteraction.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_6.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_6.png
    :name: RTE_4_6
    :align: center
    
@@ -1955,7 +1955,7 @@ ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the 
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_7.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_7.png
    :name: RTE_4_7
    :align: center
   
@@ -1964,7 +1964,7 @@ ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the 
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_8.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_8.png
    :name: RTE_4_8
    :align: center
  
@@ -1973,7 +1973,7 @@ ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the 
 
 Dragging a runnable entity to an OsTask in the corresponding partition; if it is a periodic runnable entity, an activation method selection window pops up
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_9.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_9.png
    :name: RTE_4_9
    :align: center
   
@@ -1982,7 +1982,7 @@ Dragging a runnable entity to an OsTask in the corresponding partition; if it is
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_10.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_10.png
    :name: RTE_4_10
    :align: center
    
@@ -2004,7 +2004,7 @@ Application RunnableEntity桩代码生成(Application RunnableEntity Stub Code G
 
 Optional operation. If application development is not completed, ORIENTAIS can generate stub code for Application RunnableEntity.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_5.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_5.png
    :name: RTE_4_5
    :align: center
    
@@ -2019,7 +2019,7 @@ RTE及Application RunnableEntity桩代码同时生成(Simultaneous Generation of
 
 Optional operation. ORIENTAIS can generate both RTE and Application RunnableEntity stub code simultaneously.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_4_16.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_16.png
    :name: RTE_4_16
    :align: center
   
@@ -2065,7 +2065,7 @@ Common scenarios:
 
 RTE激活OsTask(RTE Activating OsTask)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_1.png
    :name: RTE_5_1
    :align: center
    
@@ -2076,7 +2076,7 @@ RTE激活OsTask(RTE Activating OsTask)
 
 RTE激活OsAlarm(RTE Activating OsAlarm)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_2.png
    :name: RTE_5_2
    :align: center
   
@@ -2087,7 +2087,7 @@ RTE激活OsAlarm(RTE Activating OsAlarm)
 
 RTE激活OsScheduleTable(RTE Activating OsScheduleTable)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_3.png
    :name: RTE_5_3
    :align: center
   
@@ -2102,7 +2102,7 @@ Swc在Ecu中的配置(Configuration of SWC in ECU)
 
 The RteSwcComponentInstance configuration associates SWC instances with RteSoftwareComponentInstanceRef.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_4.png
    :name: RTE_5_4
    :align: center
   
@@ -2123,7 +2123,7 @@ Maps RteEvent to OsTask, defines Runnable position within OsTask, enabling Task 
 
 映射至Basic(Task Mapping to Basic Task)
 *********************************************
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_5.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_5.png
    :name: RTE_5_5
    :align: center
    
@@ -2140,7 +2140,7 @@ Maps RteEvent to OsTask, defines Runnable position within OsTask, enabling Task 
 
 映射至Extended(Task Mapping to Extended Task)
 **************************************************
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_6.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_6.png
    :name: RTE_5_6
    :align: center
   
@@ -2172,7 +2172,7 @@ After RTE activation, Background Task reactivates itself using ChainTask upon te
 Supports mapping initialization Runnables (triggered by InitEvent) to custom Initialization Task (Basic Task).
 If not mapped to Initialization Task, initialization Runnables are called by Rte_Start. RtePositionInTask in RteEventToTaskMapping determines calling order in Rte_Start; unmapped Runnables are called last by default.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_7.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_7.png
    :name: RTE_5_7
    :align: center
   
@@ -2181,7 +2181,7 @@ If not mapped to Initialization Task, initialization Runnables are called by Rte
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_8.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_8.png
    :name: RTE_5_8
    :align: center
   
@@ -2190,7 +2190,7 @@ If not mapped to Initialization Task, initialization Runnables are called by Rte
 
    Example of initialization Task configuration
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_24.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_24.png
    :name: RTE_5_24
    :align: center
    
@@ -2222,7 +2222,7 @@ OsAlarm触发Basic(Task OsAlarm Triggering Basic Task)
 
 Requires Basic Task to map RunnableEntities with the same period, and set OsAlarm period to match the RunnableEntity period.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_9.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_9.png
    :name: RTE_5_9
    :align: center
    
@@ -2237,7 +2237,7 @@ OsAlarm触发Extended(Task OsAlarm Triggering Extended Task)
 
 Supports a Task mapping RunnableEntities with different periods.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_10.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_10.png
    :name: RTE_5_10
    :align: center
    
@@ -2252,7 +2252,7 @@ OsScheduleTable触发周期RunnableEntity(OsScheduleTable Triggering Periodic Ru
 
 Using schedule tables with expiry points to set activation offsets can achieve load balancing to some extent.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_11.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_11.png
    :name: RTE_5_11
    :align: center
    
@@ -2261,7 +2261,7 @@ Using schedule tables with expiry points to set activation offsets can achieve l
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_12.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_12.png
    :name: RTE_5_12
    :align: center
 
@@ -2270,7 +2270,7 @@ Using schedule tables with expiry points to set activation offsets can achieve l
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_13.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_13.png
    :name: RTE_5_13
    :align: center
    
@@ -2279,7 +2279,7 @@ Using schedule tables with expiry points to set activation offsets can achieve l
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_14.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_14.png
    :name: RTE_5_14
    :align: center
    
@@ -2301,7 +2301,7 @@ RTE provides four configuration options for SWC exclusive areas:
 - OS_RESOURCE
 - NONE
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_22.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_22.png
    :name: RTE_5_22
    :align: center
    
@@ -2320,7 +2320,7 @@ Relevant configuration RteExternalTriggerConfig/RteInternalTriggerConfig.
 RTE supports internal and external queue triggering, with ECUC queue length (≥1) configuration taking priority over SWC-side configuration. Even if SWC Trigger swImplPolicy is "QUEUED", unconfigured queue length in ECUC results in "STANDARD" treatment.
 Currently, queued trigger sinks must reside in the same partition. Configuring internal/external trigger queues is not recommended.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_25.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_25.png
    :name: RTE_5_25
    :align: center
    
@@ -2329,7 +2329,7 @@ Currently, queued trigger sinks must reside in the same partition. Configuring i
 
    
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_26.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_26.png
    :name: RTE_5_26
    :align: center
   
@@ -2347,7 +2347,7 @@ NvM分配(NvM Allocation)
 
 RteNvRamAllocation under corresponding NvMSwC instances must map NvMSwC RteSwNvBlockDescriptor to NvM module NvBlockDescriptor.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_27.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_27.png
    :name: RTE_5_27
    :align: center
   
@@ -2364,7 +2364,7 @@ Bsw模块在Ecu中的配置依赖各Bsw模块的模块描述文件作为输入�
 BSW module configuration in ECU relies on BSW module description files as input.
 Relevant configuration RteBswModuleInstance associates BswImplementation (defined in BSW module description file) with RteBswImplementationRef.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_19.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_19.png
    :name: RTE_5_19
    :align: center
    
@@ -2386,7 +2386,7 @@ Maps BswEvent to OsTask, enabling Task to schedule corresponding BswSchduleEntit
 映射至Basic(Task Mapping to Basic Task)
 ********************************************
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_20.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_20.png
    :name: RTE_5_20
    :align: center
    
@@ -2405,7 +2405,7 @@ Maps BswEvent to OsTask, enabling Task to schedule corresponding BswSchduleEntit
 映射至Extended(Task Mapping to Extended Task)
 ***************************************************
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_21.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_21.png
    :name: RTE_5_21
    :align: center
    
@@ -2452,7 +2452,7 @@ RTE provides five configuration options for BSW module exclusive areas:
 - OS_SPINLOCK
 - NONE
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_23.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_23.png
    :name: RTE_5_23
    :align: center
 
@@ -2477,7 +2477,7 @@ API示例 API examples：
 
     Rte_Call, Rte_Result, Rte_Feedback, Rte_SwitchAck, Rte_Receive, etc.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_29.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_29.png
    :name: RTE_5_29
    :align: center
   
@@ -2502,7 +2502,7 @@ Atomic data consistency protection is enabled when RteAtomicDataProtection is se
 
     Variables mapped to primitive implementation data types, etc.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_31.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_31.png
    :name: RTE_5_31
    :align: center
    
@@ -2521,7 +2521,7 @@ RTE的多核支持 Multi-Core(Support of RTE)
 Core(Definition)
 ********************
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_15.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_15.png
    :name: RTE_5_15
    :align: center
 
@@ -2538,7 +2538,7 @@ Swc与Bsw模块需要映射至EcucPartition，表示被划分在该分区。
 EcucPartition must be mapped to a Core, and a default partition must be established.
 SWC and BSW modules must be mapped to EcucPartition, indicating assignment to that partition.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_16.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_16.png
    :name: RTE_5_16
    :align: center
   
@@ -2561,7 +2561,7 @@ OsTask、OsAlarm、OsResource等系统对象需要映射至OsApplication，表�
 OsApplication is a logical module grouping system objects (e.g., OsTask, OsAlarm, OsResource) and must be created in 1:1 correspondence with EcucPartition to host partition system resources.
 System objects like OsTask, OsAlarm, and OsResource must be mapped to OsApplication, indicating assignment to that partition.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_17.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_17.png
    :name: RTE_5_17
    :align: center
   
@@ -2582,7 +2582,7 @@ Rte_Start
 
 Trusted partitions/non-partitioned systems call Rte_Start via BswM. The "Rte_Start" Action must be added for trusted partitions in BswM configuration.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_30.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_30.png
    :name: RTE_5_30
    :align: center
    
@@ -2614,7 +2614,7 @@ RTE识别EcuM配置中的分区，以该分区的初始化Task中启动EcuM_Star
 RTE identifies partitions in EcuM configuration and starts EcuM_StartupTwo within each partition's initialization Task.
 One trusted partition per core is selected for EcuMFlexConfiguration, so EcuM_StartupTwo starts match core count.
 
-.. figure:: ../../../_static/参考手册/Rte/RTE_5_18.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_18.png
    :name: RTE_5_18
    :align: center
    

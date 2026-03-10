@@ -142,7 +142,7 @@ PduR模块主要为通信接口模块(如CanIf)，传输协议模块(如CanTp)�
 
 The PduR module provides PDU-based routing services for communication interface modules (e.g., CanIf), transport protocol modules (e.g., CanTp), diagnostic service modules (e.g., Dcm), communication service modules (e.g., Com, LdCom), as well as modules such as IpduM and SecOc. The PduR module implements PDU-based reception routing (PDU from CanIf→PduR→Com), transmission routing (Com→PduR→CanIf), and gateway routing (CanIf→PduR→CanIf).
 
-.. figure:: ../../../_static/参考手册/PduR/简介.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/简介.png
    :alt: PduR模块层次图
    :name: PduR_module_hierarchy
    :align: center
@@ -502,7 +502,7 @@ PduR provides three exclusive area protection types:
 PduRGeneral配置(PduRGeneral Configuration)
 ----------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRGeneral.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRGeneral.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduR_general_configuration
    :align: center
@@ -550,7 +550,7 @@ PduRGeneral配置(PduRGeneral Configuration)
 PduRBswModules配置(PduRBswModules Configuration)
 ---------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRBswModules.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRBswModules.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRBswModules
    :align: center
@@ -683,7 +683,7 @@ In AUTOSAR architecture, API configurations for module interactions with PduR ar
 PduRRoutingPaths配置(PduRRoutingPaths Configuration)
 -----------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRRoutingPaths.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRRoutingPaths.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRRoutingPaths
    :align: center
@@ -724,7 +724,7 @@ PduRRoutingPaths配置(PduRRoutingPaths Configuration)
 PduRRoutingPathGroup配置(Configuration of PduRRoutingPathGroup)
 -------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRRoutingPathGroup.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRRoutingPathGroup.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRRoutingPathGroup
    :align: center
@@ -759,7 +759,7 @@ PduRRoutingPathGroup配置(Configuration of PduRRoutingPathGroup)
 PduRRoutingPath配置(Configuration of PduRRoutingPath)
 ----------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRRoutingPath.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRRoutingPath.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRRoutingPath
    :align: center
@@ -824,7 +824,7 @@ PduRRoutingPath配置(Configuration of PduRRoutingPath)
 PduRDefaultValueElement配置(Configuration of PduRDefaultValueElement)
 ------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRDefaultValueElement.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRDefaultValueElement.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRDefaultValueElement
    :align: center
@@ -859,7 +859,7 @@ PduRDefaultValueElement配置(Configuration of PduRDefaultValueElement)
 PduRSrcPdu配置(Configuration of PduRSrcPdu)
 -----------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRSrcPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRSrcPdu.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRSrcPdu
    :align: center
@@ -906,7 +906,7 @@ PduRSrcPdu配置(Configuration of PduRSrcPdu)
 PduRDestPdu配置(Configuration of PduRDestPdu)
 ----------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRDestPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRDestPdu.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRDestPdu
    :align: center
@@ -953,7 +953,7 @@ PduRDestPdu配置(Configuration of PduRDestPdu)
 PduRBuffer配置(Configuration of PduRBuffer)
 ----------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/PduR/PduRBuffer.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/PduR/PduRBuffer.png
    :alt: fig_模块配置图(fig_Module Configuration Diagram)
    :name: PduRBuffer
    :align: center

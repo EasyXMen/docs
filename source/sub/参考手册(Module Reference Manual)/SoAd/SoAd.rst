@@ -192,7 +192,7 @@ SoAd 作为“通信桥梁”将上层基于 I-PDU 的通信，与下层基于 S
 
 SoAd, as the "communication bridge", connects the I-PDU-based upper layer communication and Socket-based lower layer TCP/UDP communication. It can also realize the connection control based on Socket Connection, as well as routing control between I-PDU and Socket Connection, and provide corresponding interfaces for the upper layer.
 
-.. figure:: ../../../_static/参考手册/SoAd/SoAd_Autosar_Architecture.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAd_Autosar_Architecture.png
    :alt: SoAd模块在AUTOSAR架构中的位置 (Position of SoAd Module in AUTOSAR Architecture)
    :name: SoAd_Autosar_Architecture
    :align: center
@@ -698,7 +698,7 @@ None
 SoAd Socket Connection
 --------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/SoAd/SoAdSocketConnectionGroup.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAdSocketConnectionGroup.png
    :name: SoAd_SoAdSocketConnectionGroup
    :align: center
 
@@ -711,7 +711,7 @@ The Socket Connection of the SoAd module is configured in the SoAdSocketconnecti
 发送PDU Send PDU
 --------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/SoAd/SoAdPduRouteDest.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAdPduRouteDest.png
    :name: SoAd_SoAdPduRouteDest
    :align: center
 
@@ -724,7 +724,7 @@ The PDU sending by upper layer is configured in SoAdPduRoute. The PDU can be rou
 接收PDU Receive PDU
 --------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/SoAd/SoAdSocketRouteDest.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAdSocketRouteDest.png
    :name: SoAd_SoAdSocketRouteDest
    :align: center
 

@@ -136,7 +136,7 @@ As shown in Figure :ref:`fig_LinStack_arch` below, the lower layer of the LinSM 
 
 3.Notify the upper-layer modules when the LIN channel state switches to a new state
 
-.. figure:: ../../../_static/参考手册/LinSM/AutosarLINStack.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/AutosarLINStack.png
    :alt: LIN通信栈架构图 (LIN Communication Stack Architecture Diagram)
    :name: fig_LinStack_arch
    :align: center

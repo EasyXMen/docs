@@ -190,7 +190,7 @@ Com模块主要实现了Signal在I-PDU中的封装及解析功能，为RTE层提
 
 The Com module mainly implements the functions of encapsulating and parsing Signals in I-PDUs, provides Signal-based sending and receiving interfaces for the RTE layer, realizes Signal-based gateway functions, implements different sending modes of PDUs, as well as functions such as Signal filtering and Update bit.
 
-.. figure:: ../../../_static/参考手册/Com/image1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/image1.png
    :alt: Com模块层次图 (Com Module Hierarchy Diagram)
    :name: Com_fig_arch
    :align: center
@@ -625,14 +625,14 @@ None
 ----------------------
 1.1(RxIpdu Path)
 ----------------------
-.. figure:: ../../../_static/参考手册/Com/RxIpdu1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxIpdu1.png
    :alt: RxIpdu1
    :name: RxIpdu1
    :align: center
 
    RxIpdu1
 
-.. figure:: ../../../_static/参考手册/Com/RxIpdu2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxIpdu2.png
    :alt: RxIpdu2
    :name: RxIpdu2
    :align: center
@@ -655,7 +655,7 @@ None
     
    IPdu type: ComIPduType = NORMAL (normal type IPdu), TP (TP type IPdu)
 
- .. figure:: ../../../_static/参考手册/Com/RxIpduGroup.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxIpduGroup.png
     :alt: RxIpduGroup
     :name: RxIpduGroup
     :align: center
@@ -678,7 +678,7 @@ None
 
    Associated ComIPduSignalRef = ComIPduSignal (if it exists)
 
- .. figure:: ../../../_static/参考手册/Com/EcuCRx.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/EcuCRx.png
     :alt: EcuCRx
     :name: EcuCRx
     :align: center
@@ -692,7 +692,7 @@ None
 
 1.2(RxSignal Path)
 ----------------------
-.. figure:: ../../../_static/参考手册/Com/RxSignal.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxSignal.png
    :alt: RxSignal
    :name: RxSignal
    :align: center
@@ -724,7 +724,7 @@ As shown in [RxSignal]:
    Signal type: ComSignalType, as shown in [SignalType]:
 
 
- .. figure:: ../../../_static/参考手册/Com/SignalType.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/SignalType.png
     :alt: SignalType
     :name: SignalType
     :align: center
@@ -736,7 +736,7 @@ As shown in [RxSignal]:
    The selection of signal triggering mode is ComTransferProperty as shown in [TransferProperty]:
 
 
- .. figure:: ../../../_static/参考手册/Com/TransferProperty.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TransferProperty.png
     :alt: TransferProperty
     :name: TransferProperty
     :align: center
@@ -745,7 +745,7 @@ As shown in [RxSignal]:
 
 1.3(RxSignalGroup Path)
 ---------------------------
-.. figure:: ../../../_static/参考手册/Com/RxSignalGroup.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxSignalGroup.png
    :alt: RxSignalGroup
    :name: RxSignalGroup
    :align: center
@@ -764,14 +764,14 @@ As shown in [RxSignalGroup]:
 ----------------------
 2.1(TxIpdu Path)
 ----------------------
- .. figure:: ../../../_static/参考手册/Com/TxIpdu1.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxIpdu1.png
     :alt: TxIpdu1
     :name: TxIpdu1
     :align: center
 
     TxIpdu1
 
- .. figure:: ../../../_static/参考手册/Com/TxIpdu2.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxIpdu2.png
     :alt: TxIpdu2
     :name: TxIpdu2
     :align: center
@@ -795,7 +795,7 @@ As shown in [RxSignalGroup]:
    Associated IpduGroup: ComIPduGroupRef = ComIpduGroup, as shown in [TxIpduGroup]:
  
 
- .. figure:: ../../../_static/参考手册/Com/TxIpduGroup.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxIpduGroup.png
     :alt: TxIpduGroup
     :name: TxIpduGroup
     :align: center
@@ -822,7 +822,7 @@ As shown in [RxSignalGroup]:
 
    Associated ComPduIdRef = EcuC module -> EcucConfigSet -> EcucPduCollection -> Pdu, as shown in [EcuCTx]:
 
-  .. figure:: ../../../_static/参考手册/Com/EcuCTx.png
+  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/EcuCTx.png
     :alt: EcuCTx
     :name: EcuCTx
     :align: center
@@ -831,7 +831,7 @@ As shown in [RxSignalGroup]:
 
 2.2(TxSignal Path)
 ----------------------
-.. figure:: ../../../_static/参考手册/Com/TxSignal.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxSignal.png
    :alt: TxSignal
    :name: TxSignal
    :align: center
@@ -866,7 +866,7 @@ As shown in [TxSignal]:
 
 2.3(TxSignalGroup Path)
 ---------------------------
-.. figure:: ../../../_static/参考手册/Com/TxSignalGroup.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxSignalGroup.png
    :alt: TxSignalGroup
    :name: TxSignalGroup
    :align: center
@@ -887,7 +887,7 @@ As shown in [TxSignalGroup]:
 
 Transmission filtering can be configured in TxSignal, TxGroupSignal, and ComGwDestinationDescription. The prerequisite for filter configuration is that it must be configured simultaneously, as shown in [TxModeTrueFalse]:
 
-.. figure:: ../../../_static/参考手册/Com/TxModeTrueFalse.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxModeTrueFalse.png
    :alt: TxModeTrueFalse
    :name: TxModeTrueFalse
    :align: center
@@ -898,7 +898,7 @@ Transmission filtering can be configured in TxSignal, TxGroupSignal, and ComGwDe
 
 Filter configuration, as shown in [Filter]:
 
-.. figure:: ../../../_static/参考手册/Com/Filter.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/Filter.png
    :alt: Filter
    :name: Filter
    :align: center
@@ -915,7 +915,7 @@ Reception filtering can be configured in RxSignal and RxGroupSignal. Filter conf
 ----------------------
 3.1 Src:Signal
 ----------------------
-.. figure:: ../../../_static/参考手册/Com/SrcSignal.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/SrcSignal.png
    :alt: SrcSignal
    :name: SrcSignal
    :align: center
@@ -928,7 +928,7 @@ Signal gateway Source configuration: ComGwSignal is associated with Signal or Gr
 
 3.2 Src:Description
 ----------------------
-.. figure:: ../../../_static/参考手册/Com/SrcDesp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/SrcDesp.png
    :alt: SrcDesp
    :name: SrcDesp
    :align: center
@@ -969,7 +969,7 @@ Signal gateway Source configuration: ComGwSourceDescription is associated with I
 
 Signal gateway Destination configuration: ComGwSignal is associated with Signal or GroupSignal, as shown in [DestSignal].
 
-.. figure:: ../../../_static/参考手册/Com/DestSignal.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/DestSignal.png
    :alt: DestSignal
    :name: DestSignal
    :align: center
@@ -982,7 +982,7 @@ Signal gateway Destination configuration: ComGwSignal is associated with Signal 
 
 Signal gateway Destination configuration: ComGwDestinationDescription is associated with Ipdu, as shown in [DestDesp]:
 
- .. figure:: ../../../_static/参考手册/Com/DestDesp.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/DestDesp.png
     :alt: DestDesp
     :name: DestDesp
     :align: center
@@ -1017,7 +1017,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
 
    Receive callback, as shown in [RxCbk]:
 
- .. figure:: ../../../_static/参考手册/Com/RxCbk.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxCbk.png
     :alt: RxCbk
     :name: RxCbk
     :align: center
@@ -1028,7 +1028,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
 
    Transmission callback, as shown in [TxCbk]:
 
- .. figure:: ../../../_static/参考手册/Com/TxCbk.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxCbk.png
     :alt: TxCbk
     :name: TxCbk
     :align: center
@@ -1043,7 +1043,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
      
    Invalid value transmission notification: Similar to the invalid value reception notification, but the difference is that transmission will not perform invalid value replacement and only has a notification function. Sending invalid values can be implemented using API functions, as shown in [RxInvalid]:
 
- .. figure:: ../../../_static/参考手册/Com/RxInvalid.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxInvalid.png
     :alt: RxInvalid
     :name: RxInvalid
     :align: center
@@ -1054,7 +1054,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
      
    Reception timeout monitoring notification: A non-zero ComTimeout must be configured. ComFirstTimeout can be configured as required. The reception timeout notification (ComTimeoutNotification) is independent of the reception notification. The reception timeout action (ComRxDataTimeoutAction) includes: NONE (no processing), REPLACE (replace with initial value), and SUBSTITUTE (replace with ComTimeoutSubstitutionValue), as shown in [RxTimeout]:
 
- .. figure:: ../../../_static/参考手册/Com/RxTimeout.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxTimeout.png
     :alt: RxTimeout
     :name: RxTimeout
     :align: center
@@ -1065,7 +1065,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
      
    Transmission timeout monitoring notification: A non-zero ComTimeout must be configured. The transmission timeout notification (ComTimeoutNotification) can be configured as required and is independent of the transmission notification. The timeout action (ComRxDataTimeoutAction) is set to NONE (no processing), as shown in [TxTimeout]:
 
- .. figure:: ../../../_static/参考手册/Com/TxTimeout.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxTimeout.png
     :alt: TxTimeout
     :name: TxTimeout
     :align: center
@@ -1076,7 +1076,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
      
    Receive and send IPDU callout: Users fill in the function name used for the callout, as shown in [RxCallout]:
 
- .. figure:: ../../../_static/参考手册/Com/RxCallout.png
+ .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxCallout.png
     :alt: RxCallout
     :name: RxCallout
     :align: center

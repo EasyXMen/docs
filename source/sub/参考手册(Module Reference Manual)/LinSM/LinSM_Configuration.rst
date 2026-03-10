@@ -12,7 +12,7 @@ The timeout timer and retry counter that the Lin channel needs to load when star
 
 1.Screenshot of LinSMConfirmationTimeout configuration: (Unit: s, the parameter value must be greater than the propagation time of the wakeup command on the Lin channel)
 
-.. figure:: ../../../_static/参考手册/LinSM/LinSMConfirmationTimeout.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/LinSMConfirmationTimeout.png
    :alt: LinSMConfirmationTimeout的图片 (Image of LinSMConfirmationTimeout)
    :align: center
 
@@ -21,7 +21,7 @@ The timeout timer and retry counter that the Lin channel needs to load when star
 - LinSMMainProcessingPeriod配置截图：(单位：s)
 - Screenshot of LinSMMainProcessingPeriod configuration: (Unit: s)
 
-.. figure:: ../../../_static/参考手册/LinSM/LinSMMainProcessingPeriod.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/LinSMMainProcessingPeriod.png
    :alt: LinSMMainProcessingPeriod的图片 (Image of LinSMMainProcessingPeriod)
    :align: center
 
@@ -35,7 +35,7 @@ The number of wakeup failure retries is determined by the global configuration L
 
 1.Screenshot of LinSMModeRequestRepetitionMax configuration:
 
-.. figure:: ../../../_static/参考手册/LinSM/LinSMModeRequestRepetitionMax.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/LinSMModeRequestRepetitionMax.png
    :alt: LinSMModeRequestRepetitionMax的图片 (Image of LinSMModeRequestRepetitionMax)
    :align: center
 
@@ -52,7 +52,7 @@ The schedule table configuration is located in the sub-container under the confi
 
 1.Screenshot of LinSMNodeType configuration: (Select configuration parameters from the drop-down box)
 
-.. figure:: ../../../_static/参考手册/LinSM/LinSMNodeType.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/LinSMNodeType.png
    :alt: LinSMNodeType的图片 (Image of LinSMNodeType)
    :align: center
 
@@ -66,7 +66,7 @@ In the LinSMChannel/LinSMSchedule container, LinSMScheduleIndex is automatically
 
 1.Screenshot of LinSMSchedule configuration
 
-.. figure:: ../../../_static/参考手册/LinSM/LinSMSchedule.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/LinSMSchedule.png
    :alt: LinSMSchedule的图片 (Image of LinSMSchedule)
    :align: center
 
@@ -76,7 +76,7 @@ In the LinSMChannel/LinSMSchedule container, LinSMScheduleIndex is automatically
 
 1.Source referenced by LinSMScheduleIndexRef: LinIfScheduleTable
 
-.. figure:: ../../../_static/参考手册/LinSM/LinIfScheduleTable.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/LinIfScheduleTable.png
    :alt: LinIfScheduleTable的图片 (Image of LinIfScheduleTable)
    :align: center
 
