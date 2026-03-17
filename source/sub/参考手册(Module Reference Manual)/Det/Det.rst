@@ -150,7 +150,7 @@ Det
 模块架构(Module Architecture)
 --------------------------------------
 
-.. figure:: ../../../_static/参考手册/Det/Det_AUTOSAR_Architecture.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_AUTOSAR_Architecture.png
    :alt: Det模块层次图(Det Module Hierarchy Diagram)
    :name: Det_AUTOSAR_Arch
    :align: center
@@ -165,7 +165,7 @@ As shown in :ref:`Det_AUTOSAR_Arch`, the Det module is located in the system ser
 Det接口调用关系(Det Interface Calling Relationship)
 -----------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/Det/Det_Interface_Relationship.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_Interface_Relationship.png
    :alt: Det模块接口关系图(Det Module Interface Relationship Diagram)
    :name: Det_Interface
    :align: center
@@ -180,7 +180,7 @@ As shown in :ref:`Det_Interface`, it displays the interface relationship of the 
 Det与Bsw之间的交互关系(Interaction Relationship between Det and Bsw)
 -----------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/Det/Det_Interaction_API_With_Bsw.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_Interaction_API_With_Bsw.png
    :alt: Det模块接口关系图(Det Module Interface Relationship Diagram)
    :name: Det_Interaction
    :align: center
@@ -430,7 +430,7 @@ DetGeneral配置(DetGeneral Configuration)
 
 Used to describe the list of general configuration parameters of the Det module.
 
-.. figure:: ../../../_static/参考手册/Det/Det_General.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_General.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_General
    :align: center
@@ -479,7 +479,7 @@ DetModule配置(DetModule Configuration)
 
 Used to describe the list of configuration parameters for a given PC/PB module in the Det module.
 
-.. figure:: ../../../_static/参考手册/Det/Det_ConfigSet_Module.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_ConfigSet_Module.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_ConfigSet_Module
    :align: center
@@ -514,7 +514,7 @@ DetModuleInstance配置(DetModuleInstance Configuration)
 
 Used to describe the list of instance configuration parameters for a given PC/PB module in the Det module.
 
-.. figure:: ../../../_static/参考手册/Det/Det_ConfigSet_Module_Instance.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_ConfigSet_Module_Instance.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_ConfigSet_Module_Instance
    :align: center
@@ -549,7 +549,7 @@ DetNotification配置(DetNotification Configuration)
 
 Used to describe the API configuration list of error notification callbacks in the Det module.
 
-.. figure:: ../../../_static/参考手册/Det/Det_Notification.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_Notification.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_Notification
    :align: center

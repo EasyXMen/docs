@@ -410,7 +410,7 @@ During the use of the Ea module, the underlying EEPROM Driver module needs to be
 
 As shown in Figure :ref:`EaHeaderFile`.
 
-.. figure:: ../../../_static/参考手册/Ea/EaHeaderFile.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaHeaderFile.png
    :alt: EaHeaderFile配置图 (EaHeaderFile Configuration Diagram)
    :name: EaHeaderFile
    :align: center
@@ -424,7 +424,7 @@ EaVirtualPageSize
 
 As shown in Figure :ref:`EaVirtualPageSize`,
 
-.. figure:: ../../../_static/参考手册/Ea/EaVirtualPageSize.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaVirtualPageSize.png
    :alt: EaVirtualPageSize配置图 (EaVirtualPageSize Configuration Diagram)
    :name: EaVirtualPageSize
    :align: center
@@ -439,7 +439,7 @@ In the Ea module, the size of the configured virtual page EaVirtualPageSize must
 
 That is, (EaBlockSize + EaBlockOverhead) % EaVirtualPageSize != 0 
 
-.. figure:: ../../../_static/参考手册/Ea/EaBlockSize.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaBlockSize.png
    :alt: EaBlockSize配置图 (EaBlockSize Configuration Diagram)
    :name: EaBlockSize
    :align: center
@@ -447,7 +447,7 @@ That is, (EaBlockSize + EaBlockOverhead) % EaVirtualPageSize != 0
    EaBlockSize Including
 
 
-.. figure:: ../../../_static/参考手册/Ea/EaBlockOverhead.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaBlockOverhead.png
    :alt: EaBlockOverhead配置图 (EaBlockOverhead Configuration Diagram)
    :name: EaBlockOverhead
    :align: center
@@ -462,7 +462,7 @@ EepApi
 
 As shown in Figure :ref:`EepApi`, the underlying Eep module can be associated, and the corresponding interface of the underlying Eep module can be set.
 
-.. figure:: ../../../_static/参考手册/Ea/EepApi.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EepApi.png
    :alt: EepApi配置图 (EepApi Configuration Diagram)
    :name: EepApi
    :align: center

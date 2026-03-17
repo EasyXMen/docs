@@ -490,7 +490,7 @@ Mode selection of Eep_62, which can set the default mode and the read/write Size
 
 As shown in Figure :ref:`InitConfiguration`, the configuration interface of EepInitConfiguration is displayed.
 
-.. figure:: ../../../_static/参考手册/Eep_62/EepInitConfiguration.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Eep_62/EepInitConfiguration.png
    :alt: 模块配置图 (Module Configuration Diagram)
    :name: InitConfiguration
    :align: center
@@ -508,7 +508,7 @@ If the SPI serial bus is used for connection, the SPI component that comes with 
 
 As shown in Figure :ref:`DeviceConfiguration`, the configuration interface of EepDeviceConfiguration is displayed.
 
-.. figure:: ../../../_static/参考手册/Eep_62/EepDeviceConfiguration.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Eep_62/EepDeviceConfiguration.png
    :alt: 模块配置图 (Module Configuration Diagram)
    :name: DeviceConfiguration
    :align: center
@@ -526,7 +526,7 @@ For the operation of EEPROM hardware, the basic operation API functions of the E
 
 As shown in Figure :ref:`DeviceHwApis`, the configuration interface of EepDeviceHwApis is displayed.
 
-.. figure:: ../../../_static/参考手册/Eep_62/EepDeviceHwApis.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Eep_62/EepDeviceHwApis.png
    :alt: 模块配置图 (Module Configuration Diagram)
    :name: DeviceHwApis
    :align: center

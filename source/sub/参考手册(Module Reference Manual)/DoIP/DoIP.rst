@@ -164,7 +164,7 @@ The DoIP module, implemented according to the DoIP protocol, provides a complete
 
 
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIP_Arch.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIP_Arch.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIP_Arch
    :align: center
@@ -545,7 +545,7 @@ None
 允许的 paylaod 字段长度 Allowed Payload Field Length
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPMaxRequestBytes.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPMaxRequestBytes.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: payload 字段最大值(Maximum Payload Field Value)
    :align: center
@@ -559,14 +559,14 @@ If the value of the payload field in a DoIP message exceeds this configuration i
 GID、LA、EID
 --------------------------------------------
 
-.. figure:: ../../../_static/参考手册/DoIP/GID_LA.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/GID_LA.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: GID_LA
    :align: center
 
    GID、LA 配置示意图 (GID and LA Configuration Diagram)
 
-.. figure:: ../../../_static/参考手册/DoIP/EID.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/EID.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: EID
    :align: center
@@ -582,7 +582,7 @@ DoIP includes the GID, LA, and EID in vehicle announcement messages and vehicle 
 允许连接的客户端数量 Allowed Number of Client Connections
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPMaxTesterConnections.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPMaxTesterConnections.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPMaxTesterConnections
    :align: center
@@ -609,21 +609,21 @@ The channel has two functions:
 
 2.To determine which module to pass messages received from the client to (DoIPPduRRxPduRef), and which client to send messages received from PduR to (DoIPPduRTxPduRef).
 
-.. figure:: ../../../_static/参考手册/DoIP/channel_test_target.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/channel_test_target.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SA_TA
    :align: center
 
    通道 SA、TA 配置示意图 (Channel SA and TA Configuration Diagram)
 
-.. figure:: ../../../_static/参考手册/DoIP/channel_srcpdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/channel_srcpdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPPduRRxPduRef
    :align: center
 
    DoIPPduRRxPduRef 配置示意图 (DoIPPduRRxPduRef Configuration Diagram)
 
-.. figure:: ../../../_static/参考手册/DoIP/channel_destpdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/channel_destpdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPPduRTxPduRef
    :align: center
@@ -645,7 +645,7 @@ For the PDUs referenced by DoIPPduRRxPduRef and DoIPPduRTxPduRef, a communicatio
 PduRSrcPdu 配置 PduRSrcPdu Configuration
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/PduR_srcpdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/PduR_srcpdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: PduRSrcPdu 配置(PduRSrcPdu Configuration)
    :align: center
@@ -663,7 +663,7 @@ The PDU referenced by DoIPPduRRxPduRef (here, DoIP_Phy_Rx) needs to be configure
 PduRDestPdu 配置 PduRDestPdu Configuration
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/PduR_destpdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/PduR_destpdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: PduRDestPdu 配置(PduRDestPdu Configuration)
    :align: center
@@ -685,7 +685,7 @@ PduRRoutingPath 配置 PduRRoutingPath Configuration
 接收链路 Receiving Link
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/PduR_srcpath.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/PduR_srcpath.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: PduRRoutingPath_recv
    :align: center
@@ -711,7 +711,7 @@ Configure PduRSrcPduRRef (here, PduRSrcPdu_DCM_PHY_RX) to specify the PDU source
 发送链路 Sending Link
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/PduR_dstpath.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/PduR_dstpath.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: PduRRoutingPath_send
    :align: center
@@ -738,7 +738,7 @@ Configure PduRSrcPduRRef (here, PduRSrcPdu_DCM_TX) to specify the PDU source (he
 物理寻址、功能寻址 Physical and Functional Addressing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/DoIP/pyh_func.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/pyh_func.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: pyh_func
    :align: center
@@ -773,7 +773,7 @@ A minimum of two TCP connections must be configured, which allows communication 
 DoIPSoAdTcpRxPdu
 ++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPSoAdTcpRxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPSoAdTcpRxPdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPSoAdTcpRxPdu
    :align: center
@@ -784,7 +784,7 @@ DoIPSoAdTcpRxPdu
 SoAd 中的相关配置 Related Configurations in SoAd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRouteDest.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRouteDest.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRouteDest
    :align: center
@@ -806,7 +806,7 @@ Passing the received message to the DoIP module is specified by configuring the 
 
 
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRoute_tcp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRoute_tcp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRoute_tcp
    :align: center
@@ -819,7 +819,7 @@ Passing the received message to the DoIP module is specified by configuring the 
 The message source is specified by configuring the SoAdRxSocketConnOrSocketConnBundleRef parameter of the SoAdSocketRoute container (here, SoAdSocketRoute_DOIP_TCP0) (here, SCGroup_DOIP_TCP0).
 
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRemoteAddress.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRemoteAddress.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRemoteAddress
    :align: center
@@ -837,7 +837,7 @@ A new SoAdSocketConnection container needs to be added (here, SCGroup_DOIP_TCP0)
 DoIPSoAdTcpTxPdu
 ++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPSoAdTcpTxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPSoAdTcpTxPdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPSoAdTcpTxPdu
    :align: center
@@ -847,7 +847,7 @@ DoIPSoAdTcpTxPdu
 SoAd 中的相关配置 Related Configurations in SoAd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdPduRoute_tcp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdPduRoute_tcp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdPduRoute_tcp
    :align: center
@@ -866,7 +866,7 @@ The message source is specified as DoIP by configuring SoAdTxPduRef (here, SoAd_
 
 The message type is specified by configuring SoAdRxUpperLayerType (here, configured as TP, for TCP type).
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdPduRouteDest.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdPduRouteDest.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdPduRouteDest
    :align: center
@@ -885,7 +885,7 @@ UDP 连接 UDP Connection
 DoIPSoAdUdpRxPdu
 ++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPSoAdUdpRxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPSoAdUdpRxPdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPSoAdUdpRxPdu
    :align: center
@@ -895,7 +895,7 @@ DoIPSoAdUdpRxPdu
 SoAd 中的相关配置 Related Configurations in SoAd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRouteDest_udp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRouteDest_udp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRouteDest_udp
    :align: center
@@ -913,7 +913,7 @@ The message type is specified by configuring the SoAdRxUpperLayerType parameter 
 
 Passing the received message to the DoIP module is specified by configuring the SoAdRxPduRef parameter of the SoAdSocketRouteDest container (here, SoAdSocketRouteDest_4) (here, SoAd_Rx_Udp).
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRoute_udp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRoute_udp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRoute_udp
    :align: center
@@ -925,7 +925,7 @@ Passing the received message to the DoIP module is specified by configuring the 
 The message source is specified by configuring the SoAdRxSocketConnOrSocketConnBundleRef parameter of the SoAdSocketRoute container (here, SoAdSocketRoute_DOIP_UDP0) (here, SCGroup_DOIP_UDP0).
 
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRemoteAddress_udp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRemoteAddress_udp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRemoteAddress_udp
    :align: center
@@ -945,7 +945,7 @@ A new SoAdSocketConnection container needs to be added (here, SCGroup_DOIP_UDP0)
 DoIPSoAdUdpTxPdu
 ++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPSoAdUdpTxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPSoAdUdpTxPdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPSoAdUdpTxPdu
    :align: center
@@ -955,7 +955,7 @@ DoIPSoAdUdpTxPdu
 SoAd 中的相关配置 Related Configurations in SoAd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdPduRoute_udp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdPduRoute_udp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdPduRoute_udp
    :align: center
@@ -976,7 +976,7 @@ The message source is specified as DoIP by configuring SoAdTxPduRef (here, SoAd_
 The message type is specified by configuring SoAdRxUpperLayerType (here, configured as IF, for UDP type).
 
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdPduRouteDest_udp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdPduRouteDest_udp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdPduRouteDest_udp
    :align: center
@@ -994,7 +994,7 @@ announcement 连接 Announcement Connection
 DoIPSoAdUdpVehicleAnnouncementTxPdu
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPSoAdUdpVehicleAnnouncementTxPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPSoAdUdpVehicleAnnouncementTxPdu.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPSoAdUdpVehicleAnnouncementTxPdu
    :align: center
@@ -1004,7 +1004,7 @@ DoIPSoAdUdpVehicleAnnouncementTxPdu
 SoAd 中的相关配置 Related Configurations in SoAd
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdPduRoute_anc.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdPduRoute_anc.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdPduRoute_anc
    :align: center
@@ -1024,7 +1024,7 @@ The message source is specified as DoIP by configuring SoAdTxPduRef (here, SoAd_
 The message type is specified by configuring SoAdRxUpperLayerType (here, configured as IF, for UDP type).
 
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdPduRouteDest_anc.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdPduRouteDest_anc.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram) 
    :name: SoAdPduRouteDest_anc
    :align: center
@@ -1037,7 +1037,7 @@ The message type is specified by configuring SoAdRxUpperLayerType (here, configu
 The network node to which the message is sent is specified by configuring the SoAdTxSocketConnOrSocketConnBundleRef parameter of the SoAdPduRouteDest container (here, SoAdPduRouteDest_6) (here, SCGroup_DOIP_UDP_MUTIL).
 
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketRemoteAddress_anc.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketRemoteAddress_anc.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketRemoteAddress_anc
    :align: center
@@ -1060,7 +1060,7 @@ SoAd 中的额外配置 Additional Configurations in SoAd
 TCP 连接 TCP Connection
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketConnectionGroup.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketConnectionGroup.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketConnectionGroup
    :align: center
@@ -1071,7 +1071,7 @@ TCP 连接 TCP Connection
 
 The local port must be configured to 13400.
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketTcp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketTcp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketTcp
    :align: center
@@ -1085,7 +1085,7 @@ The SoAdSocketTcpNoDelay option must be checked to disable the Nagle algorithm.
 UDP、announcement 连接 UDP and Announcement Connection
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: ../../../_static/参考手册/DoIP/SoAdSocketConnectionGroup_udp.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/SoAdSocketConnectionGroup_udp.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: SoAdSocketConnectionGroup_udp
    :align: center
@@ -1101,7 +1101,7 @@ The local port must be configured to 13400.
 --------------------------------------------
 
 
-.. figure:: ../../../_static/参考手册/DoIP/DoIPRoutingActivation.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/DoIPRoutingActivation.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: DoIPRoutingActivation
    :align: center
@@ -1120,7 +1120,7 @@ DoIPTargetAddressRef can reference multiple TargetAddress (configured in the gre
 
 Specifies which clients (identified by LA) are allowed to communicate.
 
-.. figure:: ../../../_static/参考手册/DoIP/tester.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/DoIP/tester.png
    :alt: DoIP架构层次图 (DoIP Architecture Hierarchy Diagram)
    :name: tester
    :align: center

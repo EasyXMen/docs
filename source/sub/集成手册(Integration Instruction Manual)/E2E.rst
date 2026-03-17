@@ -430,87 +430,87 @@ E2E协议栈调度集成步骤如下：
 
 #. 根据需求对被保护数据直接调用E2Exf中接口即可：例如要发送6个字节的数据，选用profile1进行保护，发送端调用\ **E2EXf_Transformation_0**\ ()进行保护；接收端调用\ **E2EXf_Inv_Transformation_0**\ ()进行检查，该函数名来源于下图中名称添加前缀所得，每一个会生成这样的一对保护和检查函数用于收发端，不可混用，具体使用详情请参照工程中相关代码及《参考手册_E2EXf.pdf》。
 
-.. |image1| image:: /_static/集成手册/集成手册_E2E/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image2.png
    :width: 4.26042in
    :height: 4.05208in
-.. |image2| image:: /_static/集成手册/集成手册_E2E/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image3.png
    :width: 4.625in
    :height: 3.88542in
-.. |image3| image:: /_static/集成手册/集成手册_E2E/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image4.png
    :width: 4.05208in
    :height: 2.89583in
-.. |image4| image:: /_static/集成手册/集成手册_E2E/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image5.png
    :width: 4.30208in
    :height: 2.97917in
-.. |image5| image:: /_static/集成手册/集成手册_E2E/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image6.png
    :width: 3.72917in
    :height: 2.53125in
-.. |image6| image:: /_static/集成手册/集成手册_E2E/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image7.png
    :width: 5.125in
    :height: 2.82292in
-.. |image7| image:: /_static/集成手册/集成手册_E2E/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image8.png
    :width: 5.42708in
    :height: 3.64583in
-.. |image8| image:: /_static/集成手册/集成手册_E2E/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image9.png
    :width: 3.65625in
    :height: 3.5625in
-.. |image9| image:: /_static/集成手册/集成手册_E2E/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image10.png
    :width: 3.47917in
    :height: 2.27083in
-.. |image10| image:: /_static/集成手册/集成手册_E2E/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image11.png
    :width: 5.375in
    :height: 3.96875in
-.. |image11| image:: /_static/集成手册/集成手册_E2E/image11.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image11.png
    :width: 5.15625in
    :height: 3.625in
-.. |image12| image:: /_static/集成手册/集成手册_E2E/image12.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image12.png
    :width: 5.77083in
    :height: 3.78125in
-.. |image13| image:: /_static/集成手册/集成手册_E2E/image13.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image13.png
    :width: 5.76042in
    :height: 3.41667in
-.. |image14| image:: /_static/集成手册/集成手册_E2E/image14.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image14.png
    :width: 5.77083in
    :height: 2.84375in
-.. |image15| image:: /_static/集成手册/集成手册_E2E/image15.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image15.png
    :width: 5.77083in
    :height: 3.01042in
-.. |image16| image:: /_static/集成手册/集成手册_E2E/image16.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image16.png
    :width: 5.77083in
    :height: 3.53125in
-.. |image17| image:: /_static/集成手册/集成手册_E2E/image17.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image17.png
    :width: 5.76042in
    :height: 3.78125in
-.. |image18| image:: /_static/集成手册/集成手册_E2E/image18.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image18.png
    :width: 5.76042in
    :height: 2.875in
-.. |image19| image:: /_static/集成手册/集成手册_E2E/image19.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image19.png
    :width: 5.76042in
    :height: 2.38542in
-.. |image20| image:: /_static/集成手册/集成手册_E2E/image20.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image20.png
    :width: 5.76042in
    :height: 2.38542in
-.. |image21| image:: /_static/集成手册/集成手册_E2E/image21.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image21.png
    :width: 5.76042in
    :height: 2.38542in
-.. |image22| image:: /_static/集成手册/集成手册_E2E/image22.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image22.png
    :width: 5.76042in
    :height: 2.38542in
-.. |image23| image:: /_static/集成手册/集成手册_E2E/image23.png
+.. |image23| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image23.png
    :width: 5.76042in
    :height: 2.38542in
-.. |image24| image:: /_static/集成手册/集成手册_E2E/image24.png
+.. |image24| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image24.png
    :width: 5.76042in
    :height: 2.38542in
-.. |image25| image:: /_static/集成手册/集成手册_E2E/image25.png
+.. |image25| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image25.png
    :width: 5.77083in
    :height: 3.4375in
-.. |image26| image:: /_static/集成手册/集成手册_E2E/image26.png
+.. |image26| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image26.png
    :width: 2.80208in
    :height: 2.97917in
-.. |image27| image:: /_static/集成手册/集成手册_E2E/image27.png
+.. |image27| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image27.png
    :width: 2.80208in
    :height: 2.97917in
-.. |image28| image:: /_static/集成手册/集成手册_E2E/image28.png
+.. |image28| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_E2E/image28.png
    :width: 2.80208in
    :height: 2.97917in

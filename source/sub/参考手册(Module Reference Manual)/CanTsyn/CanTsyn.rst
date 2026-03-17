@@ -133,7 +133,7 @@ CanTSyn 在 AutoSAR 软件层级架构如下图， 其所属于时间同步栈�
 
 The software layer architecture of StbM in AutoSAR is shown in the figure below. It belongs to the time synchronization stack.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_In_AutoSAR.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_In_AutoSAR.png
    :alt: CanTSyn在AUTOSAR中的位置(Position of CanTSyn in AUTOSAR))
    :name: CanTSyn_fig_arch
    :align: center
@@ -470,7 +470,7 @@ None
 
 2.If CRC checksum is enabled, CanTSynGlobalTimeSyncDataIDList and CanTSynGlobalTimeFupDataIDListElement configuration items must be identical for the Master and Slave within the same CanTSynGlobalTimeDomainId; otherwise, the check will fail.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_1.png
    :alt: CanTSyn_1
    :align: center
 
@@ -494,7 +494,7 @@ Before Importing the Extraction File
 
 Note: For the steps to update the extraction file, refer to the SWC part below.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_2.png
    :alt: CanTSyn_2
    :align: center
 
@@ -502,7 +502,7 @@ Note: For the steps to update the extraction file, refer to the SWC part below.
 
 Right-click to add a new time domain.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_3.png
    :alt: CanTSyn_3
    :align: center
 
@@ -518,7 +518,7 @@ Right-click to add a new time domain.
 
 3.Associate the CAN controller.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_3.png
    :alt: CanTSyn_3
    :align: center
 
@@ -546,7 +546,7 @@ After Importing the Extraction File
 
 After updating the extraction file, follow the steps below to generate the RTE.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_4.png
    :alt: CanTSyn_4
    :align: center
 
@@ -554,7 +554,7 @@ After updating the extraction file, follow the steps below to generate the RTE.
 
 First, open the ECUC module and add the application component previously created in the SWC, as shown in the figure above.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_5.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_5.png
    :alt: CanTSyn_5
    :align: center
 
@@ -562,7 +562,7 @@ First, open the ECUC module and add the application component previously created
 
 Right-click the ECUC module and synchronize the module.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_6.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_6.png
    :alt: CanTSyn_6
    :align: center
 
@@ -570,11 +570,11 @@ Right-click the ECUC module and synchronize the module.
 
 Click to synchronize RTE/OS.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_7.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_7.png
    :alt: CanTSyn_7
    :align: center
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_8.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_8.png
    :alt: CanTSyn_8
    :align: center
 
@@ -590,7 +590,7 @@ SWC Part
 
 As a master clock, it needs to send its local time base information to the bus. Before doing so, the time base associated with the master clock must be set. Therefore, this is done through SWC by setting the time base via the StbM service component.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_9.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_9.png
    :alt: CanTSyn_9
    :align: center
 
@@ -598,7 +598,7 @@ As a master clock, it needs to send its local time base information to the bus. 
 
 As shown in the figure above, right-click on Application Component to add a new application component.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_10.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_10.png
    :alt: CanTSyn_10
    :align: center
 
@@ -606,7 +606,7 @@ As shown in the figure above, right-click on Application Component to add a new 
 
 Name this APP component.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_11.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_11.png
    :alt: CanTSyn_11
    :align: center
 
@@ -614,7 +614,7 @@ Name this APP component.
 
 Right-click to add a new client Port.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_12.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_12.png
    :alt: CanTSyn_12
    :align: center
 
@@ -622,7 +622,7 @@ Right-click to add a new client Port.
 
 Select the time base associated with CanTSyn.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_13.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_13.png
    :alt: CanTSyn_13
    :align: center
 
@@ -630,7 +630,7 @@ Select the time base associated with CanTSyn.
 
 Click Runnable Entity List, as shown in the figure above.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_14.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_14.png
    :alt: CanTSyn_14
    :align: center
 
@@ -638,11 +638,11 @@ New一个Init Runnable。
 
 Create a new Init Runnable.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_15.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_15.png
    :alt: CanTSyn_15
    :align: center
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_16.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_16.png
    :alt: CanTSyn_16
    :align: center
 
@@ -650,11 +650,11 @@ Create a new Init Runnable.
 
 Select SetGlobalTime from the Access Points.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_17.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_17.png
    :alt: CanTSyn_17
    :align: center
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_18.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_18.png
    :alt: CanTSyn_18
    :align: center
 
@@ -662,7 +662,7 @@ Select SetGlobalTime from the Access Points.
 
 Open the graphical interface, as shown in the figure above.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_19.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_19.png
    :alt: CanTSyn_19
    :align: center
 
@@ -670,7 +670,7 @@ Open the graphical interface, as shown in the figure above.
 
 Double-click ECU_Composition.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_20.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_20.png
    :alt: CanTSyn_20
    :align: center
 
@@ -678,7 +678,7 @@ Double-click ECU_Composition.
 
 Instantiate TSyn_App.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_21.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_21.png
    :alt: CanTSyn_21
    :align: center
 
@@ -686,7 +686,7 @@ Instantiate TSyn_App.
 
 Right-click ECU_Composition again to open the graphical interface.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_22.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_22.png
    :alt: CanTSyn_22
    :align: center
 
@@ -694,7 +694,7 @@ Right-click ECU_Composition again to open the graphical interface.
 
 Right-click in the empty area and select the connection mode.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_23.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_23.png
    :alt: CanTSyn_23
    :align: center
 
@@ -702,7 +702,7 @@ Right-click in the empty area and select the connection mode.
 
 Connect the StbM component and the TSynApp component.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_24.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_24.png
    :alt: CanTSyn_24
    :align: center
 
@@ -710,7 +710,7 @@ Connect the StbM component and the TSynApp component.
 
 Double-click System to enter the mapping interface.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_25.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_25.png
    :alt: CanTSyn_25
    :align: center
 
@@ -718,7 +718,7 @@ Double-click System to enter the mapping interface.
 
 Drag ECU_Composition with the left mouse button under the ECU to complete the mapping.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_26.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_26.png
    :alt: CanTSyn_26
    :align: center
 
@@ -726,7 +726,7 @@ Drag ECU_Composition with the left mouse button under the ECU to complete the ma
 
 Click the arrow at the top to perform verification. Check the area indicated by the arrow below for any errors. If there are no errors, proceed with extraction as shown in the figure below.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_27.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_27.png
    :alt: CanTSyn_27
    :align: center
 
@@ -734,7 +734,7 @@ Click the arrow at the top to perform verification. Check the area indicated by 
 
 As shown in the figure above, right-click the ECU to create the extraction file.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_28.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_28.png
    :alt: CanTSyn_28
    :align: center
 
@@ -746,7 +746,7 @@ Slave配置
 
 Slave Configuration
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_29.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_29.png
    :alt: CanTSyn_29
    :align: center
 
@@ -754,7 +754,7 @@ CanTSynGlobalTimeDomain配置与Master一致。区别在于需要设置的是Can
 
 The CanTSynGlobalTimeDomain configuration is the same as that of the Master. The difference is that CanTSynGlobalTimeSlave needs to be configured.
 
-.. figure:: ../../../_static/参考手册/CanTSyn/CanTSyn_30.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_30.png
    :alt: CanTSyn_30
    :align: center
 

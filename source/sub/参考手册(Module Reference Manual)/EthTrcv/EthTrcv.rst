@@ -136,7 +136,7 @@ The main task of the EthTrcv module is to provide a hardware-independent interfa
 
 the interface shall be unified for all transceivers, so that the upper layer (Ethernet Interface) can access the underlying bus system in a unified manner.
 
-.. figure:: ../../../_static/参考手册/EthTrcv/image1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTrcv/image1.png
    :name: EthTrcv_arch
    :align: center
 
@@ -320,7 +320,7 @@ EthTrcv模块全局通用配置
 
 Global General Configuration of the EthTrcv Module
 
-.. figure:: ../../../_static/参考手册/EthTrcv/image2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTrcv/image2.png
    :name: EthTrcv_EthTrcvGeneral
    :align: center
 
@@ -334,7 +334,7 @@ EthTrcv模块收发器配置
 
 Transceiver Configuration of the EthTrcv Module
 
-.. figure:: ../../../_static/参考手册/EthTrcv/image3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTrcv/image3.png
    :name: EthTrcv_EthTrcvConfig
    :align: center
 

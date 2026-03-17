@@ -190,7 +190,7 @@ Sd 模块位于 SoAd 和 BswM 模块之间， 和上述两个模块协作完成�
 
 The Sd module is between the SoAd and BswM modules, and works together with the two modules to complete the function of service discovery.
 
-.. figure:: ../../../_static/参考手册/Sd/外部依赖.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/外部依赖.jpg
    :alt: 外部依赖 (External dependence)
    :align: center
 
@@ -333,7 +333,7 @@ None
 文件结构图 File Structure Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Sd/文件结构图.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/文件结构图.jpg
    :alt: 文件结构图 (File structure diagram)
    :align: center
 
@@ -407,7 +407,7 @@ None
 创建SdInstance Create SdInstance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Sd/SdInstance.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdInstance.png
    :alt: SdInstance
    :align: center
 
@@ -472,7 +472,7 @@ Different instance containers should be created for the Sd services using differ
 创建SdServerTimer Create SdServerTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Sd/SdServerTimer.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdServerTimer.png
    :alt: SdInstance
    :align: center
 
@@ -549,7 +549,7 @@ Refer to the following steps for the configuration of SdServerTimer container:
 创建SdClientTimer Create SdClientTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Sd/SdClientTimer.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdClientTimer.png
    :alt: SdClientTimer
    :align: center
 
@@ -630,7 +630,7 @@ Refer to the following steps for the configuration of SdClientTimer container:
 创建SdServerService Create SdServerService
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Sd/SdServerService.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdServerService.png
    :alt: SdServerService
    :align: center
 
@@ -687,7 +687,7 @@ If the service instance needs to provide Event or Method for the client, it shou
 创建SdClientService Create SdClientService
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册/Sd/SdClientService.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdClientService.png
    :alt: SdClientService
    :align: center
 

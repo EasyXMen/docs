@@ -107,7 +107,7 @@ None
 文件结构图 File Structure Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../../_static/参考手册/CanTrcv/CanTrcv文件结构图.png
+.. image:: ../../../_static/参考手册(Module_Reference_Manual)/CanTrcv/CanTrcv文件结构图.png
 
 
 静态文件 Static Files

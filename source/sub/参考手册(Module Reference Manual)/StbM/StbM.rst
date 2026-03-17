@@ -195,7 +195,7 @@ StbM(Synchronization TimeBase Manager，时间同步管理器)，负责在分布
 
 StbM (Synchronization TimeBase Manager) is responsible for implementing time synchronization in distributed in-vehicle systems to ensure that related modules run under the same time base. Time synchronization supports multiple synchronization protocols, which are mainly implemented in the <bus>TSyn module. StbM provides unified abstraction and management for these modules and offers services to the upper layer. The software layer architecture of StbM in AutoSAR is as follows.
 
-.. figure:: ../../../_static/参考手册/StbM/StbM_IN_AUTOSAR.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/StbM/StbM_IN_AUTOSAR.png
    :alt: StbM在AUTOSAR中的位置 (Position of StbM in AUTOSAR)
    :align: center
 
@@ -1055,7 +1055,7 @@ The following are use cases for related configurations.
 
 Configure a basic time base for CanTSyn to use.
 
-.. figure:: ../../../_static/参考手册/StbM/StbM_1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/StbM/StbM_1.png
    :alt: StbM_1
    :align: center
 
@@ -1063,7 +1063,7 @@ Configure a basic time base for CanTSyn to use.
 
 As shown in the figure above, it is necessary to configure the main function period of StbM, which is configured as 10ms here. The yellow part refers to partition information. Checking it means that StbM is multi-partition; otherwise, it is single-partition. The partition selected in the drop-down box refers to the default partition. When any time base configured by StbM is not associated with any time synchronization TSP module, StbM is configured as this partition.
 
-.. figure:: ../../../_static/参考手册/StbM/StbM_2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/StbM/StbM_2.png
    :alt: StbM_2
    :align: center
 
@@ -1071,7 +1071,7 @@ As shown in the figure above, it is necessary to configure the main function per
 
 Right-click on StbMSynchronizedTimeBase to create a new time base.
 
-.. figure:: ../../../_static/参考手册/StbM/StbM_3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/StbM/StbM_3.png
    :alt: StbM_3
    :align: center
 
@@ -1079,7 +1079,7 @@ StbMNotificationInterface配置为NO_NOTIFICATION。时间基标识StbMSynchroni
 
 StbMNotificationInterface is configured as NO_NOTIFICATION. The time base identifier StbMSynchronizedTimeBaseIdentifier is configured as 0 (The range of StbMSynchronizedTimeBaseIdentifier for the time base used for time synchronization is 0-15, and 32-127 for the pure local time base. The offset time base has been removed).
 
-.. figure:: ../../../_static/参考手册/StbM/StbM_4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/StbM/StbM_4.png
    :alt: StbM_4
    :align: center
 

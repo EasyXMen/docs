@@ -666,251 +666,251 @@ RamTest调度集成步骤如下：
 
 将工程编译通过后，使用调试工具进行调试，周期调用RamTst_MainFunction()，编译下载仿真时，当后台测试完成时，会调用RamTst_TestCompletedNotification()回调函数，在回调函数里面再调用RamTst_GetTestResult()获取结果，可以看见返回测试结果为OK。
 
-.. |image1| image:: /_static/集成手册/集成手册_RamTest/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image2.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image2| image:: /_static/集成手册/集成手册_RamTest/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image3.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image3| image:: /_static/集成手册/集成手册_RamTest/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image4.png
    :width: 5.76736in
    :height: 4.5125in
 
 
-.. |image4| image:: /_static/集成手册/集成手册_RamTest/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image5.png
    :width: 5.76736in
    :height: 3.8125in
 
 
-.. |image5| image:: /_static/集成手册/集成手册_RamTest/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image6.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image6| image:: /_static/集成手册/集成手册_RamTest/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image7.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image7| image:: /_static/集成手册/集成手册_RamTest/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image8.png
    :width: 5.76736in
    :height: 6.0125in
 
 
-.. |image8| image:: /_static/集成手册/集成手册_RamTest/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image9.png
    :width: 5.76736in
    :height: 4.5125in
 
 
-.. |image9| image:: /_static/集成手册/集成手册_RamTest/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image10.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image10| image:: /_static/集成手册/集成手册_RamTest/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image11.png
    :width: 5.76736in
    :height: 6.0125in
 
 
-.. |image11| image:: /_static/集成手册/集成手册_RamTest/image12.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image12.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image12| image:: /_static/集成手册/集成手册_RamTest/image13.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image13.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image13| image:: /_static/集成手册/集成手册_RamTest/image14.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image14.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image14| image:: /_static/集成手册/集成手册_RamTest/image15.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image15.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image15| image:: /_static/集成手册/集成手册_RamTest/image16.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image16.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image16| image:: /_static/集成手册/集成手册_RamTest/image17.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image17.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image17| image:: /_static/集成手册/集成手册_RamTest/image18.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image18.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image18| image:: /_static/集成手册/集成手册_RamTest/image19.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image19.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image19| image:: /_static/集成手册/集成手册_RamTest/image20.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image20.png
    :width: 5.76736in
    :height: 4.3125in
 
 
-.. |image20| image:: /_static/集成手册/集成手册_RamTest/image21.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image21.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image21| image:: /_static/集成手册/集成手册_RamTest/image22.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image22.png
    :width: 4.76736in
    :height: 3.9125in
 
 
-.. |image22| image:: /_static/集成手册/集成手册_RamTest/image23.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image23.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image23| image:: /_static/集成手册/集成手册_RamTest/image24.png
+.. |image23| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image24.png
    :width: 5.26736in
    :height: 4.2125in
 
 
-.. |image24| image:: /_static/集成手册/集成手册_RamTest/image25.png
+.. |image24| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image25.png
    :width: 5.76736in
    :height: 4.2125in
 
 
-.. |image25| image:: /_static/集成手册/集成手册_RamTest/image26.png
+.. |image25| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image26.png
    :width: 5.76736in
    :height: 4.2125in
 
 
-.. |image26| image:: /_static/集成手册/集成手册_RamTest/image27.png
+.. |image26| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image27.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image27| image:: /_static/集成手册/集成手册_RamTest/image28.png
+.. |image27| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image28.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image28| image:: /_static/集成手册/集成手册_RamTest/image29.png
+.. |image28| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image29.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image29| image:: /_static/集成手册/集成手册_RamTest/image30.png
+.. |image29| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image30.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image30| image:: /_static/集成手册/集成手册_RamTest/image31.png
+.. |image30| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image31.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image31| image:: /_static/集成手册/集成手册_RamTest/image32.png
+.. |image31| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image32.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image32| image:: /_static/集成手册/集成手册_RamTest/image33.png
+.. |image32| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image33.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image33| image:: /_static/集成手册/集成手册_RamTest/image34.png
+.. |image33| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image34.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image34| image:: /_static/集成手册/集成手册_RamTest/image35.png
+.. |image34| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image35.png
    :width: 5.76736in
    :height: 4.5125in
 
 
-.. |image35| image:: /_static/集成手册/集成手册_RamTest/image36.png
+.. |image35| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image36.png
    :width: 5.76736in
    :height: 3.3125in
 
 
-.. |image36| image:: /_static/集成手册/集成手册_RamTest/image37.png
+.. |image36| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image37.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image37| image:: /_static/集成手册/集成手册_RamTest/image38.png
+.. |image37| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image38.png
    :width: 5.76736in
    :height: 3.9125in
 
 
-.. |image38| image:: /_static/集成手册/集成手册_RamTest/image39.png
+.. |image38| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image39.png
    :width: 5.26736in
    :height: 3.2125in
 
 
-.. |image39| image:: /_static/集成手册/集成手册_RamTest/image40.png
+.. |image39| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image40.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image40| image:: /_static/集成手册/集成手册_RamTest/image41.png
+.. |image40| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image41.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image41| image:: /_static/集成手册/集成手册_RamTest/image42.png
+.. |image41| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image42.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image42| image:: /_static/集成手册/集成手册_RamTest/image43.png
+.. |image42| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image43.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image43| image:: /_static/集成手册/集成手册_RamTest/image44.png
+.. |image43| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image44.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image44| image:: /_static/集成手册/集成手册_RamTest/image45.png
+.. |image44| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image45.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image45| image:: /_static/集成手册/集成手册_RamTest/image46.png
+.. |image45| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image46.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image46| image:: /_static/集成手册/集成手册_RamTest/image47.png
+.. |image46| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image47.png
    :width: 5.76736in
    :height: 3.2125in
 
 
-.. |image47| image:: /_static/集成手册/集成手册_RamTest/image48.png
+.. |image47| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image48.png
    :width: 4.86736in
    :height: 6.2125in
 
 
-.. |image48| image:: /_static/集成手册/集成手册_RamTest/image49.png
+.. |image48| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image49.png
    :width: 5.06736in
    :height: 6.2125in
 
 
-.. |image49| image:: /_static/集成手册/集成手册_RamTest/image50.png
+.. |image49| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image50.png
    :width: 5.36736in
    :height: 3.4125in
 
 
-.. |image50| image:: /_static/集成手册/集成手册_RamTest/image51.png
+.. |image50| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_RamTest/image51.png
    :width: 5.76736in
    :height: 6.2125in

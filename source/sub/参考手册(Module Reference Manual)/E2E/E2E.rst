@@ -137,7 +137,7 @@ E2EL在架构上属于AUTOSAR静态库代码，使用同样属于静态库代码
 
 Architecturally, E2EL belongs to AUTOSAR static library code and uses the CRC module, which is also static library code, to protect safety data. E2E XF abstracts E2EL's related algorithms into user-friendly configuration items and interfaces, and generates code based on user inputs to help users better use E2EL for data protection.
 
-.. figure:: ../../../_static/参考手册/E2E/image2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/E2E/image2.png
    :alt: E2EL架构图(E2EL Architecture Diagram)
    :name: fig_E2E2
    :align: center
@@ -732,7 +732,7 @@ None
    * - E2E.h
      - E2E的共有头文件(Common header file of E2E)
 
-.. figure:: ../../../_static/参考手册/E2E/image3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/E2E/image3.png
    :alt: E2EL组件文件交互关系图(E2EL Component Files Interaction Diagram)
    :name: fig_E2E1
    :align: center

@@ -29,7 +29,7 @@ The AUTOSAR UdpNm state machine consists of three operating modes:
 - Bus-Sleep Mode(总线睡眠模式)
 
 
-.. figure:: ../../../_static/参考手册/UdpNm/UdpNmStateMachine.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/UdpNm/UdpNmStateMachine.png
    :alt: UdpNmStackMachine
    :align: center
 
@@ -120,7 +120,7 @@ AUTOSAR NM 报文有特定的格式要求，NM报文总长度视总线特性而�
 
 AUTOSAR NM messages have a specific format requirement. The total length of an NM message depends on the bus characteristics and is limited by the bus MTU. The format of the message data segment is as follows:
 
-.. figure:: ../../../_static/参考手册/Nm/NM_message_layout_example.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/NM_message_layout_example.png
    :alt: Nm报文格式图(Nm Message Format Diagram)
    :align: center
 
@@ -130,7 +130,7 @@ AUTOSAR NM messages have a specific format requirement. The total length of an N
 
 1.Control Bit Vector (CBV): An optional one-byte field that, depending on the configuration, can be located in the first or second byte of the NM message, or not used at all. For the FlexRay bus, it can only be in the first byte or not used. This byte contains information as shown in the figure below.
 
-.. figure:: ../../../_static/参考手册/Nm/CBV_layout.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/CBV_layout.png
    :alt: CBV排版图(CBV Layout Diagram)
    :align: center
 

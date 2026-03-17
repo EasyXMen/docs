@@ -988,201 +988,201 @@ WDG调度集成步骤如下：
 
 当观测点配置如章节（配置Deadline Supervision）,编译下载仿真时，在编译环境中观察未发生复位。
 
-.. |image1| image:: /_static/集成手册/集成手册_WDG/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image2.png
    :width: 5.76736in
    :height: 3.10347in
-.. |image2| image:: /_static/集成手册/集成手册_WDG/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image3.png
    :width: 5.76736in
    :height: 3.10694in
-.. |image3| image:: /_static/集成手册/集成手册_WDG/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image4.png
    :width: 3.79528in
    :height: 3.62205in
-.. |image4| image:: /_static/集成手册/集成手册_WDG/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image5.png
    :width: 3.8072in
    :height: 2.92887in
-.. |image5| image:: /_static/集成手册/集成手册_WDG/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image6.png
    :width: 3.82677in
    :height: 2.51969in
-.. |image6| image:: /_static/集成手册/集成手册_WDG/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image7.png
    :width: 4.76736in
    :height: 3.10694in
-.. |image7| image:: /_static/集成手册/集成手册_WDG/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image8.png
    :width: 4.96934in
    :height: 4.30117in
-.. |image8| image:: /_static/集成手册/集成手册_WDG/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image9.png
    :width: 5.76736in
    :height: 6.10347in
-.. |image9| image:: /_static/集成手册/集成手册_WDG/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image10.png
    :width: 4.76736in
    :height: 2.80694in
-.. |image10| image:: /_static/集成手册/集成手册_WDG/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image11.png
    :width: 5.76736in
    :height: 3.10347in
-.. |image11| image:: /_static/集成手册/集成手册_WDG/image12.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image12.png
    :width: 5.76736in
    :height: 3.10347in
-.. |image12| image:: /_static/集成手册/集成手册_WDG/image13.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image13.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image13| image:: /_static/集成手册/集成手册_WDG/image14.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image14.png
    :width: 5.76736in
    :height: 4.60694in
-.. |image14| image:: /_static/集成手册/集成手册_WDG/image15.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image15.png
    :width: 5.76736in
    :height: 3.60694in
-.. |image15| image:: /_static/集成手册/集成手册_WDG/image16.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image16.png
    :width: 5.26736in
    :height: 3.61111in
-.. |image16| image:: /_static/集成手册/集成手册_WDG/image17.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image17.png
    :width: 5.36736in
    :height: 3.60694in
-.. |image17| image:: /_static/集成手册/集成手册_WDG/image18.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image18.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image18| image:: /_static/集成手册/集成手册_WDG/image19.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image19.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image19| image:: /_static/集成手册/集成手册_WDG/image20.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image20.png
    :width: 5.76736in
    :height: 3.60694in
-.. |image20| image:: /_static/集成手册/集成手册_WDG/image21.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image21.png
    :width: 5.76736in
    :height: 3.60694in
-.. |image21| image:: /_static/集成手册/集成手册_WDG/image22.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image22.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image22| image:: /_static/集成手册/集成手册_WDG/image23.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image23.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image23| image:: /_static/集成手册/集成手册_WDG/image24.png
+.. |image23| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image24.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image24| image:: /_static/集成手册/集成手册_WDG/image25.png
+.. |image24| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image25.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image25| image:: /_static/集成手册/集成手册_WDG/image26.png
+.. |image25| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image26.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image26| image:: /_static/集成手册/集成手册_WDG/image27.png
+.. |image26| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image27.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image27| image:: /_static/集成手册/集成手册_WDG/image28.png
+.. |image27| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image28.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image28| image:: /_static/集成手册/集成手册_WDG/image29.png
+.. |image28| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image29.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image29| image:: /_static/集成手册/集成手册_WDG/image30.png
+.. |image29| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image30.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image30| image:: /_static/集成手册/集成手册_WDG/image31.png
+.. |image30| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image31.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image31| image:: /_static/集成手册/集成手册_WDG/image32.png
+.. |image31| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image32.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image32| image:: /_static/集成手册/集成手册_WDG/image33.png
+.. |image32| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image33.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image33| image:: /_static/集成手册/集成手册_WDG/image34.png
+.. |image33| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image34.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image34| image:: /_static/集成手册/集成手册_WDG/image35.png
+.. |image34| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image35.png
    :width: 5.36736in
    :height: 4.60694in
-.. |image35| image:: /_static/集成手册/集成手册_WDG/image36.png
+.. |image35| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image36.png
    :width: 5.36736in
    :height: 4.10694in
-.. |image36| image:: /_static/集成手册/集成手册_WDG/image37.png
+.. |image36| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image37.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image37| image:: /_static/集成手册/集成手册_WDG/image38.png
+.. |image37| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image38.png
    :width: 7.36736in
    :height: 3.20694in
-.. |image38| image:: /_static/集成手册/集成手册_WDG/image39.png
+.. |image38| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image39.png
    :width: 5.76736in
    :height: 4.10694in
-.. |image39| image:: /_static/集成手册/集成手册_WDG/image40.png
+.. |image39| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image40.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image40| image:: /_static/集成手册/集成手册_WDG/image41.png
+.. |image40| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image41.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image41| image:: /_static/集成手册/集成手册_WDG/image42.png
+.. |image41| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image42.png
    :width: 5.76736in
    :height: 4.60694in
-.. |image42| image:: /_static/集成手册/集成手册_WDG/image43.png
+.. |image42| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image43.png
    :width: 5.76736in
    :height: 4.60694in
-.. |image43| image:: /_static/集成手册/集成手册_WDG/image44.png
+.. |image43| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image44.png
    :width: 5.76736in
    :height: 3.90694in
-.. |image44| image:: /_static/集成手册/集成手册_WDG/image45.png
+.. |image44| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image45.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image45| image:: /_static/集成手册/集成手册_WDG/image46.png
+.. |image45| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image46.png
    :width: 5.76736in
    :height: 4.20694in
-.. |image46| image:: /_static/集成手册/集成手册_WDG/image47.png
+.. |image46| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image47.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image47| image:: /_static/集成手册/集成手册_WDG/image48.png
+.. |image47| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image48.png
    :width: 5.76736in
    :height: 4.40694in
-.. |image48| image:: /_static/集成手册/集成手册_WDG/image49.png
+.. |image48| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image49.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image49| image:: /_static/集成手册/集成手册_WDG/image50.png
+.. |image49| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image50.png
    :width: 5.76736in
    :height: 4.60694in
-.. |image50| image:: /_static/集成手册/集成手册_WDG/image51.png
+.. |image50| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image51.png
    :width: 5.76736in
    :height: 2.60694in
-.. |image51| image:: /_static/集成手册/集成手册_WDG/image52.png
+.. |image51| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image52.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image52| image:: /_static/集成手册/集成手册_WDG/image53.png
+.. |image52| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image53.png
    :width: 5.76736in
    :height: 2.47917in
-.. |image53| image:: /_static/集成手册/集成手册_WDG/image54.png
+.. |image53| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image54.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image54| image:: /_static/集成手册/集成手册_WDG/image55.png
+.. |image54| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image55.png
    :width: 5.76736in
    :height: 2.47917in
-.. |image55| image:: /_static/集成手册/集成手册_WDG/image56.png
+.. |image55| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image56.png
    :width: 5.76736in
    :height: 2.47917in
-.. |image56| image:: /_static/集成手册/集成手册_WDG/image57.png
+.. |image56| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image57.png
    :width: 5.76736in
    :height: 4.17917in
-.. |image57| image:: /_static/集成手册/集成手册_WDG/image58.png
+.. |image57| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image58.png
    :width: 5.76736in
    :height: 2.47917in
-.. |image58| image:: /_static/集成手册/集成手册_WDG/image59.png
+.. |image58| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image59.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image59| image:: /_static/集成手册/集成手册_WDG/image60.png
+.. |image59| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image60.png
    :width: 5.76736in
    :height: 2.47917in
-.. |image60| image:: /_static/集成手册/集成手册_WDG/image61.png
+.. |image60| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image61.png
    :width: 5.76736in
    :height: 2.47917in
-.. |image61| image:: /_static/集成手册/集成手册_WDG/image62.png
+.. |image61| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image62.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image62| image:: /_static/集成手册/集成手册_WDG/image63.png
+.. |image62| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image63.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image63| image:: /_static/集成手册/集成手册_WDG/image64.png
+.. |image63| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image64.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image64| image:: /_static/集成手册/集成手册_WDG/image65.png
+.. |image64| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image65.png
    :width: 5.76736in
    :height: 4.47917in
-.. |image65| image:: /_static/集成手册/集成手册_WDG/image66.png
+.. |image65| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image66.png
    :width: 5.76736in
    :height: 4.17917in
-.. |image66| image:: /_static/集成手册/集成手册_WDG/image67.png
+.. |image66| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_WDG/image67.png
    :width: 5.76736in
    :height: 3.47917in

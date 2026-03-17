@@ -187,7 +187,7 @@ CSM is a kind of service that provides encryption function and is based on an en
 
 Mode parameter is required for combining a single call function with the flow of encrypted job and it decides the running mode of the encrypted job. This service operation is a mark field, which indicates the start, update or completion of the operation mode. It can also explicitly declare the specific operation required. These operation modes can be mixed and executed simultaneously. The actual transaction of status is carried out in the layer that works with these statuses, i.e., in the encryption driver program.
 
-   .. figure:: ../../../_static/参考手册/CsM/Job状态图.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/Job状态图.png
       :alt: Job状态图描述 (Description of Job Status Diagram)
       :name: fig_Job状态图(fig_Job status diagram)
       :align: center
@@ -204,7 +204,7 @@ A single call method needs calling explicit API for once instead of several time
 
 If any synchronous interface is used, the interface function transmits the necessary information to the underlying encryption stack module and waits for the results
 
-   .. figure:: ../../../_static/参考手册/CsM/同步任务执行流程图.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/同步任务执行流程图.png
       :alt: 同步任务执行流程图描述 (Description of synchronous task execution flow chart)
       :name: fig_同步任务执行流程图(fig_Synchronous task execution flow chart)
       :align: center
@@ -217,7 +217,7 @@ If any synchronous interface is used, the interface function transmits the neces
 
 If any asynchronous interface is used, the interface function can transmit the necessary information to the underlying encryption stack module only, and then call the callback function and notify CSM after the completion of underlying processing.
 
-   .. figure:: ../../../_static/参考手册/CsM/异步任务执行流程图.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/异步任务执行流程图.png
       :alt: 异步任务执行流程图描述 (Description of asynchronous task execution flow chart)
       :name: fig_异步任务执行流程图(fig_Asynchronous task execution flow chart)
       :align: center
@@ -234,7 +234,7 @@ CSM可能有多个队列，其中的Job根据其优先级排列，以处理多�
 
 CSM may have several queues, with jobs arranged according to their priority, in order to process many encrypted requests. The path from the CSM queue to the encrypted driver object through CryIf is called channel. CSM's each queue is mapped to a channel to access the crypto primitive of the crypto driver object. The size of queue is settable. An optional queue is available in the encryption driver, in order to optimize the hardware use of encryption driver objects. The encryption driver object indicates an instance of an independent encryption device (hardware or software, such as AES accelerator). For Job with a high priority, a channel for fast AES and CMAC calculation is available on HSM and it ends on the local AES calculation service in the encryption driver. At the same time, the encryption driver object may also be software, such as the RSA calculation software. User can realize encryption, decryption, signature and data verification with it. The queue does not work during synchronous Job processing. Therefore, the size of queue should be 0 for synchronous Job processing. However, channel (including queue) can also be used together with synchronous and asynchronous Jobs. The Job of queue can be transferred to CRYIF in Csm_MainFunction(). If the status of Job is active, CSM should assume that the mapped encrypted driver instance is processing the Job. If the caller hopes to continue with operation (e.g. using update to provide more data), creditability check is required in the encrypted driver instance.
 
-   .. figure:: ../../../_static/参考手册/CsM/Queue.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/Queue.png
       :alt: Queue示意图描述 (Description of Queue diagram)
       :name: fig_Queue示意图(fig_Queue diagram)
       :align: center
@@ -247,7 +247,7 @@ Key，即对应的keyid具有配置给出的符号名称。Crypto堆栈API使用
 
 Key is the symbol name give by configuration for the corresponding keyid. The Crypto stack API indexes definition by the following key elements from the CSM module:
 
-   .. figure:: ../../../_static/参考手册/CsM/KeyElement示意图.png
+   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/KeyElement示意图.png
       :alt: KeyElement示意图描述 (Description of KeyElement diagram)
       :name: fig_KeyElement示意图(fig_KeyElement diagram)
       :align: center
@@ -275,7 +275,7 @@ None
 文件列表 File List
 ----------------------------------
 
-.. figure:: ../../../_static/参考手册/CsM/Filelist.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/Filelist.png
    :alt: CsM组件文件组织结构描述 (Description of CsM component file organization structure)
    :name: fig_CsmFilelist
    :align: center
@@ -421,7 +421,7 @@ To configure the CsM module, make sure CryptoDriver and CryptoInterface modules 
 
 Configuration item designed based on external modules for compiling.
 
-.. figure:: ../../../_static/参考手册/CsM/CsmIncludes.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmIncludes.png
    :alt:  CsmIncludes配置图 (CsmIncludes Configuration Diagram)
    :name: fig_CsmIncludes
    :align: center
@@ -451,7 +451,7 @@ Configuration item designed based on external modules for compiling.
 
 To configure asynchronous tasks, configure callback function to return results; configuration and linking are not required for synchronous task.
 
-.. figure:: ../../../_static/参考手册/CsM/CsmCallbacks.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmCallbacks.png
    :alt:  CsmCallbacks配置图 (CsmCallbacks Configuration Diagram)
    :name: fig_CsmCallbacks
    :align: center
@@ -481,7 +481,7 @@ To configure asynchronous tasks, configure callback function to return results; 
 
 Decide whether to enable this configuration according to the specific needs; disabled by default.
 
-.. figure:: ../../../_static/参考手册/CsM/CsmGeneral.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmGeneral.png
    :alt:  CsmGeneral配置图 (CsmGeneral Configuration Diagram)
    :name: fig_CsmGeneral
    :align: center
@@ -520,7 +520,7 @@ Decide whether to enable this configuration according to the specific needs; dis
 
 The corresponding source code function has not been developed for this part of configuration temporarily.
 
-.. figure:: ../../../_static/参考手册/CsM/CsmInOutRedirection.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmInOutRedirection.png
    :alt:  CsmInOutRedirection配置图 (CsmInOutRedirection Configuration Diagram)
    :name: fig_CsmInOutRedirection
    :align: center
@@ -601,7 +601,7 @@ CsmJob配置 CsmJob Configuration
 
 Required item; first, configure the mode and length in primitive, and then link them with the job to realize the corresponding encryption algorithm for executing this task.
 
-.. figure:: ../../../_static/参考手册/CsM/CsmJob.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmJob.png
    :alt:  CsmJob配置图 (CsmJob Configuration Diagram)
    :name: fig_CsmJob
    :align: center
@@ -682,7 +682,7 @@ CsmKeys配置 CsmKeys Configuration
 
 Required, for key is required in most algorithms key for encryption. Get a reference directly from the CryIf module at the lower level, then link it with Job and use the key in the corresponding algorithm.
 
-.. figure:: ../../../_static/参考手册/CsM/CsmKeys.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmKeys.png
    :alt:  CsmKeys配置图 (CsmKeys Configuration Diagram)
    :name: fig_CsmKeys
    :align: center
@@ -722,7 +722,7 @@ CsmMainFunction配置 Configuration of CsmMainFunction
 Configure the periodicity of periodic functions and support multi-partition configuration. The source code has not undergone multi-core validation yet.
 
 
-.. figure:: ../../../_static/参考手册/CsM/CsmMainFunction.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmMainFunction.png
    :alt:  CsmMainFunction配置图 (CsmMainFunction Configuration Diagram)
    :name: fig_CsmMainFunction
    :align: center
@@ -751,7 +751,7 @@ Configure the periodicity of periodic functions and support multi-partition conf
 CsmPrimitives配置 Configuration of CsmPrimitives
 ------------------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CsM/CsmPrimitives.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmPrimitives.png
    :alt:  CsmPrimitives配置图 (CsmPrimitives Configuration Diagram)
    :name: fig_CsmPrimitives
    :align: center
@@ -764,7 +764,7 @@ CsmPrimitives配置 Configuration of CsmPrimitives
 CsmQueues配置 Configuration of CsmQueues
 ------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册/CsM/CsmQueues.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CsM/CsmQueues.png
    :alt:  CsmQueues配置图 (CsmQueues Configuration Diagram)
    :name: fig_CsmQueues
    :align: center

@@ -14,7 +14,7 @@ Functions that handle interrupts (Interrupt Service Routines: ISRs) are categori
    Type 2 Interrupts: The OS provides an interrupt framework that offers an execution environment for specific user programs. This type of interrupt can use the OS system services.
 
 
-.. figure:: ../../../_static/参考手册/Os/ISR类别.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/ISR类别.png
    :alt: ORIENTAIS OS的ISR类别(ISR Types of ORIENTAIS OS)
    :align: center
 
