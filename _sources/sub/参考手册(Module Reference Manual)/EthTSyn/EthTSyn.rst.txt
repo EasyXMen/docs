@@ -138,7 +138,7 @@ EthTSyn模块负责确保以太网同步时间信息的采集和分发。它与S
 
 The EthTSyn module is responsible for ensuring the collection and distribution of Ethernet synchronized time information. It interacts with StbM and provides all Ethernet-specific functions for StbM. The main functions of EthTSyn include measuring the delay between Ethernet messages and time synchronization before different time bases.
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_layer.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_layer.png
    :alt: EthTSyn模块层次图(EthTSyn Module Hierarchy Diagram)
    :align: center
 
@@ -473,7 +473,7 @@ Similarly, for the slave, if hardware timestamp is not used, an accurate message
 
 The following are the basic steps to configure support for hardware timestamp:
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_hardwaretimestamp1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_hardwaretimestamp1.png
    :alt: 通用配置的图片 (Picture of General Configuration)
    :align: center
 
@@ -483,13 +483,13 @@ The following are the basic steps to configure support for hardware timestamp:
 
 As shown in the figure above, in EthTSynGeneral, enable support for hardware timestamp, that is, check EthTSynHardWareTimestampSupport. Other common configuration items, such as period.
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_hardwaretimestamp2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_hardwaretimestamp2.png
    :alt: domain配置的图片 (Picture of Domain Configuration)
    :align: center
 
    domain配置的图片 (Picture of Domain Configuration)
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_StbmConfiguration1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_StbmConfiguration1.png
    :alt: StbM时钟源配置的图片 (Picture of StbM Clock Source Configuration)
    :align: center
 
@@ -505,7 +505,7 @@ In EthTSynGlobalTimeDomain, configure the relevant parameters of the time domain
 
   A time domain can be configured with multiple Ports. EthTSynGlobalTimeHardware refers to which Ethernet Port the clock source configured for the StbM time base associated with the current time domain comes from. EthTSynGlobalTimeHardware takes effect if and only if the time base (EthTSynSchronizedTimeBaseRef) configured in the time domain is associated with the Ethernet clock in StbMLocalTimeClock.
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_hardwaretimestamp3.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_hardwaretimestamp3.png
    :alt: port配置的图片 (Picture of Port Configuration)
    :align: center
 
@@ -515,7 +515,7 @@ In EthTSynGlobalTimeDomain, configure the relevant parameters of the time domain
 
 Configure the Port under the time domain, such as the time synchronization role EthTSynGlobalTimePortRole, the sending interval of SYNC and Follow-Up messages EthTSynGlobalTimeDebounceTime, and the EthIfController associated with the Port.
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_hardwaretimestamp4.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_hardwaretimestamp4.png
    :alt: Master的配置的图片 (Picture of Master Configuration)
    :align: center
 
@@ -525,7 +525,7 @@ Configure the Port under the time domain, such as the time synchronization role 
 
 Configure the relevant parameters of the master time node under the time domain, such as the recovery time from immediate synchronization to periodic synchronization EthTSynCyclicMsgResumeTime, the message sending period EthTSynGlobalTimeTxPeriod, etc.
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_EthIf1.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_EthIf1.png
    :alt: EthIf配置1 (EthIf Configuration 1)
    :align: center
 
@@ -535,7 +535,7 @@ Configure the relevant parameters of the master time node under the time domain,
 
 In addition to the above configuration, in order to support hardware timestamp, the hardware timestamp function of Mcal also needs to be enabled. At the same time, register the interfaces related to hardware timestamp to the EthIf layer, as shown in the figure above. And register the connection status callback of EthTSyn to the EthIf layer, as shown in the figure below.
 
-.. figure:: ../../../_static/参考手册/EthTSyn/EthTSyn_EthIf2.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthTSyn/EthTSyn_EthIf2.png
    :alt: EthIf配置2 (EthIf Configuration 2)
    :align: center
 

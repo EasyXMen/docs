@@ -166,7 +166,7 @@ EthIf提供的这些接口，按功能可以大体分为模式控制相关的接
 
 These interfaces provided by EthIf can be roughly divided into mode control-related interfaces, time synchronization-related interfaces, and data transmission/reception-related interfaces by function. In addition, EthIf also has initialization or periodic task interfaces.
 
-.. figure:: ../../../_static/参考手册/EthIf/EthIf_layer.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthIf/EthIf_layer.png
    :alt: EthIf模块层次图 (EthIf Module Layer Diagram)
    :name: EthIf_fig_arch
    :align: center
@@ -415,7 +415,7 @@ OverView
 
 As shown in the figure below, the contents on the EthIfConfigSet and EthIfGeneral pages are developed and set in accordance with AUTOSAR specifications. In addition, EthTrcv_DriverApiConfigSet, Eth_DriverApiConfigSet, and EthSwt_DriverApiConfigSet are used to configure the APIs of drivers related to Ethernet Transceiver, Ethernet Driver, and Ethernet Switch respectively (these three pages are referred to as "Driver-Specific Name Configuration Pages" hereinafter).
 
-.. figure:: ../../../_static/参考手册/EthIf/EthIf_ConfigOverview.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthIf/EthIf_ConfigOverview.png
    :alt: EthIf模块配置界面概览 (EthIf Module Configuration Interface Overview)
    :name: EthIf_overview_arch
    :align: center
@@ -438,7 +438,7 @@ EthIfConfigSet中的容器 Containers in EthIfConfigSet
 
 This container is mainly used for the EthIfPhysController abstracted by the EthIf layer to associate the physical Ethernet Controller of the Ethernet Driver (which can also be WEthernet and CanXL hereinafter). In a multi-partition project, EthIfCtrlPartitionRef also needs to be configured here.
 
-.. figure:: ../../../_static/参考手册/EthIf/EthIf_PhyController.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthIf/EthIf_PhyController.png
    :alt: EthIfPhysController配置界面 (EthIfPhysController Configuration Interface)
    :name: EthIfPhysController配置界面(EthIfPhysController Configuration Interface)
    :align: center
@@ -456,7 +456,7 @@ In addition, in terms of configuration, EthIfPhysController is almost only used 
 
 This is mainly used to configure the EthIfController abstracted by the EthIf module for the upper layer. Modules outside EthIf access Ethernet hardware almost all through EthIfController. The configuration interface provides many attributes, among which EthIfVlanId is relatively important.
 
-.. figure:: ../../../_static/参考手册/EthIf/EthIf_Controller.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthIf/EthIf_Controller.png
    :alt: EthIfController配置界面 (EthIfController Configuration Interface)
    :name: EthIfController配置界面(EthIfController Configuration Interface)
    :align: center
@@ -481,7 +481,7 @@ This container is used to configure that when the EthIf module detects a change 
 
 In specific implementation, EthIf will use the EthIfController associated with the Transceiver that sends the link state change as a parameter, traverse all EthIfTrcvLinkStateChgConfig configurations, and call the callback function of the target module configured therein.
 
-.. figure:: ../../../_static/参考手册/EthIf/EthIf_TransceiverLinkChg.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthIf/EthIf_TransceiverLinkChg.png
    :alt: EthIfTrcvLinkStateChgConfig配置界面 (EthIfTrcvLinkStateChgConfig Configuration Interface)
    :name: EthIfTrcvLinkStateChgConfig配置界面(EthIfTrcvLinkStateChgConfig Configuration Interface)
    :align: center
@@ -499,7 +499,7 @@ The container EthIfRxIndicationConfig is used to configure the callback function
 
 The container EthIfTxConfirmationConfig is used to configure that when the EthIf module receives the confirmation of the completion of Ethernet frame transmission, it will report the transmission completion confirmation of the Ethernet frame to the upper-layer module, i.e., call the transmission completion confirmation callback function of the upper-layer module configured in this container. EthIf will select which configured callback function to call based on the configuration of EthIfFrameOwnerConfig.
 
-.. figure:: ../../../_static/参考手册/EthIf/EthIf_TxConfirmation.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthIf/EthIf_TxConfirmation.png
    :alt: EthIf_TxConfirmation回调函数可以配置成NULL_PTR (The EthIf_TxConfirmation callback function can be configured as NULL_PTR)
    :name: EthIf_TxConfirmation回调函数可以配置成NULL_PTR(The EthIf_TxConfirmation callback function can be configured as NULL_PTR)
    :align: center

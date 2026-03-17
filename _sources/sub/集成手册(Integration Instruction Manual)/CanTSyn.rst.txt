@@ -498,87 +498,87 @@ CanTSyn协议栈有关的代码，在下方的main.c文件中给出重点标注�
 
 图 验证结果
 
-.. |image1| image:: /_static/集成手册/集成手册_CANTSyn/image2.png
+.. |image1| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image2.png
    :width: 5.76736in
    :height: 3.11736in
-.. |image2| image:: /_static/集成手册/集成手册_CANTSyn/image3.png
+.. |image2| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image3.png
    :width: 5.76736in
    :height: 3.11389in
-.. |image3| image:: /_static/集成手册/集成手册_CANTSyn/image4.png
+.. |image3| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image4.png
    :width: 4.26818in
    :height: 4.11783in
-.. |image4| image:: /_static/集成手册/集成手册_CANTSyn/image5.png
+.. |image4| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image5.png
    :width: 4.4128in
    :height: 3.66201in
-.. |image5| image:: /_static/集成手册/集成手册_CANTSyn/image6.png
+.. |image5| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image6.png
    :width: 5.39516in
    :height: 2.53093in
-.. |image6| image:: /_static/集成手册/集成手册_CANTSyn/image7.png
+.. |image6| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image7.png
    :width: 4.29931in
    :height: 1.97778in
-.. |image7| image:: /_static/集成手册/集成手册_CANTSyn/image8.png
+.. |image7| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image8.png
    :width: 3.5041in
    :height: 3.37381in
-.. |image8| image:: /_static/集成手册/集成手册_CANTSyn/image9.png
+.. |image8| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image9.png
    :width: 3.11763in
    :height: 4.16701in
-.. |image9| image:: /_static/集成手册/集成手册_CANTSyn/image10.png
+.. |image9| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image10.png
    :width: 2.77741in
    :height: 3.28101in
-.. |image10| image:: /_static/集成手册/集成手册_CANTSyn/image11.png
+.. |image10| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image11.png
    :width: 3.77191in
    :height: 1.80023in
-.. |image11| image:: /_static/集成手册/集成手册_CANTSyn/image12.png
+.. |image11| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image12.png
    :width: 3.05251in
    :height: 1.37519in
-.. |image12| image:: /_static/集成手册/集成手册_CANTSyn/image13.png
+.. |image12| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image13.png
    :width: 3.43559in
    :height: 3.71643in
-.. |image13| image:: /_static/集成手册/集成手册_CANTSyn/image14.png
+.. |image13| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image14.png
    :width: 5.61077in
    :height: 2.80234in
-.. |image14| image:: /_static/集成手册/集成手册_CANTSyn/image15.png
+.. |image14| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image15.png
    :width: 5.76736in
    :height: 3.77292in
-.. |image15| image:: /_static/集成手册/集成手册_CANTSyn/image16.png
+.. |image15| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image16.png
    :width: 5.76736in
    :height: 1.55903in
-.. |image16| image:: /_static/集成手册/集成手册_CANTSyn/image17.png
+.. |image16| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image17.png
    :width: 5.76736in
    :height: 2.85417in
-.. |image17| image:: /_static/集成手册/集成手册_CANTSyn/image18.png
+.. |image17| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image18.png
    :width: 5.76736in
    :height: 1.54514in
-.. |image18| image:: /_static/集成手册/集成手册_CANTSyn/image19.png
+.. |image18| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image19.png
    :width: 5.43502in
    :height: 0.94792in
-.. |image19| image:: /_static/集成手册/集成手册_CANTSyn/image20.png
+.. |image19| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image20.png
    :width: 5.76736in
    :height: 2.94444in
-.. |image20| image:: /_static/集成手册/集成手册_CANTSyn/image21.png
+.. |image20| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image21.png
    :width: 5.76736in
    :height: 2.12917in
-.. |image21| image:: /_static/集成手册/集成手册_CANTSyn/image22.png
+.. |image21| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image22.png
    :width: 4.864in
    :height: 0.84807in
-.. |image22| image:: /_static/集成手册/集成手册_CANTSyn/image23.png
+.. |image22| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image23.png
    :width: 5.76736in
    :height: 3.31736in
-.. |image23| image:: /_static/集成手册/集成手册_CANTSyn/image24.png
+.. |image23| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image24.png
    :width: 3.48319in
    :height: 2.13689in
-.. |image24| image:: /_static/集成手册/集成手册_CANTSyn/image25.png
+.. |image24| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image25.png
    :width: 5.76736in
    :height: 3.03472in
-.. |image25| image:: /_static/集成手册/集成手册_CANTSyn/image26.png
+.. |image25| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image26.png
    :width: 5.76736in
    :height: 1.33819in
-.. |image26| image:: /_static/集成手册/集成手册_CANTSyn/image27.png
+.. |image26| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image27.png
    :width: 5.12411in
    :height: 2.40737in
-.. |image27| image:: /_static/集成手册/集成手册_CANTSyn/image28.png
+.. |image27| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image28.png
    :width: 3.17708in
    :height: 3.13542in
-.. |image28| image:: /_static/集成手册/集成手册_CANTSyn/image29.png
+.. |image28| image:: /_static/集成手册(Integration_Instruction_Manual)/集成手册_CANTSyn/image29.png
    :width: 5.76736in
    :height: 3.94583in

@@ -29,7 +29,7 @@ Users can configure the schedule table for synchronous mode. ORIENTAIS OS provid
 
   Implicit Synchronization: The counter driving the schedule table must be a synchronous counter. This is typically implemented using time-triggered network technologies (e.g., FlexRay, TTP) — the underlying hardware manages network time synchronization and presents the time simply as an output/compare timer interface to ORIENTAIS OS. The figure shows possible states of an implicitly synchronized schedule table.
 
-.. figure:: ../../../_static/参考手册/Os/隐式同步调度表的状态图.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/隐式同步调度表的状态图.png
    :alt: 隐式同步调度表的状态图 States of Implicitly Synchronized Schedule Table
    :align: center
 
@@ -39,7 +39,7 @@ Users can configure the schedule table for synchronous mode. ORIENTAIS OS provid
 
   Explicit Synchronization: The schedule table is driven by an ORIENTAIS OS counter, which is not required to be synchronous. ORIENTAIS OS also provides additional functions to synchronize its counter-driven schedule table with a synchronous counter. Typically, this synchronizes with a periodically broadcast global time. The figure shows possible states of an explicitly synchronized schedule table.
 
-.. figure:: ../../../_static/参考手册/Os/显式同步调度表的状态图.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/显式同步调度表的状态图.png
    :alt: 显式同步调度表的状态图 (States of Explicitly Synchronized Schedule Table)
    :align: center
 

@@ -13,7 +13,7 @@ ORIENTAIS OS provides two types of tasks:
 
 The difference between an Extended Task and a Basic Task is that the Extended Task is allowed to use the system service WaitEvent, which may cause the task to enter the Waiting state.
 
-.. figure:: ../../../_static/参考手册/Os/Basic_Task_State_Model.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Basic_Task_State_Model.png
    :alt: Basic Task State Model
    :align: center
 
@@ -49,7 +49,7 @@ The difference between an Extended Task and a Basic Task is that the Extended Ta
      - suspended  
      - 正在运行的任务通过系统服务使其转变为挂起状态。(The running task transitions to the Suspended state via a system service.)
 
-.. figure:: ../../../_static/参考手册/Os/Extend_Task_State_Model.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Extend_Task_State_Model.png
    :alt: Extend Task State Model
    :align: center
 

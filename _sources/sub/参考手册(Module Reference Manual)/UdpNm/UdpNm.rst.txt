@@ -177,7 +177,7 @@ UdpNm提供网络管理接口(Nm)和TCP/IP协议栈之间的适配。UdpNm通过
 
 UdpNm provides the adaptation between the Network Management interface (Nm) and the TCP/IP protocol stack. UdpNm transmits data by calling the transmission APIs of the SoAd module and provides reception APIs for SoAd to receive network management messages from the lower layers. The Nm module calls the APIs of the UdpNm module to change the current state machine state of UdpNm, and state machine mode switches in the UdpNm module need to be notified to the Nm module.
 
-.. figure:: ../../../_static/参考手册/UdpNm/ComStack.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/UdpNm/ComStack.png
    :alt: Autosar通信栈 (Autosar Communication Stack)
    :align: center
 

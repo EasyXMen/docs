@@ -198,7 +198,7 @@ As shown in Figure :ref:`ScheduleInterval`, the Interval scheduling of FlsTst is
 
 For example, if the Flash Cell size is 128 Bytes and the number of fragmented test units is 8, the length of a single test is 1024 Bytes.
 
-.. figure:: ../../../_static/参考手册/FlsTst/FlsTstInterval.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FlsTst/FlsTstInterval.jpg
    :alt: FlsTst模块ScheduleInterval图 (ScheduleInterval Diagram of FlsTst Module)
    :name: ScheduleInterval
    :align: center
@@ -491,7 +491,7 @@ The signature of the test algorithm selected by FlsTst needs to be stored in a f
 
 As shown in Figure :ref:`SignatureAddress`, the configuration interface of FlsTstSignatureAddress is displayed, and the fixed address for writing the signature value can be configured.
 
-.. figure:: ../../../_static/参考手册/FlsTst/FlsTstSignatureAddress.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FlsTst/FlsTstSignatureAddress.png
    :alt: FlsTst模块SignatureAddress配置图 (SignatureAddress Configuration Diagram of FlsTst Module)
    :name: SignatureAddress
    :align: center
@@ -509,7 +509,7 @@ The Block of FlsTst needs to select the algorithm as FLSTST_DUPLICATED_MEMORY, a
 
 As shown in Figure :ref:`BlockDuplicatedAddr`, the configuration interface of FlsTstBlockDuplicatedAddr is displayed, and the Duplicate address can be configured.
 
-.. figure:: ../../../_static/参考手册/FlsTst/FlsTstBlockDuplicatedAddr.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FlsTst/FlsTstBlockDuplicatedAddr.png
    :alt: FlsTst模块BlockDuplicatedAddr配置图 (BlockDuplicatedAddr Configuration Diagram of FlsTst Module)
    :name: BlockDuplicatedAddr
    :align: center
@@ -523,7 +523,7 @@ FlsTst若需要使用算法FLSTST_ECC，则必须勾选FlsTstTestEccApi之后，
 
 If FlsTst needs to use the algorithm FLSTST_ECC, you must check FlsTstTestEccApi and then associate the user's corresponding ECC interface. As shown in Figure :ref:`TestEccApi`, the configuration interface of FlsTstTestEccApi is displayed, and the user's corresponding ECC interface can be configured and associated.
 
-.. figure:: ../../../_static/参考手册/FlsTst/FlsTstTestEccApi.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FlsTst/FlsTstTestEccApi.png
    :alt: FlsTst模块TestEccApi配置图 (TestEccApi Configuration Diagram of FlsTst Module)
    :name: TestEccApi
    :align: center
@@ -534,7 +534,7 @@ If FlsTst needs to use the algorithm FLSTST_ECC, you must check FlsTstTestEccApi
 
 If the user's Ecc interface needs to perform operations such as initialization, you can check FlsTstInitECC and then associate the user's corresponding ECC initialization and de-initialization interfaces. As shown in Figure :ref:`InitECC`, the configuration interface of FlsTstInitECC is displayed, and the user's corresponding ECC interface can be configured and associated.
 
-.. figure:: ../../../_static/参考手册/FlsTst/FlsTstInitECC.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FlsTst/FlsTstInitECC.png
    :alt: FlsTst模块InitECC配置图 (InitECC Configuration Diagram of FlsTst Module)
    :name: InitECC
    :align: center

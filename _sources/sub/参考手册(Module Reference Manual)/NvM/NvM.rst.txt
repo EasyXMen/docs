@@ -609,7 +609,7 @@ None
 
 As shown in Figure :ref:`NvMDynamicConfiguration`, after checking NvMDynamicConfiguration, NvMBlockDescriptor/NvMResistantToChangedSw can be configured.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMDynamicConfiguration.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMDynamicConfiguration.png
    :alt: NvMDynamicConfiguration配置图 (NvMDynamicConfiguration Configuration Diagram)
    :name: NvMDynamicConfiguration
    :align: center
@@ -620,7 +620,7 @@ As shown in Figure :ref:`NvMDynamicConfiguration`, after checking NvMDynamicConf
 
 As shown in Figure :ref:`NvMResistantToChangedSw`, if NvMDynamicConfiguration is checked, during the power-on ReadAll period, the correctness of ConfigId will be judged.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMResistantToChangedSw.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMResistantToChangedSw.png
    :alt: NvMResistantToChangedSw配置图 (NvMResistantToChangedSw Configuration Diagram)
    :name: NvMResistantToChangedSw
    :align: center
@@ -638,7 +638,7 @@ CRC校验功能(CRC Verification Function)
 
 As shown in Figure :ref:`NvMCrc`, the relevant CRC functions can only be enabled after checking NvMBlockDescriptor/NvMBlockUseCrc.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMCrc.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMCrc.png
    :alt: NvMCrc配置图 (NvMCrc Configuration Diagram)
    :name: NvMCrc
    :align: center
@@ -652,7 +652,7 @@ As shown in Figure :ref:`NvMCrc`, the relevant CRC functions can only be enabled
 
 As shown in Figure :ref:`NvMBlockWriteProt`, only one of NvMBlockDescriptor/NvMBlockWriteProt and NvMBlockDescriptor/NvMBlockWriteOnce can be selected.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMBlockWriteProt.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMBlockWriteProt.png
    :alt: NvMBlockWriteProt配置图 (NvMBlockWriteProt Configuration Diagram)
    :name: NvMBlockWriteProt
    :align: center
@@ -666,7 +666,7 @@ As shown in Figure :ref:`NvMBlockWriteProt`, only one of NvMBlockDescriptor/NvMB
 
 As shown in Figure :ref:`NvMMaxRetries`, set the number of read/write retries in NvMBlockDescriptor/NvMBlockWriteProt.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMMaxRetries.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMMaxRetries.png
    :alt: NvMMaxRetries配置图 (NvMMaxRetries Configuration Diagram)
    :name: NvMMaxRetries
    :align: center
@@ -680,7 +680,7 @@ As shown in Figure :ref:`NvMMaxRetries`, set the number of read/write retries in
 
 As shown in Figure :ref:`NvMSyncMechanism`, after checking NvMBlockDescriptor/NvMBlockUseSyncMechanism, the callback interface for explicit synchronization can be configured.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMSyncMechanism.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMSyncMechanism.png
    :alt: NvMSyncMechanism配置图 (NvMSyncMechanism Configuration Diagram)
    :name: NvMSyncMechanism
    :align: center
@@ -696,7 +696,7 @@ As shown in Figure :ref:`NvMSyncMechanism`, after checking NvMBlockDescriptor/Nv
 As shown in Figure :ref:`NvMWriteVerify`, after checking NvMBlockDescriptor/NvMWriteVerification, the data size for write verification can be configured.
 Note: NvMWriteVerificationDataSize is automatically filled with the size of NvMBlockDescriptor/NvMNvBlockLength. It can be modified but cannot be larger than the configured NvMNvBlockLength.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMWriteVerify.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMWriteVerify.png
    :alt: NvMWriteVerify配置图 (NvMWriteVerify Configuration Diagram)
    :name: NvMWriteVerify
    :align: center
@@ -711,7 +711,7 @@ NvMBlockDescriptor/NvMRamBlockDataAddress，工具可自动填充buffer值，然
 
 As shown in Figure :ref:`NvMRamBlockDataAddress`, after checking NvMBlockDescriptor/NvMRamBlockDataBufferAutoFill, check NvMBlockDescriptor/NvMRamBlockDataAddress. The tool can automatically fill in the buffer value and then generate the corresponding buffer according to the configured length.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMRamBlockDataAddress.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMRamBlockDataAddress.png
    :alt: NvMRamBlockDataAddress配置图 (NvMRamBlockDataAddress Configuration Diagram)
    :name: NvMRamBlockDataAddress
    :align: center
@@ -725,7 +725,7 @@ As shown in Figure :ref:`NvMRamBlockDataAddress`, after checking NvMBlockDescrip
 
 As shown in Figure :ref:`NvMTargetBlockReference`, the underlying Fee/Ea modules can be selected for association in NvMBlockDescriptor/NvMTargetBlockReference.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMTargetBlockReference.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMTargetBlockReference.png
    :alt: NvMTargetBlockReference配置图 (NvMTargetBlockReference Configuration Diagram)
    :name: NvMTargetBlockReference
    :align: center
@@ -741,7 +741,7 @@ As shown in Figure :ref:`NvMTargetBlockReference`, the underlying Fee/Ea modules
 As shown in Figure :ref:`NvMBlockCiphering`, the length of encryption/decryption and the corresponding encryption/decryption algorithm can be configured in NvMBlockCiphering.
 Note: Currently, NvM only supports the AES algorithm.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMBlockCiphering.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMBlockCiphering.png
    :alt: NvMBlockCiphering配置图 (NvMBlockCiphering Configuration Diagram)
    :name: NvMBlockCiphering
    :align: center
@@ -754,7 +754,7 @@ Note: Currently, NvM only supports the AES algorithm.
 As shown in Figure :ref:`NvMBlockCipheringRef`, the corresponding container is associated in NvMBlockCipheringRef.
 Note: For blocks that require encryption/decryption, the configured minimum length of NvMNvBlockLength should be 16, because the minimum length for the AES algorithm in Crypto is 16. If it is less than 16, data padding has not been implemented in Crypto yet.
 
-.. figure:: ../../../_static/参考手册/NvM/NvMBlockCipheringRef.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvMBlockCipheringRef.png
    :alt: NvMBlockCipheringRef配置图 (NvMBlockCipheringRef Configuration Diagram)
    :name: NvMBlockCipheringRef
    :align: center
@@ -765,7 +765,7 @@ Note: For blocks that require encryption/decryption, the configured minimum leng
 
 As shown in Figure :ref:`NvM_PollingMode`, if NvM is configured in non-polling mode,
 
-.. figure:: ../../../_static/参考手册/NvM/NvM_PollingMode.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvM_PollingMode.png
    :alt: NvM_PollingMode配置图 (NvM_PollingMode Configuration Diagram)
    :name: NvM_PollingMode
    :align: center
@@ -780,7 +780,7 @@ Fee的回调接口配置项如图 :ref:`NvM_FeeNotificationCfg` 所示，
 
 The callback interface configuration items for Fee are shown in Figure :ref:`NvM_FeeNotificationCfg`.
 
-.. figure:: ../../../_static/参考手册/NvM/NvM_FeeNotificationCfg.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvM_FeeNotificationCfg.jpg
    :alt: NvM_FeeNotificationCfg配置图 (NvM_FeeNotificationCfg Configuration Diagram)
    :name: NvM_FeeNotificationCfg
    :align: center
@@ -791,7 +791,7 @@ Ea的回调接口配置项如图 :ref:`NvM_EaNotificationCfg` 所示，
 
 The callback interface configuration items for Ea are shown in Figure :ref:`NvM_EaNotificationCfg`.
 
-.. figure:: ../../../_static/参考手册/NvM/NvM_EaNotificationCfg.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/NvM/NvM_EaNotificationCfg.jpg
    :alt: NvM_EaNotificationCfg配置图 (NvM_EaNotificationCfg Configuration Diagram)
    :name: NvM_EaNotificationCfg
    :align: center

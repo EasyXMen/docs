@@ -9,7 +9,7 @@ Resource management is used to coordinate concurrent access by multiple tasks wi
 
 During system generation, each resource is statically assigned its own highest priority. Users can acquire/release standard resources by calling GetResource/ReleaseResource in tasks/interrupts. The priority of the running task/interrupt is temporarily elevated to the resource's priority until the resource is released.
 
-.. figure:: ../../../_static/参考手册/Os/资源天花板机制.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/资源天花板机制.png
    :alt: 可抢占任务间优先级天花板的资源分配 Resource Allocation with Priority Ceiling Among Preemptive Tasks
    :align: center
 

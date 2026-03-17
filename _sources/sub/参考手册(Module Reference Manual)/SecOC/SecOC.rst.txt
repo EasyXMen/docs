@@ -130,7 +130,7 @@ The SecOC module provides a mechanism featuring efficient and practical resource
 
 They use the keys that are much smaller than asymmetric methods to achieve the security of the same level compactly and efficiently in software and hardware. Both symmetric and asymmetric authentication methods can also be used.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOC架构图.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOC架构图.png
    :alt: SecOC模块层次图 (SecOC Module Layer Diagram)
    :name: SecOC_fig_arch
    :align: center
@@ -167,7 +167,7 @@ Secured I-PDU Header指示Authentic I-PDU的长度，当没有Secured I-PDU Head
 
 Secured I-PDU Header indicates the length of Authentic I-PDU. If there is no Secured I-PDU Header, the length of Authentic I-PDU is gotten by configuration. Freshness Value is the value used for generating Authenticator. Authenticator is the generated authentication information.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecuredIPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecuredIPdu.png
    :alt: Secured I-PDU
    :name: SecOC_fig_arch_01
    :align: center
@@ -182,7 +182,7 @@ Secured I-PDU 中包含的身份验证器长度(参数 SecOCAuthInfoTruncLength)
 
 The length of the authenticator (parameter SecOCAuthInfoTruncLength) contained in the Secured I-PDU is specific to the unique identifiable Secured I-PDU. By providing fine-grained configuration of MAC truncation length for each Secured I-PDU, the flexibility in the entire system can be ensured (i.e., two independent unique Secured I-PDUs may have different lengths of authenticators included in the Secured I-PDU payload).
 
-.. figure:: ../../../_static/参考手册/SecOC/TruncatedFVMAC.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/TruncatedFVMAC.png
    :alt: 带有截断新鲜度计数器和截断认证器的Secured I-PDU 内容示例(Instance of Secured I-PDU content with truncated freshness counter and truncated authenticator)
    :name: SecOC_fig_arch_02
    :align: center
@@ -226,7 +226,7 @@ To send data, SecOC serves as a lower layer module of PduR to get Authentic I-PD
 
 To receive data, SecOC serves as the upper layer module of PduR to receive Secured I-PDU from PduR. After parsing the Authentic I-PDU from the Secured I-PDU and passing the verification, SecOC acts as a lower layer module of PduR to transmit the data to the upper layer through PduR.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOC_PduR.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOC_PduR.png
    :alt: SecOC和PduR的关系 (Relationship between SecOC and PduR)
    :name: SecOC_fig_arch_03
    :align: center
@@ -687,7 +687,7 @@ None
 
 2.First, confirm whether the I-PDU that needs protecting has been configured in the SecOC module, and then link the PduID of the relevant message in PduR.
 
-.. figure:: ../../../_static/参考手册/SecOC/ComTxPduR.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/ComTxPduR.png
    :alt: 发送时将SecOC与PduR串起来 (String SecOC and PduR together during sending)
    :name: SecOC_fig_arch_04
    :align: center
@@ -698,7 +698,7 @@ None
 
 3.Configure relevant attributes of Authentic I-PDU, including DataId, SecOCFreshnessValueId, SecOCRxAuthServiceConfigRef, etc.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCTxConfig.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxConfig.png
    :alt: 配置SecOC发送安全I-PDU (Configure SecOC to send secure I-PDU)
    :name: SecOC_fig_arch_05
    :align: center
@@ -709,7 +709,7 @@ None
 
 4.Configure and link original I-PDU ID
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCTxAuthenticPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxAuthenticPdu.png
    :alt: Config TxAuthentic
    :name: SecOC_fig_arch_06
    :align: center
@@ -720,7 +720,7 @@ None
 
 5.Configure Secured I-PDU and link it with the lower layer
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCTxSecuredPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxSecuredPdu.png
    :alt: Config TxSecured
    :name: SecOC_fig_arch_07
    :align: center
@@ -739,7 +739,7 @@ None
 
 2.First, confirm whether the I-PDU that needs verifying has been configured in the SecOC module, and then link the PduID of the relevant message in PduR.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCToUpper.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCToUpper.png
    :alt: 接收时将SecOC与PduR串起来 (String SecOC and PduR together during receiving)
    :name: SecOC_fig_arch_08
    :align: center
@@ -750,7 +750,7 @@ None
 
 3.Configure relevant attributes of Secured I-PDU, including DataId, SecOCFreshnessValueId, SecOCRxAuthServiceConfigRef etc.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCRxConfig.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxConfig.png
    :alt: 配置接收时PduR与SecOC上层模块关联 (Link PduR and SecOC upper layer modules when receiving configuration)
    :name: SecOC_fig_arch_09
    :align: center
@@ -761,7 +761,7 @@ None
 
 4.Configure the linked Secured I-PDU ID
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCRxSecuredPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxSecuredPdu.png
    :alt: Config RxSecured
    :name: SecOC_fig_arch_10
    :align: center
@@ -772,7 +772,7 @@ None
 
 5.Configure Authentic I-PDU and link it with the upper layer
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCRxAuthenticPdu.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxAuthenticPdu.png
    :alt: Config RxAuthentic
    :name: SecOC_fig_arch_11
    :align: center
@@ -786,7 +786,7 @@ None
 
 1.In SecOCMainFunctionRx or SecOCMainFunctionTx, the SecOC module should allocate different tasks to different partitions based on the configured partition information.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCPartition.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCPartition.png
    :alt: SecOCPartition
    :name: SecOC_fig_arch_12
    :align: center
@@ -819,7 +819,7 @@ Collection配置 Configuration of Collection
 
 2.Divide the security into two frames and send them out, i.e., AuthenticPdu and CryptographicPdu.
 
-.. figure:: ../../../_static/参考手册/SecOC/SecOCCollection.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCCollection.png
    :alt: SecOCCollection
    :name: SecOC_fig_arch_13
    :align: center

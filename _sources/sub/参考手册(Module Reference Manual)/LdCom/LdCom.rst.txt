@@ -129,7 +129,7 @@ The LdCom module is mainly used for transmitting I-PDU between users (RTE) and P
 
 模块架构 Module architecture
 
-.. figure:: ../../../_static/参考手册/LdCom/LdCom_Autosar_Architecture.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LdCom/LdCom_Autosar_Architecture.png
    :alt: LdCom模块层次图 (LdCom Module Layer Diagram)
    :name: LdCom_AUTOSAR_Arch
    :align: center
@@ -360,7 +360,7 @@ None
 配置 Configuration
 ==========================================
 
-.. figure:: ../../../_static/参考手册/LdCom/LdComIpdu_Cfg.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LdCom/LdComIpdu_Cfg.png
    :alt: LdComIpduM配置 (LdComIpduM configuration)
    :name: LdComIpdu
    :align: center

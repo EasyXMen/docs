@@ -123,7 +123,7 @@ For the non-destructive test strategy, the complete procedure (save, modify, res
 
 For RamTst, the RAM area needs to be divided. As shown in Figure :ref:`RamAttribute`, the division of RAM areas is displayed, which can be divided into the local variable area of the RamTst module, the RAM area to be tested, and the stack area.
 
-.. figure:: ../../../_static/参考手册/RamTst/RamAttribute.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/RamTst/RamAttribute.jpg
    :alt: RamTst模块Ram划分图 (RAM Division Diagram of RamTst Module)
    :name: RamAttribute
    :align: center
@@ -158,7 +158,7 @@ During the background test, the configured RAM area to be tested is divided into
 
 As shown in Figure :ref:`BackGroundTest`, the background execution of RamTst is displayed.
 
-.. figure:: ../../../_static/参考手册/RamTst/RamTstBackGround.jpg
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/RamTst/RamTstBackGround.jpg
    :alt: RamTst模块RamTstBackGround图(RamTstBackGround Diagram of RamTst Module)
    :name: BackGroundTest
    :align: center
@@ -617,7 +617,7 @@ Specify the local variables and stack of RamTst to be stored in this area, which
 
 As shown in Figure :ref:`LocalVarAreaAddrVar`, the configuration interface of RamTstLocalVarAreaAddr is displayed, and the fixed address for writing the signature value can be configured.
 
-.. figure:: ../../../_static/参考手册/RamTst/RamTstLocalVarAreaAddr.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/RamTst/RamTstLocalVarAreaAddr.png
    :alt: RamTst模块LocalVarAreaAddr配置图(LocalVarAreaAddr Configuration Diagram of RamTst Module)
    :name: LocalVarAreaAddrVar
    :align: center
@@ -635,7 +635,7 @@ Specify the test cell size of RamTst, in bits.
 
 As shown in Figure :ref:`CellSize`, the configuration interface of RamTstCellSize is displayed, and the test cell size can be configured.
 
-.. figure:: ../../../_static/参考手册/RamTst/RamTstCellSize.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/RamTst/RamTstCellSize.png
    :alt: RamTst模块CellSize配置图 (CellSize Configuration Diagram of RamTst Module)
    :name: CellSize
    :align: center
@@ -650,7 +650,7 @@ The configured RamTstExtNumberOfTestedCells, RamTstMaxNumberOfTestedCells, and R
 
 As shown in Figure :ref:`TestCells`, the configuration interface of RamTstTestCells is displayed, and the test cell size can be configured.
 
-.. figure:: ../../../_static/参考手册/RamTst/RamTstTestCells.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/RamTst/RamTstTestCells.png
    :alt: RamTst模块TestCells配置图 (TestCells Configuration Diagram of RamTst Module)
    :name: TestCells
    :align: center
