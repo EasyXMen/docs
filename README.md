@@ -1,18 +1,22 @@
 ## 开源小满EasyXMen技术文档 EasyXMen Technical Documentation
 
-本仓库为开源小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.net/docs/)
+本仓库为开源小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.com/)
 
-This repository is the documentation repository for EasyXMen. You can use Pages to preview the final html [Reading Link](https://easyxmen.atomgit.net/docs/)
+This repository is the documentation repository for EasyXMen. You can use Pages to preview the final html [Reading Link](https://easyxmen.atomgit.com/)
 
 ## 目录结构 Directory Structure
 ```
 |── QuickStart              # 快速上手指南 (Quick Start Guide)
 |── ReleaseNotes            # 版本发布说明 (Version Release Notes)
-|── source                  # 文档文件夹 (Documentation Folder)
-│   ├── _static             # 文档图片相关静态资料 (Static Materials Related to Document Images)
-│   └──  sub                # 文档文本内容 (Document Text Content)
+|── V2504/                  # V25.04 版本文档 (V25.04 Version Documentation)
+│   ├── source/             # 文档源文件 (Documentation Source Files)
+│   ├── Makefile            # Linux/Mac 构建文件 (Linux/Mac Build File)
+│   └── make.bat            # Windows 构建文件 (Windows Build File)
+|── V2510/                  # V25.10 版本文档 (V25.10 Version Documentation)
+│   ├── source/             # 文档源文件 (Documentation Source Files)
+│   ├── Makefile            # Linux/Mac 构建文件 (Linux/Mac Build File)
+│   └── make.bat            # Windows 构建文件 (Windows Build File)
 |── LICENSE.txt             # license 说明 (License Description)
-|── make.bat                # 本地查阅文档批处理文件 (Batch File for Viewing Documents Locally)
 └── README.md               # 仓库说明文档 (Repository Description Document)
 ```
 ## 开源许可 License
