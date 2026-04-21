@@ -1,5 +1,5 @@
 Event(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 事件机制(Event Mechanism)：
 
@@ -23,7 +23,7 @@ The figure illustrates the synchronization of extended tasks through event setti
 
 
 SetEvent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -32,7 +32,7 @@ SetEvent
 The events of task <TaskID> are set according to the event mask <Mask>. Calling SetEvent causes the task <TaskID> to be transferred to the ready state, if it was waiting for at least one of the events specified in <Mask>.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -101,7 +101,7 @@ The events of task <TaskID> are set according to the event mask <Mask>. Calling 
 
 
 ClearEvent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -110,7 +110,7 @@ ClearEvent
 The events of the extended task calling ClearEvent are cleared according to the event mask <Mask>.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -162,7 +162,7 @@ The events of the extended task calling ClearEvent are cleared according to the 
 
 
 GetEvent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -171,7 +171,7 @@ GetEvent
 This service returns the current state of all event bits of the task <TaskID>, not the events that the task is waiting for.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -232,7 +232,7 @@ This service returns the current state of all event bits of the task <TaskID>, n
 
 
 WaitEvent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -241,7 +241,7 @@ WaitEvent
 The state of the calling task is set to waiting, unless at least one of the events specified in <Mask> has already been set.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -336,7 +336,7 @@ The state of the calling task is set to waiting, unless at least one of the even
 
 
 WaitAllEvents
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -345,7 +345,7 @@ WaitAllEvents
 The state of the calling task is set to waiting, must all the events specified in <Mask> has already been set.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -418,7 +418,7 @@ The state of the calling task is set to waiting, must all the events specified i
 
 
 SetEventAsyn
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -427,7 +427,7 @@ SetEventAsyn
 Asynchronous version of the
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Docs Redirect</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    body { font: 14px/1.5 system-ui, -apple-system, Segoe UI, Arial; padding: 12px; }
+    code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<div id="msg">Redirecting…</div>
+
+<script>
+(function () {
+  const params = new URLSearchParams(location.search || "");
+  const to = (params.get("to") || "").trim(); // "default" or "V25.10"
+
+  const msg = (t) => document.getElementById("msg").innerHTML = t;
+
+  // go.html 的无参无 hash 绝对 URL
+  const goUrl = location.href.split("#")[0].split("?")[0];
+  // 根目录 = go.html 所在目录
+  const root = goUrl.substring(0, goUrl.lastIndexOf("/") + 1);
+
+  function escapeHtml(s) {
+    return String(s).replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function jump(url) {
+    msg("Redirecting to: <code>" + escapeHtml(url) + "</code>");
+    location.replace(url);
+  }
+
+  if (!to || to === "default" || to === "." || to.toLowerCase() === "v25.04") {
+    jump(root + "index.html");
+  } else {
+    // 按你的目录结构：root/V25.10/index.html
+    jump(root + to + "/index.html");
+  }
+})();
+</script>
+</body>
+</html>

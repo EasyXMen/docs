@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>iRTE &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="RTE" href="RTE.html" />
+            <link rel="prev" title="PduR" href="PduR.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">iRTE</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/iRTE.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="irte">
+<h1>iRTE<a class="headerlink" href="#irte" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>序号 (Serial Number)</p></th>
+<th class="head"><p>缩略词 (Abbreviations)</p></th>
+<th class="head"><p>英文全名 (Full English Name)</p></th>
+<th class="head"><p>中文解释 (Translate the given Chinese text into English.)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>iRTE</p></td>
+<td><p>i-Soft Runtime Environment</p></td>
+<td><p>普华基础模块运行时环境 (PricewaterhouseCoopers Basic Module Runtime Environment)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>BSW</p></td>
+<td><p>Basic Software</p></td>
+<td><p>基础软件 (Basic software)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>BSWMD</p></td>
+<td><p>Basic Software Module Description</p></td>
+<td><p>基础软件模块描述 (Description of Basic Software Modules)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>ECU</p></td>
+<td><p>Electronic Control Unit</p></td>
+<td><p>电子控制单元 (Electronic Control Unit)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>AUTOSAR</p></td>
+<td><p>Automotive Open System Architecture</p></td>
+<td><p>汽车开放系统架构 (Automotive Open Systems Architecture)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>C/S</p></td>
+<td><p>Client-server communication</p></td>
+<td><p>客户端服务器通信 (Client-server communication)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>ECUC</p></td>
+<td><p>AUTOSAR ECU Configuration</p></td>
+<td><p>AUTOSAR ECU配置 (AUTOSAR ECU Configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>IOC</p></td>
+<td><p>Inter-OsApplication Communication</p></td>
+<td><p>跨Os应用通信 (Cross-OS application communication)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>API</p></td>
+<td><p>Application Programming Interface</p></td>
+<td><p>应用程序编程接口 (Application Programming Interface)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>SchM</p></td>
+<td><p>Schedule Manager</p></td>
+<td><p>调度管理 (Scheduling Management)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>iRte是适配普华BSW实现需求的BSW模块间通信接口层，与应用无交互，主要包括SchM模块。基于ECU为多核BSW架构提供运行时环境：</p>
+<p>iRte is the BSW module communication interface layer adapted for the requirements of PuHua BSW, with no interaction with applications, mainly including the SchM module. Based on ECU, it provides a runtime environment for a multi-core BSW architecture:</p>
+<p>生成TASK函数，负责映射到Task的周期BswEntity的运行调度；</p>
+<p>Generate the TASK function, responsible for mapping to Task's periodic BswEntity scheduling;</p>
+<p>提供BSW间C/S通信接口；</p>
+<p>Provide BSW inter-C/S communication interface;</p>
+<p>为BSW数据一致性保护提供独占区接口；</p>
+<p>Provide an exclusive zone interface for preserving data consistency for BSW;</p>
+<section id="references-materials">
+<h3>参考资料 (References materials)<a class="headerlink" href="#references-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_TPS_SystemTemplate.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_RTE.pdf，R19-11</p>
+<p>[3] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
+<p>[4] AUTOSAR_TPS_BSWModuleDescriptionTemplate，R19-11</p>
+<p>[5] AUTOSAR_SWS_OS.pdf，R19-11</p>
+<p>[6] AUTOSAR_TR_Methodology.pdf，R19-11</p>
+<p>[7] AUTOSAR_EXP_VFB.pdf，R19-11</p>
+<p>[8] AUTOSAR_SWS_COM.pdf，R19-11</p>
+<p>[9] AUTOSAR_SWS_LargeDataCOM.pdf，R19-11</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="schm-schm-function-description">
+<h3>SchM功能描述 (SchM Function Description)<a class="headerlink" href="#schm-schm-function-description" title="Link to this heading">¶</a></h3>
+<p>SchM功能支撑普华BSW的实现，与应用无交互，工程配置、集成时客户无需额外关注。</p>
+<p>SchM functionality supports the realization of PuHua BSW and does not interact with applications. Customers do not need additional attention during engineering configuration and integration.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>功能分类 (Function Classification)</p></th>
+<th class="head"><p>功能点描述 (Feature Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>独占区功能 (Exclusive Area Function)</p></td>
+<td><p>为BSW提供独占区接口，用于数据一致性保护 (Provide exclusive area interfaces for BSW for data consistency protection.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>BswEvent</p></td>
+<td><p>BswTimingEvent：周期事件，激活BSW MainFunction函数 (BswTimingEvent：periodic event, activate BSW MainFunction function)</p></td>
+</tr>
+<tr class="row-even"><td><p>BswEvent</p></td>
+<td><p>BswBackgroundEvent：不定周期事件 (BswBackgroundEvent：Non-periodic event)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CS通信 (CS Communication)</p></td>
+<td><p>通信域：同分区，同核不同分区，不同核不同分区 (Communication Domain: Same Zone, Same Core Different Zone, Different Core Different Zone)</p></td>
+</tr>
+<tr class="row-even"><td><p>CS通信 (CS Communication)</p></td>
+<td><p>支持CS同步/异步通信 (Support CS Synchronous/Automatic Communication)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MainFunction的调度 (Scheduling of MainFunction)</p></td>
+<td><p>支持周期TASK，按各BSW模块MainFunction的配置周期进行调度 (Support periodicity for TASK, scheduling based on the configuration cycle of each BSW module's MainFunction.)</p></td>
+</tr>
+<tr class="row-even"><td><p>生命周期 (Lifecycle)</p></td>
+<td><p>支持对每个分区开启/关闭，激活/关闭周期TASK。 (Support enabling/disabling per-partition and activating/deactivating periodic TASKs.)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="api-api-description">
+<h2>API描述 (API Description)<a class="headerlink" href="#api-api-description" title="Link to this heading">¶</a></h2>
+<section id="schm">
+<h3>SchM<a class="headerlink" href="#schm" title="Link to this heading">¶</a></h3>
+<p>SchM实现AUTOSAR BSW模块MainFunction主函数的调度，为BSW模块提供独占区接口服务，为BSW模块间实现跨分区函数调用提供CS接口。</p>
+<p>SchM schedules the MainFunction of AUTOSAR BSW modules, provides exclusive area interface services for BSW modules, and offers CS interfaces for cross-partition function calls between BSW modules.</p>
+<p>所有SchM接口均与应用无关，只适配普华BSW的实现逻辑。故只列出实现的接口清单，不对其进行详细描述。</p>
+<p>All SchM interfaces are application-independent and are only adapted to the implementation logic of PuHua BSW. Hence, only the list of implemented interfaces is provided without detailed descriptions.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>功能分类 (Function Classification)</p></th>
+<th class="head"><p>接口名 (Interface Name)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>生成周期函数 (Generate periodic functions)</p></td>
+<td><p>SchM_Init</p></td>
+</tr>
+<tr class="row-odd"><td><p>生成周期函数 (Generate periodic functions)</p></td>
+<td><p>SchM_Start</p></td>
+</tr>
+<tr class="row-even"><td><p>生成周期函数 (Generate periodic functions)</p></td>
+<td><p>SchM_StartTiming</p></td>
+</tr>
+<tr class="row-odd"><td><p>生成周期函数 (Generate periodic functions)</p></td>
+<td><p>SchM_Deinit</p></td>
+</tr>
+<tr class="row-even"><td><p>独占区 (Exclusive Zone)</p></td>
+<td><p>SchM_Enter</p></td>
+</tr>
+<tr class="row-odd"><td><p>独占区 (Exclusive Zone)</p></td>
+<td><p>SchM_Exit</p></td>
+</tr>
+<tr class="row-even"><td><p>CS同步通信 (CS Synchronization Communication)</p></td>
+<td><p>SchM_Call</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="irte-irte-configuration">
+<h2>iRTE配置 (iRTE Configuration)<a class="headerlink" href="#irte-irte-configuration" title="Link to this heading">¶</a></h2>
+<p>主要涉及三类配置：</p>
+<p>Mainly involves three types of configurations:</p>
+<p>通用配置页面：AUTOSAR标准定义的配置项；</p>
+<p>General Configuration Page: Configuration items defined by AUTOSAR standards;</p>
+<p>iRTE-OS同步配置功能；</p>
+<p>iRTE-OS Synchronized Configuration Function;</p>
+<p>Update Bswmd All。</p>
+<p>其中通用配置页面的内容会被iRTE-OS同步功能填充，一般不需要或进行少量手动调整即可。</p>
+<p>The content of the general configuration page will be filled by the iRTE-OS synchronization function, and generally does not require or only requires minimal manual adjustments.</p>
+<section id="general-configuration-page">
+<h3>通用配置页面 (General Configuration Page)<a class="headerlink" href="#general-configuration-page" title="Link to this heading">¶</a></h3>
+<section id="rteosinteraction">
+<h4>RteOsInteraction<a class="headerlink" href="#rteosinteraction" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="rteosinteraction-general-configuration-page-rteosinteraction">
+<img alt="通用配置页面-RteOsInteraction (General Configuration Page-RteOsInteraction)" src="../../_images/image1156.png" />
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RteExpectedActivationOffset</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>[0 .. INF]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteExpectedActivationOffset</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>OsAlarm激活偏移时间（S）</p></td>
+<td><p>OsAlarm激活偏移时间（S）</p></td>
+<td><p>OsAlarm激活偏移时间（S）</p></td>
+</tr>
+<tr class="row-even"><td><p>RteExpectedActivationOffset</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>RteActivationOsAlarmRef关联OsAlarm时才需配置 (RteActivationOsAlarmRef should be configured only when associated with OsAlarm.)</p></td>
+<td><p>RteActivationOsAlarmRef关联OsAlarm时才需配置 (RteActivationOsAlarmRef should be configured only when associated with OsAlarm.)</p></td>
+<td><p>RteActivationOsAlarmRef关联OsAlarm时才需配置 (RteActivationOsAlarmRef should be configured only when associated with OsAlarm.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteExpectedTickDuration</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>[0 .. INF]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteExpectedTickDuration</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>OsAlarm激活周期（S）</p></td>
+<td><p>OsAlarm激活周期（S）</p></td>
+<td><p>OsAlarm激活周期（S）</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteExpectedTickDuration</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>RteActivationOsAlarmRef关联OsAlarm时才需配置 (RteActivationOsAlarmRef should be configured only when associated with OsAlarm.)</p></td>
+<td><p>RteActivationOsAlarmRef关联OsAlarm时才需配置 (RteActivationOsAlarmRef should be configured only when associated with OsAlarm.)</p></td>
+<td><p>RteActivationOsAlarmRef关联OsAlarm时才需配置 (RteActivationOsAlarmRef should be configured only when associated with OsAlarm.)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteActivationOsAlarmRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteActivationOsAlarmRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsAlarm (AssociateOsAlarm)</p></td>
+<td><p>关联OsAlarm (AssociateOsAlarm)</p></td>
+<td><p>关联OsAlarm (AssociateOsAlarm)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteActivationOsAlarmRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于OS模块中OsAlarm的配置 (Dependent on the configuration of OsAlarm in the OS module)</p></td>
+<td><p>依赖于OS模块中OsAlarm的配置 (Dependent on the configuration of OsAlarm in the OS module)</p></td>
+<td><p>依赖于OS模块中OsAlarm的配置 (Dependent on the configuration of OsAlarm in the OS module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteActivationOsTaskRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteActivationOsTaskRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsTask (Associate OsTask)</p></td>
+<td><p>关联OsTask (Associate OsTask)</p></td>
+<td><p>关联OsTask (Associate OsTask)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteActivationOsTaskRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于OS模块中OsTask的配置 (Dependent on the configuration of OsTask in the OS module)</p></td>
+<td><p>依赖于OS模块中OsTask的配置 (Dependent on the configuration of OsTask in the OS module)</p></td>
+<td><p>依赖于OS模块中OsTask的配置 (Dependent on the configuration of OsTask in the OS module)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rtebswmoduleinstance">
+<h4>RteBswModuleInstance<a class="headerlink" href="#rtebswmoduleinstance" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="rtebswmoduleinstance-general-configuration-page-rtebswmoduleinstance">
+<img alt="通用配置页面-RteBswModuleInstance (General Configuration Page-RteBswModuleInstance)" src="../../_images/image2102.png" />
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RteBswImplementationRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswImplementationRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联BswImplementation (Associate BswImplementation)</p></td>
+<td><p>关联BswImplementation (Associate BswImplementation)</p></td>
+<td><p>关联BswImplementation (Associate BswImplementation)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswImplementationRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于BSW的bswmd.arxml文件 (Dependent on BSW, the bswmd.arxml file)</p></td>
+<td><p>依赖于BSW的bswmd.arxml文件 (Dependent on BSW, the bswmd.arxml file)</p></td>
+<td><p>依赖于BSW的bswmd.arxml文件 (Dependent on BSW, the bswmd.arxml file)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="rtebsweventtotaskmapping">
+<h5>RteBswEventToTaskMapping<a class="headerlink" href="#rtebsweventtotaskmapping" title="Link to this heading">¶</a></h5>
+<figure class="align-center" id="rtebsweventtotaskmapping-general-configuration-page-rtebsweventtotaskmapping">
+<img alt="通用配置页面-RteBswEventToTaskMapping (General Configuration Page-RteBswEventToTaskMapping)" src="../../_images/image380.png" />
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RteBswPositionInTask</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswPositionInTask</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>BswSchedulableEntity在OsTask里的执行位置 (The execution position of BswSchedulableEntity in OsTask)</p></td>
+<td><p>BswSchedulableEntity在OsTask里的执行位置 (The execution position of BswSchedulableEntity in OsTask)</p></td>
+<td><p>BswSchedulableEntity在OsTask里的执行位置 (The execution position of BswSchedulableEntity in OsTask)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswPositionInTask</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswServerQueueLength</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswServerQueueLength</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>CS server队列长度 (CS server queue length)</p></td>
+<td><p>CS server队列长度 (CS server queue length)</p></td>
+<td><p>CS server队列长度 (CS server queue length)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswServerQueueLength</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswEventRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswEventRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联RteEvent (Associated RteEvent)</p></td>
+<td><p>关联RteEvent (Associated RteEvent)</p></td>
+<td><p>关联RteEvent (Associated RteEvent)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswEventRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>BSW模块描述arxml文件中RteBswEvent的配置 (BSW module description for configuration of RteBswEvent in arxml files)</p></td>
+<td><p>BSW模块描述arxml文件中RteBswEvent的配置 (BSW module description for configuration of RteBswEvent in arxml files)</p></td>
+<td><p>BSW模块描述arxml文件中RteBswEvent的配置 (BSW module description for configuration of RteBswEvent in arxml files)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswMappedToTaskRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswMappedToTaskRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsTask (Associate OsTask)</p></td>
+<td><p>关联OsTask (Associate OsTask)</p></td>
+<td><p>关联OsTask (Associate OsTask)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswMappedToTaskRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>OS模块中OsTask的配置 (Configuration of OsTask in the OS Module)</p></td>
+<td><p>OS模块中OsTask的配置 (Configuration of OsTask in the OS Module)</p></td>
+<td><p>OS模块中OsTask的配置 (Configuration of OsTask in the OS Module)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswUsedOsEventRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswUsedOsEventRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsEvent (Associate OsEvent)</p></td>
+<td><p>关联OsEvent (Associate OsEvent)</p></td>
+<td><p>关联OsEvent (Associate OsEvent)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswUsedOsEventRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>OS模块中OsEvent的配置 (Configuration of OsEvent in the OS Module)</p></td>
+<td><p>OS模块中OsEvent的配置 (Configuration of OsEvent in the OS Module)</p></td>
+<td><p>OS模块中OsEvent的配置 (Configuration of OsEvent in the OS Module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswUsedOsAlarmRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswUsedOsAlarmRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsAlarm (AssociateOsAlarm)</p></td>
+<td><p>关联OsAlarm (AssociateOsAlarm)</p></td>
+<td><p>关联OsAlarm (AssociateOsAlarm)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswUsedOsAlarmRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>OS模块中OsAlarm的配置 (Configuration of OsAlarm in the OS Module)</p></td>
+<td><p>OS模块中OsAlarm的配置 (Configuration of OsAlarm in the OS Module)</p></td>
+<td><p>OS模块中OsAlarm的配置 (Configuration of OsAlarm in the OS Module)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rtebswexclusiveareaimpl">
+<h5>RteBswExclusiveAreaImpl<a class="headerlink" href="#rtebswexclusiveareaimpl" title="Link to this heading">¶</a></h5>
+<figure class="align-center" id="rtebswexclusiveareaimpl-general-configuration-page-rtebswexclusiveareaimpl">
+<img alt="通用配置页面-RteBswExclusiveAreaImpl (General Configuration Page-RteBswExclusiveAreaImpl)" src="../../_images/image468.png" />
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>ALL_INTERRUPT_BLOCKING</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>NONE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>OS_INTERRUPT_BLOCKING</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>OS_RESOURCE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>OS_SPINLOCK</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>独占区的实现机制选择 (The implementation mechanism for exclusivity zones)</p></td>
+<td><p>独占区的实现机制选择 (The implementation mechanism for exclusivity zones)</p></td>
+<td><p>独占区的实现机制选择 (The implementation mechanism for exclusivity zones)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteExclusiveAreaImplMechanism</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswExclusiveAreaOsResourceRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswExclusiveAreaOsResourceRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsResource (Associate OsResource)</p></td>
+<td><p>关联OsResource (Associate OsResource)</p></td>
+<td><p>关联OsResource (Associate OsResource)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswExclusiveAreaOsResourceRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>RteExclusiveAreaImplMechanism配置为OS_RESOURCE时 (Configure RteExclusiveAreaImplMechanism as OS_RESOURCE)</p></td>
+<td><p>RteExclusiveAreaImplMechanism配置为OS_RESOURCE时 (Configure RteExclusiveAreaImplMechanism as OS_RESOURCE)</p></td>
+<td><p>RteExclusiveAreaImplMechanism配置为OS_RESOURCE时 (Configure RteExclusiveAreaImplMechanism as OS_RESOURCE)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswExclusiveAreaOsSpinlockRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswExclusiveAreaOsSpinlockRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联OsSpinlock (Associate OsSpinlock)</p></td>
+<td><p>关联OsSpinlock (Associate OsSpinlock)</p></td>
+<td><p>关联OsSpinlock (Associate OsSpinlock)</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswExclusiveAreaOsSpinlockRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>RteExclusiveAreaImplMechanism配置为OS_SPINLOCK时 (Configure RteExclusiveAreaImplMechanism as OS_SPINLOCK when)</p></td>
+<td><p>RteExclusiveAreaImplMechanism配置为OS_SPINLOCK时 (Configure RteExclusiveAreaImplMechanism as OS_SPINLOCK when)</p></td>
+<td><p>RteExclusiveAreaImplMechanism配置为OS_SPINLOCK时 (Configure RteExclusiveAreaImplMechanism as OS_SPINLOCK when)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswExclusiveAreaRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>RteBswExclusiveAreaRef</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>BSW模块描述arxml中ExclusiveArea (BSW Module Description arxml ExclusiveArea)</p></td>
+<td><p>BSW模块描述arxml中ExclusiveArea (BSW Module Description arxml ExclusiveArea)</p></td>
+<td><p>BSW模块描述arxml中ExclusiveArea (BSW Module Description arxml ExclusiveArea)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RteBswExclusiveAreaRef</p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>BSW模块描述arxml文件中ExclusiveArea的配置 (BSW Module Describes Configuration in arxml File for ExclusiveArea)</p></td>
+<td><p>BSW模块描述arxml文件中ExclusiveArea的配置 (BSW Module Describes Configuration in arxml File for ExclusiveArea)</p></td>
+<td><p>BSW模块描述arxml文件中ExclusiveArea的配置 (BSW Module Describes Configuration in arxml File for ExclusiveArea)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="bswmd-bswmd-file-update">
+<h3>Bswmd文件更新(BSWMD file update)<a class="headerlink" href="#bswmd-bswmd-file-update" title="Link to this heading">¶</a></h3>
+<p>基于BSW模块的设计，工具可更新全部或单个模块描述文件，用来描述BSW模块在接口层面、BswEntity调度的需求，作为iRte的输入生成代码。</p>
+<p>Based on the BSW module design, the tool can update all or individual module description files to describe the BSW module's requirements at the interface level and the scheduling needs of BswEntity as input for generating code.</p>
+<figure class="align-center" id="bswmd-update-all-bswmd-files">
+<img alt="更新全部Bswmd文件 (Update all Bswmd files)" src="../../_images/image565.png" />
+</figure>
+<figure class="align-center" id="bswmd-update-individual-module-bswmd-file">
+<img alt="更新单个模块Bswmd文件 (Update individual module Bswmd file)" src="../../_images/image658.png" />
+</figure>
+</section>
+<section id="irte-os-irte-os-synchronized-configuration">
+<h3>iRTE-OS同步配置 (iRTE-OS Synchronized Configuration)<a class="headerlink" href="#irte-os-irte-os-synchronized-configuration" title="Link to this heading">¶</a></h3>
+<p>基于BSW的模块描述文件（Bswmd文件），根据模型需求自动配置OS模块。自动配置分两种：</p>
+<p>Module description files (Bswmd files) based on BSW, automatically configure OS modules according to model requirements. Automatic configuration is divided into two types:</p>
+<p>与iRTE实现相关，OS必须按实现需求进行配置且客户不能修改；</p>
+<p>Regarding iRTE implementation, the OS must be configured according to the implementation requirements and customers cannot modify it;</p>
+<p>为客户提供配置Demo，简化客户手动配置工作量，客户根据应用场景在自动配置的基础上进行少量调整、适配；</p>
+<p>Provide configuration demos for customers to simplify their manual configuration efforts, allowing them to make minor adjustments and adaptations based on their specific use cases on top of the automatic configurations.</p>
+<figure class="align-center" id="irte-os-irte-os-auto-configuration">
+<img alt="iRTE-OS自动配置 (iRTE-OS Auto Configuration)" src="../../_images/image747.png" />
+</figure>
+</section>
+</section>
+<section id="irte-irte-generation-and-integration">
+<h2>iRTE生成和集成 (iRTE Generation and Integration)<a class="headerlink" href="#irte-irte-generation-and-integration" title="Link to this heading">¶</a></h2>
+<section id="overview-of-tool-development-process">
+<h3>工具开发流程概述 (Overview of Tool Development Process)<a class="headerlink" href="#overview-of-tool-development-process" title="Link to this heading">¶</a></h3>
+<p>完成除OS和iRTE之外的所有BSW模块配置；</p>
+<p>Complete the configuration of all BSW modules except OS and iRTE;</p>
+<p>补充必要的OS信息如OS核数；</p>
+<p>Add necessary OS information such as the number of OS cores;</p>
+<p>更新全部BSW模块的模块描述文件；</p>
+<p>Update all BSW modules' module description files;</p>
+<p>手动配置章节4中的配置内容，或通过iRTE-OS同步功能自动生成推荐Demo配置（iRTE模块和OS模块）；</p>
+<p>Manually configure the content as described in Chapter 4, or automatically generate the recommended Demo configuration (iRTE module and OS module) through the iRTE-OS synchronization feature;</p>
+<p>如果选用了iRTE-OS同步功能，需要基于自动生成的推荐OS、iRTE Demo配置，结合使用场景进行调整适配；</p>
+<p>If the iRTE-OS synchronization feature is selected, adjustments and adaptations need to be made based on the auto-generated recommended OS and iRTE Demo configurations in conjunction with the usage scenario.</p>
+<p>先生成iRTE代码，后生成OS代码（全工程生成顺序为其它BSW→iRTE→OS）；</p>
+<p>Generate iRTE code first, then generate OS code (the full engineering generation order is other BSW → iRTE → OS);</p>
+</section>
+<section id="irte-irte-file-structure">
+<h3>iRTE文件结构 (iRTE File Structure)<a class="headerlink" href="#irte-irte-file-structure" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id1">
+<img alt="iRTE文件结构 (iRTE File Structure)" src="../../_images/image842.png" />
+</figure>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件名 (Filename)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SchM.c</p></td>
+<td><p>包含如下几部分内容： 生命周期函数定义；  定义Os_Task，填充其内容； (Contents as follows: Event Lifecycle Definition; Define Os_Task and Fill Its Content;)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM&lt;Mip&gt;.c</p></td>
+<td><p>SchM接口实现 (Implementation of SchM Interface)</p></td>
+</tr>
+<tr class="row-even"><td><p>SchM&lt;Mip&gt;.h</p></td>
+<td><p>SchM接口声明； BswSchduleEntity和BswCalledEntity原型声明； (SchM interface declaration; prototype declarations for BswSchduleEntity and BswCalledEntity;)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM&lt;Mip&gt;_Type.h</p></td>
+<td><p>BSW模块使用的数据类型定义； (Data types defined for the BSW module;)</p></td>
+</tr>
+<tr class="row-even"><td><p>SchM.h</p></td>
+<td><p>声明生命周期函数； (Declare lifecycle functions;)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM_Internal.h</p></td>
+<td><p>定义SchM内部公共函数； (Define internal public functions of SchM;)</p></td>
+</tr>
+<tr class="row-even"><td><p>SchM_Type.h</p></td>
+<td><p>定义SchM内部使用数据类型； (Define data types for use within SchM;)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_Main.h</p></td>
+<td><p>Bsw模块固定引用； (Bsw module fixed reference;)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="integrate">
+<h3>集成(Integrate)<a class="headerlink" href="#integrate" title="Link to this heading">¶</a></h3>
+<p>按照5.1章节完成工程的配置，生成所有BSW（包括OS、iRTE、MCAL）动态配置代码后，基于芯片、编译器搭建代码工程，集成BSW静态代码以及工具生成的动态代码，手动集成Application代码，基于内存布局需求、以及BSW的MemMap进行链接文件设计，整体进行编译、链接。</p>
+<p>After completing the configuration of the project according to Chapter 5.1, generate all BSW (including OS, iRTE, MCAL) dynamic configuration codes. Based on the chip and compiler, set up the code engineering, integrate BSW static codes and dynamically generated codes by tools, manually integrate Application code, design link files based on memory layout requirements and BSW MemMap, and perform overall compilation and linking.</p>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="PduR.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>PduR
+    </a>
+    <a class="float-right" href="RTE.html" title="Next">
+        RTE <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">iRTE</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#references-materials">参考资料 (References materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#schm-schm-function-description">SchM功能描述 (SchM Function Description)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-api-description">API描述 (API Description)</a><ul>
+<li><a class="reference internal" href="#schm">SchM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#irte-irte-configuration">iRTE配置 (iRTE Configuration)</a><ul>
+<li><a class="reference internal" href="#general-configuration-page">通用配置页面 (General Configuration Page)</a><ul>
+<li><a class="reference internal" href="#rteosinteraction">RteOsInteraction</a></li>
+<li><a class="reference internal" href="#rtebswmoduleinstance">RteBswModuleInstance</a><ul>
+<li><a class="reference internal" href="#rtebsweventtotaskmapping">RteBswEventToTaskMapping</a></li>
+<li><a class="reference internal" href="#rtebswexclusiveareaimpl">RteBswExclusiveAreaImpl</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bswmd-bswmd-file-update">Bswmd文件更新(BSWMD file update)</a></li>
+<li><a class="reference internal" href="#irte-os-irte-os-synchronized-configuration">iRTE-OS同步配置 (iRTE-OS Synchronized Configuration)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#irte-irte-generation-and-integration">iRTE生成和集成 (iRTE Generation and Integration)</a><ul>
+<li><a class="reference internal" href="#overview-of-tool-development-process">工具开发流程概述 (Overview of Tool Development Process)</a></li>
+<li><a class="reference internal" href="#irte-irte-file-structure">iRTE文件结构 (iRTE File Structure)</a></li>
+<li><a class="reference internal" href="#integrate">集成(Integrate)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

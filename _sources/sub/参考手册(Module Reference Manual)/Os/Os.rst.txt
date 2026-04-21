@@ -28,6 +28,11 @@ Os
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2026/01/04
+     - lizhi.wu
+     - V2.0
+     - 发布(Release)
+     - 版本升级R23-11(Version upgrade R23-11)
 
 参考文档(References)
 -------------------------------------------
@@ -146,9 +151,9 @@ Os
 
 简介(Introduction)
 ============================
-Os是为汽车电子领域开发的可抢占，多任务，高性能，低资源消耗和可定制的实时操作系统。它符合AUTOSAR R19标准(汽车电子领域中广泛接受的标准)，并满足MISRA-C 2012编程规范。
+Os是为汽车电子领域开发的可抢占，多任务，高性能，低资源消耗和可定制的实时操作系统。它符合AUTOSAR R23标准(汽车电子领域中广泛接受的标准)，并满足MISRA-C 2012编程规范。
 
-Os is a preemptive, multi-tasking, high-performance, low-resource-consuming, and customizable real-time operating system developed for the automotive electronics field. It complies with the AUTOSAR R19 standard (a widely accepted standard in the automotive electronics field) and meets the MISRA-C 2012 programming specifications.
+Os is a preemptive, multi-tasking, high-performance, low-resource-consuming, and customizable real-time operating system developed for the automotive electronics field. It complies with the AUTOSAR R23 standard (a widely accepted standard in the automotive electronics field) and meets the MISRA-C 2012 programming specifications.
 
 ORIENTAIS OS满足以下要求:
 
@@ -195,9 +200,9 @@ The software structure of ORIENTAIS OS is shown in
 
    ORIENTAIS OS架构框图(ORIENTAIS OS Architecture Diagram)
 
-各部分的功能如下:
+基础功能:
 
-The functions of each part are as follows:
+Basic functions:
 
 - **Task management**
 
@@ -241,24 +246,6 @@ The functions of each part are as follows:
 
   It mainly implements the functions of starting, stopping, and synchronizing schedule tables.
 
-- **Timing protection management**
-
-  为了安全和准确的时间保护，ORIENTAIS OS必须在运行时控制这些因素，以确保任务/ ISR能够满足各自的截止时间。该模块主要为任务/中断的各种截止时间实施操作系统的保护。
-
-  For safe and accurate time protection, ORIENTAIS OS must control these factors during runtime to ensure that tasks/ISRs can meet their respective deadlines. This module mainly implements operating system protection for various deadlines of tasks/interrupts.
-
-- **Memory protection management**
-
-  内存保护的最终目标是为空间中正在运行的实体(任务/中断)提供访问保护，即"空间隔离"。内存保护提供相应任务的内存访问。内存保护为2类中断提供内存分区和相应的段访问权限。Hook为内存保护提供ProtectionHook系统服务。
-
-  The ultimate goal of memory protection is to provide access protection for running entities (tasks/interrupts) in the space, namely "spatial isolation". Memory protection provides memory access for corresponding tasks. It provides memory partitions and corresponding segment access permissions for Category 2 interrupts. Hook provides ProtectionHook system services for memory protection.
-
-- **Service protection management**
-
-  运行时，服务保护可以防止服务调用不会破坏ORIENTAIS OS本身。
-
-  During runtime, service protection prevents service calls from damaging ORIENTAIS OS itself.
-
 - **Application management**
 
   有效资源的分配是通过OS-Application实现的。如果用户使用OS-Application，则所有任务，中断，资源，计数器，警报和调度表必须属于同一OS-Application。OS-Application分为可信和不可信两类。受信任的OS-Application在特权模式下运行，不受信任的OS-Application以用户模式运行。用户模式下的OS-Application无法直接访问内核资源。如果用户需要访问内核资源，则用户必须进入特权模式。当然，这里有一个前提，OS内核本身是受信任的。受信任的OS-Application可以提供外部服务，包括对不受信任的OS-Application的服务。
@@ -282,6 +269,160 @@ The functions of each part are as follows:
   IOC 为OS提供的通信机制，能够实现跨核、跨任务、跨分区(OS-Application)间的通信。AUTOSAR OS标准定义的IOC需与RTE进行交互，ORIENTAIS OS能够兼容有RTE与无RTE两种情况下的IOC通信。
 
   IOC is a communication mechanism provided by the OS, enabling communication across cores, tasks, and partitions (OS-Applications). The IOC defined by the AUTOSAR OS standard requires interaction with RTE, and ORIENTAIS OS supports IOC communication both with and without RTE.
+
+- **Hook management**
+
+  Hook 是操作系统在特定事件发生时调用的用户自定义函数，用于扩展系统功能（如初始化、错误处理、调试等）。
+
+  Hook is a user-defined function that the operating system calls when specific events occur, used to extend system functionality (such as initialization, error handling, debugging, etc.).
+
+- **Core management**
+
+  它主要实现与核心相关的操作，如激活指定核心、同步关闭所有核心、设置核心进入空闲模式等。
+
+  It primarily implements operations related to the core, such as activating a specific core, synchronizing all cores, putting a core into idle mode, etc.
+
+- **RPC management**
+
+  RPC模块实现跨核心（Multi-Core）的远程过程调用功能，允许一个核心上的任务调用另一个核心上的服务函数。解决多核系统中跨核心的服务调用需求（如计算任务分发、资源共享等）。
+
+  The RPC module implements remote procedure call functionality across cores (Multi-Core), allowing tasks on one core to invoke service functions on another core. It addresses the need for cross-core service invocation in multi-core systems (such as task distribution and resource sharing).
+
+- **Kernel management**
+
+  Kernel模块是操作系统的核心组件，负责系统内核对象初始化、多核初始化、操作系统启动、关闭等核心功能。
+
+  The Kernel module is a core component of the operating system, responsible for initializing system kernel objects, multi-core initialization, starting up the operating system, shutting down, and other core functionalities.
+
+- **Barrier management**
+
+  实现多核环境下的任务同步，确保多个核心的任务在指定屏障点（Barrier）处等待，直到所有参与者都到达后才继续执行。
+
+  Implement task synchronization in a multi-core environment, ensuring that tasks on multiple cores wait at specific barrier points (Barrier), and only proceed after all participants have arrived.
+
+- **TrustedFunc management**
+
+  Trustedfunction是由可信OS-Application提供的服务，可被其他 OS-Application（包括非可信的）调用。用于实现跨OS-Application 的安全交互（如硬件访问或特权操作），需通过操作系统的安全机制切换特权模式（非特权→特权）。
+
+  Trusted function is a service provided by the Trusted OS-Application, which can be called by other OS-Applications (including untrusted ones). It is used to achieve secure interactions across OS-Applications (such as hardware access or privileged operations), requiring a privilege mode switch through the operating system's security mechanisms (non-privileged → privileged).
+
+- **ReadyQue management**
+
+  ReadyQue模块维护一个基于优先级的就绪队列，高效管理任务状态转换（如从suspended到ready、从waiting到ready），确保调度器能快速访问最高优先级任务。
+
+  The ReadyQue module maintains a priority-based ready queue to efficiently manage task state transitions (such as from suspended to ready, from waiting to ready), ensuring that the scheduler can quickly access the highest-priority task.
+
+- **FaultManager management**
+
+  FaultManager是操作系统的故障管理中心，包括：
+
+  FaultManager is the fault management center of the operating system, including:
+
+   异常捕获：记录硬件/软件异常信息
+
+   Exception Capture: Record hardware/software exception information
+
+   上下文保存：保存故障发生时系统状态
+
+   Context Preservation: Save the system state at the time of the fault
+
+   错误处理：触发FaultManagerHook，在Hook中可以选择打印详细的故障信息
+
+   Error Handling: Trigger the FaultManagerHook, where detailed fault information can be printed within the Hook
+
+   核心价值：确保系统在发生故障时能安全关闭或恢复，同时提供足够信息用于事后分析
+
+   Core Value: Ensure that the system can safely shut down or recover when a fault occurs, and provide enough information for post-analysis
+
+- **ProtectionHook management**
+
+ProtectionHook 是操作系统在检测到严重保护错误（如内存违规、时间保护违规等）时调用的用户自定义钩子函数，用于错误处理和恢复决策。
+
+ProtectionHook is a user-defined hook function called when the operating system detects a serious protection error (such as memory violation, time protection violation, etc.), used for error handling and recovery decision.
+
+扩展功能:
+
+Extended functions:
+
+- **Adapt management**
+
+  为支持用户将操作系统代码移植至其他基础软件架构，操作系统应提供以下服务接口：中断使能/禁用、错误信息获取、任务当前堆栈使用量查询、未处理中断或异常请求获取等功能接口。
+
+  For supporting users to port the operating system code to other basic software architectures, the operating system should provide the following service interfaces: interrupt enable/disable, error information acquisition, query of current task stack usage, and other functions such as unhandled interrupt or exception request.
+
+- **Extend management**
+
+  包含以下关键函数：
+
+  Includes the following key functions:
+
+   获取操作系统版本信息
+
+   Get operating system version information
+
+   检查堆栈使用情况
+   
+   Check stack usage
+
+   检查中断源
+   
+   Check interrupt source
+
+   验证CPU信息
+   
+   Verify CPU information
+
+- **OSM management**
+
+  OS监控功能：
+
+  OS monitoring functions:
+
+   负载率监控：监控CPU、Task和ISR的负载率，反映系统资源使用情况
+
+   Load rate monitoring: Monitor the load rates of CPU, Task, and ISR to reflect system resource usage
+
+   Task响应时间监控：监控任务从开始运行到结束运行的绝对时间，评估任务执行效率
+
+   Task response time monitoring: Monitor the absolute time from task start to task end to evaluate task execution efficiency
+
+   关中断时长监控：监控中断关闭的时长（包括所有中断或仅2类中断），防止中断关闭过长影响实时性
+
+   Interrupt closure duration monitoring: Monitor the duration of interrupt closure (including all interrupts or only 2 classes of interrupts), preventing interrupt closure from being too long to affect real-time performance
+
+   调度次数监控：监控Task和ISR2的调度次数，从系统启动到当前时刻的总调度次数
+
+   Scheduling count monitoring: Monitor the scheduling counts of Task and ISR2, tracking the total scheduling counts from system startup to the current moment
+
+   Event监控：监控Event的实时性和响应率，确保事件处理及时
+
+   Event monitoring: Monitor the real-time performance and response rate of Events to ensure timely event handling
+
+保护功能:
+
+- **Timing protection management**
+
+  为了安全和准确的时间保护，ORIENTAIS OS必须在运行时控制这些因素，以确保任务/ ISR能够满足各自的截止时间。该模块主要为任务/中断的各种截止时间实施操作系统的保护。
+
+  For safe and accurate time protection, ORIENTAIS OS must control these factors during runtime to ensure that tasks/ISRs can meet their respective deadlines. This module mainly implements operating system protection for various deadlines of tasks/interrupts.
+
+- **Memory protection management**
+
+  内存保护的最终目标是为空间中正在运行的实体(任务/中断)提供访问保护，即"空间隔离"。内存保护提供相应任务的内存访问。内存保护为2类中断提供内存分区和相应的段访问权限。Hook为内存保护提供ProtectionHook系统服务。
+
+  The ultimate goal of memory protection is to provide access protection for running entities (tasks/interrupts) in the space, namely "spatial isolation". Memory protection provides memory access for corresponding tasks. It provides memory partitions and corresponding segment access permissions for Category 2 interrupts. Hook provides ProtectionHook system services for memory protection.
+
+- **Service protection management**
+
+  运行时，服务保护可以防止服务调用不会破坏ORIENTAIS OS本身。
+
+  During runtime, service protection prevents service calls from damaging ORIENTAIS OS itself.
+
+- **StackMonitor management**
+
+  在没有内存保护硬件（如MPU）的处理器上，提供一种“基于可用资源的最佳努力”方案来检测可识别的内存故障（主要是栈溢出）。在任务或中断服务程序（ISR）上下文切换时进行栈使用检查。
+
+  On processors without memory protection hardware (such as MPU), provide a "best-effort based on available resources" solution to detect identifiable memory faults (mainly stack overflow). Perform stack usage checks during task or interrupt service routine (ISR) context switches.
 
 
 偏差(Deviation)
@@ -521,60 +662,142 @@ Build the project to generate an executable file.
      - **描述(Description)**
    * - Os.h
      - 公共头文件(Public header file)
-   * - Os_Types.h
-     - 类型定义头文件(Type definition header file)
-   * - Os_Marcos.h
-     - 宏定义头文件(Macro definition header file)
-   * - Os_Kernel.c
-     - 内核逻辑源代码(Kernel logic source code)
-   * - Os_Internal.h
-     - 内部头文件(Internal header file)
-   * - Os_Alarm.c
-     - Alarm管理源文件(Alarm management source file)
-   * - Os_Counter.c
-     - Counter管理源文件(Counter management source file)
+   * - Os_Alarm.h
+     - Alarm功能头文件(Alarm function header file)
+   * - Os_Appl.h
+     - App功能头文件(App function header file)
+   * - Os_Barrier.h
+     - Barrier功能头文件(Barrier function header file)
+   * - Os_Core.h
+     - Core功能头文件(Core function header file)
+   * - Os_Counter.h
+     - Counter功能头文件(Counter function header file)
+   * - Os_ECode.h
+     - 系统服务错误类型头文件(System service error type header file)
    * - Os_Err.h
      - 错误管理头文件(Error management header file)
-   * - Os_Event.c 
-     - 事件管理源文件(Event management source file)
-   * - Os_Resource.c
-     - 资源管理源文件(Resource management source file)
-   * - Os_Task.c
-     - 任务管理源文件(Task management source file)
-   * - Os_ScheduleTable.c
-     - 调度表管理源文件(Schedule table management source file)
-   * - Os_Tprot.c 
-     - 时间保护源文件(Time protection source file)
-   * - Os_Sprot.c 
-     - 服务保护源文件(Service protection source file)
-   * - Os_Mprot.c
-     - 内存保护源文件(Memory protection source file)
+   * - Os_Event.h
+     - Event功能头文件(Event function header file)
+   * - Os_FaultManager.h
+     - FaultManager功能头文件(FaultManager function header file)
+   * - Os_Hook.h
+     - Hook功能头文件(Hook function header file)
+   * - Os_Interrupt.h
+     - Interrupt功能头文件(Interrupt function header file)
+   * - Os_Kernel.h
+     - Kernel功能头文件(Kernel function header file)
+   * - Os_Kernel2Port.h
+     - Kernel提供移植调用功能头文件(Kernel to port function header file)
+   * - Os_Macros.h
+     - 宏定义头文件(Macro definition header file)
+   * - Os_Mprot.h
+     - Mprot功能头文件(Mprot function header file)
+   * - Os_Peripheral.h
+     - Peripheral功能头文件(Peripheral function header file)
+   * - Os_ProtectHook.h
+     - ProtectHook功能头文件(ProtectHook function header file)
+   * - Os_ReadyQue.h
+     - ReadyQue功能头文件(ReadyQue function header file)
+   * - Os_Resource.h
+     - Resource功能头文件(Resource function header file)
+   * - Os_Rpc.h
+     - Rpc功能头文件(Rpc function header file)
+   * - Os_Rti.h
+     - Rti功能头文件(Rti function header file)
+   * - Os_ScheduleTable.h
+     - ScheduleTable功能头文件(ScheduleTable function header file)
+   * - Os_Spinlock.h
+     - Spinlock功能头文件(Spinlock function header file)
+   * - Os_Sprot.h
+     - Sprot功能头文件(Sprot function header file)
+   * - Os_StackMonitor.h
+     - StackMonitor功能头文件(StackMonitor function header file)
+   * - Os_Task.h
+     - Task功能头文件(Task function header file)
+   * - Os_Tprot.h
+     - Tprot功能头文件(Tprot function header file)
+   * - Os_TrustedFunc.h
+     - Tprot功能头文件(Tprot function header file)
+   * - Os_Types.h
+     - 类型定义头文件(Type definition header file)
+   * - Os_Alarm.c
+     - Alarm管理源文件(Alarm management source file)
    * - Os_Appl.c
-     - OS-Application管理源文件(OS-Application management source file)
-   * - Os_Spinlock.c 
-     - Spinlock管理源文件(Spinlock management source file)
-   * - Os_Core.c 
-     - 核控制操作源文件(Core control operation source file)
-   * - Os_Rpc.c 
-     - RPC管理源文件(RPC management source file)
-   * - Os_Interrupt.c 
-     - 中断控制源文件(Interrupt control source file)
-   * - Os_Peripheral.c
-     - 外设访问功能源文件(Peripheral access function source file)
-   * - Os_Ioc.c
-     - 核间通信功能源文件(Inter-core communication function source file)
-   * - Os_ECode.h 
-     - 系统服务错误类型头文件(System service error type header file)
+     - App管理源文件(App management source file)
+   * - Os_Barrier.c
+     - Barrier管理源文件(Barrier management source file)
+   * - Os_Core.c
+     - Core管理源文件(Core management source file)
+   * - Os_Counter.c
+     - Counter管理源文件(Counter management source file)
+   * - Os_Event.c
+     - Event管理源文件(Event management source file)
+   * - Os_FaultManager.c
+     - FaultManager管理源文件(FaultManager management source file)
    * - Os_Hook.c
-     - Hook功能源文件(Hook function source file)
+     - Hook管理源文件(Hook management source file)
+   * - Os_Interrupt.c
+     - Interrupt管理源文件(Interrupt management source file)
+   * - Os_Kernel.c
+     - Kernel管理源文件(Kernel management source file)
+   * - Os_Mprot.c
+     - Mprot管理源文件(Mprot management source file)
+   * - Os_Peripheral.c
+     - Peripheral管理源文件(Peripheral management source file)
+   * - Os_ProtectHook.c
+     - ProtectHook管理源文件(ProtectHook management source file)
+   * - Os_ReadyQue.c
+     - ReadyQue管理源文件(ReadyQue management source file)
+   * - Os_Resource.c
+     - Resource管理源文件(Resource management source file)
+   * - Os_Rpc.c
+     - Rpc管理源文件(Rpc management source file)
+   * - Os_ScheduleTable.c
+     - ScheduleTable管理源文件(ScheduleTable management source file)
+   * - Os_Spinlock.c
+     - Spinlock管理源文件(Spinlock management source file)
+   * - Os_Sprot.c
+     - Sprot管理源文件(Sprot management source file)
    * - Os_StackMonitor.c
-     - 栈监控源文件(Stack monitoring source file)
-   * - Os_MemMap.h
-     - OS内存映射头文件(OS memory mapping header file)
-   * - Os_Panic.c 
-     - Panic管理源文件(Panic management source file)
+     - StackMonitor管理源文件(StackMonitor management source file)
+   * - Os_Task.c
+     - Task管理源文件(Task management source file)
+   * - Os_Tprot.c
+     - Task管理源文件(Tprot management source file)
+   * - Os_TrustedFunc.c
+     - Task管理源文件(TrustedFunc management source file)
+   * - Os_Adapt.h
+     - Adapt功能头文件(Adapt function header file)
    * - Os_Extend.h
-     - 扩展接口头文件(内核)(Extension interface header file (kernel))
+     - Extend功能头文件(Extend function header file)
+   * - Os_Monitor.h
+     - Monitor功能头文件(Monitor function header file)
+   * - Os_Osm_EventMonitor.h
+     - EventMonitor功能头文件(EventMonitor function header file)
+   * - Os_Osm_InterLockTime.h
+     - InterLockTime功能头文件(InterLockTime function header file)
+   * - Os_Osm_LoadRatio.h
+     - LoadRatio功能头文件(LoadRatio function header file)
+   * - Os_Osm_ScheduleCount.h
+     - ScheduleCount功能头文件(ScheduleCount function header file)
+   * - Os_Osm_TaskResponseTime.h
+     - TaskResponseTime功能头文件(TaskResponseTime function header file)
+   * - Os_Adapt.c
+     - Adapt管理源文件(Adapt management source file)
+   * - Os_Extend.c
+     - Extend管理源文件(Extend management source file)
+   * - Os_Monitor.c
+     - Monitor管理源文件(Monitor management source file)
+   * - Os_Osm_EventMonitor.c
+     - EventMonitor管理源文件(EventMonitor management source file)
+   * - Os_Osm_InterLockTime.c
+     - InterLockTime管理源文件(InterLockTime management source file)
+   * - Os_Osm_LoadRatio.c
+     - LoadRatio管理源文件(LoadRatio management source file)
+   * - Os_Osm_ScheduleCount.c
+     - ScheduleCount管理源文件(ScheduleCount management source file)
+   * - Os_Osm_TaskResponseTime.c
+     - TaskResponseTime管理源文件(TaskResponseTime management source file)
    * - Platform
      - 请参考芯片相关的用户手册(Please refer to the chip-specific user manual)
 
@@ -586,39 +809,261 @@ Build the project to generate an executable file.
 
    * - 文件(File)
      - 描述(Description)
-   * - Os_Cfg_s.h
-     - Os Cfg Asm Declarations
-   * - Os_Cfg.c
-     - Os Cfg Data Definitions
-   * - Os_Cfg.h
-     - Os Cfg define data Declarations 
-   * - Os_CfgData.h
-     - Os Cfg Data Declarations 
-   * - Os_CoreCfg.c
-     - Os Cfg Code Data Definitions
-   * - Os_CoreCfg.h
-     - Os Cfg Code Data Declarations
+   * - Os_Core_Cfg.c
+     - OS核心配置源文件(OS Core Configuration Source File)
+   * - Os_Core_CfgData.h
+     - OS核心配置数据声明(OS Core Configuration Data Declarations)
    * - Os_DataSection.lsl
-     - Os app linck script
-   * - Os_Intvet.c
-     - Os ISR install src 
-   * - Os_Kdata.c 
-     - Os control data Definitions
-   * - Os_Linklsl
-     - Os app data linck script  
+     - OS应用数据链接脚本(OS Application Data Link Script)
+   * - Os_Link.lsl
+     - OS链接脚本(OS Link Script)
    * - Os_Mp_MemMap.h
-     - Os Memmap marcos Declarations
-   * - Os_MprotCfg.c
-     - Os Memmap cfg data Definitions
-   * - Os_MprotCfg.h
-     - Os Memmap cfg data Declarations
-   * -  Os_Trace.orti
-     - Os ORTI cfg Declarations
+     - OS内存映射宏定义(OS Memory Map Macros Declarations)
+   * - Os_Mprot_Cfg.c
+     - OS内存保护配置源文件(OS Memory Protection Configuration Source File)
+   * - Os_Mprot_CfgData.h
+     - OS内存保护配置数据声明(OS Memory Protection Configuration Data Declarations)
+   * - Arti.c
+     - Arti配置源文件(Arti configuration source file)
+   * - Arti.h
+     - Arti配置头文件(Arti configuration header file)
+   * - Ioc.c
+     - Ioc配置源文件(Ioc configuration source file)
+   * - Ioc.h
+     - Ioc配置头文件(Ioc configuration header file)
+   * - Os_Alarm_Cfg.c
+     - Alarm配置源文件(Alarm configuration source file)
+   * - Os_Alarm_Cfg.h
+     - Alarm配置头文件(Alarm configuration header file)
+   * - Os_Alarm_CfgData.h
+     - Alarm配置数据声明(Alarm configuration data declarations)
+   * - Os_Appl_Cfg.c
+     - App配置源文件(App configuration source file)
+   * - Os_Appl_Cfg.h
+     - App配置头文件(App configuration header file)
+   * - Os_Appl_CfgData.h
+     - App配置数据声明(App configuration data declarations)
+   * - Os_Arti.h
+     - Arti功能头文件(Arti function header file)
+   * - Os_Barrier_Cfg.c
+     - Barrier配置源文件(Barrier configuration source file)
+   * - Os_Barrier_Cfg.h
+     - Barrier配置头文件(Barrier configuration header file)
+   * - Os_Cfg.c
+     - Os配置源文件(Os configuration source file)
+   * - Os_Cfg.h
+     - Os配置头文件(Os configuration header file)
+   * - Os_CfgData.h
+     - Os配置数据声明(Os configuration header file)
+   * - Os_Counter_Cfg.c
+     - Counter配置源文件(Counter configuration source file)
+   * - Os_Counter_Cfg.h
+     - Counter配置头文件(Counter configuration header file)
+   * - Os_Counter_CfgData.h
+     - Counter配置数据声明(Counter configuration data declarations)
+   * - Os_Debug_Cfg.c
+     - Debug配置源文件(Debug configuration source file)
+   * - Os_Debug_Cfg.h
+     - Debug配置头文件(Debug configuration header file)
+   * - Os_Debug_CfgData.h
+     - Debug配置数据声明(Debug configuration data declarations)
+   * - Os_Event_Cfg.c
+     - Event配置源文件(Event configuration source file)
+   * - Os_Event_Cfg.h
+     - Event配置头文件(Event configuration header file)
+   * - Os_Event_CfgData.h
+     - Event配置数据声明(Event configuration data declarations)
+   * - Os_Hook_Cfg.h
+     - Hook配置头文件(Hook configuration header file)
+   * - Os_Interrupt_Cfg.c
+     - Interrupt配置源文件(Interrupt configuration source file)
+   * - Os_Interrupt_Cfg.h
+     - Interrupt配置头文件(Interrupt configuration header file)
+   * - Os_Interrupt_CfgData.h
+     - Interrupt配置数据声明(Interrupt configuration data declarations)
+   * - Os_Intvet.c
+     - Interrupt安装文件(Interrupt installation file)
+   * - Os_Osm_Cfg.c
+     - Osm配置源文件(Osm configuration source file)
+   * - Os_Osm_Cfg.h
+     - Osm配置头文件(Osm configuration header file)
+   * - Os_Osm_CfgData.h
+     - Osm配置数据声明(Osm configuration data declarations)
+   * - Os_Peripheral_Cfg.c
+     - Peripheral配置源文件(Peripheral configuration source file)
+   * - Os_Peripheral_Cfg.h
+     - Peripheral配置头文件(Peripheral configuration header file)
+   * - Os_Peripheral_CfgData.h
+     - Peripheral配置数据声明(Peripheral configuration data declarations)
+   * - Os_ProtectHook_Cfg.h
+     - ProtectHook配置头文件(ProtectHook configuration header file)
+   * - Os_ReadyQue_Cfg.c
+     - ReadyQue配置源文件(ReadyQue configuration source file)
+   * - Os_ReadyQue_Cfg.h
+     - ReadyQue配置头文件(ReadyQue configuration header file)
+   * - Os_ReadyQue_CfgData.h
+     - ReadyQue配置数据声明(ReadyQue configuration data declarations)
+   * - Os_Resource_Cfg.c
+     - Resource配置源文件(Resource configuration source file)
+   * - Os_Resource_Cfg.h
+     - Resource配置头文件(Resource configuration header file)
+   * - Os_Resource_CfgData.h
+     - Resource配置数据声明(Resource configuration data declarations)
+   * - Os_ScheduleTable_Cfg.c
+     - ScheduleTable配置源文件(ScheduleTable configuration source file)
+   * - Os_ScheduleTable_Cfg.h
+     - ScheduleTable配置头文件(ScheduleTable configuration header file)
+   * - Os_ScheduleTable_CfgData.h
+     - ScheduleTable配置数据声明(ScheduleTable configuration data declarations)
+   * - Os_Spinlock_Cfg.c
+     - Spinlock配置源文件(Spinlock configuration source file)
+   * - Os_Spinlock_Cfg.h
+     - Spinlock配置头文件(Spinlock configuration header file)
+   * - Os_Spinlock_CfgData.h
+     - Spinlock配置数据声明(Spinlock configuration data declarations)
+   * - Os_Task_Cfg.c
+     - Task配置源文件(Task configuration source file)
+   * - Os_Task_Cfg.h
+     - Task配置头文件(Task configuration header file)
+   * - Os_Task_CfgData.h
+     - Task配置数据声明(Task configuration data declarations)
+   * - Os_Tprot_Cfg.c
+     - Tprot配置源文件(Tprot configuration source file)
+   * - Os_Tprot_Cfg.h
+     - Tprot配置头文件(Tprot configuration header file)
+   * - Os_Tprot_CfgData.h
+     - Tprot配置数据声明(Tprot configuration data declarations)
+   * - Os_Trace.orti
+     - ORTI配置声明(ORTI cfg Declarations)
+   * - Os_TrustedFunc_Cfg.c
+     - TrustedFunc配置源文件(TrustedFunc configuration source file)
+   * - Os_TrustedFunc_Cfg.h
+     - TrustedFunc配置头文件(TrustedFunc configuration header file)
+   * - Os_TrustedFunc_CfgData.h
+     - TrustedFunc配置数据声明(TrustedFunc configuration data declarations)
    * - Os_Userlnf.c
-     - Os Interface api Declarations
+     - 用户接口源文件(User Interface Source File)
 
 错误处理(Error Handling)
 -------------------------------
+
+开发错误(Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. list-table::
+   :widths: 20 10 30
+   :header-rows: 1
+
+   * - Error code
+     - Value[hex]
+     - Description
+
+   * - E_OS_ACCESS
+     - 1U (0x01)
+     - 调用者没有权限进行操作(The caller does not have permission to perform the operation)
+
+   * - E_OS_CALLEVEL
+     - 2U (0x02)
+     - API函数调用上下文错误(Wrong call context of the API function)
+
+   * - E_OS_ID
+     - 3U (0x03)
+     - 无效的对象标识符(Invalid Object Identifier)
+
+   * - E_OS_LIMIT
+     - 4U (0x04)
+     - 任务激活次数超出限制(The number of task activations has exceeded the limit)
+
+   * - E_OS_NOFUNC
+     - 5U (0x05)
+     - 服务无法执行或无效操作(Service execution failed or the operation is invalid)
+
+   * - E_OS_RESOURCE
+     - 6U (0x06)
+     - 资源仍被占用(The resource is still occupied)
+
+   * - E_OS_STATE
+     - 7U (0x07)
+     - 对象状态不允许此操作(The object's state does not allow this operation)
+
+   * - E_OS_VALUE
+     - 8U (0x08)
+     - 参数值超出允许范围(Parameter value is out of the allowed range)
+
+   * - E_OS_SERVICEID
+     - 9U (0x09)
+     - 服务无法被调用(Service cannot be called)
+
+   * - E_OS_ILLEGAL_ADDRESS
+     - 11U (0x0B)
+     - 作为参数传递给服务的地址无效(An invalid address is given as a parameter to a service)
+
+   * - E_OS_MISSINGEND
+     - 12U (0x0C)
+     - 任务未通过TerminateTask()或ChainTask()调用而终止(Tasks terminates without a TerminateTask() or ChainTask() call)
+
+   * - E_OS_DISABLEDINT
+     - 13U (0x0D)
+     - 在中断禁止/使能内部调用了操作系统服务(A service of the OS is called inside an interrupt disable/enable pair)
+
+   * - E_OS_STACKFAULT
+     - 14U (0x0E)
+     - 操作系统通过堆栈监控检测到堆栈故障(A stack fault detected via stack monitoring by the OS)
+
+   * - E_OS_PROTECTION_MEMORY
+     - 15U (0x0F)
+     - 发生内存访问冲突(A memory access violation occurred)
+
+   * - E_OS_PROTECTION_TIME
+     - 16U (0x10)
+     - 任务或ISR2超出其执行时间预算(A Task or Category 2 ISR exceeds its execution time budget)
+
+   * - E_OS_PROTECTION_LOCKED
+     - 17U (0x11)
+     - 任务/ISR2阻塞时间过长(A Task/Category 2 ISR blocks for too long)
+
+   * - E_OS_PROTECTION_EXCEPTION
+     - 18U (0x12)
+     - 发生自陷(A trap occurred)
+
+   * - E_OS_PROTECTION_ARRIVAL
+     - 20U (0x14)
+     - 任务/ISR2在其规定时间窗口结束前到达(A Task/Category 2 ISR arrives before its timeframe has expired)
+
+   * - E_OS_CORE
+     - 21U (0x15)
+     - 核心不可用(Core is not available)
+
+   * - E_OS_INTERFERENCE_DEADLOCK
+     - 22U (0x16)
+     - 由于干扰导致的死锁情况(Deadlock situation due to interference)
+
+   * - E_OS_NESTING_DEADLOCK
+     - 23U (0x17)
+     - 由于错误的嵌套导致潜在的死锁(Potential deadlock due to wrong nesting)
+
+   * - E_OS_SPINLOCK
+     - 24U (0x18)
+     - 持有自旋锁时被解除调度(De-scheduling with occupied spinlock)
+
+   * - E_OS_TIMEOUT
+     - 133U (0x85)
+     - 同步跨核操作等待执行结果超时(Synchronized cross-core operation timed out waiting for execution result)
+
+   * - E_OS_DEADLOCK
+     - 134U (0x86)
+     - 核间任务同步时探测到死锁(Deadlock detected during inter-core task synchronization)
+
+   * - E_OS_SYS_NO_BARRIER_PARTICIPANT
+     - 135U (0x87)
+     - 任务未配置为参与此屏障(Task is not configured to participate in the barrier)
+
+
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None
 
 
@@ -655,23 +1100,22 @@ Core运行数量、Scalability Class(OS运行可拓展等级)、OsHooks等关键
 
 Key configurations such as the number of running cores, Scalability Class (OS scalability level), and OsHooks are configured on this page.
 
-
-SystemTimer对象(SystemTimer Object)
+SystemConfig对象(SystemConfig Object)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-SystemTimer对象主要用于生成OS正常运行依赖的一系列中断：如时钟中断、时间保护中断、跨核通信中断(多核使用)。
+SystemConfig对象主要用于生成OS正常运行依赖的一系列中断：如时钟中断、时间保护中断、跨核通信中断(多核使用)。
 
-The SystemTimer object is primarily used to generate a series of interrupts required for normal OS operation, such as clock interrupts, time protection interrupts, and cross-core communication interrupts (for multi-core systems).
+The SystemConfig object is primarily used to generate a series of interrupts required for normal OS operation, such as clock interrupts, time protection interrupts, and cross-core communication interrupts (for multi-core systems).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/SystemTimer_obj.png
+.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/SystemConfig_obj.png
    :align: center
 
-   SystemTimer对象配置(SystemTimer Object Configuration)
+   SystemConfig对象配置(SystemConfig Object Configuration)
 
 .. note::
 
-      用户配置SystemTimer对象默认生成OS所依赖的中断，建议如非必要请不要修改此类中断频率，优先级等配置数据。
+      用户配置SystemConfig对象默认生成OS所依赖的中断，建议如非必要请不要修改此类中断频率，优先级等配置数据。
 
-      The interrupts required by the OS are generated by default when configuring the SystemTimer object. It is recommended not to modify configuration data such as interrupt frequency and priority unless necessary.
+      The interrupts required by the OS are generated by default when configuring the SystemConfig object. It is recommended not to modify configuration data such as interrupt frequency and priority unless necessary.
 
 
 Counter对象(Counter Object)

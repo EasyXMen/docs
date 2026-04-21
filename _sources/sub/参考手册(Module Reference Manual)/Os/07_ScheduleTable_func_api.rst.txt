@@ -1,5 +1,5 @@
 ScheduleTable(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 调度表类似于使用Counter和一系列自动启动的Alarms来实现静态定义的任务激活机制。
 
@@ -46,7 +46,7 @@ Users can configure the schedule table for synchronous mode. ORIENTAIS OS provid
    显式同步调度表的状态(图中未显示所有的跳转条件) (States of Explicitly Synchronized Schedule Table - Not all transition conditions are shown)
 
 StartScheduleTableRel
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -55,7 +55,7 @@ StartScheduleTableRel
 This service starts the processing of a schedule table at "Offset" relative to the "Now" value on the underlying counter.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -134,7 +134,7 @@ This service starts the processing of a schedule table at "Offset" relative to t
 
 
 StartScheduleTableAbs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -143,7 +143,7 @@ StartScheduleTableAbs
 This service starts the processing of a schedule table at an absolute value "Start" on the underlying counter.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -200,7 +200,7 @@ This service starts the processing of a schedule table at an absolute value "Sta
 
 
 StopScheduleTable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -209,7 +209,7 @@ StopScheduleTable
 This service cancels the processing of a schedule table immediately at any point while the schedule table is running.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -287,7 +287,7 @@ This service cancels the processing of a schedule table immediately at any point
 
 
 NextScheduleTable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -296,7 +296,7 @@ NextScheduleTable
 This service switches the processing from one schedule table to another schedule table.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -375,7 +375,7 @@ This service switches the processing from one schedule table to another schedule
 
 
 StartScheduleTableSynchron
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -384,7 +384,7 @@ StartScheduleTableSynchron
 This service starts an explicitly synchronized schedule table synchronously.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -460,7 +460,7 @@ This service starts an explicitly synchronized schedule table synchronously.
 
 
 SyncScheduleTable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -469,7 +469,7 @@ SyncScheduleTable
 This service provides the schedule table with a synchronization count and start synchronization.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -552,7 +552,7 @@ This service provides the schedule table with a synchronization count and start 
 
 
 SetScheduleTableAsync
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -561,7 +561,7 @@ SetScheduleTableAsync
 Stop schedule table explicit sync and set state to running.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -645,7 +645,7 @@ Stop schedule table explicit sync and set state to running.
 
 
 GetScheduleTableStatus
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -654,7 +654,7 @@ GetScheduleTableStatus
 Get the status of the specified schedule.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

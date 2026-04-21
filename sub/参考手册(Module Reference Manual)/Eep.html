@@ -1,0 +1,3976 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Eep &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="EthIf" href="EthIf.html" />
+            <link rel="prev" title="EcuM" href="EcuM.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Eep</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/Eep.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="eep">
+<h1>Eep<a class="headerlink" href="#eep" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EEPROM</p></td>
+<td><p>Electrically Erasable and</p></td>
+<td><p>电可擦和可编程只读存储器 (Electrically Erasable and Programmable Read-Only Memory)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Programmable Read Only</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Memory</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NVRAM</p></td>
+<td><p>Non Volatile RandomAccess</p></td>
+<td><p>非易失性随机存取存储器 (Non-volatile Random Access Memory)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Memory</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NvM</p></td>
+<td><p>Module name of NVRAM</p></td>
+<td><p>NVRAM管理器的模块名称 (The module name of NVRAM Manager)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Manage</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM</p></td>
+<td><p>Module name of ECU State</p></td>
+<td><p>ECU状态管理器的模块名称 (The module name of ECU Status Manager)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Manager</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DEM</p></td>
+<td><p>Module name of Diagnostic</p></td>
+<td><p>诊断事件管理器的模块名称 (Module Name for Diagnosing Event Manager)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Event Manager</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Module name of DefaultError</p></td>
+<td><p>默认错误跟踪器的模块名称 (The module name for the default error tracker)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Tracer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FEE</p></td>
+<td><p>Flash EEPROM Emulation</p></td>
+<td><p>Flash EEPROM仿真抽象 (Flash EEPROM Simulation Abstraction)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Abstraction</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EA</p></td>
+<td><p>EEPROM Abstraction</p></td>
+<td><p>EEPROM抽象 (EEPROM Abstraction)</p></td>
+</tr>
+<tr class="row-even"><td><p>MemIf</p></td>
+<td><p>Memory AbstractionInterface</p></td>
+<td><p>内存抽象接口 (Memory abstraction interface)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>EEPROM驱动程序提供对EEPROM存储单元的读取、写入和擦除等操作服务。它还提供将EEPROM中的数据块与内存中的数据块进行比较的服务。这些服务的行为是异步的。内部EEPROM的驱动程序直接访问微控制器硬件，位于微控制器抽象层。外部EEPROM的驱动程序使用SPI/IIC/UART等常见外围串行总线的驱动处理程序来访问外部EEPROM设备，位于ECU抽象层。两种类型的驱动程序的功能要求和功能范围相同，因此API在语义上是相同的。</p>
+<p>The EEPROM driver provides services for reading, writing, and erasing operations on EEPROM storage units. It also offers a service to compare data blocks in the EEPROM with those in memory. These services behave asynchronously. The driver for the internal EEPROM directly accesses the microcontroller hardware, residing at the microcontroller abstraction layer. The driver for external EEPROM uses drivers for common peripheral serial buses like SPI/IIC/UART to access external EEPROM devices, residing at the ECU abstraction layer. Both types of drivers have the same functional requirements and scope, thus their APIs are semantically identical.</p>
+<p>EEPROM（Electrically Erasable Programmable Read-Only Memory）是一种带电可擦可编程只读存储器，其特点是掉电后数据不丢失。EEPROM可以在电脑上或专用设备上擦除已有信息并重新编程，通常用于即插即用设备中。EEPROM驱动程序的开发涉及到对EEPROM设备的有效管理和操作，包括但不限于读取、写入和擦除数据，这对于许多应用来说是至关重要的，尤其是在需要频繁更新或配置信息的场景中。</p>
+<p>EEPROM (Electrically Erasable Programmable Read-Only Memory) is a type of electrically erasable programmable read-only memory. Its characteristic is that data does not get lost after power loss. EEPROM can be erased and reprogrammed on a computer or a dedicated device, usually used in plug-and-play devices. The development of EEPROM drivers involves the effective management and operation of the EEPROM device, including but not limited to reading, writing, and erasing data. This is crucial for many applications, especially in scenarios where frequent updates or configuration information are needed.</p>
+<p>此外，EEPROM驱动程序还需要考虑与不同硬件平台的兼容性，确保能够在不同的微控制器或系统中正确运行。这涉及到驱动程序的移植性和兼容性测试，‌以确保其能够在各种环境中稳定、可靠地工作。</p>
+<p>Moreover, the EEPROM driver also needs to consider compatibility with different hardware platforms to ensure correct operation on various microcontrollers or systems. This involves portability and compatibility testing of the driver to ensure its stable and reliable performance in various environments.</p>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_SRS_EEPROMDriver.pdf，R19-11</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="eep-eep-function">
+<h3>Eep功能 (EEP Function)<a class="headerlink" href="#eep-eep-function" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="eep-eep-feature-introduction">
+<h2>Eep功能介绍 (EEP Feature Introduction)<a class="headerlink" href="#eep-eep-feature-introduction" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eepautosar-the-eep-module-s-position-in-the-autosar-architecture">
+<img alt="Eep模块在AUTOSAR架构中的位置 (The Eep module's position in the AUTOSAR architecture)" src="../../_images/image188.png" />
+</figure>
+<p>如图所示展示了AUTOSAR存储栈的EEPROM驱动程序Eep模块的软件分层架构。可以看到Det模块处于BSW基础软件的ECU抽象层，Eep模块的上层与Ea模块进行交互，并提供API函数接口给Ea模块使用，完成EEPROM驱动程序的读取/写入/擦除/比较等作业任务，待作业任务完成以后，提供API查询接口向Ea模块报告作业结果/运行状态或者提供中断回调通知接口报告作业结果和运行状态；当ECU采用片内Eep驱动程序时，Eep模块的下层与Mcal-Int.Eep模块进行交互，直接提供API接口给Ea模块进行调用，完成所有的作业任务；当ECU采用片外Eep驱动程序时，Eep模块的下层与外围串行总线驱动程序SPI/IIC模块进行交互，比如采用SPI总线挂接Ext.Eep外设，调用SPI驱动程序的Spi_SetupEB/Spi_SyncTransmit函数接口，完成EEPROM存储单元的写入/读取/擦除/比较等作业任务。</p>
+<p>The software hierarchical architecture of the EEPROM driver Eep module in the AUTOSAR storage stack as shown in the figure demonstrates how it is positioned within the BSW foundation software's ECU abstraction layer. The Det module can be seen below Eep, with interaction occurring between the Eep and Ea modules, where Eep provides API function interfaces for use by the Ea module to accomplish tasks such as reading/writing/erasing/comparing EEPROM operations. Upon task completion, Eep offers an API query interface to report results/run status back to the Ea module or a callback interrupt notification interface for the same purpose. When the ECU uses an internal EEPROM driver, the lower layer of Eep interacts directly with Mcal-Int.Eep module to provide APIs for use by the Ea module to complete all tasks. In cases where the ECU utilizes external EEPROM drivers, Eep interfaces at its lower layer with peripheral serial bus drivers like SPI/IIC, for example, by attaching an Ext.Eep peripheral via SPI bus and using functions such as Spi_SetupEB/Spi_SyncTransmit from the SPI driver to accomplish writing/reading/erasing/comparing EEPROM operations.</p>
+<figure class="align-center" id="eep-eep-module-layered-architecture">
+<img alt="Eep模块分层架构 (EEP module layered architecture)" src="../../_images/image246.png" />
+</figure>
+<p>存储栈处于BSW基础软件层，主要由NVRAM，MemIf，Fee、Fls、Ea和Eep等组件来实现。大多数情况下，EEPROM存储单元处于MCU的外部，并通过串行外设总线挂接，严格来讲不属于AUTOSAR软件架构中的标准模块，因此针对于Eep模块的软件架构需要设计成EEPROM存储标准框架和设备驱动组合形式，EEPROM存储标准框架可以做成AUTOSAR标准模块，而设备驱动组件则需要以CDD复杂设备驱动的形式来完成。</p>
+<p>Storage stack resides in the BSW (Basic Software Layer), mainly implemented by components such as NVRAM, MemIf, Fee, Fls, Ea, and Eep. Typically, the EEPROM storage unit is external to the MCU and connected via a serial peripheral bus. Strictly speaking, it does not belong to the standard modules of the AUTOSAR software architecture. Therefore, the software architecture for the Eep module should be designed as a combination of the standard EEPROM storage framework and device drivers. The standard EEPROM storage framework can be implemented as an AUTOSAR standard module, while the device driver component needs to be completed in the form of a CDD complex device driver.</p>
+</section>
+<section id="eep-eep-functionality-implementation">
+<h2>Eep功能实现 (EEP functionality implementation)<a class="headerlink" href="#eep-eep-functionality-implementation" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eep-topology-diagram-of-eep-module-functional-components">
+<img alt="Eep模块的功能组件拓扑图 (Topology diagram of Eep module functional components)" src="../../_images/image330.png" />
+</figure>
+<p>Eep驱动程序提供了为存储栈实现EEPROM存储单元的读取/写入/擦除/比较等基本作业任务。EEPROM存储的标准框架用于实现AUTOSAR的标准API函数，可以直接被EA模块无缝隙进行挂接，脱离硬件设备的束缚，属于EEPROM驱动程序的硬件抽象部分；EEPROM存储的设备驱动程序用于实现硬件设备的驱动控制，完全依赖于所使用EEPROM存储介质的硬件特性。针对于EEPROM存储的设备驱动程序都是根据ECU所集成的芯片定制化的功能模块，并且根据硬件特性需要涉及更多的组件引入；如果采用SPI串行总线进行挂接，则可以直接使用MCAL自带的SPI组件，并追加EEPROM驱动程序相关的SPI组件的Channel/Job/Sequence/External等参数的配置项，然后通过CDD的方式实现驱动程序的基本操作API接口，并通过配置指针的方式挂接到EEPROM存储的标准框架上，最终以AUTOSAR标准API函数供EA存储抽象组件调用；如果采用IIC串行总线进行挂接，因为IIC也不属于AUTOSAR标准API函数，首先需要通过CDD的方式实现IIC总线的驱动程序，然后引用IIC驱动程序的API实现EEPROM存储设备驱动的基本操作API函数，并通过配置指针的方式挂接到EEPROM存储的标准框架上，最终以AUTOSAR标准API函数供EA存储抽象组件调用；如果MCAL自带Eep驱动程序模块，则直接使用其实现的API函数供EA存储抽象组件调用。</p>
+<p>The Eep driver provides the basic tasks of reading/writing/erasing/comparing EEPROM storage units for the storage stack. The standard framework for EEPROM storage is used to implement AUTOSAR standard API functions, which can be seamlessly connected to the EA module without being bound by hardware devices; this belongs to the hardware abstraction part of the EEPROM driver. The device driver for EEPROM storage is used to achieve hardware control and is completely dependent on the hardware characteristics of the used EEPROM storage medium. For the device driver of EEPROM storage, it is a customized functional module based on the chip integrated in the ECU, and more components need to be introduced due to hardware characteristics; if connected via SPI serial bus, the built-in SPI component of MCAL can be directly utilized, and configuration items such as Channel/Job/Sequence/External for relevant SPI components of the EEPROM driver are added. Then, through the CDD method, basic operation API interfaces of the driver program are realized, and they are attached to the standard framework of EEPROM storage via pointer configuration, ultimately providing AUTOSAR standard API functions for the EA storage abstraction component to call; if connected via IIC serial bus, as IIC is not an AUTOSAR standard API function either, the driver program for IIC bus needs to be realized through the CDD method first. Then, using APIs of the IIC driver program, basic operation API functions for EEPROM storage devices are implemented, and they are attached to the standard framework of EEPROM storage via pointer configuration. Ultimately, AUTOSAR standard API functions are provided for the EA storage abstraction component to call; if MCAL has an Eep driver program module, its realized API functions can be directly utilized by the EA storage abstraction component.</p>
+<section id="the-interaction-relationships-between-modules">
+<h3>模块之间的交互关系 (The interaction relationships between modules)<a class="headerlink" href="#the-interaction-relationships-between-modules" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="interactions-between-modules">
+<img alt="模块间交互关系 (Interactions between modules)" src="../../_images/image426.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 模块间交互关系 (Table Module Interactions)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>交互模块 (Interaction Module)</p></th>
+<th class="head"><p>交互接口 (Interfacial Interface)</p></th>
+<th class="head"><p>交互数据 (Interact Data)</p></th>
+<th class="head"><p>交互条件 (Interaction Conditions)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SPI</p></td>
+<td><p>Spi_WriteIB</p></td>
+<td><p>请求向SPI驱动程序的指定缓冲区写入数据 (Request data writing to the specified buffer of the SPI driver)</p></td>
+<td><p>IB模式的缓冲区 (The Buffer of IB Mode)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_ReadIB</p></td>
+<td><p>请求从SPI驱动程序的指定缓冲区读取数据 (Read data from the specified buffer of the SPI driver request)</p></td>
+<td><p>IB模式的缓冲区 (The Buffer of IB Mode)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_SetupEB</p></td>
+<td><p>请求向SPI驱动程序的指定缓冲区写入数据，并绑定结果缓冲区 (Request data writing to a specified buffer of the SPI driver and bind the result buffer.)</p></td>
+<td><p>EB模式的缓冲区 (Buffer of EB mode)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_AsyncTransmit</p></td>
+<td><p>请求发起传输任务 (Request initiated for transmission task)</p></td>
+<td><p>异步方式 (Asynchronous方式)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_SyncTransmit</p></td>
+<td><p>请求发起传输任务 (Request initiated for transmission task)</p></td>
+<td><p>同步方式 (Synchronization method)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_GetStatus</p></td>
+<td><p>获取SPI驱动程序的运行状态 (Get the running status of the SPI driver.)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_GetJobResult</p></td>
+<td><p>获取SPI驱动程序的作业结果 (Get results of SPI driver job)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_GetSequenceResult</p></td>
+<td><p>获取SPI驱动程序的序列结果 (Get the sequence result of the SPI driver.)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+<td><p>向Det模块报告开发错误 (Report development errors to the Det module)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Det_ReportRuntimeError</p></td>
+<td><p>向Det模块报告运行时错误 (Report runtime errors to the Det module)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-even"><td><p>Dem</p></td>
+<td><p>Dem_ReportErrorStatus</p></td>
+<td><p>向Dem模块报告硬件故障 (Report hardware failure to Dem module)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EA</p></td>
+<td><p>Eep_62_SetMode</p></td>
+<td><p>请求设置EEPROM驱动程序的工作模式 (Request setting the EEPROM driver mode.)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_Read</p></td>
+<td><p>请求对EEPROM的存储单元执行读取操作 (Request for reading operation on EEPROM memory unit)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_Write</p></td>
+<td><p>请求对EEPROM的存储单元执行写入操作 (Request to perform a write operation on the EEPROM memory unit)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_Erase</p></td>
+<td><p>请求对EEPROM的存储单元执行擦除操作 (Request erasure operation on EEPROM storage units)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_Compare</p></td>
+<td><p>请求对EEPROM的存储单元执行比较操作 (Request to perform a comparison operation on the EEPROM storage unit)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_Cancel</p></td>
+<td><p>请求取消EEPROM驱动程序中正在执行的作业任务 (Request to cancel the job task being executed in the EEPROM driver)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_GetStatus</p></td>
+<td><p>请求获取EEPROM驱动程序的运行状态 (Request for EEPROM driver operation status)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_GetJobResult</p></td>
+<td><p>请求获取EEPROM驱动程序的当前作业结果 (Request for current job result of EEPROM driver)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 Eep组件文件描述 (Table EEP Component File Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Eep.h</p></td>
+<td><p>EEPROM驱动程序的派生数据类型定义 (Derivation of data types for EEPROM driver programming)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62.c</p></td>
+<td><p>EEPROM驱动程序API函数实现和变量定义 (EEPROM Driver API Functions Implementation and Variable Definitions)</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62.h</p></td>
+<td><p>EEPROM驱动程序API函数声明和宏定义 (EEPROM Driver API Function Declarations and Macro Definitions)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Cbk.c</p></td>
+<td><p>EEPROM驱动程序提供给上层组件引用的通知回调函数实现 (EEPROM driver provides implementational realization of notification callback functions for upper-layer components to reference.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_Cbk.h</p></td>
+<td><p>EEPROM驱动程序提供给上层组件引用的通知回调函数声明 (Notification callback function declarations provided by the EEPROM driver for higher-layer components to reference.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Types.h</p></td>
+<td><p>EEPROM驱动程序的派生数据类型定义 (Derivation of data types for EEPROM driver programming)</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_MemMap.h</p></td>
+<td><p>EEPROM驱动程序的内存映射抽象声明 (Abstraction declaration for EEPROM driver memory mapping)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM_62_Eep.h</p></td>
+<td><p>EEPROM驱动程序的调用上下文保护接口声明 (The interface declaration for EEPROM driver call context protection)</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_M95320.c</p></td>
+<td><p>EEPROM驱动程序的设备操作控制接口函数实现 (The interface functions for device operation control of the EEPROM driver implementation)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_M95320.h</p></td>
+<td><p>EEPROM驱动程序的设备操作控制接口函数声明 (Declaration of EEPROM driver device operation control interface functions)</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_Api.c</p></td>
+<td><p>EEPROM驱动程序的API函数重映射实现的配置 (The configuration for API function remapping implementation of the EEPROM driver)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Api.h</p></td>
+<td><p>EEPROM驱动程序的API函数重映射声明的配置 (The API function remapping declaration for EEPROM driver's configuration)</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_62_Cfg.c</p></td>
+<td><p>EEPROM驱动程序的运行时加载需要用到的可配置参数的实现 (The implementation of configurable parameters needed for the runtime loading of EEPROM driver)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_62_Cfg.h</p></td>
+<td><p>EEPROM驱动程序的可配置参数数据结构的类型定义，以及预编译阶段需要用到的配置参数的宏定义的实现 (Type definitions for configurable parameter data structures of the EEPROM driver, and implementation of macros for configuration parameters needed during pre-compile stage)</p></td>
+</tr>
+<tr class="row-even"><td><p>Eep_M95320_62_Cfg.c</p></td>
+<td><p>EEPROM驱动程序的运行时加载需要用到的可配置特定设备属性参数的实现 (The implementation of configurable specific device properties parameters required for runtime loading of the EEPROM driver.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Eep_M95320_62_Cfg.h</p></td>
+<td><p>EEPROM驱动程序的预编译阶段需要用到的可配置特定设备属性参数的宏定义的实现 (The implementation of macro definitions for configurable specific device properties parameters required during the precompiled stage of the EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="eep-eep-component-file-interactions-diagram">
+<img alt="Eep组件文件交互关系图 (Eep Component File Interactions Diagram)" src="../../_images/image524.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="eep-62-addresstype-addresstype-enum-type-definition">
+<h2>Eep_62_AddressType类型定义 (AddressType Enum Type Definition)<a class="headerlink" href="#eep-62-addresstype-addresstype-enum-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_AddressType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint32</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>#define Eep_AddressType Eep_62_AddressType</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>typedef uint32 Eep_62_AddressType;</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>0 … 4294967295</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>用于描述EEPROM驱动程序中地址类型的派生数据类型 (Data types derived to describe address types in the EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-lengthtype-lengthtype-type-definition">
+<h2>Eep_62_LengthType类型定义 (LengthType Type Definition)<a class="headerlink" href="#eep-62-lengthtype-lengthtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_LengthType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>#define Eep_LengthType Eep_62_LengthType</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>typedef uint16 Eep_62_LengthType;</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>0 … 65535</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>用于描述EEPROM驱动程序中长度类型的派生数据类型 (Data types derived for describing lengths in EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-requestjobtype-eep-62-requestjobtype-type-definition">
+<h2>Eep_62_RequestJobType类型定义 (Eep_62_RequestJobType Type Definition)<a class="headerlink" href="#eep-62-requestjobtype-eep-62-requestjobtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_RequestJobType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Enumeration</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>typedef enum</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EEP_62_JOB_NONE = 0,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EEP_62_JOB_ERASE = 1,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EEP_62_JOB_WRITE = 2,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EEP_62_JOB_READ = 3,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EEP_62_JOB_CANCEL = 4,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EEP_62_JOB_COMPARE = 5</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>} Eep_62_RequestJobType;</p></td>
+</tr>
+<tr class="row-even"><td><p>范围 (Range)</p></td>
+<td><p>0 … 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>用于描述EEPROM驱动程序中请求作业状况的枚举数据类型 (Enumerated data type used to describe the status of request jobs in EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-runtimetype-runtimetype-definition">
+<h2>Eep_62_RuntimeType类型定义 (RuntimeType Definition)<a class="headerlink" href="#eep-62-runtimetype-runtimetype-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_RuntimeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>typedef struct</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_AddressType operateAddr;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint8* dataBufferPtr;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>const uint8* WriteBuffer;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthType length;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthType CompareLength;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_RequestJobType currentJob;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthType maxReadSize;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthType maxWriteSize;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MemIf_ModeType currentMode;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>boolean StateForRunMainFunction;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>} Eep_62_RuntimeType;</p></td>
+</tr>
+<tr class="row-even"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>用于描述EEPROM驱动程序中运行时状况的数据结构类型 (Data structure types used to describe runtime conditions in EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-devapitype-eep-62-devapitype-type-definition">
+<h2>Eep_62_DevApiType类型定义 (Eep_62_DevApiType Type Definition)<a class="headerlink" href="#eep-62-devapitype-eep-62-devapitype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_DevApiType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>typedef struct</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void (*DevInitApi)(void);</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Std_ReturnType (*DevReadApi)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(Eep_62_AddressType readAddress, uint8* readBufferPtr,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthType readLength);</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Std_ReturnType (*DevWriteApi)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>(Eep_62_AddressType writeAddress, const uint8*writeBufferPtr,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthType writeLength);</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Std_ReturnType (*DevEraseApi)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(Eep_62_AddressType eraseAddress, const uint8ErasedValue,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthType eraseLength);</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>} Eep_62_DevApiType;</p></td>
+</tr>
+<tr class="row-even"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>用于描述EEPROM驱动程序中设备操作API列表的数据结构类型 (Data structure type used to describe the list of device operation APIs in EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-deviceconfigtype-eep-62-deviceconfigtype-type-definition">
+<h2>Eep_62_DeviceConfigType类型定义 (Eep_62_DeviceConfigType Type Definition)<a class="headerlink" href="#eep-62-deviceconfigtype-eep-62-deviceconfigtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_DeviceConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>typedef struct</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint8 DeviceId;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_AddressType baseAddress;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthType usedSize;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthType fastReadBlockSize;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthType fastWriteBlockSize;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthType normalReadBlockSize;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthType normalWriteBlockSize;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>} Eep_62_DeviceConfigType;</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>用于描述EEPROM驱动程序中设备配置信息的数据结构类型 (Data structure type used for describing device configuration information in EEPROM driver)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-configtype-eep-62-configtype-configuration-type-definition">
+<h2>Eep_62_ConfigType类型定义 (Eep_62_ConfigType Configuration Type Definition)<a class="headerlink" href="#eep-62-configtype-eep-62-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>Eep_62_ConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>定义 (Define)</p></td>
+<td><p>typedef struct</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MemIf_ModeType defaultMode;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32 jobCallCycle;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>const Eep_62_JobNotificationFct jobEndNotification;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>const Eep_62_JobNotificationFct jobErrorNotification;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint8 DeviceConfigNbr;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>const Eep_62_DeviceConfigType *DeviceConfigPtr;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>} Eep_62_ConfigType;</p></td>
+</tr>
+<tr class="row-even"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>用于描述 Eep模块初始化时，加载配置信息的结构体类型 (Structure type used for loading configuration information when the Eep module initializes)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Det_ReportRuntimeError</p></td>
+</tr>
+<tr class="row-even"><td><p>Dem</p></td>
+<td><p>Dem_ReportErrorStatus</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPI</p></td>
+<td><p>Spi_SetupEB</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_WriteIB</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_ReadIB</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_SyncTransmit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_AsyncTransmit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_GetStatus</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Spi_GetJobResult</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Spi_GetSequenceResult</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="eep-62-init-eep-62-init-function-definition">
+<h2>Eep_62_Init函数定义 (Eep_62_Init function definition)<a class="headerlink" href="#eep-62-init-eep-62-init-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void Eep_62_Init (constEep_62_ConfigType*ConfigPtr);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ConfigPtr：指向所选配置集的指针 (ConfigPtr：a pointer to the selected configuration set)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于实现EEPROM驱动程序模块的初始化函数 (Services for initializing functions of the EEPROM driver module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-getversioninfo-the-definition-of-eep-62-getversioninfo-function">
+<h2>Eep_62_GetVersionInfo函数定义 (The definition of Eep_62_GetVersionInfo function)<a class="headerlink" href="#eep-62-getversioninfo-the-definition-of-eep-62-getversioninfo-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_GetVersionInfo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEep_62_GetVersionInfo(Std_VersionInfoType*versioninfo);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>指向存储此模块的版本信息的指针 (A pointer to store version information of this module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取EEPROM驱动程序模块的版本信息 (Get version information of the EEPROM driver module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-setmode-deviceindex-eep-62-setmode-deviceindex-function-definition">
+<h2>Eep_62_SetMode_&lt;deviceIndex&gt;函数定义 (Eep_62_SetMode&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-setmode-deviceindex-eep-62-setmode-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_SetMode_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEep_62_SetMode_&lt;deviceIndex&gt;(MemIf_ModeTypeMode);</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Mode</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>MEMIF_MODE_SLOW：慢读访问/SPI正常访问 (MEMIF_MODE_SLOW：slow read access/SPI normal access)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>MEMIF_MODE_FAST：快读访问/SPI突发访问 (MEMIF_MODE_FAST: Fast Read Access/SPI Burst Access)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于EEPROM驱动程序中设置工作模式 (Service for setting operating mode in EEPROM driver)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-read-deviceindex-function-definition-for-eep-62-read-deviceindex">
+<h2>Eep_62_Read_&lt;deviceIndex&gt;函数定义 (Function definition for Eep_62_Read&lt;deviceIndex&gt;)<a class="headerlink" href="#eep-62-read-deviceindex-function-definition-for-eep-62-read-deviceindex" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_Read_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEep_62_Read_&lt;deviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_AddressTypeEepromAddress,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint8*DataBufferPtr,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthTypeLength</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>);</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>EepromAddress：EEPROM中的地址偏移量 (EepromAddress：Offset in EEPROM)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:0Max:EEP_SIZE-1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Length：要读取的字节数 (Length: The number of bytes to read)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:1Max:EEP_SIZE–</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>EepromAddress</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>DataBufferPtr：指向RAM中目标数据缓冲区的指针 (DataBufferPtr：a pointer to the target data buffer in RAM)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnTyp</p></td>
+<td><p>E_OK：读取命令已被接受 (E_OK: The read command has been accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>E_NOT_OK：读取命令未被接受 (E_NOT_OK: The read command was not accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于从EEPROM存储单元中读取给定字大小的数据 (Services are used to read data of a given word size from EEPROM storage units.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-write-deviceindex-write-deviceindex-function-definition">
+<h2>Eep_62_Write_&lt;deviceIndex&gt;函数定义 (Write_&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-write-deviceindex-write-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_Write_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEep_62_Write_&lt;deviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_AddressTypeEepromAddress,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>const uint8*DataBufferPtr,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthTypeLength</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>);</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>EepromAddress：EEPROM中的地址偏移量 (EepromAddress：Offset in EEPROM)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:0Max:EEP_SIZE-1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DataBufferPtr：源数据指针 (DataBufferPtr: Source Data Pointer)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length：要写入的字节数 (Length：Number of bytes to write)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:1Max:EEP_SIZE–</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>EepromAddress</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>E_OK：写入命令已被接受 (E_OK: The write command has been accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>E_NOT_OK：写入命令未被接受 (E_NOT_OK: The command was not accepted for writing)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于向EEPROM存储单元写入给定字节大小的数据 (Service used for writing a given byte size of data to EEPROM storage units)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-erase-deviceindex-eep-62-erase-deviceindex-function-definition">
+<h2>Eep_62_Erase_&lt;deviceIndex&gt;函数定义 (Eep_62_Erase&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-erase-deviceindex-eep-62-erase-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_Erase_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEep_62_Erase_&lt;deviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_AddressTypeEepromAddress,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Eep_62_LengthTypeLength</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>);</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>EepromAddress：EEPROM中的起始地址 (EepromAddress：Starting address in EEPROM)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:0Max:EEP_SIZE-1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length：要擦除的字节数 (Length: Number of bytes to erase)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:1Max:EEP_SIZE–</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>EepromAddress</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>E_OK：擦除命令已被接受 (E_OK: Erase command has been accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>E_NOT_OK：擦除命令未被接受 (E_NOT_OK: Erase command not accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于对EEPROM存储单元指定扇区执行擦除操作 (Service for erasing specified sectors of the EEPROM storage unit)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-campare-deviceindex-eep-62-campare-deviceindex-function-definition">
+<h2>Eep_62_Campare_&lt;deviceIndex&gt;函数定义 (EEP_62_Campare&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-campare-deviceindex-eep-62-campare-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_Compare_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEep_62_Compare_&lt;deviceIndex&gt;</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_AddressTypeEepromAddress,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>const uint8*DataBufferPtr,</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Eep_62_LengthTypeLength</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>);</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>EepromAddress：EEPROM中的地址偏移量 (EepromAddress：Offset in EEPROM)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:0Max:EEP_SIZE-1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DataBufferPtr：指向数据缓冲区的指针 (DataBufferPtr：a pointer to the data buffer)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Length：要比较的字节数 (Length: Bytes to compare)</p></td>
+<td></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Min:1Max:EEP_SIZE–</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>EepromAddress</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>E_OK：比较命令已被接受 (E_OK: The comparison command has been accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>E_NOT_OK：比较命令未被接受 (E_NOT_OK: The comparison command was not accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于将EEPROM驱动程序中的数据块与内存中的EEPROM块进行比较 (Services are used to compare data blocks in the EEPROM driver with EEPROM blocks in memory.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-cancel-deviceindex-eep-62-cancel-deviceindex-function-definition">
+<h2>Eep_62_Cancel_&lt;deviceIndex&gt;函数定义 (Eep_62_Cancel&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-cancel-deviceindex-eep-62-cancel-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_Cancel_&lt;deviceIndex&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void Eep_62_Cancel_&lt;deviceIndex&gt;(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x06</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于取消EEPROM驱动程序中正在执行的作业任务 (Service用于取消EEPROM驱动程序中正在执行的作业任务)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-getstatus-deviceindex-eep-62-getstatus-deviceindex-function-definition">
+<h2>Eep_62_GetStatus_&lt;deviceIndex&gt;函数定义 (Eep_62_GetStatus&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-getstatus-deviceindex-eep-62-getstatus-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_GetStatus_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>MemIf_StatusTypeEep_62_GetStatus_&lt;deviceIndex&gt;(void);</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x07</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>MemIf_StatusType</p></td>
+<td><p>MEMIF_UNINITMEMIF_IDLE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>MEMIF_BUSY</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>MEMIF_BUSY_INTERNAL</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于获取EEPROM驱动程序的当前工作状态 (Service for getting the current working status of the EEPROM driver)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-getjobresult-deviceindex-eep-62-getjobresult-deviceindex-function-definition">
+<h2>Eep_62_GetJobResult_&lt;deviceIndex&gt;函数定义 (Eep_62_GetJobResult&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-getjobresult-deviceindex-eep-62-getjobresult-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_GetJobResult_&lt;deviceIndex&gt;</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>MemIf_JobResultTypeEep_62_GetJobResult_&lt;deviceIndex&gt;(void);</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x08</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>MemIf_JobResultType</p></td>
+<td><p>MEMIF_JOB_OKMEMIF_JOB_FAILED</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>MEMIF_JOB_PENDING</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>MEMIF_JOB_CANCELED</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>MEMIF_BLOCK_INCONSISTENT</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>MEMIF_BLOCK_INVALID</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>服务用于获取EEPROM驱动程序的当前作业结果 (The service is for obtaining the current job result of the EEPROM driver.)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-62-mainfunction-mainfunction-definition">
+<h2>Eep_62_MainFunction函数定义 (MainFunction definition)<a class="headerlink" href="#eep-62-mainfunction-mainfunction-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_62_MainFunction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void Eep_62_MainFunction(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x09</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>执行EEPROM驱动程序作业处理（读取/写入/擦除/比较）的主函数 (Main function for handling EEPROM driver job processing (read/write/erase/compare))</p></td>
+</tr>
+</tbody>
+</table>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="eep-jobendnotification-eep-jobendnotification-function-definition">
+<h2>Eep_JobEndNotification函数定义 (Eep_JobEndNotification function definition)<a class="headerlink" href="#eep-jobendnotification-eep-jobendnotification-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_JobEndNotification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void Eep_JobEndNotification(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不关心 (Don't care)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>当作业完成并产生积极结果时，将调用模块用户提供的这个回调函数 (When the task is completed and produces a positive result, the callback function provided by the module user will be called.)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eep-joberrornotification-eep-joberrornotification-function-definition">
+<h2>Eep_JobErrorNotification函数定义 (Eep_JobErrorNotification function definition)<a class="headerlink" href="#eep-joberrornotification-eep-joberrornotification-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Eep_JobErrorNotification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void Eep_JobErrorNotification(void);</p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不关心 (Don't care)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>该回调函数由模块用户提供，当作业被取消或完成时出现负面结果时调用 (This callback function is provided by the module user and is called when there are negative results when a job is cancelled or completed.)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="eeprom-description-of-internal-eeprom-configuration">
+<h3>内部EEPROM的配置描述 (Description of internal EEPROM configuration)<a class="headerlink" href="#eeprom-description-of-internal-eeprom-configuration" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="eeparxml-import-the-arxml-file-of-eep-component">
+<h2>导入Eep组件的arxml文件 (Import the arxml file of Eep component)<a class="headerlink" href="#eeparxml-import-the-arxml-file-of-eep-component" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eeparxml-import-eep-module-s-arxml-configuration">
+<img alt="导入Eep模块的arxml配置 (Import Eep module's arxml configuration)" src="../../_images/image624.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 Eep配置 (Table Eep Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EepGeneral</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EEPROM驱动程序的一般配置参数的容器 (Container for general configuration parameters of EEPROM driver)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>备注这些参数总是预编译的 (Note these parameters are always prepared.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepInitConfiguration</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EEPROM驱动程序运行时配置参数的容器 (Container for EEPROM driver configuration parameters during runtime)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>实现类型：Eep_ConfigType (Implementation Type: Eep_ConfigType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepPublishedInformation</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>公共发布信息容器未涵盖的其他已发布参数 (Other published parameters not covered in the public information container)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>注意：参数没有任何配置类设置，因为它们是发布的信息 (Note: Parameters have no configuration class settings because they are published information.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepgeneral">
+<h2>EepGeneral<a class="headerlink" href="#eepgeneral" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eepgeneral-eepgeneral-configuration">
+<img alt="EepGeneral配置 (EEPGeneral Configuration)" src="../../_images/image719.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepGeneral配置 (Table EepGeneral Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDemvErrorDetect</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>打开或关闭开发错误检测和通知TRUE：开启检测和通知功能FALSE：关闭检测和通知功能 (Enable and disable development error detection and notifications TRUE: Enable detection and notifications FALSE: Disable detection and notifications)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于系统是否集成DET模块 (Dependent on whether the system integrates the DET module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>EepUseInterrupts</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>启用或停用中断控制的作业处理的开关 TRUE：启用中断控制的作业处理 FALSE：中断控制的作业处理被禁用 (Enable job processing with interrupt control: TRUE Disable job processing with interrupt control: FALSE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定，是否支持中断 (Does the specific EEPROM hardware device support interrupts?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepVersionInfoApi</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开启或关闭读取软件版本信息API开关TRUE：启用读取软件版本信息API开关FALSE：关闭读取软件版本信息API开关 (Enable the API switch for reading software version information: TRUE Disable the API switch for reading software version information: FALSE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>EepWriteCycleReduction</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开关激活或不激活写周期减少备注：EEPROM值在被覆盖之前被读取和比较TRUE：开启写周期减重功能FALSE：不开启写周期减重功能 (Switch activation/deactivation Write cycle reduction enabled: Remarks: EEPROM value is read and compared before being overwritten TRUE: Enable write cycle weight reduction function FALSE: Do not enable write cycle weight reduction function)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepinitconfiguration">
+<h2>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eepinitconfiguration-eepinitconfiguration-configuration">
+<img alt="EepInitConfiguration配置 (EepInitConfiguration Configuration)" src="../../_images/image818.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepInitConfiguration配置 (Table EepInitConfiguration Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用或下拉选项 (Copy or Pull-down Options)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDefaultMode</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>参数为初始化后EEPROM的默认设备模式实现类型：MemIf_ModeType (The parameter for the default device mode implementation type of EEPROM after initialization: MemIf_ModeType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>EepJobCallCycle</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM驱动程序主函数的调   用周期时间（单位：s） (The call period time of the EEPROM driver main function (unit: s))</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepJobEndNotification</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>此参数是对作业结果为肯定的回调函数的引用 (This parameter is a reference to the callback function for positive job results.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepJobErrorNotification</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>此参数是对作业结果为否定的回调函数的引用 (This parameter is a reference to a callback function for when the job result is negative.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="centered">
+<strong><strong>表 EepInitConfiguration容器配置 (Table EepInitConfiguration Container Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepDeviceConfiguration</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>容器创建 (Container creation)</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>无</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM驱动程序运行时配置参数的容器 (Container for EEPROM driver configuration parameters during runtime)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="eepdeviceconfiguration">
+<h3>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="eepdeviceconfiguration-eepdeviceconfiguration-configuration">
+<img alt="EepDeviceConfiguration配置 (EEPDeviceConfiguration Configuration)" src="../../_images/image918.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepDeviceConfiguration配置 (Table EepDeviceConfiguration Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepDeviceId</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>0…255</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于描述指定EEPROM设备的索引标识符 (Index identifier for describing a specified EEPROM device)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepBaseAddress</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>参数用于描述EEPROM存储设备的基地址 (Parameters are used to describe the base address of the EEPROM storage device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>实现类型：Eep_AddressType (Implementation Type: Eep_AddressType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepUsedSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>该参数以字节为单位表示EEPROM设备已使用的大小 (This parameter indicates the size in bytes used by the EEPROM device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>单位：字节 (Bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepFastReadBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在快速模式下，一个作业处理周期内读取的字节数； (Number of bytes read within an iteration in quick mode;)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>如果硬件不支持突发模式，该参数应设置为与 (If hardware does not support burst mode, this parameter should be set to与其)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>EepNormalReadBlockSize相同的值。 (Same value for EepNormalReadBlockSize.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepFastWriteBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在快速模式下，一个作业处理周期内写入的字节数； (Number of bytes written in a job processing cycle in fast mode;)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>如果硬件不支持突发模式，该参数应设置为与 (If hardware does not support burst mode, this parameter should be set to与其)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>EepNormalWriteBlockSize相同的值。 (Same value for EepNormalWriteBlockSize.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepNormalReadBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在正常模式下，一个作业处理周期内读取的字节数 (During normal mode, number of bytes read within a job processing cycle)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepNormalWriteBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在正常模式下，一个作业处理周期内写入的字节数 (During normal mode, the number of bytes written in a job processing cycle)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="eeppublishedinformation">
+<h2>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eeppublishedinformation-eeppublishedinformation-configuration">
+<img alt="EepPublishedInformation配置 (EepPublishedInformation Configuration)" src="../../_images/image1017.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepPublishedInformation配置 (Table EepPublishedInformation Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepAllowedWriteCycles</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>0…4294967295</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>特定EEPROM硬件在最坏情况下的最大写周期数 (Maximum write cycles in worst-case scenarios for specific EEPROM hardware)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepEraseUnitSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>以字节为单位的最小可擦EEPROM数据单位的大小 (The size of the smallest erasable data unit in EEPROM measured in bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepEraseValue</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被擦除的EEPROM单元的值 (The values of erased EEPROM units)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepReadUnitSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>以字节为单位的最小可读EEPROM数据单位的大小 (The size of the smallest readable EEPROM data unit in bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepSpecifiedEraseCycles</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>为EEP设备指定的擦除周期数 (Number of erase cycles specified for EEP devices)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>备注：通常在设备数据表中给出 (Note: Typically given in the device specification table.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepTotalSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM存储单元的总大小（以字节为单位） (The total size of the EEPROM storage unit (in bytes))</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepWriteUnitSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>以字节为单位的最小可写EEPROM数据单位的大小 (The size of the smallest writable EEPROM data unit in bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="eeprom-description-of-external-eeprom-configuration">
+<h3>外部EEPROM的配置描述 (Description of external EEPROM configuration)<a class="headerlink" href="#eeprom-description-of-external-eeprom-configuration" title="Link to this heading">¶</a></h3>
+<p class="centered">
+<strong><strong>表 Eep配置 (Table Eep Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EepGeneral</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EEPROM驱动程序的一般配置参数的容器 (Container for general configuration parameters of EEPROM driver)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>备注这些参数总是预编译的 (Note these parameters are always prepared.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepInitConfiguration</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EEPROM驱动程序运行时配置参数的容器 (Container for EEPROM driver configuration parameters during runtime)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>实现类型：Eep_ConfigType (Implementation Type: Eep_ConfigType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepPublishedInformation</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>公共发布信息容器未涵盖的其他已发布参数 (Other published parameters not covered in the public information container)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>注意：参数没有任何配置类设置，因为它们是发布的信息 (Note: Parameters have no configuration class settings because they are published information.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="eepgeneral-1">
+<span id="id1"></span><h2>EepGeneral<a class="headerlink" href="#eepgeneral-1" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eepgeneral1-eepgeneral-configuration">
+<img alt="EepGeneral配置1 (EEPGeneral Configuration)" src="../../_images/image1121.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepGeneral配置 (Table EepGeneral Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepDevErrorDetect</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>TRUE/FALSE</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>FALSE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>打开或关闭开发错误检测和通知 (Enable or Disable Development Error Detection and Notifications)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>TRUE：开启检测和通知功能 (TRUE: Enable detection and notification functions)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>FALSE：关闭检测和通知功能 (FALSE: Disable detection and notification functions)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于系统是否集成DET模块 (Dependent on whether the system integrates the DET module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepDeviceNumbers</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际数量 (To indicate the actual number of EEPROM storage devices connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的挂接数量 (The number of attached devices dependent on EEPROM hardware devices)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepUseFunciontApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>预处理器开关启用/禁用API使用通用函数或宏函数 (Preprocessor switch enable/disable API for using generic functions or macro functions)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepUseInterrupts</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>启用或停用中断控制的作业处理的开关 (Switch for enabling or disabling interrupt control in job processing)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>TRUE：启用中断控制的作业处理 (TRUE: Job processing with interrupt control enabled)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>FALSE：中断控制的作业处理被禁用 (FALSE: Job processing with interrupted control is disabled)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定，是否支持中断 (Does the specific EEPROM hardware device support interrupts?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepVersionInfoApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开启或关闭读取软件版本信息API开关 (Enable or disable the Read Software Version Information API switch)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>TRUE：启用读取软件版本信息API开关 (TRUE: Enable Read Software Version Information API Switch)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>FALSE：关闭读取软件版本信息API开关 (FALSE: Turn off the Read Software Version Information API switch)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepWriteCycleReduction</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开关激活或不激活写周期减少 (Switch activation or non-activation reduces write cycles.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>备注：EEPROM值在被覆盖之前被读取和比较 (Note: The EEPROM value is read and compared before it is overwritten.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>TRUE：开启写周期减重功能 (TRUE: Enable Write Cycle Weighting Function)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>FALSE：不开启写周期减重功能 (FALSE: Not enable write cycle weight reduction function)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepDeviceName</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>字符串 (Strings)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定Eep模块实例的设备名称 (Specify the device name for the Eep module instance)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepUsedSpiBus</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>参数用于指定是否使用SPI总线访问EEPROM设备 (Parameters are used to specify whether to access the EEPROM device via SPI bus.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>TRUE：允许使用SPI总线访问 (TRUE: Allows access via SPI bus.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>FALSE：禁止使用SPI总线访问 (FALSE: SPI bus access prohibited)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepUsedI2cBus</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE / FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>参数用于指定是否使用IIC总线访问EEPROM设备 (Parameters are used to specify whether to access the EEPROM device via IIC bus.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>TRUE：允许使用IIC总线访问 (TRUE: Allows access via IIC bus.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>FALSE：禁止使用IIC总线访问 (FALSE: IIC bus access prohibited)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepI2cChannelId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使用IIC总线访问EEPROM设备的通道命令标识符 (Command identifier for accessing EEPROM devices via IIC bus)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepHeaderFile</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于描述为Eep模块加载设备驱动依赖的头文件包含 (To describe the header files included for dependency on device drivers for the Eep module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepSpiCmdChannelId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使用SPI总线访问EEPROM设备的命令相关的通道标识符 (Channel identifiers related to commands for accessing EEPROM devices via SPI bus)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepSpiCmdSequenceId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使用SPI总线访问EEPROM设备的命令相关的序列标识符 (Command-related sequence identifier for accessing EEPROM devices via SPI bus)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepSpiDataChannelId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使用SPI总线访问EEPROM设备的数据相关的通道标识符 (Use SPI bus for accessing data-related channel identifiers of EEPROM devices)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepSpiDataSequenceId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使用SPI总线访问EEPROM设备的数据相关的序列标识符 (Use SPI bus to access data-related sequence identifiers of EEPROM devices)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepinitconfiguration-1">
+<span id="id2"></span><h2>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration-1" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eepinitconfiguration1-eepinitconfiguration-configuration">
+<img alt="EepInitConfiguration配置1 (EepInitConfiguration Configuration)" src="../../_images/image1218.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepInitConfiguration配置 (Table EepInitConfiguration Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用或下拉选项 (Copy or Pull-down Options)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDefaultMode</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>参数为初始化后EEPROM的默认设备模式实现类型：MemIf_ModeType (The parameter for the default device mode implementation type of EEPROM after initialization: MemIf_ModeType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepJobCallCycle</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM驱动程序主函数的用周期时间（单位：s） (The cyclic time (unit: s) of the EEPROM Driver Main Function)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>配置容器 (Configure Containers)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepPublishedInformation</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>公共发布信息容器未涵盖的其他已发布参数注意：参数没有任何配置类设置因为它们是发布的信息 (Publicly published information containers note: Other published parameters not covered by the public release container have no configuration class settings as they are released information.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepJobEndNotifiNotific</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>此参数是对作业结果为肯定的回调函数的引用 (This parameter is a reference to the callback function for positive job results.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepJobErrorNotification</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>此参数是对作业结果为否定的回调函数的引用 (This parameter is a reference to a callback function for when the job result is negative.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="centered">
+<strong><strong>表 EepInitConfiguration容器配置 (Table EepInitConfiguration Container Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>容器创建 (Container creation)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDemEventParameterRefs</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>容器   ，用于引用DemEventParameter元素，在发生相应错误时，应使用Dem_SetEventStatus调用DemEventParameter元素。EventId取自引用的DemEventParameter的DemEventId符号值。标准化错误在此容器中提供，并且可以通过特定于供应商的错误引用进行扩展 (Containers   , used to reference the DemEventParameter element, should invoke the Dem_SetEventStatus call when a corresponding error occurs. The EventId is derived from the DemEventId symbol value of the referenced DemEventParameter. Standardized errors are provided within this container and can be extended via vendor-specific error references.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>容器创建 (Container creation)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>EepDeviceConfiguration</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM驱动程序运行时配置参数的容器 (Container for EEPROM driver configuration parameters during runtime)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>容器创建 (Container creation)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>EepDeviceHwApis</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM驱动程序运行时设备操作API列表的容器 (Container for EEPROM Driver Operation API List During Device Operation)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="eepdemeventparameterrefs">
+<h3>EepDemEventParameterRefs<a class="headerlink" href="#eepdemeventparameterrefs" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="eepdemeventparameterrefs-eepdemeventparameterrefs-configuration">
+<img alt="EepDemEventParameterRefs配置 (EepDemEventParameterRefs Configuration)" src="../../_images/image1315.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepDemEventParameterRefs配置 (Table EepDemEventParameterRefs Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EEP_E_COMPARE_FAILED</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>引用或下拉选项 (Copy or Pull-down Options)</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>无</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用DemEventParameter，当错误“EEPROM比较失败”发生时，使用参数向Demand组件报告故障 (Use DemEventParameter to report failure to the Demand component when the error &quot;EEPROM comparison failed&quot; occurs.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于Dem组件的配置 (Dependent on Dem component configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EEP_E_ERASE_FAILED</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用或下拉选项 (Copy or Pull-down Options)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用DemEventParameter，当错误“EEPROM擦除失败”发生时，使用参数向Demand组件报告故障 (Use DemEventParameter to report the failure when the error &quot;EEPROM Erase Failed&quot; occurs to the Demand component.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于Dem组件的配置 (Dependent on Dem component configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EEP_E_READ_FAILED</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用或下拉选项 (Copy or Pull-down Options)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用DemEventParameter，当错误“EEPROM读取失败”发生时，使用参数向Demand组件报告故障 (Use DemEventParameter to report failure to the Demand component when the error &quot;EEPROM read failed&quot; occurs.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于Dem组件的配置 (Dependent on Dem component configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EEP_E_WRITE_FAILED</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用或下拉选项 (Copy or Pull-down Options)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用DemEventParameter，当错误“EEPROM写入失败”发生时，使用参数向Demand组件报告故障 (Use DemEventParameter to report failure to the Demand component when the error &quot;EEPROM write failed&quot; occurs.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于Dem组件的配置 (Dependent on Dem component configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepdeviceconfiguration-1">
+<span id="id3"></span><h3>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration-1" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="eepdeviceconfiguration1-eepdeviceconfiguration-configuration">
+<img alt="EepDeviceConfiguration配置1 (EEPDeviceConfiguration Configuration)" src="../../_images/image1413.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepDeviceConfiguration配置 (Table EepDeviceConfiguration Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepDeviceId</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>0…255</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于描述指定EEPROM设备的索引标识符 (Index identifier for describing a specified EEPROM device)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepBaseAddress</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>参数用于描述EEPROM存储设备的基地址 (Parameters are used to describe the base address of the EEPROM storage device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>实现类型：Eep_AddressType (Implementation Type: Eep_AddressType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepUsedSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>该参数以字节为单位表示EEPROM设备已使用的大小 (This parameter indicates the size in bytes used by the EEPROM device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>单位：字节 (Bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepFastReadBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在快速模式下，一个作业处理周期内读取的字节数； (Number of bytes read within an iteration in quick mode;)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>如果硬件不支持突发模式，该参数应设置为与 (If hardware does not support burst mode, this parameter should be set to与其)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>EepNormalReadBlockSize相同的值。 (Same value for EepNormalReadBlockSize.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepFastWriteBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在快速模式下，一个作业处理周期内写入的字节数； (Number of bytes written in a job processing cycle in fast mode;)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>如果硬件不支持突发模式，该参数应设置为与 (If hardware does not support burst mode, this parameter should be set to与其)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>EepNormalWriteBlockSize相同的值。 (Same value for EepNormalWriteBlockSize.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepNormalReadBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在正常模式下，一个作业处理周期内读取的字节数 (During normal mode, number of bytes read within a job processing cycle)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepNormalWriteBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在正常模式下，一个作业处理周期内写入的字节数 (During normal mode, the number of bytes written in a job processing cycle)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eepdevicehwapis">
+<h3>EepDeviceHwApis<a class="headerlink" href="#eepdevicehwapis" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="eepdevicehwapis-eepdevicehwapis-configuration">
+<img alt="EepDeviceHwApis配置 (EepDeviceHwApis Configuration)" src="../../_images/image1513.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepDeviceHwApis配置 (Table EepDeviceHwApis Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepDevInitApi</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>函数指针字符串 (Function Pointer String)</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>无</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>描述指定EEPROM设备的访问初始化操作API函数 (Describe API functions for initializing access to the specified EEPROM device)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepDevReadApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>描述指定EEPROM设备的访问读取操作API函数 (Describe API functions for accessing and reading operations on the specified EEPROM device)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepDevWriteApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>描述指定EEPROM设备的访问写入操作API函数 (Describe API functions for accessing and writing to the specified EEPROM device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepDevEraseApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>函数指针字符串 (Function Pointer String)</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>描述指定EEPROM设备的访问擦除操作API函数 (Describe API functions for accessing and erasing the specified EEPROM device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>用于指示ECU挂接EEPROM存储设备的实际芯片类型 (To indicate the actual chip type of the EEPROM storage device connected to the ECU)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="eeppublishedinformation-1">
+<span id="id4"></span><h2>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation-1" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="eeppublishedinformation1-eeppublishedinformation-configuration">
+<img alt="EepPublishedInformation配置1 (EepPublishedInformation Configuration)" src="../../_images/image1611.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EepPublishedInformation配置 (Table EepPublishedInformation Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EepAllowedWriteCycles</p></th>
+<th class="head"><p>取值范围 (Range)</p></th>
+<th class="head"><p>0…4294967295</p></th>
+<th class="head"><p>默认取值 (Default value)</p></th>
+<th class="head"><p>0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>特定EEPROM硬件在最坏情况下的最大写周期数 (Maximum write cycles in worst-case scenarios for specific EEPROM hardware)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepEraseUnitSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>以字节为单位的最小可擦EEPROM数据单位的大小 (The size of the smallest erasable data unit in EEPROM measured in bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepEraseValue</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被擦除的EEPROM单元的值 (The values of erased EEPROM units)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepMinimumAddressType</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>Eep_AddressType的最小期望大小 (Minimum expected size of Eep_AddressType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepMinimumLengthType</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>Eep_LengthType的最小期望大小 (The minimum expected size of Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepReadUnitSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>以字节为单位的最小可读EEPROM数据单位的大小 (The size of the smallest readable EEPROM data unit in bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepSpecifiedEraseCycles</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>为EEP设备指定的擦除周期数 (Number of erase cycles specified for EEP devices)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>备注：通常在设备数据表中给出 (Note: Typically given in the device specification table.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepTotalSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>16384</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EEPROM存储单元的总大小（以字节为单位） (The total size of the EEPROM storage unit (in bytes))</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>实现类型：Eep_LengthType (Implementation Type: Eep_LengthType)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EepWriteUnitSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>以字节为单位的最小可写EEPROM数据单位的大小 (The size of the smallest writable EEPROM data unit in bytes)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EepEraseTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0…4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>擦除一个EEPROM数据单元的最大时间 (The maximum time to erase an EEPROM data unit)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EEPROM硬件设备的特定 (Dependent on the specific EEPROM hardware device.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="EcuM.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>EcuM
+    </a>
+    <a class="float-right" href="EthIf.html" title="Next">
+        EthIf <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Eep</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#eep-eep-function">Eep功能 (EEP Function)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eep-eep-feature-introduction">Eep功能介绍 (EEP Feature Introduction)</a></li>
+<li><a class="reference internal" href="#eep-eep-functionality-implementation">Eep功能实现 (EEP functionality implementation)</a><ul>
+<li><a class="reference internal" href="#the-interaction-relationships-between-modules">模块之间的交互关系 (The interaction relationships between modules)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eep-62-addresstype-addresstype-enum-type-definition">Eep_62_AddressType类型定义 (AddressType Enum Type Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-lengthtype-lengthtype-type-definition">Eep_62_LengthType类型定义 (LengthType Type Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-requestjobtype-eep-62-requestjobtype-type-definition">Eep_62_RequestJobType类型定义 (Eep_62_RequestJobType Type Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-runtimetype-runtimetype-definition">Eep_62_RuntimeType类型定义 (RuntimeType Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-devapitype-eep-62-devapitype-type-definition">Eep_62_DevApiType类型定义 (Eep_62_DevApiType Type Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-deviceconfigtype-eep-62-deviceconfigtype-type-definition">Eep_62_DeviceConfigType类型定义 (Eep_62_DeviceConfigType Type Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-configtype-eep-62-configtype-configuration-type-definition">Eep_62_ConfigType类型定义 (Eep_62_ConfigType Configuration Type Definition)</a><ul>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eep-62-init-eep-62-init-function-definition">Eep_62_Init函数定义 (Eep_62_Init function definition)</a></li>
+<li><a class="reference internal" href="#eep-62-getversioninfo-the-definition-of-eep-62-getversioninfo-function">Eep_62_GetVersionInfo函数定义 (The definition of Eep_62_GetVersionInfo function)</a></li>
+<li><a class="reference internal" href="#eep-62-setmode-deviceindex-eep-62-setmode-deviceindex-function-definition">Eep_62_SetMode_&lt;deviceIndex&gt;函数定义 (Eep_62_SetMode&lt;deviceIndex&gt; Function Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-read-deviceindex-function-definition-for-eep-62-read-deviceindex">Eep_62_Read_&lt;deviceIndex&gt;函数定义 (Function definition for Eep_62_Read&lt;deviceIndex&gt;)</a></li>
+<li><a class="reference internal" href="#eep-62-write-deviceindex-write-deviceindex-function-definition">Eep_62_Write_&lt;deviceIndex&gt;函数定义 (Write_&lt;deviceIndex&gt; function definition)</a></li>
+<li><a class="reference internal" href="#eep-62-erase-deviceindex-eep-62-erase-deviceindex-function-definition">Eep_62_Erase_&lt;deviceIndex&gt;函数定义 (Eep_62_Erase&lt;deviceIndex&gt; function definition)</a></li>
+<li><a class="reference internal" href="#eep-62-campare-deviceindex-eep-62-campare-deviceindex-function-definition">Eep_62_Campare_&lt;deviceIndex&gt;函数定义 (EEP_62_Campare&lt;deviceIndex&gt; Function Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-cancel-deviceindex-eep-62-cancel-deviceindex-function-definition">Eep_62_Cancel_&lt;deviceIndex&gt;函数定义 (Eep_62_Cancel&lt;deviceIndex&gt; function definition)</a></li>
+<li><a class="reference internal" href="#eep-62-getstatus-deviceindex-eep-62-getstatus-deviceindex-function-definition">Eep_62_GetStatus_&lt;deviceIndex&gt;函数定义 (Eep_62_GetStatus&lt;deviceIndex&gt; Function Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-getjobresult-deviceindex-eep-62-getjobresult-deviceindex-function-definition">Eep_62_GetJobResult_&lt;deviceIndex&gt;函数定义 (Eep_62_GetJobResult&lt;deviceIndex&gt; Function Definition)</a></li>
+<li><a class="reference internal" href="#eep-62-mainfunction-mainfunction-definition">Eep_62_MainFunction函数定义 (MainFunction definition)</a><ul>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eep-jobendnotification-eep-jobendnotification-function-definition">Eep_JobEndNotification函数定义 (Eep_JobEndNotification function definition)</a></li>
+<li><a class="reference internal" href="#eep-joberrornotification-eep-joberrornotification-function-definition">Eep_JobErrorNotification函数定义 (Eep_JobErrorNotification function definition)</a></li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#eeprom-description-of-internal-eeprom-configuration">内部EEPROM的配置描述 (Description of internal EEPROM configuration)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eeparxml-import-the-arxml-file-of-eep-component">导入Eep组件的arxml文件 (Import the arxml file of Eep component)</a></li>
+<li><a class="reference internal" href="#eepgeneral">EepGeneral</a></li>
+<li><a class="reference internal" href="#eepinitconfiguration">EepInitConfiguration</a><ul>
+<li><a class="reference internal" href="#eepdeviceconfiguration">EepDeviceConfiguration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eeppublishedinformation">EepPublishedInformation</a><ul>
+<li><a class="reference internal" href="#eeprom-description-of-external-eeprom-configuration">外部EEPROM的配置描述 (Description of external EEPROM configuration)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eepgeneral-1">EepGeneral</a></li>
+<li><a class="reference internal" href="#eepinitconfiguration-1">EepInitConfiguration</a><ul>
+<li><a class="reference internal" href="#eepdemeventparameterrefs">EepDemEventParameterRefs</a></li>
+<li><a class="reference internal" href="#eepdeviceconfiguration-1">EepDeviceConfiguration</a></li>
+<li><a class="reference internal" href="#eepdevicehwapis">EepDeviceHwApis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#eeppublishedinformation-1">EepPublishedInformation</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

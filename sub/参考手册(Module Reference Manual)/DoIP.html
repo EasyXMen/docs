@@ -1,0 +1,5042 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>DoIP &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="E2EL" href="E2EL.html" />
+            <link rel="prev" title="DLT" href="Dlt.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">DoIP</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/DoIP.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="doip">
+<h1>DoIP<a class="headerlink" href="#doip" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VIN</p></td>
+<td><p>Vehicle Identification Number</p></td>
+<td><p>车辆识别号 (Vehicle Identification Number)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EID</p></td>
+<td><p>Entity Identifier</p></td>
+<td><p>实体标识符 (Entity Identifier)</p></td>
+</tr>
+<tr class="row-even"><td><p>GID</p></td>
+<td><p>Group Identifier</p></td>
+<td><p>组标识符 (Group Identifier)</p></td>
+</tr>
+<tr class="row-odd"><td><p>LA</p></td>
+<td><p>Logic Address</p></td>
+<td><p>DoIP 实体的逻辑地址 (Logical address of the DoIP Entity)</p></td>
+</tr>
+<tr class="row-even"><td><p>SA</p></td>
+<td><p>Source Address</p></td>
+<td><p>用于标识 DoIP 消息是从哪个DoIP 实体发出的 (Used to identify which DoIP entity the DoIP message is emitted from)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TA</p></td>
+<td><p>Target Address</p></td>
+<td><p>用于标识将DoIP消息发送给哪个DoIP 实体 (To identify which DoIP entity the DoIP message is sent to)</p></td>
+</tr>
+<tr class="row-even"><td><p>Tester</p></td>
+<td></td>
+<td><p>运行有 DoIP 客户端的 DoIP实体 (Entities with DoIP client running)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PDU</p></td>
+<td><p>Protocol Data Unit</p></td>
+<td><p>协议数据单元 (Protocol Data Unit)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR</p></td>
+<td><p>PDU Router</p></td>
+<td><p>PDU路由模块，Autosar中的一个功能模块 (PDU Routing Module, a functional module in Autosar)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTE</p></td>
+<td><p>Runtime Environment</p></td>
+<td><p>运行时环境，Autosar中的一个功能模块 (Runtime environment, a functionality module in Autosar)</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>Socket Adapter</p></td>
+<td><p>套接字适配器，Autosar中的一个功能模块 (Socket Adapter, a functional module in Autosar)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCM</p></td>
+<td><p>Diagnostic CommunicationManager</p></td>
+<td><p>诊断控制管理，Autosar中的一个功能模块 (Diagnostic Control Management, a functional module in Autosar)</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN</p></td>
+<td><p>Controller Area Network</p></td>
+<td><p>控制器局域网总线 (Controller Area Network bus)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECU</p></td>
+<td><p>Electronic Control Unit</p></td>
+<td><p>行车电脑 (Onboard Computer)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doip-doip-module-hierarchical-diagram">
+<img alt="DoIP模块层次图 (DoIP Module Hierarchical Diagram)" src="../../_images/image159.png" />
+</figure>
+<p>DoIP模块用于外部诊断设备与内部ECU之间基于IP（TCP或UDP）的诊断通讯，主要实现了ISO13400-2规范规定的传输层的协议功能。DoIP在AUTOSAR架构处于SoAd模块与PduR模块之间（图 ）。SoAd向DoIP提供IP地址的获取与释放、SocketConnection的创建与通知功能。DoIP向SoAd提供接收与发送的API用于数据的传输。PduR模块提供和其它上层模块的路由功能，保证DoIP和上层模块（DCM或其它TP模块）的数据交互。</p>
+<p>The DoIP module is used for diagnostic communications between external diagnostic devices and internal ECUs based on IP (TCP or UDP), primarily implementing the protocol functions specified in the transmission layer of ISO13400-2 norm. In the AUTOSAR architecture, DoIP lies between the SoAd module and the PduR module (see figure). The SoAd provides DoIP with functionalities for obtaining and releasing IP addresses, creating and notifying SocketConnections. DoIP offers to SoAd APIs for receiving and sending data used in transmission. The PduR module provides routing functions to other upper-layer modules, ensuring data interaction between DoIP and upper-layer modules (DCM or other TP modules).</p>
+<p>DoIP实现了以下功能：</p>
+<p>DoIP implements the following functions:</p>
+<ol class="arabic simple">
+<li><p>车辆通告和车辆发现；</p></li>
+</ol>
+<p>Vehicle announcements and vehicle discoveries;</p>
+<ol class="arabic simple" start="2">
+<li><p>车辆基本信息检索；</p></li>
+</ol>
+<p>Vehicle basic information retrieval;</p>
+<ol class="arabic simple" start="3">
+<li><p>连接状态建立、维持以及车辆网关控制；</p></li>
+</ol>
+<p>Connection state establishment, maintenance, and vehicle gateway control;</p>
+<ol class="arabic simple" start="4">
+<li><p>诊断数据路由；</p></li>
+</ol>
+<p>Diagnose data routing;</p>
+<ol class="arabic simple" start="5">
+<li><p>网络错误状态处理。</p></li>
+</ol>
+<p>Network error status handling.</p>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] ISO-13400，2012</p>
+<p>[2] AUTOSAR_SWS_DiagnosticOverIP，R19-11</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="vehicle-announcements-and-vehicle-discovery-functions">
+<h3>车辆通告和车辆发现功能 (Vehicle announcements and vehicle discovery functions)<a class="headerlink" href="#vehicle-announcements-and-vehicle-discovery-functions" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="introduction-to-vehicle-announcements-and-vehicle-discovery-functions">
+<h2>车辆通告和车辆发现功能介绍 (Introduction to Vehicle Announcements and Vehicle Discovery Functions)<a class="headerlink" href="#introduction-to-vehicle-announcements-and-vehicle-discovery-functions" title="Link to this heading">¶</a></h2>
+<p>车辆通告和车辆发现功能用于Tester端发现已经建立IP连接的DoIP节点。通常DoIP节点的IP地址分配成功后会发出vehicle announcement报文，用于通告自己的LA、VIN、EID、GID等信息。如果Tester端没有及时收到(Tester在DoIP启动后才连接到网络)DoIP节点的车辆通告报文，会通过主动发送vehicle identification报文获取DoIP节点的上述信息。</p>
+<p>Vehicle announcements and vehicle discovery functionalities are used by Tester end to discover established IP-connected DoIP nodes. Typically, after the IP address allocation of a DoIP node is successful, it sends a vehicle announcement message to announce its LA, VIN, EID, GID, etc. If the Tester end fails to receive the vehicle announcement message from the DoIP node in time (meaning the Tester connects to the network only after DoIP startup), it will actively send a vehicle identification message to obtain the aforementioned information of the DoIP node.</p>
+</section>
+<section id="vehicle-announcements-and-vehicle-discovery-features-implemented">
+<h2>车辆通告和车辆发现功能实现 (Vehicle announcements and vehicle discovery features implemented)<a class="headerlink" href="#vehicle-announcements-and-vehicle-discovery-features-implemented" title="Link to this heading">¶</a></h2>
+<p>车辆通告和车辆发现功能基于 UDP 协议实现。</p>
+<p>The vehicle announcement and vehicle discovery features are implemented based on the UDP protocol.</p>
+<p>车辆通告。当网络可用时，SoAd会调用DoIP_SoConModeChg告知DoIP，DoIP在DoIP_SoConModeChg设置应该发送车辆通告消息相关标志，在DoIP_MainFunction调用SoAd_IfTransmit发送车辆通告消息。</p>
+<p>Vehicle announcement. When the network is available, SoAd will invoke DoIP_SoConModeChg to inform DoIP. In DoIP_SoConModeChg, DoIP sets the relevant flags for sending vehicle announcement messages. Then, in DoIP_MainFunction, SoAd_IfTransmit is called to send the vehicle announcement messages.</p>
+<p>车辆发现。SoAd会调用DoIP_SoAdIfRxIndication告知DoIP收到vehicle identification消息，DoIP在DoIP_SoAdIfRxIndication处理收到的相关消息，并调用SoAd_IfTransmit发送响应报文。</p>
+<p>Vehicle discovery. SoAd will call DoIP_SoAdIfRxIndication to inform DoIP of receiving a vehicle identification message. DoIP processes the received messages in DoIP_SoAdIfRxIndication and calls SoAd_IfTransmit to send a response message.</p>
+<section id="vehicle-basic-information-retrieval-function">
+<h3>车辆基本信息检索功能 (Vehicle basic information retrieval function)<a class="headerlink" href="#vehicle-basic-information-retrieval-function" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="introduction-to-vehicle-basic-information-retrieval-function">
+<h2>车辆基本信息检索功能介绍 (Introduction to Vehicle Basic Information Retrieval Function)<a class="headerlink" href="#introduction-to-vehicle-basic-information-retrieval-function" title="Link to this heading">¶</a></h2>
+<p>车辆检索，用于外部诊断设备通过0x4001、0x4003指令向DoIP节点检索当前节点的节点类型、最大同时可连接TCP socket数量、当前连接的TCP socket数量、最大可支持的数据长度、当前电源状态等信息。</p>
+<p>Vehicle retrieval is used for external diagnostic devices to retrieve current node information such as node type, maximum number of concurrent TCP sockets, current number of connected TCP sockets, maximum supported data length, and current power state via DoIP nodes using 0x4001 and 0x4003 commands.</p>
+</section>
+<section id="vehicle-basic-information-retrieval-function-implementation">
+<h2>车辆基本信息检索功能实现 (Vehicle basic information retrieval function implementation)<a class="headerlink" href="#vehicle-basic-information-retrieval-function-implementation" title="Link to this heading">¶</a></h2>
+<p>车辆检索功能基于UDP协议实现，接收到0x4001、0x4003报文后进入DoIP_SoAdIfRxIndication()进行处理，同步构造响应报文并通过SoAd_IfTransmit() 发送响应报文。</p>
+<p>The vehicle search function is implemented based on the UDP protocol. After receiving 0x4001 and 0x4003 messages, it enters DoIP_SoAdIfRxIndication() for processing, synchronously constructs a response message, and sends the response message through SoAd_IfTransmit().</p>
+<section id="connection-status-establishment-maintenance-functionality">
+<h3>连接状态建立、维持功能 (Connection status establishment, maintenance functionality)<a class="headerlink" href="#connection-status-establishment-maintenance-functionality" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="connection-status-establishment-and-maintenance-function-introduction">
+<h2>连接状态建立、维持功能介绍 (Connection status establishment and maintenance function introduction)<a class="headerlink" href="#connection-status-establishment-and-maintenance-function-introduction" title="Link to this heading">¶</a></h2>
+<p>连接状态建立、维持功能用建立TCP 连接与维持，DoIP通过路由激活请求注册TCP连接，通过存活检测机制来维持连接状态。</p>
+<p>Connection state establishment and maintenance functions use establishing and maintaining TCP connections, with DoIP activating requests to register TCP connections through routing and maintaining the connection state via survival detection mechanisms.</p>
+</section>
+<section id="connection-status-establishment-maintenance-function-implementation">
+<h2>连接状态建立、维持功能实现 (Connection status establishment, maintenance function implementation)<a class="headerlink" href="#connection-status-establishment-maintenance-function-implementation" title="Link to this heading">¶</a></h2>
+<p>当DoIP_SoConModeChg指示当前套接字状态切换为SOAD_SOCON_ONLINE时，将由DoIP维持一个套接字连接资源池，并开始启动initial inactivity timer，如果超时时间内未完成路由激活注册，将在套接字资源池中清除对应套接字，并通知SoAd模块关闭套接字。如果在超时时间内接收到路由激活请求并满足注册条件，则停止initial inactivity timer计时并开始general inactivity timer计时，此后就可以基于该套接字进行诊断报文的传输了。每当通过该套接字收发了数据，都会重置general inactivity timer。</p>
+<p>When the DoIP_SoConModeChg indicates that the current socket state has switched to SOAD_SOCON_ONLINE, DoIP will maintain a socket connection resource pool and start the initial inactivity timer. If the route activation registration is not completed within the timeout period, the corresponding socket will be cleared from the socket resource pool, and SoAd module will be notified to close the socket. If a route activation request is received and meets the registration conditions within the timeout period, the initial inactivity timer counting will be stopped, and the general inactivity timer will start. After that, diagnostic messages can be transmitted based on this socket. Whenever data is sent or received through this socket, the general inactivity timer will be reset.</p>
+<section id="diagnostic-data-routing-function">
+<h3>诊断数据路由功能 (Diagnostic Data Routing Function)<a class="headerlink" href="#diagnostic-data-routing-function" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="introduction-to-diagnostic-data-routing-function">
+<h2>诊断数据路由功能介绍 (Introduction to Diagnostic Data Routing Function)<a class="headerlink" href="#introduction-to-diagnostic-data-routing-function" title="Link to this heading">¶</a></h2>
+<p>通过DoIP传递的诊断数据通常有两种形式，一种是通过DoIP传递给其它ECU节点，此时DoIP节点作为网关节点，实现诊断报文的路由功能，另一种则是传递给DoIP节点本身。</p>
+<p>Diagnostic data transmitted via DoIP typically takes two forms: one where the DoIP node acts as a gateway node to route diagnostic messages to other ECU nodes, and another where it is transmitted to the DoIP node itself.</p>
+</section>
+<section id="diagnostic-data-routing-functionality-implementation">
+<h2>诊断数据路由功能实现 (Diagnostic data routing functionality implementation)<a class="headerlink" href="#diagnostic-data-routing-functionality-implementation" title="Link to this heading">¶</a></h2>
+<p>如果是通过DoIP将诊断报文传递给其它ECU，则首先通过SA、TA找到PduR中配置好的目的节点，通过PduR的报文路由功能转发给其它节点。</p>
+<p>If diagnostic messages are transmitted to other ECU via DoIP, first find the destination node pre-configured in PduR through SA and TA, then forward the message using the routing function of PduR to other nodes.</p>
+<p>如果诊断报文是发送给 DoIP 节点本身，同样是通过SA、TA找到PduR中配置的上层目标，并由PduR转发到DCM中进行处理，此时诊断报文接收和发送buffer将由DCM模块提供。</p>
+<p>If the diagnostic message is sent to the DoIP node itself, it is similarly located in PduR's upper-layer target via SA and TA, and then forwarded by PduR to be processed in the DCM. In this case, the diagnostic message reception and transmission buffers will be provided by the DCM module.</p>
+<section id="diagnostic-data-gateway-function">
+<h3>诊断数据网关功能 (      Diagnostic Data Gateway Function)<a class="headerlink" href="#diagnostic-data-gateway-function" title="Link to this heading">¶</a></h3>
+<p>DoIP网关支持将诊断报文转发到CAN网络、其它以太网网络。</p>
+<p>DoIP Gateway supports forwarding diagnostic messages to CAN network, other Ethernet networks.</p>
+</section>
+</section>
+<section id="can-ethernet-to-can">
+<h2>以太网转CAN (Ethernet to CAN)<a class="headerlink" href="#can-ethernet-to-can" title="Link to this heading">¶</a></h2>
+<p>DoIP网关到CAN诊断节点。Tester发出的诊断请求通过以太网传递到DoIP网关，DoIP网关通过TA得到目标节点，将诊断请求通过PduR转发到CAN总线。</p>
+<p>DoIP gateway to CAN diagnostic node. The diagnosis request sent by Tester is transmitted via Ethernet to the DoIP gateway, which then obtains the target node through TA and forwards the diagnosis request via PduR to the CAN bus.</p>
+</section>
+<section id="ethernet-to-ethernet">
+<h2>以太网转以太网 (Ethernet to Ethernet)<a class="headerlink" href="#ethernet-to-ethernet" title="Link to this heading">¶</a></h2>
+<p>DoIP网关到Eth诊断节点。Tester发出的诊断请求通过以太网传递到DoIP网关，DoIP网关通过TA得到目标诊断节点，将诊断请求通过PduR转发到Eth。</p>
+<p>DoIP gateway to Eth diagnostic node. The diagnosis request sent by Tester is transmitted via Ethernet to the DoIP gateway, which, through TA, obtains the target diagnostic node and forwards the diagnosis request via PduR to Eth.</p>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 DoIP组件文件描述 (Table Description of DoIP Component Files)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIP_Cfg.h</p></td>
+<td><p>定义DoIP模块预编译时用到的配置参数 (Define configuration parameters used during pre-compilation of the DoIP module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DoIP_PCCfg.c</p></td>
+<td><p>定义DoIP模块预编译时用到的配置参数 (Define configuration parameters used during pre-compilation of the DoIP module)</p></td>
+</tr>
+<tr class="row-even"><td><p>DoIP_PCCfg.h</p></td>
+<td><p>定义DoIP模块预编译时用到类型 (Define types used in DoIP module preprocessing)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DoIP_PBCfg.c</p></td>
+<td><p>定义DoIP模块链接时用到的配置参数 (Define configuration parameters for linking the DoIP module)</p></td>
+</tr>
+<tr class="row-even"><td><p>DoIP_PBCfg.h</p></td>
+<td><p>定义DoIP模块链接时用到的类型 (Define types used for linking the DoIP module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_DoIP.c</p></td>
+<td><p>定义RTE与DoIP的交互函数 (Define functions for interaction between RTE and DoIP)</p></td>
+</tr>
+<tr class="row-even"><td><p>Rte_DoIP.h</p></td>
+<td><p>定义RTE与DoIP的交互函数的声明 (Declare the functions for the interaction between RTE and DoIP)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_DoIP_Type.h</p></td>
+<td><p>定义RTE与DoIP的交互函数的类型 (Define the type of the interaction functions between RTE and DoIP)</p></td>
+</tr>
+<tr class="row-even"><td><p>DoIP.h</p></td>
+<td><p>提供API函数的扩展声明，定义必要数据结构 (Provide extended declarations for API functions, define necessary data structures)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DoIP.c</p></td>
+<td><p>实现 API (Implement API)</p></td>
+</tr>
+<tr class="row-even"><td><p>DoIP_Internal.c</p></td>
+<td><p>内部函数源文件 (Internal function source files)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DoIP_Cbk.h</p></td>
+<td><p>提供SoAd调用的API函数的声明 (Declare API functions for SoAd call)</p></td>
+</tr>
+<tr class="row-even"><td><p>DOIP_Internal.h</p></td>
+<td><p>内部变量和数据结构的定义 (Definition of internal variables and data structures)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DoIP_Types.h</p></td>
+<td><p>类型定义文件 (Type definition file)</p></td>
+</tr>
+<tr class="row-even"><td><p>DoIP_MemMap.h</p></td>
+<td><p>内存分布文件 (Memory Distribution File)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="doip-doip-module-file-structure-diagram">
+<img alt="DoIP模块文件结构图 (DoIP Module File Structure Diagram)" src="../../_images/image234.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="doip-configtype-doip-configtype-configuration-type-definition">
+<h2>DoIP_ConfigType类型定义 (DoIP_ConfigType Configuration Type Definition)<a class="headerlink" href="#doip-configtype-doip-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>DoIP_ConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>Implementation specific</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>DoIP 配置结构体类型定义 (DoIP Configuration Structure Types Defined)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-powerstatetype-doip-powerstatetype-type-definition">
+<h2>DoIP_PowerStateType类型定义 (DoIP_PowerStateType type definition)<a class="headerlink" href="#doip-powerstatetype-doip-powerstatetype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>DoIP_PowerStateType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>DOIP_NOT_READYDOIP_READY</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DOIP_NOT_SUPPORTED</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>DoIP 电源状态类型定义 (Definition of DoIP Power Status Type)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-activationlinetype-doip-activation-line-type-definition">
+<h2>DoIP_ActivationLineType类型定义 (DoIP Activation Line Type definition)<a class="headerlink" href="#doip-activationlinetype-doip-activation-line-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>DoIP_ActivationLineType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>DOIP_ACTIVATION_LINE_ACTIVE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DOIP_ACTIVATION_LINE_INACTIVE</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>激活线状态 (Activate Line State)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipnodetype-definition-of-doipnodetype-type">
+<h2>DoIPNodeType类型定义 (Definition of DoIPNodeType type)<a class="headerlink" href="#doipnodetype-definition-of-doipnodetype-type" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>DoIPNodeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>DOIP_GATEWAY</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DOIP_NODE</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>DoIP 节点类型 (DoIP Node Type)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dcm</p></td>
+<td><p>Dcm_GetVin</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PduR_DoIPTpCopyRxData</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR</p></td>
+<td><p>PduR_DoIPTpCopyTxData</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PduR_DoIPTpRxIndication</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR</p></td>
+<td><p>PduR_DoIPTpStartOfReception</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR</p></td>
+<td><p>PduR_DoIPTpTxConfirmation</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>SoAd_CloseSoCon</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAd</p></td>
+<td><p>SoAd_GetLocalAddr</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>SoAd_GetPhysAddr</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAd</p></td>
+<td><p>SoAd_GetRemoteAddr</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>SoAd_GetSoConId</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAd</p></td>
+<td><p>SoAd_IfTransmit</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>SoAd_OpenSoCon</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAd</p></td>
+<td><p>SoAd_ReleaseIpAddrAssignment</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>SoAd_RequestIpAddrAssignment</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAd</p></td>
+<td><p>SoAd_TpCancelReceive</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAd</p></td>
+<td><p>SoAd_TpCancelTransmit</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAd</p></td>
+<td><p>SoAd_TpTransmit</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="doip-init-the-doip-init-function-defines">
+<h2>DoIP_Init函数定义 (The DoIP_Init function defines)<a class="headerlink" href="#doip-init-the-doip-init-function-defines" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void DoIP_Init (constDoIP_ConfigType*DoIPConfigPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>DoIPConfigPtr：配置结构体指针 (DoIPConfigPtr：Pointer to Configuration Structure)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>初始化 DoIP (Initialize DoIP)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-activationlineswitch-the-doip-activationlineswitch-function-definition">
+<h2>DoIP_ActivationLineSwitch函数定义 (The DoIP_ActivationLineSwitch function definition)<a class="headerlink" href="#doip-activationlineswitch-the-doip-activationlineswitch-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_ActivationLineSwitch</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_ActivationLineSwitch(boolean*active)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0e</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数 (Input parameters)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>active：通知激活线状态发生改变；返回调用结果 (active: Notify of activation line status change; return call result)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>通知DoIP外部激活线状态发生改变 (Notification DoIP external activation line status changed)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soconmodechg-function-definition-for-doip-soconmodechg">
+<h2>DoIP_SoConModeChg函数定义 (function definition for DoIP_SoConModeChg)<a class="headerlink" href="#doip-soconmodechg-function-definition-for-doip-soconmodechg" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoConModeChg</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_SoConModeChg(SoAd_SoConIdTypeSoConId,SoAd_SoConModeTypeMode )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>对不同的SoConId可重入 (Reentrant for different SoConId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>SoConId：套接字ID (SoConId：Socket ID)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Mode：套接字状态 (Mode：Socket Status)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>SOAD_SOCON_ONLINESOAD_SOCON_RECONNECT</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>SOAD_SOCON_OFFLINE</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>由 SoAd调用，通知DoIP套接字连接状态发生改变 (Triggered by SoAd, notification of DoIP socket connection state change)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-localipaddrassignmentchg-the-doip-localipaddrassignmentchg-function-definition">
+<h2>DoIP_LocalIpAddrAssignmentChg函数定义 (The DoIP_LocalIpAddrAssignmentChg function definition)<a class="headerlink" href="#doip-localipaddrassignmentchg-the-doip-localipaddrassignmentchg-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_LocalIpAddrAssignmentChg</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_LocalIpAddrAssignmentChg(SoAd_SoConIdTypeSoConId,TcpIp_IpAddrStateTypeState )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同 SoConId可重入 (Different SoConId Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>SoConId：套接字连接ID (SoConId: Socket Connection ID)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>State：分配的IP地址状态 (State: Status of Assigned IP Address)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…255</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>由 SoAd调用，通知 DoIPIP地址分配状态发生改变 (Triggered by SoAd, notifying DoIPIP address allocation status change)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadifrxindication-the-function-definition-for-doip-soadifrxindication">
+<h2>DoIP_SoAdIfRxIndication函数定义 (The function definition for DoIP_SoAdIfRxIndication)<a class="headerlink" href="#doip-soadifrxindication-the-function-definition-for-doip-soadifrxindication" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdIfRxIndication</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_SoAdIfRxIndication(PduIdTypeRxPduId,constPduInfoType*PduInfoPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x42</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同SoConId可重入 (Different SoConId can re-enter.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>RxPduId：用于接收的PduId (RxPduId：Used for receiving PduId)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr：包含数据、数据长度、metadata的指针 (PduInfoPtr：pointer containing data, data length, and metadata)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>由 SoAd调用，用于UDP报文的接收 (Called by SoAd for receiving UDP messages)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadtpstartofreception-the-function-definition-for-doip-soadtpstartofreception">
+<h2>DoIP_SoAdTpStartOfReception函数定义 (The function definition for DoIP_SoAdTpStartOfReception)<a class="headerlink" href="#doip-soadtpstartofreception-the-function-definition-for-doip-soadtpstartofreception" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdTpStartOfReception</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>BufReq_ReturnTypeDoIP_SoAdTpStartOfReception(PduIdType id,constPduInfoType*info,PduLengthTypeTpSduLength,PduLengthType*bufferSizePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x46</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Id：用于接收的PduId (Id：PDuId for reception)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info：包含数据、数据长度、metadata的指针 (info: contains data, data length, pointer to metadata)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TpSduLength：要接收的 SDU长度 (TpSduLength：The length of the SDU to receive)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>bufferSizePtr：用于接收的buffer 大小的指针 (bufferSizePtr：Pointer for the buffer size to be received)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>BufReq_ReturnType：</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BUFREQ_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BUFREQ_E_NOT_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BUFREQ_E_OVFL</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>接收 TCP消息时，SoAd通过此函数获取DoIP的接收能力，此时TpSduLength应为0 (When receiving TCP messages, SoAd acquires DoIP's reception capability through this function, at which point TpSduLength should be 0.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadtpcopyrxdata-function-definition-for-doip-soadtpcopyrxdata">
+<h2>DoIP_SoAdTpCopyRxData函数定义 (function definition for DoIP_SoAdTpCopyRxData)<a class="headerlink" href="#doip-soadtpcopyrxdata-function-definition-for-doip-soadtpcopyrxdata" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdTpCopyRxData</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>BufReq_ReturnTypeDoIP_SoAdTpCopyRxData( PduIdType id,constPduInfoType*info,PduLengthType*bufferSizePtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x44</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Id：用于接收的PduId (Id：PDuId for reception)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info：包含数据、数据长度、metadata的指针 (info: contains data, data length, pointer to metadata)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>bufferSizePtr：用于接收的buffer 大小的指针 (bufferSizePtr：Pointer for the buffer size to be received)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>BufReq_ReturnType：</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BUFREQ_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BUFREQ_E_NOT_OK</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>SoAd 用于向 DoIP传递 TCP 数据 (SoAd is used for transmitting TCP data to DoIP.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-tpcancelreceive-doip-tpcancelreceive-function-definition">
+<h2>DoIP_TpCancelReceive函数定义 (DOIP_TpCancelReceive function definition)<a class="headerlink" href="#doip-tpcancelreceive-doip-tpcancelreceive-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_TpCancelReceive</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeDoIP_TpCancelReceive( PduIdTypeRxPduId )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x4c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>RxPduId：用于接收的PduId (RxPduId：Used for receiving PduId)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK：取消接收成功E_NOT_OK：取消接收失败 (E_OK: Cancel reception succeeded E_NOT_OK: Cancel reception failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>取消接收 TP 消息 (Cancel receiving TP messages)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-iftransmit-define-doif-transmit-function">
+<h2>DoIP_IfTransmit函数定义 (Define_DOIF_Transmit_function)<a class="headerlink" href="#doip-iftransmit-define-doif-transmit-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_IfTransmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType DoIP_IfTransmit ( PduIdType TxPduId, const PduInfoType* PduInfoPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x49</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同 PduId不可重入 (Different PduId Not Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId：用于发送的PduId (TxPduId：PduId for transmission)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr：包含PDU长度，数据指针及metadata指针 (PduInfoPtr: contains PDU length, data pointer and metadata pointer)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK：允许发送 E_NOT_OK：不允许发送 (E_OK: Allow sending E_NOT_OK: Disallow sending)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>发送 IF PDU (Send IF PDU)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-tptransmit-define-of-doip-tptransmit-function">
+<h2>DoIP_TpTransmit函数定义 (Define of DoIP_TpTransmit function)<a class="headerlink" href="#doip-tptransmit-define-of-doip-tptransmit-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_TpTransmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType DoIP_TpTransmit ( PduIdType TxPduId, const PduInfoType* PduInfoPtr )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x53</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同 PduId不可重入 (Different PduId Not Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId：用于发送的PduId (TxPduId：PduId for transmission)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduInfoPtr：包含PDU长度，数据指针及metadata指针 (PduInfoPtr: contains PDU length, data pointer and metadata pointer)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK：允许发送 E_NOT_OK：不允许发送 (E_OK: Allow sending E_NOT_OK: Disallow sending)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>发送 IF PDU (Send IF PDU)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-ifcanceltransmit-definefunction-doip-ifcanceltransmit">
+<h2>DoIP_IfCancelTransmit函数定义 (DefineFunction_DoIP_IfCancelTransmit)<a class="headerlink" href="#doip-ifcanceltransmit-definefunction-doip-ifcanceltransmit" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_IfCancelTransmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeDoIP_IfCancelTransmit( PduIdTypeTxPduId )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x4a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同 PduId 可重入 (Different PduId Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId：用于发送的PduId (TxPduId：PduId for transmission)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK：取消发送成功E_NOT_OK：取消发送失败 (E_OK：Cancel send succeeded E_NOT_OK：Cancel send failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>取消发送 IF PDU (Cancel Send IF PDU)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-tpcanceltransmit-the-doip-tpcanceltransmit-function-definition">
+<h2>DoIP_TpCancelTransmit函数定义 (The DoIP_TpCancelTransmit function definition)<a class="headerlink" href="#doip-tpcanceltransmit-the-doip-tpcanceltransmit-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_TpCancelTransmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeDoIP_TpCancelTransmit( PduIdTypeTxPduId )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x54</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同 PduId 可重入 (Different PduId Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId：用于发送的PduId (TxPduId：PduId for transmission)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK：取消发送成功E_NOT_OK：取消发送失败 (E_OK：Cancel send succeeded E_NOT_OK：Cancel send failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>取消发送 TP PDU (Cancel sending TP PDU)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadtpcopytxdata-the-function-definition-for-doip-soadtpcopytxdata">
+<h2>DoIP_SoAdTpCopyTxData函数定义 (The function definition for DoIP_SoAdTpCopyTxData)<a class="headerlink" href="#doip-soadtpcopytxdata-the-function-definition-for-doip-soadtpcopytxdata" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdTpCopyTxData</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>BufReq_ReturnTypeDoIP_SoAdTpCopyTxData( PduIdType id,constPduInfoType*info, constRetryInfoType*retry,PduLengthType*availableDataPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x43</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id：用于发送的PduId (id：PduId for sending)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Info：包含PDU长度，数据指针及metadata指针 (Info: Includes PDU length, data pointer, and metadata pointer)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Retry：重试发送 (Retry: Retry sending)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数</p></td>
+<td><p>availableDataPtr：用于通知SoAd 剩余buffer大小 (availableDataPtr:用于通知SoAd剩余buffer大小)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>BUFREQ_OK：拷贝数据成功 (BUFREQ_OK: Data copy successful)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BUFREQ_E_BUSY：通知SoAd稍后再次拷贝数据 (BUFREQ_E_BUSY: Notify SoAd to retry data copy later)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BUFREQ_E_NOT_OK：拷贝数据失败 (BUFREQ_E_NOT_OK: Data copy failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>SoAd 从 DoIP拷贝用于发送的数据 (SoAd Copies Data for Sending from DoIP)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadtptxconfirmation-the-doip-soadtptxconfirmation-function-definition">
+<h2>DoIP_SoAdTpTxConfirmation函数定义 (The DoIP_SoAdTpTxConfirmation function definition)<a class="headerlink" href="#doip-soadtptxconfirmation-the-doip-soadtptxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdTpTxConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_SoAdTpTxConfirmation(PduIdType id,Std_ReturnTyperesult )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x48</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Id：用于发送的PduId (Id：PduId for sending)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Result：发送结果 (Result：Sending Result)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK/E_NOT_OK</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>SoAd 用于向 DoIP通知发送结果 (SoAd is used for sending results to DoIP notification.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadiftxconfirmation-the-function-definition-for-doip-soadiftxconfirmation">
+<h2>DoIP_SoAdIfTxConfirmation函数定义 (The function definition for DoIP_SoAdIfTxConfirmation)<a class="headerlink" href="#doip-soadiftxconfirmation-the-function-definition-for-doip-soadiftxconfirmation" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdIfTxConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_SoAdIfTxConfirmation(PduIdTypeTxPduId,Std_ReturnTyperesult)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x40</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>相同 PduId不可重入 (Same PduId Not Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId:用于发送的PduId (TxPduId: Used for sending PduId)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Result: 发送结果 (Result: Send Result)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK/E_NOT_OK</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>SoAd 用于向 DoIP通知发送结果 (SoAd is used for sending results to DoIP notification.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-soadtprxindication-doip-soadtprxindication-function-definition">
+<h2>DoIP_SoAdTpRxIndication函数定义 (DOIP_SoAdTpRxIndication function definition)<a class="headerlink" href="#doip-soadtprxindication-doip-soadtprxindication-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_SoAdTpRxIndication</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidDoIP_SoAdTpRxIndication(PduIdType id,Std_ReturnTyperesult )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x45</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Id：用于发送的PduId (Id：PduId for sending)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0…65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Result：发送结果 (Result：Sending Result)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK/E_NOT_OK</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>SoAd 用于向 DoIP通知接收结果 (SoAd is used to notify the reception result via DoIP.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-mainfunction-doip-mainfunction-function-definition">
+<h2>DoIP_MainFunction函数定义 (DoIP_MainFunction function definition)<a class="headerlink" href="#doip-mainfunction-doip-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_MainFunction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void DoIP_MainFunction ( void )</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>DoIP 周期性调用函数 (Periodic Call Function)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doip-mainfunction-highfrequency-doip-mainfunction-highfrequency-function-definition">
+<h2>DoIP_MainFunction_HighFrequency函数定义 (DoIP_MainFunction_HighFrequency function definition)<a class="headerlink" href="#doip-mainfunction-highfrequency-doip-mainfunction-highfrequency-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>DoIP_MainFunction_HighFrequency</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void DoIP_MainFunction_HighFrequency (void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x02</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>处理 DoIP 中一些需要高频调用的任务 (Handle tasks that require frequent calls in DoIP)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="user-doipgetpowermodecallback">
+<h2>&lt;User&gt;_DoIPGetPowerModeCallback<a class="headerlink" href="#user-doipgetpowermodecallback" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;User&gt;_DoIPGetPowerModeCallback</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;User&gt;_DoIPGetPowerModeCallback(DoIP_PowerStateType*PowerStateReady)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>PowerStateReady</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>返回值为 E_OK 时有效 (Valid when the return value is E_OK)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK： PowerStateReady有效 (E_OK: PowerStateReady Valid)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>E_NOT_OK：PowerStateReady无效 (E_NOT_OK: PowerStateReady Invalid)</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>DoIP调用该函数获取电源模式 (DoIP invokes this function to obtain power mode)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-doiproutingactivationconfirmation">
+<h2>&lt;User&gt;_DoIPRoutingActivationConfirmation<a class="headerlink" href="#user-doiproutingactivationconfirmation" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;User&gt;_DoIPRoutingActivationConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;User&gt;_DoIPRoutingActivationConfirmation( boolean*Confirmed,const uint8*ConfirmationReqData,uint8*ConfirmationResData)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步/异步 (Synchronous/Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ConfirmationReqData</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>当DoIPRoutingActivationConfirmationReqLength不为 0 时有效。 (When DoIPRoutingActivationConfirmationReqLength is not 0, valid.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>Confirmed</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>返回值为 E_OK 时有效 (Valid when the return value is E_OK)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ConfirmationResData</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>返回值为 E_OK 时有效 (Valid when the return value is E_OK)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK：Confirmed、ConfirmationResData有效 (E_OK: Confirmed, ConfirmationResData Valid)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>DOIP_E_PENDING：确认未完成 (DOIP_E_PENDING：Confirmation Not Completed)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>E_NOT_OK：Confirmed、ConfirmationResData无效 (E_NOT_OK: Confirmed, ConfirmationResData Invalid)</p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>路由激活回调函数 (Routing activation callback function)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-doiproutingactivationauthentication">
+<h2>&lt;User&gt;_DoIPRoutingActivationAuthentication<a class="headerlink" href="#user-doiproutingactivationauthentication" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;User&gt;_DoIPRoutingActivationAuthentication</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;User&gt;_DoIPRoutingActivatinAuthentication(boolean*Authentified,const uint8*AuthenticationReqData,uint8*AuthenticationResData)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步/异步 (Synchronous/Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>AuthenticationReqData</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>当DoIPRoutingActivationAuthenticationReqLength不为 0 时使用 (When DoIPRoutingActivationAuthenticationReqLength is not 0, use it.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>Authentified</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>返回值为 E_OK 时有效 (Valid when the return value is E_OK)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AuthenticationResData</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>返回值为 E_OK 时有效 (Valid when the return value is E_OK)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK：Confirmed、ConfirmationResData 有效DOIP_E_PENDING：认证未完成 (E_OK: Confirmed, ConfirmationResData Valid DOIP_E_PENDING: Authentication Not Completed)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>E_NOT_OK：Confirmed、ConfirmationResData 无效 (E_NOT_OK: Confirmed, ConfirmationResData Invalid)</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>路由激活回调函数 (Routing activation callback function)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-doiptriggergidsynccallback">
+<h2>&lt;User&gt;_DoIPTriggerGidSyncCallback<a class="headerlink" href="#user-doiptriggergidsynccallback" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;User&gt;_DoIPTriggerGidSyncCallback</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;User&gt;_DoIPTriggerGidSyncCallback(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步/异步 (Synchronous/Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK：触发 GID 同步成功E_NOT_OK：触发 GID 同步失败 (E_OK: Triggered GID synchronization successful E_NOT_OK: Triggered GID synchronization failed)</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>触发 GID 同步 (Trigger GID Synchronization)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-doipgetgidcallback">
+<h2>&lt;User&gt;_DoIPGetGidCallback<a class="headerlink" href="#user-doipgetgidcallback" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;User&gt;_DoIPGetGidCallback</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;User&gt;_DoIPGetGidCallback( uint8*GroupId )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步/异步 (Synchronous/Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>GroupId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK： GroupId 有效E_NOT_OK： GroupId 无效 (E_OK: GroupId Valid E_NOT_OK: GroupId Invalid)</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取 GID (Get GID)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="user-doipgetfurtheractionbytecallback">
+<h2>&lt;User&gt;_DoIPGetFurtherActionByteCallback<a class="headerlink" href="#user-doipgetfurtheractionbytecallback" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;User&gt;_DoIPGetFurtherActionByteCallback</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;User&gt;_DoIPGetFurtherActionByteCallback(DoIP_FurtherActionByteType*FurtherActionByte)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>FurtherActionByte</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>返回值为 E_OK 时有效 (Valid when the return value is E_OK)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>E_OK：FurtherActionByte 有效E_NOT_OK：FurtherActionByte 无效 (E_OK: FurtherActionByte Valid E_NOT_OK: FurtherActionByte Invalid)</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取OEM特定的DoIP车辆识别响应/车辆公告的进一步行动字节 (Further action bytes for OEM-specific DoIP vehicle identification response/vehicle bulletin)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="doipgeneral">
+<h3>DoIPGeneral<a class="headerlink" href="#doipgeneral" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doipgeneral-doipgeneral-configuration">
+<img alt="DoIPGeneral配置 (DoIPGeneral Configuration)" src="../../_images/image325.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPGeneral配置 (Table DoIPGeneral Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPDevelopmentErrorDetect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>Det开关。 (Det switch.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPDhcpOptionVinUse</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>如果DoIPDhcpOptionVinUse设置为true，如果没有设置有效的Dhcp主机名，DoIP模块将在Dhcp主机名中添加VIN。 (If DoIPDhcpOptionVinUse is set to true and an effective DHCP hostname is not set, the DoIP module will add the VIN to the DHCP hostname.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPEntityStatusMaxByteFieldUse</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否在诊断实体响应消息中携带最大接收数据大小。 (Is the maximum receive buffer size carried in the diagnostic entity response message?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPGIDInvalidityPattern</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定在无法检索到有效GID时用于响应消息的字节模式。 (Specify the byte pattern to be used in response messages when valid GID cannot be retrieved.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPHostNameSizeMax</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>5..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DHCP主机名的ASCII码最大值。 (Maximum ASCII value of DHCP hostname.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPMainFunctionPeriod</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4294967295(不能为0) (0..4294967295 (cannot be 0))</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.01s</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP_MainFunction()调度周期。 (DoIP_MainFunction() scheduling period.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPMaxRequestBytes</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP除开DoIP头的数据字段的最大允许长度。 (The maximum allowed length of the data field excluding the DoIP header.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPMaxResponseBytes</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP除开DoIP头的数据字段的最大允许长度。 (The maximum allowed length of the data field apart from the DoIP header.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPMaxUDPRequestPerMessage</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>允许一条UDP消息最多携带多少条DoIP请求，目前限定为1。 (How many DoIP requests can a single UDP message carry? It is currently limited to 1.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPNodeType</p></td>
+<td></td>
+<td><p>DOIP_GATEWAY，</p></td>
+<td></td>
+<td><p>DOIP_NODE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td></td>
+<td><p>默认取值 (Default Value)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>DOIP_NODE</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP节点类型。 (DoIP Node Type.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPUseEIDasGID</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使用 EID 作为 GID。 (Is EID used as GID?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPVersionInfoApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否提供 DoIP_GetVersionInfo()   API (Does the DoIP_GetVersionInfo() API provide preservation of line breaks?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPVinGidMaster</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定是否是 GID 的主节点 (Specify whether it is the main node for GID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPVinInvalidityPattern</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>VIN 无效时用于响应消息的字节模式。 (Byte pattern used for response messages when the VIN is invalid.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPTpQueueBufferSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4095</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP TP诊断消息的buffer大小。 (Buffer size for DoIP TP diagnostic messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPTpQueueBufferNum</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP TP诊断消息的buffer个数。 (Buffer count for DoIP TP Diagnostic Messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPIfQueueBufferSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4095</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP IF消息的buffer大小。 (Buffer size for DoIP IF messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPIfQueueBufferNum</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP IF消息的buffer个数。 (Buffer count for DoIP IF messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPNonDiagQueueBufferSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4095</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP TP非诊断消息的buffer大小。 (Buffer size for DoIP TP non-diagnostic messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPNonDiagQueueBufferNum</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP TP非诊断消息的buffer个数。 (Number of buffers for DoIP TP non-diagnostic messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPCtrlTimer</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>2s</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定外部测试设备最多等待 UDP 响应消息的时间。 (Specify the maximum time that the designated external test equipment shall wait for UDP response messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPDiagnosticMessageTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>2s</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定外部测试设备最多等待UDS响应消息的时间。 (Specify the maximum time that external test equipment should wait for UDS response messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPVehicleDiscoveryTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.5s</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定外部测试设备发送车辆识别消息的时间间隔。 (Specify the interval for the external test device to send vehicle identification messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPVehicleConnectionTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>8s</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定外部测试设备连接 DoIP节点的最长时间。 (Specify the longest duration for connecting an external test device to a DoIP node.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPAutoIdentificationRequestTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>2s</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定外部测试设备启动后多长时间发送车辆识别消息。 (Specify how long after starting external test equipment the vehicle identification message is sent.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPHighFrequencyTaskSupport</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否需要在高频任务中处理消息。 (Is message processing required for high-frequency tasks.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPOemSpecSupport</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否支持 OemSpec。 (Does it support OemSpec.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="doipgetgidcallback">
+<h2>DoIPGetGidCallback<a class="headerlink" href="#doipgetgidcallback" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doipgetgidcallback-doipgetgidcallback-configuration">
+<img alt="DoIPGetGidCallback配置 (DoIPGetGidCallback Configuration)" src="../../_images/image419.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPGetGidCallback配置 (Configure DoIPGetGidCallback)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPGetGidDirect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>如果DoIPGetGidDirect参数存在，DoIP模块将直接调用配置的回调函数(DoIPGetGID)。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doippowermodecallback">
+<h2>DoIPPowerModeCallback<a class="headerlink" href="#doippowermodecallback" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doippowermodedirect-doip-power-mode-direct-configuration">
+<img alt="DoIPPowerModeDirect配置 (DoIP Power Mode Direct Configuration)" src="../../_images/image518.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPPowerModeDirect配置 (Table DoIP Power Mode Direct Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPPowerModeDirect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>如果DoIPPowerModeDirect参数存在，DoIP模块将直接调用配置的回调函数(DoIPGetPowerModeCallback)。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doiptriggergidsynccallback">
+<h2>DoIPTriggerGidSyncCallback<a class="headerlink" href="#doiptriggergidsynccallback" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doiptriggergidsyncdirect-doiptriggergidsyncdirect-configuration">
+<img alt="DoIPTriggerGidSyncDirect配置 (DoIPTriggerGidSyncDirect Configuration)" src="../../_images/image618.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPTriggerGidSyncDirect配置 (Table DoIPTriggerGidSyncDirect Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPTriggerGidSyncDirect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>如果DoIPTriggerGidSyncDirect参数存在，DoIP模块将直接调用配置好的回调函数(DoIPTriggerGidSyncCallback)。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="doipconfigset">
+<h3>DoIPConfigSet<a class="headerlink" href="#doipconfigset" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doipconfigset-doip-configset-configuration">
+<img alt="DoIPConfigSet配置 (DoIP ConfigSet Configuration)" src="../../_images/image715.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPConfigSet配置 (Table DoIPConfigSet Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPEid</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..281474976710655</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>配置 EID。 (Configure EID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>DoIPUseMacAdressForIdentification必须设置为False才可配置。 (DoIPUseMacAdressForIdentification must be set to False to configure.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPGid</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..281474976710655</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>配置 GID。 (Configure GID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPLogicalAddress</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP节点的逻辑地址。 (Logical address of the DoIP node.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="doipinterface">
+<h2>DoIPInterface<a class="headerlink" href="#doipinterface" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doipinterface-doip-interface-configuration">
+<img alt="DoIPInterface配置 (DoIP Interface Configuration)" src="../../_images/image814.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPInterface配置 (Table DoIPInterface Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPAliveCheckResponseTimeout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.5s</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>等待存活检测请求的响应的超时时间。 (Timeout duration for responding to keepalive requests.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPGenerallnactivityTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>300s</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>若DoIPGenerallnactivityTime时间内无消息传递，则关闭套接字。 (If no messages are transmitted within DoIPGeneralInactivityTime, close the socket.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPInitialInactivityTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>2s</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在DoIPInitialInactivityTime时间内，外部测试设备应发起路由激活请求。 (During the DoIPInitialInactivityTime period, the external test equipment should initiate a routing activation request.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPInitialVehicleAnnouncementTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.5s</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定 IP地址分配后，发送第一条车辆通知消息的时间。 (Time for sending the first vehicle notification message after the designated IP address is allocated.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPInterfaceActLineCtrl</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>网络接口始终可用(False)/网络接口被激活(True)。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPInterfaceAnnouncementStart</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>DOIP_AUTOMATIC_ANNOUNCE，DOIP_ONTRIGGER_ANNOUNCE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>DOIP_AUTOMATIC_ANNOUNCE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定发送车辆通告消息的形式。 (Specify the form of dispatch vehicle notice messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPInterfaceId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIPInterface的标识符。 (Identifier of the DoIPInterface.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPMaxTesterConnections</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在进行存活检测之前，可以保持的测试仪连接的最大数量。 (The maximum number of tester connections that can be maintained before performing a health check.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPUseMacAddressForIdentification</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否将 MAC 地址作为EID。 (Is the MAC address used as EID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>DoIPEid。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPUseVehicleIdentificationSyncStatus</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>定义是否在车辆标识/公告中额外使用可选的VIN/GID同步状态。 (Define whether an additional optional VIN/GID synchronization status should be included in the vehicle identifier/oracle announcement.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPVehicleAnnouncementCount</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>车辆公告消息数量。 (Number of vehicle announcement messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPVehicleAnnouncementInterval</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.5s</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>发送车辆公告消息之间的时间间隔。 (The time interval between sending vehicle announcement messages.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPVehicleAnnouncementRepetition</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>车辆公告信息的重复次数。 (Frequency of duplicate entries for vehicle announcement information.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipchannel">
+<h2>DoIPChannel<a class="headerlink" href="#doipchannel" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doipchannel-doip-channel-configuration">
+<img alt="DoIPChannel配置 (DoIP Channel Configuration)" src="../../_images/image914.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPChannel配置 (Configure DoIP Channel)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRole</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>DOIP_ROLE_CLIENT，</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>DOIP_ROLE_SERVER</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于配置DoIPChannel是客户端还是服务端。 (Used to configure the DoIPChannel as either a client or a server.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPGatewayChannel</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP网关使用。表明该channel为网关channel。 (Use of DoIP Gateway. This indicates that this channel is a gateway channel.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖 DoIPNodeType类型为DoIP_GATEWAY。 (Depends on DoIPNodeType type being DoIP_GATEWAY.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPGatewayForEth</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP网关使用。表明该channel为以太网网关channel。 (DoIP Gateway Usage. Indicates that this channel is an Ethernet gateway channel.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>DoIPGatewayChannel勾选后、且DoIPRole 为DOIP_ROLE_SERVER才能配置。 (DoIPGatewayChannel must be checked and DoIPRole must be DOIP_ROLE_SERVER for configuration.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPChannelSARef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用DoIPTester。只有指定客户端才能使用该通道通信。 (Only designated clients can communicate via this channel.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPChannelTARef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用 TA。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPChannelMappingSARef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP网关使用。指示DoIP网关映射到的SA，网关转发时，会将原本的DoIPChannelSARef替换为该值。 (Use of DoIP Gateway. Indicates the SA mapped by the DoIP Gateway; when the gateway forwards, it will replace the original DoIPChannelSARef with this value.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="doippdurrxpdu">
+<h3>DoIPPduRRxPdu<a class="headerlink" href="#doippdurrxpdu" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doippdurrxpdu-do-ippdu-rrx-pdu-configuration">
+<img alt="DoIPPduRRxPdu配置 (Do IPPdu RRx Pdu Configuration)" src="../../_images/image1013.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPPduRRxPdu配置 (Table DoIPPduRxPdu Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPPduRRxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP_TpCancelReceive()使用。 (Use of DoIP_TpCancelReceive().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPPduRRxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到全局的 PDU。 (Reference PDU to global.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>需要关联到ECUC中的PDU，生成时按照PDUR中关联到相同PDU的ID生成。 (Need to be associated with PDU in ECUC, generated based on the ID of the same PDU associated in PDUR.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPChannel-&gt;DoIPPduRRxPdu-&gt;DoIPPduRRxPduRef，DoIPChannel-&gt;DoIPPduRTxPdu-&gt;DoIPPduRTxPduRef不能引用到相同的PDU。 (DoIPChannel-&gt;DoIPPduRRxPdu-&gt;DoIPPduRRxPduRef cannot reference the same PDU as DoIPChannel-&gt;DoIPPduRTxPdu-&gt;DoIPPduRTxPduRef.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doippdurtxpdu">
+<h3>DoIPPduRTxPdu<a class="headerlink" href="#doippdurtxpdu" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doippdurtxpdu-doippdurtxpdu-configuration">
+<img alt="DoIPPduRTxPdu配置 (DoIPPduRTxPdu Configuration)" src="../../_images/image1117.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPPduRTxPdu配置 (Table DoIPPduConfigTxPdu)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPPduRTxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被DoIP_TpTransmit()DoIP_IfTransmit()DoIP_TpCancelTransmit()使用。 (Used by DoIP_TpTransmit()DoIP_IfTransmit()DoIP_TpCancelTransmit().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPPduType</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>DOIP_IFPDU，DOIP_TPPDU</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>DOIP_TPPDU</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>PDU 类型。 (PDU Type.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPPduRTxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>应用到全局 PDU。 (Apply to global PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>需要关联到ECUC中的PDU，生成时按照PDUR中关联到相同PDU的ID生成。 (Need to be associated with PDU in ECUC, generated based on the ID of the same PDU associated in PDUR.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipgatewaywaitresponse">
+<h3>DoIPGatewayWaitResponse<a class="headerlink" href="#doipgatewaywaitresponse" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doipgatewaywaitresponse-doip-gateway-wait-response-configuration">
+<img alt="DoIPGatewayWaitResponse配置 (DoIP Gateway Wait Response configuration)" src="../../_images/image1214.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPGatewayWaitResponse配置 (Configure DoIP Gateway Wait Response)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRemoteNodeRsp1stTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP网关收到诊断请求后，发送第一帧0x78的间隔时间。 (The interval time for the DoIP gateway to send the first frame 0x78 after receiving a diagnostic request.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPRemoteNodeRspTime</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>5000</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP网关收到诊断请求后，发送后续0x78的间隔时间。 (The time interval for the DoIP gateway to send subsequent 0x78 after receiving a diagnostic request.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPTransmitFakeRspMaxCnt</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DoIP网关收到诊断请求后，发送0x78的最大次数。 (The DoIP gateway sends a maximum number of times, 0x78, in response to a diagnostic request.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="doipconnections">
+<h2>DoIPConnections<a class="headerlink" href="#doipconnections" title="Link to this heading">¶</a></h2>
+<section id="doiptargetaddress">
+<h3>DoIPTargetAddress<a class="headerlink" href="#doiptargetaddress" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doiptargetaddress-configureiptargetaddress">
+<img alt="DoIPTargetAddress配置 (ConfigureIPTargetAddress)" src="../../_images/image1313.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPTargetAddress配置 (Table DoIPTargetAddress Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPTargetAddressValue</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>配置 TA。 (Configure TA.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doiptcpconnection">
+<h3>DoIPTcpConnection<a class="headerlink" href="#doiptcpconnection" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doiptcpconnection-configuredoiptcpconnection">
+<img alt="DoIPTcpConnection配置 (ConfigureDoIPTcpConnection)" src="../../_images/image1411.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPTcpConnection配置 (Show DoIPTcpConnection Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRequestAddressAssignment</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否调用SoAd_RequestIpAddrAssignment()分配 IP。 (Is IP assignment requested by calling SoAd_RequestIpAddrAssignment().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPTcpConnectionSecurityRequired</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指示关联的TCP套接字是否使用安全连接(如TLS)。 (Indicate whether the associated TCP socket is using a secure connection (such as TLS).)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPConnVehicleRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>作为doipclient时，引用的vehicle。 (As doipclient, the referenced vehicle.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="doipsoadtcprxpdu">
+<h4>DoIPSoAdTcpRxPdu<a class="headerlink" href="#doipsoadtcprxpdu" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="doipsoadtcprxpdu-doipsoadtcprxpdu-configuration">
+<img alt="DoIPSoAdTcpRxPdu配置 (DoIPSoAdTcpRxPdu Configuration)" src="../../_images/image1510.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPSoAdTcpRxPdu配置 (Configure DoIPSoAdTcpRxPdu)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPSoAdTcpRxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被DoIP_SoAdTpRxIndication()使用。 (Used by DoIP_SoAdTpRxIndication().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPSoAdTcpRxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到全局 PDU。 (Refer to global PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>生成内容和SoAd生成的PduId相关联，下拉框关联到ECUC中配置的共有的PDU。 (The generated content is associated with the SoAd-generated PduId, and the dropdown box is linked to the shared PDU configured in ECUC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPTcpConnection-&gt;DoIPSoAdTcpRxPduRef和DoIPSoAdTcpTxPduRef， (DoIPConnections-&gt;DoIPTcpConnection-&gt;DoIPSoAdTcpRxPduRef and DoIPSoAdTcpTxPduRef,)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPUdpConnection-&gt;DoIPSoAdUdpRxPduRef和DoIPSoAdUdpTxPduRef， (DoIPConnections-&gt;DoIPUdpConnection-&gt;DoIPSoAdUdpRxPduRef and DoIPSoAdUdpTxPduRef,)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPUdpVehicleAnnouncementConnection-&gt;DoIPSoAdUdpVehicleAnnouncementRxPduRef</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>和DoIPSoAdUdpVehicleAnnouncementTxPduRef，不能引用到相同的PDU。 (And DoIPSoAdUdpVehicleAnnouncementTxPduRef, cannot reference the same PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipsoadtcptxpdu">
+<h4>DoIPSoAdTcpTxPdu<a class="headerlink" href="#doipsoadtcptxpdu" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="doipsoadtxpdu-doip-so-ad-tx-pdu-configuration">
+<img alt="DoIPSoAdTxPdu配置 (DoIP So Ad Tx Pdu Configuration)" src="../../_images/image169.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPSoAdTxPdu配置 (DoIP SoAd Tx PDU Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPSoAdTcpTxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被DoIP_SoAdTpTxConfirmation()使用 (Used by DoIP_SoAdTpTxConfirmation())</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPSoAdTcpTxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到全局 PDU。 (Refer to global PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>生成内容和SoAd生成的PduId相关联，下拉框关联到ECUC中配置的共有的PDU。 (The generated content is associated with the SoAd-generated PduId, and the dropdown box is linked to the shared PDU configured in ECUC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPTcpConnection-&gt;DoIPSoAdTcpTxPduRef，应该查询该DoIPSoAdTcpTxPduRef所在的SoAdPduRoute中的SoAdTxSocketConnOrSocketConnBundleRef，再查到引用SoAdTxSocketConnOrSocketConnBundleRef所在的SoAdSocketConnectionGroup，其SoAdSocketLocalPort必须为13400。 (DoIPConnections-&gt;DoIPTcpConnection-&gt;DoIPSoAdTcpTxPduRef, one should query the SoAdPduRoute of the referenced DoIPSoAdTcpTxPduRef to find the SoAdTxSocketConnOrSocketConnBundleRef. Then, find the referenced SoAdSocketConnectionGroup of SoAdTxSocketConnOrSocketConnBundleRef; its SoAdSocketLocalPort must be 13400.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="doipudpconnection">
+<h3>DoIPUdpConnection<a class="headerlink" href="#doipudpconnection" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doipudpconnection-doipudpconnection-configuration">
+<img alt="DoIPUdpConnection配置 (DoIPUdpConnection Configuration)" src="../../_images/image177.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPUdpConnection配置 (Table DoIPUdpConnection Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRequestAddressAssignment</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否调用SoAd_RequestIpAddrAssignment()分配 IP。 (Is IP assignment requested by calling SoAd_RequestIpAddrAssignment().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPConnVehicleRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>作为doipclient时，引用的vehicle。 (As doipclient, the referenced vehicle.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="doipsoadudprxpdu">
+<h4>DoIPSoAdUdpRxPdu<a class="headerlink" href="#doipsoadudprxpdu" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="doipsoadudprxpdu-doipsoadudprxpdu-configuration">
+<img alt="DoIPSoAdUdpRxPdu配置 (DoIPSoAdUdpRxPdu Configuration)" src="../../_images/image1510.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPSoAdUdpRxPdu配置 (Table DoIPSoAdUdpRxPdu Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPSoAdUdpRxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被DoIP_SoAdIfRxIndication()使用。 (Used by DoIP_SoAdIfRxIndication().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPSoAdUdpRxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到全局 PDU。 (Refer to global PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>生成内容和SoAd生成的PduId相关联，下拉框关联到ECUC中配置的共有的PDU。 (The generated content is associated with the SoAd-generated PduId, and the dropdown box is linked to the shared PDU configured in ECUC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPTcpConnection-&gt;DoIPSoAdTcpRxPduRef和DoIPSoAdTcpTxPduRef， (DoIPConnections-&gt;DoIPTcpConnection-&gt;DoIPSoAdTcpRxPduRef and DoIPSoAdTcpTxPduRef,)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPUdpConnection-&gt;DoIPSoAdUdpRxPduRef和DoIPSoAdUdpTxPduRef， (DoIPConnections-&gt;DoIPUdpConnection-&gt;DoIPSoAdUdpRxPduRef and DoIPSoAdUdpTxPduRef,)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPUdpVehicleAnnouncementConnection-&gt;DoIPSoAdUdpVehicleAnnouncementRxPduRef</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>和DoIPSoAdUdpVehicleAnnouncementTxPduRef，不能引用到相同的PDU。 (And DoIPSoAdUdpVehicleAnnouncementTxPduRef, cannot reference the same PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipsoadudptxpdu">
+<h4>DoIPSoAdUdpTxPdu<a class="headerlink" href="#doipsoadudptxpdu" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="doipsoadudptxpdu-doipsoadudptxpdu-configuration">
+<img alt="DoIPSoAdUdpTxPdu配置 (DoIPSoAdUdpTxPdu Configuration)" src="../../_images/image169.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPSoAdUdpTxPdu配置 (Table DoIPSoAdUdpTxPdu Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPSoAdUdpTxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被DoIP_SoAdIfTxConfirmation()使用 (Used by DoIP_SoAdIfTxConfirmation())</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPSoAdUdpTxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到全局 PDU。 (Refer to global PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>生成内容和SoAd生成的PduId相关联，下拉框关联到ECUC中配置的共有的PDU。 (The generated content is associated with the SoAd-generated PduId, and the dropdown box is linked to the shared PDU configured in ECUC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPUdpConnection-&gt;DoIPSoAdUdpTxPduRef，应该查询该DoIPSoAdUdpTxPduRef所在的SoAdPduRoute中的SoAdTxSocketConnOrSocketConnBundleRef，再查到引用SoAdTxSocketConnOrSocketConnBundleRef所在的SoAdSocketConnectionGroup，其SoAdSocketLocalPort必须为13400。 (DoIPConnections-&gt;DoIPUdpConnection-&gt;DoIPSoAdUdpTxPduRef, it should query the SoAdPduRoute of the referenced DoIPSoAdUdpTxPduRef to find the SoAdTxSocketConnOrSocketConnBundleRef, then trace to the SoAdSocketConnectionGroup containing the SoAdTxSocketConnOrSocketConnBundleRef, where its SoAdSocketLocalPort must be 13400.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="doipudpvehicleannouncementconnection">
+<h3>DoIPUdpVehicleAnnouncementConnection<a class="headerlink" href="#doipudpvehicleannouncementconnection" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doipudpvehicleannouncementconnection-doip-udp-vehicle-announcement-connection-configuration">
+<img alt="DoIPUdpVehicleAnnouncementConnection配置 (DoIP Udp Vehicle Announcement Connection configuration)" src="../../_images/image185.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPUdpVehicleAnnouncementConnection配置 (Configure DoIP Udp Vehicle Announcement Connection)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRequestAddressAssignment</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否调用SoAd_RequestIpAddrAssignment()分配IP。 (Is IP assignment requested by calling SoAd_RequestIpAddrAssignment().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPConnVehicleRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>作为doipclient时，引用的vehicle。 (As doipclient, the referenced vehicle.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPSoConIdRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>作为doipclient时，引用的SoAdconnection ID (As doipclient, the referenced SoAdconnection ID)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>只有DoIPSoAdUdpVehicleAnnouncementRxPdu存在配置。 (Only DoIP SoAd Udp Vehicle Announcement Rx Pdu is configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="doipsoadudpvehicleannouncementtxpdu">
+<h4>DoIPSoAdUdpVehicleAnnouncementTxPdu<a class="headerlink" href="#doipsoadudpvehicleannouncementtxpdu" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="doipsoadudpvehicleannouncementtxpdu-doipsoadudpvehicleannouncementtxpdu-configuration">
+<img alt="DoIPSoAdUdpVehicleAnnouncementTxPdu配置 (DoIPSoAdUdpVehicleAnnouncementTxPdu Configuration)" src="../../_images/image194.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPSoAdUdpVehicleAnnouncementTxPdu配置 (Configure DoIPSoAdUdpVehicleAnnouncementTxPdu)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPSoAdUdpVehicleAnnouncementTxPduId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>被DoIP_SoAdIfTxConfirmation()使用。 (Used by DoIP_SoAdIfTxConfirmation().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPSoAdUdpVehicleAnnouncementTxPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到全局 PDU。 (Refer to global PDU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>生成内容和SoAd生成的PduId相关联，下拉框关联到ECUC中配置的共有的PDU。 (The generated content is associated with the SoAd-generated PduId, and the dropdown box is linked to the shared PDU configured in ECUC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>DoIPConnections-&gt;DoIPSoAdUdpVehicleAnnouncementRxPduRef-&gt;</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>DoIPSoAdUdpVehicleAnnouncementTxPduRef，应该查询该DoIPSoAdUdpVehicleAnnouncementTxPduRef (DoIPSoAdUdpVehicleAnnouncementTxPduRef should be queried.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>所在的SoAdPduRoute中的 (In the SoAdPduRoute)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>SoAdTxSocketConnOrSocketConnBundleRef，再查到引用SoAdTxSocketConnOrSocketConnBundleRef所在的 (SoAdTxSocketConnOrSocketConnBundleRef, then check for references to SoAdTxSocketConnOrSocketConnBundleRef in)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>SoAdSocketConnectionGroup，其SoAdSocketLocalPort必须为13400。 (SoAdSocketConnectionGroup, its SoAdSocketLocalPort must be 13400.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="doipfurtheractionbytecallback">
+<h2>DoIPFurtherActionByteCallback<a class="headerlink" href="#doipfurtheractionbytecallback" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doipfurtheractionbytecallback-doip-further-action-byte-callback-configuration">
+<img alt="DoIPFurtherActionByteCallback配置 (DoIP Further Action Byte Callback Configuration)" src="../../_images/image204.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPFurtherActionByteCallback配置 (Table DoIP Further Action Byte Callback Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPFurtherActionByteDirect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Function Name</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于获取OEMspecific FurtherAction。 (To get OEM specific FurtherAction.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipclientcallback">
+<h2>DoIPClientCallback<a class="headerlink" href="#doipclientcallback" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doipclientcallback-doipclientcallback-configuration">
+<img alt="DoIPClientCallback配置 (DoIPClientCallback Configuration)" src="../../_images/image2112.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPClientCallback配置 (Table DoIPClientCallback Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPClientEventDirect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Function Name</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>Rte_DoIPClientEventDirect</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>doipclient使用，用于报告事件。 (DOIPClient is used for reporting events.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doiproutingactivation">
+<h2>DoIPRoutingActivation<a class="headerlink" href="#doiproutingactivation" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doiproutingactication-do-ip-routing-activation-configuration">
+<img alt="DoIPRoutingActication配置 (DO_IP_ROUTING_Activation Configuration)" src="../../_images/image2211.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPRoutingActication配置 (Table DoIP Routing Actication Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRoutingActivationNumber</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>路由激活类型。 (Type of routing activation.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPRoutingActivationSecurityRequired</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使用安全TCP连接。 (Is a secure TCP connection used.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPTargetAddressRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference Array</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用 TA。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Reference to [DoIPTargetAddress ]</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="doiproutingactivationauthenticationcallback">
+<h3>DoIPRoutingActivationAuthenticationCallback<a class="headerlink" href="#doiproutingactivationauthenticationcallback" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doiproutingacticatioauthenticationcallback-doip-routing-activation-authentication-callback-configuration">
+<img alt="DoIPRoutingActicatioAuthenticationCallback配置 (DoIP Routing Activation Authentication Callback Configuration)" src="../../_images/image235.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPRoutingActicatioAuthenticationCallback配置 (Configure DoIPRoutingActivityAuthenticationCallback)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRoutingActivationAuthenticationFunc</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>DoIPRoutingActivationAuthentication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>路由激活时调用，用于进行身份认证。 (Called when routing is activated, used for authentication.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPRoutingActivationAuthenticationReqLength</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>请求消息长度。 (Request message length.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPRoutingActivationAuthenticationResLength</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>响应消息长度。 (Length of response message.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doiproutingacticationconfirmationcallback">
+<h3>DoIPRoutingActicationConfirmationCallback<a class="headerlink" href="#doiproutingacticationconfirmationcallback" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="doiproutingacticationconfirmationcallback-doip-routing-actication-confirmation-callback-configuration">
+<img alt="DoIPRoutingActicationConfirmationCallback配置 (DoIP Routing Actication Confirmation Callback Configuration)" src="../../_images/image244.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPRoutingActicationConfirmationCallback配置 (Configure DoIP Routing Actication Confirmation Callback)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPRoutingActivationConfirmationFunc</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>FunctionName</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>DoIPRoutingActivationConfirmation</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>路由激活时调用，用于确认路由激活。 (Called when the route is activated, used to confirm the route activation.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPRoutingActivationConfirmationReqLength</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>请求消息长度。 (Request message length.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPRoutingActivationConfirmationResLength</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>响应消息长度。 (Length of response message.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="doiptester">
+<h2>DoIPTester<a class="headerlink" href="#doiptester" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doiptester-configuration-of-doip-tester">
+<img alt="DoIPTester配置 (Configuration of DoIP Tester)" src="../../_images/image254.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPTester配置 (Table DoIPTester Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPNumByteDiagAckNack</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>路由激活类型。 (Type of routing activation.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPTesterSA</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>65535</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>配置 SA。 (Configure SA.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DoIPRoutingActivationRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference Array</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>可使用的路由激活规则 (Available routing activation rules)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Reference to [DoIPRoutingActivation]</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="doipvehicle">
+<h2>DoIPVehicle<a class="headerlink" href="#doipvehicle" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="doipvehicle-doip-vehicle-configuration">
+<img alt="DoIPVehicle配置 (DoIP Vehicle Configuration)" src="../../_images/image264.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 DoIPVehicle配置 (Table DoIPVehicle Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DoIPVehicleId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>车辆 ID。 (Vehicle ID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPRoutingActivationNumber</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>路由激活类型。 (Type of routing activation.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>oemSpec</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0..4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>4294967295</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>OEM。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>DoIPVehicleTARef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference Array</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用 TA。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="soad">
+<h3>依赖模块(SoAd)<a class="headerlink" href="#soad" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="soad-soad-configuration">
+<img alt="SoAd配置 (SoAd Configuration)" src="../../_images/image274.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 SoAd配置 (Table SoAd Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>SoAdSocketTcpImmediateTpTxConfirmation</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>没勾选该参数，SoAd需等待收到对方的ACK之后，才会调用TxConfirmation通知DoIP已发送消息；勾选该参数，SoAd收到DoIP的数据后，就会调用 TxConfirmation通知DoIP已发送消息。注：在实际项目中，网络环境很复杂，会因为各种原因导致发送数据超时，因此建议勾选该参数。 (Uncheck this parameter, SoAd will wait for receiving the ACK from the other side before calling TxConfirmation to notify DoIP that the message has been sent; check this parameter, SoAd will call TxConfirmation to notify DoIP that the message has been sent upon receiving data from DoIP. Note: In actual projects, network environments are very complex and sending data may time out for various reasons, therefore it is recommended to check this parameter.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>TRUE/FALSE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>SoAdSocketTcpNoDelay</p></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>勾选该参数关闭nagle算法，SoAd会第一时间发送消息。注：建议勾选该参数。 (Check this parameter to disable the Nagle algorithm, SoAd will send messages immediately. Note: It is recommended to check this parameter.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="engineering-related">
+<h3>工程相关 (Engineering related)<a class="headerlink" href="#engineering-related" title="Link to this heading">¶</a></h3>
+<p class="centered">
+<strong><strong>表 工程相关配置 (Table Engineering-related Configuration)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>序号 (Sequence Number)</p></th>
+<th class="head"><p>配置 (Configure)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>需定义TCPIP_FASTTX_TCP宏 (Define the TCPIP_FASTTX_TCP macro)</p></td>
+<td><p>使能调用tcp_write()后调用tcp_output()立即发送tcp数据。 (Enable calling tcp_output() to immediately send TCP data after calling tcp_write().)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="Dlt.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>DLT
+    </a>
+    <a class="float-right" href="E2EL.html" title="Next">
+        E2EL <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">DoIP</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#vehicle-announcements-and-vehicle-discovery-functions">车辆通告和车辆发现功能 (Vehicle announcements and vehicle discovery functions)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction-to-vehicle-announcements-and-vehicle-discovery-functions">车辆通告和车辆发现功能介绍 (Introduction to Vehicle Announcements and Vehicle Discovery Functions)</a></li>
+<li><a class="reference internal" href="#vehicle-announcements-and-vehicle-discovery-features-implemented">车辆通告和车辆发现功能实现 (Vehicle announcements and vehicle discovery features implemented)</a><ul>
+<li><a class="reference internal" href="#vehicle-basic-information-retrieval-function">车辆基本信息检索功能 (Vehicle basic information retrieval function)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction-to-vehicle-basic-information-retrieval-function">车辆基本信息检索功能介绍 (Introduction to Vehicle Basic Information Retrieval Function)</a></li>
+<li><a class="reference internal" href="#vehicle-basic-information-retrieval-function-implementation">车辆基本信息检索功能实现 (Vehicle basic information retrieval function implementation)</a><ul>
+<li><a class="reference internal" href="#connection-status-establishment-maintenance-functionality">连接状态建立、维持功能 (Connection status establishment, maintenance functionality)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connection-status-establishment-and-maintenance-function-introduction">连接状态建立、维持功能介绍 (Connection status establishment and maintenance function introduction)</a></li>
+<li><a class="reference internal" href="#connection-status-establishment-maintenance-function-implementation">连接状态建立、维持功能实现 (Connection status establishment, maintenance function implementation)</a><ul>
+<li><a class="reference internal" href="#diagnostic-data-routing-function">诊断数据路由功能 (Diagnostic Data Routing Function)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#introduction-to-diagnostic-data-routing-function">诊断数据路由功能介绍 (Introduction to Diagnostic Data Routing Function)</a></li>
+<li><a class="reference internal" href="#diagnostic-data-routing-functionality-implementation">诊断数据路由功能实现 (Diagnostic data routing functionality implementation)</a><ul>
+<li><a class="reference internal" href="#diagnostic-data-gateway-function">诊断数据网关功能 (      Diagnostic Data Gateway Function)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#can-ethernet-to-can">以太网转CAN (Ethernet to CAN)</a></li>
+<li><a class="reference internal" href="#ethernet-to-ethernet">以太网转以太网 (Ethernet to Ethernet)</a></li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doip-configtype-doip-configtype-configuration-type-definition">DoIP_ConfigType类型定义 (DoIP_ConfigType Configuration Type Definition)</a></li>
+<li><a class="reference internal" href="#doip-powerstatetype-doip-powerstatetype-type-definition">DoIP_PowerStateType类型定义 (DoIP_PowerStateType type definition)</a></li>
+<li><a class="reference internal" href="#doip-activationlinetype-doip-activation-line-type-definition">DoIP_ActivationLineType类型定义 (DoIP Activation Line Type definition)</a></li>
+<li><a class="reference internal" href="#doipnodetype-definition-of-doipnodetype-type">DoIPNodeType类型定义 (Definition of DoIPNodeType type)</a><ul>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doip-init-the-doip-init-function-defines">DoIP_Init函数定义 (The DoIP_Init function defines)</a></li>
+<li><a class="reference internal" href="#doip-activationlineswitch-the-doip-activationlineswitch-function-definition">DoIP_ActivationLineSwitch函数定义 (The DoIP_ActivationLineSwitch function definition)</a></li>
+<li><a class="reference internal" href="#doip-soconmodechg-function-definition-for-doip-soconmodechg">DoIP_SoConModeChg函数定义 (function definition for DoIP_SoConModeChg)</a></li>
+<li><a class="reference internal" href="#doip-localipaddrassignmentchg-the-doip-localipaddrassignmentchg-function-definition">DoIP_LocalIpAddrAssignmentChg函数定义 (The DoIP_LocalIpAddrAssignmentChg function definition)</a></li>
+<li><a class="reference internal" href="#doip-soadifrxindication-the-function-definition-for-doip-soadifrxindication">DoIP_SoAdIfRxIndication函数定义 (The function definition for DoIP_SoAdIfRxIndication)</a></li>
+<li><a class="reference internal" href="#doip-soadtpstartofreception-the-function-definition-for-doip-soadtpstartofreception">DoIP_SoAdTpStartOfReception函数定义 (The function definition for DoIP_SoAdTpStartOfReception)</a></li>
+<li><a class="reference internal" href="#doip-soadtpcopyrxdata-function-definition-for-doip-soadtpcopyrxdata">DoIP_SoAdTpCopyRxData函数定义 (function definition for DoIP_SoAdTpCopyRxData)</a></li>
+<li><a class="reference internal" href="#doip-tpcancelreceive-doip-tpcancelreceive-function-definition">DoIP_TpCancelReceive函数定义 (DOIP_TpCancelReceive function definition)</a></li>
+<li><a class="reference internal" href="#doip-iftransmit-define-doif-transmit-function">DoIP_IfTransmit函数定义 (Define_DOIF_Transmit_function)</a></li>
+<li><a class="reference internal" href="#doip-tptransmit-define-of-doip-tptransmit-function">DoIP_TpTransmit函数定义 (Define of DoIP_TpTransmit function)</a></li>
+<li><a class="reference internal" href="#doip-ifcanceltransmit-definefunction-doip-ifcanceltransmit">DoIP_IfCancelTransmit函数定义 (DefineFunction_DoIP_IfCancelTransmit)</a></li>
+<li><a class="reference internal" href="#doip-tpcanceltransmit-the-doip-tpcanceltransmit-function-definition">DoIP_TpCancelTransmit函数定义 (The DoIP_TpCancelTransmit function definition)</a></li>
+<li><a class="reference internal" href="#doip-soadtpcopytxdata-the-function-definition-for-doip-soadtpcopytxdata">DoIP_SoAdTpCopyTxData函数定义 (The function definition for DoIP_SoAdTpCopyTxData)</a></li>
+<li><a class="reference internal" href="#doip-soadtptxconfirmation-the-doip-soadtptxconfirmation-function-definition">DoIP_SoAdTpTxConfirmation函数定义 (The DoIP_SoAdTpTxConfirmation function definition)</a></li>
+<li><a class="reference internal" href="#doip-soadiftxconfirmation-the-function-definition-for-doip-soadiftxconfirmation">DoIP_SoAdIfTxConfirmation函数定义 (The function definition for DoIP_SoAdIfTxConfirmation)</a></li>
+<li><a class="reference internal" href="#doip-soadtprxindication-doip-soadtprxindication-function-definition">DoIP_SoAdTpRxIndication函数定义 (DOIP_SoAdTpRxIndication function definition)</a></li>
+<li><a class="reference internal" href="#doip-mainfunction-doip-mainfunction-function-definition">DoIP_MainFunction函数定义 (DoIP_MainFunction function definition)</a></li>
+<li><a class="reference internal" href="#doip-mainfunction-highfrequency-doip-mainfunction-highfrequency-function-definition">DoIP_MainFunction_HighFrequency函数定义 (DoIP_MainFunction_HighFrequency function definition)</a><ul>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-doipgetpowermodecallback">&lt;User&gt;_DoIPGetPowerModeCallback</a></li>
+<li><a class="reference internal" href="#user-doiproutingactivationconfirmation">&lt;User&gt;_DoIPRoutingActivationConfirmation</a></li>
+<li><a class="reference internal" href="#user-doiproutingactivationauthentication">&lt;User&gt;_DoIPRoutingActivationAuthentication</a></li>
+<li><a class="reference internal" href="#user-doiptriggergidsynccallback">&lt;User&gt;_DoIPTriggerGidSyncCallback</a></li>
+<li><a class="reference internal" href="#user-doipgetgidcallback">&lt;User&gt;_DoIPGetGidCallback</a></li>
+<li><a class="reference internal" href="#user-doipgetfurtheractionbytecallback">&lt;User&gt;_DoIPGetFurtherActionByteCallback</a></li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#doipgeneral">DoIPGeneral</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doipgetgidcallback">DoIPGetGidCallback</a></li>
+<li><a class="reference internal" href="#doippowermodecallback">DoIPPowerModeCallback</a></li>
+<li><a class="reference internal" href="#doiptriggergidsynccallback">DoIPTriggerGidSyncCallback</a><ul>
+<li><a class="reference internal" href="#doipconfigset">DoIPConfigSet</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doipinterface">DoIPInterface</a></li>
+<li><a class="reference internal" href="#doipchannel">DoIPChannel</a><ul>
+<li><a class="reference internal" href="#doippdurrxpdu">DoIPPduRRxPdu</a></li>
+<li><a class="reference internal" href="#doippdurtxpdu">DoIPPduRTxPdu</a></li>
+<li><a class="reference internal" href="#doipgatewaywaitresponse">DoIPGatewayWaitResponse</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doipconnections">DoIPConnections</a><ul>
+<li><a class="reference internal" href="#doiptargetaddress">DoIPTargetAddress</a></li>
+<li><a class="reference internal" href="#doiptcpconnection">DoIPTcpConnection</a><ul>
+<li><a class="reference internal" href="#doipsoadtcprxpdu">DoIPSoAdTcpRxPdu</a></li>
+<li><a class="reference internal" href="#doipsoadtcptxpdu">DoIPSoAdTcpTxPdu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doipudpconnection">DoIPUdpConnection</a><ul>
+<li><a class="reference internal" href="#doipsoadudprxpdu">DoIPSoAdUdpRxPdu</a></li>
+<li><a class="reference internal" href="#doipsoadudptxpdu">DoIPSoAdUdpTxPdu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doipudpvehicleannouncementconnection">DoIPUdpVehicleAnnouncementConnection</a><ul>
+<li><a class="reference internal" href="#doipsoadudpvehicleannouncementtxpdu">DoIPSoAdUdpVehicleAnnouncementTxPdu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doipfurtheractionbytecallback">DoIPFurtherActionByteCallback</a></li>
+<li><a class="reference internal" href="#doipclientcallback">DoIPClientCallback</a></li>
+<li><a class="reference internal" href="#doiproutingactivation">DoIPRoutingActivation</a><ul>
+<li><a class="reference internal" href="#doiproutingactivationauthenticationcallback">DoIPRoutingActivationAuthenticationCallback</a></li>
+<li><a class="reference internal" href="#doiproutingacticationconfirmationcallback">DoIPRoutingActicationConfirmationCallback</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#doiptester">DoIPTester</a></li>
+<li><a class="reference internal" href="#doipvehicle">DoIPVehicle</a><ul>
+<li><a class="reference internal" href="#soad">依赖模块(SoAd)</a></li>
+<li><a class="reference internal" href="#engineering-related">工程相关 (Engineering related)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
