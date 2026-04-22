@@ -1,5 +1,5 @@
 Interrupt(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 处理中断的函数(中断服务程序：ISR)分为两类中断：
 
@@ -22,7 +22,7 @@ Functions that handle interrupts (Interrupt Service Routines: ISRs) are categori
 
 
 EnableAllInterrupts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -31,7 +31,7 @@ EnableAllInterrupts
 This service restores the state saved by DisableAllInterrupts.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -62,7 +62,7 @@ This service restores the state saved by DisableAllInterrupts.
 
 
 DisableAllInterrupts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -71,7 +71,7 @@ DisableAllInterrupts
 This service disables all interrupts for which the hardware supports disabling. The state before is saved for the EnableAllInterrupts call.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -88,7 +88,7 @@ This service disables all interrupts for which the hardware supports disabling. 
 
 
 ResumeAllInterrupts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -97,7 +97,7 @@ ResumeAllInterrupts
 This service restores t he recognition status of all interrupts saved by the SuspendAllInterrupts service.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -139,7 +139,7 @@ This service restores t he recognition status of all interrupts saved by the Sus
       SuspendAllInterrupts / ResumeAllInterrupts can be used in a nested manner. If SuspendAllInterrupts and ResumeAllInterrupts are called nestedly, the interrupt recognition state saved during the first call of SuspendAllInterrupts will be restored during the last call of ResumeAllInterrupts.
 
 SuspendAllInterrupts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -148,7 +148,7 @@ SuspendAllInterrupts
 This service saves the re cognition status of all interrupts and disables all interrupts for which the hardware supports.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -165,7 +165,7 @@ This service saves the re cognition status of all interrupts and disables all in
 
 
 ResumeOSInterrupts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -174,7 +174,7 @@ ResumeOSInterrupts
 This service restores the recognition status of interrupts saved by the SuspendOSInterrupts service.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -194,7 +194,7 @@ This service restores the recognition status of interrupts saved by the SuspendO
       SuspendOSInterrupts / ResumeOSInterrupts only affect Category 2 Interrupts.
 
 SuspendOSInterrupts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -203,7 +203,7 @@ SuspendOSInterrupts
 This service saves the recognition status of interrupts of category 2 and disables the recognition of these interrupts.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -219,7 +219,7 @@ This service saves the recognition status of interrupts of category 2 and disabl
       Mainly used for certain critical sections where the ORIENTAIS OS API cannot be used.
 
 GetISRID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -228,7 +228,7 @@ GetISRID
 This service returns the identifier of the currently executing ISR.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -279,7 +279,7 @@ This service returns the identifier of the currently executing ISR.
 
 
 EnableInterruptSource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -288,7 +288,7 @@ EnableInterruptSource
 Enables the interrupt source by modifying the interrupt controller registers. Additionally it may clear the interrupt pending flag.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -355,7 +355,7 @@ Enables the interrupt source by modifying the interrupt controller registers. Ad
 
 
 DisableInterruptSource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -364,7 +364,7 @@ DisableInterruptSource
 Disables the interrupt source by modifying the interrupt controller registers.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -406,7 +406,7 @@ Disables the interrupt source by modifying the interrupt controller registers.
 
 
 ClearPendingInterrupt
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -415,7 +415,7 @@ ClearPendingInterrupt
 Clears the interrupt pending flag by modifying the interrupt controller registers.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

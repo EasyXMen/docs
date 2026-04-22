@@ -1,9 +1,9 @@
 Multi-Core(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 GetCoreID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -12,7 +12,7 @@ GetCoreID
 Get the logical ID of the currently executing core.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -55,7 +55,7 @@ Get the logical ID of the currently executing core.
 
 
 GetNumberOfActivatedCores
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -64,7 +64,7 @@ GetNumberOfActivatedCores
 Get the number of cores currently activated (cores managed by ORIENTAIS OS)
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -99,7 +99,7 @@ Get the number of cores currently activated (cores managed by ORIENTAIS OS)
 
 
 StartCore
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -108,7 +108,7 @@ StartCore
 Start the specified Autosar core.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -165,7 +165,7 @@ Start the specified Autosar core.
 
 
 StartNonAutosarCore
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -174,7 +174,7 @@ StartNonAutosarCore
 Start the specified non-Autosar core.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -227,7 +227,7 @@ Start the specified non-Autosar core.
 
 
 ShutdownAllCores
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -236,7 +236,7 @@ ShutdownAllCores
 Get the logical ID of the currently executing core.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -295,7 +295,7 @@ Get the logical ID of the currently executing core.
 
 
 ControlIdle
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -304,7 +304,7 @@ ControlIdle
 This API allows the caller to select the idle mode action which is performed during idle time of the OS.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
