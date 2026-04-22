@@ -1,5 +1,5 @@
 Service(Protection Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当OS-Application进行API调用，服务保护需要考虑多种情况：
 
@@ -31,7 +31,7 @@ For system services called in incorrect contexts, refer to **Error! Reference so
 
 
 CallTrustedFunction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -40,7 +40,7 @@ CallTrustedFunction
 The interface provided by trusted functions to external calls. Untrusted apps can access internal resources of trusted apps.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

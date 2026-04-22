@@ -1,5 +1,5 @@
 Extend(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Extend模块为用户提供了一些扩展功能：获取系统堆栈、任务堆栈、ISR堆栈使用情况的接口，检查版本信息的接口，获取检查ISR中断源的接口，检查CPU信息的接口。
 
@@ -7,7 +7,7 @@ The Extend module provides users with several extended functions: interfaces for
 
 
 OSGetVersionInfo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -16,7 +16,7 @@ OSGetVersionInfo
 Provide Version information to user.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -53,7 +53,7 @@ Provide Version information to user.
 
 
 OSGetStackUsage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -62,7 +62,7 @@ OSGetStackUsage
 Get max usage of system,task,ISR2 stack.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -113,7 +113,7 @@ Get max usage of system,task,ISR2 stack.
 
 
 OSCheckISRSource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -122,7 +122,7 @@ OSCheckISRSource
 OSCheckISRSource is used to check the interrupt source.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -173,7 +173,7 @@ OSCheckISRSource is used to check the interrupt source.
 
 
 OSCheckCPUInformation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -182,7 +182,7 @@ OSCheckCPUInformation
 OSCheckCPUInformation is used to check if the CPU information is correct.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

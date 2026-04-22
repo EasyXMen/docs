@@ -1,5 +1,5 @@
 Task(Functions)
----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ORIENTAIS OS提供两种类型的任务:
 
@@ -96,7 +96,7 @@ The difference between an Extended Task and a Basic Task is that the Extended Ta
 
 
 ActivateTask
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -105,7 +105,7 @@ ActivateTask
 The task<TaskID> is transferred from the suspended state into the ready state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -200,7 +200,7 @@ The task<TaskID> is transferred from the suspended state into the ready state.
 
 
 TerminateTask
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -209,7 +209,7 @@ TerminateTask
 This service causes the termination of the calling task. The calling task is transferred from the running state into the suspended state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -268,7 +268,7 @@ This service causes the termination of the calling task. The calling task is tra
 
 
 ChainTask
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -277,7 +277,7 @@ ChainTask
 This service causes the termination of the calling task. After termination of the calling task a succeeding task <TaskID> is activated.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -370,7 +370,7 @@ This service causes the termination of the calling task. After termination of th
 
 
 Schedule
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -379,7 +379,7 @@ Schedule
 If a higher-priority task is ready , the internal resource of the task is released, the current task is put into the ready state, its context is saved and the highe r-priority task is executed. Otherwise the calling task is continued.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -437,7 +437,7 @@ If a higher-priority task is ready , the internal resource of the task is releas
 
 
 GetTaskID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -446,7 +446,7 @@ GetTaskID
 GetTaskID returns the information about the TaskID of the task which is currently running.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -517,7 +517,7 @@ GetTaskID returns the information about the TaskID of the task which is currentl
 
 
 GetTaskState
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -526,7 +526,7 @@ GetTaskState
 Returns the state of a task (running, ready, waiting, suspended)at the time of calling GetTaskState.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -619,7 +619,7 @@ Returns the state of a task (running, ready, waiting, suspended)at the time of c
 
 
 ActivateTaskAsyn
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -628,7 +628,7 @@ ActivateTaskAsyn
 Asynchronous version of the
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

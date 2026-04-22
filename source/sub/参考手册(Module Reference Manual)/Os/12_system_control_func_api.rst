@@ -1,10 +1,10 @@
 System(Control Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
 StartOS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -13,7 +13,7 @@ StartOS
 The user can call this system service to start the operating system in a specific mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -46,7 +46,7 @@ The user can call this system service to start the operating system in a specifi
 
 
 ShutdownOS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -55,7 +55,7 @@ ShutdownOS
 The user can call this system service to abort the overall system (e.g. emergency off).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -84,7 +84,7 @@ The user can call this system service to abort the overall system (e.g. emergenc
 
 
 GetActiveApplicationMode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -93,7 +93,7 @@ GetActiveApplicationMode
 This service returns t he current application mode. It may be used to write mode dependent code.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

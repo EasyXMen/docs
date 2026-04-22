@@ -1,8 +1,8 @@
 ## 开源小满EasyXMen技术文档 EasyXMen Technical Documentation
 
-本仓库为开源小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.net/docs/)
+本仓库为开源小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.com/index.html)
 
-This repository is the documentation repository for EasyXMen. You can use Pages to preview the final html [Reading Link](https://easyxmen.atomgit.net/docs/)
+This repository is the documentation repository for EasyXMen. You can use Pages to preview the final html [Reading Link](https://easyxmen.atomgit.com/index.html)
 
 ## 目录结构 Directory Structure
 ```

@@ -1,5 +1,5 @@
 OS-APP(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Os能够支持一系列操作系统对象的集合(任务，中断，Alarm，调度表，计数器)。该对象集合称为OS-Application。
 
@@ -50,7 +50,7 @@ The figure shows the state transitions:
 
 
 GetApplicationID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -59,7 +59,7 @@ GetApplicationID
 Get the OS-Application ID of the object calling the API.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -89,7 +89,7 @@ Get the OS-Application ID of the object calling the API.
 
 
 GetCurrentApplicationID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -98,7 +98,7 @@ GetCurrentApplicationID
 Get the OS-Application ID to which the currently running Task/ISR/Hook belongs.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -170,7 +170,7 @@ Get the OS-Application ID to which the currently running Task/ISR/Hook belongs.
 
 
 CheckObjectAccess
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -179,7 +179,7 @@ CheckObjectAccess
 This service determines if the OS-Applications, given by ApplID, is allowed to use the IDs of a Task, ISR, Resource,Counter, Alarm or Schedule Table in API calls.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -250,7 +250,7 @@ This service determines if the OS-Applications, given by ApplID, is allowed to u
 
 
 CheckObjectOwnership
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -259,7 +259,7 @@ CheckObjectOwnership
 This service determines to which OS-Application a given Task, ISR, Resource, Counter, Alarm or Schedule Table belongs.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -327,7 +327,7 @@ This service determines to which OS-Application a given Task, ISR, Resource, Cou
 
 
 TerminateApplication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -336,7 +336,7 @@ TerminateApplication
 This service returns the current state of an OS-Application.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -497,7 +497,7 @@ This service returns the current state of an OS-Application.
 
 
 AllowAccess
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -506,7 +506,7 @@ AllowAccess
 This service sets the own state of an OS-Application from APPLICATION_RESTARTING to APPLICATION_ACCESSIBLE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -590,7 +590,7 @@ This service sets the own state of an OS-Application from APPLICATION_RESTARTING
 
 
 GetApplicationState
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -599,7 +599,7 @@ GetApplicationState
 This service returns the current state of an OS-Application.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

@@ -1,5 +1,5 @@
 Spinlock(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 在多核中，需要一种新的机制来支持不同核上任务的互斥。这种新机制不适用于同核上的任务，且将返回错误。
 
@@ -19,7 +19,7 @@ Once a spinlock is acquired by a task or a Category 2 interrupt, tasks or Catego
 
 
 GetSpinlock
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -28,7 +28,7 @@ GetSpinlock
 GetSpinlock tries to occupy a spin-lock variable. If the function returns, either the lock is successfully taken or an error has occurred.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -110,7 +110,7 @@ GetSpinlock tries to occupy a spin-lock variable. If the function returns, eithe
 
 
 ReleaseSpinlock
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -119,7 +119,7 @@ ReleaseSpinlock
 ReleaseSpinlock is the counterpart of GetSpinlock. ReleaseSpinlock releases a spinlock variable that was occupied before.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -175,7 +175,7 @@ ReleaseSpinlock is the counterpart of GetSpinlock. ReleaseSpinlock releases a sp
 
 
 TryToGetSpinlock
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -184,7 +184,7 @@ TryToGetSpinlock
 Try to acquire a spinlock.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

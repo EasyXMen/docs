@@ -6,10 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'EasyXMen_docs'
-copyright = '2025, i-soft'
+project = 'user_manual'
+copyright = '2024, i-soft'
 author = 'i-soft'
-release = '1.0.0'
+release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -20,8 +20,9 @@ extensions = []
 
 templates_path = ['_templates']
 exclude_patterns = []
+suppress_warnings = []
 
-language = 'en'
+language = 'zh_CN'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -29,7 +30,13 @@ language = 'en'
 extensions.append("sphinx_wagtail_theme")
 html_theme = 'sphinx_wagtail_theme'
 html_static_path = ['_static']
-
+# 让每个页面都加载你的切换器脚本/样式
+html_js_files = [
+    'version-switcher-static.js',
+]
+html_css_files = [
+    'version-switcher.css',
+]
 # Theme options
 html_theme_options = {
     'logo': 'img/xmen_logo.png',
