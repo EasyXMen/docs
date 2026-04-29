@@ -1,0 +1,3052 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>PduR &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="iRTE" href="iRTE.html" />
+            <link rel="prev" title="Os" href="Os/Os.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">PduR</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/PduR.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="pdur">
+<h1>PduR<a class="headerlink" href="#pdur" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt;SrcLo&gt;</p></td>
+<td><p>Lower layercommunication interfacemodule acting as asource of the I-PDU</p></td>
+<td><p>下层IF模块关联的PDU作为PduR中的SourceI-PDU (The lower layer IF module associated PDU is used as SourceI-PDU in PduR.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;DstLo&gt;</p></td>
+<td><p>Lower layercommunication interfacemodule acting as adestination of theI-PDU</p></td>
+<td><p>下层IF模块关联的PDU作为PduR中的DestI-PDU (The lower layer IF module-associated PDU serves as DestI-PDU in PduR.)</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;SrcLoTp&gt;</p></td>
+<td><p>Lower layer transportprotocol module actingas a source of theI-PDU</p></td>
+<td><p>下层TP模块关联的PDU作为PduR中的SourceI-PDU (The lower layer TP module-associated PDU serves as SourceI-PDU in PduR.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;DstLoTp&gt;</p></td>
+<td><p>Lower layer transportprotocol module actingas a destination of theI-PDU</p></td>
+<td><p>下层TP模块关联的PDU作为PduR中的DestI-PDU (The lower layer TP module-associated PDU serves as DestI-PDU in PduR.)</p></td>
+</tr>
+<tr class="row-even"><td><p>I-PDU ID</p></td>
+<td><p>PDU Identifier</p></td>
+<td><p>Pdu的Id号 (PDU's ID number)</p></td>
+</tr>
+<tr class="row-odd"><td><p>I-PDU</p></td>
+<td><p>Interaction Layer PDU</p></td>
+<td><p>交互层Pdu，涉及Pdu的Id号，Pdu长度，Pdu数据 (Interaction Layer PDU, involves PDU ID number, PDU length, PDU data)</p></td>
+</tr>
+<tr class="row-even"><td><p>Upper LayerModules (Up)</p></td>
+<td><p>Modules above the PDURouter</p></td>
+<td><p>在AUTOSAR架构下，处于PduR上层的模块 (In the AUTOSAR architecture, modules above the PduR layer)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lower LayerModules (Lo)</p></td>
+<td><p>Modules below the PDURouter</p></td>
+<td><p>在AUTOSAR架构下，处于PduR下层的模块 (In the AUTOSAR architecture, modules under the PduR layer)</p></td>
+</tr>
+<tr class="row-even"><td><p>FIFO</p></td>
+<td><p>first in first out</p></td>
+<td><p>Buffer深度大于1，采用先入先出机制存储 (Buffer depth is greater than 1, using FIFO mechanism for storage.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>错误检测模块 (Error Detection Module)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>PduR模块主要为通信接口模块（如CanIf），传输协议模块（如CanTp），诊断服务模块（如Dcm），通信服务模块（如Com,LdCom），以及IpduM，SecOc等模块提供基于PDU的路由服务。PduR模块主要实现基于PDU的接收路由（PDU从CanIf→PduR→Com），发送路由(Com→PduR→CanIf)，网关路由功能（CanIf→PduR→CanIf）。</p>
+<p>The PduR module mainly provides PDU-based routing services for communication interface modules (such as CanIf), transmission protocol modules (such as CanTp), diagnostic service modules (such as Dcm), communication service modules (such as Com, LdCom), and modules like IpduM and SecOc. The PduR module primarily implements PDU-based reception routing (PDU from CanIf→PduR→Com), transmission routing (Com→PduR→CanIf), and gateway routing functions (CanIf→PduR→CanIf).</p>
+<figure class="align-center" id="pdur-pdur-module-hierarchy-diagram">
+<img alt="PduR模块层次图 (PduR Module Hierarchy Diagram)" src="../../_images/image1132.png" />
+</figure>
+<p>与PduR模块存在交互的模块可分为三类：1.下层模块（如CanIf,CanTp）;2.上层模块（如Com, Dcm）;3既是上层又是下层模块（IpduM, SecOC）。</p>
+<p>Modules that interact with the PduR module can be categorized into three types: 1. Lower-layer modules (such as CanIf, CanTp); 2. Upper-layer modules (such as Com, Dcm); 3. Modules that are both upper-layer and lower-layer (IpduM, SecOC).</p>
+<p>PduR与所有交互模块间实现IF Pdu和TP Pdu的接收与发送功能。</p>
+<p>PduR implements the reception and sending functions of IF Pdu and TP Pdu between all interaction modules.</p>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_SWS_COM.pdf, R19-11 and 4.2.2</p>
+<p>[2] AUTOSAR_SWS_PDURouter.pdf，R19-11 and 4.2.2</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="send-route-function">
+<h3>发送路由功能 (Send Route Function)<a class="headerlink" href="#send-route-function" title="Link to this heading">¶</a></h3>
+<section id="introduction-to-sending-route-function">
+<h4>发送路由功能介绍 (Introduction to Sending Route Function)<a class="headerlink" href="#introduction-to-sending-route-function" title="Link to this heading">¶</a></h4>
+<p>TxPdu的发送分为两种方式（IF和TP），在PduR模块实现TP PDU的1：1发送路由，IF PDU的1：N发送路由。通过PduR模块的路由配置可以为上层屏蔽网络细节，上层模块专注于TxPdu报文数据的封装。</p>
+<p>The sending of TxPdu is divided into two methods (IF and TP). The PduR module implements a 1:1 sending routing for TP PDUs and a 1:N sending routing for IF PDUs. Through the routing configuration of the PduR module, network details can be shielded for the upper layer, allowing the upper-layer modules to focus on the encapsulation of TxPdu message data.</p>
+</section>
+<section id="routing-functionality-implementation">
+<h4>发送路由功能实现 (Routing functionality implementation)<a class="headerlink" href="#routing-functionality-implementation" title="Link to this heading">¶</a></h4>
+<p>IF PDU的发送：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（IF PDU 1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层IF模块关联。上层模块通过调用PduR_&lt;User：Up&gt;Transmit或者下层模块通过调用PduR_&lt;User：Lo&gt;TriggerTransmit（传递到上层）请求PDU的发送，发送成功后调用上层PduR_&lt;User：Lo&gt;TxConfirmation进行发送成功确认。</p>
+<p>IF PDU Transmission: In PduR, add configuration for route PduRRoutingPath, configuring one PduRRoutingPath for each PduRDestPdu (for an IF PDU 1:N routing scenario, there will be N PduRRoutingPaths, all with the same PduRSrcPduRRef). The PduRRouteType is configured as IF; the configuration item PduRSrcPduRRef is associated with a PduRSrcPdu, which is linked to an upper-layer module's TxPdu via the PduRSrcPduRef of a Pdu (EcuC). Meanwhile, the configuration item PduRDestPduRRef is associated with a PduRDestPdu, which is linked to a lower-level IF module through the PduRDestPduRef of a Pdu. The upper-layer module requests PDU transmission by calling PduR_&lt;User:Up&gt;Transmit, while the lower layer module triggers the transmission via PduR_&lt;User:Lo&gt;TriggerTransmit and subsequently confirms the successful transmission by calling PduR_&lt;User:Lo&gt;TxConfirmation.</p>
+<p>TP PDU的发送：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层TP模块关联。上层模块通过调用PduR_&lt;User：Up&gt;Transmit请求PDU的发送，下层模块通过调用PduR_&lt;User：LoTp&gt;CopyTxData（传递到上层）来获取PDU发送数据段，下层模块通过调用PduR_&lt;User：LoTp&gt;TxConfirmation（传递到上层）通知上层发送结束（成功/失败）。</p>
+<p>TP PDU transmission: In PduR, add configuration for routing PduRRoutingPath and configure a PduRRoutingPath for each PduRDestPdu. Among them, the PduRRouteType is configured as TP, with the configuration item PduRSrcPduRRef associated with a PduRSrcPdu. This PduRSrcPdu is associated with the upper-layer module's TxPdu through the Pdu (EcuC) referenced by PduRSrcPduRef. The configuration item PduRDestPduRRef is associated with a PduRDestPdu, which is associated with the lower-layer TP module via the Pdu referenced by PduRDestPduRef. The upper-layer module calls PduR_&lt;User: Up&gt;Transmit to request PDU transmission. The lower layer retrieves the PDU transmit data segment through calling PduR_&lt;User: LoTp&gt;CopyTxData (transmitted to the upper layer) and notifies the upper layer of transmission end (success/failure) through calling PduR_&lt;User: LoTp&gt;TxConfirmation (transmitted to the upper layer).</p>
+</section>
+</section>
+<section id="receive-route-function">
+<h3>接收路由功能 (Receive Route Function)<a class="headerlink" href="#receive-route-function" title="Link to this heading">¶</a></h3>
+<section id="routing-reception-function-introduction">
+<h4>接收路由功能介绍 (Routing reception function introduction)<a class="headerlink" href="#routing-reception-function-introduction" title="Link to this heading">¶</a></h4>
+<p>RxPdu的接收分为两种方式（IF和TP），在PduR模块实现TP PDU的1：N发送路由，IF PDU的1：N路由。当PDU从下层模块接收到，根据PduR配置的路由路径传递到上层模块。上层模块不必关注网络细节，专注于接收PDU的解析。</p>
+<p>RxPdu reception is divided into two methods (IF and TP). In the PduR module, 1:N sending routing for TP PDUs and IF PDUs are implemented. When PDUs are received from lower-layer modules, they are passed to upper-layer modules according to the configured routing path in PduR. Upper-layer modules do not need to concern themselves with network details; they focus on parsing the PDUs.</p>
+</section>
+<section id="route-reception-function-implementation">
+<h4>接收路由功能实现 (Route reception function implementation)<a class="headerlink" href="#route-reception-function-implementation" title="Link to this heading">¶</a></h4>
+<p>IF PDU的接收：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与上层模块关联。下层模块通过调用PduR_&lt;User：Lo&gt;RxIndication将接收报文传递给上层。</p>
+<p>IF PDU Reception: In PduR, add configuration for routing PduRRoutingPath, configuring one PduRRoutingPath for each PduRDestPdu (in a 1:N routing scenario, there exist N PduRRoutingPaths, and these N PduRRoutingPaths share the same PduRSrcPduRRef). Among them, PduRRouteType is configured as IF. The configuration item PduRSrcPduRRef associates with one PduRSrcPdu, which through PduRSrcPduRef is associated with the Pdu (EcuC) receiving RxPdu from the lower-layer IF module. The configuration item PduRDestPduRRef associates with one PduRDestPdu, which through PduRDestPduRef is associated with the Pdu for upper-layer modules. The lower-layer module passes the received message to the upper layer by calling PduR_&lt;User:Lo&gt;RxIndication.</p>
+<p>TP PDU的接收：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与上层模块关联。调用PduR_&lt;User：LoTp&gt;StartOfReception，PduR_&lt;User：LoTp&gt;CopyRxData，PduR_&lt;User：LoTp&gt;RxIndication完成TP PDU接收流程。</p>
+<p>TP PDU Reception: In PduR, add configuration routing PduRRoutingPath for each PduRDestPdu (N PduRRoutingPath exist in 1:N routing scenarios, and they share the same PduRSrcPduRRef). Among them, configure PduRRouteType as TP. The configuration item PduRSrcPduRRef is associated with a PduRSrcPdu, which through PduRSrcPduRef associates the Pdu (EcuC) with the lower-layer TP module to receive RxPdu. The configuration item PduRDestPduRRef is associated with a PduRDestPdu, which through PduRDestPduRef associates the Pdu with the upper-layer module. Calling PduR_&lt;User:LoTp&gt;StartOfReception, PduR_&lt;User:LoTp&gt;CopyRxData, and PduR_&lt;User:LoTp&gt;RxIndication completes the TP PDU reception process.</p>
+</section>
+</section>
+<section id="gateway-routing-functionality">
+<h3>网关路由功能 (Gateway routing functionality)<a class="headerlink" href="#gateway-routing-functionality" title="Link to this heading">¶</a></h3>
+<section id="gateway-routing-feature-introduction">
+<h4>网关路由功能介绍 (Gateway routing feature introduction)<a class="headerlink" href="#gateway-routing-feature-introduction" title="Link to this heading">¶</a></h4>
+<p>PDU的网关同样分为IF/TP两种方式，IF网关支持1：N，TP网关支持1：N，不涉及任何报文数据的变化，收发报文速率保持一致。</p>
+<p>The gateway for PDU is similarly divided into IF/TP methods. IF gateways support 1:N, and TP gateways also support 1:N. There are no changes in any message data; the rate of receiving and sending messages remains consistent.</p>
+<p>需注意PDU的网关不能IF、TP混淆，即接收IF PDU只能通过发送IF PDU进行转发，接收TP PDU只能通过TP PDU进行转发。</p>
+<p>Note that the gateway for PDU cannot mix IF and TP, i.e., IF PDU can only be forwarded via IF PDU transmission, and TP PDU can only be forwarded via TP PDU.</p>
+</section>
+<section id="gateway-routing-functionality-implementation">
+<h4>网关路由功能实现 (Gateway routing functionality implementation)<a class="headerlink" href="#gateway-routing-functionality-implementation" title="Link to this heading">¶</a></h4>
+<p>IF PDU的网关：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层IF模块发送TxPdu关联，若PduRDestPduRRef通过PduRDestPduRef关联的TxPdu发送方式为TriggerTransmit,则相应PduRDestPdu的PduRDestPduDataProvision需配置为PDUR_TRIGGERTRANSMIT，反之配置为PDUR_DIRECT。若配置为PDUR_TRIGGERTRANSMIT则必须为该PduRRoutingPath配置queue，以及配置PduRDefaultValueElement来设置Pdu初始默认值。配置为PDUR_DIRECT时也可以选择配置queue，以降低丢帧概率。</p>
+<p>IF PDU Gateway: In PduR, add configuration for routing PduRRoutingPath, configuring one PduRRoutingPath for each PduRDestPdu (in a 1:N routing scenario, there are N PduRRoutingPaths, and these N PduRRoutingPaths share the same PduRSrcPduRRef). Among them, configure PduRRouteType as IF. The configuration item PduRSrcPduRRef associates with a PduRSrcPdu, which through PduRSrcPduRef is linked to a Pdu (EcuC) for receiving RxPdu at the lower layer IF module. The configuration item PduRDestPduRRef associates with a PduRDestPdu, which through PduRDestPduRef is linked to a Pdu for sending TxPdu at the lower layer IF module. If PduRDestPduRRef through PduRDestPduRef is associated with a TxPdu transmission method as TriggerTransmit, then the corresponding PduRDestPdu's PduRDestPduDataProvision must be configured as PDUR_TRIGGERTRANSMIT; otherwise, it should be configured as PDUR_DIRECT. When configured as PDUR_TRIGGERTRANSMIT, a queue must also be configured for this PduRRoutingPath, and PduRDefaultValueElement should be set to define the initial default value of Pdu. When configured as PDUR_DIRECT, a queue can also be optionally configured to reduce frame loss probabilities.</p>
+<p>注意：queue的配置，①需要在相应的PduRRoutingPath中配置非0的PduRQueueDepth值；②添加PduRTxBuffer配置，没有被任何PduRRoutingPath关联的PduRTxBuffer属于Global buffer，存在资源抢占。被某一个PduRRoutingPath关联的PduRTxBuffer属于该PduRRoutingPath的Dedicated buffer，该PduRTxBuffer仅可以被该PduRRoutingPath申请；③PduRDestTxBufferRef可以关联最多PduRQueueDepth个PduRTxBuffer，也可以不关联任何PduRTxBuffer。</p>
+<p>Note: For the configuration of queue, ① a non-zero PduRQueueDepth value needs to be configured in the corresponding PduRRoutingPath; ② add PduRTxBuffer configuration. PduRTxBuffers not associated with any PduRRoutingPath belong to Global buffer and are subject to resource contention. PduRTxBuffers associated with a particular PduRRoutingPath belong to its Dedicated buffer and can only be claimed by that PduRRoutingPath; ③ PduRDestTxBufferRef can reference up to PduRQueueDepth PduRTxBuffers, or no PduRTxBuffer at all.</p>
+<p>TP PDU的网关：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层TP模块发送TxPdu关联。若不希望等到全部RxPdu数据接收完成才开始执行转发，即希望通过“gatewaying-on-the-fly”方式进行转发，可通过配置PduRTpThreshold（1：N时只允许最多一个相同PduRSrcPduRRef的PduRRoutingPath配置阈值）来实现，当接收数据长度超过该阈值或者接收完成，则触发TxPdu进行转发。</p>
+<p>Gateway for TP PDU: In PduR, add configuration routing PduRRoutingPath for each PduRDestPdu (for a 1:N routing scenario, there exist N PduRRoutingPaths, and the PduRSrcPduRRef of these N PduRRoutingPaths are the same). The PduRRouteType is configured as TP. The configuration item PduRSrcPduRRef associates with one PduRSrcPdu, which through PduRSrcPduRef is associated with a Pdu (EcuC) to receive RxPdu at the lower-layer TP module. The configuration item PduRDestPduRRef associates with one PduRDestPdu, which through PduRDestPduRef is associated with a Pdu for sending TxPdu at the lower-layer TP module. If you do not want to wait until all RxPdu data is received before starting forwarding and instead wish to use &quot;gatewaying-on-the-fly&quot; for forwarding, this can be achieved by configuring PduRTpThreshold (only allowing up to one PduRRoutingPath with the same PduRSrcPduRRef configured threshold when 1:N). When the length of received data exceeds this threshold or is fully received, it triggers the TxPdu for forwarding.</p>
+<p>注意：TP PDU的网关必须配置queue。</p>
+<p>Note: The TP PDU gateway must be configured with a queue.</p>
+</section>
+</section>
+<section id="routing-control-functionality">
+<h3>路由控制功能 (Routing control functionality)<a class="headerlink" href="#routing-control-functionality" title="Link to this heading">¶</a></h3>
+<section id="introduction-to-routing-control-function">
+<h4>路由控制功能介绍 (Introduction to Routing Control Function)<a class="headerlink" href="#introduction-to-routing-control-function" title="Link to this heading">¶</a></h4>
+<p>PduR的路由控制以RoutingPathGroup为单位进行Enable/Disable控制，而RoutingPathGroup可以被N个PduRRoutingPath关联，进而控制PduRDestPdu使能状态。</p>
+<p>PduR routing control is performed in units of RoutingPathGroup for Enable/Disable control, and a RoutingPathGroup can be associated with N PduRRoutingPath to control the enable state of PduRDestPdu.</p>
+</section>
+<section id="routing-control-functionality-implementation">
+<h4>路由控制功能实现 (Routing control functionality implementation)<a class="headerlink" href="#routing-control-functionality-implementation" title="Link to this heading">¶</a></h4>
+<p>RoutingPathGroup通过配置项PduRIsEnabledAtInit决定初始化之后其关联的所有PduRDestPdu为Enable或者Disable状态。运行时，通过调用PduR_EnableRouting/PduR_DisableRouting来控制RoutingPathGroup及其包含的PduRDestPdu使能状态。</p>
+<p>RoutingPathGroup determines the initial enable or disable state of all associated PduRDestPdu through the configuration item PduRIsEnabledAtInit. At runtime, the enable status of RoutingPathGroup and its contained PduRDestPdu can be controlled by calling PduR_EnableRouting/PduR_DisableRouting.</p>
+<p>未被RoutingPathGroup关联的PduRDestPdu初始化之后其状态一直为Enable，不可改变。</p>
+<p>The state of PduRDestPdu initialized without being associated with RoutingPathGroup remains as Enable and cannot be changed.</p>
+</section>
+</section>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 PduR组件文件描述 (Table PduR Component File Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduR_Cfg.h</p></td>
+<td><p>定义PduR模块PC配置的宏定义。 (Define macros for PC configuration of PduR module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR_Cfg.c</p></td>
+<td><p>定义PduR模块PC配置的结构体参数。 (Define structure parameters for PduR module PC configuration.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR_PBcfg.h</p></td>
+<td><p>定义PduR模块PB配置的宏定义。 (Macro definitions for configuring PduR module PB.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR_PBcfg.c</p></td>
+<td><p>定义PduR模块PB配置的结构体参数。 (Define structure parameters for PduR module PB configuration.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR.h</p></td>
+<td><p>实现PduR模块全部外部接口的声明，以及配置文件中全局变量的声明，必要宏的定义。 (Realize the declaration of all external interfaces of the PduR module, as well as the declaration of global variables in the configuration file and necessary macro definitions.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR.c</p></td>
+<td><p>作为PduR模块的核心文件，实现PduR模块全部对外接口，以及实现PduR模块功能所必须的local变量定义。 (As the core file of the PduR module, it implements all external interfaces of the PduR module and defines local variables necessary for realizing the functionality of the PduR module.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR_MemMap.h</p></td>
+<td><p>实现PduR模块内存布局。 (Implement PduR module memory layout.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR_Types.h</p></td>
+<td><p>实现外部/内部类型的定义，包括AUTOSAR标准定义的类型，以及PB/PC配置参数结构体类型，以及内部运行时结构体类型。 (Define external/internal types, including types defined by the AUTOSAR standard, as well as PB/PC configuration parameter structure types and internal runtime structure types.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR_Internal.c</p></td>
+<td><p>实现PduR模块内部全局变量的定义，内部接口的实现。 (Define global variables within the PduR module and implement internal interfaces.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR_Internal.h</p></td>
+<td><p>实现PduR模块内部宏的定义，全局变量的声明，内部inline接口的实现。 (Define macros for the PduR module internal macros, declare global variables, and implement internal inline interfaces.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR_Buffer.c</p></td>
+<td><p>实现PduR模块Buffer功能需要使用到的全部内部接口函数定义。 (Definition of all internal interface functions required to implement the Buffer functionality of the PduR module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR_Buffer.h</p></td>
+<td><p>实现PduR模块Buffer功能需要使用到的全部内部接口函数声明。 (All internal interface function declarations required to implement the Buffer functionality of the PduR module.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR_Route.c</p></td>
+<td><p>实现PduR模块Route功能需要使用到的全部内部接口函数定义。 (Definition of all internal interface functions required to implement the Route function of the PduR module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PduR_Route.h</p></td>
+<td><p>实现PduR模块Route功能需要使用到的全部内部接口函数声明。 (All internal interface function declarations required for implementing the Route functionality of the PduR module.)</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR_&lt;Module&gt;.h</p></td>
+<td><p>实现Module需要调用的PduR接口宏定义。 (Macro definitions for the PduR interfaces called by Module.)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="pdur-pdur-component-file-interaction-diagram">
+<img alt="PduR组件文件交互关系图 (_pduR component file interaction diagram)" src="../../_images/image280.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<section id="pdur-pbconfigtype-pdur-pbconfigtype-type-definition">
+<h4>PduR_PBConfigType类型定义 (PduR_PBConfigType Type Definition)<a class="headerlink" href="#pdur-pbconfigtype-pdur-pbconfigtype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>PduR_PBConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>PduR模块PB配置结构体类型 (PduR Module PB Configuration Structure Type)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-pbconfigidtype-pdur-pbconfigidtype-type-definition">
+<h4>PduR_PBConfigIdType类型定义 (PduR_PBConfigIdType Type Definition)<a class="headerlink" href="#pdur-pbconfigidtype-pdur-pbconfigidtype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>PduR_PBConfigIdType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>PduR模块的PB配置Id号 (Configuration ID number of PduR module PB)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-routingpathgroupidtype-pdur-routingpathgroupidtype-type-definition">
+<h4>PduR_RoutingPathGroupIdType类型定义 (PduR_RoutingPathGroupIdType Type Definition)<a class="headerlink" href="#pdur-routingpathgroupidtype-pdur-routingpathgroupidtype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>PduR_RoutingPathGroupIdType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>路由路径组的Id号 (ID of the routing path group)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-statetype-pdur-statetype-type-definition">
+<h4>PduR_StateType类型定义 (PduR_StateType Type Definition)<a class="headerlink" href="#pdur-statetype-pdur-statetype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>PduR_StateType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>PDUR_UNINIT/ PDUR_ONLINE</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>表示PduR模块的状态 (Indicate PduR module status)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportRuntimeError</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;LoIf_Module&gt;</p></td>
+<td><p>&lt;Provider：Lo&gt;_CancelTransmit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;Provider：Lo&gt;_Transmit</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;LoTp_Module&gt;</p></td>
+<td><p>&lt;Provider：LoTp&gt;_CancelReceive</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;Provider：LoTp&gt;_CancelTransmit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>&lt;Provider：LoTp&gt;_ChangeParameter</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;Provider：LoTp&gt;_Transmit</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;UpIf_Module&gt;</p></td>
+<td><p>&lt;Provider：Up&gt;_RxIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;Provider：Up&gt;_TriggerTransmit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>&lt;Provider：Up&gt;_TxConfirmation</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;UpTp_Module&gt;</p></td>
+<td><p>&lt;Provider：UpTp&gt;_CopyRxData</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>&lt;Provider：UpTp&gt;_CopyTxData</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;Provider：UpTp&gt;_StartOfReception</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>&lt;Provider：UpTp&gt;_RxIndication</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>&lt;Provider：UpTp&gt;_TxConfirmation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<section id="pdur-init-the-pdur-init-function-definition">
+<h4>PduR_Init函数定义 (The PduR_Init function definition)<a class="headerlink" href="#pdur-init-the-pdur-init-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_Init(constPduR_PBConfigType*ConfigPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0xf0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>PduR模块初始化 (PduR Module Initialization)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-getversioninfo-the-pdur-getversioninfo-function-definition">
+<h4>PduR_GetVersionInfo函数定义 (The PduR_GetVersionInfo function definition)<a class="headerlink" href="#pdur-getversioninfo-the-pdur-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_GetVersionInfo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_GetVersionInfo(Std_VersionInfoType*versionInfo)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0xf1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>versionInfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>PduR模块软件版本获取 (Retrieve PduR Module Software Version)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-getconfigurationid-the-pdur-getconfigurationid-function-defines">
+<h4>PduR_GetConfigurationId函数定义 (The PduR_GetConfigurationId function defines)<a class="headerlink" href="#pdur-getconfigurationid-the-pdur-getconfigurationid-function-defines" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_GetConfigurationId</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>PduR_PBConfigIdTypePduR_GetConfigurationId(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0xf2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>PduR_PBConfigIdType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取PduR模块PB配置的Id号 (Get the ID number of the PduR module PB configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-enablerouting-the-pdur-enablerouting-function-definition">
+<h4>PduR_EnableRouting函数定义 (The PduR_EnableRouting function definition)<a class="headerlink" href="#pdur-enablerouting-the-pdur-enablerouting-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_EnableRouting</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_EnableRouting(PduR_RoutingPathGroupIdTypeid)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0xf3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>RoutingPathGroup使能 (RoutingPathGroup Enable)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-disablerouting-the-pdur-disablerouting-function-definition">
+<h4>PduR_DisableRouting函数定义 (The PduR_DisableRouting function definition)<a class="headerlink" href="#pdur-disablerouting-the-pdur-disablerouting-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_DisableRouting</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_DisableRouting(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduR_RoutingPathGroupIdTypeid,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>booleaninitialize</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0xf4</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>initialize</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>RoutingPathGroup不使能 (RoutingPathGroup is not enabled)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<section id="pdur-user-up-transmit-pdur-user-up-transmit-function-definition">
+<h4>PduR_&lt;User：Up&gt;Transmit函数定义 (_pduR_User_Up_Transmit function definition)<a class="headerlink" href="#pdur-user-up-transmit-pdur-user-up-transmit-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_Transmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypePduR_Transmit(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdTypeTxPduId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>constPduInfoType*PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x49</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>对于不同的Pdu可重入，对于相同的Pdu不可重入 (For different PDUs re-entry is allowed, for the same PDU re-entry is not allowed.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>Pdu发送请求 (PDU Send Request)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-up-canceltransmit-pdur-user-up-canceltransmit-function-definition">
+<h4>PduR_&lt;User：Up&gt;CancelTransmit函数定义 (PduR_&lt;User: Up&gt;CancelTransmit function definition)<a class="headerlink" href="#pdur-user-up-canceltransmit-pdur-user-up-canceltransmit-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_CancelTransmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypePduR_CancelTransmit(PduIdTypeTxPduId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x4a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>Pdu发送取消 (Cancel PDU Send)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-up-cancelreceive-pdur-user-up-cancelreceive-function-definition">
+<h4>PduR_&lt;User：Up&gt;CancelReceive函数定义 (PduR&lt;User: Up&gt;CancelReceive Function Definition)<a class="headerlink" href="#pdur-user-up-cancelreceive-pdur-user-up-cancelreceive-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_CancelReceive</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypePduR_CancelReceive(PduIdTypeRxPduId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x4c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>RxPduId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>TP Pdu接收取消 (Cancel TP Pdu Reception)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lo-rxindication-pdur-user-lo-rxindication-function-definition">
+<h4>PduR_&lt;User：Lo&gt;RxIndication函数定义 (PduR&lt;User:Lo&gt;RxIndication Function Definition)<a class="headerlink" href="#pdur-user-lo-rxindication-pdur-user-lo-rxindication-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_IfRxIndication</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_IfRxIndication(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdTypeRxPduId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>constPduInfoType*PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x42</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同Pdu可重入，相同Pdu不可重入 (Different PDUs can be reentered, while the same PDU cannot be reentered.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>RxPduId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>IF Pdu接收指示 (IF Pdu Reception Indication)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lo-txconfirmation-pdur-user-lo-txconfirmation-function-definition">
+<h4>PduR_&lt;User：Lo&gt;TxConfirmation函数定义 (PduR&lt;User:Lo&gt; TxConfirmation Function Definition)<a class="headerlink" href="#pdur-user-lo-txconfirmation-pdur-user-lo-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_IfTxConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_IfTxConfirmation(PduIdTypeTxPduId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x40</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同Pdu可重入，相同Pdu不可重入 (Different PDUs can be reentered, while the same PDU cannot be reentered.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>IFPdu发送确认（当前实现版本为4.2.2） (IFPdu Send Confirmation (Current implementation version: 4.2.2))</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lo-triggertransmit-pdur-user-lo-triggertransmit-function-definition">
+<h4>PduR_&lt;User：Lo&gt;TriggerTransmit函数定义 (PduR_&lt;User:Lo&gt;TriggerTransmit Function Definition)<a class="headerlink" href="#pdur-user-lo-triggertransmit-pdur-user-lo-triggertransmit-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_IfTriggerTransmit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypePduR_IfTriggerTransmit(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdTypeTxPduId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PduInfoType*PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x41</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不同Pdu可重入，相同Pdu不可重入 (Different PDUs can be reentered, while the same PDU cannot be reentered.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>PduInfoPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>IFPdu通过TriggerTransmit方式获取Pdu数据 (IFPdu acquires Pdu data through TriggerTransmit方式)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lotp-copyrxdata-pdur-user-lotp-copyrxdata-function-definition">
+<h4>PduR_&lt;User：LoTp&gt;CopyRxData函数定义 (PduR_&lt;User:LoTp&gt;CopyRxData function definition)<a class="headerlink" href="#pdur-user-lotp-copyrxdata-pdur-user-lotp-copyrxdata-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_TpCopyRxData</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>BufReq_ReturnTypePduR_TpCopyRxData(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdType id,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>constPduInfoType*info,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduLengthType*bufferSizePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x44</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>info</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>bufferSizePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>BufReq_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>TP Pdu数据段接收 (TP Pdu Data Segment Reception)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lotp-rxindication-pdur-user-lotp-rxindication-function-definition">
+<h4>PduR_&lt;User：LoTp&gt;RxIndication函数定义 (PduR&lt;User:LoTp&gt;RxIndication Function Definition)<a class="headerlink" href="#pdur-user-lotp-rxindication-pdur-user-lotp-rxindication-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_TpRxIndication</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_TpRxIndication(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdType id,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Std_ReturnTyperesult</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x45</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>result</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>TPPdu接收结束指示 (TPPdu Reception Completion Indication)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lotp-startofreception-pdur-user-lotp-startofreception-function-definition">
+<h4>PduR_&lt;User：LoTp&gt;StartOfReception函数定义 (PduR_&lt;User:LoTp&gt;StartOfReception function definition)<a class="headerlink" href="#pdur-user-lotp-startofreception-pdur-user-lotp-startofreception-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_TpStartOfReception</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>BufReq_ReturnTypePduR_TpStartOfReception(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdType id,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>constPduInfoType*info,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduLengthTypeTpSduLength,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PduLengthType*bufferSizePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x46</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>info</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TpSduLength</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>bufferSizePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>BufReq_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>TP Pdu接收开始 (TP Pdu Reception Start)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lotp-copytxdata-pdur-user-lotp-copytxdata-function-definition">
+<h4>PduR_&lt;User：LoTp&gt;CopyTxData函数定义 (PduR_&lt;User:LoTp&gt;CopyTxData function definition)<a class="headerlink" href="#pdur-user-lotp-copytxdata-pdur-user-lotp-copytxdata-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_TpCopyTxData</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>BufReq_ReturnTypePduR_TpCopyTxData(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdType id,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>constPduInfoType*info,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>constRetryInfoType*retry,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PduLengthType*availableDataPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x43</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>info</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>retry</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>availableDataPtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>BufReq_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>TPPdu发送数据段拷贝 (TPPdu sends data segment copy)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdur-user-lotp-txconfirmation-pdur-user-lotp-txconfirmation-function-definition">
+<h4>PduR_&lt;User：LoTp&gt;TxConfirmation函数定义 (PduR_&lt;User:LoTp&gt;TxConfirmation Function Definition)<a class="headerlink" href="#pdur-user-lotp-txconfirmation-pdur-user-lotp-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>PduR_TpTxConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidPduR_TpTxConfirmation(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PduIdType id,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Std_ReturnTyperesult</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x48</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>id</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>result</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>TP Pdu发送结束 (TP Pdu Send Completion)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="pdurgeneral">
+<h3>PduRGeneral<a class="headerlink" href="#pdurgeneral" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id1">
+<img alt="PduRGeneral" src="../../_images/image358.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRGeneral (Table PduRGeneral)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRDevErrorDetect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能DET开发错误检测 (Whether to Enable DET Development Error Detection)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于Det模块的支持 (Dependent on the support of Det module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRMetaDataSupport</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能MetaData机制 (Is the MetaData mechanism enabled?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>路由表中SourePdu和DestPdu的MetaData类型必须一致 (The MetaData type of SourcePdu and DestPdu in the routing table must be consistent.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRVersionInfoApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能获取模块软件版本 (Is module software version retrieval enabled?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRZeroCostOperation</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能PduR“透传模式” (Is PduR &quot;Transparent Mode&quot; enabled?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>“透传模式”通常用于PduR上下层模块固定且一一对应，不涉及网关。 (&quot;PduR Passthrough Mode&quot; is typically used when the upper and lower layer modules are fixed and one-to-one correspondence exists, and does not involve a gateway.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRMultiplePartitionEnabled</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能PduR多分区功能 (Does PduR Multi-Zone Function Enable?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>必须存在Rte模块。该配置项使能时，路由表中SourePdu和DestPdu在EcuC中必须均配置EcucPduDefaultPartitionRef (The Rte module must exist. When this configuration item is enabled, SourcePdu and DestPdu in the ECU routing table must be configured with EcucPduDefaultPartitionRef in EcuC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdurbswmoduleref">
+<h3>PduRBswModuleRef<a class="headerlink" href="#pdurbswmoduleref" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id2">
+<img alt="PduRBswModuleRef" src="../../_images/image449.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRBswModuleRef (Table PduRBswModuleRef)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRCancelReceive</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持接收取消 (Does the module support receiving cancellations?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRCancelTransmit</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持发送取消 (Does the module support sending cancellations?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRCommunicationInterface</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持IFPdu传输 (Does the module support IFPdu transmission?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据PduRBswModuleRef关联的模块自动配置 (Automatically configure based on PduRBswModuleRef-associated modules)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRCopyRxData</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TPI-PDU数据段接收 (Does the module support receiving TPI-PDU data segments?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRCopyTxData</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TPI-PDU发送数据段拷贝 (Does the module support sending data segment copies via TPI-PDU?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRLowerModule</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否处于PduR下层 (Is the module in the PduR lower layer?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据PduRBswModuleRef关联的模块自动配置 (Automatically configure based on PduRBswModuleRef-associated modules)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRRetransmission</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TPPdu重传 (Does the module support TPPDU retransmission?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRRxIndication</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持IFPdu接收 (Does the module support IFPDU reception?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联IF模块时，该项才可配置 (When associated with an IF module, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRStartOfReception</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TPPdu接收（开始） (Does the module support receiving TPPdu (start)?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRTpRxIndication</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TP接收指示 (Does the module support TP receive indication?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRTpTransmit</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>该模块是否支持TPPdu传输 (Does this module support TPPDU transmission?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRTpTxConfirmation</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TPPdu发送确认 (Does the module support TP PDU send confirmation?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRTransmit</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持IFPdu发送 (Does the module support IFPDU sending?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联IF模块时，该项才可配置 (When associated with an IF module, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRTransportProtocol</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否支持TP传输 (Does the module support TP transmission?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联TP模块时，该项才可配置 (When associating the PduRBswModuleRef with TP modules, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRTriggertransmit</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>该模块是否支持IFPdu通过TriggerTransmit机制进行发送 (Does this module support sending IFPdu via the TriggerTransmit mechanism?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联IF模块时，该项才可配置 (When associated with an IF module, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRTxConfirmation</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>该模块是否支持IFPdu发送确认 (Does this module support IFPDU send confirmation?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>PduRBswModuleRef关联IF模块时，该项才可配置 (When associated with an IF module, this item can be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRUpperModule</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块是否处于PduR上层 (Is the module at the upper layer of PduR?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据PduRBswModuleRef关联的模块自动配置 (Automatically configure based on PduRBswModuleRef-associated modules)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRUseTag</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块调用PduR接口是否带tag(&lt;up&gt;) (Does the module call PduR interface carry tag (&lt;up&gt;)?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置项固定为true (This configuration item is fixed as true)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRBswModuleRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[Module] (Index[Module])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联与PduR模块交互的上下层模块 (Interact with upper and lower layer modules associated with the PduR module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据配置工程中已添加的模块，才能索引 (Based on the modules added in the configuration engineering, indexing can be performed.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注：PduRBswModules至少要配置一个模块</p>
+<p>Note: PduRBswModules must have at least one module configured.</p>
+</section>
+<section id="pdurroutingpaths">
+<h3>PduRRoutingPaths<a class="headerlink" href="#pdurroutingpaths" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id3">
+<img alt="PduRRoutingPaths" src="../../_images/image546.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRRoutingPaths (Table PduRRoutingPaths)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRConfigurationId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块PB配置Id号 (Module PB Configuration ID Number)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当前不支持配置 (Current configuration is not supported.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRMaxRoutingPathCnt</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块PB配置支持的最大路由路径数 (Maximum number of route paths supported by module PB configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>对配置的路由路径数目进行限制及校验 (Limit and validate the number of configured route paths.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRMaxRoutingPathGroupCnt</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块PB配置支持的最大路由路径组数 (Maximum number of route path groups supported by module PB configuration)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>对配置的路径路径组数目进行限制及校验，该数值决定可以新建几个PduRRoutingPathGroup (Limit and validate the number of path path groups configured, as this value determines how many PduRRoutingPathGroups can be newly created.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRMaxRoutingTableCnt</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模块PB配置支持最大路由表数 (Module PB configuration supports maximum number of routing tables)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当前不支持配置 (Current configuration is not supported.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdurroutingpathgroup">
+<h3>PduRRoutingPathGroup<a class="headerlink" href="#pdurroutingpathgroup" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id4">
+<img alt="PduRRoutingPathGroup" src="../../_images/image644.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRRoutingPathGroup (Table PduRRoutingPathGroup)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRIsEnabledAtInit</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>初始化之后该RoutingPathGroup是否使能 (Whether this RoutingPathGroup is enabled after initialization.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRRoutingPathGroupId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>string</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示RoutingPathGroup的Id（宏定义） (Define ID for RoutingPathGroup (Macro Definition))</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据PduRRoutingPathGroup名自动生成 (Automatically generated based on PduRRoutingPathGroup name)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdurroutingpath">
+<h3>PduRRoutingPath<a class="headerlink" href="#pdurroutingpath" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id5">
+<img alt="PduRRoutingPath" src="../../_images/image734.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRRoutingPath (Table PduRRoutingPath)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRQueueDepth</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1 .. 255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>定义此路由路径的缓存的深度 (Define the depth of the cache for this route path)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>取值不能大于定义的所有buffer数目之和 (The value cannot be greater than the sum of all defined buffer numbers.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRTpThreshold</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>TP Pduon-the-fly网关时，接收到该配置阈值长度的报文后开始执行转发 (When configuring the TP Pdu on-the-fly gateway, forwarding begins upon receiving a message of the configured threshold length.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置项只针对TP网关 (This configuration item is only for TP gateway.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRRouteType</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>IF/TP</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>IF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>I-PDU路由类型选择 (I-PDU Route Type Selection)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于I-PDU关联的模块对于该路由类型的支持 (Modules dependent on I-PDU association support for this routing type)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRDestPduRRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[PduRDestPdu] (Index[PduRDestPdu])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联PduRDestPdu配置 (Configure PduRDestPdu Association)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRDestTxBufferRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[PduRTxBuffer] (Index[PduRTxBuffer])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联PduRTxBuffer，I-PDU网关路由才可能需要TxBuffer，（IFDirect网关/TP单播网关可配可不配，IFTriggerTransmit网关必须配置）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRRoutingPathGroupRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[PduRRoutingPathGroup] (Index[PduRRoutingPathGroup])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联PduRRoutingPathGroup (Associate PduRRoutingPathGroup)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRSrcPduRRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[PduRSrcPdu] (Index[PduRSrcPdu])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联PduRSrcPdu配置 (Configure Associated PduRSrcPdu)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdurdefaultvalueelement">
+<h3>PduRDefaultValueElement<a class="headerlink" href="#pdurdefaultvalueelement" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id6">
+<img alt="PduRDefaultValueElement" src="../../_images/image830.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRDefaultValueElement (Table PduRDefaultValueElement)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRDefaultValueElement</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>I-PDU对应字节的默认值 (I-PDU corresponding byte default value)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>IFPdu通过TriggerTransmit方式网关时才需要配置;若配置了PduRDefaultValue，其配置的PduRDefaultValueElement字节长度需与ECUC中Pdu的PduLength相等 (IFPdu needs to be configured only when transmitted via the Gateway using TriggerTransmit; if PduRDefaultValue is configured, its configured byte length of PduRDefaultValueElement must equal the PduLength of the Pdu in ECUC.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRDefaultValueElementBytePosition</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 4294967294</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示I-PDU字节偏移 (Indicates I-PDU Byte Offset)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>IFPdu通过TriggerTransmit方式网关时才需要配置；根据添加PduRDefaultValueElement依次从0自动递增； (IFPdu needs to be configured only when going through a gateway via TriggerTransmit; increment automatically from 0 sequentially based on adding PduRDefaultValueElement.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdursrcpdu">
+<h3>PduRSrcPdu<a class="headerlink" href="#pdursrcpdu" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id7">
+<img alt="PduRSrcPdu" src="../../_images/image929.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRSrcPdu (Table PduRSrcPdu)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRSourcePduBlockSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>接收TP继续接收所需的最小缓存 (Minimum buffer required for TP to continue receiving)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于PduRRoutingPath中PduRRouteType为TP的传输，当前不支持 (Transmission dependent on PduRRoutingPath with PduRRouteType as TP is currently not supported.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRSourcePduHandleId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>string</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示PduR中I-PDUId的宏名 (Macro name for I-PDUId in PduR)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据PduRSrcPduRef关联的Ecuc中Pdu名自动生成 (Generate Pdu Name Automatically Based on Ecuc Associated with PduRSrcPduRef)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRSrcPduUpTxConf</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示该SrcPdu支持IF发送确认 (Indicates that the SrcPdu supports IF send confirmation.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于该SrcPdu所关联模块对IFTxConfirmation的支持 (Dependent on the support of IFTxConfirmation by the module associated with the SrcPdu.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRSrcPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[Pdu] (Index[Pdu])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联EcuC中配置的Pdu (Configure Pdu in Associated EcuC)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EcuC中Pdu的配置;PduR路由表中SourePdu关联的ECUCPdu需与PduRBswModules中的某一Pdu关联;Pdu关联的ECUC中Pdu的配置项PduLength必须配置；IF路由Pdu不能关联TPPdu，TP路由的Pdu不能关联IFPdu (Dependent on the configuration of Pdu in EcuC; SourcePdu associated with ECUCPdu in the PduR routing table needs to be linked to a certain Pdu in PduRBswModules; The configuration item PduLength of Pdu in ECUC corresponding to the Pdu must be configured; IF routing Pdu cannot be associated with TPPdu, and TP routing Pdu cannot be associated with IFPdu.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdurdestpdu">
+<h3>PduRDestPdu<a class="headerlink" href="#pdurdestpdu" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id8">
+<img alt="PduRDestPdu" src="../../_images/image1027.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRDestPdu (Table PduRDestPdu)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRDestPduDataProvision</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>PDUR_DIRECT/PDUR_TRIGGERTRANSMIT</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>PDUR_DIRECT</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>IFPdu网关路由的数据传递方式选择 (The data transmission method selection for IFPdu Gateway Routing)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>若选择TriggerTransmit方式，必须配置PduRDestTxBufferRef对网关I-PDU进行缓存;PduRDestPduDataProvision配置为PDUR_DIRECT时，不能配置PduRDefaultValueElement (If the TriggerTransmit method is selected, the gateway I-PDU must be cached by configuring PduRDestTxBufferRef; when PduRDestPduDataProvision is configured as PDUR_DIRECT, PduRDefaultValueElement cannot be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRDestPduHandleId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>string</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示PduR中I-PDUId的宏名 (Macro name for I-PDUId in PduR)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>根据PduRSrcPduRef关联的Ecuc中Pdu名自动生成 (Generate Pdu Name Automatically Based on Ecuc Associated with PduRSrcPduRef)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PduRTransmissionConfirmation</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>对于IFPdu发送/网关路由是否支持TxConfirmation (Check if IFPdu Send/Gateway Routing supports TxConfirmation.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置项只针对IF发送/网关 (This configuration item is only for IF sending/gateway.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PduRDestPduRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>索引[Pdu] (Index[Pdu])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>关联EcuC中配置的Pdu (Configure Pdu in Associated EcuC)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于EcuC中Pdu的配置;PduR路由表中DestPdu关联的ECUCPdu需与PduRBswModules中的某一Pdu关联;Pdu关联的ECUC中Pdu的配置项PduLength必须配置；IF路由Pdu不能关联TPPdu，TP路由的Pdu不能关联IFPdu；TP路由中仅支持配置1个DestPdu (Dependent on configuration in EcuC for Pdu; DestPdu associated with ECUCPdu in PduR routing table needs to be linked to a certain Pdu in PduRBswModules; Configuration item PduLength of Pdu in ECUC must be configured; IF routed Pdu cannot be associated with TPPdu, and TP routed Pdu cannot be associated with IFPdu; Only one DestPdu is supported for configuration in TP routing.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pdurtxbuffer">
+<h3>PduRTxBuffer<a class="headerlink" href="#pdurtxbuffer" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="id9">
+<img alt="PduRTxBuffer" src="../../_images/image1133.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 PduRTxBuffer (Table PduRTxBuffer)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PduRPduMaxLength</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1 .. 4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>TxBuffer的长度 (The length of TxBuffer)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Buffer长度应配置为关联的DestPdu的最大长度（IFPdu的最大长度/TPPdu的最大单播长度）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="Os/Os.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Os
+    </a>
+    <a class="float-right" href="iRTE.html" title="Next">
+        iRTE <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">PduR</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#send-route-function">发送路由功能 (Send Route Function)</a><ul>
+<li><a class="reference internal" href="#introduction-to-sending-route-function">发送路由功能介绍 (Introduction to Sending Route Function)</a></li>
+<li><a class="reference internal" href="#routing-functionality-implementation">发送路由功能实现 (Routing functionality implementation)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#receive-route-function">接收路由功能 (Receive Route Function)</a><ul>
+<li><a class="reference internal" href="#routing-reception-function-introduction">接收路由功能介绍 (Routing reception function introduction)</a></li>
+<li><a class="reference internal" href="#route-reception-function-implementation">接收路由功能实现 (Route reception function implementation)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gateway-routing-functionality">网关路由功能 (Gateway routing functionality)</a><ul>
+<li><a class="reference internal" href="#gateway-routing-feature-introduction">网关路由功能介绍 (Gateway routing feature introduction)</a></li>
+<li><a class="reference internal" href="#gateway-routing-functionality-implementation">网关路由功能实现 (Gateway routing functionality implementation)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#routing-control-functionality">路由控制功能 (Routing control functionality)</a><ul>
+<li><a class="reference internal" href="#introduction-to-routing-control-function">路由控制功能介绍 (Introduction to Routing Control Function)</a></li>
+<li><a class="reference internal" href="#routing-control-functionality-implementation">路由控制功能实现 (Routing control functionality implementation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a><ul>
+<li><a class="reference internal" href="#pdur-pbconfigtype-pdur-pbconfigtype-type-definition">PduR_PBConfigType类型定义 (PduR_PBConfigType Type Definition)</a></li>
+<li><a class="reference internal" href="#pdur-pbconfigidtype-pdur-pbconfigidtype-type-definition">PduR_PBConfigIdType类型定义 (PduR_PBConfigIdType Type Definition)</a></li>
+<li><a class="reference internal" href="#pdur-routingpathgroupidtype-pdur-routingpathgroupidtype-type-definition">PduR_RoutingPathGroupIdType类型定义 (PduR_RoutingPathGroupIdType Type Definition)</a></li>
+<li><a class="reference internal" href="#pdur-statetype-pdur-statetype-type-definition">PduR_StateType类型定义 (PduR_StateType Type Definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a><ul>
+<li><a class="reference internal" href="#pdur-init-the-pdur-init-function-definition">PduR_Init函数定义 (The PduR_Init function definition)</a></li>
+<li><a class="reference internal" href="#pdur-getversioninfo-the-pdur-getversioninfo-function-definition">PduR_GetVersionInfo函数定义 (The PduR_GetVersionInfo function definition)</a></li>
+<li><a class="reference internal" href="#pdur-getconfigurationid-the-pdur-getconfigurationid-function-defines">PduR_GetConfigurationId函数定义 (The PduR_GetConfigurationId function defines)</a></li>
+<li><a class="reference internal" href="#pdur-enablerouting-the-pdur-enablerouting-function-definition">PduR_EnableRouting函数定义 (The PduR_EnableRouting function definition)</a></li>
+<li><a class="reference internal" href="#pdur-disablerouting-the-pdur-disablerouting-function-definition">PduR_DisableRouting函数定义 (The PduR_DisableRouting function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a><ul>
+<li><a class="reference internal" href="#pdur-user-up-transmit-pdur-user-up-transmit-function-definition">PduR_&lt;User：Up&gt;Transmit函数定义 (_pduR_User_Up_Transmit function definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-up-canceltransmit-pdur-user-up-canceltransmit-function-definition">PduR_&lt;User：Up&gt;CancelTransmit函数定义 (PduR_&lt;User: Up&gt;CancelTransmit function definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-up-cancelreceive-pdur-user-up-cancelreceive-function-definition">PduR_&lt;User：Up&gt;CancelReceive函数定义 (PduR&lt;User: Up&gt;CancelReceive Function Definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lo-rxindication-pdur-user-lo-rxindication-function-definition">PduR_&lt;User：Lo&gt;RxIndication函数定义 (PduR&lt;User:Lo&gt;RxIndication Function Definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lo-txconfirmation-pdur-user-lo-txconfirmation-function-definition">PduR_&lt;User：Lo&gt;TxConfirmation函数定义 (PduR&lt;User:Lo&gt; TxConfirmation Function Definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lo-triggertransmit-pdur-user-lo-triggertransmit-function-definition">PduR_&lt;User：Lo&gt;TriggerTransmit函数定义 (PduR_&lt;User:Lo&gt;TriggerTransmit Function Definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lotp-copyrxdata-pdur-user-lotp-copyrxdata-function-definition">PduR_&lt;User：LoTp&gt;CopyRxData函数定义 (PduR_&lt;User:LoTp&gt;CopyRxData function definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lotp-rxindication-pdur-user-lotp-rxindication-function-definition">PduR_&lt;User：LoTp&gt;RxIndication函数定义 (PduR&lt;User:LoTp&gt;RxIndication Function Definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lotp-startofreception-pdur-user-lotp-startofreception-function-definition">PduR_&lt;User：LoTp&gt;StartOfReception函数定义 (PduR_&lt;User:LoTp&gt;StartOfReception function definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lotp-copytxdata-pdur-user-lotp-copytxdata-function-definition">PduR_&lt;User：LoTp&gt;CopyTxData函数定义 (PduR_&lt;User:LoTp&gt;CopyTxData function definition)</a></li>
+<li><a class="reference internal" href="#pdur-user-lotp-txconfirmation-pdur-user-lotp-txconfirmation-function-definition">PduR_&lt;User：LoTp&gt;TxConfirmation函数定义 (PduR_&lt;User:LoTp&gt;TxConfirmation Function Definition)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#pdurgeneral">PduRGeneral</a></li>
+<li><a class="reference internal" href="#pdurbswmoduleref">PduRBswModuleRef</a></li>
+<li><a class="reference internal" href="#pdurroutingpaths">PduRRoutingPaths</a></li>
+<li><a class="reference internal" href="#pdurroutingpathgroup">PduRRoutingPathGroup</a></li>
+<li><a class="reference internal" href="#pdurroutingpath">PduRRoutingPath</a></li>
+<li><a class="reference internal" href="#pdurdefaultvalueelement">PduRDefaultValueElement</a></li>
+<li><a class="reference internal" href="#pdursrcpdu">PduRSrcPdu</a></li>
+<li><a class="reference internal" href="#pdurdestpdu">PduRDestPdu</a></li>
+<li><a class="reference internal" href="#pdurtxbuffer">PduRTxBuffer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

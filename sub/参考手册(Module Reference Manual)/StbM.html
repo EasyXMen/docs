@@ -1,0 +1,4581 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>StbM &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="TcpIp" href="TcpIp.html" />
+            <link rel="prev" title="SomeIpXf" href="SomeIpXf.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">StbM</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/StbM.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="stbm">
+<h1>StbM<a class="headerlink" href="#stbm" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbM</p></td>
+<td><p>SynchronizedTimeBaseManager</p></td>
+<td><p>同步时基管理 (Synchronization Timing Management)</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;Bus&gt;TSyn</p></td>
+<td><p>A bus specific TimeSynchronization Providermodule</p></td>
+<td><p>总线特定的时间同步提供程序模块 (Bus-specific time synchronization provider module)</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN</p></td>
+<td><p>Controller Area Network</p></td>
+<td><p>控制器区域网络 (Controller Area Network)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH</p></td>
+<td><p>Ethernet</p></td>
+<td><p>以太网 (Ethernet)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanTSyn</p></td>
+<td><p>Time SynchronizationProvider module for CAN</p></td>
+<td><p>CAN提供的时间同步程序模块 (The CAN-provided time synchronization program module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EthTSyn</p></td>
+<td><p>Time SynchronizationProvider module forEthernet</p></td>
+<td><p>Eth提供的时间同步程序模块 (The Eth module for time synchronization)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>StbM在AutoSAR中软件层级架构如下图，其属于时间同步栈。</p>
+<p>StbM in AutoSAR has the following software hierarchical architecture as shown in the diagram, and it belongs to the timesync stack.</p>
+<figure class="align-center" id="stbmautosar-stbm-in-autosar-software-architecture-diagram">
+<img alt="StbM在Autosar中软件架构图 (StbM in Autosar Software Architecture Diagram)" src="../../_images/image1145.png" />
+</figure>
+<p>本文中描述StbM，StbM负责管理时基，给CanTSyn,EthTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。</p>
+<p>This article describes StbM, which is responsible for managing the timebase and providing interfaces to CanTSyn and EthTSyn for updating synchronization time. It also provides interfaces to other users for getting/noting the synchronization time.</p>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_SWS_TimeSyncOverCAN.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_SynchronizedTimeBaseManager.pdf，R19-11</p>
+<p>[3] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
+<p>[4] AUTOSAR_SWS_TimeSyncOverEthernet.pdf，R19-11</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="stbm-stbm-function">
+<h3>StbM功能 (StbM Function)<a class="headerlink" href="#stbm-stbm-function" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="stbm-stbm-feature-introduction">
+<h2>StbM功能介绍 (StbM Feature Introduction)<a class="headerlink" href="#stbm-stbm-feature-introduction" title="Link to this heading">¶</a></h2>
+<p>StbM的主要功能包括两个方面，一是使上层应用间的时间可以同步，二是提供绝对时间值。</p>
+<p>The main functions of StbM include two aspects:一是使上层应用间的时间可以同步 is to synchronize time among upper-layer applications, 二是提供绝对时间值 provides absolute time values.</p>
+<p>由于不同的硬件时钟，速率可能会有偏差，这将会导致使用不同硬件时钟的应用，各自的时间会有偏差，为了消除这种偏差，StbM会将一个主节点的时间基作为全局的时间基，并将所有其他节点的时间同步到这一节点，以达成时间同步的目的。</p>
+<p>Due to different hardware clocks, rates may deviate, which will cause time differences among applications using different hardware clocks. To eliminate this difference, StbM sets one main node's time base as the global time base and synchronizes all other nodes' times to this node to achieve time synchronization.</p>
+<p>另外，StbM还包括定时器功能和时间记录功能，定时器功能可以在时间到达用户配置的时间值或时间值来通知用户，时间记录为记录每一次时间的更新，供用户获取。</p>
+<p>Additionally, StbM includes timer functions and time recording features. The timer function can notify users when the predefined time value is reached. Time recording keeps a log of each time update for user reference.</p>
+</section>
+<section id="stbm-stbm-function-implementation">
+<h2>StbM功能实现 (StbM Function Implementation)<a class="headerlink" href="#stbm-stbm-function-implementation" title="Link to this heading">¶</a></h2>
+<p>StbM管理一个主时间组，这个主时基组用来作为其他从节点时间同步的基准，主时间组由TG和TV组成，TG是全局时间，TV是虚拟本地时间，TG的来源为总线同步模块设置的时间和当前的TV通过时间校正计算而得出的时间，TV的来源是本地的硬件时钟，包括GPT,OS和EthTSyn三种。</p>
+<p>StbM manages a master time group, which serves as the reference for time synchronization of other slave nodes. The master time group consists of TG and TV, where TG is the global time and TV is the virtual local time. TG's source is the time set by the bus synchronization module and the time calculated through time correction from the current TV. TV's source is the local hardware clock, which includes GPT, OS, and EthTSyn.</p>
+<p>时间校正计算包括偏移校正和速率校正，偏移校正包括跳跃校正和速率适应。</p>
+<p>Time correction calculations include offset correction and rate correction, with offset correction including jump correction and rate adaptation.</p>
+<p>速率校正，在单位时间不停计算时间差，以得出不同时钟间的速率偏差。</p>
+<p>Rate correction involves continuously calculating time differences within a unit of time to determine the rate deviations between different clocks.</p>
+<p>偏移校正是根据本地的时间，速率的偏差以及接受到的时间计算得出的时间来覆盖主时间组。表示成公式为TL = TGSync + (TV - TVSync) * r。</p>
+<p>Offset correction is calculated based on the local time, rate deviation, and received time to cover the main time group. Expressed as a formula: TL = TGSync + (TV - TVSync) * r.</p>
+<p>其中的跳跃校正为当StbM接收到时间值时，主时间组的值直接更新为接收到的时间。即速率适应的偏移校正，则是在一段时间内逐渐校正调整偏移值。</p>
+<p>The jump correction among them is such that when StbM receives a time value, the value of the main time group is directly updated to the received time. That is, the offset correction for rate adaptation is gradually adjusting the offset value over a period of time.</p>
+<p>绝对时间值即为同步时基的时间加上偏移时基的时间即为绝对时间值。</p>
+<p>Absolute time value is the sum of the synchronization base time and the offset base time.</p>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 StbM组件文件描述 (Table StbM Component File Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbM.c</p></td>
+<td><p>StbM模块源文件，包含了API函数的实现。 (Source files for the StbM module, containing the implementation of API functions.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>StbM.h</p></td>
+<td><p>StbM模块头文件，包含了API函数的声明。 (Header file for StbM module, contains declarations of API functions.)</p></td>
+</tr>
+<tr class="row-even"><td><p>StbM_Types.h</p></td>
+<td><p>StbM模块头文件，包含了内部数据类型定义。 (StbM module header file, contains the definitions of internal data types.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>StbM_MemMap.h</p></td>
+<td><p>StbM模块头文件，包含了内存布局的实现。 (StbM module header file, contains the implementation of memory layout.)</p></td>
+</tr>
+<tr class="row-even"><td><p>StbM_Cfg.h</p></td>
+<td><p>定义StbM模块预编译时用到的配置参数。 (Define configuration parameters used during pre-compilation of the StbM module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>StbM_Cfg.c</p></td>
+<td><p>StbM模块配置生成文件。 (StbM module configuration generation file.)</p></td>
+</tr>
+<tr class="row-even"><td><p>SchM_StbM.h</p></td>
+<td><p>StbM模块头文件，包含了Main函数的声明。 (Header file for StbM module, contains the declaration of Main function.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rte_StbM_Type.h</p></td>
+<td><p>时间同步模块的头文件。 (Header file for time synchronization module.)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="stbm-component-interaction-diagram-for-stbm-module">
+<img alt="StbM组件文件交互关系图 (Component Interaction Diagram for StbM Module)" src="../../_images/image295.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="stbm-configtype-stbm-configtype-configuration-type-definition">
+<h2>StbM_ConfigType类型定义 (StbM_ConfigType Configuration Type Definition)<a class="headerlink" href="#stbm-configtype-stbm-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_ConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>--</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>模块配置类型 (Module Configuration Type)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-synchronizedtimebasetype-synchronizationtimebasetype-type-definition">
+<h2>StbM_SynchronizedTimeBaseType类型定义 (SynchronizationTimeBaseType Type Definition)<a class="headerlink" href="#stbm-synchronizedtimebasetype-synchronizationtimebasetype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_SynchronizedTimeBaseType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>0-15 为同步时基，16-31为偏移时基，32-127为纯本地时基 (0-15 is for synchronization base, 16-31 is for offset base, 32-127 is for pure local base)</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>表示时基的Id号 (ID number for time base representation)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-timebasestatustype-stbm-timebasestatustype-type-definition">
+<h2>StbM_TimeBaseStatusType类型定义 (StbM_TimeBaseStatusType Type Definition)<a class="headerlink" href="#stbm-timebasestatustype-stbm-timebasestatustype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_TimeBaseStatusType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>TIMEOUT 0x01</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SYNC_TO_GATEWAY 0x04</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GLOBAL_TIME_BASE 0x08</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TIMELEAP_FUTURE 0x10</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TIMELEAP_PAST 0x20</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>表示时基状态 (Indicate time-base status)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-timestamptype-stbm-timestamptype-type-definition">
+<h2>StbM_TimeStampType类型定义 (STbM_TimeStampType Type Definition)<a class="headerlink" href="#stbm-timestamptype-stbm-timestamptype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_TimeStampType</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>成员 (Members)</p></td>
+<td><p>StbM_TimeBaseStatusType::timeBaseStatus</p></td>
+<td><p>时间基状态 (Time-based state)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32::nanoseconds</p></td>
+<td><p>纳秒部分 (Nanosecond part)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32::seconds</p></td>
+<td><p>秒部分低32bit部分 (Low 32-bit part of seconds)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint16::secondsHi</p></td>
+<td><p>秒部分高16bit部分 (Fractional part 16-bit portion)</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>时间基时间戳数据结构 (Time-based timestamp data structure)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-timedifftype-stbm-timedifftype-type-definition">
+<h2>StbM_TimeDiffType类型定义 (StbM_TimeDiffType Type Definition)<a class="headerlink" href="#stbm-timedifftype-stbm-timedifftype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_TimeDiffType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>sint32</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>-2147483647..2147483647</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>时间差值 (Time difference)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-ratedeviationtype-stbm-ratedeviationtype-type-definition">
+<h2>StbM_RateDeviationType类型定义 (StbM_RateDeviationType Type Definition)<a class="headerlink" href="#stbm-ratedeviationtype-stbm-ratedeviationtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_RateDeviationType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>sint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>-32000..32000</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>时间比例差异（单位ppm） (Time ratio difference (units ppm))</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-userdatatype-type-definition-for-stbm-userdatatype">
+<h2>StbM_UserDataType类型定义 (Type definition for StbM_UserDataType)<a class="headerlink" href="#stbm-userdatatype-type-definition-for-stbm-userdatatype" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_UserDataType</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>成员 (Members)</p></td>
+<td><p>uint8::userDataLength</p></td>
+<td><p>用户数据长度，范围 0..3 (User data length, range 0..3)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint8::userByte0</p></td>
+<td><p>用户数据 byte 0 (User data byte 0)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint8::userByte1</p></td>
+<td><p>用户数据 byte 1 (User data byte 1)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint8::userByte2</p></td>
+<td><p>用户数据 byte 2 (User data byte 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>时基对应的用户数据 (Time-base corresponding user data)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-customeridtype-stbm-customeridtype-type-definition">
+<h2>StbM_CustomerIdType类型定义 (StbM_CustomerIdType Type Definition)<a class="headerlink" href="#stbm-customeridtype-stbm-customeridtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_CustomerIdType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>0-65535</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>需要通知的用户ID (User IDs to be notified)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-timebasenotificationtype-stbm-timebasenotificationtype-type-definition">
+<h2>StbM_TimeBaseNotificationType类型定义 (StbM_TimeBaseNotificationType Type Definition)<a class="headerlink" href="#stbm-timebasenotificationtype-stbm-timebasenotificationtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_TimeBaseNotificationType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>EV_GLOBAL_TIME 0x01</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EV_TIMEOUT_OCCURRED 0x02</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EV_TIMEOUT_REMOVED 0x04</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EV_TIMELEAP_FUTURE 0x08</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EV_TIMELEAP_FUTURE_REMOVED 0x10</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EV_TIMELEAP_PAST 0x20</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EV_TIMELEAP_PAST_REMOVED 0x40</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EV_SYNC_TO_SUBDOMAIN 0x80</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EV_SYNC_TO_GLOBAL_MASTER 0x100</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EV_RESYNC 0x0200</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EV_RATECORRECTION 0x0400</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>表示需要通知用户的状态变化 (Indicate state changes that require notifying the user.)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-syncrecordtableheadtype-stbm-syncrecordtableheadtype-type-definition">
+<h2>StbM_SyncRecordTableHeadType类型定义 (StbM_SyncRecordTableHeadType Type Definition)<a class="headerlink" href="#stbm-syncrecordtableheadtype-stbm-syncrecordtableheadtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_SyncRecordTableHeadType</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>成员 (Members)</p></td>
+<td><p>uint8::SynchronizedTimeDomain</p></td>
+<td><p>时间域 0..15 (Time Domain 0..15)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32::HWfrequency</p></td>
+<td><p>硬件频率（Hz）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32::HWprescaler</p></td>
+<td><p>预分频值 (Pre-divisor value)</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>同步时间记录的表头 (Header for synchronized time records)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-syncrecordtableblocktype-stbm-syncrecordtableblocktype-type-definition">
+<h2>StbM_SyncRecordTableBlockType类型定义 (StbM_SyncRecordTableBlockType type definition)<a class="headerlink" href="#stbm-syncrecordtableblocktype-stbm-syncrecordtableblocktype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_SyncRecordTableBlockType</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>成员 (Members)</p></td>
+<td><p>uint32::GlbSeconds</p></td>
+<td><p>与全局时间基同步后的本地时间基秒 (Local time base seconds after synchronization with global time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32::GlbNanoSeconds</p></td>
+<td><p>与全局时间基同步后直接生成本地时间基的纳秒 (Generate local timebase directly in nanoseconds after synchronization with the global timebase.)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_TimeBaseStatusType::TimeBaseStatus</p></td>
+<td><p>与全局时间基同步后的本地时间基的时间基础状态 (Time basis status after synchronization with global time base from local time base.)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32::VirtualLocalTimeLow</p></td>
+<td><p>与全局时间基同步后，最不显著的虚拟本地时间的32位 (After synchronization with global time base, the least significant 32-bit virtual local time)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_RateDeviationType::RateDeviation</p></td>
+<td><p>速率偏差测量后直接计算速率偏差 (Measure rate deviation directly after rate measurement.)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32::LocSeconds</p></td>
+<td><p>在与全局时间基同步之前的本地时间基秒 (Local time base seconds before synchronization with global time base)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32::LocNanoSeconds</p></td>
+<td><p>在与全局时间基同步之前，本地时间基的纳秒 (Before synchronization with the global time base, the nanoseconds of the local time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32::PathDelay</p></td>
+<td><p>当前传播延迟，单位为纳秒 (Current propagation delay, unit: nanoseconds)</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>同步时间记录的块结构 (Block structure for synchronized time records)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-offsetrecordtableheadtype-stbm-offsetrecordtableheadtype-type-definition">
+<h2>StbM_OffsetRecordTableHeadType类型定义 (StbM_OffsetRecordTableHeadType Type Definition)<a class="headerlink" href="#stbm-offsetrecordtableheadtype-stbm-offsetrecordtableheadtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_OffsetRecordTableHeadType</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>成员 (Members)</p></td>
+<td><p>uint8::OffsetTimeDomain</p></td>
+<td><p>时间域16..31 (Time Domain 16..31)</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>偏移时间记录的表头 (Header for offset time records)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-offsetrecordtableblocktype-stbm-offsetrecordtableblocktype-type-definition">
+<h2>StbM_OffsetRecordTableBlockType类型定义 (StbM_OffsetRecordTableBlockType Type Definition)<a class="headerlink" href="#stbm-offsetrecordtableblocktype-stbm-offsetrecordtableblocktype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_OffsetRecordTableBlockType</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Structure</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>成员 (Members)</p></td>
+<td><p>uint32 GlbSeconds</p></td>
+<td><p>偏移时间基数的秒数 (Seconds offset from time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32 GlbNanoSeconds</p></td>
+<td><p>偏移时间基的纳秒 (Offset time base in nanoseconds)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_TimeBaseStatusTypeTimeBaseStatus</p></td>
+<td><p>与全局时间基同步后的本地时间基的时间基础状态 (Time basis status after synchronization with global time base from local time base.)</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>偏移时间记录的块结构 (Block structure for offset time stamps)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-masterconfigtype-stbm-masterconfigtype-type-definition">
+<h2>StbM_MasterConfigType类型定义 (StbM_MasterConfigType Type Definition)<a class="headerlink" href="#stbm-masterconfigtype-stbm-masterconfigtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>StbM_MasterConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>STBM_SYSTEM_WIDE_MASTER_DISABLED 0x00</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>STBM_SYSTEM_WIDE_MASTER_ENABLED 0x01</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>是否配置为系统主 (Is it configured as the system master?)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EthIf</p></td>
+<td><p>EthIf_GetCurrentTime</p></td>
+</tr>
+<tr class="row-odd"><td><p>OS</p></td>
+<td><p>GetScheduleTableStatus</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SyncScheduleTable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GetCounterValue</p></td>
+</tr>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gpt</p></td>
+<td><p>Gpt_StartTimer</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Gpt_GetTimeElapsed</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="stbm-init-the-stbm-init-function-definition">
+<h2>StbM_Init函数定义 (The StbM_Init function definition)<a class="headerlink" href="#stbm-init-the-stbm-init-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(void,STBM_CODE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_Init(P2CONST(StbM_ConfigType,AUTOMATIC,STBM_APPL_DATA)ConfigPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>指向选定配置集的指针 (Pointer to the selected configuration set)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>初始化此模块 (Initialize this module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getversioninfo-the-stbm-getversioninfo-function-definition">
+<h2>StbM_GetVersionInfo函数定义 (The StbM_GetVersionInfo function definition)<a class="headerlink" href="#stbm-getversioninfo-the-stbm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetVersionInfo</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(void,STBM_CODE)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_GetVersionInfo(P2VAR(Std_VersionInfoType,AUTOMATIC,STBM_APPL_DATA)versioninfo)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x05</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>versioninfo</p></td>
+<td><p>指向保存该模块的版本信息的内存位置的指针。 (A pointer to the memory location that stores the version information of the module.)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>void</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取版本号 (Get Version Number)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getcurrenttime-the-stbm-getcurrenttime-function-definition">
+<h2>StbM_GetCurrentTime函数定义 (The StbM_GetCurrentTime function definition)<a class="headerlink" href="#stbm-getcurrenttime-the-stbm-getcurrenttime-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetCurrentTime</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_GetCurrentTime(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2VAR(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)timeStamp,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td></td>
+<td><p>参考的时间基ID (Reference time base ID)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>timeStamp</p></td>
+<td><p>当前有效的时间戳 (Current valid timestamp)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>userData</p></td>
+<td><p>时间基的用户数据 (Time-based user data)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>以标准格式返回时间值 (Return time values in standard format)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>注：此接口需在独占区域/中断保护环境下执行，以免获取的时间过期。 (Note: This interface needs to be executed in an exclusive area/interrupt protection environment to avoid expiration of acquired time.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getcurrentvirtuallocaltime-the-stbm-getcurrentvirtuallocaltime-function-definition">
+<h2>StbM_GetCurrentVirtualLocalTime函数定义 (The StbM_GetCurrentVirtualLocalTime function definition)<a class="headerlink" href="#stbm-getcurrentvirtuallocaltime-the-stbm-getcurrentvirtuallocaltime-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetCurrentVirtualLocalTime</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_GetCurrentVirtualLocalTime(</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2VAR(StbM_VirtualLocalTimeType,AUTOMATIC,STBM_APPL_DATA)localTimePtr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1E</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>localTimePtr</p></td>
+<td><p>当前虚拟本地时间值 (Current virtual local time value)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回虚拟本地时间 (Return to Virtual Local Time)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-setglobaltime-the-stbm-setglobaltime-function-definition">
+<h2>StbM_SetGlobalTime函数定义 (The StbM_SetGlobalTime Function Definition)<a class="headerlink" href="#stbm-setglobaltime-the-stbm-setglobaltime-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_SetGlobalTime</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SetGlobalTime(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)timeStamp,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2CONST(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0B</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>timeStamp</p></td>
+<td></td>
+<td><p>新的时间戳 (New timestamp)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>userData</p></td>
+<td></td>
+<td><p>新的用户数据（如果非空） (New user data (if non-empty))</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>客户设置新的全局时间总线需更新 (Customers need to update to set a new global time bus.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-updateglobaltime-the-stbm-updateglobaltime-function-definition">
+<h2>StbM_UpdateGlobalTime函数定义 (The StbM_UpdateGlobalTime function definition)<a class="headerlink" href="#stbm-updateglobaltime-the-stbm-updateglobaltime-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_UpdateGlobalTime</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_UpdateGlobalTime(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)timeStamp,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2CONST(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>timeStamp</p></td>
+<td></td>
+<td><p>新的时间戳 (New timestamp)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>userData</p></td>
+<td></td>
+<td><p>新的用户数据（如果非空） (New user data (if non-empty))</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>客户设置新的全局时间 (Customers set new global time.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-setuserdata-the-stbm-setuserdata-function-definition">
+<h2>StbM_SetUserData函数定义 (The StbM_SetUserData function definition)<a class="headerlink" href="#stbm-setuserdata-the-stbm-setuserdata-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_SetUserData</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SetUserData(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>userData</p></td>
+<td></td>
+<td><p>新的用户数据 (New user data)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置用户数据 (Set user data)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-setoffset-the-stbm-setoffset-function-definition">
+<h2>StbM_SetOffset函数定义 (The StbM_SetOffset function definition)<a class="headerlink" href="#stbm-setoffset-the-stbm-setoffset-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_SetOffset</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>StbM_SetOffset(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2CONST(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)timeStamp,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userData</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0D</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>timeStamp</p></td>
+<td></td>
+<td><p>新的时间戳 (New timestamp)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>userData</p></td>
+<td></td>
+<td><p>新的用户数据（如果非空） (New user data (if non-empty))</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置偏移时间 (Set offset time)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getoffset-the-stbm-getoffset-function-definition">
+<h2>StbM_GetOffset函数定义 (The StbM_GetOffset function definition)<a class="headerlink" href="#stbm-getoffset-the-stbm-getoffset-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetOffset</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_GetOffset(</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2VAR(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)timeStamp,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA) userData</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0E</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>timeStamp</p></td>
+<td><p>当前偏移的时间值 (Current offset time value)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>userData</p></td>
+<td><p>当前用户数据 (Current user data)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获得当前偏移时间 (Get current offset time)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-busgetcurrenttime-the-stbm-busgetcurrenttime-function-definition">
+<h2>StbM_BusGetCurrentTime函数定义 (The StbM_BusGetCurrentTime function definition)<a class="headerlink" href="#stbm-busgetcurrenttime-the-stbm-busgetcurrenttime-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_BusGetCurrentTime</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_BusGetCurrentTime(</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2VAR(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)globalTimePtr,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_VirtualLocalTimeType,AUTOMATIC,STBM_APPL_DATA)localTimePtr,</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2VAR(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userDataPtr</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1F</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>globalTimePtr</p></td>
+<td><p>全局时间的本地实例的值 (The value of the local instance for global time)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>localTimePtr</p></td>
+<td><p>虚拟本地时间的值 (The value of virtual local time)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>userDataPtr</p></td>
+<td><p>时间基的用户数据 (Time-based user data)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回当前时基的时间元组 (Return the time tuple for the current time base.)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-bussetglobaltime-the-stbm-bussetglobaltime-function-definition">
+<h2>StbM_BusSetGlobalTime函数定义 (The StbM_BusSetGlobalTime function definition)<a class="headerlink" href="#stbm-bussetglobaltime-the-stbm-bussetglobaltime-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_BusSetGlobalTime</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_BusSetGlobalTime(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)globalTimePtr,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2CONST(StbM_UserDataType,AUTOMATIC,STBM_APPL_DATA)userDataPtr,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_MeasurementType,AUTOMATIC,STBM_APPL_DATA)measureDataPtr,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2CONST(StbM_VirtualLocalTimeType,AUTOMATIC,STBM_APPL_DATA)localTimePtr</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0F</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>globalTimePtr</p></td>
+<td></td>
+<td><p>新的全局时间值 (New global time value)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>userDataPtr</p></td>
+<td></td>
+<td><p>新的用户数据（如果非空） (New user data (if non-empty))</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>measureDataPtr</p></td>
+<td></td>
+<td><p>新的测量数据 (New measurement data)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>localTimePtr</p></td>
+<td></td>
+<td><p>与新的全局时间相关联的本地虚拟时间值 (Local virtual time values associated with the new global time)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>接收时间组 (Receive Time Group)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getratedeviation-the-stbm-getratedeviation-function-definition">
+<h2>StbM_GetRateDeviation函数定义 (The StbM_GetRateDeviation function definition)<a class="headerlink" href="#stbm-getratedeviation-the-stbm-getratedeviation-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetRateDeviation</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_GetRateDeviation(</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_RateDeviationType,AUTOMATIC,STBM_APPL_DATA)rateDeviation)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x11</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>rateDeviation</p></td>
+<td><p>时间基准的当前速率偏差值 (Current rate offset value for time reference)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回一个时基的当前速率偏差的值 (Return the value of the current rate deviation of a time base)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-setratecorrection-the-stbm-setratecorrection-function-definition">
+<h2>StbM_SetRateCorrection函数定义 (The StbM_SetRateCorrection function definition)<a class="headerlink" href="#stbm-setratecorrection-the-stbm-setratecorrection-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_SetRateCorrection</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_SetRateCorrection(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_RateDeviationTyperateDeviation)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>rateDeviation</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置同步时基的速率 (Set the rate for sync timebase)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-gettimeleap-the-stbm-gettimeleap-function-definition">
+<h2>StbM_GetTimeLeap函数定义 (The StbM_GetTimeLeap function definition)<a class="headerlink" href="#stbm-gettimeleap-the-stbm-gettimeleap-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetTimeLeap</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_GetTimeLeap(</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_TimeDiffType,AUTOMATIC,STBM_APPL_DATA) timeJump)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x13</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>timeJump</p></td>
+<td><p>时间跳跃值 (Time jump value)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回时间跳跃值 (Return time jump value)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-gettimebasestatus-the-stbm-gettimebasestatus-function-definition">
+<h2>StbM_GetTimeBaseStatus函数定义 (The StbM_GetTimeBaseStatus function definition)<a class="headerlink" href="#stbm-gettimebasestatus-the-stbm-gettimebasestatus-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetTimeBaseStatus</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_GetTimeBaseStatus(</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_TimeBaseStatusType,AUTOMATIC,STBM_APPL_DATA)syncTimeBaseStatus,</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2VAR(StbM_TimeBaseStatusType,AUTOMATIC,STBM_APPL_DATA)offsetTimeBaseStatus)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x14</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>syncTimeBaseStatus</p></td>
+<td><p>已同步（或纯本地）时间基准的状态 (Status of Synced (or Purely Local) Time Base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>offsetTimeBaseStatus</p></td>
+<td><p>偏移时间基的状态 (The state of offset time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取时基状态 (Get Time Base Status)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-starttimer-the-stbm-starttimer-function-definition">
+<h2>StbM_StartTimer函数定义 (The StbM_StartTimer function definition)<a class="headerlink" href="#stbm-starttimer-the-stbm-starttimer-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_StartTimer</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_StartTimer(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbM_CustomerIdTypecustomerId,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>P2CONST(StbM_TimeStampType,AUTOMATIC,STBM_APPL_DATA)expireTime)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x15</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>customerId</p></td>
+<td></td>
+<td><p>已同步的时间基的状态 (Synchronized time base state)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>expireTime</p></td>
+<td></td>
+<td><p>当计时器到期时，相对于通知客户的当前时间基值的时间值 (The time value relative to the current time base for notifying customers when the timer expires.)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置一个时间段 (Set a time period)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getsynctimerecordhead-the-stbm-getsynctimerecordhead-function-definition">
+<h2>StbM_GetSyncTimeRecordHead函数定义 (The StbM_GetSyncTimeRecordHead function definition)<a class="headerlink" href="#stbm-getsynctimerecordhead-the-stbm-getsynctimerecordhead-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetSyncTimeRecordHead</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_GetSyncTimeRecordHead(</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_SyncRecordTableHeadType,AUTOMATIC,STBM_APPL_DATA)syncRecordTableHead)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x16</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>syncRecordTableHead</p></td>
+<td><p>表头 (Header)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回同步时基记录表的表头 (Return header of the synchronization timing record table)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getoffsettimerecordhead-the-stbm-getoffsettimerecordhead-function-definition">
+<h2>StbM_GetOffsetTimeRecordHead函数定义 (The StbM_GetOffsetTimeRecordHead function definition)<a class="headerlink" href="#stbm-getoffsettimerecordhead-the-stbm-getoffsettimerecordhead-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetOffsetTimeRecordHead</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_GetOffsetTimeRecordHead(</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_OffsetRecordTableHeadType,AUTOMATIC,STBM_APPL_DATA)offsetRecordTableHead)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x17</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>offsetRecordTableHead</p></td>
+<td><p>表头 (Header)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回偏移时基记录表的表头 (Return header of the offset timing record table)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-triggertimetransmission-the-stbm-triggertimetransmission-function-defines">
+<h2>StbM_TriggerTimeTransmission函数定义 (The StbM_TriggerTimeTransmission function defines)<a class="headerlink" href="#stbm-triggertimetransmission-the-stbm-triggertimetransmission-function-defines" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_TriggerTimeTransmission</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_TriggerTimeTransmission(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 操作成功 (E_OK Operation Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK 操作失败 (E_NOT_OK Operation failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>使timeBaseUpdateCounter+1 (increment timeBaseUpdateCounter)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-gettimebaseupdatecounter-the-function-definition-for-stbm-gettimebaseupdatecounter">
+<h2>StbM_GetTimeBaseUpdateCounter函数定义 (The function definition for StbM_GetTimeBaseUpdateCounter)<a class="headerlink" href="#stbm-gettimebaseupdatecounter-the-function-definition-for-stbm-gettimebaseupdatecounter" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetTimeBaseUpdateCounter</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(uint8,STBM_CODE)StbM_GetTimeBaseUpdateCounter(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1B</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>属于时间基的计数器值，表示对时间同步模块的时间基更新 (Indicating the time base update for the time synchronization module based on a time-base counter value.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>允许Timesync模块获取timeBaseUpdateCounter (Allow the Timesync module to get timeBaseUpdateCounter)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-getmasterconfig-the-stbm-getmasterconfig-function-definition">
+<h2>StbM_GetMasterConfig函数定义 (The StbM_GetMasterConfig function definition)<a class="headerlink" href="#stbm-getmasterconfig-the-stbm-getmasterconfig-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_GetMasterConfig</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(Std_ReturnType,STBM_CODE)StbM_GetMasterConfig(</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbM_SynchronizedTimeBaseTypetimeBaseId,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>P2VAR(StbM_MasterConfigType,AUTOMATIC,STBM_APPL_DATA)masterConfig)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1D</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>timeBaseId</p></td>
+<td><p>参考的时间基 (Referenced time base)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>masterConfig</p></td>
+<td><p>指示是否支持系统范围内的主功能 (Indicate whether the primary function is supported system-wide.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取是否可用为主节点 (Check if available as primary node)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-mainfunction-definition-of-stbm-mainfunction-function">
+<h2>StbM_MainFunction函数定义 (Definition of StbM_MainFunction function)<a class="headerlink" href="#stbm-mainfunction-definition-of-stbm-mainfunction-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_MainFunction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(void, STBM_CODE)StbM_MainFunction(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x04</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>循环调用函数 (Recursive function call)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbm-timercallback-the-stbm-timercallback-function-definition">
+<h2>StbM_TimerCallback函数定义 (The StbM_TimerCallback function definition)<a class="headerlink" href="#stbm-timercallback-the-stbm-timercallback-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StbM_TimerCallback</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>FUNC(void, STBM_CODE)StbM_ TimerCallback(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0xE0</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="statusnotificationcallback-the-definition-of-statusnotificationcallback-function">
+<h2>StatusNotificationCallback函数定义 (The definition of StatusNotificationCallback function)<a class="headerlink" href="#statusnotificationcallback-the-definition-of-statusnotificationcallback-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>StatusNotificationCallback&lt;TimeBase&gt;</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeStatusNotificationCallback&lt;TimeBase&gt;</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>(StbM_TimeBaseNotificationTypeeventNotification)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>eventNotification</p></td>
+<td><p>保存与不同的时间基础相关的事件的通知位 (Save notifications for events related to different time bases.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>基于时间基的事件发生时通知用户 (Notify users of events based on time triggers)</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="customer-timenotificationcallback-customer-timenotificationcallback-function-definition">
+<h2>&lt;Customer&gt;_TimeNotificationCallback函数定义 (Customer_TimeNotificationCallback function definition)<a class="headerlink" href="#customer-timenotificationcallback-customer-timenotificationcallback-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>&lt;Customer&gt;_TimeNotificationCallback&lt;TimeBase&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType&lt;Customer&gt;_TimeNotificationCallback&lt;TimeBase&gt;(StbM_TimeDiffTypedeviationTime )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>deviationTime</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>-2147483647..2147483647</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK 成功 (E_OK Success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK 失败 (E_NOT_OK Failure)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>计时结束时通知用户 (Notify the user when the timer ends.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="offsettimerecordblockcallback-the-definition-of-offsettimerecordblockcallback-function">
+<h2>OffsetTimeRecordBlockCallback函数定义 (The definition of OffsetTimeRecordBlockCallback function)<a class="headerlink" href="#offsettimerecordblockcallback-the-definition-of-offsettimerecordblockcallback-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>OffsetTimeRecordBlockCallback&lt;TimeBase&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeOffsetTimeRecordBlockCallback&lt;TimeBase&gt;( constStbM_OffsetRecordTableBlockType*offsetRecordTableBlock)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>offsetRecordTableBlock</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>表中的块ID (Block ID in the table)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK表访问成功 (E_OK indicates access success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK表中不包含任何数据或访问权限无效 (E_NOT_OK The table does not contain any data or access permissions are invalid)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>提供偏移时基记录的测量数据表的快照数据头 (A snapshot data header of the measurement data table providing offset timebase records)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="synctimerecordblockcallback-the-definition-of-synctimerecordblockcallback-function">
+<h2>SyncTimeRecordBlockCallback函数定义 (The definition of SyncTimeRecordBlockCallback function)<a class="headerlink" href="#synctimerecordblockcallback-the-definition-of-synctimerecordblockcallback-function" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>SyncTimeRecordBlockCallback&lt;TimeBase&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeSyncTimeRecordBlockCallback&lt;TimeBase&gt;( constStbM_SyncRecordTableBlockType*syncRecordTableBlock)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>syncRecordTableBlock</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>表中的块ID (Block ID in the table)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK表访问成功 (E_OK indicates access success)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK表中不包含任何数据或访问权限无效 (E_NOT_OK The table does not contain any data or access permissions are invalid)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>提供同步时基记录的测量数据表的快照数据头 (Snapshot data header of measurement data tables providing synchronized time-base records)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="swc-swc-service-component-packaging">
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
+<p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接，没有列出的部分StbM底层暂时不支持。</p>
+<p>The following types and interfaces can be encapsulated to generate complete service components with SWC, which can be connected to the application via ports. The StbM底层 temporarily does not support the unlisted parts.</p>
+</section>
+</section>
+<section id="cs-cs-interface-packaging">
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
+<p>注：下面提到的&lt;UserModule&gt;和&lt;UserPort&gt;分别为用户SWC的名字和对应端口名，在与StbM服务组件端口连接后适用。</p>
+<p>Note: The &lt;UserModule&gt; and &lt;UserPort&gt; mentioned below are the names of the user SWC and its corresponding port, respectively, applicable after connecting to the StbM service component port.</p>
+<section id="rte-call-usermodule-userport-getmasterconfig">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetMasterConfig<a class="headerlink" href="#rte-call-usermodule-userport-getmasterconfig" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetMasterConfig</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.21 (See 4.3.21)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTimeMaster== TRUE</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-setglobaltime">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetGlobalTime<a class="headerlink" href="#rte-call-usermodule-userport-setglobaltime" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetGlobalTime</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.5 (See 4.3.5)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Master == TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-setoffset">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetOffset<a class="headerlink" href="#rte-call-usermodule-userport-setoffset" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetOffset</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.8 (See 4.3.8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Master == TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>15 &lt; StbMSynchronizedTimeBaseIdentifier &lt; 32</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-setratecorrection">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetRateCorrection<a class="headerlink" href="#rte-call-usermodule-userport-setratecorrection" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetRateCorrection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.13 (See 4.3.13)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Master == TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-setuserdata">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetUserData<a class="headerlink" href="#rte-call-usermodule-userport-setuserdata" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetUserData</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.7 (See 4.3.7)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Master == TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-triggertimetransmission">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_TriggerTimeTransmission<a class="headerlink" href="#rte-call-usermodule-userport-triggertimetransmission" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_TriggerTimeTransmission</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.19 (See 4.3.19)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Master == TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBaseIdentifier &lt; 32</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-updateglobaltime">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_UpdateGlobalTime<a class="headerlink" href="#rte-call-usermodule-userport-updateglobaltime" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_UpdateGlobalTime</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.6 (See 4.3.6)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTime</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Master == TRUE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Master_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-getcurrenttime">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetCurrentTime<a class="headerlink" href="#rte-call-usermodule-userport-getcurrenttime" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetCurrentTime</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.3 (See 4.3.3)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Slave_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-getoffsettimerecordhead">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetOffsetTimeRecordHead<a class="headerlink" href="#rte-call-usermodule-userport-getoffsettimerecordhead" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetOffsetTimeRecordHead</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.18 (See 4.3.18)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li><p>15 &lt;StbMSynchronizedTimeBaseIdentifier &lt; 32</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTimeMaster== FALSE</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="3">
+<li><p>StbMGeneral/StbMTimeRecordingSupport == True</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Slave_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-getratedeviation">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetRateDeviation<a class="headerlink" href="#rte-call-usermodule-userport-getratedeviation" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetRateDeviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.12 (See 4.3.12)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Slave_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-getsynctimerecordhead">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetSyncTimeRecordHead<a class="headerlink" href="#rte-call-usermodule-userport-getsynctimerecordhead" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetSyncTimeRecordHead</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.17 (See 4.3.17)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><ol class="arabic simple">
+<li><p>StbMSynchronizedTimeBaseIdentifier &lt; 16</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>StbMSynchronizedTimeBase/StbMIsSystemWideGlobalTimeMaster== FALSE</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>And</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="3">
+<li><p>StbMGeneral/StbMTimeRecordingSupport == True</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Slave_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-gettimebasestatus">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeBaseStatus<a class="headerlink" href="#rte-call-usermodule-userport-gettimebasestatus" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetTimeBaseStatus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.15 (See 4.3.15)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Slave_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-gettimeleap">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeLeap<a class="headerlink" href="#rte-call-usermodule-userport-gettimeleap" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetTimeLeap</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.14 (See 4.3.14)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>Name=StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><p>StbMSynchronizedTimeBaseIdentifier &lt; 32</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>GlobalTime_Slave_{Name}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rte-call-usermodule-userport-starttimer">
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_StartTimer<a class="headerlink" href="#rte-call-usermodule-userport-starttimer" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_StartTimer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>运行实体函数定义： (Definition of running entity function:)</p></td>
+<td><p>详见4.3.16 (See 4.3.16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>变体： (Variants:)</p></td>
+<td><p>TimeBase = StbMSynchronizedTimeBase.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Customer =</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StbMSynchronizedTimeBase/StbMNotificationCustomer.SHORT-NAME</p></td>
+</tr>
+<tr class="row-even"><td><p>生成条件： (Generate conditions:)</p></td>
+<td><p>StbMSynchronizedTimeBaseIdentifier &lt; 128</p></td>
+</tr>
+<tr class="row-odd"><td><p>端口类型： (Port Type:)</p></td>
+<td><p>Provided Port</p></td>
+</tr>
+<tr class="row-even"><td><p>从属端口： (Subordinate Port:)</p></td>
+<td><p>StartTimer_{TimeBase}_{Customer}</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="configuration-list">
+<h3>配置列表 (Configuration List)<a class="headerlink" href="#configuration-list" title="Link to this heading">¶</a></h3>
+<p class="centered">
+<strong><strong>表 属性描述 (Table Properties Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>该配置项在配置工具界面显示的名称 (The name of this configuration item as displayed in the configuration tool interface)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>取值范围 (Range)</p></td>
+<td><p>该配置项允许的取值区间 (The configurable item allows value ranges.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>默认取值 (Default value)</p></td>
+<td><p>该配置项默认的配置值 (The default configuration value for this option)</p></td>
+</tr>
+<tr class="row-even"><td><p>参数描述 (Parameter Description)</p></td>
+<td><p>该配置项在标准的AUTOSAR_EcucParamDef.arxml文件中的描述 (This configuration item's description in the standard AUTOSAR_EcucParamDef.arxml file.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置项与其他模块或配置项的关系 (The configuration item's relationship with other modules or configuration items)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbmgeneral">
+<h3>StbMGeneral<a class="headerlink" href="#stbmgeneral" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="stbmgeneral-stb-general-tool-configuration">
+<img alt="StbMGeneral工具配置 (STB General Tool Configuration)" src="../../_images/image369.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMGeneral配置描述 (Table StbMGeneral Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMDevErrorDetect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开关开发错误的检测和通知。 (Error detection and notification for switch development.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMMainFunctionPeriod</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>StbM_MainFunction主函数调用周期。单位：秒。 (StbM_MainFunction Main function call period. Unit: seconds.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMTimeRecordingSupport</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开关时间记录功能，用于GlobalTimeprecisionmeasurement。 (Switch time recording function, used for Global Time precision measurement.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMTimerStartThreshold</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>给通知用户使用，在截止时间到达之前多久开启GPT计时。单位：秒。 (To notify users, how many seconds before the deadline to start the GPT timer. Unit: seconds.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMVersionInfoApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>开关获取版本信息的接口。 (Interface for obtaining version information.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMGptTimerFrequency</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><ol class="arabic simple" start="0">
+<li></li>
+</ol>
+</td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示StbMGptTimerRef指向的GPT硬件时钟频率。 (Indicates the GPT hardware clock frequency pointed to by StbMGptTimerRef.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果StbMGptTimerRef配置了，其可配且必须配置。 (If StbMGptTimerRef is configured, it must be configurable and must be set.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMGptTimerPrescaler</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><ol class="arabic simple" start="0">
+<li></li>
+</ol>
+</td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示StbMGptTimerRef指向的GPT硬件时钟的分频系数。 (Divide ratio of the GPT hardware clock indicated by StbMGptTimerRef.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果StbMGptTimerRef配置了，其可配且必须配置。 (If StbMGptTimerRef is configured, it must be configurable and must be set.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMGptTimerRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于通知用户的Gpt通道引用。 (Gpt channel reference for notifying users.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果任意一个StbMSynchronizedTimeBase配置了StbMNotificationCustomer，其可配且必须配置。 (If any StbMSynchronizedTimeBase is configured with StbMNotificationCustomer, it must be configurable and is required to be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMEcucPartitionRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于多核stbm_bswmd.arxml文件中BswDistinguishedPartition元素 (For BswDistinguishedPartition elements in multi-core stbm_bswmd.arxml files)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbmsynchronizedtimebase">
+<h3>StbMSynchronizedTimeBase<a class="headerlink" href="#stbmsynchronizedtimebase" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="stbmsynchronizedtimebase-synchronized-time-base-tool-configuration">
+<img alt="StbMSynchronizedTimeBase工具配置 (Synchronized Time Base tool configuration)" src="../../_images/image459.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMSynchronizedTimeBase配置描述 (Table StbMSynchronizedTimeBase Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMClearTimeleapCount</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在TIMELEAP_PAST/TIMELEAP_FUTURE状态位置位之后，需要多少次时基的更新（且时间差不能高于界限值）才能清除置位。 (How many times must the clock be updated (and the time difference not exceed the limit value) after setting the position in TIMELEAP_PAST/TIMELEAP_FUTURE state to clear the set bit?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMIsSystemWideGlobalTimeMaster</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否为系统范围内的全局时间来源。有可能有多个ECU勾选此项，作为全局时间主控，这是因为一个ECU可能拥有几个在不同总线上的时间域。 (Is it a global time source for the entire system? It is possible that multiple ECUs check this item as the primary time controller, because one ECU may have several time domains on different buses.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMNotificationInterface</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>CALLBACK/CALLBACK_AND_SR_INTERFACE/</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>NO_NOTIFICATION/</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>SR_INTERFACE</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>状态位变化事件的通知形式。 (Notification form for status bit change events.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMStatusNotificationCallback</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Function</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>未被掩码的状态切换事件触发时，通知用户所调用的回调函数接口名。 (The interface name of the callback function invoked when a state switch event is triggered without being masked and notifies the user.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当StbMNotificationInterface为CALLBACK或CALLBACK_AND_SR_INTERFACE时可配且必须配置。 (Only configurable and mandatory when StbMNotificationInterface is CALLBACK or CALLBACK_AND_SR_INTERFACE.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMStatusNotificationMask</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>通知掩码（NotificationMask）的初始值，定义什么样的事件会触发通知回调函数。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMStoreTimebaseNonVolatile</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Enum</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否存储时基信息在非易失性存储。 (Is base time information stored in non-volatile storage.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMSynchronizedTimeBaseIdentifier</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>时间基ID。 (Time-based ID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMSyncLossTimeout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>时间同步超时时间，表示多久未收到来自总线/上层的时间更新。 (The time synchronization timeout period indicates how long it has been since a time update from the bus/upper layer was received.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMTimeLeapFutureThreshold</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>两次时间更新的最大正间隔（后一次时间大于前一次时间）。 (The maximum positive interval between two time updates (the latter time is greater than the former time).)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMTimeLeapPastThreshold</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>两次时间更新的最大负间隔（后一次时间小于前一次时间）。 (The maximum negative interval between two time updates (the latter time is less than the former time).)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMOffsetTimeBase</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>偏移时间基所基于的同步时间基。如果引用，则该StbMSynchronizedTimeBase为偏移时基。 (The offset time base is based on the synchronized time base. If referenced, the StbMSynchronizedTimeBase is the offset time base.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>StbMSynchronizedTimeBase</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="stbmtimecorrection">
+<h2>StbMTimeCorrection<a class="headerlink" href="#stbmtimecorrection" title="Link to this heading">¶</a></h2>
+<p><em>注</em>：如果打开TimeCorrection相关功能，则需要硬件支持double/float的数据类型，因为相关计算会使用。</p>
+<p><em>Note</em>: If the TimeCorrection related feature is enabled, hardware support for double/float data types is required, as they will be used in the relevant calculations.</p>
+<figure class="align-center" id="stbmtimecorrection-stbmtimecorrection-tool-configuration">
+<img alt="StbMTimeCorrection工具配置 (StbMTimeCorrection Tool Configuration)" src="../../_images/image556.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMTimeCorrection配置描述 (Table StbMTimeCorrection Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMAllowMasterRateCorrection</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>作为时间主控时，是否支持通过调用StbM_SetRateCorrection()设置速率矫正。 (Does the time master support setting rate correction by calling StbM_SetRateCorrection()?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMMasterRateDeviationMax</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 32000</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>调用StbM_SetRateCorrection()时允许设置的最大值。 (Maximum value that can be set when calling StbM_SetRateCorrection().)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMOffsetCorrectionAdaptionInterval</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在此时间区间内，适应性的速率矫正足以消除速率和时间偏差值。单位：秒。 (During this time interval, adaptive rate correction is sufficient to eliminate rate and time offset values. Units: seconds.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMOffsetCorrectionJumpThreshold</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于决定使用什么样的矫正方式。偏差值若小于此值，则在定义的时间周期内使用线性缩减（linearreduction）矫正。若大于此值，则以跳跃的方式立即设置正确的时间和速率。</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMRateCorrectionMeasurementDuration</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>定义用于计算速率差的时间区间。 (Define the time interval used for calculating the rate difference.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMRateCorrectionsPerMeasurementDuration</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>1 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>同时发起的速率测量。 (Simultaneous rate measurements.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbmlocaltimeclock">
+<h2>StbMLocalTimeClock<a class="headerlink" href="#stbmlocaltimeclock" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="stbmlocaltimeclock-stbmlocaltimeclock-tool-configuration">
+<img alt="StbMLocalTimeClock工具配置 (StbMLocalTimeClock Tool Configuration)" src="../../_images/image652.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMLocalTimeClock配置描述 (Table StbMLocalTimeClock Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMClockFrequency</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>StbM使用的硬件时钟的频率。 (The frequency of the hardware clock used by StbM.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMClockPrescaler</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>StbM使用的硬件时钟的分频。 (Clock divider used by StbM for hardware clock.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMLocalTimeHardware</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>对硬件时钟的引用。 (Reference to hardware clock.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>EthTSynGlobalTimeDomain,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>GptChannelConfiguration, OsCounter</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbmtimerecording">
+<h2>StbMTimeRecording<a class="headerlink" href="#stbmtimerecording" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="stbmtimerecording-stbmtimerecording-tool-configuration">
+<img alt="StbMTimeRecording工具配置 (StbMTimeRecording Tool Configuration)" src="../../_images/image742.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMTimeRecording配置描述 (Table StbMTimeRecording Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMOffsetTimeRecordBlockCallback</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Function</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>偏移时基测量数据可用时的回调函数接口名。 (Callback function interface name for measuring data with time base offset when available.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMOffsetTimeRecordTableBlockCount</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>偏移时基记录表的列队的时间测量事件的块数量。 (Record the block count of time measurement events in the queue of time-base offset table.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMSyncTimeRecordBlockCallback</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Function</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>同步时基测量数据可用时的回调函数接口名。 (Interface name for callback function when synchronized timing measurement data is available.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMSyncTimeRecordTableBlockCount</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>同步时基记录表的列队的时间测量事件的块数量。 (Queue the number of block time measurement events for synchronizing timestamp records.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stbmnotificationcustomer">
+<h2>StbMNotificationCustomer<a class="headerlink" href="#stbmnotificationcustomer" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="stbmnotificationcustomer-stbmnotificationcustomer-tool-configuration">
+<img alt="StbMNotificationCustomer工具配置 (StbMNotificationCustomer Tool Configuration)" src="../../_images/image837.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMNotificationCustomer配置描述 (Table StbMNotificationCustomer Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMNotificationCustomerId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>时间通知用户ID。 (Time notifies user ID.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMTimeNotificationCallback</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Function</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指定通知用户的回调函数接口名。 (Callback function interface name for notifying users.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="stbmtriggeredcustomer">
+<h3>StbMTriggeredCustomer<a class="headerlink" href="#stbmtriggeredcustomer" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="stbmtriggeredcustomer-stbmtriggeredcustomer-tool-configuration">
+<img alt="StbMTriggeredCustomer工具配置 (StbMTriggeredCustomer Tool Configuration)" src="../../_images/image936.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 StbMTriggeredCustomer配置描述 (Table StbMTriggeredCustomer Configuration Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>StbMTriggeredCustomerPeriod</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 4294967295</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>触发用户的触发周期，以主函数调用。单位：微秒。 (Trigger the trigger cycle of the user, invoked by the main function. Units: microseconds.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>StbMOSScheduleTableRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>必要的对同步的OS调度表的引用。 (Referencing necessary synchronized OS scheduling tables.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>OsScheduleTable</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>StbMSynchronizedTimeBaseRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Reference</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>必要的对时间基的引用。 (Reference to time-base is necessary.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>StbMSynchronizedTimeBase</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="SomeIpXf.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>SomeIpXf
+    </a>
+    <a class="float-right" href="TcpIp.html" title="Next">
+        TcpIp <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">StbM</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#stbm-stbm-function">StbM功能 (StbM Function)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stbm-stbm-feature-introduction">StbM功能介绍 (StbM Feature Introduction)</a></li>
+<li><a class="reference internal" href="#stbm-stbm-function-implementation">StbM功能实现 (StbM Function Implementation)</a></li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stbm-configtype-stbm-configtype-configuration-type-definition">StbM_ConfigType类型定义 (StbM_ConfigType Configuration Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-synchronizedtimebasetype-synchronizationtimebasetype-type-definition">StbM_SynchronizedTimeBaseType类型定义 (SynchronizationTimeBaseType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-timebasestatustype-stbm-timebasestatustype-type-definition">StbM_TimeBaseStatusType类型定义 (StbM_TimeBaseStatusType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-timestamptype-stbm-timestamptype-type-definition">StbM_TimeStampType类型定义 (STbM_TimeStampType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-timedifftype-stbm-timedifftype-type-definition">StbM_TimeDiffType类型定义 (StbM_TimeDiffType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-ratedeviationtype-stbm-ratedeviationtype-type-definition">StbM_RateDeviationType类型定义 (StbM_RateDeviationType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-userdatatype-type-definition-for-stbm-userdatatype">StbM_UserDataType类型定义 (Type definition for StbM_UserDataType)</a></li>
+<li><a class="reference internal" href="#stbm-customeridtype-stbm-customeridtype-type-definition">StbM_CustomerIdType类型定义 (StbM_CustomerIdType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-timebasenotificationtype-stbm-timebasenotificationtype-type-definition">StbM_TimeBaseNotificationType类型定义 (StbM_TimeBaseNotificationType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-syncrecordtableheadtype-stbm-syncrecordtableheadtype-type-definition">StbM_SyncRecordTableHeadType类型定义 (StbM_SyncRecordTableHeadType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-syncrecordtableblocktype-stbm-syncrecordtableblocktype-type-definition">StbM_SyncRecordTableBlockType类型定义 (StbM_SyncRecordTableBlockType type definition)</a></li>
+<li><a class="reference internal" href="#stbm-offsetrecordtableheadtype-stbm-offsetrecordtableheadtype-type-definition">StbM_OffsetRecordTableHeadType类型定义 (StbM_OffsetRecordTableHeadType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-offsetrecordtableblocktype-stbm-offsetrecordtableblocktype-type-definition">StbM_OffsetRecordTableBlockType类型定义 (StbM_OffsetRecordTableBlockType Type Definition)</a></li>
+<li><a class="reference internal" href="#stbm-masterconfigtype-stbm-masterconfigtype-type-definition">StbM_MasterConfigType类型定义 (StbM_MasterConfigType Type Definition)</a><ul>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stbm-init-the-stbm-init-function-definition">StbM_Init函数定义 (The StbM_Init function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getversioninfo-the-stbm-getversioninfo-function-definition">StbM_GetVersionInfo函数定义 (The StbM_GetVersionInfo function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getcurrenttime-the-stbm-getcurrenttime-function-definition">StbM_GetCurrentTime函数定义 (The StbM_GetCurrentTime function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getcurrentvirtuallocaltime-the-stbm-getcurrentvirtuallocaltime-function-definition">StbM_GetCurrentVirtualLocalTime函数定义 (The StbM_GetCurrentVirtualLocalTime function definition)</a></li>
+<li><a class="reference internal" href="#stbm-setglobaltime-the-stbm-setglobaltime-function-definition">StbM_SetGlobalTime函数定义 (The StbM_SetGlobalTime Function Definition)</a></li>
+<li><a class="reference internal" href="#stbm-updateglobaltime-the-stbm-updateglobaltime-function-definition">StbM_UpdateGlobalTime函数定义 (The StbM_UpdateGlobalTime function definition)</a></li>
+<li><a class="reference internal" href="#stbm-setuserdata-the-stbm-setuserdata-function-definition">StbM_SetUserData函数定义 (The StbM_SetUserData function definition)</a></li>
+<li><a class="reference internal" href="#stbm-setoffset-the-stbm-setoffset-function-definition">StbM_SetOffset函数定义 (The StbM_SetOffset function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getoffset-the-stbm-getoffset-function-definition">StbM_GetOffset函数定义 (The StbM_GetOffset function definition)</a></li>
+<li><a class="reference internal" href="#stbm-busgetcurrenttime-the-stbm-busgetcurrenttime-function-definition">StbM_BusGetCurrentTime函数定义 (The StbM_BusGetCurrentTime function definition)</a></li>
+<li><a class="reference internal" href="#stbm-bussetglobaltime-the-stbm-bussetglobaltime-function-definition">StbM_BusSetGlobalTime函数定义 (The StbM_BusSetGlobalTime function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getratedeviation-the-stbm-getratedeviation-function-definition">StbM_GetRateDeviation函数定义 (The StbM_GetRateDeviation function definition)</a></li>
+<li><a class="reference internal" href="#stbm-setratecorrection-the-stbm-setratecorrection-function-definition">StbM_SetRateCorrection函数定义 (The StbM_SetRateCorrection function definition)</a></li>
+<li><a class="reference internal" href="#stbm-gettimeleap-the-stbm-gettimeleap-function-definition">StbM_GetTimeLeap函数定义 (The StbM_GetTimeLeap function definition)</a></li>
+<li><a class="reference internal" href="#stbm-gettimebasestatus-the-stbm-gettimebasestatus-function-definition">StbM_GetTimeBaseStatus函数定义 (The StbM_GetTimeBaseStatus function definition)</a></li>
+<li><a class="reference internal" href="#stbm-starttimer-the-stbm-starttimer-function-definition">StbM_StartTimer函数定义 (The StbM_StartTimer function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getsynctimerecordhead-the-stbm-getsynctimerecordhead-function-definition">StbM_GetSyncTimeRecordHead函数定义 (The StbM_GetSyncTimeRecordHead function definition)</a></li>
+<li><a class="reference internal" href="#stbm-getoffsettimerecordhead-the-stbm-getoffsettimerecordhead-function-definition">StbM_GetOffsetTimeRecordHead函数定义 (The StbM_GetOffsetTimeRecordHead function definition)</a></li>
+<li><a class="reference internal" href="#stbm-triggertimetransmission-the-stbm-triggertimetransmission-function-defines">StbM_TriggerTimeTransmission函数定义 (The StbM_TriggerTimeTransmission function defines)</a></li>
+<li><a class="reference internal" href="#stbm-gettimebaseupdatecounter-the-function-definition-for-stbm-gettimebaseupdatecounter">StbM_GetTimeBaseUpdateCounter函数定义 (The function definition for StbM_GetTimeBaseUpdateCounter)</a></li>
+<li><a class="reference internal" href="#stbm-getmasterconfig-the-stbm-getmasterconfig-function-definition">StbM_GetMasterConfig函数定义 (The StbM_GetMasterConfig function definition)</a></li>
+<li><a class="reference internal" href="#stbm-mainfunction-definition-of-stbm-mainfunction-function">StbM_MainFunction函数定义 (Definition of StbM_MainFunction function)</a></li>
+<li><a class="reference internal" href="#stbm-timercallback-the-stbm-timercallback-function-definition">StbM_TimerCallback函数定义 (The StbM_TimerCallback function definition)</a><ul>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#statusnotificationcallback-the-definition-of-statusnotificationcallback-function">StatusNotificationCallback函数定义 (The definition of StatusNotificationCallback function)</a></li>
+<li><a class="reference internal" href="#customer-timenotificationcallback-customer-timenotificationcallback-function-definition">&lt;Customer&gt;_TimeNotificationCallback函数定义 (Customer_TimeNotificationCallback function definition)</a></li>
+<li><a class="reference internal" href="#offsettimerecordblockcallback-the-definition-of-offsettimerecordblockcallback-function">OffsetTimeRecordBlockCallback函数定义 (The definition of OffsetTimeRecordBlockCallback function)</a></li>
+<li><a class="reference internal" href="#synctimerecordblockcallback-the-definition-of-synctimerecordblockcallback-function">SyncTimeRecordBlockCallback函数定义 (The definition of SyncTimeRecordBlockCallback function)</a><ul>
+<li><a class="reference internal" href="#swc-swc-service-component-packaging">SWC服务组件封装 (SWC Service Component Packaging)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cs-cs-interface-packaging">CS接口封装 (CS Interface Packaging)</a><ul>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-getmasterconfig">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetMasterConfig</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-setglobaltime">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetGlobalTime</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-setoffset">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetOffset</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-setratecorrection">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetRateCorrection</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-setuserdata">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetUserData</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-triggertimetransmission">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_TriggerTimeTransmission</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-updateglobaltime">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_UpdateGlobalTime</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-getcurrenttime">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetCurrentTime</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-getoffsettimerecordhead">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetOffsetTimeRecordHead</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-getratedeviation">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetRateDeviation</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-getsynctimerecordhead">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetSyncTimeRecordHead</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-gettimebasestatus">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeBaseStatus</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-gettimeleap">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeLeap</a></li>
+<li><a class="reference internal" href="#rte-call-usermodule-userport-starttimer">Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_StartTimer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#configuration-list">配置列表 (Configuration List)</a></li>
+<li><a class="reference internal" href="#stbmgeneral">StbMGeneral</a></li>
+<li><a class="reference internal" href="#stbmsynchronizedtimebase">StbMSynchronizedTimeBase</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stbmtimecorrection">StbMTimeCorrection</a></li>
+<li><a class="reference internal" href="#stbmlocaltimeclock">StbMLocalTimeClock</a></li>
+<li><a class="reference internal" href="#stbmtimerecording">StbMTimeRecording</a></li>
+<li><a class="reference internal" href="#stbmnotificationcustomer">StbMNotificationCustomer</a><ul>
+<li><a class="reference internal" href="#stbmtriggeredcustomer">StbMTriggeredCustomer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 Peripheral(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 在某些MCU架构中，存在内存映射的硬件寄存器(外设区域)，这些寄存器只能在特定模式(例如特权模式)下访问。只要任务/中断服务例程(Tasks/ISRs)具有完全的硬件访问权限，它们就可以直接访问这些寄存器。如果操作系统使用了内存保护，那么非受信任的操作系统应用程序的任务/中断服务例程不能直接访问这些寄存器，因为这会被操作系统识别为内存违规。
 
@@ -11,7 +11,7 @@ Peripheral access interfaces are categorized into 8-bit, 16-bit, and 32-bit type
 
 
 ReadPeripheral<x>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -24,7 +24,7 @@ ReadPeripheral<x>
 This service returns the content of a given memory location (<Address>).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -72,7 +72,7 @@ This service returns the content of a given memory location (<Address>).
 
 
 WritePeripheral<x>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -85,7 +85,7 @@ WritePeripheral<x>
 This service writes theto a given memory location (<memory address>).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -133,7 +133,7 @@ This service writes theto a given memory location (<memory address>).
 
 
 ModifyPeripheral<x>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -148,7 +148,7 @@ ModifyPeripheral<x>
 This service modifies a given memory location (<memory address>).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

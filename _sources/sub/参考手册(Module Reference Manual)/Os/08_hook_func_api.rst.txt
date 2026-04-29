@@ -1,5 +1,5 @@
 Hook(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ORIENTAIS OS为用户提供了一系列钩子函数功能(Hook)。例如在钩子函数StartupHook中初始化一些硬件，在钩子函数ErrorHook中捕获并处理的一些错误。
 
@@ -7,7 +7,7 @@ ORIENTAIS OS provides users with a series of hook functions. For example, hardwa
 
 
 ErrorHook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -16,7 +16,7 @@ ErrorHook
 The specific error hook is called whenever a Task or ISR calls system service to cause an error.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -71,7 +71,7 @@ The specific error hook is called whenever a Task or ISR calls system service to
 
 
 PostTaskHook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -80,7 +80,7 @@ PostTaskHook
 This hook routine is called by ORIENTAIS OS after executing the current task, but before leaving the task's running state (to allow evaluation of the TaskID by GetTaskID).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -119,7 +119,7 @@ This hook routine is called by ORIENTAIS OS after executing the current task, bu
 
 
 PreTaskHook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -128,7 +128,7 @@ PreTaskHook
 This hook routine is called by ORIENTAIS OS before executing a new task, but after the transition of the task to the running state (to allow evaluation of the TaskID by GetTaskID.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -170,7 +170,7 @@ This hook routine is called by ORIENTAIS OS before executing a new task, but aft
 
 
 StartupHook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -179,7 +179,7 @@ StartupHook
 This hook routine is called by the operating system at the end of the operating system in itialisation and before the scheduler is running. At this time the applicationcan initialise device drivers etc.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -213,7 +213,7 @@ This hook routine is called by the operating system at the end of the operating 
 
 
 ShutdownHook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -222,7 +222,7 @@ ShutdownHook
 This hook routine is called by the operating system when the OS service ShutdownOS has been called. This routine is called during the operating system shutdown.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -269,7 +269,7 @@ This hook routine is called by the operating system when the OS service Shutdown
 
 
 ProtectionHook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -278,7 +278,7 @@ ProtectionHook
 This hook routine is called by the operating system when the OS service protection functions.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -354,7 +354,7 @@ This hook routine is called by the operating system when the OS service protecti
 
 
 IdleHook_Core<n>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -363,7 +363,7 @@ IdleHook_Core<n>
 This HOOK is called when ORIENTAIS OS enters an idle task.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -384,7 +384,7 @@ This HOOK is called when ORIENTAIS OS enters an idle task.
 
 
 ErrorHook_<ApplicationName>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -393,7 +393,7 @@ ErrorHook_<ApplicationName>
 This HOOK is called when ORIENTAIS OS enters an idle task.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -422,7 +422,7 @@ This HOOK is called when ORIENTAIS OS enters an idle task.
 
 
 StartupHook_<ApplicationName>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -431,7 +431,7 @@ StartupHook_<ApplicationName>
 When a specific application has the startup hook function enabled, ORIENTAIS OS calls this function when that application starts.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -448,7 +448,7 @@ When a specific application has the startup hook function enabled, ORIENTAIS OS 
 
 
 ShutdownHook_<ApplicationName>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -457,7 +457,7 @@ ShutdownHook_<ApplicationName>
 When a specific application has the shutdown hook function enabled, ORIENTAIS OS calls this hook function when that application is being shut down.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

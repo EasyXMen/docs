@@ -1,0 +1,148 @@
+开源小满EasyXMen技术文档(EasyXMen Technical Documentation)
+================================================================
+
+本仓库为开源小满EasyXMen的文档仓库
+
+This repository is the documentation repository for EasyXMen.
+
+开源许可(License)
+================================================================
+
+本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的 LICENSE.txt
+
+This repository is based on the GNU Free Documentation License, Version 1.3 (FDL 1.3), see the LICENSE.txt in this repository for details.
+
+Copyright (C) 2024 Isoft Infrastructure Software Co., Ltd.
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+
+I-SOFT
+================================================================
+.. list-table::
+   :widths: 10 60 20
+   :header-rows: 1
+
+   * - 版本(Version)
+     - 描述(Description)
+     - 日期(Date)
+   * - 1.0.0
+     - 发布(Release)
+     - 2024-10-24
+   * - 1.1.0
+     - 基于V25.04源码更新模块参考手册(Update module reference manual based on V25.04 source code)
+     - 2025-04-25
+   * - 1.2.0
+     - 基于V25.10源码更新模块参考手册(Update module reference manual based on V25.10 source code)
+     - 2025-10-24
+
+.. tip::
+
+   版本发布说明请参考链接 https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
+
+   Version release notes please refer to the link https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 参考手册(Module Reference Manual):
+
+   sub/参考手册(Module Reference Manual)/Bfx/Bfx.rst
+   sub/参考手册(Module Reference Manual)/BswM/BswM.rst
+   sub/参考手册(Module Reference Manual)/CanIf/CanIf.rst
+   sub/参考手册(Module Reference Manual)/CanNm/CanNm.rst
+   sub/参考手册(Module Reference Manual)/CanSM/CanSM.rst
+   sub/参考手册(Module Reference Manual)/CanTp/CanTp.rst
+   sub/参考手册(Module Reference Manual)/CanTsyn/CanTsyn.rst
+   sub/参考手册(Module Reference Manual)/Com/Com.rst
+   sub/参考手册(Module Reference Manual)/ComM/ComM.rst
+   sub/参考手册(Module Reference Manual)/Crc/Crc.rst
+   sub/参考手册(Module Reference Manual)/Det/Det.rst
+   sub/参考手册(Module Reference Manual)/CryIf/CryIf.rst
+   sub/参考手册(Module Reference Manual)/Crypto_62/Crypto_62.rst
+   sub/参考手册(Module Reference Manual)/CsM/CsM.rst
+   sub/参考手册(Module Reference Manual)/Dcm/Dcm.rst
+   sub/参考手册(Module Reference Manual)/Dem/Dem.rst
+   sub/参考手册(Module Reference Manual)/Dlt/Dlt.rst
+   sub/参考手册(Module Reference Manual)/DoIP/DoIP.rst
+   sub/参考手册(Module Reference Manual)/E2E/E2E.rst
+   sub/参考手册(Module Reference Manual)/EcuM/EcuM.rst
+   sub/参考手册(Module Reference Manual)/Ea/Ea.rst
+   sub/参考手册(Module Reference Manual)/Eep_62/Eep_62.rst
+   sub/参考手册(Module Reference Manual)/EthIf/EthIf.rst
+   sub/参考手册(Module Reference Manual)/EthSM/EthSM.rst
+   sub/参考手册(Module Reference Manual)/EthTrcv/EthTrcv.rst
+   sub/参考手册(Module Reference Manual)/EthTSyn/EthTSyn.rst
+   sub/参考手册(Module Reference Manual)/Fee/Fee.rst
+   sub/参考手册(Module Reference Manual)/Fim/Fim.rst
+   sub/参考手册(Module Reference Manual)/FlashTest/FlashTest.rst
+   sub/参考手册(Module Reference Manual)/IpduM/IpduM.rst
+   sub/参考手册(Module Reference Manual)/IStdLib/IStdLib.rst
+   sub/参考手册(Module Reference Manual)/KeyM/KeyM.rst
+   sub/参考手册(Module Reference Manual)/LdCom/LdCom.rst
+   sub/参考手册(Module Reference Manual)/LinIf/LinIf.rst
+   sub/参考手册(Module Reference Manual)/LinSM/LinSM.rst
+   sub/参考手册(Module Reference Manual)/MemIf/MemIf.rst
+   sub/参考手册(Module Reference Manual)/MemMap/MemMap.rst
+   sub/参考手册(Module Reference Manual)/MemLayout/MemLayout.rst
+   sub/参考手册(Module Reference Manual)/Nm/Nm.rst
+   sub/参考手册(Module Reference Manual)/NvM/NvM.rst
+   sub/参考手册(Module Reference Manual)/Os/Os.rst
+   sub/参考手册(Module Reference Manual)/PduR/PduR.rst
+   sub/参考手册(Module Reference Manual)/RamTest/RamTest.rst
+   sub/参考手册(Module Reference Manual)/Rte/Rte.rst
+   sub/参考手册(Module Reference Manual)/iRte/iRte.rst
+   sub/参考手册(Module Reference Manual)/Sd/Sd.rst
+   sub/参考手册(Module Reference Manual)/SecOC/SecOC.rst
+   sub/参考手册(Module Reference Manual)/SoAd/SoAd.rst
+   sub/参考手册(Module Reference Manual)/SomeIpTp/SomeIpTp.rst
+   sub/参考手册(Module Reference Manual)/StbM/StbM.rst
+   sub/参考手册(Module Reference Manual)/TcpIp/TcpIp.rst
+   sub/参考手册(Module Reference Manual)/UdpNm/UdpNm.rst
+   sub/参考手册(Module Reference Manual)/WdgIf/WdgIf.rst
+   sub/参考手册(Module Reference Manual)/WdgM/WdgM.rst
+   sub/参考手册(Module Reference Manual)/Xcp/Xcp.rst
+   sub/参考手册(Module Reference Manual)/Tm/Tm.rst
+   sub/参考手册(Module Reference Manual)/CDD_FVM/CDD_FVM.rst
+   sub/参考手册(Module Reference Manual)/EthSwt/EthSwt.rst
+   sub/参考手册(Module Reference Manual)/CanTrcv/CanTrcv.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 集成手册(Integration Instruction Manual):
+
+   sub/集成手册(Integration Instruction Manual)/BswM&EcuM.rst
+   sub/集成手册(Integration Instruction Manual)/CAN.rst
+   sub/集成手册(Integration Instruction Manual)/CANNM.rst
+   sub/集成手册(Integration Instruction Manual)/CanTSyn.rst
+   sub/集成手册(Integration Instruction Manual)/DoIP.rst
+   sub/集成手册(Integration Instruction Manual)/E2E.rst
+   sub/集成手册(Integration Instruction Manual)/Eth.rst
+   sub/集成手册(Integration Instruction Manual)/EthTSyn.rst
+   sub/集成手册(Integration Instruction Manual)/FlashTest.rst
+   sub/集成手册(Integration Instruction Manual)/LinMaster.rst
+   sub/集成手册(Integration Instruction Manual)/LinSlave.rst
+   sub/集成手册(Integration Instruction Manual)/NVM.rst
+   sub/集成手册(Integration Instruction Manual)/OBD.rst
+   sub/集成手册(Integration Instruction Manual)/OS.rst
+   sub/集成手册(Integration Instruction Manual)/RamTest.rst
+   sub/集成手册(Integration Instruction Manual)/SecOC.rst
+   sub/集成手册(Integration Instruction Manual)/SOMEIP.rst
+   sub/集成手册(Integration Instruction Manual)/UdpNm.rst
+   sub/集成手册(Integration Instruction Manual)/UDSonCAN.rst
+   sub/集成手册(Integration Instruction Manual)/UDSonLIN.rst
+   sub/集成手册(Integration Instruction Manual)/WDG.rst
+   sub/集成手册(Integration Instruction Manual)/XCP.rst
+   sub/集成手册(Integration Instruction Manual)/总体架构.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 工程说明(Demo Project Description):
+
+   sub/示例工程说明(Demo Project Description)/RH850U2A16_R7F702300BFABA_C_Demo.rst
+   sub/示例工程说明(Demo Project Description)/TC397_Demo.rst
+   sub/示例工程说明(Demo Project Description)/S32K148_Demo.rst

@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>FOTA Handler &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="IoHwAb" href="IoHwAb.html" />
+            <link rel="prev" title="FiM" href="FiM.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">FOTA Handler</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/FOTA handler.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="fota-handler">
+<h1>FOTA Handler<a class="headerlink" href="#fota-handler" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECU</p></td>
+<td><p>Electronic control unit</p></td>
+<td><p>电控单元 (Electronic Control Unit)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCM</p></td>
+<td><p>Diagnostic Communication Manager (AUTOSAR BSWModule, Classic Platform) (Surprisingly notyet listed!)</p></td>
+<td><p>诊断通信管理模块 (Diagnostic Communication Management Module)</p></td>
+</tr>
+<tr class="row-even"><td><p>FOTA</p></td>
+<td><p>Firmware Over-The-Air</p></td>
+<td><p>固件无线升级 (Wireless firmware upgrade)</p></td>
+</tr>
+<tr class="row-odd"><td><p>NvM</p></td>
+<td><p>Non-Volatile Memory, BSW Module, sometimesreferred to as NV Memory (Surprisingly not yetlisted!)</p></td>
+<td><p>非易失数据存储管理模块 (Non-volatile Data Storage Management Module)</p></td>
+</tr>
+<tr class="row-even"><td><p>OTA</p></td>
+<td><p>Over-The-Air technologies in general,regardless of AUTOSAR</p></td>
+<td><p>空中下载技术 (Air Download Technology)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SW</p></td>
+<td><p>Soft ware</p></td>
+<td><p>软件 (Software)</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD</p></td>
+<td><p>Complex Driver</p></td>
+<td><p>复杂驱动 (Complex Drive)</p></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAMaster</p></td>
+<td><p>Firmware Over-The-Air of Master</p></td>
+<td><p>固件无线升级的客户端 (Wireless firmware upgrade client)</p></td>
+</tr>
+<tr class="row-even"><td><p>Nv</p></td>
+<td><p>Non-Volatile Memory</p></td>
+<td><p>非易失存储 (Non-volatile storage)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>FOTA方法将引入一个通用的机制来在运行时更新ECU软件。在当前ECU软件正常运行期间（例如行车过程中），新软件应在后台完成编程安装。在安装时，可以中断和继续在几个驱动周期，新的SW的真实性和完整性应得到验证。如果验证结果为真，ECU将能够激活新的SW。SW的激活总是需要一个特殊的ECU模式(例如启动)，因此新SW的激活不能在开车时启动，甚至不能在开车时执行。启动应在车辆安全状态下进行，如停止、关闭发动机和使用驻车制动。如果在新SW激活后或激活期间发现异常或错误，ECU应该能够实现ECU内部回滚到以前的SW。ECU内部回滚意味着，以前的SW仍然存在于ECU上，可以重新激活。</p>
+<p>The FOTA method will introduce a general mechanism for updating ECU software at runtime. During the period when the current ECU software is operating normally (such as during driving), the new software should be programmed and installed in the background. During installation, interruptions and continuations may occur over several driving cycles; the authenticity and integrity of the new SW should be verified. If the verification result is true, the ECU will be able to activate the new SW. Activation of the SW always requires a special ECU mode (e.g., boot); therefore, activation of the new SW cannot occur during start-up or while driving. The start-up should be performed under vehicle safety conditions, such as when stopped, with the engine off, and using the parking brake. If anomalies or errors are detected after or during the activation of the new SW, the ECU should be able to perform an internal rollback within the ECU to the previous SW. An internal rollback in the ECU means that the previous SW still exists on the ECU and can be reactivated.</p>
+<figure class="align-center" id="fota-handler-fota-handler-architecture-layout">
+<img alt="FOTA Handler架构布局 (FOTA Handler Architecture Layout)" src="../../_images/FotaArchitecture.png" />
+</figure>
+<p>如上图所示，FOTA Handler是处于DCM模块和存储栈之间的一个CDD模块，FOTA Handler被DCM模块所调用，DCM模块将接收到的数据流传递给FOTA Handler，然后FOTA Handler经过相应的处理之后将数据传递给flash驱动，并写入到flash中。在写入的过程中会产生一些需要NvM模块存储的用户数据，FOTA Handler通过调用NvM模块的接口来存储和恢复相应的数据，这些数据也会被DCM模块所获取反馈给FOTA Master，FOTA Master通过数据发送相应的指令或数据给DCM模块。</p>
+<p>As shown above, the FOTA Handler is a CDD module located between the DCM module and the storage stack. The DCM module calls the FOTA Handler, which receives data streams from the DCM module. After processing, the FOTA Handler passes the data to the flash driver for writing into the flash memory. During this process, some user data that needs to be stored by the NvM module is generated. The FOTA Handler stores and recovers this data by calling interfaces of the NvM module. This data is also accessible to the DCM module, which provides feedback to the FOTA Master. The FOTA Master sends corresponding instructions or data back to the DCM module.</p>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_EXP_FirmwareOverTheAir.pdf, R19-11</p>
+<p>[2] AUTOSAR_RS_FirmwareOverTheAir.pdf, R19-11</p>
+<p>[3] AUTOSAR_EXP_CDDDesignAndIntegrationGuideline.pdf, R19-11</p>
+<p>[4] AUTOSAR_SWS_DiagnosticEventManager.pdf, R19-11</p>
+<p>[5] AUTOSAR_SWS_NVRAMManager.pdf, R19-11</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="information-storage-and-recovery-functionality">
+<h3>信息存储与恢复功能 (Information storage and recovery functionality)<a class="headerlink" href="#information-storage-and-recovery-functionality" title="Link to this heading">¶</a></h3>
+<section id="introduction-to-information-storage-and-recovery-function">
+<h4>信息存储与恢复功能介绍 (Introduction to Information Storage and Recovery Function)<a class="headerlink" href="#introduction-to-information-storage-and-recovery-function" title="Link to this heading">¶</a></h4>
+<p>FOTA模块在完成一次数据安装后，会通过NvM模块将更新后的相关地址信息等存储到Nv数据块中。在ECU启动阶段，当NvM模块readall完成之后，通过调用FOTA模块的预初始化函数，将上一个电源周期存储的相关地址信息恢复到FOTA模块，以便FOTA Master继续进行相应的数据传输与安装。</p>
+<p>The FOTA module stores the updated relevant address information in the Nv data block through the NvM module after completing a data installation. During the ECU startup phase, after the NvM module completes readall, by calling the pre-initialization function of the FOTA module, the relevant address information stored during the previous power cycle is restored to the FOTA module so that the FOTA Master can continue with the corresponding data transmission and installation.</p>
+</section>
+<section id="function-realization-for-information-storage-and-recovery">
+<h4>信息存储与恢复功能实现 (Function realization for information storage and recovery)<a class="headerlink" href="#function-realization-for-information-storage-and-recovery" title="Link to this heading">¶</a></h4>
+<p>FOTA模块在NvM模块readall完成之后被调用预初始化函数。在NvM模块数据正确情况下恢复以前存储的地址信息，在NvM模块数据不正确情况下重新初始化相应的地址信息。在FOTA进行预初始化的时候，需要通过NVM的Nvm_GetErrorStatus接口获取相关block的状态信息，当读取成功时（状态为NVM_REQ_OK），恢复读取到的数据，读取不成功时（状态不为NVM_REQ_OK），使用默认值进行初始化。在FOTA状态进行更新时，需要及时更新存储的数据，通知NVM进行写操作。当FOTA需要进行存储的时候，调用Nvm_WriteBlock接口进行存储。</p>
+<p>The FOTA module is called to pre-initialize after the NvM module's readall completes. In case of correct data in the NvM module, it recovers previously stored address information; if the data is incorrect, it reinitializes the corresponding address information. During FOTA's pre-initialization, it needs to obtain related block status information through the NVM's Nvm_GetErrorStatus interface: when reading successfully (status as NVM_REQ_OK), recover the read data; when reading fails (status not as NVM_REQ_OK), initialize with default values. When updating the FOTA state, timely update stored data and notify NVM to perform write operations. When FOTA needs storage, call the Nvm_WriteBlock interface for storage.</p>
+</section>
+</section>
+<section id="data-download-function">
+<h3>数据下载功能 (Data download function)<a class="headerlink" href="#data-download-function" title="Link to this heading">¶</a></h3>
+<section id="introduction-to-data-download-function">
+<h4>数据下载功能介绍 (Introduction to Data Download Function)<a class="headerlink" href="#introduction-to-data-download-function" title="Link to this heading">¶</a></h4>
+<p>数据下载是指新的ECU软件从FOTA主ECU转移到FOTA目标ECU。由于一次性将整个ECU软件完全转移到FOTA目标ECU是不方便的，所以这个过程是使用数据块来实现的。这意味着安装过程甚至可以在几个驱动周期内处于活动状态。当没有更多的数据块需要传输到FOTA目标ECU，并且所有数据块都被成功地写入到内存堆栈时，安装过程就完成了。此外，安装过程还包括由FOTA目标ECU中的程序flash驱动程序将软件实际写入到不活动的目标分区。</p>
+<p>Data download refers to the new ECU software being transferred from the FOTA master ECU to the FOTA target ECU. Since it is inconvenient to transfer the entire ECU software all at once to the FOTA target ECU, this process is achieved using data blocks. This means that the installation process can even remain active over several drive cycles. When there are no more data blocks needing transmission to the FOTA target ECU and all data blocks have been successfully written into the memory stack, the installation process is completed. Additionally, the installation process includes the actual writing of the software into the inactive target partition by the flash driver program in the FOTA target ECU.</p>
+</section>
+<section id="data-download-functionality-implemented">
+<h4>数据下载功能实现 (Data download functionality implemented)<a class="headerlink" href="#data-download-functionality-implemented" title="Link to this heading">¶</a></h4>
+<p>FOTA在进行预初始化后，会进入到IDLE状态，然后通过FOTA Master的控制进行初始化后会进入到INIT状态，当FOTA Master进行下载请求后进入到WAIT状态。在WAIT状态下，FOTA Master进行数据下载是进入到PROCESSING状态，处理完成后回到WAIT状态，当FOTA Master请求退出下载时回到IDLE状态，当所有数据下载完成后会进入到READY状态。在READY状态下，可以选择进行校验（进入VERIFY状态,校验完成后会进入激活状态）或者进行激活，进入到ACTIVATE状态。此外FOTA还有一个ERROR状态，在任何时候都可能进入，进入ERROR状态后需要进行ROLLBACK。</p>
+<p>After FOTA performs pre-initialization, it enters the IDLE state. Then, through control by the FOTA Master, it enters the INIT state. When the FOTA Master initiates a download request, it transitions to the WAIT state. In the WAIT state, data downloading controlled by the FOTA Master enters the PROCESSING state; after processing is complete, it returns to the WAIT state. When the FOTA Master requests to exit the download, it returns to the IDLE state. Once all data downloads are complete, it enters the READY state. In the READY state, one can choose to perform verification (entering the VERIFY state, where verification completion results in an activation state) or directly activate and enter the ACTIVATE state. Additionally, FOTA has an ERROR state that can be entered at any time; entering the ERROR state requires a rollback.</p>
+</section>
+</section>
+<section id="resume-transmission-functionality">
+<h3>断点续传功能 (Resume transmission functionality)<a class="headerlink" href="#resume-transmission-functionality" title="Link to this heading">¶</a></h3>
+<section id="continued-download-function-introduction">
+<h4>断点续传功能介绍 (Continued Download Function Introduction)<a class="headerlink" href="#continued-download-function-introduction" title="Link to this heading">¶</a></h4>
+<p>由于在整个下载过程中可能会存在多次中断，需要重新下载，并擦除一定的flash进行后续的写，所以提供断点的获取，包括默认断点和自定义配置断点两种。</p>
+<p>Due to multiple interruptions that may occur during the entire download process, requiring re-downloads and erasing certain flash for subsequent writes, support for breakpoint resumption is provided, including default breakpoints and custom-configured breakpoints.</p>
+</section>
+<section id="function-implementation">
+<h4>功能实现 (Function implementation)<a class="headerlink" href="#function-implementation" title="Link to this heading">¶</a></h4>
+<p>默认断点是将刷的block的起始地址进行反馈，自定义断点则是根据刷写的实际位置进行检索，找到最匹配的自定义断点进行反馈。</p>
+<p>Default breakpoints feedback the starting address of the block that is flashed. Custom breakpoints are located based on the actual position flashed, and the most matching custom breakpoint is then fed back.</p>
+</section>
+</section>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 CDD_FOTA组件文件描述 (Table Description of CDD_FOTA Component Files)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CDD_FOTA_Cfg.h</p></td>
+<td><p>定义FOTA模块预编译时用到的配置参数。 (Define configuration parameters used during pre-compilation of the FOTA module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_FOTA_Cfg.c</p></td>
+<td><p>定义FOTA模块配置相关的配置参数。 (Define configuration parameters related to FOTA module configuration.)</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_FOTA_CallOut.c</p></td>
+<td><p>定义FOTA模块callout函数。 (Define FOTA module callout functions.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_FOTA_CallOut.h</p></td>
+<td><p>定义FOTA模块预编译时用到的callout配置参数。 (Define callout configuration parameters used at FOTA module pre-compilation.)</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_FOTA.h</p></td>
+<td><p>FOTA模块头文件，包含了API函数的扩展声明并定义了端口的数据结构。 (FOTA module header file, which contains extended declarations of API functions and defines the port data structures.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_FOTA.c</p></td>
+<td><p>FOTA模块源文件，包含了API函数的实现。 (FOTA module source files contain the implementation of API functions.)</p></td>
+</tr>
+<tr class="row-even"><td><p>CDD_FOTA_MemMap.h</p></td>
+<td><p>包含FOTA模块的内存抽象。 (Abstraction of memory containing the FOTA module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CDD_FOTA_Types.h</p></td>
+<td><p>包含FOTA模块需要使用的类型定义。 (Definition types needed for the FOTA module.)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="fota-fota-component-file-interaction-diagram">
+<img alt="FOTA组件文件交互关系图 (FOTA Component File Interaction Diagram)" src="../../_images/CDD_FOTA_File.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<section id="cdd-fota-writememoryrangetype-type-definition-for-cdd-fota-writememoryrangetype">
+<h4>CDD_FOTA_WriteMemoryRangeType类型定义 (Type definition for CDD_FOTA_WriteMemoryRangeType)<a class="headerlink" href="#cdd-fota-writememoryrangetype-type-definition-for-cdd-fota-writememoryrangetype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>CDD_FOTA_WriteMemoryRangeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint32 WriteMemoryRangeLow;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32 WriteMemoryRangeHigh;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32 length;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>boolean UncompressEnable;</p></td>
+</tr>
+<tr class="row-even"><td><p>范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>数据下载地址范围 (Range of data download addresses)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-statustype-cdd-fota-statustype-type-definition">
+<h4>CDD_FOTA_StatusType类型定义 (CDD_FOTA_StatusType Type Definition)<a class="headerlink" href="#cdd-fota-statustype-cdd-fota-statustype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>CDD_FOTA_StatusType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>CDD_FOTA_IDLE/CDD_FOTA_INIT/CDD_FOTA_WAIT/CDD_FOTA_PROCESSING/CDD_FOTA_READY/CDD_FOTA_VERIFY/CDD_FOTA_ACTIVATE/CDD_FOTA_ERROR</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>FOTA状态 (FOTA Status)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-modetype-cdd-fota-modetype-type-definition">
+<h4>CDD_FOTA_ModeType类型定义 (CDD_FOTA_ModeType Type Definition)<a class="headerlink" href="#cdd-fota-modetype-cdd-fota-modetype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>CDD_FOTA_ModeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>typedef enum</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CDD_FOTA_MODE_UNINIT,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CDD_FOTA_MODE_INIT</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>} CDD_FOTA_ModeType;</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>FOTA模块的状态类型 (FOTA Module Status Types)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-programinfotype-cdd-fota-programinfotype-type-definition">
+<h4>CDD_FOTA_ProgramInfoType类型定义 (CDD_FOTA_ProgramInfoType Type Definition)<a class="headerlink" href="#cdd-fota-programinfotype-cdd-fota-programinfotype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>CDD_FOTA_ProgramInfoType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint32 ProcessedAddress;</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32 ProgramConter;</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint8 CurNeedProgramApp;</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>当前已安装的软件相关信息 (Information about currently installed software)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-cancelinstalltype-type-definition-for-cdd-fota-cancelinstalltype">
+<h4>CDD_FOTA_CancelInstallType类型定义 (Type definition for CDD_FOTA_CancelInstallType)<a class="headerlink" href="#cdd-fota-cancelinstalltype-type-definition-for-cdd-fota-cancelinstalltype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>CDD_FOTA_CancelInstallType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>typedef enum</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>{</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CDD_FOTA_NO_ERASE,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CDD_FOTA_ERASE_A,</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CDD_FOTA_ERASE_B</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>} CDD_FOTA_CancelInstallType;</p></td>
+</tr>
+<tr class="row-even"><td><p>范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>FOTA模块取消安装的类型 (FOTA Module Uninstall Type)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NVM</p></td>
+<td><p>NvM_GetErrorStatus</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NvM_WriteBlock</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<section id="cdd-fota-preinit-cdd-fota-preinit-function-definition">
+<h4>CDD_FOTA_PreInit函数定义 (CDD_FOTA_PreInit function definition)<a class="headerlink" href="#cdd-fota-preinit-cdd-fota-preinit-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_PreInit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void CDD_FOTA_PreInit(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>FOTA模块预初始化 (Pre-initialization of FOTA Module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-init-the-cdd-fota-init-function-definition">
+<h4>CDD_FOTA_Init函数定义 (The CDD_FOTA_Init function definition)<a class="headerlink" href="#cdd-fota-init-the-cdd-fota-init-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_Init( FOTAStatus)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>FOTAStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>初始化FOTA (Initialize FOTA)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-getfotastatus-the-cdd-fota-getfotastatus-function-definition">
+<h4>CDD_FOTA_GetFOTAStatus函数定义 (The CDD_FOTA_GetFOTAStatus function definition)<a class="headerlink" href="#cdd-fota-getfotastatus-the-cdd-fota-getfotastatus-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_GetFOTAStatus</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_GetFOTAStatus(CDD_FOTA_StatusType* FOTAStatus)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>FOTAStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取FOTA状态 (Get FOTA Status)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-getappversion-cdd-fota-getappversion-function-definition">
+<h4>CDD_FOTA_GetAppVersion函数定义 (CDD_FOTA_GetAppVersion function definition)<a class="headerlink" href="#cdd-fota-getappversion-cdd-fota-getappversion-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_GetAppVersion</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_GetAppVersion(uint8* AppVersion)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>AppVersion</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取APP版本信息 (Get APP Version Information)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-setappversion-the-cdd-fota-setappversion-function-definition">
+<h4>CDD_FOTA_SetAppVersion函数定义 (The CDD_FOTA_SetAppVersion function definition)<a class="headerlink" href="#cdd-fota-setappversion-the-cdd-fota-setappversion-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_SetAppVersion</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_SetAppVersion(const uint8* AppVersion)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>AppVersion</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置APP版本信息 (Set APP Version Information)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-getfotaprocessedinfo-the-function-definition-for-cdd-fota-getfotaprocessedinfo">
+<h4>CDD_FOTA_GetFOTAProcessedInfo函数定义 (The function definition for CDD_FOTA_GetFOTAProcessedInfo)<a class="headerlink" href="#cdd-fota-getfotaprocessedinfo-the-function-definition-for-cdd-fota-getfotaprocessedinfo" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_GetFOTAProcessedInfo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_GetFOTAProcessedInfo(uint32* MemoryAddress)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>MemoryAddress</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取编程信息 (Get programming information)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-getfotabreakpointinfo-the-cdd-fota-getfotabreakpointinfo-function-definition">
+<h4>CDD_FOTA_GetFOTAbreakpointInfo函数定义 (The CDD_FOTA_GetFOTAbreakpointInfo function definition)<a class="headerlink" href="#cdd-fota-getfotabreakpointinfo-the-cdd-fota-getfotabreakpointinfo-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_GetFOTAbreakpointInfo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_GetFOTAbreakpointInfo(uint32* MemoryAddress)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0F</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>MemoryAddress</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取断点地址信息 (Get breakpoint address information)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-processdownload-cdd-fota-processdownload-function-definition">
+<h4>CDD_FOTA_Processdownload函数定义 (CDD_FOTA_Processdownload function definition)<a class="headerlink" href="#cdd-fota-processdownload-cdd-fota-processdownload-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_Processdownload</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_Processdownload(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32 MemoryAddress,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32 MemorySize,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32* BlockLength,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Dcm_NegativeResponseCodeType* ErrorCode)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>MemoryAddress</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0.. 4294836225</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MemorySize</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0.. 4294836225</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>ErrorCode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BlockLength</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType：E_OK： 请求成功E_NOT_OK：请求失败 (Std_ReturnType：E_OK： Request succeeded E_NOT_OK：Request failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>处理数据请求下载 (Handle data request download)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-stopprotocol-function-definition-for-cdd-fota-stopprotocol">
+<h4>CDD_FOTA_StopProtocol函数定义 (Function definition for CDD_FOTA_StopProtocol)<a class="headerlink" href="#cdd-fota-stopprotocol-function-definition-for-cdd-fota-stopprotocol" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_StopProtocol</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_StopProtocol(Dcm_ProtocolType ProtocolID)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ProtocolID</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Enum</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>协议停止回调接口 (Protocol stop callback interface)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-cancelinstall-cdd-fota-cancelinstall-function-definition">
+<h4>CDD_FOTA_CancelInstall函数定义 (CDD_FOTA_CancelInstall function definition)<a class="headerlink" href="#cdd-fota-cancelinstall-cdd-fota-cancelinstall-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_CancelInstall</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_CancelInstall(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0D</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>请求取消下载安装 (Request to cancel download installation)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-processtransferdatawrite-the-cdd-fota-processtransferdatawrite-function-definition">
+<h4>CDD_FOTA_ProcessTransferDataWrite函数定义 (The CDD_FOTA_ProcessTransferDataWrite function definition)<a class="headerlink" href="#cdd-fota-processtransferdatawrite-the-cdd-fota-processtransferdatawrite-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_ProcessTransferDataWrite</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Dcm_ReturnWriteMemoryType CDD_FOTA_ProcessTransferDataWrite(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Dcm_OpStatusType OpStatus,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32 MemoryAddress,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32 MemorySize,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint8* MemoryData,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Dcm_NegativeResponseCodeType* ErrorCode)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>OpStatus</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>Enum</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MemoryAddress</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0.. 4294836225</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MemorySize</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0.. 4294836225</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MemoryData</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>uint8*</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>ErrorCode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Dcm_ReturnWriteMemoryType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>处理下载的数据 (Process the downloaded data)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-erase-cdd-fota-erase-function-definition">
+<h4>CDD_FOTA_Erase函数定义 (CDD_FOTA_Erase function definition)<a class="headerlink" href="#cdd-fota-erase-cdd-fota-erase-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_Erase</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_Erase(const uint8* InBuffer,Dcm_NegativeResponseCodeType* ErrorCode)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0E</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>InBuffer</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>ErrorCode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>请求擦除 (Request for Erasure)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-processexit-the-function-definition-for-cdd-fota-processexit">
+<h4>CDD_FOTA_ProcessExit函数定义 (The function definition for CDD_FOTA_ProcessExit)<a class="headerlink" href="#cdd-fota-processexit-the-function-definition-for-cdd-fota-processexit" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_ProcessExit</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_ProcessExit(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>const uint8* transferRequestParameterRecord,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uint32 transferRequestParameterRecordSize,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint32* transferResponseParameterRecordSize,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Dcm_NegativeResponseCodeType* ErrorCode)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0B</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>transferRequestParameterRecord</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0.. 255</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>transferRequestParameterRecordSize</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0.. 4294836225</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>transferResponseParameterRecordSize</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ErrorCode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>请求退出下载 (Request to Exit Download)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-setfotaactivate-the-cdd-fota-setfotaactivate-function-definition">
+<h4>CDD_FOTA_SetFOTAActivate函数定义 (The CDD_FOTA_SetFOTAActivate function definition)<a class="headerlink" href="#cdd-fota-setfotaactivate-the-cdd-fota-setfotaactivate-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_SetFOTAActivate</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_SetFOTAActivate(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x05</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType：E_OK： 请求成功E_NOT_OK：请求失败 (Std_ReturnType：E_OK： Request succeeded E_NOT_OK：Request failed)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置FOTA进入激活状态 (Set FOTA to active state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-setfotarollback-definition-of-cdd-fota-setfotarollback-function">
+<h4>CDD_FOTA_SetFOTARollback函数定义 (Definition of CDD_FOTA_SetFOTARollback function)<a class="headerlink" href="#cdd-fota-setfotarollback-definition-of-cdd-fota-setfotarollback-function" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_SetFOTARollback</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_SetFOTARollback(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置FOTA进入回滚状态 (Set FOTA to rollback state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-verification-definition-of-cdd-fota-verification-function">
+<h4>CDD_FOTA_Verification函数定义 (Definition of CDD_FOTA_Verification function)<a class="headerlink" href="#cdd-fota-verification-definition-of-cdd-fota-verification-function" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_Verification</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_Verification(boolean* VerificationStatus)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x07</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>VerificationStatus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>请求FOTA进行校验 (Request FOTA for verification)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-mainfunction-cdd-fota-mainfunction-function-definition">
+<h4>CDD_FOTA_MainFunction函数定义 (CDD_FOTA_MainFunction function definition)<a class="headerlink" href="#cdd-fota-mainfunction-cdd-fota-mainfunction-function-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_MainFunction</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void CDD_FOTA_MainFunction(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>是 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>FOTA任务处理主函数 (FOTA Task Processing Main Function)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<section id="cdd-fota-uncompresscallout-the-definition-of-cdd-fota-uncompresscallout-function">
+<h4>CDD_FOTA_UncompressCallout函数定义 (The definition of CDD_FOTA_UncompressCallout function)<a class="headerlink" href="#cdd-fota-uncompresscallout-the-definition-of-cdd-fota-uncompresscallout-function" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_UncompressCallout</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_UncompressCallout(const uint8* InData,uint32 InSize,uint8* OutData,uint32* OutSize)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>N/A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>Std_ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>FOTA模块解压缩回调接口 (FOTA Module Decompression Callback Interface)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdd-fota-getuncompressrescallout-the-function-definition-for-cdd-fota-getuncompressrescallout">
+<h4>CDD_FOTA_GetUncompressResCallout函数定义 (The function definition for CDD_FOTA_GetUncompressResCallout)<a class="headerlink" href="#cdd-fota-getuncompressrescallout-the-function-definition-for-cdd-fota-getuncompressrescallout" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>CDD_FOTA_GetUncompressResCallout</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnType CDD_FOTA_GetUncompressResCallout(void)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>N/A</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Reentrancy:)</p></td>
+<td><p>否 (Non Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>FOTA模块获取解压缩的任务结果回调接口 (FOTA module gets decompression task result callback interface)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="fotageneral">
+<h3>FOTAGeneral<a class="headerlink" href="#fotageneral" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="fotageneral-fota-general-container-configuration-diagram">
+<img alt="FOTAGeneral容器配置图 (FOTA_General Container Configuration Diagram)" src="../../_images/FOTA_General.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 FOTAGeneral属性描述 (Table FOTA General Properties Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FOTAVersionInfoApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>版本信息获取接口使能开关 (Version information acquisition interface enable switch)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTADevErrorDetect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DET检查使能开关 (DET Check Enable Switch)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTAUncompressEnable</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>解压缩使能开关 (Enable Decompression Switch)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAUncompressBufferSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 ..</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>解压缩缓存buffer大小 (Decompression Cache Buffer Size)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>FOTAUncompressEnable为true (FOTAUncompressEnable is true)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTAUncompressSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 ..</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>解压缩大小 (Uncompressed size)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>FOTAUncompressEnable为true (FOTAUncompressEnable is true)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTACrc</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>CDD_FOTA_CRC8/CDD_FOTA_CRC8H2F/CDD_FOTA_CRC16/CDD_FOTA_CRC16ARC/CDD_FOTA_CRC32/CDD_FOTA_CRC32P4/CDD_FOTA_CRC64/CDD_FOTA_NONE_CRC</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>CDD_FOTA_CRC8</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>CRC计算类型 (CRC Calculation Type)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTACrcBy37Enable</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>CRC计算是否通过37服务传入 (Is CRC calculation passed through service 37?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAVirificCalloutEnable</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>校验回调接口使能开关 (Enable Switch for Validation Callback Interface)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTAProgramSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0.. 4294836225</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>一次编程大小 (One Programming Size)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAEraseSize</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0.. 4294836225</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>一次擦除大小 (Size of one wipe)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTAProgramSizeOneReq</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0.. 4294836225</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>一次36请求缓存的下载数据大小 (Cache size for a 36-request download data retrieval)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAVerificCallout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>校验回调函数配置接口 (Validate Callback Function Configuration Interface)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>FOTAVirificCalloutEnable为true (FOTAVirificCalloutEnableEnable = True)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTAJumpAddressA</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0.. 4294836225</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>APP A的跳转地址 (The redirect URL for APP A)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAJumpAddressB</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0.. 4294836225</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>APP B的跳转地址 (The redirection URL for APP B)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTAMainFunctionPeriod</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0.. INF</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>FOTA模块的主函数周期 (The main function cycle of the FOTA module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAHeaderFileInclusion</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>头文件包含 (Header file inclusion)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>FOTANvRamBlockIdRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>存储NV块的关联 (Store NV Blocks Associated)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTAProtocolId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DCM协议ID关联 (DCM Protocol ID Association)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fotaconfigset">
+<h3>FOTAConfigSet<a class="headerlink" href="#fotaconfigset" title="Link to this heading">¶</a></h3>
+<section id="fotabreakpoint">
+<h4>FOTABreakpoint<a class="headerlink" href="#fotabreakpoint" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="fotabreakpoint-fotabreakpoint-container-configuration-diagram">
+<img alt="FOTABreakpoint容器配置图 (FOTABreakpoint Container Configuration Diagram)" src="../../_images/FOTABreakpoint.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 FOTABreakpoint属性描述 (Table FOTA Breakpoint Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FOTAWriteMemoryRangeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 ..</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>断点，不配置的情况下使用块起始地址作为断点 (Breakpoint, use block start address as breakpoint if not configured)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fotawritememoryappa">
+<h4>FOTAWriteMemoryAppA<a class="headerlink" href="#fotawritememoryappa" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="fotawritememoryappa-fotawritememoryappa-container-configuration-diagram">
+<img alt="FOTAWriteMemoryAppA容器配置图 (FOTAWriteMemoryAppA Container Configuration Diagram)" src="../../_images/FOTAWriteMemoryAppA.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 FOTAWriteMemoryAppA属性描述 (Table FOTAWriteMemoryAppA Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FOTAWriteMemoryRangeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DCM中写地址范围的关联 (Write address range associations in DCM)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTABlockUncompressEnable</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当前块是否进行解压缩 (Does the current block undergo decompression?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>FOTAUncompressEnable</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fotawritememoryappb">
+<h4>FOTAWriteMemoryAppB<a class="headerlink" href="#fotawritememoryappb" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="fotawritememoryappb-fotawritememoryappb-container-configuration-diagram">
+<img alt="FOTAWriteMemoryAppB容器配置图 (FOTAWriteMemoryAppB Container Configuration Diagram)" src="../../_images/FOTAWriteMemoryAppB.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 FOTAWriteMemoryAppB属性描述 (Property Description of FOTAWriteMemoryAppB)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FOTAWriteMemoryRangeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DCM中写地址范围的关联 (Write address range associations in DCM)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTABlockUncompressEnable</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当前块是否进行解压缩 (Does the current block undergo decompression?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>FOTAUncompressEnable</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fotawritememorysbl">
+<h4>FOTAWriteMemorySBL<a class="headerlink" href="#fotawritememorysbl" title="Link to this heading">¶</a></h4>
+<figure class="align-center" id="fotawritememorysbl-fotawritememorysbl-container-configuration-diagram">
+<img alt="FOTAWriteMemorySBL容器配置图 (FOTAWriteMemorySBL Container Configuration Diagram)" src="../../_images/FOTAWriteMemorySBL.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 FOTAWriteMemorySBL属性描述 (Table FOTAWriteMemorySBL Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FOTAWriteMemoryRangeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无（None）</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无（None）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>DCM中写地址范围的关联 (Write address range associations in DCM)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无（None）</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FOTABlockUncompressEnable</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当前块是否进行解压缩 (Does the current block undergo decompression?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>FOTAUncompressEnable</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="FiM.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>FiM
+    </a>
+    <a class="float-right" href="IoHwAb.html" title="Next">
+        IoHwAb <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">FOTA Handler</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#information-storage-and-recovery-functionality">信息存储与恢复功能 (Information storage and recovery functionality)</a><ul>
+<li><a class="reference internal" href="#introduction-to-information-storage-and-recovery-function">信息存储与恢复功能介绍 (Introduction to Information Storage and Recovery Function)</a></li>
+<li><a class="reference internal" href="#function-realization-for-information-storage-and-recovery">信息存储与恢复功能实现 (Function realization for information storage and recovery)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-download-function">数据下载功能 (Data download function)</a><ul>
+<li><a class="reference internal" href="#introduction-to-data-download-function">数据下载功能介绍 (Introduction to Data Download Function)</a></li>
+<li><a class="reference internal" href="#data-download-functionality-implemented">数据下载功能实现 (Data download functionality implemented)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resume-transmission-functionality">断点续传功能 (Resume transmission functionality)</a><ul>
+<li><a class="reference internal" href="#continued-download-function-introduction">断点续传功能介绍 (Continued Download Function Introduction)</a></li>
+<li><a class="reference internal" href="#function-implementation">功能实现 (Function implementation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a><ul>
+<li><a class="reference internal" href="#cdd-fota-writememoryrangetype-type-definition-for-cdd-fota-writememoryrangetype">CDD_FOTA_WriteMemoryRangeType类型定义 (Type definition for CDD_FOTA_WriteMemoryRangeType)</a></li>
+<li><a class="reference internal" href="#cdd-fota-statustype-cdd-fota-statustype-type-definition">CDD_FOTA_StatusType类型定义 (CDD_FOTA_StatusType Type Definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-modetype-cdd-fota-modetype-type-definition">CDD_FOTA_ModeType类型定义 (CDD_FOTA_ModeType Type Definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-programinfotype-cdd-fota-programinfotype-type-definition">CDD_FOTA_ProgramInfoType类型定义 (CDD_FOTA_ProgramInfoType Type Definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-cancelinstalltype-type-definition-for-cdd-fota-cancelinstalltype">CDD_FOTA_CancelInstallType类型定义 (Type definition for CDD_FOTA_CancelInstallType)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a><ul>
+<li><a class="reference internal" href="#cdd-fota-preinit-cdd-fota-preinit-function-definition">CDD_FOTA_PreInit函数定义 (CDD_FOTA_PreInit function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-init-the-cdd-fota-init-function-definition">CDD_FOTA_Init函数定义 (The CDD_FOTA_Init function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-getfotastatus-the-cdd-fota-getfotastatus-function-definition">CDD_FOTA_GetFOTAStatus函数定义 (The CDD_FOTA_GetFOTAStatus function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-getappversion-cdd-fota-getappversion-function-definition">CDD_FOTA_GetAppVersion函数定义 (CDD_FOTA_GetAppVersion function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-setappversion-the-cdd-fota-setappversion-function-definition">CDD_FOTA_SetAppVersion函数定义 (The CDD_FOTA_SetAppVersion function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-getfotaprocessedinfo-the-function-definition-for-cdd-fota-getfotaprocessedinfo">CDD_FOTA_GetFOTAProcessedInfo函数定义 (The function definition for CDD_FOTA_GetFOTAProcessedInfo)</a></li>
+<li><a class="reference internal" href="#cdd-fota-getfotabreakpointinfo-the-cdd-fota-getfotabreakpointinfo-function-definition">CDD_FOTA_GetFOTAbreakpointInfo函数定义 (The CDD_FOTA_GetFOTAbreakpointInfo function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-processdownload-cdd-fota-processdownload-function-definition">CDD_FOTA_Processdownload函数定义 (CDD_FOTA_Processdownload function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-stopprotocol-function-definition-for-cdd-fota-stopprotocol">CDD_FOTA_StopProtocol函数定义 (Function definition for CDD_FOTA_StopProtocol)</a></li>
+<li><a class="reference internal" href="#cdd-fota-cancelinstall-cdd-fota-cancelinstall-function-definition">CDD_FOTA_CancelInstall函数定义 (CDD_FOTA_CancelInstall function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-processtransferdatawrite-the-cdd-fota-processtransferdatawrite-function-definition">CDD_FOTA_ProcessTransferDataWrite函数定义 (The CDD_FOTA_ProcessTransferDataWrite function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-erase-cdd-fota-erase-function-definition">CDD_FOTA_Erase函数定义 (CDD_FOTA_Erase function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-processexit-the-function-definition-for-cdd-fota-processexit">CDD_FOTA_ProcessExit函数定义 (The function definition for CDD_FOTA_ProcessExit)</a></li>
+<li><a class="reference internal" href="#cdd-fota-setfotaactivate-the-cdd-fota-setfotaactivate-function-definition">CDD_FOTA_SetFOTAActivate函数定义 (The CDD_FOTA_SetFOTAActivate function definition)</a></li>
+<li><a class="reference internal" href="#cdd-fota-setfotarollback-definition-of-cdd-fota-setfotarollback-function">CDD_FOTA_SetFOTARollback函数定义 (Definition of CDD_FOTA_SetFOTARollback function)</a></li>
+<li><a class="reference internal" href="#cdd-fota-verification-definition-of-cdd-fota-verification-function">CDD_FOTA_Verification函数定义 (Definition of CDD_FOTA_Verification function)</a></li>
+<li><a class="reference internal" href="#cdd-fota-mainfunction-cdd-fota-mainfunction-function-definition">CDD_FOTA_MainFunction函数定义 (CDD_FOTA_MainFunction function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a><ul>
+<li><a class="reference internal" href="#cdd-fota-uncompresscallout-the-definition-of-cdd-fota-uncompresscallout-function">CDD_FOTA_UncompressCallout函数定义 (The definition of CDD_FOTA_UncompressCallout function)</a></li>
+<li><a class="reference internal" href="#cdd-fota-getuncompressrescallout-the-function-definition-for-cdd-fota-getuncompressrescallout">CDD_FOTA_GetUncompressResCallout函数定义 (The function definition for CDD_FOTA_GetUncompressResCallout)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#fotageneral">FOTAGeneral</a></li>
+<li><a class="reference internal" href="#fotaconfigset">FOTAConfigSet</a><ul>
+<li><a class="reference internal" href="#fotabreakpoint">FOTABreakpoint</a></li>
+<li><a class="reference internal" href="#fotawritememoryappa">FOTAWriteMemoryAppA</a></li>
+<li><a class="reference internal" href="#fotawritememoryappb">FOTAWriteMemoryAppB</a></li>
+<li><a class="reference internal" href="#fotawritememorysbl">FOTAWriteMemorySBL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

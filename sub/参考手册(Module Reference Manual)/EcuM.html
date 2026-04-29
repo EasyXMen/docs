@@ -1,0 +1,5156 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>EcuM &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="Eep" href="Eep.html" />
+            <link rel="prev" title="EcuC" href="EcuC.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">EcuM</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/EcuM.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="ecum">
+<h1>EcuM<a class="headerlink" href="#ecum" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>模式管理属于系统服务栈，在AutoSar R19-11软件层级架构如下图</p>
+<p>Model Management belongs to the system service stack. In the AutoSar R19-11 software hierarchical architecture, it is as follows:</p>
+<figure class="align-center" id="introduction-to-pattern-management">
+<img alt="模式管理简介 (Introduction to Pattern Management)" src="../../_images/image186.png" />
+</figure>
+<p>模式管理由BswM与EcuM组成，这两个模块对于Bsw中不同协议栈的串联与Ecu的整体把控紧密相关，其中BswM可以通过配置高度自由实现Bsw中模块的串联工作，EcuM则对Mcu的睡眠唤醒提供支持。</p>
+<p>Mode management is composed of BswM and EcuM, two modules closely related to the concatenation of different protocol stacks in Bsw and the overall control of Ecu. Among them, BswM can freely configure the concatenation work of modules in Bsw, while EcuM supports the sleep and wake-up of Mcu.</p>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_ECUStateManager.pdf，R19-11</p>
+<p>[3] AUTOSAR_SWS_BSWModeManager.pdf，R19-11</p>
+<p>[4] AUTOSAR_EXP_ModeManagementGuide.pdf，R19-11</p>
+</section>
+<section id="abbreviation-notes">
+<h3>缩写词注解 (Abbreviation Notes)<a class="headerlink" href="#abbreviation-notes" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BswM</p></td>
+<td><p>Basic Software ModeManager</p></td>
+<td><p>基础软件模式管理 (Basic Software Model Management)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM</p></td>
+<td><p>ECU State Manager</p></td>
+<td><p>ECU状态管理 (ECU Status Management)</p></td>
+</tr>
+<tr class="row-even"><td><p>Wakeup Source</p></td>
+<td><p>The peripheral or ECUcomponent which dealswith wakeup events iscalled a wakeup source</p></td>
+<td><p>唤醒源 (Wake-up Source)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="module-initialization-function">
+<h3>模块初始化功能 (Module initialization function)<a class="headerlink" href="#module-initialization-function" title="Link to this heading">¶</a></h3>
+<section id="module-initialization-functionality-introduction">
+<h4>模块初始化功能介绍 (Module initialization functionality introduction)<a class="headerlink" href="#module-initialization-functionality-introduction" title="Link to this heading">¶</a></h4>
+<p>上电时，EcuM负责基础软件模块的初始化（结合BswM），然后启动Os。</p>
+<p>During power-on, EcuM is responsible for initializing basic software modules (in conjunction with BswM), and then starting the Os.</p>
+</section>
+<section id="module-initialization-functionality-implementation">
+<h4>模块初始化功能实现 (Module initialization functionality implementation)<a class="headerlink" href="#module-initialization-functionality-implementation" title="Link to this heading">¶</a></h4>
+<p>针对模块初始化工作需要通过EcuM配置实现，初始化列表中的项限定于Autosar中的模块注1初始化列表分为EcuMDriverInitListZero、EcuMDriverInitListOne、EcuMDriverRestartList；其中EcuMDriverInitListZero与EcuMDriverInitListOne两者都在Os启动前进行初始化，意味这这些模块的初始化不能使用Os的任何接口，其中EcuMDriverInitListZero不能使用Post-build为配置参数的模块初始化；两者的初始化列表示例如下图</p>
+<p>Module initialization requires configuration through ECUm. Items in the initialization list are limited to module initializations within Autosar, with notes that the initialization lists分为EcuMDriverInitListZero、EcuMDriverInitListOne、EcuMDriverRestartList; where both EcuMDriverInitListZero and EcuMDriverInitListOne are initialized before Os startup, meaning these modules' initialization cannot use any Os interfaces. Among them, EcuMDriverInitListZero cannot initialize modules configured with post-build parameters. The initialization list examples for both are shown in the following figure.</p>
+<figure class="align-center" id="initialization-list">
+<img alt="初始化列表 (Initialization list)" src="../../_images/image240.png" />
+</figure>
+<p>注1：若需要初始化其他模块，需要由修改发布配置工具</p>
+<p>Note 1: If initialization of other modules is required, it needs to be done by modifying the release configuration tool.</p>
+<p>EcuMDriverRestartList则为唤醒后支持的初始化列表。</p>
+<p>EcuMDriverRestartList then serves as the initialization list supported after wake-up.</p>
+</section>
+</section>
+<section id="sleep-wake-up-function">
+<h3>睡眠唤醒功能 (Sleep Wake-Up Function)<a class="headerlink" href="#sleep-wake-up-function" title="Link to this heading">¶</a></h3>
+<section id="introduction-to-sleep-wake-up-function">
+<h4>睡眠唤醒功能介绍 (Introduction to Sleep Wake-Up Function)<a class="headerlink" href="#introduction-to-sleep-wake-up-function" title="Link to this heading">¶</a></h4>
+<p>睡眠唤醒是常用的Bsw功能之一，此部分功能的处理核心部分在EcuM是实现；对于睡眠唤醒的几种方式描述如下：</p>
+<p>Sleep and wake-up are commonly used Bsw functions, with the core implementation of this functionality realized in EcuM; descriptions of the several ways to achieve sleep and wake-up are as follows:</p>
+<p>方式一：Mcu休眠，由中断唤醒</p>
+<p>Method One: MCU Sleep, Waked Up by Interrupt</p>
+<p>方式二：Mcu休眠，但周期性唤醒</p>
+<p> Method Two: MCU Sleeps but Wakes Up Periodically</p>
+<p>方式三：Mcu掉电，由外部设备检测到唤醒事件直接给Mcu供电</p>
+<p> Method Three: When Mcu loses power, an external device detects the wake-up event and directly supplies power to Mcu.</p>
+<p>睡眠：</p>
+<p>Sleep:</p>
+<p>睡眠可以降低Ecu的功耗，EcuM对于上述方式一，二都需要Mcu休眠，需要调用EcuM的Api：EcuM_GoDownHaltPoll，对应的处理流程如下图：</p>
+<p>Sleep can reduce Ecu's power consumption. For method one and two above, Mcu needs to enter sleep mode, which requires calling the EcuM API: EcuM_GoDownHaltPoll. The corresponding processing flow is as follows:</p>
+<p>注：本节描述的时序图仅考虑单核情况，多核的睡眠时序需要参考EcuM的SWS文档。</p>
+<p>Note: The timing diagrams described in this section only consider single-core scenarios, and the sleep timing for multi-core systems should refer to the EcuM SWS documentation.</p>
+<figure class="align-center" id="ecum-godownhaltpoll-process-for-ecum-godownhaltpoll-handling">
+<img alt="EcuM_GoDownHaltPoll处理流程 (Process for EcuM_GoDownHaltPoll Handling)" src="../../_images/image329.png" />
+</figure>
+<p>其中GoSleep Sequence如下图：</p>
+<p>The GoSleep Sequence is as follows:</p>
+<figure class="align-center" id="gosleep-gosleep-processing-flow">
+<img alt="GoSleep处理流程 (GoSleep Processing Flow)" src="../../_images/image425.png" />
+</figure>
+<p>对于方式三，睡眠的时候Mcu直接掉电，涉及到Shutdown状态的处理。</p>
+<p>For Method Three, the MCU directly powers off during sleep, involving the handling of Shutdown state.</p>
+<figure class="align-center" id="shutdown-shutdown-handling-process">
+<img alt="Shutdown处理流程 (Shutdown Handling Process)" src="../../_images/image523.png" />
+</figure>
+<p>其中OffPreOS Sequence如下图：</p>
+<p>The OffPreOS Sequence is as follows:</p>
+<figure class="align-center" id="offpreos-offpreos-processing-flow">
+<img alt="OffPreOS处理流程 (OffPreOS Processing Flow)" src="../../_images/image623.png" />
+</figure>
+<p>OffPostOS Sequence如下图：</p>
+<p>OffPostOS Sequence as follows:</p>
+<figure class="align-center" id="offpostos-offpostos-processing-flow">
+<img alt="OffPostOS处理流程 (OffPostOS Processing Flow)" src="../../_images/image718.png" />
+</figure>
+<p>唤醒：</p>
+<p>Wake Up:</p>
+<p>对于每个唤醒源Wakeup Source的状态与对应的描述如下所示：</p>
+<p>The status of each wakeup source and its corresponding description is as follows:</p>
+<p class="centered">
+<strong><strong>表 唤醒源状态描述 (Table Wake-Up Source Status Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>状态 (&gt;Status)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NONE</p></td>
+<td><p>唤醒事件未检测到，或者已经被清除 (Wakeup event not detected, or has been cleared.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PENDING</p></td>
+<td><p>唤醒事件检测到，但是还未验证 (Wakeup event detected, but not yet verified)</p></td>
+</tr>
+<tr class="row-even"><td><p>VALIDATED</p></td>
+<td><p>唤醒事件检测到，并且已经验证成功 (Wake-up event detected and verified successfully)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EXPIRED</p></td>
+<td><p>唤醒事件检测到，但是已经校验超时 (Wakeup event detected, but timeout validation has expired.)</p></td>
+</tr>
+</tbody>
+</table>
+<p>对于状态的流转如下：</p>
+<p>The flow of state transition is as follows:</p>
+<figure class="align-center" id="wake-up-source-state-switch-diagram">
+<img alt="唤醒源状态切换图 (Wake-up Source State Switch Diagram)" src="../../_images/image817.png" />
+</figure>
+<p>对于Wakeup Source的状态变化通过API： BswM_EcuM_CurrentWakeup</p>
+<p>For changes in Wakeup Source status through API: BswM_EcuM_CurrentWakeup</p>
+<p>告知BswM。</p>
+<p>Notify BswM.</p>
+<p>Wakeup Source ID取值范围0~31，对应U32数据的每一个bit；其中EcuM默认支持的Wakeup Source如下表：</p>
+<p>Wakeup Source ID ranges from 0 to 31, corresponding to each bit of U32 data; among them, the Wakeup Sources supported by EcuM are as follows:</p>
+<p class="centered">
+<strong><strong>表 默认唤醒源描述 (Table Default Wakeup Source Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>默认唤醒源名称 (Default Wakeup Source Name)</p></th>
+<th class="head"><p>唤醒源ID (Wake Source ID)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ECUM_WKSOURCE_POWER</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECUM_WKSOURCE_RESET</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>ECUM_WKSOURCE_INTERNAL_RESET</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECUM_WKSOURCE_INTERNAL_WDG</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>ECUM_WKSOURCE_EXTERNAL_WDG</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>这些默认支持的Wakeup Source无需经过验证过程。</p>
+<p>These default supported Wakeup Sources do not require verification processes.</p>
+<p>Wakeup Source处理过程的两个时间配置EcuMCheckWakeupTimeout、EcuMValidationTimeout。</p>
+<p>Two time configurations for Wakeup Source processing: EcuMCheckWakeupTimeout, EcuMValidationTimeout.</p>
+<p>EcuMCheckWakeupTimeout：如果唤醒源的检查是异步完成的，则此参数是EcuM延迟ECU关闭的时间的初始值。计时的开始通过API：EcuM_StartCheckWakeup。</p>
+<p>EcuMCheckWakeupTimeout：If the wakeup source check is asynchronous, this parameter is the initial value for ECUm's delay in shutting down the ECU. Timing starts through the API: EcuM_StartCheckWakeup.</p>
+<p>EcuMValidationTimeout：Wakeup Source从Pending检查是否Validate的持续时间。</p>
+<p>EcuMValidationTimeout: Checks the duration for validating the Wakeup Source from Pending.</p>
+</section>
+<section id="sleep-wake-up-function-implementation">
+<h4>睡眠唤醒功能实现 (Sleep Wake-up Function Implementation)<a class="headerlink" href="#sleep-wake-up-function-implementation" title="Link to this heading">¶</a></h4>
+<p>针对唤醒主要涉及EcuM_CheckWakeup、EcuM_SetWakeupEvent以及EcuM_ValidateWakeupEvent等函数。</p>
+<p>The wake-up involves functions such as EcuM_CheckWakeup, EcuM_SetWakeupEvent, and EcuM_ValidateWakeupEvent.</p>
+</section>
+</section>
+<section id="pb-pb-configuration-selection-function">
+<h3>PB配置选择功能 (PB Configuration Selection Function)<a class="headerlink" href="#pb-pb-configuration-selection-function" title="Link to this heading">¶</a></h3>
+<section id="pb-introduction-to-pb-configuration-selection">
+<h4>PB配置选择介绍 (Introduction to PB Configuration Selection)<a class="headerlink" href="#pb-introduction-to-pb-configuration-selection" title="Link to this heading">¶</a></h4>
+<p>AUTOSAR支持PB配置数据刷写，有两种方式：</p>
+<p>AUTOSAR supports PB configuration data flashing, with two ways:</p>
+<ol class="arabic simple">
+<li><p>Loadable。PB配置数据存放在固定某一个地址段，通过Bootload等方式在运行时去修改PB配置。</p></li>
+</ol>
+<p>Loadable. PB configuration data is stored in a fixed address segment, and the PB configuration can be modified at runtime through Bootload methods, etc.</p>
+<ol class="arabic simple" start="2">
+<li><p>Selectable。定义多套配置，在上电初始化的时候根据不同的条件选择不同的配置。</p></li>
+</ol>
+<p>Selectable. Define multiple configurations and select different ones during power-on initialization based on various conditions.</p>
+<p>ECUM中可实现Selectable方式的PB配置选择功能。</p>
+<p>The ECUM supports the Selectable configuration selection function for PB.</p>
+</section>
+<section id="pb-pb-configuration-selection-implementation">
+<h4>PB配置选择实现 (PB Configuration Selection Implementation)<a class="headerlink" href="#pb-pb-configuration-selection-implementation" title="Link to this heading">¶</a></h4>
+<p>ECUM在EcuM_DeterminePbConfiguration函数中去确定使用那一套配置数据。实现选择多套PB配置的前提是，ECUM中事先存在多套配置。</p>
+<p>ECUM determines which set of configuration data to use in the EcuM_DeterminePbConfiguration function. The implementation of selecting multiple sets of PB configurations前提 is that ECUM preexists with multiple sets of configurations.</p>
+</section>
+</section>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 ECUM文件描述 (Table ECUM File Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuM.c</p></td>
+<td><p>RUN/POST_RUN 仲裁、EcuM通用函数 (ARBITRATE/RUN_POST_RUN Arbitration, EcuM Generic Functions)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM.h</p></td>
+<td><p>PB配置数据结构，以及外部接口声明 (Configuration data structure for PB and external interface declarations)</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM_AlarmClock.c</p></td>
+<td><p>包含当alarm存在时，设置alarm的API集合 (Contain the API collection for setting alarms when an alarm exists.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM_Cbk.h</p></td>
+<td><p>EcuM回调函数声明 (Callback function declaration for EcuM)</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM_Externals.h</p></td>
+<td><p>EcuM模块中所有callout函数声明 (All callout function declarations in the EcuM module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM_Internal.h</p></td>
+<td><p>定义所有内部数据结构，以及内部接口声明 (Define all internal data structures, as well as internal interface declarations)</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM_MemMap.h</p></td>
+<td><p>EcuM代码、变量所用的MemMap段 (Code and variables used in the EcuM segment MemMap)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM_ShutDown.c</p></td>
+<td><p>所有SHUTDOWN阶段API (All SHUTDOWN Stage APIs)</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM_Sleep.c</p></td>
+<td><p>所有SLEEP阶段API (All SLEEP phase APIs)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM_StartUp.c</p></td>
+<td><p>所有STARTUP阶段API (All STARTUP Stage APIs)</p></td>
+</tr>
+<tr class="row-even"><td><p>EcuM_Types.h</p></td>
+<td><p>通用宏定义 (General Macro Definitions)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM_Up.c</p></td>
+<td><p>所有UP阶段API (All UP Stage APIs)</p></td>
+</tr>
+<tr class="row-even"><td><p>SchM_EcuM.h</p></td>
+<td><p>定义关键区域保护以及mainfunction声明 (Define critical area protection and mainfunction declaration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EcuM_Generated_Types.h</p></td>
+<td><p>依赖配置生成的宏定义、数据结构等 (Macro definitions, data structures, etc. generated by configuration)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="ecum-ecum-file-interactions-diagram">
+<img alt="ECUM文件交互关系图 (ECUM File Interactions Diagram)" src="../../_images/image917.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<section id="ecum-configtype-definition-of-ecum-configtype-type">
+<h4>EcuM_ConfigType类型定义 (Definition of EcuM_ConfigType Type)<a class="headerlink" href="#ecum-configtype-definition-of-ecum-configtype-type" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_ConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>EcuM PB配置数据 (EcuM PB Configuration Data)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-runstatustype-ecum-runstatustype-type-definition">
+<h4>EcuM_RunStatusType类型定义 (EcuM_RunStatusType Type Definition)<a class="headerlink" href="#ecum-runstatustype-ecum-runstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_RunStatusType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>ECUM_RUNSTATUS_UNKNOWN</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_RUNSTATUS_REQUESTED</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_RUNSTATUS_RELEASED</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>发送到BswM的RUN请求协议的结果 (The result of the RUN request protocol sent to BswM.)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-usertype-definition-of-ecum-usertype-type">
+<h4>EcuM_UserType类型定义 (Definition of EcuM_UserType Type)<a class="headerlink" href="#ecum-usertype-definition-of-ecum-usertype-type" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_UserType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>0..255</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>EcuM user值类型 (EcuM user Value Type)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-wakeupsourcetype-type-definition-for-ecum-wakeupsourcetype">
+<h4>EcuM_WakeupSourceType类型定义 (Type definition for EcuM_WakeupSourceType)<a class="headerlink" href="#ecum-wakeupsourcetype-type-definition-for-ecum-wakeupsourcetype" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_WakeupSourceType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint32</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>最多支持32种唤醒源（其中前五位已经被定义） (The maximum support is for 32 wake-up sources (of which the first five have been defined))</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>唤醒源类型（每个bit位代表一种唤醒源） (Wake-up Source Type (each bit represents one wake-up source))</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-wakeupstatustype-ecum-wakeupstatustype-type-definition">
+<h4>EcuM_WakeupStatusType类型定义 (EcuM_WakeupStatusType Type Definition)<a class="headerlink" href="#ecum-wakeupstatustype-ecum-wakeupstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_WakeupStatusType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>ECUM_WKSTATUS_NONE</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_WKSTATUS_PENDING</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_WKSTATUS_VALIDATED</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_WKSTATUS_EXPIRED</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>唤醒源的运行时状态 (The runtime status of the wake-up source)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-boottargettype-ecum-boottargettype-type-definition">
+<h4>EcuM_ BootTargetType类型定义 (<a class="reference internal" href="#ecum">EcuM</a> BootTargetType Type Definition)<a class="headerlink" href="#ecum-boottargettype-ecum-boottargettype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_BootTargetType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>ECUM_BOOT_TARGET_APP</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_BOOT_TARGET_OEM_BOOTLOADER</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_BOOT_TARGET_SYS_BOOTLOADER</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>boot选择类型 (Boot type selection)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-resettype-definition-of-ecum-resettype-type">
+<h4>EcuM_ ResetType类型定义 (Definition of EcuM_ResetType Type)<a class="headerlink" href="#ecum-resettype-definition-of-ecum-resettype-type" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_ResetType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>ECUM_RESET_MCU</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_RESET_WDG</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_RESET_IO</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>EcuM支持的复位类型 (Reset types supported by EcuM)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-shutdowncausetype-ecum-shutdowncausetype-type-definition">
+<h4>EcuM_ ShutdownCauseType类型定义 (EcuM_ShutdownCauseType Type Definition)<a class="headerlink" href="#ecum-shutdowncausetype-ecum-shutdowncausetype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_ShutdownCauseType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>ECUM_CAUSE_UNKNOWN</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_CAUSE_ECU_STATE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_CAUSE_WDGM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_CAUSE_DCM</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>EcuM shutdown的原因类型 (Reason Types for EcuM Shutdown)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-shutdownmodetype-shutdownmodetype-type-definition">
+<h4>EcuM_ ShutdownModeType类型定义 (ShutdownModeType type definition)<a class="headerlink" href="#ecum-shutdownmodetype-shutdownmodetype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_ShutdownModeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint16</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>依赖配置 (Depend on Configuration)</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>Shutdown 模式定义 (Shutdown mode definition)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-timetype-definition-of-timetype-type">
+<h4>EcuM_ TimeType类型定义 (Definition of TimeType Type)<a class="headerlink" href="#ecum-timetype-definition-of-timetype-type" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_TimeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint32</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>EcuM时钟类型 (Clock Type EcuM)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-shutdowntargettype-ecum-shutdowntargettype-type-definition">
+<h4>EcuM_ ShutdownTargetType类型定义 (EcuM_ShutdownTargetType Type Definition)<a class="headerlink" href="#ecum-shutdowntargettype-ecum-shutdowntargettype-type-definition" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>EcuM_ShutdownTargetType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>Uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>ECUM_SHUTDOWN_TARGET_SLEEP</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_SHUTDOWN_TARGET_RESET</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_SHUTDOWN_TARGET_OFF</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (Description)</p></td>
+<td><p>Shutdown Target类型 (Shutdown Target type)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BswM</p></td>
+<td><p>BswM_Deinit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BswM_EcuM_CurrentWakeup</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BswM_Init</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanSM</p></td>
+<td><p>CanSM_StartWakeupSource</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CanSM_StopWakeupSource</p></td>
+</tr>
+<tr class="row-odd"><td><p>ComM</p></td>
+<td><p>ComM_EcuM_PNCWakeUpIndication</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ComM_EcuM_WakeUpIndication</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dem</p></td>
+<td><p>Dem_Init</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Dem_PreInit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Dem_Shutdown</p></td>
+</tr>
+<tr class="row-even"><td><p>Os</p></td>
+<td><p>GetResource</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ReleaseResource</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SetEvent</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WaitEvent</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ClearEvent</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>StartOS</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ShutdownOS</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchM</p></td>
+<td><p>SchM_Init</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SchM_Deinit</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSW模块 (BSW Module)</p></td>
+<td><p>Bsw(xx)_Init</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<section id="ecum-getversioninfo">
+<h4>EcuM_GetVersionInfo<a class="headerlink" href="#ecum-getversioninfo" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetVersionInfo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_GetVersionInfo(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Std_VersionInfoType*versioninfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>versioninfo</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取EcuM版本信息 (Get EcuM Version Information)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-godownhaltpoll">
+<h4>EcuM_GoDownHaltPoll<a class="headerlink" href="#ecum-godownhaltpoll" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GoDownHaltPoll</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GoDownHaltPoll(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uint16 caller</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x2c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>caller</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖于配置的user个数 (Dependent on the number of configured users.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_NOT_OK： Therequest was notaccepted.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_OK： If theShutdownTargetTypeis SLEEP the callsuccessfully</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>returns, the ECUhas left thesleep again.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>If theShutdownTargetTypeis RESET or OFFthis call willnot return.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>指示ECU状态管理器模块进入睡眠模式，根据先前选择的关闭目标进入重置或关闭状态 (Instruct the ECU State Manager module to enter sleep mode and reset or shut down according to the previously selected shutdown target.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-init">
+<h4>EcuM_Init<a class="headerlink" href="#ecum-init" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void EcuM_Init (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>初始化ECUM并执行启动程序 (Initialize ECUM and execute startup program)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-startuptwo">
+<h4>EcuM_StartupTwo<a class="headerlink" href="#ecum-startuptwo" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_StartupTwo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_StartupTwo (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>实现STARTUPII状态 (Achieve STARTUP II State)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-shutdown">
+<h4>EcuM_Shutdown<a class="headerlink" href="#ecum-shutdown" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_Shutdown</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_Shutdown (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x02</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>通常从 shutdownhook调用此函数，该函数接管执行控制并执行GOOFF II (This function is usually called from the shutdownhook, which takes over execution control and performs GOOFF II.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-setstate">
+<h4>EcuM_SetState<a class="headerlink" href="#ecum-setstate" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SetState</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_SetState (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_ShutdownTargetTypestate</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x2b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>state</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0..255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>由BswM调用，用于切换EcuM状态 (Called by BswM for switching EcuM state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-requestrun">
+<h4>EcuM_RequestRUN<a class="headerlink" href="#ecum-requestrun" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_RequestRUN</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_RequestRUN (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Therequest wasaccepted by EcuM.</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Therequest was notaccepted by EcuM,a detailed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>error conditionwas sent to DET(see Error Codesbelow).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>发出对RUN状态的请求 (Request for RUN state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-releaserun">
+<h4>EcuM_ReleaseRUN<a class="headerlink" href="#ecum-releaserun" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_ReleaseRUN</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_ReleaseRUN (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x04</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Therelease requestwas accepted byEcuM</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Therelease requestwas not acceptedby EcuM, a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>detailed errorcondition wassent to DET (seeError Codesbelow).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>释放对RUN状态的请求 (Request for releasing the RUN state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-requestpost-run">
+<h4>EcuM_RequestPOST_RUN<a class="headerlink" href="#ecum-requestpost-run" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_RequestPOST_RUN</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_RequestPOST_RUN(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Therequest wasaccepted by EcuM</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Therequest was notaccepted by EcuM,a detailed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>error conditionwas sent to DET(see Error Codesbelow).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>发出对POST_RUN状态的请求 (Request for POST_RUN state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-releasepost-run">
+<h4>EcuM_ReleasePOST_RUN<a class="headerlink" href="#ecum-releasepost-run" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_ReleasePOST_RUN</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_ReleasePOST_RUN(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖于配置 (Dependent on configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Therelease requestwas accepted byEcuM</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Therelease requestwas not acceptedby EcuM, a</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>detailed errorcondition wassent to DET (seeError Codesbelow).</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>释放对POSTRUN状态的请求 (Release requests for POSTRUN state)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-selectshutdowntarget">
+<h4>EcuM_SelectShutdownTarget<a class="headerlink" href="#ecum-selectshutdowntarget" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SelectShutdownTarget</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_SelectShutdownTarget(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_ShutdownTargetTypeshutdownTarget,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_ShutdownModeTypeshutdownMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x06</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ShutdownTarget</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>ECUM_SHUTDOWN_TARGET_SLEEPECUM_SHUTDOWN_TARGET_RESET</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>ECUM_SHUTDOWN_TARGET_OFF</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>shutdownMode</p></td>
+<td></td>
+<td><p>0..255</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： The newshutdowntarget was set</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK： Thenew shutdowntarget was notset</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置 shutdowntarget (Set shutdown target)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getshutdowntarget">
+<h4>EcuM_GetShutdownTarget<a class="headerlink" href="#ecum-getshutdowntarget" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetShutdownTarget</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GetShutdownTarget(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_ShutdownTargetType*shutdownTarget,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_ShutdownModeType*shutdownMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x09</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>shutdownTarget</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>shutdownMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice hasfailed, e.g. dueto NULL pointerbeing</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>passed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_GetShutdownTarget返回由EcuM_SelectShutdownTarget设置的当前选定的关闭目标 (EcuM_GetShutdownTarget returns the current shutdown target set by EcuM_SelectShutdownTarget)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getlastshutdowntarget">
+<h4>EcuM_GetLastShutdownTarget<a class="headerlink" href="#ecum-getlastshutdowntarget" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetLastShutdownTarget</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GetLastShutdownTarget(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_ShutdownTargetType*shutdownTarget,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_ShutdownModeType*shutdownMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x08</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>shutdownTarget</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>shutdownMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice hasfailed, e.g. dueto NULL pointerbeing</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>passed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_GetLastShutdownTarget返回上一个关闭过程的关闭目标 (EcuM_GetLastShutdownTarget returns the shutdown target of the previous shutdown process)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-selectshutdowncause">
+<h4>EcuM_SelectShutdownCause<a class="headerlink" href="#ecum-selectshutdowncause" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SelectShutdownCause</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_SelectShutdownCause(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_ShutdownCauseTypetarget</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1b</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>target</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0..255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>E_OK： The newshutdown causewas set</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK： Thenew shutdowncause was not set</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>ReturnType</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>选择shutdown原因 (Select shutdown reason)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getshutdowncause">
+<h4>EcuM_GetShutdownCause<a class="headerlink" href="#ecum-getshutdowncause" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetShutdownCause</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GetShutdownCause(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_ShutdownCauseType*shutdownCause</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x1c</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>shutdownCause</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice hasfailed, e.g. dueto NULL pointerbeing passed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取shutdown原因 (Get shutdown reason)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getpendingwakeupevents">
+<h4>EcuM_GetPendingWakeupEvents<a class="headerlink" href="#ecum-getpendingwakeupevents" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetPendingWakeupEvents</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>EcuM_WakeupSourceTypeEcuM_GetPendingWakeupEvents(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0d</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>EcuM_WakeupSourceType：Allwakeup events</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取EcuM所有pending状态的唤醒事件 (Get all awakening events of EcuM in pending status)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-clearwakeupevent">
+<h4>EcuM_ClearWakeupEvent<a class="headerlink" href="#ecum-clearwakeupevent" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_ClearWakeupEvent</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_ClearWakeupEvent(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_WakeupSourceTypesources</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x16</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>sources：要清除的事件 (sources: Events to be cleared)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>清除所有的wakeup事件 (Clear all wakeup events)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getvalidatedwakeupevents">
+<h4>EcuM_GetValidatedWakeupEvents<a class="headerlink" href="#ecum-getvalidatedwakeupevents" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetValidatedWakeupEvents</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>EcuM_WakeupSourceTypeEcuM_GetValidatedWakeupEvents(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x15</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>EcuM_WakeupSourceType：Allwakeup events</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取EcuM所有已经过验证的唤醒源 (Get all validated wake-up sources for EcuM)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getexpiredwakeupevents">
+<h4>EcuM_GetExpiredWakeupEvents<a class="headerlink" href="#ecum-getexpiredwakeupevents" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetExpiredWakeupEvents</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>EcuM_WakeupSourceTypeEcuM_GetExpiredWakeupEvents(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x00</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>EcuM_WakeupSourceType：Allwakeup events</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取EcuM所有唤醒超时事件 (Retrieve all wake-up timeout events for EcuM)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-setrelwakeupalarm">
+<h4>EcuM_SetRelWakeupAlarm<a class="headerlink" href="#ecum-setrelwakeupalarm" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SetRelWakeupAlarm</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_SetRelWakeupAlarm(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_TimeTypetime</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖配置 (Depend on Configuration)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>time</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice failed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_E_EARLIER_ACTIVE：An earlier alarmis already set</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_SetRelWakeupAlarm设置相对于当前时间点的用户唤醒警报 (EcuM_SetRelWakeupAlarm sets a user wakeup alarm relative to the current time point)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-setabswakeupalarm">
+<h4>EcuM_SetAbsWakeupAlarm<a class="headerlink" href="#ecum-setabswakeupalarm" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SetAbsWakeupAlarm</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_SetAbsWakeupAlarm(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_TimeTypetime</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x23</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>time</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice failed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_E_EARLIER_ACTIVE：An earlier alarmis already set</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ECUM_E_PAST： Thegiven point intime has alreadypassed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_SetAbsWakeupAlarm将用户的唤醒警报设置为绝对时间点 (EcuM_SetAbsWakeupAlarm sets the user's wake-up alarm to an absolute time point)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-abortwakeupalarm">
+<h4>EcuM_AbortWakeupAlarm<a class="headerlink" href="#ecum-abortwakeupalarm" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_AbortWakeupAlarm</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_AbortWakeupAlarm(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x24</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖配置 (Depend on Configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice failed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ECUM_E_NOT_ACTIVE：No owned alarmfound</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>Ecum_AbortWakeupAlarm中止该用户先前设置的唤醒警报。 (AbortWakeupAlarm aborts the wakeup alarm previously set by the user.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getcurrenttime">
+<h4>EcuM_GetCurrentTime<a class="headerlink" href="#ecum-getcurrenttime" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetCurrentTime</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GetCurrentTime(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_TimeType*time</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x25</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>time</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： timepoints to NULL orthe module is not</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>initialized</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>返回EcuM时钟的当前值（即自连接电池以来的时间）。 (Return the current value of the EcuM clock (i.e., the time since the connection battery).)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getwakeuptime">
+<h4>EcuM_GetWakeupTime<a class="headerlink" href="#ecum-getwakeuptime" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetWakeupTime</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GetWakeupTime(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_TimeType*time</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x26</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>time</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： timepoints to NULL orthe module is notinitialized</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_GetWakeupTime返回主闹钟的当前值（所有用户闹钟的最小绝对时间）。 (EcuM_GetWakeupTime returns the current value of the main clock (the minimum absolute time among all user alarms).)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-setclock">
+<h4>EcuM_SetClock<a class="headerlink" href="#ecum-setclock" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SetClock</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_SetClock (</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_UserTypeuser,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EcuM_TimeTypetime</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x27</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>user</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖配置 (Depend on Configuration)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>time</p></td>
+<td></td>
+<td><p>时间（S）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： Theservice hassucceeded</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Theservice failed</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置EcuM时钟为指定值 (Set EcuM Clock to Specified Value)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-selectboottarget">
+<h4>EcuM_SelectBootTarget<a class="headerlink" href="#ecum-selectboottarget" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SelectBootTarget</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_SelectBootTarget(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_BootTargetTypetarget</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>target</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK： The newboot target wasaccepted by EcuM</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>E_NOT_OK： Thenew boot targetwas not acceptedby Ecu</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>M</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_SelectBootTargetselects a boottarget.</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-getboottarget">
+<h4>EcuM_GetBootTarget<a class="headerlink" href="#ecum-getboottarget" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_GetBootTarget</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeEcuM_GetBootTarget(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_BootTargetType* target</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>target</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>EcuM_GetBootTargetreturns thecurrent boottarget</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-mainfunction">
+<h4>EcuM_MainFunction<a class="headerlink" href="#ecum-mainfunction" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_MainFunction</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_MainFunction(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x18</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>Ecum轮询函数，主要做以下事情： (Polling function mainly does the following:)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ol class="arabic simple">
+<li><p>验证唤醒源。 (Verify wake source.)</p></li>
+</ol>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple" start="2">
+<li><p>EcuM模式处理。 (EcuM mode processing.)</p></li>
+</ol>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ol class="arabic simple" start="3">
+<li><p>更新EcuM时钟。 (Update EcuM clock.)</p></li>
+</ol>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-setwakeupevent">
+<h4>EcuM_SetWakeupEvent<a class="headerlink" href="#ecum-setwakeupevent" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_SetWakeupEvent</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_SetWakeupEvent(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_WakeupSourceTypesources</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x0C</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>sources</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>设置唤醒事件（一般由驱动调用） (Set wake-up events (generally called by the driver))</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-validatewakeupevent">
+<h4>EcuM_ValidateWakeupEvent<a class="headerlink" href="#ecum-validatewakeupevent" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_ValidateWakeupEvent</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_ValidateWakeupEvent(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_WakeupSourceTypesources</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x14</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>是 (Is)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Sources：需要被验证的唤醒源 (Sources：sources to be verified)</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>依赖配置 (Depend on Configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>用于指示指定的唤醒源已被验证 (To indicate that the specified wake-up source has been validated)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecum-checkwakeup">
+<h4>EcuM_CheckWakeup<a class="headerlink" href="#ecum-checkwakeup" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_CheckWakeup</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_CheckWakeup(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EcuM_WakeupSourceTypewakeupSource</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x42</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>wakeupSource</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>一般由驱动调用，用于检查唤醒源 (Generally called by the driver, used to check wake sources)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<section id="ecum-al-driverinitbswm-x">
+<h4>EcuM_AL_DriverInitBswM_&lt;x&gt;<a class="headerlink" href="#ecum-al-driverinitbswm-x" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>EcuM_AL_DriverInitBswM_&lt;x&gt;</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidEcuM_AL_DriverInitBswM_&lt;x&gt;(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>void</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x28</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>否 (No)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>由BSWM调用，初始化BSW模块 (Called by BSWM, initialize BSW module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="ecumgeneral">
+<h3>EcuMGeneral<a class="headerlink" href="#ecumgeneral" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumgeneral-ecumgeneral-container-configuration-diagram">
+<img alt="EcuMGeneral容器配置图 (EcuMGeneral Container Configuration Diagram)" src="../../_images/image1016.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMGeneral属性描述 (Table EcuMGeneral Attribute Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMDevErrorDetect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/ False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能开发错误检测 (Whether to enable development error detection)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMMainFunctionPeriod</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-100</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>Ecum调度任务的执行周期 (The execution cycle of Ecum scheduling tasks)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMVersionInfoApi</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>是否使能版本获取API (Whether to enable the version acquisition API)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumcommonconfigration">
+<h3>EcuMCommonConfigration<a class="headerlink" href="#ecumcommonconfigration" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumcommonconfigration-container-configuration-diagram-for-ecumcommonconfigration">
+<img alt="EcuMCommonConfigration容器配置图 (Container Configuration Diagram for EcuMCommonConfigration)" src="../../_images/image1120.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMCommonConfigration属性描述 (Table EcuMCommonConfigration Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMConfigConsistencyHash</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-18446744073709551615</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>所有 BSW模块的所有PC和LC参数生成的哈希值。该散列值与EcuM_ConfigType中的字段进行比较，因此允许检查整个配置的一致性。 (All hash values of PC and LC parameters generated for all BSW modules. This hash value is compared with the fields in EcuM_ConfigType, thus allowing consistency checking of the entire configuration.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMDefaultAppMode</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于StartOs中传入的APP模式 (App Mode for passing into StartOs)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Reference toOsAppMode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMOSResource</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>用于使 ECU进入睡眠模式的 OS资源的引用 (References to OS resources used for putting the ECU into sleep mode.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>强制关联到OS的调度表资源 (Forced association with OS scheduling table resources)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumdefaultshutdowntarget">
+<h3>EcuMDefaultShutdownTarget<a class="headerlink" href="#ecumdefaultshutdowntarget" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumdefaultshutdowntarget-ecumdefaultshutdowntarget-container-configuration-diagram">
+<img alt="EcuMDefaultShutdownTarget容器配置图 (EcuMDefaultShutdownTarget Container Configuration Diagram)" src="../../_images/image1217.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMDefaultShutdownTarget属性描述 (Property EcuMDefaultShutdownTarget description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMDefaultState</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>EcuMStateOff/EcuMStateReset/</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EcuMStateSleep</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>ECU退出复位时选择的默认关闭目标的状态 (When ECU exits reset, the default status of the target to be closed is chosen.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMDefaultResetModeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcuMResetMode] (Refer to [EcuMResetMode])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>默认复位模式 (Default reset mode)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当EcuMDefaultState配置为EcuMStateReset (When EcuMDefaultState is configured as EcuMStateReset)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><a class="reference internal image-reference" href="../../_images/image1311.png"><img alt="../../_images/image1311.png" class="align-center" src="../../_images/image1311.png" style="width: 90%;" />
+</a>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMDefaultSleepModeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcuMSleepMode] (Refer to [EcuMSleepMode])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>默认睡眠模式 (Default Sleep Mode)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当EcuMDefaultState配置为EcuMStateSleep (When EcuMDefaultState is configured as EcuMStateSleep)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><a class="reference internal image-reference" href="../../_images/image14.png"><img alt="../../_images/image14.png" class="align-center" src="../../_images/image14.png" style="width: 90%;" />
+</a>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumdriverinititem">
+<h3>EcuMDriverInitItem<a class="headerlink" href="#ecumdriverinititem" title="Link to this heading">¶</a></h3>
+<p>此配置项用于：</p>
+<p>This configuration item is used for:</p>
+<ul class="simple">
+<li><p>EcuMDriverInitListZero</p></li>
+<li><p>EcuMDriverInitListOne</p></li>
+<li><p>EcuMDriverRestartList</p></li>
+<li><p>EcuMDriverInitListBswM</p></li>
+</ul>
+<figure class="align-center" id="ecumdriverinititem-ecumdriverinititem-container-configuration-diagram">
+<img alt="EcuMDriverInitItem容器配置图 (EcuMDriverInitItem Container Configuration Diagram)" src="../../_images/image1512.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMDriverInitItem属性描述 (Table EcuMDriverInitItem Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 12.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+<col style="width: 11.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMModuleParameter</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>NULL_PTR/POSTBUILD_PTR/</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>VOID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>VOID</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>定义函数原型和传递给函数的参数 (Define function prototypes and parameters passed to functions)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Bsw模块和MCAL一般选择POSTBUILD_PTR， (The Bsw module and MCAL generally choose POSTBUILD_PTR,)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>需要特别注意地是DEM模块，当EcuMModuleRef选择为DEM时，EcuMModuleParameter可以配置为VOID和POSTBUILD_PTR，当配置为VOID时，表示Dem_PreInit；当配置为POSTBUILD_PTR，表示Dem_Init (Special attention should be paid to the DEM module. When EcuMModuleRef is chosen as DEM, EcuMModuleParameter can be configured as VOID and POSTBUILD_PTR. When configured as VOID, it indicates Dem_PreInit; when configured as POSTBUILD_PTR, it indicates Dem_Init.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMModuleService</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>Init//DeInit/</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>Init</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>PreInit/</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>Start</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>要调用以初始化该模块的服务，例如Init、PreInit、Start等。 (To call the service to initialize the module, such as Init, PreInit, Start, etc.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EditModuleService</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使能手动修改要初始化该模块的服务 (Enable manual modification to initialize this module)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置决定配置EcuMModuleService是否可以手动修改 (This configuration decides whether EcuMModuleService can be manually modified.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMModulePbConfigName</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>要调用以初始化该模块的参数 (To initialize this module, call with parameters)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EditPbConfigName</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使能通过手动修改要调用以初始化该模块的参数 (Enable initialization of the module by manually modifying the parameters to be called.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置决定配置EcuMModulePbConfigName是否可以手动修改 (This configuration decides whether EcuMModulePbConfigName can be manually modified.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>IncludeHeaderFile</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>要调用初始化该模块的头文件 (To call the initialization header file of this module)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EditHeaderFile</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True、False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>使能要手动修改调用该模块的头文件 (Enable modification of the header files calling this module manually)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>该配置决定配置IncludeHeaderFile是否可以手动修改 (This configuration decides whether IncludeHeaderFile can be manually modified.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMModuleRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>外部引用应由EcuM初始化的模块实例的配置（引用到具体某一个模块） (External references should be instances of modules configured by EcuM (referenced to a specific module).)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当配置在EcuMDriverInitListZero中时： (When configured in EcuMDriverInitListZero:)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><a class="reference internal image-reference" href="../../_images/image167.png"><img alt="../../_images/image167.png" class="align-center" src="../../_images/image167.png" style="width: 90%;" />
+</a>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>在配置在EcuMDriverInitListOne中时： (When configuring in EcuMDriverInitListOne:)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><a class="reference internal image-reference" href="../../_images/image175.png"><img alt="../../_images/image175.png" class="align-center" src="../../_images/image175.png" style="width: 90%;" />
+</a>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>在配置在EcuMDriverInitListBswM中时： (When configured in EcuMDriverInitListBswM:)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>此处选择为BSW模块 (Choose here for BSW module)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumsleepmode">
+<h3>EcuMSleepMode<a class="headerlink" href="#ecumsleepmode" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumsleepmode-ecumsleepmode-container-configuration-diagram">
+<img alt="EcuMSleepMode容器配置图 (EcuMSleepMode Container Configuration Diagram)" src="../../_images/image187.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMSleepMode属性描述 (Table EcuMSleepMode Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMSleepModeId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>在EcuM_SelectShutdownTarget等服务中标识 (Identify in services such as EcuM_SelectShutdownTarget etc.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>这部分按照升序方式从0开始默认生成 (This part is generated starting from 0 in ascending order by default.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMSleepModeSuspend</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当配置为True时，进入halt-sleep模式； (When configured as True, enters halt-sleep mode;)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>当配置为False时，进入poll-sleep模式； (When configured as False, enters poll-sleep mode;)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMSleepModeMcuModeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[McuModeSettingConf (Reference to [McuModeSettingConf])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>引用到MCU的某一睡眠模式 (Refer to a specific sleep mode of MCU)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>引用到MCU中定义的SLEEP模式，需要保证MCU驱动中Mcu_SetMode能正常执行，并进入相应的sleep模式；
+(To ensure the translation maintains accuracy and clarity, here it is: Translate the text to English while preserving line breaks: Referring to the SLEEP mode defined in MCU, it needs to be ensured that Mcu_SetMode can execute normally and enter the corresponding sleep mode.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMWakeupSourceMask</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcuMWakeupSource] (Reference [EcuMWakeupSource])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当进入Sleep模式后，仅只有通过此项关联的唤醒源才被认为是在此模式下有效的唤醒源 (When entering Sleep mode, only wake sources associated with this are considered valid wake sources in this mode.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumwakeupsource">
+<h3>EcuMWakeupSource<a class="headerlink" href="#ecumwakeupsource" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumwakeupsource-ecumwakeupsource-container-configuration-diagram">
+<img alt="EcuMWakeupSource容器配置图 (EcuMWakeupSource Container Configuration Diagram)" src="../../_images/image195.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMWakeupSource属性描述 (Table EcuMWakeupSource Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMCheckWakeupTimeout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-10</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EcuM_CheckWakeup的超时时间 (The timeout time of EcuM_CheckWakeup)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMValidationTimeout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>EcuM_CheckValidation的超时时间 (The timeout time for EcuM_CheckValidation)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMWakeupSourceId</p></td>
+<td></td>
+<td><p>0-31</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>唤醒源的标识符 (Identifier of the wake-up source)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无，填写限制为：5~31，0~4为默认唤醒源 (Fill in restrictions: 5~31, default wake sources: 0~4)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMWakeupSourcePolling</p></td>
+<td></td>
+<td><p>True/False</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>唤醒源是否需要轮询 (Does the wake-up source require polling?)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当此EcuMWakeupSource被EcuMSleepMode-&gt;EcuMWakeupSourceMask引用，且EcuMSleepMode-&gt;EcuMSleepModeSuspend配置为FALSE（POLL模式），则此项EcuMWakeupSourcePolling应该配置为TRUE，表示以轮询的方式检测唤醒源</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMComMChannelRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用[ComMChannel][ (Referencing [ComMChannel])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当配置此项后，当唤醒源检测到后，会调用ComM_EcuM_WakeUpIndication通知EcuMComMChannelRef引用的ComMChannel (After configuring this item, when the wake-up source is detected, it will call ComM_EcuM_WakeUpIndication to notify the ComMChannel referenced by EcuMComMChannelRef.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMResetReasonRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[McuResetReasonConf] (Reference [McuResetReasonConf])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>MCU 驱动程序检测到的复位原因到唤醒源的映射 (Mapping of reset causes detected by MCU to wake-up sources)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumflexconfiguration">
+<h3>EcuMFlexConfiguration<a class="headerlink" href="#ecumflexconfiguration" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumflexconfiguration-ecumflexconfiguration-container-configuration-diagram">
+<img alt="EcuMFlexConfiguration容器配置图 (EcuMFlexConfiguration Container Configuration Diagram)" src="../../_images/image205.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMFlexConfiguration属性描述 (Table EcuMFlexConfiguration Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMTimerSrcSelect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>OS/GPT</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>OS</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>选择ECUM内部计时模块 (Select ECUM Internal Timing Module)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于OS和Tm模块 (Dependent on OS and Tm modules)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMNormalMcuModeRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[McuModeSettingConf] (Reference to [McuModeSettingConf])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当MCU进入Normal状态时，需要设置的MCU模式 (When the MCU enters Normal state, the MCUs mode that needs to be set is:)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>有些MCU，当唤醒源产生后，会自动进入Normal模式，因此不需要额外引用MCU的正常模式 (Some MCUs will automatically enter Normal mode upon wake-up trigger, so there is no need for additional reference to the normal mode of the MCU.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMPartitionRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcucPartition] (Refer to [EcucPartition])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>决定ECUM跑在哪一个分区中 (Decide which partition ECUM runs on.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumalarmclock">
+<h3>EcuMAlarmClock<a class="headerlink" href="#ecumalarmclock" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumalarmclock-ecumalarmclock-container-configuration-diagram">
+<img alt="EcuMAlarmClock容器配置图 (EcuMAlarmClock Container Configuration Diagram)" src="../../_images/image2113.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMAlarmClock属性描述 (Table EcuMAlarmClock Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMAlarmClockId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>从0开始，按升序方式自动生成 (From 0, generate in ascending order)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMAlarmClockTimeOut</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当EcuM内部alarm计时到达此EcuMAlarmClockTimeOut值后，内部会产生一个alarm唤醒 (When the internal alarm timer of EcuM reaches this EcuMAlarmClockTimeOut value, an internal alarm wake-up will be generated.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMAlarmClockUser</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcuMFlexUserConfig] (Reference [EcuMFlexUserConfig])</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>将警报分配给哪一个user (Assign the alert to which user)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumflexuserconfig">
+<h3>EcuMFlexUserConfig<a class="headerlink" href="#ecumflexuserconfig" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumflexuserconfig-ecumflexuserconfig-container-configuration-diagram">
+<img alt="EcuMFlexUserConfig容器配置图 (EcuMFlexUserConfig Container Configuration Diagram)" src="../../_images/image2212.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMFlexUserConfig属性描述 (Table EcuMFlexUserConfig property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMFlexUser</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>定义user的id (Define user ID)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMFlexEcucPartitionRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示此user属于哪个分区 (Indicate which partition this user belongs to.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumgodownallowedusers">
+<h3>EcuMGoDownAllowedUsers<a class="headerlink" href="#ecumgodownallowedusers" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumgodownallowedusers-ecumgodownallowedusers-container-configuration-diagram">
+<img alt="EcuMGoDownAllowedUsers容器配置图 (EcuMGoDownAllowedUsers Container Configuration Diagram)" src="../../_images/image2310.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMGoDownAllowedUsers属性描述 (Property EcuMGoDownAllowedUsers attribute description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMGoDownAllowedUserRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcuMFlexUserConfig] (Reference [EcuMFlexUserConfig])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示允许调用EcuM_GoDownHaltPoll的user (Indicates permission for calling EcuM_GoDownHaltPoll by user)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumresetmode">
+<h3>EcuMResetMode<a class="headerlink" href="#ecumresetmode" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumresetmode-ecumresetmode-container-configuration-diagram">
+<img alt="EcuMResetMode容器配置图 (EcuMResetMode Container Configuration Diagram)" src="../../_images/image245.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMResetMode属性描述 (Table EcuMResetMode property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMResetModeId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>创建后默认生成 (Create and default generate)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumsetclockallowedusers">
+<h3>EcuMSetClockAllowedUsers<a class="headerlink" href="#ecumsetclockallowedusers" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumsetclockallowedusers-ecumsetclockallowedusers-container-configuration-diagram">
+<img alt="EcuMSetClockAllowedUsers容器配置图 (EcuMSetClockAllowedUsers Container Configuration Diagram)" src="../../_images/image255.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMSetClockAllowedUsers属性描述 (Property EcuMSetClockAllowedUsers describes the allowed users for setting the clock.)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMGoDownAllowedUserRef</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>引用到[EcuMFlexUserConfig] (Reference [EcuMFlexUserConfig])</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>允许调用EcuM_SetClock的user (Allow calling EcuM_SetClock by user)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumshutdowncause">
+<h3>EcuMShutdownCause<a class="headerlink" href="#ecumshutdowncause" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumshutdowncause-ecumshutdowncause-container-configuration-diagram">
+<img alt="EcuMShutdownCause容器配置图 (EcuMShutdownCause Container Configuration Diagram)" src="../../_images/image265.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMShutdownCause属性描述 (Table EcuMShutdownCause property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMShutdownCauseId</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0-255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>创建后默认生成 (Create and default generate)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ecumflexgeneral">
+<h3>EcuMFlexGeneral<a class="headerlink" href="#ecumflexgeneral" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="ecumflexgeneral-ecumflexgeneral-container-configuration-diagram">
+<img alt="EcuMFlexGeneral容器配置图 (EcuMFlexGeneral Container Configuration Diagram)" src="../../_images/image275.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 EcuMFlexGeneral属性描述 (Table EcuMFlexGeneral Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EcuMAlarmClockPresent</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指示是否存在Alarm功能 (Is there an Alarm function?)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMModeHandling</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>Run RequestProtocol是否使能 (Is Run RequestProtocol Enabled?)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMResetLoopDetection</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示在StartPreOS中EcuM_LoopDetection是否被调用 (Show whether EcuM_LoopDetection is called in StartPreOS.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EcuMSetProgrammableInterrupts</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>True/False</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示在StartPreOS中EcuM_AL_SetProgrammableInterrupts是否被调用 (Check if EcuM_AL_SetProgrammableInterrupts is called in StartPreOS.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EcuMAlarmWakeupSource</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td><p>默认取值 (Default value)</p></td>
+<td></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当EcuMAlarm被作为唤醒源时，需要配置此项 (When EcuMAlarm is configured as the wake-up source, this needs to be set.)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Reference to EcuMWakeupSource</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>EcuMAlarmClockPresent配置为TRUE (EcuMAlarmClockPresent configured as TRUE)</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="EcuC.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>EcuC
+    </a>
+    <a class="float-right" href="Eep.html" title="Next">
+        Eep <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">EcuM</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+<li><a class="reference internal" href="#abbreviation-notes">缩写词注解 (Abbreviation Notes)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#module-initialization-function">模块初始化功能 (Module initialization function)</a><ul>
+<li><a class="reference internal" href="#module-initialization-functionality-introduction">模块初始化功能介绍 (Module initialization functionality introduction)</a></li>
+<li><a class="reference internal" href="#module-initialization-functionality-implementation">模块初始化功能实现 (Module initialization functionality implementation)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sleep-wake-up-function">睡眠唤醒功能 (Sleep Wake-Up Function)</a><ul>
+<li><a class="reference internal" href="#introduction-to-sleep-wake-up-function">睡眠唤醒功能介绍 (Introduction to Sleep Wake-Up Function)</a></li>
+<li><a class="reference internal" href="#sleep-wake-up-function-implementation">睡眠唤醒功能实现 (Sleep Wake-up Function Implementation)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pb-pb-configuration-selection-function">PB配置选择功能 (PB Configuration Selection Function)</a><ul>
+<li><a class="reference internal" href="#pb-introduction-to-pb-configuration-selection">PB配置选择介绍 (Introduction to PB Configuration Selection)</a></li>
+<li><a class="reference internal" href="#pb-pb-configuration-selection-implementation">PB配置选择实现 (PB Configuration Selection Implementation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a><ul>
+<li><a class="reference internal" href="#ecum-configtype-definition-of-ecum-configtype-type">EcuM_ConfigType类型定义 (Definition of EcuM_ConfigType Type)</a></li>
+<li><a class="reference internal" href="#ecum-runstatustype-ecum-runstatustype-type-definition">EcuM_RunStatusType类型定义 (EcuM_RunStatusType Type Definition)</a></li>
+<li><a class="reference internal" href="#ecum-usertype-definition-of-ecum-usertype-type">EcuM_UserType类型定义 (Definition of EcuM_UserType Type)</a></li>
+<li><a class="reference internal" href="#ecum-wakeupsourcetype-type-definition-for-ecum-wakeupsourcetype">EcuM_WakeupSourceType类型定义 (Type definition for EcuM_WakeupSourceType)</a></li>
+<li><a class="reference internal" href="#ecum-wakeupstatustype-ecum-wakeupstatustype-type-definition">EcuM_WakeupStatusType类型定义 (EcuM_WakeupStatusType Type Definition)</a></li>
+<li><a class="reference internal" href="#ecum-boottargettype-ecum-boottargettype-type-definition">EcuM_ BootTargetType类型定义 (EcuM BootTargetType Type Definition)</a></li>
+<li><a class="reference internal" href="#ecum-resettype-definition-of-ecum-resettype-type">EcuM_ ResetType类型定义 (Definition of EcuM_ResetType Type)</a></li>
+<li><a class="reference internal" href="#ecum-shutdowncausetype-ecum-shutdowncausetype-type-definition">EcuM_ ShutdownCauseType类型定义 (EcuM_ShutdownCauseType Type Definition)</a></li>
+<li><a class="reference internal" href="#ecum-shutdownmodetype-shutdownmodetype-type-definition">EcuM_ ShutdownModeType类型定义 (ShutdownModeType type definition)</a></li>
+<li><a class="reference internal" href="#ecum-timetype-definition-of-timetype-type">EcuM_ TimeType类型定义 (Definition of TimeType Type)</a></li>
+<li><a class="reference internal" href="#ecum-shutdowntargettype-ecum-shutdowntargettype-type-definition">EcuM_ ShutdownTargetType类型定义 (EcuM_ShutdownTargetType Type Definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a><ul>
+<li><a class="reference internal" href="#ecum-getversioninfo">EcuM_GetVersionInfo</a></li>
+<li><a class="reference internal" href="#ecum-godownhaltpoll">EcuM_GoDownHaltPoll</a></li>
+<li><a class="reference internal" href="#ecum-init">EcuM_Init</a></li>
+<li><a class="reference internal" href="#ecum-startuptwo">EcuM_StartupTwo</a></li>
+<li><a class="reference internal" href="#ecum-shutdown">EcuM_Shutdown</a></li>
+<li><a class="reference internal" href="#ecum-setstate">EcuM_SetState</a></li>
+<li><a class="reference internal" href="#ecum-requestrun">EcuM_RequestRUN</a></li>
+<li><a class="reference internal" href="#ecum-releaserun">EcuM_ReleaseRUN</a></li>
+<li><a class="reference internal" href="#ecum-requestpost-run">EcuM_RequestPOST_RUN</a></li>
+<li><a class="reference internal" href="#ecum-releasepost-run">EcuM_ReleasePOST_RUN</a></li>
+<li><a class="reference internal" href="#ecum-selectshutdowntarget">EcuM_SelectShutdownTarget</a></li>
+<li><a class="reference internal" href="#ecum-getshutdowntarget">EcuM_GetShutdownTarget</a></li>
+<li><a class="reference internal" href="#ecum-getlastshutdowntarget">EcuM_GetLastShutdownTarget</a></li>
+<li><a class="reference internal" href="#ecum-selectshutdowncause">EcuM_SelectShutdownCause</a></li>
+<li><a class="reference internal" href="#ecum-getshutdowncause">EcuM_GetShutdownCause</a></li>
+<li><a class="reference internal" href="#ecum-getpendingwakeupevents">EcuM_GetPendingWakeupEvents</a></li>
+<li><a class="reference internal" href="#ecum-clearwakeupevent">EcuM_ClearWakeupEvent</a></li>
+<li><a class="reference internal" href="#ecum-getvalidatedwakeupevents">EcuM_GetValidatedWakeupEvents</a></li>
+<li><a class="reference internal" href="#ecum-getexpiredwakeupevents">EcuM_GetExpiredWakeupEvents</a></li>
+<li><a class="reference internal" href="#ecum-setrelwakeupalarm">EcuM_SetRelWakeupAlarm</a></li>
+<li><a class="reference internal" href="#ecum-setabswakeupalarm">EcuM_SetAbsWakeupAlarm</a></li>
+<li><a class="reference internal" href="#ecum-abortwakeupalarm">EcuM_AbortWakeupAlarm</a></li>
+<li><a class="reference internal" href="#ecum-getcurrenttime">EcuM_GetCurrentTime</a></li>
+<li><a class="reference internal" href="#ecum-getwakeuptime">EcuM_GetWakeupTime</a></li>
+<li><a class="reference internal" href="#ecum-setclock">EcuM_SetClock</a></li>
+<li><a class="reference internal" href="#ecum-selectboottarget">EcuM_SelectBootTarget</a></li>
+<li><a class="reference internal" href="#ecum-getboottarget">EcuM_GetBootTarget</a></li>
+<li><a class="reference internal" href="#ecum-mainfunction">EcuM_MainFunction</a></li>
+<li><a class="reference internal" href="#ecum-setwakeupevent">EcuM_SetWakeupEvent</a></li>
+<li><a class="reference internal" href="#ecum-validatewakeupevent">EcuM_ValidateWakeupEvent</a></li>
+<li><a class="reference internal" href="#ecum-checkwakeup">EcuM_CheckWakeup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a><ul>
+<li><a class="reference internal" href="#ecum-al-driverinitbswm-x">EcuM_AL_DriverInitBswM_&lt;x&gt;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#ecumgeneral">EcuMGeneral</a></li>
+<li><a class="reference internal" href="#ecumcommonconfigration">EcuMCommonConfigration</a></li>
+<li><a class="reference internal" href="#ecumdefaultshutdowntarget">EcuMDefaultShutdownTarget</a></li>
+<li><a class="reference internal" href="#ecumdriverinititem">EcuMDriverInitItem</a></li>
+<li><a class="reference internal" href="#ecumsleepmode">EcuMSleepMode</a></li>
+<li><a class="reference internal" href="#ecumwakeupsource">EcuMWakeupSource</a></li>
+<li><a class="reference internal" href="#ecumflexconfiguration">EcuMFlexConfiguration</a></li>
+<li><a class="reference internal" href="#ecumalarmclock">EcuMAlarmClock</a></li>
+<li><a class="reference internal" href="#ecumflexuserconfig">EcuMFlexUserConfig</a></li>
+<li><a class="reference internal" href="#ecumgodownallowedusers">EcuMGoDownAllowedUsers</a></li>
+<li><a class="reference internal" href="#ecumresetmode">EcuMResetMode</a></li>
+<li><a class="reference internal" href="#ecumsetclockallowedusers">EcuMSetClockAllowedUsers</a></li>
+<li><a class="reference internal" href="#ecumshutdowncause">EcuMShutdownCause</a></li>
+<li><a class="reference internal" href="#ecumflexgeneral">EcuMFlexGeneral</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>LinSM &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="MemIf" href="MemIf.html" />
+            <link rel="prev" title="LinIf" href="LinIf.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">LinSM</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/LinSM.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="linsm">
+<h1>LinSM<a class="headerlink" href="#linsm" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LIN</p></td>
+<td><p>Local InterconnectNetwork</p></td>
+<td><p>局域互联网络 (Local Area Network)</p></td>
+</tr>
+<tr class="row-odd"><td><p>LinIf</p></td>
+<td><p>LIN Interface</p></td>
+<td><p>LIN 接口层 (LINE interface layer)</p></td>
+</tr>
+<tr class="row-even"><td><p>LinSM</p></td>
+<td><p>LIN State Manager</p></td>
+<td><p>LIN状态管理 (LINE State Management)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>本文档是AUTOSAR R19-11的LIN State Manager模块参考手册。旨在指导使用LinSM模块的用户能够清晰地了解如何去使用LinSM模块。</p>
+<p>This document is the AUTOSAR R19-11 LIN State Manager module reference manual. It aims to guide users of the LinSM module to clearly understand how to use the LinSM module.</p>
+<p>LinSM模块的下层是Lin Interface，上层是ComM，BswM等。其主要职责是控制Lin总线的控制流。主要功能包括以下三点：</p>
+<p>The lower layer of the LinSM module is Lin Interface, while the upper layers are ComM, BswM, etc. Its main responsibility is to control the control flow of the Lin bus. Main functions include the following three points:</p>
+<ol class="arabic simple">
+<li><p>根据上层的要求切换到相应的调度表</p></li>
+</ol>
+<p>Switch to the corresponding schedule table according to the upper layer's requirement.</p>
+<ol class="arabic simple">
+<li><p>根据上层的要求处理go-to-sleep和wake-up请求</p></li>
+</ol>
+<p>Process go-to-sleep and wake-up requests according to upper layer requirements</p>
+<ol class="arabic simple">
+<li><p>当切换到新的状态时通知上层模块</p></li>
+</ol>
+<p>Notify higher modules when switching to a new state.</p>
+<figure class="align-center" id="linsmautosar-the-linsm-module-s-position-in-the-autosar-architecture">
+<img alt="LinSM模块在AUTOSAR架构中的位置 (The LinSM module's position in the AUTOSAR architecture)" src="../../_images/image1108.png" />
+</figure>
+<section id="reference-materials">
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_SWS_LINInterface.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_LINStateManager.pdf，R19-11</p>
+<p>[3] AUTOSAR_SWS_LINTransceiverDriver.pdf，R19-11</p>
+<p>[4] AUTOSAR_SWS_LINDriver.pdf，R19-11</p>
+<p>[5] LIN Specification Package，Revision 2.1</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<section id="lin-the-status-management-function-of-lin-network">
+<h3>LIN网络的状态管理功能 (The status management function of LIN network)<a class="headerlink" href="#lin-the-status-management-function-of-lin-network" title="Link to this heading">¶</a></h3>
+<p>控制LIN网络的通信状态（NO COMMUNICATION和FULL COMMUNICATION），处理调度表切换请求（仅主节点），处理通信模式请求，将通信状态变更通知给上层。</p>
+<p>Control the communication status of the LIN network (NO COMMUNICATION and FULL COMMUNICATION), handle scheduling table switch requests (only on the master node), handle communication mode requests, and notify the upper layer of communication status changes.</p>
+</section>
+</section>
+<section id="function-implementation">
+<h2>功能实现 (Function implementation)<a class="headerlink" href="#function-implementation" title="Link to this heading">¶</a></h2>
+<p>对于Master节点在LINSM_FULL_COM状态，ComM调用LinSM_RequestComMode()请求将网络状态切换到NO_COM时，调用LinIf_GotoSleep()，并阻塞其他请求。当睡眠执行成功后，LinIf调用LinSM_GotoSleepConfirmation()，收到该通知后，将状态切换到LINSM_NO_COM，退出GotoSleep进程，接受其他请求。然后LinSM调用ComM和BswM通知接口，报告当前状态切换到NO_COM。</p>
+<p>For Master nodes in the LINSM_FULL_COM state, ComM calls LinSM_RequestComMode() to request switching the network status to NO_COM. It then calls LinIf_GotoSleep() and blocks other requests. Upon successful sleep execution, LinIf calls LinSM_GotoSleepConfirmation(). After receiving this notification, the state switches to LINSM_NO_COM, exiting the GotoSleep process and accepting other requests. Then LinSM calls ComM and BswM notification interfaces to report that the current status has switched to NO_COM.</p>
+<p>对于Slave节点在LINSM_FULL_COM状态，ComM调用LinSM_RequestComMode()请求将网络状态切换到NO_COM时，LinSM保存该请求。当LinIf检测到总线睡眠时，调用LinSM_GotoSleepIndication()，调用LinIf_GotoSleep()，并阻塞其他请求。如果之前请求NO_COM，并且LinIf_GotoSleep()返回E_OK，LinSM调用ComM_BusSM_BusSleepMode通知ComM进入BusSleep状态。当LinIf调用LinSM_GotoSleepConfirmation()时，将状态切换到LINSM_NO_COM，退出GotoSleep进程，接受其他请求。然后LinSM调用ComM和BswM通知接口，报告当前状态切换到NO_COM。</p>
+<p>For Slave nodes in the LINSM_FULL_COM state, ComM calls LinSM_RequestComMode() to request switching the network status to NO_COM. LinSM saves this request. When LinIf detects bus sleep, it calls LinSM_GotoSleepIndication(), then calls LinIf_GotoSleep() and blocks other requests. If a previous request for NO_COM exists and LinIf_GotoSleep() returns E_OK, LinSM calls ComM_BusSM_BusSleepMode to notify ComM to enter the BusSleep state. When LinIf calls LinSM_GotoSleepConfirmation(), the status switches to LINSM_NO_COM, exiting the GotoSleep process and accepting other requests. Then, LinSM calls ComM and BswM to notify the interfaces of the current state switching to NO_COM.</p>
+<p>当节点需要唤醒网络（主动发起或者检测到唤醒信号由EcuM发起），LinSM_RequestComMode()被调用，LinSM设置超时定时器，调用LinIf_Wakeup()。</p>
+<p>When the node needs to wake up the network (initiated actively or detects a wakeup signal initiated by EcuM), LinSM_RequestComMode() is called, LinSM sets the timeout timer and calls LinIf_Wakeup().</p>
+<p>当网络被成功唤醒，LinSM_WakeupConfirmation()被调用，LinSM停止超时定时器，将状态切换到LINSM_FULL_COM。然后LinSM调用ComM和BswM通知接口，报告当前状态切换到FULL_COM。</p>
+<p>When the network is successfully awakened, LinSM_WakeupConfirmation() is called, LinSM stops the timeout timer, switches the state to LINSM_FULL_COM. Then, LinSM calls the ComM and BswM notification interfaces to report that the current state has switched to FULL_COM.</p>
+<p>当需要切换调度表时，BswM调用LinSM_ScheduleRequest()发送调度表切换请求，LinSM启动超时定时器，然后调用LinIf_ScheduleRequest()。</p>
+<p>When a schedule table switch is needed, BswM calls LinSM_ScheduleRequest() to send a scheduling request. LinSM starts the timeout timer and then calls LinIf_ScheduleRequest().</p>
+<p>当调度表切换成功后，LinIf调用LinSM_ScheduleRequestConfirmation()通知LinSM。LinSM取消超时定时器，并将调度表切换结果通知BswM。</p>
+<p>After the scheduling table switch is successful, LinIf calls LinSM_ScheduleRequestConfirmation() to notify LinSM. LinSM cancels the timeout timer and notifies BswM of the scheduling table switch result.</p>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<p class="centered">
+<strong><strong>表 LinSM源文件 (Table LinSM Source File)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (Files)</p></th>
+<th class="head"><p>说明 (Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LinSM.c</p></td>
+<td><p>模块源文件 (Module source files)</p></td>
+</tr>
+<tr class="row-odd"><td><p>LinSM.h</p></td>
+<td><p>模块头文件 (Module header file)</p></td>
+</tr>
+<tr class="row-even"><td><p>LinSM_Cbk.h</p></td>
+<td><p>模块提供的回掉函数接口头文件 (Header file for callback function interfaces provided by the module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>LinSM_MemMap.h</p></td>
+<td><p>LinSM内存映射头文件 (LineSM Memory-mapped Header File)</p></td>
+</tr>
+<tr class="row-even"><td><p>LinSM_Cfg.h</p></td>
+<td><p>配置头文件 (Header file configuration)</p></td>
+</tr>
+<tr class="row-odd"><td><p>LinSM_Cfg.c</p></td>
+<td><p>配置源文件 (Source configuration file)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="linsm-linsm-file-structure-diagram">
+<img alt="LinSM文件结构图 (LinSM File Structure Diagram)" src="../../_images/image270.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="linsm-modetype-linsm-modetype-type-definition">
+<h2>LinSM_ModeType类型定义 (LinSM_ModeType Type Definition)<a class="headerlink" href="#linsm-modetype-linsm-modetype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (Name)</p></th>
+<th class="head"><p>LinSM_ModeType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (Type)</p></td>
+<td><p>uint8</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (Range)</p></td>
+<td><p>1 LINSM_FULL_COM 表示Full communication (1 LINSM_FULL_COM indicates Full communication)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>2 LINSM_NO_COM 表示No communication (2 LINSM_NO_COM indicates No communication)</p></td>
+</tr>
+<tr class="row-odd"><td><p>描述 (Description)</p></td>
+<td><p>用于向BswM报告当前所处的模式 (Used to report the current mode to BswM)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="describe-the-input-function">
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input Module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BswM</p></td>
+<td><p>BswM_LinSM_CurrentSchedule</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BswM_LinSM_CurrentState</p></td>
+</tr>
+<tr class="row-even"><td><p>ComM</p></td>
+<td><p>ComM_BusSM_ModeIndication</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lin Interface</p></td>
+<td><p>LinIf_GotoSleep</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LinIf_ScheduleRequest</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LinIf_Wakeup</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="linsm-init-the-linsm-init-function-definition">
+<h2>LinSM_Init函数定义 (The LinSM_Init function definition)<a class="headerlink" href="#linsm-init-the-linsm-init-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_Init</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void LinSM_Init(constLinSM_ConfigType*ConfigPtr)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x01</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>ConfigPtr</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>指针 (Pointer)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>初始化LinSM模块 (Initialize LinSM module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-getversioninfo-the-linsm-getversioninfo-function-definition">
+<h2>LinSM_GetVersionInfo函数定义 (The LinSM_GetVersionInfo function definition)<a class="headerlink" href="#linsm-getversioninfo-the-linsm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_GetVersionInfo</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidLinSM_GetVersionInfo(Std_VersionInfoType*versioninfo )</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x13</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>指针 (Pointer)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>读取LinSM模块的版本号 (Read the version number of LinSM module)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-schedulerequest-the-linsm-schedulerequest-function-definition">
+<h2>LinSM_ScheduleRequest函数定义 (The LinSM_ScheduleRequest function definition)<a class="headerlink" href="#linsm-schedulerequest-the-linsm-schedulerequest-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_ScheduleRequest</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeLinSM_ScheduleRequest(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypenetwork,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LinIf_SchHandleTypeschedule</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>network</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>schedule</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>E_OK:调度表切换请求被接受 (E_OK: Scheduling table switch request accepted)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK:调度表切换请求失败，可能由于以下原因： (E_NOT_OK: Failed to switch schedule table, possibly due to the following reasons:)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>①LinSM模块还未被初始化 (LinSM module has not been initialized.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>②Schedule参数代表的调度表不存在 (The Schedule parameter represents a scheduling table that does not exist.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-getcurrentcommode-the-linsm-getcurrentcommode-function-definition">
+<h2>LinSM_GetCurrentComMode函数定义 (The LinSM_GetCurrentComMode function definition)<a class="headerlink" href="#linsm-getcurrentcommode-the-linsm-getcurrentcommode-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_GetCurrentComMode</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeLinSM_GetCurrentComMode(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypenetwork,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ComM_ModeType*mode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x11</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>network</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>None</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>mode</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 2</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return Value:)</p></td>
+<td><p>E_OK: 获取成功 (E_OK: Successfully Retrieved)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK:获取失败，可能由于以下原因： (E_NOT_OK: Failed to retrieve, possibly due to the following reasons:)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>①LinSM模块还未被初始化 (LinSM module has not been initialized.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>②network参数代表的通道不存在 (The network parameter represents a channel that does not exist.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>③mode参数为NULL_PTR (③mode parameter is NULL_PTR)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>获取指定网络的当前通信模式 (Get the current communication mode of the specified network)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-requestcommode-the-linsm-requestcommode-function-definition">
+<h2>LinSM_RequestComMode函数定义 (The LinSM_RequestComMode function definition)<a class="headerlink" href="#linsm-requestcommode-the-linsm-requestcommode-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_RequestComMode</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeLinSM_RequestComMode(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypenetwork,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ComM_ModeTypemode</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x12</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>异步 (Asynchronous)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>network</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>mode</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>E_OK: 请求成功 (E_OK: Request successful)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>E_NOT_OK:请求失败，可能由于以下原因： (E_NOT_OK: Request failed, possibly due to the following reasons:)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple">
+<li><p>LinSM模块还未被初始化 (#. The LinSM module has not been initialized.)</p></li>
+</ol>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ol class="arabic simple">
+<li><p>network参数代表的通道不存在 (#. The network parameter represents a channel that does not exist.)</p></li>
+</ol>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ol class="arabic simple">
+<li><p>mode参数为请求的模式不存在 (#. The mode parameter for the request does not exist.)</p></li>
+</ol>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-mainfunction-linsm-mainfunction-function-definition">
+<h2>LinSM_MainFunction函数定义 (LinSM_MainFunction function definition)<a class="headerlink" href="#linsm-mainfunction-linsm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_MainFunction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void LinSM_MainFunction(void)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x30</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>不可重入 (Non-reentrant)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>LinSM的周期处理函数 (The periodic processing function of LinSM)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-schedulerequestconfirmation-the-linsm-schedulerequestconfirmation-function-definition">
+<h2>LinSM_ScheduleRequestConfirmation函数定义 (The LinSM_ScheduleRequestConfirmation function definition)<a class="headerlink" href="#linsm-schedulerequestconfirmation-the-linsm-schedulerequestconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_ScheduleRequestConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidLinSM_ScheduleRequestConfirmation(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypenetwork,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LinIf_SchHandleTypeschedule</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x20</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>network</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>schedule</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>LinIf模块在成功切换调度表后会调用本函数通知LinSM模块 (The LinIf module will call this function to notify the LinSM module after a successful schedule table switch.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-wakeupconfirmation-linsm-wakeupconfirmation-function-definition">
+<h2>LinSM_WakeupConfirmation函数定义 (LinSM_WakeupConfirmation function definition)<a class="headerlink" href="#linsm-wakeupconfirmation-linsm-wakeupconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_WakeupConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidLinSM_WakeupConfirmation(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypenetwork,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>boolean success</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x21</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>network</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>success</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>TRUE / FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>LinIf模块在发送Wakeup信号后会调用本函数通知LinSM (The LinIf module calls this function to notify LinSM after sending the Wakeup signal.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-gotosleepconfirmation-linsm-gotosleepconfirmation-function-definition">
+<h2>LinSM_GotoSleepConfirmation函数定义 (LinSM_GotoSleepConfirmation function definition)<a class="headerlink" href="#linsm-gotosleepconfirmation-linsm-gotosleepconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_GotoSleepConfirmation</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidLinSM_GotoSleepConfirmation(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypenetwork,</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>boolean success</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x22</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>network</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>success</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>TRUE / FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>LinIf模块在发送go-to-sleep命令后会调用本函数通知LinSM (The LinIf module will call this function to notify LinSM after sending the go-to-sleep command.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsm-gotosleepindication-the-linsm-gotosleepindication-function-definition">
+<h2>LinSM_GotoSleepIndication函数定义 (The LinSM_GotoSleepIndication function definition)<a class="headerlink" href="#linsm-gotosleepindication-the-linsm-gotosleepindication-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function Name:)</p></th>
+<th class="head"><p>LinSM_GotoSleepIndication</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidLinSM_GotoSleepIndication(</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NetworkHandleTypeChannel</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service Number:)</p></td>
+<td><p>0x03</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Synchronous/asynchronous:)</p></td>
+<td><p>同步 (Sync)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is Reentrant:)</p></td>
+<td><p>可重入 (Reentrant)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>Channel</p></td>
+<td><p>值域： (Domain:)</p></td>
+<td><p>0 .. 255</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数： (Input Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output Parameters:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return Value:)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function Overview:)</p></td>
+<td><p>如果收到go-to-sleep命令或者总线空闲定时器超时，LinIf模块会调用本函数通知LinSM。仅用于从节点。 (If the LinIf module invokes this function to notify LinSM upon receiving a go-to-sleep command or bus-idle timer timeout, it is exclusively for use with a slave node.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<p>无。</p>
+<p>None.</p>
+</section>
+</section>
+<section id="configure">
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<section id="linsm-general">
+<h3>LinSM General<a class="headerlink" href="#linsm-general" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="linsm-general-linsm-general-container-configuration-diagram">
+<img alt="LinSM General容器配置图 (LinSM General Container Configuration Diagram)" src="../../_images/image350.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 LinSM General属性描述 (Description of Table LinSM General Properties)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dev ErrorDetect</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>打开或关闭错误（Det）检测和通知</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>MainProcessingPeriod</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>LinSM模块主函数调用周期 (Cycle of LinSM Module Main Function Call)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>VersionInfo Api</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指示LinSM_GetVersionInfo函数是否可用 (Check if the LinSM_GetVersionInfo function is available.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linsmconfigset">
+<h3>LinSMConfigSet<a class="headerlink" href="#linsmconfigset" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="linsmconfigset-linsmconfigset-container-configuration-diagram">
+<img alt="LinSMConfigSet容器配置图 (LinSMConfigSet Container Configuration Diagram)" src="../../_images/image445.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 LinSMConfigSet属性描述 (Description of Table LinSMConfigSet Properties)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ModeRequestRepetitionMax</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>模式请求时，在LinIf没有应答的情况下，LinSM模块再次请求的次数 (The number of times the LinSM module requests again when a response is not received from LinIf during a mode request.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="linsm-channel">
+<h2>LinSM Channel<a class="headerlink" href="#linsm-channel" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="linsm-channel-linsm-channel-container-configuration-diagram">
+<img alt="LinSM Channel容器配置图 (LinSM Channel Container Configuration Diagram)" src="../../_images/image539.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 LinSM Channel属性描述 (Describe the LineSM Channel Properties)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ConfirmationTimeout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>LinSM在向LinIf请求go-to-sleep，wakeup和调度表切换时设定的超时时间。这个超时时间必须长于go-to-sleep命令在总线上的时间。 (The timeout duration set by LinSM when requesting go-to-sleep, wakeup, and scheduling table switching from LinIf. This timeout must be longer than the time the go-to-sleep command spends on the bus.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LinSMNodeType</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>SLAVE / MASTER</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指示当前通道的类型 (Indicate the type of the current channel.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>LinSMSilenceAfterWakeupTimeout</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. INF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>当一个唤醒操作失败后，到开始下个唤醒操作的时间间隔 (The time interval before starting the next wake-up operation after a wake-up operation fails)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>从节点时必须配置，主节点不需要该参数 (This parameter is required for worker nodes but not needed for master nodes.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>TransceiverPassiveMode</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true/false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指示当进入LINSM_NO_COM状态时，收发器所处的状态。当该参数设置为true时，收发器处于STANDBY模式。当该参数设置为false时，收发器处于SLEEP模式。 (Indicates the state of the transmitter when entering LINSM_NO_COM state. When this parameter is set to true, the transmitter is in STANDBY mode. When this parameter is set to false, the transmitter is in SLEEP mode.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ComMNetworkHandle Ref</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指向ComM中配置的一个通道 (Pointing to a channel configured in ComM)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="linsmschedule">
+<h3>LinSMSchedule<a class="headerlink" href="#linsmschedule" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="linsmschedule-linsmschedule-container-configuration-diagram">
+<img alt="LinSMSchedule容器配置图 (LinSMSchedule Container Configuration Diagram)" src="../../_images/image638.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 LinSMSchedule属性描述 (Table LinSMSchedule Property Description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI Name)</p></th>
+<th class="head"><p>描述 (Description)</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ScheduleIndex</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>调度表的序号（自动生成，用户不需要关心） (The sequence number of the schedule table (automatically generated, users do not need to concern themselves with it))</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>NullSchedule</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>true / false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>表示要配置的调度表是否为空调度表 (Indicate whether the schedule to be configured is an empty schedule.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当NullSchedule设置为True时，ScheduleIndex Ref参数不可配置 (When NullSchedule is set to True, the ScheduleIndex Ref parameter cannot be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ScheduleIndex Ref</p></td>
+<td><p>取值范围 (Range)</p></td>
+<td><p>无</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>参数描述 (Parameter Description)</p></td>
+<td><p>指向LinIf中配置的调度表 (Refer to the scheduling table configured in LinIf.)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当NullSchedule设置为True时，ScheduleIndex Ref参数不可配置 (When NullSchedule is set to True, the ScheduleIndex Ref parameter cannot be configured.)</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>※LinSMSchedule容器只有主节点可以配置并且不能为空，从节点不可以配置该容器，该容器必须为空</p>
+<p>※The LinSMSchedule container can only be configured on the master node and cannot be empty. Slave nodes are not allowed to configure this container, and the container must be empty.</p>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="LinIf.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>LinIf
+    </a>
+    <a class="float-right" href="MemIf.html" title="Next">
+        MemIf <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">LinSM</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#reference-materials">参考资料 (Reference materials)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function Description)</a><ul>
+<li><a class="reference internal" href="#lin-the-status-management-function-of-lin-network">LIN网络的状态管理功能 (The status management function of LIN network)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-implementation">功能实现 (Function implementation)</a></li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API Interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (Type definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linsm-modetype-linsm-modetype-type-definition">LinSM_ModeType类型定义 (LinSM_ModeType Type Definition)</a><ul>
+<li><a class="reference internal" href="#describe-the-input-function">输入函数描述 (Describe the input function:)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linsm-init-the-linsm-init-function-definition">LinSM_Init函数定义 (The LinSM_Init function definition)</a></li>
+<li><a class="reference internal" href="#linsm-getversioninfo-the-linsm-getversioninfo-function-definition">LinSM_GetVersionInfo函数定义 (The LinSM_GetVersionInfo function definition)</a></li>
+<li><a class="reference internal" href="#linsm-schedulerequest-the-linsm-schedulerequest-function-definition">LinSM_ScheduleRequest函数定义 (The LinSM_ScheduleRequest function definition)</a></li>
+<li><a class="reference internal" href="#linsm-getcurrentcommode-the-linsm-getcurrentcommode-function-definition">LinSM_GetCurrentComMode函数定义 (The LinSM_GetCurrentComMode function definition)</a></li>
+<li><a class="reference internal" href="#linsm-requestcommode-the-linsm-requestcommode-function-definition">LinSM_RequestComMode函数定义 (The LinSM_RequestComMode function definition)</a></li>
+<li><a class="reference internal" href="#linsm-mainfunction-linsm-mainfunction-function-definition">LinSM_MainFunction函数定义 (LinSM_MainFunction function definition)</a></li>
+<li><a class="reference internal" href="#linsm-schedulerequestconfirmation-the-linsm-schedulerequestconfirmation-function-definition">LinSM_ScheduleRequestConfirmation函数定义 (The LinSM_ScheduleRequestConfirmation function definition)</a></li>
+<li><a class="reference internal" href="#linsm-wakeupconfirmation-linsm-wakeupconfirmation-function-definition">LinSM_WakeupConfirmation函数定义 (LinSM_WakeupConfirmation function definition)</a></li>
+<li><a class="reference internal" href="#linsm-gotosleepconfirmation-linsm-gotosleepconfirmation-function-definition">LinSM_GotoSleepConfirmation函数定义 (LinSM_GotoSleepConfirmation function definition)</a></li>
+<li><a class="reference internal" href="#linsm-gotosleepindication-the-linsm-gotosleepindication-function-definition">LinSM_GotoSleepIndication函数定义 (The LinSM_GotoSleepIndication function definition)</a><ul>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable Function Definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure">配置 (Configure)</a><ul>
+<li><a class="reference internal" href="#linsm-general">LinSM General</a></li>
+<li><a class="reference internal" href="#linsmconfigset">LinSMConfigSet</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linsm-channel">LinSM Channel</a><ul>
+<li><a class="reference internal" href="#linsmschedule">LinSMSchedule</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,0 +1,4122 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>CanNm &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="CanSM" href="CanSM.html" />
+            <link rel="prev" title="CanIf" href="CanIf.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XCP.html">XCP</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">CanNm</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/参考手册(Module Reference Manual)/CanNm.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="cannm">
+<h1>CanNm<a class="headerlink" href="#cannm" title="Link to this heading">¶</a></h1>
+<p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 33.0%" />
+<col style="width: 33.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>缩写词 (Abbreviation)</p></th>
+<th class="head"><p>解释/描述 (Explanation/Description)</p></th>
+<th class="head"><p>中文解释 (Chinese explanation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>API</p></td>
+<td><p>Application ProgrammingInterface</p></td>
+<td><p>应用程序接口 (API)</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSWM</p></td>
+<td><p>Basic Software Manager</p></td>
+<td><p>基础软件模式管理 (Basic software model management)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanIf</p></td>
+<td><p>Can Interface</p></td>
+<td><p>Can接口模块 (Can interface module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEM</p></td>
+<td><p>Diagnostic Event Manager</p></td>
+<td><p>诊断事件管理模块 (Diagnostic event management module)</p></td>
+</tr>
+<tr class="row-even"><td><p>DET</p></td>
+<td><p>Default Error Tracer</p></td>
+<td><p>默认错误检测模块 (Default error detection module)</p></td>
+</tr>
+<tr class="row-odd"><td><p>NM</p></td>
+<td><p>Network Management</p></td>
+<td><p>网络管理 (network management)</p></td>
+</tr>
+<tr class="row-even"><td><p>PDU</p></td>
+<td><p>Protocol Data Unit</p></td>
+<td><p>协议数据单元 (protocol data unit)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDU</p></td>
+<td><p>Service Data Unit</p></td>
+<td><p>服务数据单元 (service data unit)</p></td>
+</tr>
+<tr class="row-even"><td><p>PNI</p></td>
+<td><p>Partial NetworkInformation</p></td>
+<td><p>部分网络信息 (Some network information)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PN</p></td>
+<td><p>Partial Network</p></td>
+<td><p>部分网络 (Partial network)</p></td>
+</tr>
+<tr class="row-even"><td><p>PNC</p></td>
+<td><p>Partial Network Cluster</p></td>
+<td><p>部分网络集群 (Partial network cluster)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ERA</p></td>
+<td><p>External Request Array</p></td>
+<td><p>外部请求集合 (External request collection)</p></td>
+</tr>
+<tr class="row-even"><td><p>EIRA</p></td>
+<td><p>External and InternalRequest Array</p></td>
+<td><p>外部和内部请求集合 (Collection of external and internal requests)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNm</p></td>
+<td><p>Can Network Management</p></td>
+<td><p>Can网络管理 (Can network management)</p></td>
+</tr>
+<tr class="row-even"><td><p>CBV</p></td>
+<td><p>Control Bit Vector</p></td>
+<td><p>控制位向量 (control bit vector)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CWU</p></td>
+<td><p>Car Wakeup</p></td>
+<td><p>车辆唤醒 (vehicle wake up)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="introduction">
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>CanNm模块的核心功能是协调网络正常运行和总线睡眠模式之间的转换，除此之外，还提供了可选功能，例如检测当前节点或检测其他所有节点是否准备休眠等。</p>
+<p>The core function of the CanNm module is to coordinate the transition between normal network operation and bus sleep mode. In addition, it also provides optional functions, such as detecting the current node or detecting whether all other nodes are ready to sleep.</p>
+<p>CanNm提供网络管理接口（Nm）和CanIf模块之间的适配。CanNm通过调用CanIf模块的发送API来传输数据，并提供接收API给CanIf用于接收下层网络管理报文。Nm模块调用CanNm模块API来更改CanNm的当前状态机状态，CanNm的状态机模式切换需要通知给Nm模块。</p>
+<p>CanNm provides adaptation between the network management interface (Nm) and the CanIf module.CanNm transmits data by calling the sending API of the CanIf module, and provides the receiving API to CanIf for receiving lower-layer network management messages.The Nm module calls the CanNm module API to change the current state machine state of CanNm. The state machine mode switching of CanNm needs to be notified to the Nm module.</p>
+<figure class="align-center" id="cannmautosar-the-position-of-cannm-in-autosar">
+<img alt="CanNm在AUTOSAR中的位置(The position of CanNm in AUTOSAR)" src="../../_images/image115.png" />
+</figure>
+<p>CanNm模块的主要功能为：</p>
+<p>The main functions of the CanNm module are:</p>
+<p>1、协调网络正常运行和总线睡眠模式之间的转换</p>
+<p>Coordinate the transition between normal network operation and bus sleep mode</p>
+<p>2、可选功能</p>
+<p>Optional functions</p>
+<p>(1)检测远程睡眠指令功能</p>
+<p>Detect remote sleep command function</p>
+<p>(2)用户数据功能</p>
+<p>User data function</p>
+<p>(3)被动模式功能</p>
+<p>Passive mode function</p>
+<p>(4)NM PDU Rx指示功能</p>
+<p>NM PDU Rx indication function</p>
+<p>(5)状态变化通知功能</p>
+<p>Status change notification function</p>
+<p>(6)通讯控制功能</p>
+<p>Communication control function</p>
+<p>(7)NM协调器同步支持功能</p>
+<p>NM coordinator synchronization support function</p>
+<p>(8)减负载功能</p>
+<p>Load reduction function</p>
+<p>3、局部联网功能</p>
+<p>Local networking function</p>
+<p>4、车辆唤醒功能</p>
+<p>Vehicle wake-up function</p>
+<section id="references">
+<h3>参考资料 (References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
+<p>[1] AUTOSAR_SWS_ CANInterface.pdf，R19-11</p>
+<p>[2] AUTOSAR_SWS_CANNetworkManagement.pdf，R19-11</p>
+<p>[3] AUTOSAR_SWS_PDURouter.pdf，R19-11</p>
+<p>[4] AUTOSAR_SWS_NetworkManagementInterface.pdf，R19-11</p>
+<p>[5]AUTOSAR_SWS_COMManager.pdf，R19-11</p>
+</section>
+</section>
+<section id="function-description">
+<h2>功能描述 (Function description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<p>AUTOSAR CanNm基于分散的直接网络管理策略，这意味着每个网络节点仅根据在通信系统内接收和/或发送报文，执行自给自足的活动。</p>
+<p>AUTOSAR CanNm is based on a decentralized direct network management strategy, which means that each network node only performs self-sufficient activities based on receiving and/or sending messages within the communication system.</p>
+<p>AUTOSAR CanNm协调算法基于周期性的NM数据包，集群中的所有节点都通过广播传输接收这些数据包。接收到NM数据包表明发送节点要保持NM集群处于唤醒状态。如果任何节点准备好进入总线睡眠模式，它将停止发送NM数据包，但是只要接收到来自其他节点的NM数据包，它就会推迟过渡到总线睡眠模式。如果在专用计时器超时前都未接收到NM数据包，则每个节点都会启动到总线休眠模式的转换。CanNm通过状态机切换和各状态定时器管理来完成协调算法。</p>
+<p>The AUTOSAR CanNm coordination algorithm is based on periodic NM packets, which are received by all nodes in the cluster via broadcast transmission.Receiving an NM packet indicates that the sending node wants to keep the NM cluster awake.If any node is ready to enter bus sleep mode, it will stop sending NM packets, but it will postpone transition to bus sleep mode as long as it receives NM packets from other nodes.If no NM packet is received before the dedicated timer expires, each node initiates a transition to bus sleep mode.CanNm completes the coordination algorithm through state machine switching and timer management of each state.</p>
+<section id="state-machine-switching">
+<h3>状态机切换 (State machine switching)<a class="headerlink" href="#state-machine-switching" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="mode-introduction">
+<h2>模式介绍 (Mode introduction)<a class="headerlink" href="#mode-introduction" title="Link to this heading">¶</a></h2>
+<p>首先介绍AUTOSAR CanNm协调算法的三种操作模式：</p>
+<p>First, we introduce the three operating modes of the AUTOSAR CanNm coordination algorithm:</p>
+<ul class="simple">
+<li><p>Network Mode 网络模式</p></li>
+</ul>
+<p>Network Mode network mode</p>
+<ul class="simple">
+<li><p>Prepare Bus-Sleep Mode准备总线睡眠模式</p></li>
+</ul>
+<p>Prepare Bus-Sleep Mode prepare bus sleep mode</p>
+<ul class="simple">
+<li><p>Bus-Sleep Mode总线睡眠模式</p></li>
+</ul>
+<p>Bus-Sleep Mode bus sleep mode</p>
+<p>当本节点的操作模式发生变化的时候，需要通知上层Nm。</p>
+<p>When the operating mode of this node changes, the upper layer Nm needs to be notified.</p>
+<figure class="align-center" id="cannm-cannm-state-machine">
+<img alt="CanNm状态机(CanNm state machine)" src="../../_images/image213.png" />
+</figure>
+</section>
+<section id="network-mode">
+<h2>Network Mode<a class="headerlink" href="#network-mode" title="Link to this heading">¶</a></h2>
+<p>Network Mode下包括三种内部状态：</p>
+<p>Network Mode includes three internal states:</p>
+<ul class="simple">
+<li><p>Repeat Message State重复消息状态</p></li>
+</ul>
+<p>Repeat Message State Repeat message state</p>
+<ul class="simple">
+<li><p>Normal Operation State正常运行状态</p></li>
+</ul>
+<p>Normal Operation StateNormal operating state</p>
+<ul class="simple">
+<li><p>Ready Sleep State就绪睡眠状态</p></li>
+</ul>
+<p>Ready Sleep State ready sleep state</p>
+<p>下面对这三种状态分别说明：</p>
+<p>These three states are explained below:</p>
+<ol class="arabic simple">
+<li><p>Repeat Message State</p></li>
+</ol>
+<p>当节点配置为Passive Mode的节点，意味着该节点只能接受报文而不能传输任何报文，关于Passive Mode具体的将在下面章节中进行说明。</p>
+<p>When a node is configured as a Passive Mode node, it means that the node can only accept packets but cannot transmit any packets. The details of Passive Mode will be explained in the following chapters.</p>
+<p>对于非Passive Mode的节点，Repeat Message State可确保从Bus-Sleep或Prepare Bus-Sleep到Network Mode的任何过渡对于网络上的其他节点都是可见的。此外，它确保所有节点在CanNmRepeatMessageTime（配置参数）内保持活动状态。当CanNmRepeatMessageTime配置为0，表示未配置Repeat Message State。这意味着Repeat Message State是瞬态的，在进入后立即离开，因此无法保证启动稳定性，并且无法执行节点检测过程。当CanNmRepeatMessageTime超时后，节点将离开Repeat Message State而切至其他状态。若当前网络状态为请求，切换到Normal Operation State，若当前网络状态为释放，切换到Ready SleepState。</p>
+<p>For nodes that are not in Passive Mode, Repeat Message State ensures that any transition from Bus-Sleep or Prepare Bus-Sleep to Network Mode is visible to other nodes on the network.Additionally, it ensures that all nodes remain active for the duration of CanNmRepeatMessageTime (configuration parameter).When CanNmRepeatMessageTime is configured as 0, it means that Repeat Message State is not configured.This means that the Repeat Message State is transient and leaves immediately after entering, so startup stability cannot be guaranteed and the node detection process cannot be performed.When CanNmRepeatMessageTime times out, the node will leave Repeat Message State and switch to other states.If the current network state is Request, switch to Normal Operation State. If the current network state is Release, switch to Ready SleepState.</p>
+<p>当非Passive Mode的节点从Bus-SleepMode, Prepare-Bus-Sleep Mode，Normal Operation State或Ready Sleep State进入Repeat Message State时，传输功能应该被重启，为了防止总线数据爆发，降低负载，每次进入Repeat Message State时，都要延迟CanNmMsgCycleOffset（配置参数）段时间后，再开始传输数据，若配置CanNmImmediateNmTransmissions并且网络被请求则不需要延迟CanNmMsgCycleOffset时间。</p>
+<p>When a non-Passive Mode node enters Repeat Message State from Bus-SleepMode, Prepare-Bus-Sleep Mode, Normal Operation State or Ready Sleep State, the transmission function should be restarted. In order to prevent bus data bursts and reduce the load, each time it enters Repeat MessageState, it is necessary to delay the CanNmMsgCycleOffset (configuration parameter) for a period of time before starting to transmit data. If CanNmImmediateNmTransmissions is configured and the network is requested, there is no need to delay the CanNmMsgCycleOffset time.</p>
+<ol class="arabic simple" start="2">
+<li><p>Normal Operation State</p></li>
+</ol>
+<p>Normal Operation State可确保只要需要网络功能，任何节点都可以使NM集群保持唤醒状态。当处于Normal Operation State，节点按照CanNmMsgCycleTime周期发送报文，当网络释放后，CanNm进入ReadySleep state。</p>
+<p>Normal Operation State ensures that any node can keep the NM cluster awake as long as network functionality is required.When in the Normal Operation State, the node sends messages according to the CanNmMsgCycleTime cycle. When the network is released, CanNm enters the ReadySleep state.</p>
+<ol class="arabic simple" start="3">
+<li><p>Ready Sleep State</p></li>
+</ol>
+<p>Ready Sleep State可确保NM群集中的任何节点都在等待过渡到Prepare Bus-Sleep Mode。</p>
+<p>Ready Sleep State ensures that any node in the NM cluster is waiting to transition to Prepare Bus-Sleep Mode.</p>
+<p>当进入Ready Sleep State，本节点就不再发送网络管理报文。当节点接收到其他节点传输的网络管理报文时，会将NM-Timeout定时器重置，当NM-Timeout定时器超时且处于Ready Sleep State时，网络管理进入Prepare Bus-Sleep Mode。其中NM-Timeout定时器的时间是由CanNmTimeoutTime（配置参数）决定的。</p>
+<p>When entering the Ready Sleep State, this node will no longer send network management messages.When a node receives a network management message transmitted by another node, it will reset the NM-Timeout timer. When the NM-Timeout timer times out and is in the Ready Sleep State, the network management enters Prepare Bus-Sleep Mode.The time of the NM-Timeout timer is determined by CanNmTimeoutTime (configuration parameter).</p>
+</section>
+<section id="prepare-bus-sleep-mode">
+<h2>Prepare Bus Sleep Mode<a class="headerlink" href="#prepare-bus-sleep-mode" title="Link to this heading">¶</a></h2>
+<p>Prepare Bus Sleep state目的是确保所有节点都有时间在进入总线休眠状态之前停止其网络活动，使总线活动平静下来，最后在“准备总线睡眠模式”下总线上没有任何活动。</p>
+<p>The purpose of Prepare Bus Sleep state is to ensure that all nodes have time to stop their network activities before entering bus sleep state, allowing bus activity to calm down, and finally there is no activity on the bus in &quot;Prepare Bus Sleep Mode&quot;.</p>
+<p>当本节点进入Prepare Bus-Sleep Mode，CanNmWaitBusSleepTime（配置参数）定时器被启动，当CanNmWaitBusSleepTime定时器超时，当前状态将由Prepare Bus-Sleep Mode切换至Bus-Sleep Mode。</p>
+<p>When this node enters Prepare Bus-Sleep Mode, the CanNmWaitBusSleepTime (configuration parameter) timer is started. When the CanNmWaitBusSleepTime timer times out, the current state will be switched from Prepare Bus-Sleep Mode to Bus-Sleep Mode.</p>
+<p>如果在Prepare Bus-Sleep Mode接收到其他节点传输的网络管理报文时，当前CanNm状态将由Prepare Bus-Sleep Mode切换至Network Mode，默认情况下，将进入Repeat Message State。</p>
+<p>If network management messages transmitted by other nodes are received in Prepare Bus-Sleep Mode, the current CanNm state will be switched from Prepare Bus-Sleep Mode to Network Mode. By default, it will enter Repeat Message State.</p>
+<p>如果在Prepare Bus-Sleep Mode接收到网络请求时，当前状态将由Prepare Bus-Sleep Mode切换至Network Mode，默认情况下，将进入Repeat Message State。如果CanNmImmediateRestartEnabled（配置参数）被设置为TRUE，那么在这种情况下会立刻触发一次传输，这样做的理由是：集群中的其他节点仍处于Prepare Bus-Sleep Mode，在这种特殊情况下，应避免过渡到Bus-Sleep Mode，并应尽快恢复总线通信。由于CanNm中网络管理PDU的传输偏移导致，处于Repeat Message State的第一个网络管理PDU的传输可能会大大延迟。为了避免延迟重新启动网络可以立即请求发送网络管理PDU。</p>
+<p>If a network request is received in Prepare Bus-Sleep Mode, the current state will be switched from Prepare Bus-Sleep Mode to Network Mode. By default, it will enter Repeat Message State.If CanNmImmediateRestartEnabled (configuration parameter) is set to TRUE, then in this case a transfer will be triggered immediately. The reason for this is that other nodes in the cluster are still in Prepare Bus-Sleep Mode. In this special case, the transition to Bus-Sleep Mode should be avoided and bus communication should be restored as soon as possible.Due to the transmission offset of the network management PDU in CanNm, the transmission of the first network management PDU in the Repeat Message State may be greatly delayed.To avoid delays in restarting the network a Network Management PDU can be requested immediately.</p>
+</section>
+<section id="bus-sleep-mode">
+<h2>Bus-Sleep Mode<a class="headerlink" href="#bus-sleep-mode" title="Link to this heading">¶</a></h2>
+<p>Bus-Sleep state的目的是在不交换任何消息时降低节点的功耗。将通信控制器切换到睡眠模式，激活相应的唤醒机制，最后将功耗降低到总线睡眠模式下的适当水平。</p>
+<p>The purpose of Bus-Sleep state is to reduce the power consumption of nodes when no messages are exchanged.Switch the communication controller to sleep mode, activate the corresponding wake-up mechanism, and finally reduce the power consumption to the appropriate level in bus sleep mode.</p>
+<p>当CanNm处于Bus-Sleep Mode接收到网络管理报文时，此时CanNm不会切换至Network Mode，而是通知Nm模块，由上层模块做决策。</p>
+<p>When CanNm is in Bus-Sleep Mode and receives network management messages, CanNm will not switch to Network Mode at this time, but will notify the Nm module and let the upper module make decisions.</p>
+<p>当CanNm处于Bus-Sleep Mode接收到被动请求或网络请求时，当前状态将由Bus-Sleep Mode切换至Network Mode，默认情况下，将进入Repeat Message State。</p>
+<p>When CanNm is in Bus-Sleep Mode and receives a passive request or a network request, the current state will be switched from Bus-Sleep Mode to Network Mode. By default, it will enter Repeat Message State.</p>
+<section id="pdu-pdu-format">
+<h3>PDU格式 (PDU format)<a class="headerlink" href="#pdu-pdu-format" title="Link to this heading">¶</a></h3>
+<p>网络管理的报文有特定的格式要求，报文数据段格式如图：</p>
+<p>Network management messages have specific format requirements. The format of the message data segment is as follows:</p>
+<figure class="align-center" id="nm-pdu-nm-pdu-default-format">
+<img alt="NM PDU默认格式(NM PDU default format)" src="../../_images/image37.png" />
+</figure>
+<p>其中CBV（ControlBitVector）字节对应的bit位标识如下</p>
+<p>The bit identifier corresponding to the CBV (ControlBitVector) byte is as follows:</p>
+<figure class="align-center" id="cbv-cbv-format">
+<img alt="CBV格式(CBV format)" src="../../_images/image43.png" />
+</figure>
+<p>对于CBV中的bit说明如下：</p>
+<p>The bit description in CBV is as follows:</p>
+<p>Bit 0重复消息请求</p>
+<p>Bit 0 Repeat message request</p>
+<p>0：未请求进入Repeat Message State</p>
+<p>0: No request to enter Repeat Message State</p>
+<p>1：请求进入Repeat Message State</p>
+<p>1: Request to enter Repeat Message State</p>
+<p>Bit 1,2：保留位，当配置项CanNmCoordinatorEnabled使能时，该位等于配置的CanNmCoordinatorId的值</p>
+<p>Bit 1,2: Reserved bits. When the configuration item CanNmCoordinatorEnabled is enabled, this bit is equal to the value of the configured CanNmCoordinatorId.</p>
+<div class="line-block">
+<div class="line">Bit 3 NM协调器休眠位</div>
+<div class="line">0：主协调器不要求启动同步休眠</div>
+<div class="line">1：主协调员请求启动同步休眠</div>
+</div>
+<div class="line-block">
+<div class="line">Bit 3 NM coordinator sleep bit</div>
+<div class="line">0: The main coordinator does not require synchronous hibernation to be started</div>
+<div class="line">1: The main coordinator requests to start synchronous hibernation</div>
+</div>
+<div class="line-block">
+<div class="line">Bit 4主动唤醒位</div>
+<div class="line">0：节点尚未唤醒网络</div>
+<div class="line">1：节点唤醒了网络</div>
+</div>
+<div class="line-block">
+<div class="line">Bit 4 active wake-up bit</div>
+<div class="line">0: The node has not yet woken up the network</div>
+<div class="line">1: The node wakes up the network</div>
+</div>
+<p>Bit 6局部网络信息位（PNI）</p>
+<p>Bit 6 Partial Network Information Bit (PNI)</p>
+<div class="line-block">
+<div class="line">0：NM消息不包含局部网络请求信息</div>
+<div class="line">1：NM消息包含局部网络请求信息,该位由配置决定，运行阶段不改变</div>
+</div>
+<div class="line-block">
+<div class="line">0: NM message does not contain local network request information</div>
+<div class="line">1: The NM message contains local network request information. This bit is determined by the configuration and does not change during the running phase.</div>
+</div>
+<p>Bit5 Bit7为保留位</p>
+<p>Bit5 Bit7 are reserved bits</p>
+<p>NmPdu中的UserData可以通过CanNm的配置引用EcuC中的Pdu。未使用的情况下默认全0xFF，通过Nm的接口去抓取当前接收与发送的UserData。</p>
+<p>UserData in NmPdu can reference Pdu in EcuC through the configuration of CanNm.If not used, the default value is 0xFF. Use the Nm interface to capture the currently received and sent UserData.</p>
+</section>
+<section id="optional-features">
+<h3>可选功能 (optional features)<a class="headerlink" href="#optional-features" title="Link to this heading">¶</a></h3>
+<p>CanNm可以通过使能配置参数来使用以下可选功能。</p>
+<p>CanNm can use the following optional features by enabling configuration parameters.</p>
+</section>
+</section>
+<section id="detect-remote-sleep-command-function">
+<h2>检测远程睡眠指令功能 (Detect remote sleep command function)<a class="headerlink" href="#detect-remote-sleep-command-function" title="Link to this heading">¶</a></h2>
+<p>远程睡眠指示应用于一种情况，当处于NormalOperation State的节点发现集群中的所有其他节点都准备睡眠，但处于Normal Operation State状态的节点仍将保持总线苏醒。为了避免这种情况，可以使能远程睡眠指示功能。</p>
+<p>The remote sleep indication should be used in a situation when a node in Normal Operation State finds that all other nodes in the cluster are preparing to sleep, but the node in Normal Operation State will still keep the bus awake.To avoid this situation, the remote sleep indication function can be enabled.</p>
+<p>如果当前CanNm状态为Normal Operation State，并且在CanNmRemoteSleepIndTime（配置参数）定时器内未收到其他节点发送的网络管理报文，则通知上层Nm模块集群内的其他节点均已准备睡眠。</p>
+<p>If the current CanNm state is Normal Operation State and no network management messages are received from other nodes within the CanNmRemoteSleepIndTime (configuration parameter) timer, the upper Nm module is notified that other nodes in the cluster are ready to sleep.</p>
+<p>如果CanNm已通知上层Nm模块，而在Normal Operation State或Ready Sleep State下又收到了网络管理报文，或者CanNm从Normal Operation State切换至Repeat Message State，CanNm需要通知上层Nm模块集群中的某些节点不再准备睡眠。</p>
+<p>If CanNm has notified the upper Nm module and receives a network management message in Normal Operation State or Ready Sleep State, or CanNm switches from Normal Operation State to Repeat Message State, CanNm needs to notify the upper Nm module that some nodes in the cluster are no longer ready to sleep.</p>
+</section>
+<section id="user-data-function">
+<h2>用户数据功能 (User data function)<a class="headerlink" href="#user-data-function" title="Link to this heading">¶</a></h2>
+<p>使用CanNmUserDataEnabled开关（配置参数）对NM用户数据的支持进行静态配置。</p>
+<p>Use the CanNmUserDataEnabled switch (configuration parameter) to statically configure NM user data support.</p>
+<p>当用户数据功能使能，可以调用CanNm_SetUserData，该函数可以设置总线上接下来发送的NM数据包的NM用户数据。也可以调用CanNm_GetUserData，该函数可以提供包含在最近接收到的NM PDU的有效载荷中的NM用户数据。</p>
+<p>When the user data function is enabled, CanNm_SetUserData can be called. This function can set the NM user data of the next NM data packet sent on the bus.CanNm_GetUserData can also be called, which provides the NM user data contained in the payload of the most recently received NM PDU.</p>
+<p>如果CanNmComUserDataSupport（配置参数）配置为使能，CanNm将在每次请求发送相应的NM消息之前从引用的NM I-PDU收集NM用户数据，并将用户数据与其他NM字节合并。此时就不能再通过CanNm_SetUserData函数设置用户数据。</p>
+<p>If CanNmComUserDataSupport (configuration parameter) is configured to be enabled, CanNm will collect NM user data from the referenced NM I-PDU and merge the user data with other NM bytes before each request to send the corresponding NM message.At this time, user data can no longer be set through the CanNm_SetUserData function.</p>
+</section>
+<section id="passive-mode-functionality">
+<h2>被动模式功能 (Passive mode functionality)<a class="headerlink" href="#passive-mode-functionality" title="Link to this heading">¶</a></h2>
+<p>在被动模式下，节点仅接收NM消息，但不发送任何NM消息。被动模式应使用CanNmPassiveModeEnabled开关（配置参数）进行静态配置。</p>
+<p>In passive mode, the node only receives NM messages but does not send any NM messages.Passive mode should be statically configured using the CanNmPassiveModeEnabled switch (configuration parameter).</p>
+</section>
+<section id="nm-pdu-rx-nm-pdu-rx-indication-function">
+<h2>NM PDU Rx指示功能 (NM PDU Rx indication function)<a class="headerlink" href="#nm-pdu-rx-nm-pdu-rx-indication-function" title="Link to this heading">¶</a></h2>
+<p>若CanNmPduRxIndicationEnabled（配置参数）使能，在成功接收NM PDU时，CanNm应通过调用Nm_PduRxIndication通知上层。</p>
+<p>If CanNmPduRxIndicationEnabled (configuration parameter) is enabled, CanNm should notify the upper layer by calling Nm_PduRxIndication when successfully receiving NM PDU.</p>
+</section>
+<section id="status-change-notification-function">
+<h2>状态变化通知功能 (Status change notification function)<a class="headerlink" href="#status-change-notification-function" title="Link to this heading">¶</a></h2>
+<p>如果CanNmStateChangeIndEnabled（配置参数）使能，则CanNm需要将CanNm状态的所有更改通知上层Nm。</p>
+<p>If CanNmStateChangeIndEnabled (configuration parameter) is enabled, CanNm needs to notify the upper Nm of all changes in CanNm state.</p>
+</section>
+<section id="communication-control-function">
+<h2>通讯控制功能 (Communication control function)<a class="headerlink" href="#communication-control-function" title="Link to this heading">¶</a></h2>
+<p>使用CanNmComControlEnabled开关（配置参数），可以静态配置通信控制。当CanNm_DisableCommunication函数被调用，CanNm模块NM报文的传输能力将被停止，直到调用CanNm_EnableCommunication，CanNm的nm报文传输能力被恢复。</p>
+<p>Communication control can be configured statically using the CanNmComControlEnabled switch (configuration parameter).When the CanNm_DisableCommunication function is called, the CanNm module's NM message transmission capability will be stopped until CanNm_EnableCommunication is called, and CanNm's nm message transmission capability is restored.</p>
+<p>当CanNm_DisableCommunication函数被调用，CanNm的NM-Timeout定时器将被停止，调用函数CanNm_EnableCommunication，NM-Timeout定时器将被恢复。若一直未调用CanNm_EnableCommunication，CanNm会一直处在Ready Sleep State中无法进入休眠状态，在这种情况下，AutoSar规定，当网络被释放后，CanNm将从Ready Sleep State切换至Prepare Bus-Sleep Mode。</p>
+<p>When the CanNm_DisableCommunication function is called, CanNm's NM-Timeout timer will be stopped. Calling the function CanNm_EnableCommunication, the NM-Timeout timer will be restored.If CanNm_EnableCommunication has not been called, CanNm will always be in Ready Sleep State and cannot enter sleep state. In this case, AutoSar stipulates that when the network is released, CanNm will switch from Ready Sleep State to Prepare Bus-Sleep Mode.</p>
+</section>
+<section id="nm-nm-coordinator-synchronization-support-function">
+<h2>NM协调器同步支持功能 (NM coordinator synchronization support function)<a class="headerlink" href="#nm-nm-coordinator-synchronization-support-function" title="Link to this heading">¶</a></h2>
+<p>当有多个协调器连接到同一条总线时，在CBV中，NmCoordinatorSleepReady位用于指示主协调器请求启动关闭，有关CBV的概念见2.2章。</p>
+<p>When multiple coordinators are connected to the same bus, in CBV, the NmCoordinatorSleepReady bit is used to instruct the main coordinator to request startup shutdown. For the concept of CBV, see Chapter 2.2.</p>
+<p>当CanNm处于网络模式，接收网络管理报文的CBV中NmCoordinatorSleepReady=1，则CanNm通知上层协调睡眠功能被请求。</p>
+<p>When CanNm is in network mode and NmCoordinatorSleepReady=1 in the CBV of the received network management message, CanNm notifies the upper layer that the coordination sleep function is requested.</p>
+<p>当CanNm已通知上层协调睡眠功能被请求，接收网络管理报文的CBV中NmCoordinatorSleepReady=0，则CanNm通知上层协调睡眠功能请求被取消。</p>
+<p>When CanNm has notified the upper layer that the coordination sleep function is requested, and NmCoordinatorSleepReady=0 in the CBV of the received network management message, CanNm notifies the upper layer that the coordination sleep function request is cancelled.</p>
+</section>
+<section id="load-shedding-function">
+<h2>减负载功能 (Load shedding function)<a class="headerlink" href="#load-shedding-function" title="Link to this heading">¶</a></h2>
+<p>当CanNmBusLoadReductionEnabled参数配置为TRUE时，CanNm应该支持总线负载降低机制，当从其他状态进入Repeat Message State状态时，关闭总线负载降低机制，当从其他状态进入Normal Operation State状态时，打开总线负载降低机制。</p>
+<p>When the CanNmBusLoadReductionEnabled parameter is configured as TRUE, CanNm should support the bus load reduction mechanism. When entering the Repeat Message State from other states, the bus load reduction mechanism is turned off. When entering the Normal Operation State from other states, the bus load reduction mechanism is turned on.</p>
+<p>当总线负载降低机制启动后，CanNm_RxIndication()被调用后，使用CanNmMsgReducedTime参数重装CanNm Message Cycle Timer，当总线负载降低机制启动后，当成功发送NM PDU后，用CanNmMsgCycleTime参数重装CanNm Message Cycle Timer。</p>
+<p>When the bus load reduction mechanism is started, after CanNm_RxIndication() is called, use the CanNmMsgReducedTime parameter to reload the CanNm Message Cycle Timer. When the bus load reduction mechanism is started, when the NM PDU is successfully sent, use the CanNmMsgCycleTime parameter to reload the CanNm Message Cycle Timer.</p>
+</section>
+<section id="pn-pn-function">
+<h2>PN功能 (PN function)<a class="headerlink" href="#pn-pn-function" title="Link to this heading">¶</a></h2>
+<p>Autosar4.x版本开始支持PN功能，Pn功能的目的是基于功能划分网络，形成局域网；这种功能的划分由整车设计完成，对于各节点只需要关心自身存在的网段。只有在CanNmGlobalPnSupport(配置参数)和各通道下的CanNmPnEnabled(配置参数)使能的情况下，Pn功能才能正常工作。</p>
+<p>Autosar4.x version begins to support the PN function. The purpose of the Pn function is to divide the network based on functions to form a local area network. This division of functions is completed by the vehicle design, and each node only needs to care about its own network segment.The Pn function can only work properly when CanNmGlobalPnSupport (configuration parameter) and CanNmPnEnabled (configuration parameter) under each channel are enabled.</p>
+<p>如果CanNmPnEnabled(配置参数)为FALSE，则CanNm将执行正常的Rx指示处理，并且应禁用Pn功能。如果CanNmPnEnabled为TRUE，接收到的NM-PDU CBV中的PNI位为0，则CanNm模块应执行常规的Rx指示处理，从而省去了Pn功能的扩展。如果CanNmPnEnabled为TRUE并且接收到的NM-PDU CBV中的PNI位为1，则CanNm模块处理NM-PDU的Pn信息。</p>
+<p>If CanNmPnEnabled (configuration parameter) is FALSE, CanNm will perform normal Rx indication processing and the Pn functionality should be disabled.If CanNmPnEnabled is TRUE and the PNI bit in the received NM-PDU CBV is 0, the CanNm module should perform conventional Rx indication processing, thereby eliminating the need for extension of the Pn function.If CanNmPnEnabled is TRUE and the PNI bit in the received NM-PDU CBV is 1, the CanNm module processes the Pn information of the NM-PDU.</p>
+<p>如果CanNmPnEnabled为TRUE，则CanNm模块应将CBV中发送的PNI位的值设置为1，要使用Pn，则必须使用CBV。</p>
+<p>If CanNmPnEnabled is TRUE, the CanNm module shall set the value of the PNI bit sent in CBV to 1. To use Pn, CBV must be used.</p>
+<p>如果CanNmPnEnabled为FALSE，则CanNm模块应将CBV中已发送的PNI位的值始终设置为0。</p>
+<p>If CanNmPnEnabled is FALSE, the CanNm module shall always set the value of the sent PNI bit in the CBV to 0.</p>
+<p>Pn信息的位置位于网络管理报文的用户数据部分中，具体的位置通过CanNmPnInfoOffset和CanNmPnInfoLength来确定。</p>
+<p>The location of the Pn information is located in the user data part of the network management message, and the specific location is determined by CanNmPnInfoOffset and CanNmPnInfoLength.</p>
+<p>例如当CanNmPnInfoOffset = 3，CanNmPnInfoLength =2，代表NM消息只有字节3和字节4包含PN请求信息。</p>
+<p>For example, when CanNmPnInfoOffset = 3 and CanNmPnInfoLength =2, it means that only bytes 3 and 4 of the NM message contain PN request information.</p>
+<section id="pn-pn-filter">
+<h3>PN过滤 (PN filter)<a class="headerlink" href="#pn-pn-filter" title="Link to this heading">¶</a></h3>
+<p>PNC是Partial Network Cluster的缩写，它是指为了在车辆网络中支持一个或多个车辆功能而由多个ECU构成的集群。PNC的编号我们称为PNC ID，范围8~63，整车网络统一编号，关于PNC id与CanNmPdu映射关系说明：PNC ID对应CanNmPdu中的一个bit，例如PNC ID=8，对应CanNmPduByte1的bit0；PNC ID=63，对应Byte7的bit7；PNC ID对应的bit数值为1，则表示当前PN网络被请求，为0则表示网络释放。</p>
+<p>PNC is the abbreviation of Partial Network Cluster, which refers to a cluster composed of multiple ECUs in order to support one or more vehicle functions in the vehicle network.The number of PNC is called PNC ID, ranging from 8 to 63. It is a unified number for the entire vehicle network. Regarding the mapping relationship between PNC id and CanNmPdu, the PNC ID corresponds to a bit in CanNmPdu. For example, PNC ID=8 corresponds to bit0 of CanNmPduByte1; PNC ID=63 corresponds to bit7 of Byte7; the bit value corresponding to the PNC ID is 1, which means the current PN network is requested, and 0 means the network is released.</p>
+<p>通过配置参数CanNmPnFilterMaskByte，CanNm可以检测到哪个PN与ECU相关，而哪个与PN不相关。</p>
+<p>By configuring the parameter CanNmPnFilterMaskByte, CanNm can detect which PN is related to the ECU and which is not related to the PN.</p>
+<p>CanNmPnFilterMaskByte的每个位具有以下含义：</p>
+<p>Each bit of CanNmPnFilterMaskByte has the following meaning:</p>
+<p>0 PN请求与本ECU无关。如果接收的NM PDU中将该位置设置为1，也无法使ECU的通讯栈处于唤醒状态，因为该位的请求与本ECU是无关的。</p>
+<p>0 PN request has nothing to do with this ECU.If this bit is set to 1 in the received NM PDU, the ECU's communication stack cannot be awakened because the request for this bit has nothing to do with this ECU.</p>
+<p>1PN请求与本ECU有关。如果已在接收的NM-PDU中将该位置设置为1，则ECU的通信堆栈将保持唤醒状态。</p>
+<p>The 1PN request is related to this ECU.If this bit has been set to 1 in the received NM-PDU, the ECU's communication stack will remain awake.</p>
+<p>如果至少有一位与本ECU相关的PN请求，那么这条Nm PDU对于CanNm来说就是有用的，需要进行处理，如果没有一位与本ECU相关的PN请求，那么这条NM PDU将被忽略。</p>
+<p>If there is at least one PN request related to this ECU, then this Nm PDU is useful to CanNm and needs to be processed. If there is no PN request related to this ECU, then this NM PDU will be ignored.</p>
+</section>
+<section id="eraeira-era-and-eira">
+<h3>ERA与EIRA (ERA and EIRA)<a class="headerlink" href="#eraeira-era-and-eira" title="Link to this heading">¶</a></h3>
+<p>ERA是指ECU外部的PN请求的聚合，当CanNmPnEraCalcEnabled使能(配置参数)，表示支持ERA功能。而EIRA是指ECU内部和外部Pn请求的聚合，当CanNmPnEiraCalcEnabled使能(配置参数)，表示支持EIRA功能。</p>
+<p>ERA refers to the aggregation of PN requests outside the ECU. When CanNmPnEraCalcEnabled is enabled (configuration parameter), it indicates that the ERA function is supported.EIRA refers to the aggregation of ECU internal and external Pn requests. When CanNmPnEiraCalcEnabled is enabled (configuration parameter), it indicates that the EIRA function is supported.</p>
+<p>ERA是在网关节点才使用，此时没有内部的请求，只有不同的Channel对Pn的外部请求，ERA会为每个channel的每个PN位都设置一个监测的定时器，当CanNmPnResetTime(配置参数)时间内未请求PN，则将该PN的请求状态设置为未请求，每次请求状态有变化的时候都会通知上层PduR，由PduR模块进行转发。</p>
+<p>ERA is only used at the gateway node. At this time, there are no internal requests, only external requests for Pn from different channels. ERA will set a monitoring timer for each PN bit of each channel. When the PN is not requested within the CanNmPnResetTime (configuration parameter) time, the request status of the PN is set to not requested. Each time the request status changes, the upper layer PduR will be notified, and the PduR module will forward it.</p>
+<p>EIRA体现了当前节点与网络上其他节点对某一个PNC的请求与释放情况；EIRA不区分物理Channel，只针对不同的PN。EIRA会为每个PN位都设置一个监测的定时器，当CanNmPnResetTime(配置参数)时间内未请求PN，则将该PN的请求状态设置为未请求，每次请求状态有变化的时候都会通知上层PduR，由PduR模块进行转发。</p>
+<p>EIRA reflects the request and release of a certain PNC by the current node and other nodes on the network; EIRA does not distinguish between physical channels and only targets different PNs.EIRA will set a monitoring timer for each PN bit. When the PN is not requested within the CanNmPnResetTime (configuration parameter) time, the request status of the PN will be set to not requested. Each time the request status changes, the upper layer PduR will be notified and forwarded by the PduR module.</p>
+</section>
+<section id="spontaneous-transmission">
+<h3>自发传输 (spontaneous transmission)<a class="headerlink" href="#spontaneous-transmission" title="Link to this heading">¶</a></h3>
+<p>如果网络被请求并且CanNmPnHandleMultipleNetworkRequest（配置参数）设置为TRUE，无论CanNm处于Ready Sleep State，Normal Operation State或Repeat Message State，CanNm应更改为或重新启动为Repeat Message State。并且，CanNm会传输CanNmImmediateNmTransmissions（配置参数）数量的报文，其中第一条报文立即传输，其他报文按CanNmImmediateNmCycleTime传输（配置参数）。</p>
+<p>If a network is requested and CanNmPnHandleMultipleNetworkRequest (configuration parameter) is set to TRUE, CanNm should change to or restart to Repeat Message State whether CanNm is in Ready Sleep State, Normal Operation State or Repeat Message State.Moreover, CanNm will transmit the number of messages CanNmImmediateNmTransmissions (configuration parameter), of which the first message is transmitted immediately, and other messages are transmitted according to CanNmImmediateNmCycleTime (configuration parameter).</p>
+</section>
+</section>
+<section id="vehicle-wake-up-function">
+<h2>车辆唤醒功能 (Vehicle wake-up function)<a class="headerlink" href="#vehicle-wake-up-function" title="Link to this heading">¶</a></h2>
+<p>当CanNmCarWakeUpRxEnabled（配置参数）使能时，车辆唤醒功能被启用，目前暂时没有使用场景。如果任何接收到的NM-PDU中的Car Wakeup位为1，都会通知上层Nm。</p>
+<p>When CanNmCarWakeUpRxEnabled (configuration parameter) is enabled, the vehicle wake-up function is enabled, and there is currently no usage scenario.If the Car Wakeup bit in any received NM-PDU is 1, the upper layer Nm will be notified.</p>
+<p>当CanNmCarWakeUpRxEnabled（配置参数）使能，CanNmCarWakeUpFilterEnabled（配置参数）也使能时，只有收到NodeId等于CanNmCarWakeUpFilterNodeId的报文时，才会通知上层。</p>
+<p>When CanNmCarWakeUpRxEnabled (configuration parameter) is enabled and CanNmCarWakeUpFilterEnabled (configuration parameter) is also enabled, the upper layer will be notified only when a message with NodeId equal to CanNmCarWakeUpFilterNodeId is received.</p>
+</section>
+<section id="source-file-description">
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+</section>
+<section id="cannm-cannm-component-file-description">
+<h2>CanNm组件文件描述 (CanNm component file description)<a class="headerlink" href="#cannm-cannm-component-file-description" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件 (document)</p></th>
+<th class="head"><p>说明 (illustrate)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNm_Cfg.h</p></td>
+<td><p>定义CanNm模块预编译时用到的配置参数。 (Define the configuration parameters used when precompiling the CanNm module.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNm_Cfg.c</p></td>
+<td><p>定义CanNm模块生成的配置参数。 (Define the configuration parameters generated by the CanNm module.)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNm.h</p></td>
+<td><p>CanNm模块头文件，包含了API函数的扩展声明并定义了配置的数据结构。 (The CanNm module header file contains extended declarations of API functions and defines the configured data structure.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNm.c</p></td>
+<td><p>CanNm模块源文件，包含了API函数的实现。 (CanNm module source file contains the implementation of API functions.)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNm_Cbk.h</p></td>
+<td><p>包含CanNm供CanIf调用的API函数的声明 (Contains the declaration of the API function called by CanNm for CanIf)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNm_Internal.h</p></td>
+<td><p>包含CanNm内部的变量和数据结构的定义 (Contains the definition of variables and data structures inside CanNm)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNm_MemMap.h</p></td>
+<td><p>CanNm编译抽象文件 (CanNm compiles abstract files)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center" id="cannm-cannm-component-file-interaction-diagram">
+<img alt="CanNm组件文件交互关系图(CanNm component file interaction diagram)" src="../../_images/image53.png" />
+</figure>
+</section>
+<section id="api-api-interface">
+<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<section id="type-definition">
+<h3>类型定义 (type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="cannm-configtype-cannm-configtype-type-definition">
+<h2>CanNm_ConfigType类型定义 (CanNm_ConfigType type definition)<a class="headerlink" href="#cannm-configtype-cannm-configtype-type-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称 (name)</p></th>
+<th class="head"><p>CanNm_ConfigType</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>类型 (type)</p></td>
+<td><p>Structure</p></td>
+</tr>
+<tr class="row-odd"><td><p>范围 (scope)</p></td>
+<td><p>--</p></td>
+</tr>
+<tr class="row-even"><td><p>描述 (describe)</p></td>
+<td><p>此类型应包含容器CanNm_GlobalConfig及其子容器的参数。 (This type should contain the parameters of the container CanNm_GlobalConfig and its subcontainers.)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="enter-function-description">
+<h3>输入函数描述 (Enter function description)<a class="headerlink" href="#enter-function-description" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>输入模块 (Input module)</p></th>
+<th class="head"><p>API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Det</p></td>
+<td><p>Det_ReportError</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nm</p></td>
+<td><p>Nm_CarWakeUpIndication</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_CoordReadyToSleepCancellation</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_CoordReadyToSleepIndication</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_PduRxIndication</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_RemoteSleepCancellation</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_RemoteSleepIndication</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_StateChangeNotification</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_TxTimeoutException</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_RepeatMessageIndication</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_BusSleepMode</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_NetworkMode</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_NetworkStartIndication</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_PrepareBusSleepMode</p></td>
+</tr>
+<tr class="row-even"><td><p>PduR</p></td>
+<td><p>PduR_CanNmRxIndication</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>PduR_CanNmTriggerTransmit</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>PduR_CanNmTxConfirmation</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanIf</p></td>
+<td><p>CanIf_Transmit</p></td>
+</tr>
+<tr class="row-even"><td><p>CanSM</p></td>
+<td><p>CanSM_TxTimeoutException</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-interface-function-definition">
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="cannm-init-cannm-init-function-definition">
+<h2>CanNm_Init函数定义 (CanNm_Init function definition)<a class="headerlink" href="#cannm-init-cannm-init-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_Init</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void CanNm_Init(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>constCanNm_ConfigType* CanNmConfigPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x00</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不可重入 (Not reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>CanNmConfigPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>指向初始化结构体的指针 (Pointer to initialization structure)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>初始化完整的CanNm模块，即初始化在配置时激活的所有通道。 (Initialize the complete CanNm module, that is, initialize all channels activated during configuration.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-deinit-cannm-deinit-function-definition">
+<h2>CanNm_DeInit函数定义 (CanNm_DeInit function definition)<a class="headerlink" href="#cannm-deinit-cannm-deinit-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_DeInit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void CanNm_DeInit (</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>void</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x10</p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不可重入 (Not reentrant)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>反初始化CanNm模块 (Deinitialize the CanNm module)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-passivestartup-cannm-passivestartup-function-definition">
+<h2>CanNm_PassiveStartUp函数定义 (CanNm_PassiveStartUp function definition)<a class="headerlink" href="#cannm-passivestartup-cannm-passivestartup-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_PassiveStartUp</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_PassiveStartUp(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x01</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入（同一通道不可重入） (Reentrant (the same channel cannot be reentrant))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK:被动启动CanNm网络管理成功 (E_OK: Passively started CanNm network management successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:被动启动CanNm网络管理失败 (E_NOT_OK: Passive start of CanNm network management failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>被动启动CanNm模块 (Passively start the CanNm module)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-networkrequest-cannm-networkrequest-function-definition">
+<h2>CanNm_NetworkRequest函数定义 (CanNm_NetworkRequest function definition)<a class="headerlink" href="#cannm-networkrequest-cannm-networkrequest-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_NetworkRequest</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_NetworkRequest(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x02</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入（同一通道不可重入） (Reentrant (the same channel cannot be reentrant))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 请求被接受 (E_OK: Request accepted)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:请求被拒绝 (E_NOT_OK: Request rejected)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>由于 ECU需要在总线上通信，因此请求网络 (Since the ECU needs to communicate on the bus, it requests the network)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-networkrelease-cannm-networkrelease-function-definition">
+<h2>CanNm_NetworkRelease函数定义 (CanNm_NetworkRelease function definition)<a class="headerlink" href="#cannm-networkrelease-cannm-networkrelease-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_NetworkRelease</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_NetworkRelease(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x03</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入（同一通道不可重入） (Reentrant (the same channel cannot be reentrant))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 请求被接受 (E_OK: Request accepted)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:请求被拒绝 (E_NOT_OK: Request rejected)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>由于ECU不需要在总线上通信，因此释放网络 (Since the ECU does not need to communicate on the bus, freeing up the network)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-disablecommunication-cannm-disablecommunication-function-definition">
+<h2>CanNm_DisableCommunication函数定义 (CanNm_DisableCommunication function definition)<a class="headerlink" href="#cannm-disablecommunication-cannm-disablecommunication-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_DisableCommunication</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_DisableCommunication(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x0c</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入(仅限不同通道) (Reentrant (different channels only))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 请求成功 (E_OK: Request successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:请求关闭通信失败 (E_NOT_OK: Request to close communication failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>用于ISO14229的28服务，关闭通信 (28 service for ISO14229, communication closed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-enablecommunication-cannm-enablecommunication-function-definition">
+<h2>CanNm_EnableCommunication函数定义 (CanNm_EnableCommunication function definition)<a class="headerlink" href="#cannm-enablecommunication-cannm-enablecommunication-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_EnableCommunication</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_EnableCommunication(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x0d</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入（同一通道不可重入） (Reentrant (the same channel cannot be reentrant))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 请求成功 (E_OK: Request successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:请求使能通信失败 (E_NOT_OK: Request to enable communication failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>用于ISO14229的28服务，使能通信 (28 services for ISO14229, enabling communication)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-setuserdata-cannm-setuserdata-function-definition">
+<h2>CanNm_SetUserData函数定义 (CanNm_SetUserData function definition)<a class="headerlink" href="#cannm-setuserdata-cannm-setuserdata-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_SetUserData</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_SetUserData(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>const uint8*nmUserDataPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x04</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不同通道可重入 (Different channels can re-entry)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>nmUserDataPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>指向要设置的用户数据的指针 (Pointer to the user data to set)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK:设置用户数据成功 (E_OK: Setting user data successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK：设置用户数据失败 (E_NOT_OK: Failed to set user data)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>设置总线上接下来发送的NM消息的用户数据 (Set the user data for the next NM message sent on the bus)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getuserdata-cannm-getuserdata-function-definition">
+<h2>CanNm_GetUserData函数定义 (CanNm_GetUserData function definition)<a class="headerlink" href="#cannm-getuserdata-cannm-getuserdata-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_GetUserData</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_GetUserData(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>uint8*nmUserDataPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x05</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>请求获取用户数据的通道 (Channel to request user data)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数: (Output parameters:)</p></td>
+<td><p>nmUserDataPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>指向用于输出用户数据的内存的指针 (Pointer to memory used to output user data)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK:请求用户数据成功 (E_OK: Requesting user data successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK:请求用户数据失败 (E_NOT_OK: Requesting user data failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>从最近收到的NMPDU中获取用户数据 (Get user data from the most recently received NMPDU)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-transmit-cannm-transmit-function-definition">
+<h2>CanNm_Transmit函数定义 (CanNm_Transmit function definition)<a class="headerlink" href="#cannm-transmit-cannm-transmit-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_Transmit</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_Transmit(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>PduIdTypeTxPduId,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>constPduInfoType*PduInfoPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x49</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>对不同的TxPduId可重入 (Reentrant for different TxPduIds)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>要发送的Pdu的Id (Id of the Pdu to be sent)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>要发送的数据长度和数据指针 (Data length and data pointer to be sent)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK：成功接收传输请求 (E_OK: Transfer request successfully received)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK：传输请求被拒绝 (E_NOT_OK: Transfer request rejected)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>请求发送一帧NM报文 (Request to send a frame of NM message)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getnodeidentifier-cannm-getnodeidentifier-function-definition">
+<h2>CanNm_GetNodeIdentifier函数定义 (CanNm_GetNodeIdentifier function definition)<a class="headerlink" href="#cannm-getnodeidentifier-cannm-getnodeidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_GetNodeIdentifier</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_GetNodeIdentifier(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>uint8*nmNodeIdPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x06</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>获取NodeId的通道号 (Get the channel number of NodeId)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>nmNodeIdPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>指向存储NodeId的变量的指针 (Pointer to the variable storing the NodeId)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 获取成功 (E_OK: Obtained successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK:获取失败 (E_NOT_OK: Failed to obtain)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>获取最近接收到的NM报文中的节点标识符 (Get the node identifier in the recently received NM message)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getlocalnodeidentifier-cannm-getlocalnodeidentifier-function-definition">
+<h2>CanNm_GetLocalNodeIdentifier函数定义 (CanNm_GetLocalNodeIdentifier function definition)<a class="headerlink" href="#cannm-getlocalnodeidentifier-cannm-getlocalnodeidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_GetLocalNodeIdentifier</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_GetLocalNodeIdentifier(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>uint8*nmNodeIdPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x07</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>获取NodeId的通道号 (Get the channel number of NodeId)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>nmNodeIdPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>指向存储NodeId的变量的指针 (Pointer to the variable storing the NodeId)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 获取成功 (E_OK: Obtained successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK:获取失败 (E_NOT_OK: Failed to obtain)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>获取配置的该通道的本地节点标识符 (Get the configured local node identifier for this channel)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-repeatmessagerequest-cannm-repeatmessagerequest-function-definition">
+<h2>CanNm_RepeatMessageRequest函数定义 (CanNm_RepeatMessageRequest function definition)<a class="headerlink" href="#cannm-repeatmessagerequest-cannm-repeatmessagerequest-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_RepeatMessageRequest</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_RepeatMessageRequest(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x08</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入（同一通道不可重入） (Reentrant (the same channel cannot be reentrant))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>需要置位Repeat MessageRequest Bit的通道 (Channels that need to set the Repeat MessageRequest Bit)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK：设置成功 (E_OK: Setting successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK：设置重复标志位失败或未配置此网络。 (E_NOT_OK: Failed to set the duplicate flag or this network is not configured.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>为总线上接下来发送的NMPDU设置重复消息请求位 (Set the repeat message request bit for the next NMPDU sent on the bus)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getpdudata-cannm-getpdudata-function-definition">
+<h2>CanNm_GetPduData函数定义 (CanNm_GetPduData function definition)<a class="headerlink" href="#cannm-getpdudata-cannm-getpdudata-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_GetPduData</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_GetPduData(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>uint8*nmPduDataPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x0a</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>nmPduDataPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>获取到的NMPdu数据要被存放的地址 (The address where the obtained NMPdu data is to be stored.)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 获取成功 (E_OK: Obtained successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK:获取数据失败或未配置此网络 (E_NOT_OK: Failed to obtain data or this network is not configured)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>从最近接收到的NMPDU中获取整个PDU数据 (Get the entire PDU data from the most recently received NMPDU)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getstate-cannm-getstate-function-definition">
+<h2>CanNm_GetState函数定义 (CanNm_GetState function definition)<a class="headerlink" href="#cannm-getstate-cannm-getstate-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_GetState</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_GetState(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Nm_StateType*nmStatePtr,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Nm_ModeType*nmModePtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x0b</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>nmStatePtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>存放CanNm状态的地址 (The address where CanNm status is stored)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>nmModePtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>存放CanNm模式的地址 (Store the address of CanNm mode)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 获取成功 (E_OK: Obtained successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK:获取失败 (E_NOT_OK: Failed to obtain)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>获取CanNm当前的状态和模式 (Get the current status and mode of CanNm)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-getversioninfo-cannm-getversioninfo-function-definition">
+<h2>CanNm_GetVersionInfo函数定义 (CanNm_GetVersionInfo function definition)<a class="headerlink" href="#cannm-getversioninfo-cannm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_GetVersionInfo</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidCanNm_GetVersionInfo(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Std_VersionInfoType*Versioninfo</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0xf1</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>versioninfo</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>指向存储版本信息的buffer的地址 (Address pointing to the buffer where version information is stored)</p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>获取版本信息 (Get version information)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-requestbussynchronization-cannm-requestbussynchronization-function-definition">
+<h2>CanNm_RequestBusSynchronization函数定义 (CanNm_RequestBusSynchronization function definition)<a class="headerlink" href="#cannm-requestbussynchronization-cannm-requestbussynchronization-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_RequestBusSynchronization</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_RequestBusSynchronization(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0xc0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>非同步 (asynchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不可重入 (Not reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 请求成功 (E_OK: Request successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:请求失败 (E_NOT_OK: Request failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>请求总线同步 (Request bus synchronization)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-checkremotesleepindication-cannm-checkremotesleepindication-function-definition">
+<h2>CanNm_CheckRemoteSleepIndication函数定义 (CanNm_CheckRemoteSleepIndication function definition)<a class="headerlink" href="#cannm-checkremotesleepindication-cannm-checkremotesleepindication-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_CheckRemoteSleepIndication</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_CheckRemoteSleepIndication(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>boolean*nmRemoteSleepIndPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0xd0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入 (reentrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>nmRemoteSleepIndPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>检测是否发生远程睡眠通知结果存储地址 (Detect whether remote sleep notification result storage address occurs)</p></td>
+</tr>
+<tr class="row-even"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 检查成功 (E_OK: Check successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK:获取指示失败 (E_NOT_OK: Failed to obtain instructions)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>检查是否发生远程睡眠通知 (Check if remote sleep notification occurs)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-setsleepreadybit-cannm-setsleepreadybit-function-definition">
+<h2>CanNm_SetSleepReadyBit函数定义 (CanNm_SetSleepReadyBit function definition)<a class="headerlink" href="#cannm-setsleepreadybit-cannm-setsleepreadybit-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_SetSleepReadyBit</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>Std_ReturnTypeCanNm_SetSleepReadyBit(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>booleannmSleepReadyBit</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x17</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不同通道可重入 (Different channels can re-entry)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>nmSleepReadyBit</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>Sleep ReadyBit要设置的的值 (Sleep ReadyBit value to be set)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 设置成功 (E_OK: Setup successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:设置失败 (E_NOT_OK: Setting failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>在控制位向量中设置NM协调器睡眠就绪位 (Set the NM coordinator sleep ready bit in the control bit vector)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-txconfirmation-cannm-txconfirmation-function-definition">
+<h2>CanNm_TxConfirmation函数定义 (CanNm_TxConfirmation function definition)<a class="headerlink" href="#cannm-txconfirmation-cannm-txconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_TxConfirmation</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidCanNm_TxConfirmation(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>PduIdType TxPduId</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x40</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不同PduId可重入 (Different PduId can be re-entrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>发送成功的PduId (Send successful PduId)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>底层通信模块确认成功发送报文 (The underlying communication module confirms that the message was successfully sent)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-rxindication-cannm-rxindication-function-definition">
+<h2>CanNm_RxIndication函数定义 (CanNm_RxIndication function definition)<a class="headerlink" href="#cannm-rxindication-cannm-rxindication-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_RxIndication</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidCanNm_RxIndication(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>PduIdTypeRxPduId,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>constPduInfoType*PduInfoPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x42</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不同PduId可重入 (Different PduId can be re-entrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>RxPduId</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>接收报文的PduId (PduId of received message)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>接收报文的长度和指向报文的指针 (The length of the received message and the pointer to the message)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>底层通信模块调用该函数通知CanNm接收到NM报文 (The underlying communication module calls this function to notify CanNm that it has received the NM message.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-confirmpnavailability-cannm-confirmpnavailability-function-definition">
+<h2>CanNm_ConfirmPnAvailability函数定义 (CanNm_ConfirmPnAvailability function definition)<a class="headerlink" href="#cannm-confirmpnavailability-cannm-confirmpnavailability-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_ConfirmPnAvailability</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>voidCanNm_ConfirmPnAvailability(</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>NetworkHandleTypenmChannelHandle</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x16</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>可重入（仅限不同channel） (Reentrant (only different channels))</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>nmChannelHandle</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>NM通道Id (NM channel ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>返回值： (Return value:)</p></td>
+<td><p>E_OK: 设置成功 (E_OK: Setup successful)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_NOT_OK:设置失败 (E_NOT_OK: Setting failed)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>在指定的NMchannel上启用PN滤波功能 (Enable PN filtering function on the specified NMchannel)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-triggertransmit-cannm-triggertransmit-function-definition">
+<h2>CanNm_TriggerTransmit函数定义 (CanNm_TriggerTransmit function definition)<a class="headerlink" href="#cannm-triggertransmit-cannm-triggertransmit-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_TriggerTransmit</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>Std_ReturnType CanNm_TriggerTransmit (</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>PduIdType TxPduId,</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>PduInfoType* PduInfoPtr</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x41</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>同步/异步： (Sync/Asynchronous:)</p></td>
+<td><p>同步 (synchronous)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>是否可重入： (Is it reentrant:)</p></td>
+<td><p>不同PduId可重入 (Different PduId can be re-entrant)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>输入参数： (Input parameters:)</p></td>
+<td><p>TxPduId</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>发送PduId (SendPduId)</p></td>
+</tr>
+<tr class="row-even"><td><p>输入输出参数: (Input and output parameters:)</p></td>
+<td><p>PduInfoPtr</p></td>
+<td><p>值域： (range:)</p></td>
+<td><p>下层模块提供的用于存储发送数据的buffer地址和buffer大小。返回时将实际拷贝的数据长度赋值给sduLength。 (The buffer address and buffer size provided by the lower module for storing sent data.When returning, assign the actual copied data length to sduLength.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出参数： (Output parameters:)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>E_OK: 从CanNm获取数据成功 (E_OK: Obtaining data from CanNm successfully)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>E_NOT_OK: 从CanNm获取数据失败 (E_NOT_OK: Failed to get data from CanNm)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>下层模块在发送数据时调用该函数从CanNm获取要发送的数据 (The lower module calls this function to obtain the data to be sent from CanNm when sending data.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannm-mainfunction-cannm-mainfunction-function-definition">
+<h2>CanNm_MainFunction函数定义 (CanNm_MainFunction function definition)<a class="headerlink" href="#cannm-mainfunction-cannm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名称： (Function name:)</p></th>
+<th class="head"><p>CanNm_MainFunction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>函数原型： (Function prototype:)</p></td>
+<td><p>void CanNm_MainFunction(</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>void</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>服务编号： (Service number:)</p></td>
+<td><p>0x13</p></td>
+</tr>
+<tr class="row-even"><td><p>功能概述： (Function overview:)</p></td>
+<td><p>CanNm模块周期调度函数 (CanNm module periodic scheduling function)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="configurable-function-definition">
+<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<p>无。</p>
+<p>none.</p>
+</section>
+</section>
+<section id="configuration">
+<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<section id="cannmglobalconfig">
+<h3>CanNmGlobalConfig<a class="headerlink" href="#cannmglobalconfig" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="cannmglobalconfig-cannmglobalconfig-container-configuration-diagram">
+<img alt="CanNmGlobalConfig容器配置图(CanNmGlobalConfig container configuration diagram)" src="../../_images/image63.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 CanNmGlobalConfig属性描述 (Table CanNmGlobalConfig property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNmBusLoadReductionEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，用于启用总线减负载支持 (Preprocessor switch to enable bus load shedding support)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果CanNmPassiveModeEnabled== true 或CanNmGlobalPnSupport==true，那么CanNmBusLoadReductionEnabled= false (If CanNmPassiveModeEnabled== true or CanNmGlobalPnSupport==true, then CanNmBusLoadReductionEnabled= false)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmBusSynchronizationEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，用于启用总线同步支持，此功能仅适用于网关节点 (Preprocessor switch to enable bus synchronization support, this feature is only available for gateway nodes)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果（CanNmPassiveModeEnabled==False），那么等于（NmBusSynchronizationEnabled）否则等于（False）</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmComControlEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，用于启用通信控制支持 (Preprocessor switch to enable communication control support)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果（CanNmPassiveModeEnabled==False），那么等于（NmComControlEnabled）否则等于（False）</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmComUserDataSupport</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>用于启用Com用户数据的预处理器开关 (Preprocessor switch for enabling Com user data)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果CanNmPassiveModeEnabled== True则CanNmComUserDataSupport= False (If CanNmPassiveModeEnabled== True then CanNmComUserDataSupport= False)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmCoordinatorSyncSupport</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>启用/禁用协调器同步支持。 (Enable/disable coordinator synchronization support.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果将CanNmPassiveModeEnabled设置为TRUE，则必须将CanNmCoordinatorSyncSupport设置为FALSE。 (If CanNmPassiveModeEnabled is set to TRUE, CanNmCoordinatorSyncSupport must be set to FALSE.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmDevErrorDetect</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>true, false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>打开或关闭开发错误检测 (Turn development error detection on or off)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmGlobalPnSupport</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>用于全局启用部分网络支持的预处理器开关。 (Preprocessor switch for globally enabling partial network support.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmImmediateRestartEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，用于在准备总线休眠模式下根据总线通信请求启用NMPDU立即传输 (Preprocessor switch to enable immediate transmission of NMPDU upon bus communication request in prepare bus sleep mode)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果定义了CanNmPassiveModeEnabled，则不能定义它 (Cannot define CanNmPassiveModeEnabled if it is defined)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmImmediateTxconfEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>启用/禁用立即发送确认。 (Enable/disable sending confirmation immediately.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果CanNmPasiveModeEnabled已启用，则不应启用CanNmImmediateTxconfEnabled。 (CanNmImmediateTxconfEnabled should not be enabled if CanNmPasiveModeEnabled is enabled.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmMainFunctionPeriod</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001..0.255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>各个实例的CanNm_MainFunction的调用周期，以秒为单位指定。 (The calling period of CanNm_MainFunction of each instance, specified in seconds.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>取值需要大于0 (The value needs to be greater than 0)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPassiveModeEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，用于支持被动模式 (Preprocessor switch to support passive mode)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于NmIf模块的NmPassiveModeEnabled (Depends on NmPassiveModeEnabled of NmIf module)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPduRxIndicationEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>用于启用PDURx指示的预处理器开关 (Preprocessor switch to enable PDURx indication)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于NmIf模块的NmPduRxIndicationEnabled (Depends on NmPduRxIndicationEnabled of NmIf module)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPnEiraCalcEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定CanNm是否计算内部外部请求的PN请求信息（EIRA）</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmGlobalPnSupport== true时可配置 (Configurable only when CanNmGlobalPnSupport== true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPnResetTime</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>以秒为单位指定重置定时器的运行时间。该复位时间对EIRA和ERA中的PN请求复位有效。每个通道的值应该相同。因此它是一个全局配置参数 (Specifies the time in seconds for the reset timer to run.This reset time is valid for PN request reset in EIRA and ERA.The value should be the same for each channel.Therefore it is a global configuration parameter)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmGlobalPnSupport== true时可配置 (Configurable only when CanNmGlobalPnSupport== true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>CanNmPnResetTime&gt;CanNmMsgCycleTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>CanNmPnResetTime&lt;CanNmTimeoutTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmRemoteSleepIndEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，支持远程睡眠指示，此功能仅适用于网关节点 (Preprocessor switch to support remote sleep indication, this feature is only available for gateway nodes)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果（CanNmPassiveModeEnabled==False），那么等于（NmComControlEnabled）否则等于（False）</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmStateChangeIndEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>用于启用CanNM状态更改通知的预处理器开关 (Preprocessor switch to enable CanNM state change notifications)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于NmStateChangeIdEnabled (Depends on NmStateChangeIdEnabled)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmUserDataEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>预处理器开关，用于支持用户数据 (Preprocessor switch to support user data)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于NmUserDataEnabled (Depends on NmUserDataEnabled)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmVersionInfoApi</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>启用或者禁用版本获取API (Enable or disable version acquisition API)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPnEiraRxNSduRef</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>Reference to [ Pdu]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>引用COM-Stack中Pdu。CanNm只需要一个SduRef，因为EIRA是所有以太网通道上的聚合。 (Reference Pdu in COM-Stack.CanNm only requires one SduRef since EIRA is aggregated on all Ethernet channels.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmPnEiraCalcEnabled==true时可配，引用的PDU需要在PDUR中进行关联 (Configurable only when CanNmPnEiraCalcEnabled==true, the referenced PDU needs to be associated in the PDUR)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cannmchannelconfig">
+<h2>CanNmChannelConfig<a class="headerlink" href="#cannmchannelconfig" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="cannmchannelconfig-cannmchannelconfig-container-configuration-diagram">
+<img alt="CanNmChannelConfig容器配置图(CanNmChannelConfig container configuration diagram)" src="../../_images/image73.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 CanNmChannelConfig属性描述 (Table CanNmChannelConfig property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmActiveWakeupBitEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>在CanNm模块中启用/禁用处理Active   Wakeup Bit (Enable/disable handling of Active Wakeup Bit in CanNm module)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>此参数仅在CanNmPassiveModeEnabled为False时可配置 (This parameter is only configurable when CanNmPassiveModeEnabled is False)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定   CanNm 是否丢弃不相关的   NM PDU。 (Specifies whether CanNm discards irrelevant NM PDUs.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmPnEiraCalcEnabled == true 或CanNmPnEraCalcEnabled   == true时有效 (Only valid when CanNmPnEiraCalcEnabled == true or CanNmPnEraCalcEnabled == true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmBusLoadReductionActive</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>该参数定义了各自NM通道的总线减负载功能是否启用。 (This parameter defines whether the bus load shedding function of the respective NM channel is enabled.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果CanNmBusLoadReductionEnabled   == false则CanNmBusLoadReductionActive   = false (If CanNmBusLoadReductionEnabled == false then CanNmBusLoadReductionActive = false)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0..7</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmCarWakeUpBitPosition</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定CWU在NM   PDU中的Bit位置。 (Specify the bit position of the CWU in the NM PDU.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmCarWakeUpRxEnabled == TRUE 时可用 (Only available when CanNmCarWakeUpRxEnabled == TRUE)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0..7</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmCarWakeUpBytePosition</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定CWU在NM   PDU中的Byte位置。 (Specify the byte position of the CWU in the NM PDU.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmCarWakeUpRxEnabled == TRUE 时可用，CanNmCarWakeupBytePosition   ≥ 启用的系统字节数   (CBV,NID)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmCarWakeUpFilterEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>如果支持CWU过滤，则仅NM   PDU中具有源节点标识符CanNmCarWakeUpFilterNodeId的CWU位被视为CWU请求。 (If CWU filtering is supported, only the CWU bits in the NM PDU with the source node identifier CanNmCarWakeUpFilterNodeId are considered CWU requests.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmCarWakeUpRxEnabled=TRUE</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmCarWakeUpFilterNodeId</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>CWU过滤的源节点标识符。如果支持CWU过滤，则只有具有源节点标识符CanNmCarWakeUpFilterNodeId的NM   PDU中的CWU位被视为CWU请求 (Source node identifier for CWU filtering.If CWU filtering is supported, only the CWU bits in the NM PDU with the source node identifier CanNmCarWakeUpFilterNodeId are considered CWU requests)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmCarWakeUpFilterEnabled=TRUE</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmCarWakeUpRxEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>启用或禁用在接收的NM   PDU中支持CarWakeUp  bit评估 (Enable or disable support for CarWakeUp bit evaluation in received NM PDUs)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于NmIf模块的NmCarWakeUpRxEnabled (NmCarWakeUpRxEnabled which depends on NmIf module)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001..65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>定义用于CanNmImmediateNmTransmissions   NM PDU 立即传输的循环时间，以秒为单位。 (Defines the cycle time, in seconds, for CanNmImmediateNmTransmissions NM PDU immediate transmission.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>此参数仅在以下情况下有效CanNmImmediateNmTransmissions&gt;1。 (This parameter is only valid if CanNmImmediateNmTransmissions&gt;1.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0..255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>定义应立即传输的NM   PDU的数量。如果该值为零，则不会立即发送   NM PDU。立即传输   NM PDU 的循环时间由   CanNmImmediateNmCycleTime 定义。 (Defines the number of NM PDUs that should be transmitted immediately.If the value is zero, the NM PDU is not sent immediately.The cycle time for immediate transmission of NM PDUs is defined by CanNmImmediateNmCycleTime.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmImmediateNmTransmissions</p></td>
+<td><p></p></td>
+<td><p>如果   CanNmImmediateRestartEnabled = true 那么 (if CanNmImmediateRestartEnabled = true then)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmImmediateNmTransmissions   = 0如果   CanNmPnHandleMultipleNetworkRequests == True&quot; 那么 (CanNmImmediateNmTransmissions = 0 if CanNmPnHandleMultipleNetworkRequests == True&quot; then)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>&quot;CanNmImmediateNmTransmissions   &gt; 0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmMsgCycleOffset</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>周期性传输节点中的时间偏移。它决定了传输的启动延迟。以秒为单位指定 (Time offset in periodic transmission nodes.It determines the startup delay of the transfer.Specified in seconds)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>参数值&lt;CanMsgCycleTime此参数仅在CanNmPassiveModeEnabled为False时有效 (Parameter value &lt;CanMsgCycleTime This parameter is only valid when CanNmPassiveModeEnabled is False)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmMsgCycleTime</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>NM   PDU的周期以秒为单位。它确定周期性速率，并且是传输调度的基础。 (The period of NM PDU is in seconds.It determines the periodic rate and is the basis for transmission scheduling.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>当“CanNmPassiveModeEnabled”为“False”时，此参数才有效。 (This parameter is only valid when &quot;CanNmPassiveModeEnabled&quot; is &quot;False&quot;.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>减负载的周期传输时间，以秒为单位。 (Cycle transfer time for load shedding, in seconds.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>0,5 * CanNmMsgCycleTime ≤   CanNmMsgReducedTime &lt; CanNmMsgCycleTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmMsgReducedTime</p></td>
+<td><p></p></td>
+<td><p>此参数仅在以下情况下有效 (This parameter is only valid when)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系· (Dependencies ·)</p></td>
+<td><p>CanNmBusLoadReductionEnabled ==   True 和CanNmBusLoadReductionActive == True   和 (CanNmBusLoadReductionEnabled == True and CanNmBusLoadReductionActive == True and)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>CanNmPassiveModeEnabled == False</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>否则不使用此参数。 (Otherwise this parameter is not used.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>当使用部分网络并定义此超时时，CanNm   会监控   NM-PDU 在此传输超时时间内成功传输，否则提供错误通知。 (When using a partial network and defining this timeout, CanNm monitors for successful transmission of NM-PDUs within this transmission timeout and provides an error notification otherwise.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmMsgTimeoutTime   &lt; CanNmMsgCycleTime此参数仅在   CanNmPassiveModeEnabled 和 CanNmImmediateTxConfEnabled   设置为   FALSE 且   CanNmPnEnabled 设置为 TRUE 时有效。 (CanNmMsgTimeoutTime &lt; CanNmMsgCycleTime This parameter is only valid when CanNmPassiveModeEnabled and CanNmImmediateTxConfEnabled are set to FALSE and CanNmPnEnabled is set to TRUE.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>FSLSE/TRUE</p></td>
+<td><p>默认 (default)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>是否使能节点检测功能 (Whether to enable node detection function)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmNodeIdEnabled设置为TRUE时有效如果CanNmPassiveModeEnabled==True，则CanNmNodeDetectionEnabled=False (Only valid when CanNmNodeIdEnabled is set to TRUE If CanNmPassiveModeEnabled==True, then CanNmNodeDetectionEnabled=False)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0~255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmNodeId</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>本地节点标志符 (local node identifier)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>此参数仅在   CanNmNodeIdEnabled == True 时有效 (This parameter is only valid when CanNmNodeIdEnabled == True)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmNodeIdEnabled</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>true,   false</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>用于启用源节点标识符的预处理器开关。 (Preprocessor switch to enable source node identifiers.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>Equal(NmNodeIdEnabled)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>CANNM_PDU_BYTE_0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>CANNM_PDU_BYTE_1</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>CANNM_PDU_OFF</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPduCbvPosition</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>定义NM   PDU内控制位向量的位置。参数的值表示NM   PDU中控制位向量的位置（CanNmPduByte0表示字节0，CanNmPduByte1表示字节1，CanNmPduOff表示源节点标识符不是NM   PDU的一部分）</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>如果CanNmNodeDetectionEnabled==   true，那么CanNmPduCbvPosition！=   CANNM_PDU_OFF (If CanNmNodeDetectionEnabled== true, then CanNmPduCbvPosition!= CANNM_PDU_OFF)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果（CANNM_PDU_CBV_POSITION！=   CANNM_PDU_OFF&amp;&amp;CANNM_PDU_NID_POSITION！=   CANNM_PDU_OFF）则CANNM_PDU_CBV_POSITION！=   CANNM_PDU_NID_POSITION</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>如果（CANNM_PDU_CBV_POSITION！=   CANNM_PDU_OFF&amp;&amp;CANNM_PDU_NID_POSITION==CANNM_PDU_OFF）则CANNM_PDU_CBV_POSITION=CANNM_PDU_BYTE0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>CANNM_PDU_BYTE_0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>CANNM_PDU_BYTE_1</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>CANNM_PDU_OFF</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPduNidPosition</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>定义NM   PDU中源节点标识的位置。该参数的值表示NM   PDU中源节点标识的位置 (Defines the position of the source node identifier in the NM PDU.The value of this parameter indicates the position of the source node identifier in the NM PDU.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>如果CanNmNodeIdEnabled==   true，那么CanNmPduNidPosition！=   CANNM_PDU_OFF (If CanNmNodeIdEnabled== true, then CanNmPduNidPosition!= CANNM_PDU_OFF)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>如果（CANNM_PDU_NID_POSITION！=   CANNM_PDU_OFF&amp;&amp; CANNM_PDU_CBV_POSITION！=   CANNM_PDU_OFF）则CANNM_PDU_NID_POSITION！=   CANNM_PDU_CBV_POSITION</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>如果（CANNM_PDU_NID_POSITION！=   CANNM_PDU_OFF&amp;&amp; CANNM_PDU_CBV_POSITION== CANNM_PDU_OFF）则CANNM_PDU_NID_POSITION=   CANNM_PDU_BYTE0</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPnEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>使能或者禁用PN (Enable or disable PN)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmGlobalPnSupport == true 时有效,同时需要配置CanNmPnInfo (Only valid when CanNmGlobalPnSupport == true, and CanNmPnInfo needs to be configured.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPnEraCalcEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定CanNm是否计算外部请求的PN请求信息 (Specifies whether CanNm calculates PN request information for external requests)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmGlobalPnSupport == true 时有效 (Only valid when CanNmGlobalPnSupport == true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>FALSE</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmPnHandleMultipleNetworkRequests</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定CanNm是否执行从网络模式到重复消息状态（true）或不（false）的附加转换</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmGlobalPnSupport == true 时有效 (Only valid when CanNmGlobalPnSupport == true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmRemoteSleepIndTime</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>远程睡眠指示超时。它定义了需要多长时间才能识别所有其他节点已准备好进入睡眠状态 (Remote sleep indication timed out.It defines how long it takes to recognize that all other nodes are ready to sleep)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmRemoteSleepIndTime≥   CanNmMsgCycleTime且CanNmRemoteSleepIndTime仅在CanNmRemoteSleepIndEnabled   = true时是必需的 (CanNmRemoteSleepIndTime ≥ CanNmMsgCycleTime and CanNmRemoteSleepIndTime is only required if CanNmRemoteSleepIndEnabled = true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>重复消息状态超时。它以秒为单位定义了NM应该停留在重复消息状态的时间 (Duplicate message status timeout.It defines how long in seconds the NM should stay in duplicate message state)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmRepeatMessageTime=n*CanNmMsgCycleTime;CanNmRepeatMessageTime&gt;CanNmImmediateNmTransmissions   *CanNmImmediateNmCycleTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>FALSE/TRUE</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmRepeatMsgIndEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>是否使能RepeatMessageRequest位已被收到的通知 (Whether to enable notification that the RepeatMessageRequest bit has been received)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>计算公式=如果（CanNmPassiveModeEnabled==False）则等于（NmRepeatMsgIndEnabled）否则等于（False）</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>STD_ON,STD_OFF</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmStayInPbsEnabled</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>如果禁用此参数，则在   CanNmWaitBusSleepTime 后离开Prepare Bus-Sleep 模式。如果启用此参数，则只有在   ECU 断电或任何重新启动原因适用时才能离开   Prepare BusSleep 模式。 (If this parameter is disabled, Prepare Bus-Sleep mode is left after CanNmWaitBusSleepTime.If this parameter is enabled, Prepare BusSleep mode can only be left when the ECU is powered off or any restart reason applies.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.002~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>NM   PDU的网络超时。它表示在转换到 (Network timeout for NM PDU.It means that when converting to)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmTimeoutTime</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>Prepare Bus-Sleep 模式启动之前，NM需要停留在 (Before the Prepare Bus-Sleep mode is started, the NM needs to stay in)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>ReadySleep状态的时间 (ReadySleep state time)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>CanNmTimeoutTime &gt;   CanNmMsgCycleTime</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0.001~65.535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmWaitBusSleepTime</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>表示在转换到总线休眠模式之前，NM应停留在准备总线休眠模式的时间，以秒为单位 (Indicates the time, in seconds, that the NM should stay in ready bus sleep mode before transitioning to bus sleep mode.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>它应该对群集中的所有节点都是相等的。它应该足够长，使所有Tx缓冲区都为空，如果   CanNmStayInPbsEnabled 被禁用，这个参数应该是强制性的。 (它应该对群集中的所有节点都是相等的。It should be long enough so that all Tx buffers are empty, this parameter should be mandatory if CanNmStayInPbsEnabled is disabled.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>Reference to [ ComMChannel ]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p>CanNmComMNetworkHandleRef</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>此引用指向由ComMChannel定义的唯一通道，并提供对ComMChannelId中唯一通道索引值的访问 (This reference points to the unique channel defined by ComMChannel and provides access to the unique channel index value in ComMChannelId)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>无 (none)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>Reference to [ Pdu ]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPnEraRxNSduRef</p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>参考COM堆栈中的Pdu。每个CanNm通道都需要SduRef，因为每个channel都会报告ERA (Refer to Pdu in COM stack.SduRef is required for each CanNm channel because each channel reports ERA)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当   CanNmPnEraCalcEnabled == true 时有效，引用的PDU需要在PDUR中进行关联 (Only valid when CanNmPnEraCalcEnabled == true, the referenced PDU needs to be associated in the PDUR)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<section id="cannmrxpdu">
+<h3>CanNmRxPdu<a class="headerlink" href="#cannmrxpdu" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="cannmrxpdu-cannmrxpdu-container-configuration-diagram">
+<img alt="CanNmRxPdu容器配置图(CanNmRxPdu container configuration diagram)" src="../../_images/image83.png" />
+</figure>
+<p class="centered">
+<strong><strong>表  CanNmRxPdu属性描述 (Table CanNmRxPdu attribute description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNmRxPduId</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>CANNM_RX_PDU_index(x)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>此参数定义与此CanNm 通道关联的CanIf L-PDU 范围的Rx PDU ID。 (This parameter defines the Rx PDU ID of the CanIf L-PDU range associated with this CanNm channel.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>配置的PDU顺序 (Configured PDU sequence)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmRxPduRef</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>Reference to [ Pdu]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>对此 CanNm通道使用的全局 PDU的引用。 (A reference to the global PDU used by this CanNm channel.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于ECUC里面配置的PDU,与CanNmTxPduRef、CanNmTxUserDataPduRef不能相同 (Depends on the PDU configured in ECUC, which cannot be the same as CanNmTxPduRef and CanNmTxUserDataPduRef.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannmtxpdu">
+<h3>CanNmTxPdu<a class="headerlink" href="#cannmtxpdu" title="Link to this heading">¶</a></h3>
+<p>仅当 CanNmPassiveModeEnabled 为 false 时，此容器的配置有效。</p>
+<p>This container's configuration is only valid when CanNmPassiveModeEnabled is false.</p>
+<figure class="align-center" id="cannmtxpdu-cannmtxpdu-container-configuration-diagram">
+<img alt="CanNmTxPdu容器配置图(CanNmTxPdu container configuration diagram)" src="../../_images/image93.png" />
+</figure>
+<p class="centered">
+<strong><strong>表  CanNmTxPdu属性描述 (Table CanNmTxPdu attribute description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNmTxConfirmationPduId</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>CANNM_TX_PDU_index(x)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>下层的TxConfirmation使用的TxPdu的ID。 (The ID of the TxPdu used by the underlying TxConfirmation.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>配置的PDU顺序 (Configured PDU sequence)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmTxPduRef</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>Reference to [ Pdu]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>引用AUTOSARECU配置规范中描述的全局PDU结构中的PDU。CanNm模块将使用此参考来导出PDUID。 (References the PDU in the global PDU structure described in the AUTOSARECU configuration specification.The CanNm module will use this reference to export the PDUID.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于ECUC里面配置的PDU，与CanNmRxPduRef、CanNmTxUserDataPduRef不能相同 (Depends on the PDU configured in ECUC, which cannot be the same as CanNmRxPduRef and CanNmTxUserDataPduRef.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cannmuserdatatxpdu">
+<h3>CanNmUserDataTxPdu<a class="headerlink" href="#cannmuserdatatxpdu" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="cannmuserdatatxpdu-cannmuserdatatxpdu-container-configuration-diagram">
+<img alt="CanNmUserDataTxPdu容器配置图(CanNmUserDataTxPdu container configuration diagram)" src="../../_images/image103.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 CanNmUserDataTxPdu属性描述 (Table CanNmUserDataTxPdu attribute description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNmTxUserDataPduId</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0 .. 65535</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>CANNM_USER_TX_PDU_index(x)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>此参数定义NM用户数据I-PDU的HandleID。 (This parameter defines the HandleID of the NM user data I-PDU.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>配置的PDU顺序 (Configured PDU sequence)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmTxUserDataPduRef</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>Reference to [ Pdu]</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>在全局PDU集合中引用NMUser Data I-PDU。 (Reference the NMUser Data I-PDU in the global PDU collection.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>依赖于ECUC里面配置的PDU，与CanNmRxPduRef、CanNmTxPduRef不能相同,该PDU需要在PDUR模块中有引用 (Depends on the PDU configured in ECUC, which cannot be the same as CanNmRxPduRef and CanNmTxPduRef. This PDU needs to be referenced in the PDUR module)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cannmpninfo">
+<h2>CanNmPnInfo<a class="headerlink" href="#cannmpninfo" title="Link to this heading">¶</a></h2>
+<figure class="align-center" id="cannmpninfo-cannmpninfo-container-configuration-diagram">
+<img alt="CanNmPnInfo容器配置图(CanNmPnInfo container configuration diagram)" src="../../_images/image116.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 CanNmPnInfo属性描述 (Table CanNmPnInfo property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNmPnInfoLength</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>1 .. 7</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定NM消息中PN请求信息的长度。 (Specifies the length of the PN request information in the NM message.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmGlobalPnSupport== true 时有效 (Only valid when CanNmGlobalPnSupport== true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPnInfoOffset</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>1 .. 7</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>指定NM消息中PN请求信息的偏移量。 (Specifies the offset of the PN request information in the NM message.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmGlobalPnSupport== true 时有效 (Only valid when CanNmGlobalPnSupport== true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<section id="cannmpnfiltermaskbyte">
+<h3>CanNmPnFilterMaskByte<a class="headerlink" href="#cannmpnfiltermaskbyte" title="Link to this heading">¶</a></h3>
+<figure class="align-center" id="cannmpnfiltermaskbyte-cannmpnfiltermaskbyte-container-configuration-diagram">
+<img alt="CanNmPnFilterMaskByte容器配置图(CanNmPnFilterMaskByte container configuration diagram)" src="../../_images/image123.png" />
+</figure>
+<p class="centered">
+<strong><strong>表 CanNmPnFilterMaskByte属性描述 (Table CanNmPnFilterMaskByte property description)</strong></strong></p><table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>UI名称 (UI name)</p></th>
+<th class="head"><p>描述 (describe)</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CanNmPnFilterMaskByteIndex</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0 .. 6</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>过滤掩码字节的索引。指定过滤掩码字节数组中的位置 (Index of filter mask bytes.Specifies the position in the filter mask byte array)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmGlobalPnSupport== true时有效CanNmPnFilterMaskByteIndex&lt;CanNmPnInfoLength (Only valid when CanNmGlobalPnSupport== trueCanNmPnFilterMaskByteIndex&lt;CanNmPnInfoLength)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>CanNmPnFilterMaskByteValue</p></td>
+<td><p>取值范围 (Value range)</p></td>
+<td><p>0 .. 255</p></td>
+<td><p>默认取值 (Default value)</p></td>
+<td><p>无 (none)</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>参数描述 (Parameter description)</p></td>
+<td><p>用于配置过滤掩码字节的参数。 (Parameters used to configure filter mask bytes.)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>依赖关系 (Dependencies)</p></td>
+<td><p>仅当CanNmGlobalPnSupport== true 时有效 (Only valid when CanNmGlobalPnSupport== true)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="CanIf.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>CanIf
+    </a>
+    <a class="float-right" href="CanSM.html" title="Next">
+        CanSM <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">CanNm</a><ul>
+<li><a class="reference internal" href="#introduction">简介 (Introduction)</a><ul>
+<li><a class="reference internal" href="#references">参考资料 (References)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-description">功能描述 (Function description)</a><ul>
+<li><a class="reference internal" href="#state-machine-switching">状态机切换 (State machine switching)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mode-introduction">模式介绍 (Mode introduction)</a></li>
+<li><a class="reference internal" href="#network-mode">Network Mode</a></li>
+<li><a class="reference internal" href="#prepare-bus-sleep-mode">Prepare Bus Sleep Mode</a></li>
+<li><a class="reference internal" href="#bus-sleep-mode">Bus-Sleep Mode</a><ul>
+<li><a class="reference internal" href="#pdu-pdu-format">PDU格式 (PDU format)</a></li>
+<li><a class="reference internal" href="#optional-features">可选功能 (optional features)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#detect-remote-sleep-command-function">检测远程睡眠指令功能 (Detect remote sleep command function)</a></li>
+<li><a class="reference internal" href="#user-data-function">用户数据功能 (User data function)</a></li>
+<li><a class="reference internal" href="#passive-mode-functionality">被动模式功能 (Passive mode functionality)</a></li>
+<li><a class="reference internal" href="#nm-pdu-rx-nm-pdu-rx-indication-function">NM PDU Rx指示功能 (NM PDU Rx indication function)</a></li>
+<li><a class="reference internal" href="#status-change-notification-function">状态变化通知功能 (Status change notification function)</a></li>
+<li><a class="reference internal" href="#communication-control-function">通讯控制功能 (Communication control function)</a></li>
+<li><a class="reference internal" href="#nm-nm-coordinator-synchronization-support-function">NM协调器同步支持功能 (NM coordinator synchronization support function)</a></li>
+<li><a class="reference internal" href="#load-shedding-function">减负载功能 (Load shedding function)</a></li>
+<li><a class="reference internal" href="#pn-pn-function">PN功能 (PN function)</a><ul>
+<li><a class="reference internal" href="#pn-pn-filter">PN过滤 (PN filter)</a></li>
+<li><a class="reference internal" href="#eraeira-era-and-eira">ERA与EIRA (ERA and EIRA)</a></li>
+<li><a class="reference internal" href="#spontaneous-transmission">自发传输 (spontaneous transmission)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vehicle-wake-up-function">车辆唤醒功能 (Vehicle wake-up function)</a></li>
+<li><a class="reference internal" href="#source-file-description">源文件描述 (Source file description)</a></li>
+<li><a class="reference internal" href="#cannm-cannm-component-file-description">CanNm组件文件描述 (CanNm component file description)</a></li>
+<li><a class="reference internal" href="#api-api-interface">API接口 (API interface)</a><ul>
+<li><a class="reference internal" href="#type-definition">类型定义 (type definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cannm-configtype-cannm-configtype-type-definition">CanNm_ConfigType类型定义 (CanNm_ConfigType type definition)</a><ul>
+<li><a class="reference internal" href="#enter-function-description">输入函数描述 (Enter function description)</a></li>
+<li><a class="reference internal" href="#static-interface-function-definition">静态接口函数定义 (Static interface function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cannm-init-cannm-init-function-definition">CanNm_Init函数定义 (CanNm_Init function definition)</a></li>
+<li><a class="reference internal" href="#cannm-deinit-cannm-deinit-function-definition">CanNm_DeInit函数定义 (CanNm_DeInit function definition)</a></li>
+<li><a class="reference internal" href="#cannm-passivestartup-cannm-passivestartup-function-definition">CanNm_PassiveStartUp函数定义 (CanNm_PassiveStartUp function definition)</a></li>
+<li><a class="reference internal" href="#cannm-networkrequest-cannm-networkrequest-function-definition">CanNm_NetworkRequest函数定义 (CanNm_NetworkRequest function definition)</a></li>
+<li><a class="reference internal" href="#cannm-networkrelease-cannm-networkrelease-function-definition">CanNm_NetworkRelease函数定义 (CanNm_NetworkRelease function definition)</a></li>
+<li><a class="reference internal" href="#cannm-disablecommunication-cannm-disablecommunication-function-definition">CanNm_DisableCommunication函数定义 (CanNm_DisableCommunication function definition)</a></li>
+<li><a class="reference internal" href="#cannm-enablecommunication-cannm-enablecommunication-function-definition">CanNm_EnableCommunication函数定义 (CanNm_EnableCommunication function definition)</a></li>
+<li><a class="reference internal" href="#cannm-setuserdata-cannm-setuserdata-function-definition">CanNm_SetUserData函数定义 (CanNm_SetUserData function definition)</a></li>
+<li><a class="reference internal" href="#cannm-getuserdata-cannm-getuserdata-function-definition">CanNm_GetUserData函数定义 (CanNm_GetUserData function definition)</a></li>
+<li><a class="reference internal" href="#cannm-transmit-cannm-transmit-function-definition">CanNm_Transmit函数定义 (CanNm_Transmit function definition)</a></li>
+<li><a class="reference internal" href="#cannm-getnodeidentifier-cannm-getnodeidentifier-function-definition">CanNm_GetNodeIdentifier函数定义 (CanNm_GetNodeIdentifier function definition)</a></li>
+<li><a class="reference internal" href="#cannm-getlocalnodeidentifier-cannm-getlocalnodeidentifier-function-definition">CanNm_GetLocalNodeIdentifier函数定义 (CanNm_GetLocalNodeIdentifier function definition)</a></li>
+<li><a class="reference internal" href="#cannm-repeatmessagerequest-cannm-repeatmessagerequest-function-definition">CanNm_RepeatMessageRequest函数定义 (CanNm_RepeatMessageRequest function definition)</a></li>
+<li><a class="reference internal" href="#cannm-getpdudata-cannm-getpdudata-function-definition">CanNm_GetPduData函数定义 (CanNm_GetPduData function definition)</a></li>
+<li><a class="reference internal" href="#cannm-getstate-cannm-getstate-function-definition">CanNm_GetState函数定义 (CanNm_GetState function definition)</a></li>
+<li><a class="reference internal" href="#cannm-getversioninfo-cannm-getversioninfo-function-definition">CanNm_GetVersionInfo函数定义 (CanNm_GetVersionInfo function definition)</a></li>
+<li><a class="reference internal" href="#cannm-requestbussynchronization-cannm-requestbussynchronization-function-definition">CanNm_RequestBusSynchronization函数定义 (CanNm_RequestBusSynchronization function definition)</a></li>
+<li><a class="reference internal" href="#cannm-checkremotesleepindication-cannm-checkremotesleepindication-function-definition">CanNm_CheckRemoteSleepIndication函数定义 (CanNm_CheckRemoteSleepIndication function definition)</a></li>
+<li><a class="reference internal" href="#cannm-setsleepreadybit-cannm-setsleepreadybit-function-definition">CanNm_SetSleepReadyBit函数定义 (CanNm_SetSleepReadyBit function definition)</a></li>
+<li><a class="reference internal" href="#cannm-txconfirmation-cannm-txconfirmation-function-definition">CanNm_TxConfirmation函数定义 (CanNm_TxConfirmation function definition)</a></li>
+<li><a class="reference internal" href="#cannm-rxindication-cannm-rxindication-function-definition">CanNm_RxIndication函数定义 (CanNm_RxIndication function definition)</a></li>
+<li><a class="reference internal" href="#cannm-confirmpnavailability-cannm-confirmpnavailability-function-definition">CanNm_ConfirmPnAvailability函数定义 (CanNm_ConfirmPnAvailability function definition)</a></li>
+<li><a class="reference internal" href="#cannm-triggertransmit-cannm-triggertransmit-function-definition">CanNm_TriggerTransmit函数定义 (CanNm_TriggerTransmit function definition)</a></li>
+<li><a class="reference internal" href="#cannm-mainfunction-cannm-mainfunction-function-definition">CanNm_MainFunction函数定义 (CanNm_MainFunction function definition)</a><ul>
+<li><a class="reference internal" href="#configurable-function-definition">可配置函数定义 (Configurable function definition)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration">配置 (Configuration)</a><ul>
+<li><a class="reference internal" href="#cannmglobalconfig">CanNmGlobalConfig</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cannmchannelconfig">CanNmChannelConfig</a><ul>
+<li><a class="reference internal" href="#cannmrxpdu">CanNmRxPdu</a></li>
+<li><a class="reference internal" href="#cannmtxpdu">CanNmTxPdu</a></li>
+<li><a class="reference internal" href="#cannmuserdatatxpdu">CanNmUserDataTxPdu</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cannmpninfo">CanNmPnInfo</a><ul>
+<li><a class="reference internal" href="#cannmpnfiltermaskbyte">CanNmPnFilterMaskByte</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024, i-soft
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
