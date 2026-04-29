@@ -29,7 +29,13 @@ language = 'en'
 extensions.append("sphinx_wagtail_theme")
 html_theme = 'sphinx_wagtail_theme'
 html_static_path = ['_static']
-
+# 让每个页面都加载你的切换器脚本/样式
+html_js_files = [
+    'version-switcher-static.js',
+]
+html_css_files = [
+    'version-switcher.css',
+]
 # Theme options
 html_theme_options = {
     'logo': 'img/xmen_logo.png',
