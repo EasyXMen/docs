@@ -9,6 +9,7 @@
         <title>E2EL &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="e2el">
-<h1>E2EL<a class="headerlink" href="#e2el" title="Link to this heading">¶</a></h1>
+<h1>E2EL<a class="headerlink" href="#e2el" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -209,24 +216,24 @@
 </tbody>
 </table>
 <section id="e2el-overview-of-e2el-module">
-<h2>E2EL模块简介 (Overview of E2EL Module)<a class="headerlink" href="#e2el-overview-of-e2el-module" title="Link to this heading">¶</a></h2>
+<h2>E2EL模块简介 (Overview of E2EL Module)<a class="headerlink" href="#e2el-overview-of-e2el-module" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="e2el-end-to-end-architecture-diagram">
 <img alt="E2EL架构图 (End-to-End Architecture Diagram)" src="../../_images/image160.png" />
 </figure>
 <p>E2EL在架构上属于AUTOSAR静态库代码，使用同样属于静态库代码的CRC模块来进行安全数据的保护，E2E XF通过把E2EL的相关算法抽象成用户易操作的配置项和配置界面，并根据用户的属于生成代码，来帮助用户更好的使用E2EL来保护数据。</p>
 <p>E2EL is architecturally part of the AUTOSAR static library code, using the same static library code CRC module for protecting secure data. E2E XF abstracts related algorithms of E2EL into user-friendly configuration items and interfaces, generating code based on user specifications to help users better utilize E2EL for data protection.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_E2ELibrary.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_CRCLibrary.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="e2el-end-to-end-function">
-<h3>E2EL功能 (End-to-End Function)<a class="headerlink" href="#e2el-end-to-end-function" title="Link to this heading">¶</a></h3>
+<h3>E2EL功能 (End-to-End Function)<a class="headerlink" href="#e2el-end-to-end-function" title="链接到此标题。">¶</a></h3>
 <section id="e2el-end-to-end-function-introduction">
-<h4>E2EL功能介绍 (End-to-End Function Introduction)<a class="headerlink" href="#e2el-end-to-end-function-introduction" title="Link to this heading">¶</a></h4>
+<h4>E2EL功能介绍 (End-to-End Function Introduction)<a class="headerlink" href="#e2el-end-to-end-function-introduction" title="链接到此标题。">¶</a></h4>
 <p>E2EL的各个profile提供了一种可以满足功能安全目标的数据保护机制，各个E2E profile通过不同的算法和API完成以下类型的数据保护机制：</p>
 <p>E2EL's various profiles provide a data protection mechanism that can meet functional safety goals. Different E2E profiles accomplish the following types of data protection mechanisms through different algorithms and APIs:</p>
 <ul class="simple">
@@ -247,9 +254,9 @@
 </ul>
 </section>
 <section id="e2elprofile-end-to-end-link-e2el-profile-function-introduction">
-<h4>E2EL各Profile功能介绍 (End-to-End Link (E2EL) Profile Function Introduction)<a class="headerlink" href="#e2elprofile-end-to-end-link-e2el-profile-function-introduction" title="Link to this heading">¶</a></h4>
+<h4>E2EL各Profile功能介绍 (End-to-End Link (E2EL) Profile Function Introduction)<a class="headerlink" href="#e2elprofile-end-to-end-link-e2el-profile-function-introduction" title="链接到此标题。">¶</a></h4>
 <section id="profile1">
-<h5>Profile1<a class="headerlink" href="#profile1" title="Link to this heading">¶</a></h5>
+<h5>Profile1<a class="headerlink" href="#profile1" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -276,7 +283,7 @@
 <p>Explicitly transmitted data ID nibble (dataIdMode=3): The two bytes of the 16-bit data ID are appended to the security data for CRC calculation, but the lower byte of the high byte of the data ID is explicitly transmitted. Only 12 bits of this 16-bit data ID are utilized.</p>
 </section>
 <section id="profile2">
-<h5>Profile2<a class="headerlink" href="#profile2" title="Link to this heading">¶</a></h5>
+<h5>Profile2<a class="headerlink" href="#profile2" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -295,7 +302,7 @@
 <p>DataID uses a specific ID to distinguish different I-PDU groups. Profile2 uses a preset list of DataIDs and selects a specific DataID from the list based on the Counter's value.</p>
 </section>
 <section id="profile4">
-<h5>Profile4<a class="headerlink" href="#profile4" title="Link to this heading">¶</a></h5>
+<h5>Profile4<a class="headerlink" href="#profile4" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -319,7 +326,7 @@
 <p>DataID uses a specific ID to distinguish different I-PDU groups, and Profile4 explicitly sends using a globally unique 32-bit DataID.</p>
 </section>
 <section id="profile5">
-<h5>Profile5<a class="headerlink" href="#profile5" title="Link to this heading">¶</a></h5>
+<h5>Profile5<a class="headerlink" href="#profile5" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -338,7 +345,7 @@
 <p>DataID uses specific IDs to distinguish different I-PDU groups, and Profile5 implicitly sends global unique 16-bit DataIDs.</p>
 </section>
 <section id="profile6">
-<h5>Profile6<a class="headerlink" href="#profile6" title="Link to this heading">¶</a></h5>
+<h5>Profile6<a class="headerlink" href="#profile6" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -362,7 +369,7 @@
 <p>Profile6 uses 16-bit Data Length to support dynamically sized input data.</p>
 </section>
 <section id="profile7">
-<h5>Profile7<a class="headerlink" href="#profile7" title="Link to this heading">¶</a></h5>
+<h5>Profile7<a class="headerlink" href="#profile7" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -386,7 +393,7 @@
 <p>Profile7 uses 32-bit Data Length to support dynamically sized input data.</p>
 </section>
 <section id="profile11">
-<h5>Profile11<a class="headerlink" href="#profile11" title="Link to this heading">¶</a></h5>
+<h5>Profile11<a class="headerlink" href="#profile11" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -410,7 +417,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 <p>Explicitly transmitted data ID nibble (dataIdMode=3): The two bytes of the 16-bit data ID are appended to the security data for CRC calculation, but the lower byte of the high byte of the data ID is explicitly transmitted. Only 12 bits of this 16-bit data ID are utilized.</p>
 </section>
 <section id="profile22">
-<h5>Profile22<a class="headerlink" href="#profile22" title="Link to this heading">¶</a></h5>
+<h5>Profile22<a class="headerlink" href="#profile22" title="链接到此标题。">¶</a></h5>
 <ul class="simple">
 <li><p>CRC保护</p></li>
 </ul>
@@ -432,7 +439,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 E2EL组件文件描述 (Table E2EL Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -506,11 +513,11 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 <section id="e2e-p01configtype-e2e-p01configtype-configuration-type-definition">
-<h4>E2E_P01ConfigType类型定义 (E2E_P01ConfigType Configuration Type Definition)<a class="headerlink" href="#e2e-p01configtype-e2e-p01configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01ConfigType类型定义 (E2E_P01ConfigType Configuration Type Definition)<a class="headerlink" href="#e2e-p01configtype-e2e-p01configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -535,7 +542,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01dataidmode-e2e-p01dataidmode-type-definition">
-<h4>E2E_P01DataIDMode类型定义 (E2E_P01DataIDMode Type Definition)<a class="headerlink" href="#e2e-p01dataidmode-e2e-p01dataidmode-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01DataIDMode类型定义 (E2E_P01DataIDMode Type Definition)<a class="headerlink" href="#e2e-p01dataidmode-e2e-p01dataidmode-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -560,7 +567,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01protectstatetype-e2e-p01protectstatetype-type-definition">
-<h4>E2E_P01ProtectStateType类型定义 (E2E_P01ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p01protectstatetype-e2e-p01protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01ProtectStateType类型定义 (E2E_P01ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p01protectstatetype-e2e-p01protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -585,7 +592,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01checkstatetype-e2e-p01checkstatetype-type-definition">
-<h4>E2E_P01CheckStateType类型定义 (E2E_P01CheckStateType Type Definition)<a class="headerlink" href="#e2e-p01checkstatetype-e2e-p01checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01CheckStateType类型定义 (E2E_P01CheckStateType Type Definition)<a class="headerlink" href="#e2e-p01checkstatetype-e2e-p01checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -610,7 +617,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01checkstatustype-e2e-p01checkstatustype-type-definition">
-<h4>E2E_P01CheckStatusType类型定义 (E2E_P01CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p01checkstatustype-e2e-p01checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01CheckStatusType类型定义 (E2E_P01CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p01checkstatustype-e2e-p01checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -656,7 +663,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02configtype-e2e-p02configtype-type-definition">
-<h4>E2E_P02ConfigType类型定义 (E2E_P02ConfigType Type Definition)<a class="headerlink" href="#e2e-p02configtype-e2e-p02configtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02ConfigType类型定义 (E2E_P02ConfigType Type Definition)<a class="headerlink" href="#e2e-p02configtype-e2e-p02configtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -681,7 +688,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02protectstatetype-e2e-p02protectstatetype-type-definition">
-<h4>E2E_P02ProtectStateType类型定义 (E2E_P02ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p02protectstatetype-e2e-p02protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02ProtectStateType类型定义 (E2E_P02ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p02protectstatetype-e2e-p02protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -706,7 +713,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02checkstatetype-e2e-p02checkstatetype-type-definition">
-<h4>E2E_P02CheckStateType类型定义 (E2E_P02CheckStateType Type Definition)<a class="headerlink" href="#e2e-p02checkstatetype-e2e-p02checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02CheckStateType类型定义 (E2E_P02CheckStateType Type Definition)<a class="headerlink" href="#e2e-p02checkstatetype-e2e-p02checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -731,7 +738,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02checkstatustype-e2e-p02checkstatustype-type-definition">
-<h4>E2E_P02CheckStatusType类型定义 (E2E_P02CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p02checkstatustype-e2e-p02checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02CheckStatusType类型定义 (E2E_P02CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p02checkstatustype-e2e-p02checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -777,7 +784,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04configtype-e2e-p04configtype-type-definition">
-<h4>E2E_P04ConfigType类型定义 (E2E_P04ConfigType Type Definition)<a class="headerlink" href="#e2e-p04configtype-e2e-p04configtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04ConfigType类型定义 (E2E_P04ConfigType Type Definition)<a class="headerlink" href="#e2e-p04configtype-e2e-p04configtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -802,7 +809,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04protectstatetype-e2e-p04-protectstatetype-type-definition">
-<h4>E2E_P04ProtectStateType类型定义 (E2E_P04 ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p04protectstatetype-e2e-p04-protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04ProtectStateType类型定义 (E2E_P04 ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p04protectstatetype-e2e-p04-protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -827,7 +834,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04checkstatetype-e2e-p04checkstatetype-type-definition">
-<h4>E2E_P04CheckStateType类型定义 (E2E_P04CheckStateType Type Definition)<a class="headerlink" href="#e2e-p04checkstatetype-e2e-p04checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04CheckStateType类型定义 (E2E_P04CheckStateType Type Definition)<a class="headerlink" href="#e2e-p04checkstatetype-e2e-p04checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -852,7 +859,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04checkstatustype-e2e-p04checkstatustype-type-definition">
-<h4>E2E_P04CheckStatusType类型定义 (E2E_P04CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p04checkstatustype-e2e-p04checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04CheckStatusType类型定义 (E2E_P04CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p04checkstatustype-e2e-p04checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -892,7 +899,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05configtype-e2e-p05configtype-type-definition">
-<h4>E2E_P05ConfigType类型定义 (E2E_P05ConfigType Type Definition)<a class="headerlink" href="#e2e-p05configtype-e2e-p05configtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05ConfigType类型定义 (E2E_P05ConfigType Type Definition)<a class="headerlink" href="#e2e-p05configtype-e2e-p05configtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -917,7 +924,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05protectstatetype-e2e-p05protectstatetype-type-definition">
-<h4>E2E_P05ProtectStateType类型定义 (E2E_P05ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p05protectstatetype-e2e-p05protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05ProtectStateType类型定义 (E2E_P05ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p05protectstatetype-e2e-p05protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -942,7 +949,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05checkstatetype-e2e-p05checkstatetype-type-definition">
-<h4>E2E_P05CheckStateType类型定义 (E2E_P05CheckStateType Type Definition)<a class="headerlink" href="#e2e-p05checkstatetype-e2e-p05checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05CheckStateType类型定义 (E2E_P05CheckStateType Type Definition)<a class="headerlink" href="#e2e-p05checkstatetype-e2e-p05checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -967,7 +974,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05checkstatustype-e2e-p05checkstatustype-type-definition">
-<h4>E2E_P05CheckStatusType类型定义 (E2E_P05CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p05checkstatustype-e2e-p05checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05CheckStatusType类型定义 (E2E_P05CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p05checkstatustype-e2e-p05checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1007,7 +1014,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06configtype-e2e-p06configtype-configuration-type-definition">
-<h4>E2E_P06ConfigType类型定义 (E2E_P06ConfigType Configuration Type Definition)<a class="headerlink" href="#e2e-p06configtype-e2e-p06configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06ConfigType类型定义 (E2E_P06ConfigType Configuration Type Definition)<a class="headerlink" href="#e2e-p06configtype-e2e-p06configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1032,7 +1039,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06protectstatetype-e2e-p06protectstatetype-type-definition">
-<h4>E2E_P06ProtectStateType类型定义 (E2E_P06ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p06protectstatetype-e2e-p06protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06ProtectStateType类型定义 (E2E_P06ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p06protectstatetype-e2e-p06protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1057,7 +1064,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06checkstatetype-e2e-p06checkstatetype-type-definition">
-<h4>E2E_P06CheckStateType类型定义 (E2E_P06CheckStateType Type Definition)<a class="headerlink" href="#e2e-p06checkstatetype-e2e-p06checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06CheckStateType类型定义 (E2E_P06CheckStateType Type Definition)<a class="headerlink" href="#e2e-p06checkstatetype-e2e-p06checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1082,7 +1089,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06checkstatustype-e2e-p06checkstatustype-type-definition">
-<h4>E2E_P06CheckStatusType类型定义 (E2E_P06CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p06checkstatustype-e2e-p06checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06CheckStatusType类型定义 (E2E_P06CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p06checkstatustype-e2e-p06checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1122,7 +1129,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07configtype-e2e-p07configtype-configuration-type-definition">
-<h4>E2E_P07ConfigType类型定义 (E2E_P07ConfigType Configuration Type Definition)<a class="headerlink" href="#e2e-p07configtype-e2e-p07configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07ConfigType类型定义 (E2E_P07ConfigType Configuration Type Definition)<a class="headerlink" href="#e2e-p07configtype-e2e-p07configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1147,7 +1154,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07protectstatetype-e2e-p07protectstatetype-type-definition">
-<h4>E2E_P07ProtectStateType类型定义 (E2E_P07ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p07protectstatetype-e2e-p07protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07ProtectStateType类型定义 (E2E_P07ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p07protectstatetype-e2e-p07protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1172,7 +1179,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07checkstatetype-e2e-p07checkstatetype-type-definition">
-<h4>E2E_P07CheckStateType类型定义 (E2E_P07CheckStateType Type Definition)<a class="headerlink" href="#e2e-p07checkstatetype-e2e-p07checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07CheckStateType类型定义 (E2E_P07CheckStateType Type Definition)<a class="headerlink" href="#e2e-p07checkstatetype-e2e-p07checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1197,7 +1204,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07checkstatustype-e2e-p07checkstatustype-type-definition">
-<h4>E2E_P07CheckStatusType类型定义 (E2E_P07CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p07checkstatustype-e2e-p07checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07CheckStatusType类型定义 (E2E_P07CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p07checkstatustype-e2e-p07checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1237,7 +1244,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11configtype-e2e-p11configtype-type-definition">
-<h4>E2E_P11ConfigType类型定义 (E2E_P11ConfigType Type Definition)<a class="headerlink" href="#e2e-p11configtype-e2e-p11configtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11ConfigType类型定义 (E2E_P11ConfigType Type Definition)<a class="headerlink" href="#e2e-p11configtype-e2e-p11configtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1262,7 +1269,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11protectstatetype-e2e-p11protectstatetype-type-definition">
-<h4>E2E_P11ProtectStateType类型定义 (E2E_P11ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p11protectstatetype-e2e-p11protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11ProtectStateType类型定义 (E2E_P11ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p11protectstatetype-e2e-p11protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1287,7 +1294,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11checkstatetype-e2e-p11checkstatetype-type-definition">
-<h4>E2E_P11CheckStateType类型定义 (E2E_P11CheckStateType Type Definition)<a class="headerlink" href="#e2e-p11checkstatetype-e2e-p11checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11CheckStateType类型定义 (E2E_P11CheckStateType Type Definition)<a class="headerlink" href="#e2e-p11checkstatetype-e2e-p11checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1312,7 +1319,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11checkstatustype-e2e-p11checkstatustype-type-definition">
-<h4>E2E_P11CheckStatusType类型定义 (E2E_P11CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p11checkstatustype-e2e-p11checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11CheckStatusType类型定义 (E2E_P11CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p11checkstatustype-e2e-p11checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1352,7 +1359,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22configtype-e2e-p22configtype-type-definition">
-<h4>E2E_P22ConfigType类型定义 (E2E_P22ConfigType Type Definition)<a class="headerlink" href="#e2e-p22configtype-e2e-p22configtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22ConfigType类型定义 (E2E_P22ConfigType Type Definition)<a class="headerlink" href="#e2e-p22configtype-e2e-p22configtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1377,7 +1384,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22protectstatetype-e2e-p22protectstatetype-type-definition">
-<h4>E2E_P22ProtectStateType类型定义 (E2E_P22ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p22protectstatetype-e2e-p22protectstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22ProtectStateType类型定义 (E2E_P22ProtectStateType Type Definition)<a class="headerlink" href="#e2e-p22protectstatetype-e2e-p22protectstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1402,7 +1409,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22checkstatetype-e2e-p22checkstatetype-type-definition">
-<h4>E2E_P22CheckStateType类型定义 (E2E_P22CheckStateType Type Definition)<a class="headerlink" href="#e2e-p22checkstatetype-e2e-p22checkstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22CheckStateType类型定义 (E2E_P22CheckStateType Type Definition)<a class="headerlink" href="#e2e-p22checkstatetype-e2e-p22checkstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1427,7 +1434,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22checkstatustype-e2e-p22checkstatustype-type-definition">
-<h4>E2E_P22CheckStatusType类型定义 (E2E_P22CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p22checkstatustype-e2e-p22checkstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22CheckStatusType类型定义 (E2E_P22CheckStatusType Type Definition)<a class="headerlink" href="#e2e-p22checkstatustype-e2e-p22checkstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1467,7 +1474,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-pcheckstatustype-e2e-pcheckstatustype-type-definition">
-<h4>E2E_PCheckStatusType类型定义 (E2E_PCheckStatusType Type Definition)<a class="headerlink" href="#e2e-pcheckstatustype-e2e-pcheckstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_PCheckStatusType类型定义 (E2E_PCheckStatusType Type Definition)<a class="headerlink" href="#e2e-pcheckstatustype-e2e-pcheckstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1510,7 +1517,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-smconfigtype-e2e-smconfigtype-type-definition">
-<h4>E2E_SMConfigType类型定义 (E2E_SMConfigType Type Definition)<a class="headerlink" href="#e2e-smconfigtype-e2e-smconfigtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_SMConfigType类型定义 (E2E_SMConfigType Type Definition)<a class="headerlink" href="#e2e-smconfigtype-e2e-smconfigtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1535,7 +1542,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-smcheckstatetype-e2e-smcheckstatetype-type-definition">
-<h4>E2E_SMCheckStateType类型定义 (E2E_SMCheckStateType Type Definition)<a class="headerlink" href="#e2e-smcheckstatetype-e2e-smcheckstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_SMCheckStateType类型定义 (E2E_SMCheckStateType Type Definition)<a class="headerlink" href="#e2e-smcheckstatetype-e2e-smcheckstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1560,7 +1567,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-smstatetype-e2e-smstatetype-type-definition">
-<h4>E2E_SMStateType类型定义 (E2E_SMStateType Type Definition)<a class="headerlink" href="#e2e-smstatetype-e2e-smstatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_SMStateType类型定义 (E2E_SMStateType Type Definition)<a class="headerlink" href="#e2e-smstatetype-e2e-smstatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1601,7 +1608,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </section>
 </section>
 <section id="the-input-function-description">
-<h3>输入函数描述 (the input function description:)<a class="headerlink" href="#the-input-function-description" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (the input function description:)<a class="headerlink" href="#the-input-function-description" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1632,9 +1639,9 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <section id="e2e-p01protect-end-to-end-p01protect-function-definition">
-<h4>E2E_P01Protect函数定义 (End-to-End_P01Protect function definition)<a class="headerlink" href="#e2e-p01protect-end-to-end-p01protect-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01Protect函数定义 (End-to-End_P01Protect function definition)<a class="headerlink" href="#e2e-p01protect-end-to-end-p01protect-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1704,7 +1711,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01protectinit-define-of-protectinit-function">
-<h4>E2E_P01ProtectInit函数定义 (Define of ProtectInit function)<a class="headerlink" href="#e2e-p01protectinit-define-of-protectinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01ProtectInit函数定义 (Define of ProtectInit function)<a class="headerlink" href="#e2e-p01protectinit-define-of-protectinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1769,7 +1776,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01check-endtoend-p01check-function-definition">
-<h4>E2E_P01Check函数定义 (EndToEnd_P01Check function definition)<a class="headerlink" href="#e2e-p01check-endtoend-p01check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01Check函数定义 (EndToEnd_P01Check function definition)<a class="headerlink" href="#e2e-p01check-endtoend-p01check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1839,7 +1846,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p01checkinit-definition-of-e2e-p01checkinit-function">
-<h4>E2E_P01CheckInit函数定义 (Definition of E2E_P01CheckInit function)<a class="headerlink" href="#e2e-p01checkinit-definition-of-e2e-p01checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P01CheckInit函数定义 (Definition of E2E_P01CheckInit function)<a class="headerlink" href="#e2e-p01checkinit-definition-of-e2e-p01checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1904,7 +1911,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02protect-end-to-end-p02protect-function-definition">
-<h4>E2E_P02Protect函数定义 (End_to_End_P02Protect function definition)<a class="headerlink" href="#e2e-p02protect-end-to-end-p02protect-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02Protect函数定义 (End_to_End_P02Protect function definition)<a class="headerlink" href="#e2e-p02protect-end-to-end-p02protect-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1974,7 +1981,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02protectinit-define-e2e-p02protectinit-function">
-<h4>E2E_P02ProtectInit函数定义 (Define E2E_P02ProtectInit Function)<a class="headerlink" href="#e2e-p02protectinit-define-e2e-p02protectinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02ProtectInit函数定义 (Define E2E_P02ProtectInit Function)<a class="headerlink" href="#e2e-p02protectinit-define-e2e-p02protectinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2039,7 +2046,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02check-e2e-p02check-function-definition">
-<h4>E2E_P02Check函数定义 (E2E_P02Check function definition)<a class="headerlink" href="#e2e-p02check-e2e-p02check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02Check函数定义 (E2E_P02Check function definition)<a class="headerlink" href="#e2e-p02check-e2e-p02check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2109,7 +2116,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p02checkinit-definition-of-e2e-p02checkinit-function">
-<h4>E2E_P02CheckInit函数定义 (Definition of E2E_P02CheckInit function)<a class="headerlink" href="#e2e-p02checkinit-definition-of-e2e-p02checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P02CheckInit函数定义 (Definition of E2E_P02CheckInit function)<a class="headerlink" href="#e2e-p02checkinit-definition-of-e2e-p02checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2174,7 +2181,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04protect-end-to-end-protect-function-definition">
-<h4>E2E_P04Protect函数定义 (End_to_End_Protect_function_definition)<a class="headerlink" href="#e2e-p04protect-end-to-end-protect-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04Protect函数定义 (End_to_End_Protect_function_definition)<a class="headerlink" href="#e2e-p04protect-end-to-end-protect-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2249,7 +2256,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04protectinit-define-e2e-p04protectinit-function">
-<h4>E2E_P04ProtectInit函数定义 (Define E2E_P04ProtectInit Function)<a class="headerlink" href="#e2e-p04protectinit-define-e2e-p04protectinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04ProtectInit函数定义 (Define E2E_P04ProtectInit Function)<a class="headerlink" href="#e2e-p04protectinit-define-e2e-p04protectinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2314,7 +2321,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04check-e2e-p04check-function-definition">
-<h4>E2E_P04Check函数定义 (E2E_P04Check function definition)<a class="headerlink" href="#e2e-p04check-e2e-p04check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04Check函数定义 (E2E_P04Check function definition)<a class="headerlink" href="#e2e-p04check-e2e-p04check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2389,7 +2396,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p04checkinit-definition-of-e2e-p04checkinit-function">
-<h4>E2E_P04CheckInit函数定义 (Definition of E2E_P04CheckInit function)<a class="headerlink" href="#e2e-p04checkinit-definition-of-e2e-p04checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P04CheckInit函数定义 (Definition of E2E_P04CheckInit function)<a class="headerlink" href="#e2e-p04checkinit-definition-of-e2e-p04checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2454,7 +2461,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05protect-end-to-end-pro05protect-function-definition">
-<h4>E2E_P05Protect函数定义 (End_to_End_Pro05Protect function definition)<a class="headerlink" href="#e2e-p05protect-end-to-end-pro05protect-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05Protect函数定义 (End_to_End_Pro05Protect function definition)<a class="headerlink" href="#e2e-p05protect-end-to-end-pro05protect-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2529,7 +2536,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05protectinit-define-of-e2e-p05protectinit-function">
-<h4>E2E_P05ProtectInit函数定义 (Define of E2E_P05ProtectInit function)<a class="headerlink" href="#e2e-p05protectinit-define-of-e2e-p05protectinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05ProtectInit函数定义 (Define of E2E_P05ProtectInit function)<a class="headerlink" href="#e2e-p05protectinit-define-of-e2e-p05protectinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2594,7 +2601,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05check-endtoend-p05check-function-definition">
-<h4>E2E_P05Check函数定义 (EndToEnd_P05Check function definition)<a class="headerlink" href="#e2e-p05check-endtoend-p05check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05Check函数定义 (EndToEnd_P05Check function definition)<a class="headerlink" href="#e2e-p05check-endtoend-p05check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2669,7 +2676,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p05checkinit-definition-of-e2e-p05checkinit-function">
-<h4>E2E_P05CheckInit函数定义 (Definition of E2E_P05CheckInit function)<a class="headerlink" href="#e2e-p05checkinit-definition-of-e2e-p05checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P05CheckInit函数定义 (Definition of E2E_P05CheckInit function)<a class="headerlink" href="#e2e-p05checkinit-definition-of-e2e-p05checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2734,7 +2741,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06protect-e2e-p06protect-function-definition">
-<h4>E2E_P06Protect函数定义 (E2E_P06Protect Function Definition)<a class="headerlink" href="#e2e-p06protect-e2e-p06protect-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06Protect函数定义 (E2E_P06Protect Function Definition)<a class="headerlink" href="#e2e-p06protect-e2e-p06protect-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2809,7 +2816,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06protectinit-define-e2e-p06protectinit-function">
-<h4>E2E_P06ProtectInit函数定义 (Define E2E_P06ProtectInit Function)<a class="headerlink" href="#e2e-p06protectinit-define-e2e-p06protectinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06ProtectInit函数定义 (Define E2E_P06ProtectInit Function)<a class="headerlink" href="#e2e-p06protectinit-define-e2e-p06protectinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2874,7 +2881,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06check-e2e-p06check-function-definition">
-<h4>E2E_P06Check函数定义 (E2E_P06Check Function Definition)<a class="headerlink" href="#e2e-p06check-e2e-p06check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06Check函数定义 (E2E_P06Check Function Definition)<a class="headerlink" href="#e2e-p06check-e2e-p06check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2949,7 +2956,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p06checkinit-definition-of-e2e-p06checkinit-function">
-<h4>E2E_P06CheckInit函数定义 (Definition of E2E_P06CheckInit function)<a class="headerlink" href="#e2e-p06checkinit-definition-of-e2e-p06checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P06CheckInit函数定义 (Definition of E2E_P06CheckInit function)<a class="headerlink" href="#e2e-p06checkinit-definition-of-e2e-p06checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3014,7 +3021,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07protect-endtoend-protectfunctiondefinition">
-<h4>E2E_P07Protect函数定义 (EndToEnd_ProtectFunctionDefinition)<a class="headerlink" href="#e2e-p07protect-endtoend-protectfunctiondefinition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07Protect函数定义 (EndToEnd_ProtectFunctionDefinition)<a class="headerlink" href="#e2e-p07protect-endtoend-protectfunctiondefinition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3089,7 +3096,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07protectinit-endtoend-protectinit-function-definition">
-<h4>E2E_P07ProtectInit函数定义 (EndToEnd_ProtectInit Function Definition)<a class="headerlink" href="#e2e-p07protectinit-endtoend-protectinit-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07ProtectInit函数定义 (EndToEnd_ProtectInit Function Definition)<a class="headerlink" href="#e2e-p07protectinit-endtoend-protectinit-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3132,7 +3139,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07check-e2e-p07check-function-definition">
-<h4>E2E_P07Check函数定义 (E2E_P07Check Function Definition)<a class="headerlink" href="#e2e-p07check-e2e-p07check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07Check函数定义 (E2E_P07Check Function Definition)<a class="headerlink" href="#e2e-p07check-e2e-p07check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3207,7 +3214,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p07checkinit-definition-of-e2e-p07checkinit-function">
-<h4>E2E_P07CheckInit函数定义 (Definition of E2E_P07CheckInit function)<a class="headerlink" href="#e2e-p07checkinit-definition-of-e2e-p07checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P07CheckInit函数定义 (Definition of E2E_P07CheckInit function)<a class="headerlink" href="#e2e-p07checkinit-definition-of-e2e-p07checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3253,7 +3260,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11protect-endtoend-protectfunctiondefinition">
-<h4>E2E_P11Protect函数定义 (EndToEnd_ProtectFunctionDefinition)<a class="headerlink" href="#e2e-p11protect-endtoend-protectfunctiondefinition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11Protect函数定义 (EndToEnd_ProtectFunctionDefinition)<a class="headerlink" href="#e2e-p11protect-endtoend-protectfunctiondefinition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3328,7 +3335,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11protectinit-define-e2e-p11protectinit-function">
-<h4>E2E_P11ProtectInit函数定义 (Define E2E_P11ProtectInit Function)<a class="headerlink" href="#e2e-p11protectinit-define-e2e-p11protectinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11ProtectInit函数定义 (Define E2E_P11ProtectInit Function)<a class="headerlink" href="#e2e-p11protectinit-define-e2e-p11protectinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3371,7 +3378,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11check-e2e-p11check-function-definition">
-<h4>E2E_P11Check函数定义 (E2E_P11Check function definition)<a class="headerlink" href="#e2e-p11check-e2e-p11check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11Check函数定义 (E2E_P11Check function definition)<a class="headerlink" href="#e2e-p11check-e2e-p11check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3446,7 +3453,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p11checkinit-the-definition-of-e2e-p11checkinit-function">
-<h4>E2E_P11CheckInit函数定义 (The definition of E2E_P11CheckInit function)<a class="headerlink" href="#e2e-p11checkinit-the-definition-of-e2e-p11checkinit-function" title="Link to this heading">¶</a></h4>
+<h4>E2E_P11CheckInit函数定义 (The definition of E2E_P11CheckInit function)<a class="headerlink" href="#e2e-p11checkinit-the-definition-of-e2e-p11checkinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3489,7 +3496,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22protect-e2e-p22protect-function-definition">
-<h4>E2E_P22Protect函数定义 (E2E_P22Protect Function Definition)<a class="headerlink" href="#e2e-p22protect-e2e-p22protect-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22Protect函数定义 (E2E_P22Protect Function Definition)<a class="headerlink" href="#e2e-p22protect-e2e-p22protect-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3564,7 +3571,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22protectinit-e2e-p22protectinit-function-definition">
-<h4>E2E_P22ProtectInit函数定义 (E2E_P22ProtectInit Function Definition)<a class="headerlink" href="#e2e-p22protectinit-e2e-p22protectinit-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22ProtectInit函数定义 (E2E_P22ProtectInit Function Definition)<a class="headerlink" href="#e2e-p22protectinit-e2e-p22protectinit-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3607,7 +3614,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22check-e2e-p22check-function-definition">
-<h4>E2E_P22Check函数定义 (E2E_P22Check function definition)<a class="headerlink" href="#e2e-p22check-e2e-p22check-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22Check函数定义 (E2E_P22Check function definition)<a class="headerlink" href="#e2e-p22check-e2e-p22check-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3682,7 +3689,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
 </table>
 </section>
 <section id="e2e-p22checkinit-e2e-p22checkinit-function-definition">
-<h4>E2E_P22CheckInit函数定义 (E2E_P22CheckInit function definition)<a class="headerlink" href="#e2e-p22checkinit-e2e-p22checkinit-function-definition" title="Link to this heading">¶</a></h4>
+<h4>E2E_P22CheckInit函数定义 (E2E_P22CheckInit function definition)<a class="headerlink" href="#e2e-p22checkinit-e2e-p22checkinit-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3872,7 +3879,7 @@ The two bytes are appended to the security data for CRC calculation but are not 
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -3881,11 +3888,11 @@ The two bytes are appended to the security data for CRC calculation but are not 
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,6 +9,7 @@
         <title>Eep &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="eep">
-<h1>Eep<a class="headerlink" href="#eep" title="Link to this heading">¶</a></h1>
+<h1>Eep<a class="headerlink" href="#eep" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -257,7 +264,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>EEPROM驱动程序提供对EEPROM存储单元的读取、写入和擦除等操作服务。它还提供将EEPROM中的数据块与内存中的数据块进行比较的服务。这些服务的行为是异步的。内部EEPROM的驱动程序直接访问微控制器硬件，位于微控制器抽象层。外部EEPROM的驱动程序使用SPI/IIC/UART等常见外围串行总线的驱动处理程序来访问外部EEPROM设备，位于ECU抽象层。两种类型的驱动程序的功能要求和功能范围相同，因此API在语义上是相同的。</p>
 <p>The EEPROM driver provides services for reading, writing, and erasing operations on EEPROM storage units. It also offers a service to compare data blocks in the EEPROM with those in memory. These services behave asynchronously. The driver for the internal EEPROM directly accesses the microcontroller hardware, residing at the microcontroller abstraction layer. The driver for external EEPROM uses drivers for common peripheral serial buses like SPI/IIC/UART to access external EEPROM devices, residing at the ECU abstraction layer. Both types of drivers have the same functional requirements and scope, thus their APIs are semantically identical.</p>
 <p>EEPROM（Electrically Erasable Programmable Read-Only Memory）是一种带电可擦可编程只读存储器，其特点是掉电后数据不丢失。EEPROM可以在电脑上或专用设备上擦除已有信息并重新编程，通常用于即插即用设备中。EEPROM驱动程序的开发涉及到对EEPROM设备的有效管理和操作，包括但不限于读取、写入和擦除数据，这对于许多应用来说是至关重要的，尤其是在需要频繁更新或配置信息的场景中。</p>
@@ -265,18 +272,18 @@
 <p>此外，EEPROM驱动程序还需要考虑与不同硬件平台的兼容性，确保能够在不同的微控制器或系统中正确运行。这涉及到驱动程序的移植性和兼容性测试，‌以确保其能够在各种环境中稳定、可靠地工作。</p>
 <p>Moreover, the EEPROM driver also needs to consider compatibility with different hardware platforms to ensure correct operation on various microcontrollers or systems. This involves portability and compatibility testing of the driver to ensure its stable and reliable performance in various environments.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SRS_EEPROMDriver.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="eep-eep-function">
-<h3>Eep功能 (EEP Function)<a class="headerlink" href="#eep-eep-function" title="Link to this heading">¶</a></h3>
+<h3>Eep功能 (EEP Function)<a class="headerlink" href="#eep-eep-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="eep-eep-feature-introduction">
-<h2>Eep功能介绍 (EEP Feature Introduction)<a class="headerlink" href="#eep-eep-feature-introduction" title="Link to this heading">¶</a></h2>
+<h2>Eep功能介绍 (EEP Feature Introduction)<a class="headerlink" href="#eep-eep-feature-introduction" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eepautosar-the-eep-module-s-position-in-the-autosar-architecture">
 <img alt="Eep模块在AUTOSAR架构中的位置 (The Eep module's position in the AUTOSAR architecture)" src="../../_images/image188.png" />
 </figure>
@@ -289,14 +296,14 @@
 <p>Storage stack resides in the BSW (Basic Software Layer), mainly implemented by components such as NVRAM, MemIf, Fee, Fls, Ea, and Eep. Typically, the EEPROM storage unit is external to the MCU and connected via a serial peripheral bus. Strictly speaking, it does not belong to the standard modules of the AUTOSAR software architecture. Therefore, the software architecture for the Eep module should be designed as a combination of the standard EEPROM storage framework and device drivers. The standard EEPROM storage framework can be implemented as an AUTOSAR standard module, while the device driver component needs to be completed in the form of a CDD complex device driver.</p>
 </section>
 <section id="eep-eep-functionality-implementation">
-<h2>Eep功能实现 (EEP functionality implementation)<a class="headerlink" href="#eep-eep-functionality-implementation" title="Link to this heading">¶</a></h2>
+<h2>Eep功能实现 (EEP functionality implementation)<a class="headerlink" href="#eep-eep-functionality-implementation" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eep-topology-diagram-of-eep-module-functional-components">
 <img alt="Eep模块的功能组件拓扑图 (Topology diagram of Eep module functional components)" src="../../_images/image330.png" />
 </figure>
 <p>Eep驱动程序提供了为存储栈实现EEPROM存储单元的读取/写入/擦除/比较等基本作业任务。EEPROM存储的标准框架用于实现AUTOSAR的标准API函数，可以直接被EA模块无缝隙进行挂接，脱离硬件设备的束缚，属于EEPROM驱动程序的硬件抽象部分；EEPROM存储的设备驱动程序用于实现硬件设备的驱动控制，完全依赖于所使用EEPROM存储介质的硬件特性。针对于EEPROM存储的设备驱动程序都是根据ECU所集成的芯片定制化的功能模块，并且根据硬件特性需要涉及更多的组件引入；如果采用SPI串行总线进行挂接，则可以直接使用MCAL自带的SPI组件，并追加EEPROM驱动程序相关的SPI组件的Channel/Job/Sequence/External等参数的配置项，然后通过CDD的方式实现驱动程序的基本操作API接口，并通过配置指针的方式挂接到EEPROM存储的标准框架上，最终以AUTOSAR标准API函数供EA存储抽象组件调用；如果采用IIC串行总线进行挂接，因为IIC也不属于AUTOSAR标准API函数，首先需要通过CDD的方式实现IIC总线的驱动程序，然后引用IIC驱动程序的API实现EEPROM存储设备驱动的基本操作API函数，并通过配置指针的方式挂接到EEPROM存储的标准框架上，最终以AUTOSAR标准API函数供EA存储抽象组件调用；如果MCAL自带Eep驱动程序模块，则直接使用其实现的API函数供EA存储抽象组件调用。</p>
 <p>The Eep driver provides the basic tasks of reading/writing/erasing/comparing EEPROM storage units for the storage stack. The standard framework for EEPROM storage is used to implement AUTOSAR standard API functions, which can be seamlessly connected to the EA module without being bound by hardware devices; this belongs to the hardware abstraction part of the EEPROM driver. The device driver for EEPROM storage is used to achieve hardware control and is completely dependent on the hardware characteristics of the used EEPROM storage medium. For the device driver of EEPROM storage, it is a customized functional module based on the chip integrated in the ECU, and more components need to be introduced due to hardware characteristics; if connected via SPI serial bus, the built-in SPI component of MCAL can be directly utilized, and configuration items such as Channel/Job/Sequence/External for relevant SPI components of the EEPROM driver are added. Then, through the CDD method, basic operation API interfaces of the driver program are realized, and they are attached to the standard framework of EEPROM storage via pointer configuration, ultimately providing AUTOSAR standard API functions for the EA storage abstraction component to call; if connected via IIC serial bus, as IIC is not an AUTOSAR standard API function either, the driver program for IIC bus needs to be realized through the CDD method first. Then, using APIs of the IIC driver program, basic operation API functions for EEPROM storage devices are implemented, and they are attached to the standard framework of EEPROM storage via pointer configuration. Ultimately, AUTOSAR standard API functions are provided for the EA storage abstraction component to call; if MCAL has an Eep driver program module, its realized API functions can be directly utilized by the EA storage abstraction component.</p>
 <section id="the-interaction-relationships-between-modules">
-<h3>模块之间的交互关系 (The interaction relationships between modules)<a class="headerlink" href="#the-interaction-relationships-between-modules" title="Link to this heading">¶</a></h3>
+<h3>模块之间的交互关系 (The interaction relationships between modules)<a class="headerlink" href="#the-interaction-relationships-between-modules" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="interactions-between-modules">
 <img alt="模块间交互关系 (Interactions between modules)" src="../../_images/image426.png" />
 </figure>
@@ -416,7 +423,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 Eep组件文件描述 (Table EEP Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -484,13 +491,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="eep-62-addresstype-addresstype-enum-type-definition">
-<h2>Eep_62_AddressType类型定义 (AddressType Enum Type Definition)<a class="headerlink" href="#eep-62-addresstype-addresstype-enum-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_AddressType类型定义 (AddressType Enum Type Definition)<a class="headerlink" href="#eep-62-addresstype-addresstype-enum-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -521,7 +528,7 @@
 </table>
 </section>
 <section id="eep-62-lengthtype-lengthtype-type-definition">
-<h2>Eep_62_LengthType类型定义 (LengthType Type Definition)<a class="headerlink" href="#eep-62-lengthtype-lengthtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_LengthType类型定义 (LengthType Type Definition)<a class="headerlink" href="#eep-62-lengthtype-lengthtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -552,7 +559,7 @@
 </table>
 </section>
 <section id="eep-62-requestjobtype-eep-62-requestjobtype-type-definition">
-<h2>Eep_62_RequestJobType类型定义 (Eep_62_RequestJobType Type Definition)<a class="headerlink" href="#eep-62-requestjobtype-eep-62-requestjobtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_RequestJobType类型定义 (Eep_62_RequestJobType Type Definition)<a class="headerlink" href="#eep-62-requestjobtype-eep-62-requestjobtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -604,7 +611,7 @@
 </table>
 </section>
 <section id="eep-62-runtimetype-runtimetype-definition">
-<h2>Eep_62_RuntimeType类型定义 (RuntimeType Definition)<a class="headerlink" href="#eep-62-runtimetype-runtimetype-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_RuntimeType类型定义 (RuntimeType Definition)<a class="headerlink" href="#eep-62-runtimetype-runtimetype-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -668,7 +675,7 @@
 </table>
 </section>
 <section id="eep-62-devapitype-eep-62-devapitype-type-definition">
-<h2>Eep_62_DevApiType类型定义 (Eep_62_DevApiType Type Definition)<a class="headerlink" href="#eep-62-devapitype-eep-62-devapitype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_DevApiType类型定义 (Eep_62_DevApiType Type Definition)<a class="headerlink" href="#eep-62-devapitype-eep-62-devapitype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -732,7 +739,7 @@
 </table>
 </section>
 <section id="eep-62-deviceconfigtype-eep-62-deviceconfigtype-type-definition">
-<h2>Eep_62_DeviceConfigType类型定义 (Eep_62_DeviceConfigType Type Definition)<a class="headerlink" href="#eep-62-deviceconfigtype-eep-62-deviceconfigtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_DeviceConfigType类型定义 (Eep_62_DeviceConfigType Type Definition)<a class="headerlink" href="#eep-62-deviceconfigtype-eep-62-deviceconfigtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -787,7 +794,7 @@
 </table>
 </section>
 <section id="eep-62-configtype-eep-62-configtype-configuration-type-definition">
-<h2>Eep_62_ConfigType类型定义 (Eep_62_ConfigType Configuration Type Definition)<a class="headerlink" href="#eep-62-configtype-eep-62-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_ConfigType类型定义 (Eep_62_ConfigType Configuration Type Definition)<a class="headerlink" href="#eep-62-configtype-eep-62-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -838,7 +845,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -887,11 +894,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="eep-62-init-eep-62-init-function-definition">
-<h2>Eep_62_Init函数定义 (Eep_62_Init function definition)<a class="headerlink" href="#eep-62-init-eep-62-init-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_Init函数定义 (Eep_62_Init function definition)<a class="headerlink" href="#eep-62-init-eep-62-init-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -956,7 +963,7 @@
 </table>
 </section>
 <section id="eep-62-getversioninfo-the-definition-of-eep-62-getversioninfo-function">
-<h2>Eep_62_GetVersionInfo函数定义 (The definition of Eep_62_GetVersionInfo function)<a class="headerlink" href="#eep-62-getversioninfo-the-definition-of-eep-62-getversioninfo-function" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_GetVersionInfo函数定义 (The definition of Eep_62_GetVersionInfo function)<a class="headerlink" href="#eep-62-getversioninfo-the-definition-of-eep-62-getversioninfo-function" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1021,7 +1028,7 @@
 </table>
 </section>
 <section id="eep-62-setmode-deviceindex-eep-62-setmode-deviceindex-function-definition">
-<h2>Eep_62_SetMode_&lt;deviceIndex&gt;函数定义 (Eep_62_SetMode&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-setmode-deviceindex-eep-62-setmode-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_SetMode_&lt;deviceIndex&gt;函数定义 (Eep_62_SetMode&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-setmode-deviceindex-eep-62-setmode-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1091,7 +1098,7 @@
 </table>
 </section>
 <section id="eep-62-read-deviceindex-function-definition-for-eep-62-read-deviceindex">
-<h2>Eep_62_Read_&lt;deviceIndex&gt;函数定义 (Function definition for Eep_62_Read&lt;deviceIndex&gt;)<a class="headerlink" href="#eep-62-read-deviceindex-function-definition-for-eep-62-read-deviceindex" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_Read_&lt;deviceIndex&gt;函数定义 (Function definition for Eep_62_Read&lt;deviceIndex&gt;)<a class="headerlink" href="#eep-62-read-deviceindex-function-definition-for-eep-62-read-deviceindex" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1215,7 +1222,7 @@
 </table>
 </section>
 <section id="eep-62-write-deviceindex-write-deviceindex-function-definition">
-<h2>Eep_62_Write_&lt;deviceIndex&gt;函数定义 (Write_&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-write-deviceindex-write-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_Write_&lt;deviceIndex&gt;函数定义 (Write_&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-write-deviceindex-write-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1345,7 +1352,7 @@
 </table>
 </section>
 <section id="eep-62-erase-deviceindex-eep-62-erase-deviceindex-function-definition">
-<h2>Eep_62_Erase_&lt;deviceIndex&gt;函数定义 (Eep_62_Erase&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-erase-deviceindex-eep-62-erase-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_Erase_&lt;deviceIndex&gt;函数定义 (Eep_62_Erase&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-erase-deviceindex-eep-62-erase-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1463,7 +1470,7 @@
 </table>
 </section>
 <section id="eep-62-campare-deviceindex-eep-62-campare-deviceindex-function-definition">
-<h2>Eep_62_Campare_&lt;deviceIndex&gt;函数定义 (EEP_62_Campare&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-campare-deviceindex-eep-62-campare-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_Campare_&lt;deviceIndex&gt;函数定义 (EEP_62_Campare&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-campare-deviceindex-eep-62-campare-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1593,7 +1600,7 @@
 </table>
 </section>
 <section id="eep-62-cancel-deviceindex-eep-62-cancel-deviceindex-function-definition">
-<h2>Eep_62_Cancel_&lt;deviceIndex&gt;函数定义 (Eep_62_Cancel&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-cancel-deviceindex-eep-62-cancel-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_Cancel_&lt;deviceIndex&gt;函数定义 (Eep_62_Cancel&lt;deviceIndex&gt; function definition)<a class="headerlink" href="#eep-62-cancel-deviceindex-eep-62-cancel-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1636,7 +1643,7 @@
 </table>
 </section>
 <section id="eep-62-getstatus-deviceindex-eep-62-getstatus-deviceindex-function-definition">
-<h2>Eep_62_GetStatus_&lt;deviceIndex&gt;函数定义 (Eep_62_GetStatus&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-getstatus-deviceindex-eep-62-getstatus-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_GetStatus_&lt;deviceIndex&gt;函数定义 (Eep_62_GetStatus&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-getstatus-deviceindex-eep-62-getstatus-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1698,7 +1705,7 @@
 </table>
 </section>
 <section id="eep-62-getjobresult-deviceindex-eep-62-getjobresult-deviceindex-function-definition">
-<h2>Eep_62_GetJobResult_&lt;deviceIndex&gt;函数定义 (Eep_62_GetJobResult&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-getjobresult-deviceindex-eep-62-getjobresult-deviceindex-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_GetJobResult_&lt;deviceIndex&gt;函数定义 (Eep_62_GetJobResult&lt;deviceIndex&gt; Function Definition)<a class="headerlink" href="#eep-62-getjobresult-deviceindex-eep-62-getjobresult-deviceindex-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1768,7 +1775,7 @@
 </table>
 </section>
 <section id="eep-62-mainfunction-mainfunction-definition">
-<h2>Eep_62_MainFunction函数定义 (MainFunction definition)<a class="headerlink" href="#eep-62-mainfunction-mainfunction-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_62_MainFunction函数定义 (MainFunction definition)<a class="headerlink" href="#eep-62-mainfunction-mainfunction-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1792,11 +1799,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="eep-jobendnotification-eep-jobendnotification-function-definition">
-<h2>Eep_JobEndNotification函数定义 (Eep_JobEndNotification function definition)<a class="headerlink" href="#eep-jobendnotification-eep-jobendnotification-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_JobEndNotification函数定义 (Eep_JobEndNotification function definition)<a class="headerlink" href="#eep-jobendnotification-eep-jobendnotification-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1836,7 +1843,7 @@
 </table>
 </section>
 <section id="eep-joberrornotification-eep-joberrornotification-function-definition">
-<h2>Eep_JobErrorNotification函数定义 (Eep_JobErrorNotification function definition)<a class="headerlink" href="#eep-joberrornotification-eep-joberrornotification-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Eep_JobErrorNotification函数定义 (Eep_JobErrorNotification function definition)<a class="headerlink" href="#eep-joberrornotification-eep-joberrornotification-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1876,13 +1883,13 @@
 </table>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="eeprom-description-of-internal-eeprom-configuration">
-<h3>内部EEPROM的配置描述 (Description of internal EEPROM configuration)<a class="headerlink" href="#eeprom-description-of-internal-eeprom-configuration" title="Link to this heading">¶</a></h3>
+<h3>内部EEPROM的配置描述 (Description of internal EEPROM configuration)<a class="headerlink" href="#eeprom-description-of-internal-eeprom-configuration" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="eeparxml-import-the-arxml-file-of-eep-component">
-<h2>导入Eep组件的arxml文件 (Import the arxml file of Eep component)<a class="headerlink" href="#eeparxml-import-the-arxml-file-of-eep-component" title="Link to this heading">¶</a></h2>
+<h2>导入Eep组件的arxml文件 (Import the arxml file of Eep component)<a class="headerlink" href="#eeparxml-import-the-arxml-file-of-eep-component" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eeparxml-import-eep-module-s-arxml-configuration">
 <img alt="导入Eep模块的arxml配置 (Import Eep module's arxml configuration)" src="../../_images/image624.png" />
 </figure>
@@ -1980,7 +1987,7 @@
 </table>
 </section>
 <section id="eepgeneral">
-<h2>EepGeneral<a class="headerlink" href="#eepgeneral" title="Link to this heading">¶</a></h2>
+<h2>EepGeneral<a class="headerlink" href="#eepgeneral" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eepgeneral-eepgeneral-configuration">
 <img alt="EepGeneral配置 (EEPGeneral Configuration)" src="../../_images/image719.png" />
 </figure>
@@ -2078,7 +2085,7 @@
 </table>
 </section>
 <section id="eepinitconfiguration">
-<h2>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration" title="Link to this heading">¶</a></h2>
+<h2>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eepinitconfiguration-eepinitconfiguration-configuration">
 <img alt="EepInitConfiguration配置 (EepInitConfiguration Configuration)" src="../../_images/image818.png" />
 </figure>
@@ -2207,7 +2214,7 @@
 </tbody>
 </table>
 <section id="eepdeviceconfiguration">
-<h3>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration" title="Link to this heading">¶</a></h3>
+<h3>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="eepdeviceconfiguration-eepdeviceconfiguration-configuration">
 <img alt="EepDeviceConfiguration配置 (EEPDeviceConfiguration Configuration)" src="../../_images/image918.png" />
 </figure>
@@ -2420,7 +2427,7 @@
 </section>
 </section>
 <section id="eeppublishedinformation">
-<h2>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation" title="Link to this heading">¶</a></h2>
+<h2>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eeppublishedinformation-eeppublishedinformation-configuration">
 <img alt="EepPublishedInformation配置 (EepPublishedInformation Configuration)" src="../../_images/image1017.png" />
 </figure>
@@ -2577,7 +2584,7 @@
 </tbody>
 </table>
 <section id="eeprom-description-of-external-eeprom-configuration">
-<h3>外部EEPROM的配置描述 (Description of external EEPROM configuration)<a class="headerlink" href="#eeprom-description-of-external-eeprom-configuration" title="Link to this heading">¶</a></h3>
+<h3>外部EEPROM的配置描述 (Description of external EEPROM configuration)<a class="headerlink" href="#eeprom-description-of-external-eeprom-configuration" title="链接到此标题。">¶</a></h3>
 <p class="centered">
 <strong><strong>表 Eep配置 (Table Eep Configuration)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -2673,7 +2680,7 @@
 </section>
 </section>
 <section id="eepgeneral-1">
-<span id="id1"></span><h2>EepGeneral<a class="headerlink" href="#eepgeneral-1" title="Link to this heading">¶</a></h2>
+<span id="id1"></span><h2>EepGeneral<a class="headerlink" href="#eepgeneral-1" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eepgeneral1-eepgeneral-configuration">
 <img alt="EepGeneral配置1 (EEPGeneral Configuration)" src="../../_images/image1121.png" />
 </figure>
@@ -3041,7 +3048,7 @@
 </table>
 </section>
 <section id="eepinitconfiguration-1">
-<span id="id2"></span><h2>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration-1" title="Link to this heading">¶</a></h2>
+<span id="id2"></span><h2>EepInitConfiguration<a class="headerlink" href="#eepinitconfiguration-1" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eepinitconfiguration1-eepinitconfiguration-configuration">
 <img alt="EepInitConfiguration配置1 (EepInitConfiguration Configuration)" src="../../_images/image1218.png" />
 </figure>
@@ -3230,7 +3237,7 @@
 </tbody>
 </table>
 <section id="eepdemeventparameterrefs">
-<h3>EepDemEventParameterRefs<a class="headerlink" href="#eepdemeventparameterrefs" title="Link to this heading">¶</a></h3>
+<h3>EepDemEventParameterRefs<a class="headerlink" href="#eepdemeventparameterrefs" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="eepdemeventparameterrefs-eepdemeventparameterrefs-configuration">
 <img alt="EepDemEventParameterRefs配置 (EepDemEventParameterRefs Configuration)" src="../../_images/image1315.png" />
 </figure>
@@ -3322,7 +3329,7 @@
 </table>
 </section>
 <section id="eepdeviceconfiguration-1">
-<span id="id3"></span><h3>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration-1" title="Link to this heading">¶</a></h3>
+<span id="id3"></span><h3>EepDeviceConfiguration<a class="headerlink" href="#eepdeviceconfiguration-1" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="eepdeviceconfiguration1-eepdeviceconfiguration-configuration">
 <img alt="EepDeviceConfiguration配置1 (EEPDeviceConfiguration Configuration)" src="../../_images/image1413.png" />
 </figure>
@@ -3534,7 +3541,7 @@
 </table>
 </section>
 <section id="eepdevicehwapis">
-<h3>EepDeviceHwApis<a class="headerlink" href="#eepdevicehwapis" title="Link to this heading">¶</a></h3>
+<h3>EepDeviceHwApis<a class="headerlink" href="#eepdevicehwapis" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="eepdevicehwapis-eepdevicehwapis-configuration">
 <img alt="EepDeviceHwApis配置 (EepDeviceHwApis Configuration)" src="../../_images/image1513.png" />
 </figure>
@@ -3627,7 +3634,7 @@
 </section>
 </section>
 <section id="eeppublishedinformation-1">
-<span id="id4"></span><h2>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation-1" title="Link to this heading">¶</a></h2>
+<span id="id4"></span><h2>EepPublishedInformation<a class="headerlink" href="#eeppublishedinformation-1" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="eeppublishedinformation1-eeppublishedinformation-configuration">
 <img alt="EepPublishedInformation配置1 (EepPublishedInformation Configuration)" src="../../_images/image1611.png" />
 </figure>
@@ -3949,7 +3956,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -3958,11 +3965,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,6 +9,7 @@
         <title>SecOC &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="secoc">
-<h1>SecOC<a class="headerlink" href="#secoc" title="Link to this heading">¶</a></h1>
+<h1>SecOC<a class="headerlink" href="#secoc" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -217,7 +224,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>SecOC模块对车载通信中的敏感数据进行身份验证和完整性保护。确保接收到的数据来自正确的ECU并且数据内容是正确的。</p>
 <p>The SecOC module verifies and protects the integrity of sensitive data in vehicle communication. Ensuring that the received data comes from the correct ECU and that the content is accurate.</p>
 <p>SecOC模块的目标是在PDU级别上实现资源效率高、可行的敏感数据认证机制。通常SecOC使用基于对称加密算法的MAC，同时SecOC的处理机制也可兼容非对称加密算法的使用。</p>
@@ -226,25 +233,25 @@
 <img alt="SecOC模块示意图 (Diagram of the SecOC Module)" src="../../_images/image1138.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_SecureOnboardCommunication.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_PduRouter.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_CryptoServiceManager.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="basic-concepts">
-<h3>基本概念 (Basic concepts)<a class="headerlink" href="#basic-concepts" title="Link to this heading">¶</a></h3>
+<h3>基本概念 (Basic concepts)<a class="headerlink" href="#basic-concepts" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="authentic-i-pdu">
-<h2>Authentic I-PDU<a class="headerlink" href="#authentic-i-pdu" title="Link to this heading">¶</a></h2>
+<h2>Authentic I-PDU<a class="headerlink" href="#authentic-i-pdu" title="链接到此标题。">¶</a></h2>
 <p>Authentic I-PDU指需要进行保护以应对非法篡改和重放攻击的I-PDU。</p>
 <p>Authentic I-PDU refers to I-PDU that needs to be protected against unauthorized tampering and replay attacks.</p>
 </section>
 <section id="secured-i-pdu">
-<h2>Secured I-PDU<a class="headerlink" href="#secured-i-pdu" title="Link to this heading">¶</a></h2>
+<h2>Secured I-PDU<a class="headerlink" href="#secured-i-pdu" title="链接到此标题。">¶</a></h2>
 <p>Secured I-PDU由Authentic I-PDU和Authenticator (eg: MAC )组成。同时Secured IPDU中可以附加Secured I-PDU Header和FreshnessValue信息。Secured I-PDU Header指示Authentic I-PDU的长度，当没有Secured I-PDU Header时，Authentic I-PDU长度由配置获取。Freshness Value是在生成Authenticator时使用的新鲜度值。Authenticator为生成的认证信息。</p>
 <p>Secured I-PDU consists of Authentic I-PDU and Authenticator (e.g., MAC). Additionally, Secured IPDU can include Secured I-PDU Header and FreshnessValue information. The Secured I-PDU Header indicates the length of the Authentic I-PDU; when there is no Secured I-PDU Header, the length of the Authentic I-PDU is obtained through configuration. The Freshness Value is a freshness value used when generating the Authenticator. The Authenticator is the generated authentication information.</p>
 <figure class="align-center" id="secured-i-pdu-schematic-diagram-of-secured-i-pdu-components">
@@ -257,7 +264,7 @@
 </figure>
 </section>
 <section id="datatoauthenticator">
-<h2>DataToAuthenticator<a class="headerlink" href="#datatoauthenticator" title="Link to this heading">¶</a></h2>
+<h2>DataToAuthenticator<a class="headerlink" href="#datatoauthenticator" title="链接到此标题。">¶</a></h2>
 <p>DataToAuthenticator指要传递给CSM模块，按照配置的加密算法进行MAC生成或者校验的数据。按照下列格式生成：</p>
 <p>DataToAuthenticator refers to the data that needs to be passed to the CSM module for MAC generation or verification according to the configured encryption algorithm. It is generated in the following format:</p>
 <figure class="align-center" id="datatoauthenticator-datatoauthenticator-data-format">
@@ -265,28 +272,28 @@
 </figure>
 </section>
 <section id="freshness-values">
-<h2>Freshness Values<a class="headerlink" href="#freshness-values" title="Link to this heading">¶</a></h2>
+<h2>Freshness Values<a class="headerlink" href="#freshness-values" title="链接到此标题。">¶</a></h2>
 <p>使用Freshness Values能保证生成Secured I-PDU的新鲜度。通常FreshnessValue由新鲜度管理器（FVM）管理，SecOC使用FreshnessValueId从FVM获取相应的新鲜度值。此外，新鲜度值可以从Authentic I-PDU中截取一部分作为新鲜度值，截取开始的位置和长度由配置确定。</p>
 <p>Using Freshness Values ensures the freshness of newly generated Secured I-PDU. Typically, FreshnessValue is managed by the Freshness Value Manager (FVM), and SecOC retrieves the corresponding freshness value using FreshnessValueId from FVM. Additionally, freshness values can be extracted partially from Authentic I-PDU, with the starting position and length configured accordingly.</p>
 <p>根据配置Secured I-PDU中可以不包含，包含完整或者部分的新鲜度值。</p>
 <p>According to configuration, Secured I-PDU may not include, or may include full or partial freshness values.</p>
 </section>
 <section id="pducollection">
-<h2>PduCollection<a class="headerlink" href="#pducollection" title="Link to this heading">¶</a></h2>
+<h2>PduCollection<a class="headerlink" href="#pducollection" title="链接到此标题。">¶</a></h2>
 <p>PduCollection指Secured I-PDU由Authentic I-PDU和Cryptographic I-PDU两帧独立的报文组成。发送端将Authenticator放在Cryptographic I-PDU发送出去。接收端在接收到Authentic I-PDU和Cryptographic I-PDU后组合成一帧Secured I-PDU。</p>
 <p>PduCollection refers to Secured I-PDU composed of two independent messages, Authentic I-PDU and Cryptographic I-PDU. The sender places the Authenticator in the Cryptographic I-PDU for transmission. Upon receiving both Authentic I-PDU and Cryptographic I-PDU, the receiver combines them into one frame of Secured I-PDU.</p>
 <figure class="align-center" id="cryptographic-i-pdu-cryptographic-i-pdu-composition">
 <img alt="Cryptographic I-PDU组成 (Cryptographic I-PDU Composition)" src="../../_images/image549.png" />
 </figure>
 <section id="messagelinker">
-<h3>MessageLinker<a class="headerlink" href="#messagelinker" title="Link to this heading">¶</a></h3>
+<h3>MessageLinker<a class="headerlink" href="#messagelinker" title="链接到此标题。">¶</a></h3>
 <p>在构造Cryptographic I-PDU时，可以将Authentic I-PDU的部分报文截取出来附加在最后，这段信息称为MessageLinker。接收时，SecOC需要首先校验接收到的Authentic I-PDU和Cryptographic I-PDU中的Message Linker是否匹配，校验通过后才进行下一步处理。MessageLinker的起始位置和长度由配置决定。</p>
 <p>When constructing the Cryptographic I-PDU, part of the Authentic I-PDU payload can be extracted and appended at the end; this information is referred to as MessageLinker. Upon reception, SecOC needs to first validate whether the Message Linker in the received Authentic I-PDU matches that in the Cryptographic I-PDU; only if the validation passes will further processing proceed. The starting position and length of the MessageLinker are configurable.</p>
 <p>MessageLinker是可选的。</p>
 <p>MessageLinker is optional.</p>
 </section>
 <section id="secocpdur-the-relationship-between-secoc-and-pdur">
-<h3>SecOC和PduR的关系 (The relationship between SecOC and PduR)<a class="headerlink" href="#secocpdur-the-relationship-between-secoc-and-pdur" title="Link to this heading">¶</a></h3>
+<h3>SecOC和PduR的关系 (The relationship between SecOC and PduR)<a class="headerlink" href="#secocpdur-the-relationship-between-secoc-and-pdur" title="链接到此标题。">¶</a></h3>
 <p>SecOC需要和PduR进行交互，用于获取和发送数据。</p>
 <p>SecOC needs to interact with PduR for obtaining and sending data.</p>
 <p>发送数据时，SecOC先作为PduR的下层模块，从PduR获取Authentic I-PDU，将Authentic I-PDU转换为Secured I-PDU之后，SecOC又作为PduR的上层模块，发送数据。</p>
@@ -298,7 +305,7 @@
 </figure>
 </section>
 <section id="i-pdu-authentication-i-pdu-send-function">
-<h3>认证I-PDU（发送）功能 (Authentication I-PDU (Send) Function)<a class="headerlink" href="#i-pdu-authentication-i-pdu-send-function" title="Link to this heading">¶</a></h3>
+<h3>认证I-PDU（发送）功能 (Authentication I-PDU (Send) Function)<a class="headerlink" href="#i-pdu-authentication-i-pdu-send-function" title="链接到此标题。">¶</a></h3>
 <p>认证I-PDU过程即将Authentic I-PDU转化为Secured I-PDU的过程，主要有以下几个个步骤：</p>
 <p>The authentication of I-PDU process converts Authenticated I-PDU into Secured I-PDU and mainly includes the following steps:</p>
 <p>1.从上层获取Secured I-PDU</p>
@@ -314,7 +321,7 @@
 </section>
 </section>
 <section id="i-pdu-implementing-authentication-i-pdu-function">
-<h2>认证I-PDU功能实现 (Implementing Authentication I-PDU Function)<a class="headerlink" href="#i-pdu-implementing-authentication-i-pdu-function" title="Link to this heading">¶</a></h2>
+<h2>认证I-PDU功能实现 (Implementing Authentication I-PDU Function)<a class="headerlink" href="#i-pdu-implementing-authentication-i-pdu-function" title="链接到此标题。">¶</a></h2>
 <p>上层调用SecOC_IfTransmit()或者SecOC_TpTransmit()发起Secured I-PDU的发送过程。</p>
 <p>The upper layer calls SecOC_IfTransmit() or SecOC_TpTransmit() to initiate the sending process of Secured I-PDU.</p>
 <p>对于直接发送，SecOC从SecOC_IfTransmit()函数的PduInfo中获取Authentic I-PDU。对于TP发送，SecOC需要分多次调用PduR_SecOCTpCopyTxData()获取Authentic I-PDU。</p>
@@ -326,7 +333,7 @@
 <p>生成Authenticator后，SecOC根据配置生成Secured I-PDU。之后SecOC调用PduR的发送接口将Secured I-PDU一次（If）或者多次（TP）发送出去。</p>
 <p>After generating the Authenticator, SecOC generates the Secured I-PDU according to the configuration. Then, SecOC calls the sending interface of PduR to send out the Secured I-PDU once (If) or multiple times (TP).</p>
 <section id="i-pdu-validate-i-pdu-reception-function">
-<h3>校验I-PDU（接收）功能 (Validate I-PDU (Reception) Function)<a class="headerlink" href="#i-pdu-validate-i-pdu-reception-function" title="Link to this heading">¶</a></h3>
+<h3>校验I-PDU（接收）功能 (Validate I-PDU (Reception) Function)<a class="headerlink" href="#i-pdu-validate-i-pdu-reception-function" title="链接到此标题。">¶</a></h3>
 <p>校验Secured I-PDU的过程主要包含以下几个步骤：</p>
 <p>The process of validating Secured I-PDU mainly includes the following steps:</p>
 <ol class="arabic simple">
@@ -356,7 +363,7 @@
 </section>
 </section>
 <section id="i-pdu-implementing-i-pdu-function-validation">
-<h2>校验I-PDU功能实现 (Implementing I-PDU Function Validation)<a class="headerlink" href="#i-pdu-implementing-i-pdu-function-validation" title="Link to this heading">¶</a></h2>
+<h2>校验I-PDU功能实现 (Implementing I-PDU Function Validation)<a class="headerlink" href="#i-pdu-implementing-i-pdu-function-validation" title="链接到此标题。">¶</a></h2>
 <p>PduR收到需要校验的I-PDU时，调用SecOC_RxIndication()或者SecOC_StartOfReception()通知SecOC。SecOC将Secured I-PDU缓存到本地后开始校验I-PDU处理流程。</p>
 <p>When PduR receives an I-PDU that needs to be verified, it calls SecOC_RxIndication() or SecOC_StartOfReception() to notify SecOC. After SecOC caches the Secured I-PDU locally, it begins the I-PDU verification process.</p>
 <p>在MainFunction中，SecOC从Secured I-PDU中解析出Authentic I-PDU，FreshnessValue以及Authenticator。从新鲜度值管理器（FVM）中获取FreshnessValue，然后和Authentic I-PDU以及DataId组成DataToAuthenticator。</p>
@@ -368,13 +375,13 @@
 <p>SecOC调用PduR接口将Authentic I-PDU分一次（IF）或多次（TP）传递给上层。</p>
 <p>SecOC invokes PduR interface to pass Authenticated I-PDU once (IF) or multiple times (TP) to the upper layer.</p>
 <section id="override-override-function">
-<h3>Override功能 (Override function)<a class="headerlink" href="#override-override-function" title="Link to this heading">¶</a></h3>
+<h3>Override功能 (Override function)<a class="headerlink" href="#override-override-function" title="链接到此标题。">¶</a></h3>
 <p>Override功能是一种特殊的可以干扰SecOC正常接收处理流程的机制。根据设置的Override策略，SecOC可能会不执行校验机制，或者在校验失败时也会将Authentic I-PDU传递给上层模块。</p>
 <p>Override functionality is a special mechanism that can interfere with the normal reception and processing flow of SecOC. Depending on the set Override strategy, SecOC may not execute validation mechanisms or pass Authentic I-PDU to upper-layer modules even if validation fails.</p>
 </section>
 </section>
 <section id="override-override-function-implementation">
-<h2>Override功能实现 (Override Function Implementation)<a class="headerlink" href="#override-override-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>Override功能实现 (Override Function Implementation)<a class="headerlink" href="#override-override-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>SecOC会在进行校验前判断Override功能设置的策略，决定是否需要调用CSM的接口进行数据校验。并且在校验结束后，根据Override功能设置的策略决定是否将需要将Authentic I-PDU传递给上层模块。</p>
 <p>SecOC will determine whether to call the CSM interface for data validation before performing the check based on the settings of the Override function. After the validation, it will decide whether to pass the Authentic I-PDU to the upper module based on the settings of the Override function.</p>
 <p>Override策略见下表：</p>
@@ -416,7 +423,7 @@
 </table>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 SecOC组件文件描述 (Table SecOC Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -463,13 +470,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="secoc-configtype-secoc-configtype-configuration-type-definition">
-<h2>SecOC_ConfigType类型定义 (SecOC_ConfigType Configuration Type Definition)<a class="headerlink" href="#secoc-configtype-secoc-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_ConfigType类型定义 (SecOC_ConfigType Configuration Type Definition)<a class="headerlink" href="#secoc-configtype-secoc-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -494,7 +501,7 @@
 </table>
 </section>
 <section id="secoc-statetype-secoc-statetype-type-definition">
-<h2>SecOC_StateType类型定义 (SecOC_StateType Type Definition)<a class="headerlink" href="#secoc-statetype-secoc-statetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_StateType类型定义 (SecOC_StateType Type Definition)<a class="headerlink" href="#secoc-statetype-secoc-statetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -522,7 +529,7 @@
 </table>
 </section>
 <section id="secoc-freshnessarraytype-secoc-freshnessarraytype-type-definition">
-<h2>SecOC_FreshnessArrayType类型定义 (SecOC_FreshnessArrayType type definition)<a class="headerlink" href="#secoc-freshnessarraytype-secoc-freshnessarraytype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_FreshnessArrayType类型定义 (SecOC_FreshnessArrayType type definition)<a class="headerlink" href="#secoc-freshnessarraytype-secoc-freshnessarraytype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -547,7 +554,7 @@
 </table>
 </section>
 <section id="secoc-verificationresulttype-secoc-verificationresulttype-type-definition">
-<h2>SecOC_VerificationResultType类型定义 (SecOC_VerificationResultType Type Definition)<a class="headerlink" href="#secoc-verificationresulttype-secoc-verificationresulttype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_VerificationResultType类型定义 (SecOC_VerificationResultType Type Definition)<a class="headerlink" href="#secoc-verificationresulttype-secoc-verificationresulttype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -587,7 +594,7 @@
 </table>
 </section>
 <section id="secoc-verificationstatustype-secoc-verificationstatustype-type-definition">
-<h2>SecOC_VerificationStatusType类型定义 (SecOC_VerificationStatusType Type Definition)<a class="headerlink" href="#secoc-verificationstatustype-secoc-verificationstatustype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_VerificationStatusType类型定义 (SecOC_VerificationStatusType Type Definition)<a class="headerlink" href="#secoc-verificationstatustype-secoc-verificationstatustype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -612,7 +619,7 @@
 </table>
 </section>
 <section id="secoc-overridestatustype-secoc-overridestatustype-type-definition">
-<h2>SecOC_OverrideStatusType类型定义 (SecOC_OverrideStatusType Type Definition)<a class="headerlink" href="#secoc-overridestatustype-secoc-overridestatustype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_OverrideStatusType类型定义 (SecOC_OverrideStatusType Type Definition)<a class="headerlink" href="#secoc-overridestatustype-secoc-overridestatustype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -654,7 +661,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -718,11 +725,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="secoc-init-the-secoc-init-function-definition">
-<h2>SecOC_Init函数定义 (The SecOC_Init function definition)<a class="headerlink" href="#secoc-init-the-secoc-init-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_Init函数定义 (The SecOC_Init function definition)<a class="headerlink" href="#secoc-init-the-secoc-init-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -787,7 +794,7 @@
 </table>
 </section>
 <section id="secoc-deinit-function-definition-for-secoc-deinit">
-<h2>SecOC_DeInit函数定义 (Function definition for SecOC_DeInit)<a class="headerlink" href="#secoc-deinit-function-definition-for-secoc-deinit" title="Link to this heading">¶</a></h2>
+<h2>SecOC_DeInit函数定义 (Function definition for SecOC_DeInit)<a class="headerlink" href="#secoc-deinit-function-definition-for-secoc-deinit" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -852,7 +859,7 @@
 </table>
 </section>
 <section id="secoc-getversioninfo-the-secoc-getversioninfo-function-definition">
-<h2>SecOC_GetVersionInfo函数定义 (The SecOC_GetVersionInfo function definition)<a class="headerlink" href="#secoc-getversioninfo-the-secoc-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_GetVersionInfo函数定义 (The SecOC_GetVersionInfo function definition)<a class="headerlink" href="#secoc-getversioninfo-the-secoc-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -917,7 +924,7 @@
 </table>
 </section>
 <section id="secoc-iftransmit-secoc-iftransmit-function-definition">
-<h2>SecOC_IfTransmit函数定义 (SecOC_IFTransmit_function_definition)<a class="headerlink" href="#secoc-iftransmit-secoc-iftransmit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_IfTransmit函数定义 (SecOC_IFTransmit_function_definition)<a class="headerlink" href="#secoc-iftransmit-secoc-iftransmit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1007,7 +1014,7 @@
 </table>
 </section>
 <section id="secoc-tptransmit-the-function-definition-for-secoc-tptransmit">
-<h2>SecOC_TpTransmit函数定义 (The function definition for SecOC_TpTransmit)<a class="headerlink" href="#secoc-tptransmit-the-function-definition-for-secoc-tptransmit" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TpTransmit函数定义 (The function definition for SecOC_TpTransmit)<a class="headerlink" href="#secoc-tptransmit-the-function-definition-for-secoc-tptransmit" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1097,7 +1104,7 @@
 </table>
 </section>
 <section id="secoc-ifcanceltransmit-secoc-ifcanceltransmit-function-definition">
-<h2>SecOC_IfCancelTransmit函数定义 (SecOC_IFCancelTransmit function definition)<a class="headerlink" href="#secoc-ifcanceltransmit-secoc-ifcanceltransmit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_IfCancelTransmit函数定义 (SecOC_IFCancelTransmit function definition)<a class="headerlink" href="#secoc-ifcanceltransmit-secoc-ifcanceltransmit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1167,7 +1174,7 @@
 </table>
 </section>
 <section id="secoc-tpcanceltransmit-the-secoc-tpcanceltransmit-function-definition">
-<h2>SecOC_TpCancelTransmit函数定义 (The SecOC_TpCancelTransmit function definition)<a class="headerlink" href="#secoc-tpcanceltransmit-the-secoc-tpcanceltransmit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TpCancelTransmit函数定义 (The SecOC_TpCancelTransmit function definition)<a class="headerlink" href="#secoc-tpcanceltransmit-the-secoc-tpcanceltransmit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1237,7 +1244,7 @@
 </table>
 </section>
 <section id="secoc-tpcancelreceive-the-secoc-tpcancelreceive-function-definition">
-<h2>SecOC_TpCancelReceive函数定义 (The SecOC_TpCancelReceive function definition)<a class="headerlink" href="#secoc-tpcancelreceive-the-secoc-tpcancelreceive-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TpCancelReceive函数定义 (The SecOC_TpCancelReceive function definition)<a class="headerlink" href="#secoc-tpcancelreceive-the-secoc-tpcancelreceive-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1307,7 +1314,7 @@
 </table>
 </section>
 <section id="secoc-verifystatusoverride-the-secoc-verifystatusoverride-function-definition">
-<h2>SecOC_VerifyStatusOverride函数定义 (The SecOC_VerifyStatusOverride function definition)<a class="headerlink" href="#secoc-verifystatusoverride-the-secoc-verifystatusoverride-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_VerifyStatusOverride函数定义 (The SecOC_VerifyStatusOverride function definition)<a class="headerlink" href="#secoc-verifystatusoverride-the-secoc-verifystatusoverride-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1412,7 +1419,7 @@
 </table>
 </section>
 <section id="secoc-senddefaultauthenticationinformation-the-secoc-senddefaultauthenticationinformation-function-definition">
-<h2>SecOC_SendDefaultAuthenticationInformation函数定义 (The SecOC_SendDefaultAuthenticationInformation function definition)<a class="headerlink" href="#secoc-senddefaultauthenticationinformation-the-secoc-senddefaultauthenticationinformation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_SendDefaultAuthenticationInformation函数定义 (The SecOC_SendDefaultAuthenticationInformation function definition)<a class="headerlink" href="#secoc-senddefaultauthenticationinformation-the-secoc-senddefaultauthenticationinformation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1502,7 +1509,7 @@
 </table>
 </section>
 <section id="secoc-rxindication-the-secoc-rxindication-function-definition">
-<h2>SecOC_RxIndication函数定义 (The SecOC_RxIndication function definition)<a class="headerlink" href="#secoc-rxindication-the-secoc-rxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_RxIndication函数定义 (The SecOC_RxIndication function definition)<a class="headerlink" href="#secoc-rxindication-the-secoc-rxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1587,7 +1594,7 @@
 </table>
 </section>
 <section id="secoc-tprxindication-secoc-tprxindication-function-definition">
-<h2>SecOC_TpRxIndication函数定义 (SecOC_TpRxIndication function definition)<a class="headerlink" href="#secoc-tprxindication-secoc-tprxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TpRxIndication函数定义 (SecOC_TpRxIndication function definition)<a class="headerlink" href="#secoc-tprxindication-secoc-tprxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1657,7 +1664,7 @@
 </table>
 </section>
 <section id="secoc-txconfirmation-the-secoc-txconfirmation-function-definition">
-<h2>SecOC_TxConfirmation函数定义 (The SecOC_TxConfirmation Function Definition)<a class="headerlink" href="#secoc-txconfirmation-the-secoc-txconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TxConfirmation函数定义 (The SecOC_TxConfirmation Function Definition)<a class="headerlink" href="#secoc-txconfirmation-the-secoc-txconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1742,7 +1749,7 @@
 </table>
 </section>
 <section id="secoc-tptxconfirmation-secoc-tptxconfirmation-function-definition">
-<h2>SecOC_TpTxConfirmation函数定义 (SecOC_TpTxConfirmation function definition)<a class="headerlink" href="#secoc-tptxconfirmation-secoc-tptxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TpTxConfirmation函数定义 (SecOC_TpTxConfirmation function definition)<a class="headerlink" href="#secoc-tptxconfirmation-secoc-tptxconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1812,7 +1819,7 @@
 </table>
 </section>
 <section id="secoc-triggertransmit-function-definition-for-secoc-triggertransmit">
-<h2>SecOC_TriggerTransmit函数定义 (Function definition for SecOC_TriggerTransmit)<a class="headerlink" href="#secoc-triggertransmit-function-definition-for-secoc-triggertransmit" title="Link to this heading">¶</a></h2>
+<h2>SecOC_TriggerTransmit函数定义 (Function definition for SecOC_TriggerTransmit)<a class="headerlink" href="#secoc-triggertransmit-function-definition-for-secoc-triggertransmit" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1902,7 +1909,7 @@
 </table>
 </section>
 <section id="secoc-copyrxdata-the-secoc-copyrxdata-function-definition">
-<h2>SecOC_CopyRxData函数定义 (The SecOC_CopyRxData function definition)<a class="headerlink" href="#secoc-copyrxdata-the-secoc-copyrxdata-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_CopyRxData函数定义 (The SecOC_CopyRxData function definition)<a class="headerlink" href="#secoc-copyrxdata-the-secoc-copyrxdata-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1997,7 +2004,7 @@
 </table>
 </section>
 <section id="secoc-copytxdata-the-secoc-copytxdata-function-definition">
-<h2>SecOC_CopyTxData函数定义 (The SecOC_CopyTxData function definition)<a class="headerlink" href="#secoc-copytxdata-the-secoc-copytxdata-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_CopyTxData函数定义 (The SecOC_CopyTxData function definition)<a class="headerlink" href="#secoc-copytxdata-the-secoc-copytxdata-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2107,7 +2114,7 @@
 </table>
 </section>
 <section id="secoc-startofreception-secoc-startofreception-function-definition">
-<h2>SecOC_StartOfReception函数定义 (SecOC_StartOfReception function definition)<a class="headerlink" href="#secoc-startofreception-secoc-startofreception-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_StartOfReception函数定义 (SecOC_StartOfReception function definition)<a class="headerlink" href="#secoc-startofreception-secoc-startofreception-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2217,7 +2224,7 @@
 </table>
 </section>
 <section id="secoc-getrxfreshness-the-secoc-getrxfreshness-function-definition">
-<h2>SecOC_GetRxFreshness函数定义 (The SecOC_GetRxFreshness function definition)<a class="headerlink" href="#secoc-getrxfreshness-the-secoc-getrxfreshness-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_GetRxFreshness函数定义 (The SecOC_GetRxFreshness function definition)<a class="headerlink" href="#secoc-getrxfreshness-the-secoc-getrxfreshness-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2342,7 +2349,7 @@
 </table>
 </section>
 <section id="secoc-getrxfreshnessauthdata-the-function-definition-for-secoc-getrxfreshnessauthdata">
-<h2>SecOC_GetRxFreshnessAuthData函数定义 (The function definition for SecOC_GetRxFreshnessAuthData)<a class="headerlink" href="#secoc-getrxfreshnessauthdata-the-function-definition-for-secoc-getrxfreshnessauthdata" title="Link to this heading">¶</a></h2>
+<h2>SecOC_GetRxFreshnessAuthData函数定义 (The function definition for SecOC_GetRxFreshnessAuthData)<a class="headerlink" href="#secoc-getrxfreshnessauthdata-the-function-definition-for-secoc-getrxfreshnessauthdata" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2487,7 +2494,7 @@
 </table>
 </section>
 <section id="secoc-gettxfreshness-the-secoc-gettxfreshness-function-definition">
-<h2>SecOC_GetTxFreshness函数定义 (The SecOC_GetTxFreshness function definition)<a class="headerlink" href="#secoc-gettxfreshness-the-secoc-gettxfreshness-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_GetTxFreshness函数定义 (The SecOC_GetTxFreshness function definition)<a class="headerlink" href="#secoc-gettxfreshness-the-secoc-gettxfreshness-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2582,7 +2589,7 @@
 </table>
 </section>
 <section id="secoc-gettxfreshnesstruncdata-the-secoc-gettxfreshnesstruncdata-function-definition">
-<h2>SecOC_GetTxFreshnessTruncData函数定义 (The SecOC_GetTxFreshnessTruncData function definition)<a class="headerlink" href="#secoc-gettxfreshnesstruncdata-the-secoc-gettxfreshnesstruncdata-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_GetTxFreshnessTruncData函数定义 (The SecOC_GetTxFreshnessTruncData function definition)<a class="headerlink" href="#secoc-gettxfreshnesstruncdata-the-secoc-gettxfreshnesstruncdata-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2697,7 +2704,7 @@
 </table>
 </section>
 <section id="secoc-spdutxconfirmation-the-secoc-spdutxconfirmation-function-definition">
-<h2>SecOC_SPduTxConfirmation函数定义 (The SecOC_SPduTxConfirmation function definition)<a class="headerlink" href="#secoc-spdutxconfirmation-the-secoc-spdutxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_SPduTxConfirmation函数定义 (The SecOC_SPduTxConfirmation function definition)<a class="headerlink" href="#secoc-spdutxconfirmation-the-secoc-spdutxconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2762,7 +2769,7 @@
 </table>
 </section>
 <section id="secoc-mainfunctionrx-secoc-mainfunctionrx-function-definition">
-<h2>SecOC_MainFunctionRx函数定义 (SecOC_MainFunctionRx function definition)<a class="headerlink" href="#secoc-mainfunctionrx-secoc-mainfunctionrx-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_MainFunctionRx函数定义 (SecOC_MainFunctionRx function definition)<a class="headerlink" href="#secoc-mainfunctionrx-secoc-mainfunctionrx-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2827,7 +2834,7 @@
 </table>
 </section>
 <section id="secoc-mainfunctiontx-secoc-mainfunctiontx-function-definition">
-<h2>SecOC_MainFunctionTx函数定义 (SecOC_MainFunctionTx Function Definition)<a class="headerlink" href="#secoc-mainfunctiontx-secoc-mainfunctiontx-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_MainFunctionTx函数定义 (SecOC_MainFunctionTx Function Definition)<a class="headerlink" href="#secoc-mainfunctiontx-secoc-mainfunctiontx-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2891,11 +2898,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="secoc-verificationstatuscallout-secoc-verificationstatuscallout-function-definition">
-<h2>SecOC_VerificationStatusCallout函数定义 (SecOC_VerificationStatusCallout function definition)<a class="headerlink" href="#secoc-verificationstatuscallout-secoc-verificationstatuscallout-function-definition" title="Link to this heading">¶</a></h2>
+<h2>SecOC_VerificationStatusCallout函数定义 (SecOC_VerificationStatusCallout function definition)<a class="headerlink" href="#secoc-verificationstatuscallout-secoc-verificationstatuscallout-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2970,9 +2977,9 @@
 </table>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="secocgeneral">
-<h3>SecOCGeneral<a class="headerlink" href="#secocgeneral" title="Link to this heading">¶</a></h3>
+<h3>SecOCGeneral<a class="headerlink" href="#secocgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secocgeneral-container-configuration-diagram-for-secocgeneral">
 <img alt="SecOCGeneral容器配置图 (Container Configuration Diagram for SecOCGeneral)" src="../../_images/image833.png" />
 </figure>
@@ -3202,7 +3209,7 @@
 </table>
 </section>
 <section id="secocrxpduprocessing">
-<h3>SecOCRxPduProcessing<a class="headerlink" href="#secocrxpduprocessing" title="Link to this heading">¶</a></h3>
+<h3>SecOCRxPduProcessing<a class="headerlink" href="#secocrxpduprocessing" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secocrxpduprocessing-container-configuration-diagram-for-secocrxpduprocessing">
 <img alt="SecOCRxPduProcessing容器配置图 (Container Configuration Diagram for SecOCRxPduProcessing)" src="../../_images/image932.png" />
 </figure>
@@ -3523,7 +3530,7 @@
 </section>
 </section>
 <section id="secocrxauthenticpdulayer">
-<h2>SecOCRxAuthenticPduLayer<a class="headerlink" href="#secocrxauthenticpdulayer" title="Link to this heading">¶</a></h2>
+<h2>SecOCRxAuthenticPduLayer<a class="headerlink" href="#secocrxauthenticpdulayer" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="secocrxauthenticpdulayer-container-configuration-diagram-for-secocrxauthenticpdulayer">
 <img alt="SecOCRxAuthenticPduLayer容器配置图 (Container Configuration Diagram for SecOCRxAuthenticPduLayer)" src="../../_images/image1030.png" />
 </figure>
@@ -3603,7 +3610,7 @@
 </table>
 </section>
 <section id="secocrxpdusecuredarea">
-<h2>SecOCRxPduSecuredArea<a class="headerlink" href="#secocrxpdusecuredarea" title="Link to this heading">¶</a></h2>
+<h2>SecOCRxPduSecuredArea<a class="headerlink" href="#secocrxpdusecuredarea" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="secocrxpdusecuredarea-secocrxpdusecuredarea-container-configuration-diagram">
 <img alt="SecOCRxPduSecuredArea容器配置图 (SecOCRxPduSecuredArea Container Configuration Diagram)" src="../../_images/image1139.png" />
 </figure>
@@ -3665,9 +3672,9 @@
 </table>
 </section>
 <section id="secocrxsecuredpdulayer">
-<h2>SecOCRxSecuredPduLayer<a class="headerlink" href="#secocrxsecuredpdulayer" title="Link to this heading">¶</a></h2>
+<h2>SecOCRxSecuredPduLayer<a class="headerlink" href="#secocrxsecuredpdulayer" title="链接到此标题。">¶</a></h2>
 <section id="secocrxsecuredpdu">
-<h3>SecOCRxSecuredPdu<a class="headerlink" href="#secocrxsecuredpdu" title="Link to this heading">¶</a></h3>
+<h3>SecOCRxSecuredPdu<a class="headerlink" href="#secocrxsecuredpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secocrxsecuredpdu-container-configuration-diagram-for-secocrxsecuredpdu">
 <img alt="SecOCRxSecuredPdu容器配置图 (Container Configuration Diagram for SecOCRxSecuredPdu)" src="../../_images/image1228.png" />
 </figure>
@@ -3814,7 +3821,7 @@
 </table>
 </section>
 <section id="secocrxsecuredpducollection">
-<h3>SecOCRxSecuredPduCollection<a class="headerlink" href="#secocrxsecuredpducollection" title="Link to this heading">¶</a></h3>
+<h3>SecOCRxSecuredPduCollection<a class="headerlink" href="#secocrxsecuredpducollection" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secocrxsecuredpducollection-secocrxsecuredpducollection-container-configuration-diagram">
 <img alt="SecOCRxSecuredPduCollection容器配置图 (SecOCRxSecuredPduCollection Container Configuration Diagram)" src="../../_images/image1324.png" />
 </figure>
@@ -3857,7 +3864,7 @@
 </tbody>
 </table>
 <section id="secocrxauthenticpdu">
-<h4>SecOCRxAuthenticPdu<a class="headerlink" href="#secocrxauthenticpdu" title="Link to this heading">¶</a></h4>
+<h4>SecOCRxAuthenticPdu<a class="headerlink" href="#secocrxauthenticpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="secocrxauthenticpdu-container-configuration-diagram-for-secocrxauthenticpdu">
 <img alt="SecOCRxAuthenticPdu容器配置图 (Container Configuration Diagram for SecOCRxAuthenticPdu)" src="../../_images/image1422.png" />
 </figure>
@@ -3955,7 +3962,7 @@
 </table>
 </section>
 <section id="secocrxcryptographicpdu">
-<h4>SecOCRxCryptographicPdu<a class="headerlink" href="#secocrxcryptographicpdu" title="Link to this heading">¶</a></h4>
+<h4>SecOCRxCryptographicPdu<a class="headerlink" href="#secocrxcryptographicpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="secocrxcryptographicpdu-secocrxcryptographicpdu-container-configuration-diagram">
 <img alt="SecOCRxCryptographicPdu容器配置图 (SecOCRxCryptographicPdu Container Configuration Diagram)" src="../../_images/image1522.png" />
 </figure>
@@ -4035,7 +4042,7 @@
 </table>
 </section>
 <section id="secocusemessagelink">
-<h4>SecOCUseMessageLink<a class="headerlink" href="#secocusemessagelink" title="Link to this heading">¶</a></h4>
+<h4>SecOCUseMessageLink<a class="headerlink" href="#secocusemessagelink" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="secocusemessagelink-container-configuration-diagram-for-secocusemessagelink">
 <img alt="SecOCUseMessageLink容器配置图 (Container Configuration Diagram for SecOCUseMessageLink)" src="../../_images/image1619.png" />
 </figure>
@@ -4098,7 +4105,7 @@
 </section>
 </section>
 <section id="secocsamebufferpducollection">
-<h3>SecOCSameBufferPduCollection<a class="headerlink" href="#secocsamebufferpducollection" title="Link to this heading">¶</a></h3>
+<h3>SecOCSameBufferPduCollection<a class="headerlink" href="#secocsamebufferpducollection" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secocsamebufferpducollection-container-configuration-diagram-for-secocsamebufferpducollection">
 <img alt="SecOCSameBufferPduCollection容器配置图 (Container Configuration Diagram for SecOCSameBufferPduCollection)" src="../../_images/image1716.png" />
 </figure>
@@ -4214,7 +4221,7 @@
 </table>
 </section>
 <section id="secoctxpduprocessing">
-<h3>SecOCTxPduProcessing<a class="headerlink" href="#secoctxpduprocessing" title="Link to this heading">¶</a></h3>
+<h3>SecOCTxPduProcessing<a class="headerlink" href="#secoctxpduprocessing" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secoctxpduprocessing-container-configuration-diagram-for-secoctxpduprocessing">
 <img alt="SecOCTxPduProcessing容器配置图 (Container Configuration Diagram for SecOCTxPduProcessing)" src="../../_images/image1816.png" />
 </figure>
@@ -4445,7 +4452,7 @@
 </section>
 </section>
 <section id="secoctxauthenticpdulayer">
-<h2>SecOCTxAuthenticPduLayer<a class="headerlink" href="#secoctxauthenticpdulayer" title="Link to this heading">¶</a></h2>
+<h2>SecOCTxAuthenticPduLayer<a class="headerlink" href="#secoctxauthenticpdulayer" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="secoctxauthenticpdulayer-container-configuration-diagram-for-secoctxauthenticpdulayer">
 <img alt="SecOCTxAuthenticPduLayer容器配置图 (Container Configuration Diagram for SecOCTxAuthenticPduLayer)" src="../../_images/image1914.png" />
 </figure>
@@ -4525,7 +4532,7 @@
 </table>
 </section>
 <section id="secoctxpdusecuredarea">
-<h2>SecOCTxPduSecuredArea<a class="headerlink" href="#secoctxpdusecuredarea" title="Link to this heading">¶</a></h2>
+<h2>SecOCTxPduSecuredArea<a class="headerlink" href="#secoctxpdusecuredarea" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="secoctxpdusecuredarea-container-configuration-diagram-for-secoctxpdusecuredarea">
 <img alt="SecOCTxPduSecuredArea容器配置图 (Container Configuration Diagram for SecOCTxPduSecuredArea)" src="../../_images/image2010.png" />
 </figure>
@@ -4587,9 +4594,9 @@
 </table>
 </section>
 <section id="secoctxsecuredpdulayer">
-<h2>SecOCTxSecuredPduLayer<a class="headerlink" href="#secoctxsecuredpdulayer" title="Link to this heading">¶</a></h2>
+<h2>SecOCTxSecuredPduLayer<a class="headerlink" href="#secoctxsecuredpdulayer" title="链接到此标题。">¶</a></h2>
 <section id="secoctxsecuredpdu">
-<h3>SecOCTxSecuredPdu<a class="headerlink" href="#secoctxsecuredpdu" title="Link to this heading">¶</a></h3>
+<h3>SecOCTxSecuredPdu<a class="headerlink" href="#secoctxsecuredpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="secoctxsecuredpdu-container-configuration-diagram-for-secoctxsecuredpdu">
 <img alt="SecOCTxSecuredPdu容器配置图 (Container Configuration Diagram for SecOCTxSecuredPdu)" src="../../_images/image2117.png" />
 </figure>
@@ -4715,9 +4722,9 @@
 </table>
 </section>
 <section id="secoctxsecuredpducollection">
-<h3>SecOCTxSecuredPduCollection<a class="headerlink" href="#secoctxsecuredpducollection" title="Link to this heading">¶</a></h3>
+<h3>SecOCTxSecuredPduCollection<a class="headerlink" href="#secoctxsecuredpducollection" title="链接到此标题。">¶</a></h3>
 <section id="secoctxauthenticpdu">
-<h4>SecOCTxAuthenticPdu<a class="headerlink" href="#secoctxauthenticpdu" title="Link to this heading">¶</a></h4>
+<h4>SecOCTxAuthenticPdu<a class="headerlink" href="#secoctxauthenticpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="secoctxauthenticpdu-container-configuration-diagram-for-secoctxauthenticpdu">
 <img alt="SecOCTxAuthenticPdu容器配置图 (Container Configuration Diagram for SecOCTxAuthenticPdu)" src="../../_images/image2216.png" />
 </figure>
@@ -4815,7 +4822,7 @@
 </table>
 </section>
 <section id="secoctxcryptographicpdu">
-<h4>SecOCTxCryptographicPdu<a class="headerlink" href="#secoctxcryptographicpdu" title="Link to this heading">¶</a></h4>
+<h4>SecOCTxCryptographicPdu<a class="headerlink" href="#secoctxcryptographicpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="secoctxcryptographicpdu-secoctxcryptographicpdu-container-configuration-diagram">
 <img alt="SecOCTxCryptographicPdu容器配置图 (SecOCTxCryptographicPdu Container Configuration Diagram)" src="../../_images/image2313.png" />
 </figure>
@@ -4895,7 +4902,7 @@
 </table>
 </section>
 <section id="secocusemessagelink-1">
-<span id="id1"></span><h4>SecOCUseMessageLink<a class="headerlink" href="#secocusemessagelink-1" title="Link to this heading">¶</a></h4>
+<span id="id1"></span><h4>SecOCUseMessageLink<a class="headerlink" href="#secocusemessagelink-1" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="secocusemessagelink11-container-configuration-diagram-for-secocusemessagelink">
 <img alt="SecOCUseMessageLink容器配置图11 (Container Configuration Diagram for SecOCUseMessageLink)" src="../../_images/image2411.png" />
 </figure>
@@ -5104,7 +5111,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -5113,11 +5120,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

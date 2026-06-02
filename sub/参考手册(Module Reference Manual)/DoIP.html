@@ -9,6 +9,7 @@
         <title>DoIP &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="doip">
-<h1>DoIP<a class="headerlink" href="#doip" title="Link to this heading">¶</a></h1>
+<h1>DoIP<a class="headerlink" href="#doip" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -245,7 +252,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doip-doip-module-hierarchical-diagram">
 <img alt="DoIP模块层次图 (DoIP Module Hierarchical Diagram)" src="../../_images/image159.png" />
 </figure>
@@ -274,24 +281,24 @@
 </ol>
 <p>Network error status handling.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] ISO-13400，2012</p>
 <p>[2] AUTOSAR_SWS_DiagnosticOverIP，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="vehicle-announcements-and-vehicle-discovery-functions">
-<h3>车辆通告和车辆发现功能 (Vehicle announcements and vehicle discovery functions)<a class="headerlink" href="#vehicle-announcements-and-vehicle-discovery-functions" title="Link to this heading">¶</a></h3>
+<h3>车辆通告和车辆发现功能 (Vehicle announcements and vehicle discovery functions)<a class="headerlink" href="#vehicle-announcements-and-vehicle-discovery-functions" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="introduction-to-vehicle-announcements-and-vehicle-discovery-functions">
-<h2>车辆通告和车辆发现功能介绍 (Introduction to Vehicle Announcements and Vehicle Discovery Functions)<a class="headerlink" href="#introduction-to-vehicle-announcements-and-vehicle-discovery-functions" title="Link to this heading">¶</a></h2>
+<h2>车辆通告和车辆发现功能介绍 (Introduction to Vehicle Announcements and Vehicle Discovery Functions)<a class="headerlink" href="#introduction-to-vehicle-announcements-and-vehicle-discovery-functions" title="链接到此标题。">¶</a></h2>
 <p>车辆通告和车辆发现功能用于Tester端发现已经建立IP连接的DoIP节点。通常DoIP节点的IP地址分配成功后会发出vehicle announcement报文，用于通告自己的LA、VIN、EID、GID等信息。如果Tester端没有及时收到(Tester在DoIP启动后才连接到网络)DoIP节点的车辆通告报文，会通过主动发送vehicle identification报文获取DoIP节点的上述信息。</p>
 <p>Vehicle announcements and vehicle discovery functionalities are used by Tester end to discover established IP-connected DoIP nodes. Typically, after the IP address allocation of a DoIP node is successful, it sends a vehicle announcement message to announce its LA, VIN, EID, GID, etc. If the Tester end fails to receive the vehicle announcement message from the DoIP node in time (meaning the Tester connects to the network only after DoIP startup), it will actively send a vehicle identification message to obtain the aforementioned information of the DoIP node.</p>
 </section>
 <section id="vehicle-announcements-and-vehicle-discovery-features-implemented">
-<h2>车辆通告和车辆发现功能实现 (Vehicle announcements and vehicle discovery features implemented)<a class="headerlink" href="#vehicle-announcements-and-vehicle-discovery-features-implemented" title="Link to this heading">¶</a></h2>
+<h2>车辆通告和车辆发现功能实现 (Vehicle announcements and vehicle discovery features implemented)<a class="headerlink" href="#vehicle-announcements-and-vehicle-discovery-features-implemented" title="链接到此标题。">¶</a></h2>
 <p>车辆通告和车辆发现功能基于 UDP 协议实现。</p>
 <p>The vehicle announcement and vehicle discovery features are implemented based on the UDP protocol.</p>
 <p>车辆通告。当网络可用时，SoAd会调用DoIP_SoConModeChg告知DoIP，DoIP在DoIP_SoConModeChg设置应该发送车辆通告消息相关标志，在DoIP_MainFunction调用SoAd_IfTransmit发送车辆通告消息。</p>
@@ -299,64 +306,64 @@
 <p>车辆发现。SoAd会调用DoIP_SoAdIfRxIndication告知DoIP收到vehicle identification消息，DoIP在DoIP_SoAdIfRxIndication处理收到的相关消息，并调用SoAd_IfTransmit发送响应报文。</p>
 <p>Vehicle discovery. SoAd will call DoIP_SoAdIfRxIndication to inform DoIP of receiving a vehicle identification message. DoIP processes the received messages in DoIP_SoAdIfRxIndication and calls SoAd_IfTransmit to send a response message.</p>
 <section id="vehicle-basic-information-retrieval-function">
-<h3>车辆基本信息检索功能 (Vehicle basic information retrieval function)<a class="headerlink" href="#vehicle-basic-information-retrieval-function" title="Link to this heading">¶</a></h3>
+<h3>车辆基本信息检索功能 (Vehicle basic information retrieval function)<a class="headerlink" href="#vehicle-basic-information-retrieval-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="introduction-to-vehicle-basic-information-retrieval-function">
-<h2>车辆基本信息检索功能介绍 (Introduction to Vehicle Basic Information Retrieval Function)<a class="headerlink" href="#introduction-to-vehicle-basic-information-retrieval-function" title="Link to this heading">¶</a></h2>
+<h2>车辆基本信息检索功能介绍 (Introduction to Vehicle Basic Information Retrieval Function)<a class="headerlink" href="#introduction-to-vehicle-basic-information-retrieval-function" title="链接到此标题。">¶</a></h2>
 <p>车辆检索，用于外部诊断设备通过0x4001、0x4003指令向DoIP节点检索当前节点的节点类型、最大同时可连接TCP socket数量、当前连接的TCP socket数量、最大可支持的数据长度、当前电源状态等信息。</p>
 <p>Vehicle retrieval is used for external diagnostic devices to retrieve current node information such as node type, maximum number of concurrent TCP sockets, current number of connected TCP sockets, maximum supported data length, and current power state via DoIP nodes using 0x4001 and 0x4003 commands.</p>
 </section>
 <section id="vehicle-basic-information-retrieval-function-implementation">
-<h2>车辆基本信息检索功能实现 (Vehicle basic information retrieval function implementation)<a class="headerlink" href="#vehicle-basic-information-retrieval-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>车辆基本信息检索功能实现 (Vehicle basic information retrieval function implementation)<a class="headerlink" href="#vehicle-basic-information-retrieval-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>车辆检索功能基于UDP协议实现，接收到0x4001、0x4003报文后进入DoIP_SoAdIfRxIndication()进行处理，同步构造响应报文并通过SoAd_IfTransmit() 发送响应报文。</p>
 <p>The vehicle search function is implemented based on the UDP protocol. After receiving 0x4001 and 0x4003 messages, it enters DoIP_SoAdIfRxIndication() for processing, synchronously constructs a response message, and sends the response message through SoAd_IfTransmit().</p>
 <section id="connection-status-establishment-maintenance-functionality">
-<h3>连接状态建立、维持功能 (Connection status establishment, maintenance functionality)<a class="headerlink" href="#connection-status-establishment-maintenance-functionality" title="Link to this heading">¶</a></h3>
+<h3>连接状态建立、维持功能 (Connection status establishment, maintenance functionality)<a class="headerlink" href="#connection-status-establishment-maintenance-functionality" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="connection-status-establishment-and-maintenance-function-introduction">
-<h2>连接状态建立、维持功能介绍 (Connection status establishment and maintenance function introduction)<a class="headerlink" href="#connection-status-establishment-and-maintenance-function-introduction" title="Link to this heading">¶</a></h2>
+<h2>连接状态建立、维持功能介绍 (Connection status establishment and maintenance function introduction)<a class="headerlink" href="#connection-status-establishment-and-maintenance-function-introduction" title="链接到此标题。">¶</a></h2>
 <p>连接状态建立、维持功能用建立TCP 连接与维持，DoIP通过路由激活请求注册TCP连接，通过存活检测机制来维持连接状态。</p>
 <p>Connection state establishment and maintenance functions use establishing and maintaining TCP connections, with DoIP activating requests to register TCP connections through routing and maintaining the connection state via survival detection mechanisms.</p>
 </section>
 <section id="connection-status-establishment-maintenance-function-implementation">
-<h2>连接状态建立、维持功能实现 (Connection status establishment, maintenance function implementation)<a class="headerlink" href="#connection-status-establishment-maintenance-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>连接状态建立、维持功能实现 (Connection status establishment, maintenance function implementation)<a class="headerlink" href="#connection-status-establishment-maintenance-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>当DoIP_SoConModeChg指示当前套接字状态切换为SOAD_SOCON_ONLINE时，将由DoIP维持一个套接字连接资源池，并开始启动initial inactivity timer，如果超时时间内未完成路由激活注册，将在套接字资源池中清除对应套接字，并通知SoAd模块关闭套接字。如果在超时时间内接收到路由激活请求并满足注册条件，则停止initial inactivity timer计时并开始general inactivity timer计时，此后就可以基于该套接字进行诊断报文的传输了。每当通过该套接字收发了数据，都会重置general inactivity timer。</p>
 <p>When the DoIP_SoConModeChg indicates that the current socket state has switched to SOAD_SOCON_ONLINE, DoIP will maintain a socket connection resource pool and start the initial inactivity timer. If the route activation registration is not completed within the timeout period, the corresponding socket will be cleared from the socket resource pool, and SoAd module will be notified to close the socket. If a route activation request is received and meets the registration conditions within the timeout period, the initial inactivity timer counting will be stopped, and the general inactivity timer will start. After that, diagnostic messages can be transmitted based on this socket. Whenever data is sent or received through this socket, the general inactivity timer will be reset.</p>
 <section id="diagnostic-data-routing-function">
-<h3>诊断数据路由功能 (Diagnostic Data Routing Function)<a class="headerlink" href="#diagnostic-data-routing-function" title="Link to this heading">¶</a></h3>
+<h3>诊断数据路由功能 (Diagnostic Data Routing Function)<a class="headerlink" href="#diagnostic-data-routing-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="introduction-to-diagnostic-data-routing-function">
-<h2>诊断数据路由功能介绍 (Introduction to Diagnostic Data Routing Function)<a class="headerlink" href="#introduction-to-diagnostic-data-routing-function" title="Link to this heading">¶</a></h2>
+<h2>诊断数据路由功能介绍 (Introduction to Diagnostic Data Routing Function)<a class="headerlink" href="#introduction-to-diagnostic-data-routing-function" title="链接到此标题。">¶</a></h2>
 <p>通过DoIP传递的诊断数据通常有两种形式，一种是通过DoIP传递给其它ECU节点，此时DoIP节点作为网关节点，实现诊断报文的路由功能，另一种则是传递给DoIP节点本身。</p>
 <p>Diagnostic data transmitted via DoIP typically takes two forms: one where the DoIP node acts as a gateway node to route diagnostic messages to other ECU nodes, and another where it is transmitted to the DoIP node itself.</p>
 </section>
 <section id="diagnostic-data-routing-functionality-implementation">
-<h2>诊断数据路由功能实现 (Diagnostic data routing functionality implementation)<a class="headerlink" href="#diagnostic-data-routing-functionality-implementation" title="Link to this heading">¶</a></h2>
+<h2>诊断数据路由功能实现 (Diagnostic data routing functionality implementation)<a class="headerlink" href="#diagnostic-data-routing-functionality-implementation" title="链接到此标题。">¶</a></h2>
 <p>如果是通过DoIP将诊断报文传递给其它ECU，则首先通过SA、TA找到PduR中配置好的目的节点，通过PduR的报文路由功能转发给其它节点。</p>
 <p>If diagnostic messages are transmitted to other ECU via DoIP, first find the destination node pre-configured in PduR through SA and TA, then forward the message using the routing function of PduR to other nodes.</p>
 <p>如果诊断报文是发送给 DoIP 节点本身，同样是通过SA、TA找到PduR中配置的上层目标，并由PduR转发到DCM中进行处理，此时诊断报文接收和发送buffer将由DCM模块提供。</p>
 <p>If the diagnostic message is sent to the DoIP node itself, it is similarly located in PduR's upper-layer target via SA and TA, and then forwarded by PduR to be processed in the DCM. In this case, the diagnostic message reception and transmission buffers will be provided by the DCM module.</p>
 <section id="diagnostic-data-gateway-function">
-<h3>诊断数据网关功能 (      Diagnostic Data Gateway Function)<a class="headerlink" href="#diagnostic-data-gateway-function" title="Link to this heading">¶</a></h3>
+<h3>诊断数据网关功能 (      Diagnostic Data Gateway Function)<a class="headerlink" href="#diagnostic-data-gateway-function" title="链接到此标题。">¶</a></h3>
 <p>DoIP网关支持将诊断报文转发到CAN网络、其它以太网网络。</p>
 <p>DoIP Gateway supports forwarding diagnostic messages to CAN network, other Ethernet networks.</p>
 </section>
 </section>
 <section id="can-ethernet-to-can">
-<h2>以太网转CAN (Ethernet to CAN)<a class="headerlink" href="#can-ethernet-to-can" title="Link to this heading">¶</a></h2>
+<h2>以太网转CAN (Ethernet to CAN)<a class="headerlink" href="#can-ethernet-to-can" title="链接到此标题。">¶</a></h2>
 <p>DoIP网关到CAN诊断节点。Tester发出的诊断请求通过以太网传递到DoIP网关，DoIP网关通过TA得到目标节点，将诊断请求通过PduR转发到CAN总线。</p>
 <p>DoIP gateway to CAN diagnostic node. The diagnosis request sent by Tester is transmitted via Ethernet to the DoIP gateway, which then obtains the target node through TA and forwards the diagnosis request via PduR to the CAN bus.</p>
 </section>
 <section id="ethernet-to-ethernet">
-<h2>以太网转以太网 (Ethernet to Ethernet)<a class="headerlink" href="#ethernet-to-ethernet" title="Link to this heading">¶</a></h2>
+<h2>以太网转以太网 (Ethernet to Ethernet)<a class="headerlink" href="#ethernet-to-ethernet" title="链接到此标题。">¶</a></h2>
 <p>DoIP网关到Eth诊断节点。Tester发出的诊断请求通过以太网传递到DoIP网关，DoIP网关通过TA得到目标诊断节点，将诊断请求通过PduR转发到Eth。</p>
 <p>DoIP gateway to Eth diagnostic node. The diagnosis request sent by Tester is transmitted via Ethernet to the DoIP gateway, which, through TA, obtains the target diagnostic node and forwards the diagnosis request via PduR to Eth.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 DoIP组件文件描述 (Table Description of DoIP Component Files)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -421,13 +428,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="doip-configtype-doip-configtype-configuration-type-definition">
-<h2>DoIP_ConfigType类型定义 (DoIP_ConfigType Configuration Type Definition)<a class="headerlink" href="#doip-configtype-doip-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_ConfigType类型定义 (DoIP_ConfigType Configuration Type Definition)<a class="headerlink" href="#doip-configtype-doip-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -452,7 +459,7 @@
 </table>
 </section>
 <section id="doip-powerstatetype-doip-powerstatetype-type-definition">
-<h2>DoIP_PowerStateType类型定义 (DoIP_PowerStateType type definition)<a class="headerlink" href="#doip-powerstatetype-doip-powerstatetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_PowerStateType类型定义 (DoIP_PowerStateType type definition)<a class="headerlink" href="#doip-powerstatetype-doip-powerstatetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -480,7 +487,7 @@
 </table>
 </section>
 <section id="doip-activationlinetype-doip-activation-line-type-definition">
-<h2>DoIP_ActivationLineType类型定义 (DoIP Activation Line Type definition)<a class="headerlink" href="#doip-activationlinetype-doip-activation-line-type-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_ActivationLineType类型定义 (DoIP Activation Line Type definition)<a class="headerlink" href="#doip-activationlinetype-doip-activation-line-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -508,7 +515,7 @@
 </table>
 </section>
 <section id="doipnodetype-definition-of-doipnodetype-type">
-<h2>DoIPNodeType类型定义 (Definition of DoIPNodeType type)<a class="headerlink" href="#doipnodetype-definition-of-doipnodetype-type" title="Link to this heading">¶</a></h2>
+<h2>DoIPNodeType类型定义 (Definition of DoIPNodeType type)<a class="headerlink" href="#doipnodetype-definition-of-doipnodetype-type" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -535,7 +542,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -605,11 +612,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="doip-init-the-doip-init-function-defines">
-<h2>DoIP_Init函数定义 (The DoIP_Init function defines)<a class="headerlink" href="#doip-init-the-doip-init-function-defines" title="Link to this heading">¶</a></h2>
+<h2>DoIP_Init函数定义 (The DoIP_Init function defines)<a class="headerlink" href="#doip-init-the-doip-init-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -674,7 +681,7 @@
 </table>
 </section>
 <section id="doip-activationlineswitch-the-doip-activationlineswitch-function-definition">
-<h2>DoIP_ActivationLineSwitch函数定义 (The DoIP_ActivationLineSwitch function definition)<a class="headerlink" href="#doip-activationlineswitch-the-doip-activationlineswitch-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_ActivationLineSwitch函数定义 (The DoIP_ActivationLineSwitch function definition)<a class="headerlink" href="#doip-activationlineswitch-the-doip-activationlineswitch-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -739,7 +746,7 @@
 </table>
 </section>
 <section id="doip-soconmodechg-function-definition-for-doip-soconmodechg">
-<h2>DoIP_SoConModeChg函数定义 (function definition for DoIP_SoConModeChg)<a class="headerlink" href="#doip-soconmodechg-function-definition-for-doip-soconmodechg" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoConModeChg函数定义 (function definition for DoIP_SoConModeChg)<a class="headerlink" href="#doip-soconmodechg-function-definition-for-doip-soconmodechg" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -814,7 +821,7 @@
 </table>
 </section>
 <section id="doip-localipaddrassignmentchg-the-doip-localipaddrassignmentchg-function-definition">
-<h2>DoIP_LocalIpAddrAssignmentChg函数定义 (The DoIP_LocalIpAddrAssignmentChg function definition)<a class="headerlink" href="#doip-localipaddrassignmentchg-the-doip-localipaddrassignmentchg-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_LocalIpAddrAssignmentChg函数定义 (The DoIP_LocalIpAddrAssignmentChg function definition)<a class="headerlink" href="#doip-localipaddrassignmentchg-the-doip-localipaddrassignmentchg-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -884,7 +891,7 @@
 </table>
 </section>
 <section id="doip-soadifrxindication-the-function-definition-for-doip-soadifrxindication">
-<h2>DoIP_SoAdIfRxIndication函数定义 (The function definition for DoIP_SoAdIfRxIndication)<a class="headerlink" href="#doip-soadifrxindication-the-function-definition-for-doip-soadifrxindication" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdIfRxIndication函数定义 (The function definition for DoIP_SoAdIfRxIndication)<a class="headerlink" href="#doip-soadifrxindication-the-function-definition-for-doip-soadifrxindication" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -954,7 +961,7 @@
 </table>
 </section>
 <section id="doip-soadtpstartofreception-the-function-definition-for-doip-soadtpstartofreception">
-<h2>DoIP_SoAdTpStartOfReception函数定义 (The function definition for DoIP_SoAdTpStartOfReception)<a class="headerlink" href="#doip-soadtpstartofreception-the-function-definition-for-doip-soadtpstartofreception" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdTpStartOfReception函数定义 (The function definition for DoIP_SoAdTpStartOfReception)<a class="headerlink" href="#doip-soadtpstartofreception-the-function-definition-for-doip-soadtpstartofreception" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1044,7 +1051,7 @@
 </table>
 </section>
 <section id="doip-soadtpcopyrxdata-function-definition-for-doip-soadtpcopyrxdata">
-<h2>DoIP_SoAdTpCopyRxData函数定义 (function definition for DoIP_SoAdTpCopyRxData)<a class="headerlink" href="#doip-soadtpcopyrxdata-function-definition-for-doip-soadtpcopyrxdata" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdTpCopyRxData函数定义 (function definition for DoIP_SoAdTpCopyRxData)<a class="headerlink" href="#doip-soadtpcopyrxdata-function-definition-for-doip-soadtpcopyrxdata" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1124,7 +1131,7 @@
 </table>
 </section>
 <section id="doip-tpcancelreceive-doip-tpcancelreceive-function-definition">
-<h2>DoIP_TpCancelReceive函数定义 (DOIP_TpCancelReceive function definition)<a class="headerlink" href="#doip-tpcancelreceive-doip-tpcancelreceive-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_TpCancelReceive函数定义 (DOIP_TpCancelReceive function definition)<a class="headerlink" href="#doip-tpcancelreceive-doip-tpcancelreceive-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1189,7 +1196,7 @@
 </table>
 </section>
 <section id="doip-iftransmit-define-doif-transmit-function">
-<h2>DoIP_IfTransmit函数定义 (Define_DOIF_Transmit_function)<a class="headerlink" href="#doip-iftransmit-define-doif-transmit-function" title="Link to this heading">¶</a></h2>
+<h2>DoIP_IfTransmit函数定义 (Define_DOIF_Transmit_function)<a class="headerlink" href="#doip-iftransmit-define-doif-transmit-function" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1259,7 +1266,7 @@
 </table>
 </section>
 <section id="doip-tptransmit-define-of-doip-tptransmit-function">
-<h2>DoIP_TpTransmit函数定义 (Define of DoIP_TpTransmit function)<a class="headerlink" href="#doip-tptransmit-define-of-doip-tptransmit-function" title="Link to this heading">¶</a></h2>
+<h2>DoIP_TpTransmit函数定义 (Define of DoIP_TpTransmit function)<a class="headerlink" href="#doip-tptransmit-define-of-doip-tptransmit-function" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1329,7 +1336,7 @@
 </table>
 </section>
 <section id="doip-ifcanceltransmit-definefunction-doip-ifcanceltransmit">
-<h2>DoIP_IfCancelTransmit函数定义 (DefineFunction_DoIP_IfCancelTransmit)<a class="headerlink" href="#doip-ifcanceltransmit-definefunction-doip-ifcanceltransmit" title="Link to this heading">¶</a></h2>
+<h2>DoIP_IfCancelTransmit函数定义 (DefineFunction_DoIP_IfCancelTransmit)<a class="headerlink" href="#doip-ifcanceltransmit-definefunction-doip-ifcanceltransmit" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1394,7 +1401,7 @@
 </table>
 </section>
 <section id="doip-tpcanceltransmit-the-doip-tpcanceltransmit-function-definition">
-<h2>DoIP_TpCancelTransmit函数定义 (The DoIP_TpCancelTransmit function definition)<a class="headerlink" href="#doip-tpcanceltransmit-the-doip-tpcanceltransmit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_TpCancelTransmit函数定义 (The DoIP_TpCancelTransmit function definition)<a class="headerlink" href="#doip-tpcanceltransmit-the-doip-tpcanceltransmit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1459,7 +1466,7 @@
 </table>
 </section>
 <section id="doip-soadtpcopytxdata-the-function-definition-for-doip-soadtpcopytxdata">
-<h2>DoIP_SoAdTpCopyTxData函数定义 (The function definition for DoIP_SoAdTpCopyTxData)<a class="headerlink" href="#doip-soadtpcopytxdata-the-function-definition-for-doip-soadtpcopytxdata" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdTpCopyTxData函数定义 (The function definition for DoIP_SoAdTpCopyTxData)<a class="headerlink" href="#doip-soadtpcopytxdata-the-function-definition-for-doip-soadtpcopytxdata" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1544,7 +1551,7 @@
 </table>
 </section>
 <section id="doip-soadtptxconfirmation-the-doip-soadtptxconfirmation-function-definition">
-<h2>DoIP_SoAdTpTxConfirmation函数定义 (The DoIP_SoAdTpTxConfirmation function definition)<a class="headerlink" href="#doip-soadtptxconfirmation-the-doip-soadtptxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdTpTxConfirmation函数定义 (The DoIP_SoAdTpTxConfirmation function definition)<a class="headerlink" href="#doip-soadtptxconfirmation-the-doip-soadtptxconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1614,7 +1621,7 @@
 </table>
 </section>
 <section id="doip-soadiftxconfirmation-the-function-definition-for-doip-soadiftxconfirmation">
-<h2>DoIP_SoAdIfTxConfirmation函数定义 (The function definition for DoIP_SoAdIfTxConfirmation)<a class="headerlink" href="#doip-soadiftxconfirmation-the-function-definition-for-doip-soadiftxconfirmation" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdIfTxConfirmation函数定义 (The function definition for DoIP_SoAdIfTxConfirmation)<a class="headerlink" href="#doip-soadiftxconfirmation-the-function-definition-for-doip-soadiftxconfirmation" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1684,7 +1691,7 @@
 </table>
 </section>
 <section id="doip-soadtprxindication-doip-soadtprxindication-function-definition">
-<h2>DoIP_SoAdTpRxIndication函数定义 (DOIP_SoAdTpRxIndication function definition)<a class="headerlink" href="#doip-soadtprxindication-doip-soadtprxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_SoAdTpRxIndication函数定义 (DOIP_SoAdTpRxIndication function definition)<a class="headerlink" href="#doip-soadtprxindication-doip-soadtprxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1754,7 +1761,7 @@
 </table>
 </section>
 <section id="doip-mainfunction-doip-mainfunction-function-definition">
-<h2>DoIP_MainFunction函数定义 (DoIP_MainFunction function definition)<a class="headerlink" href="#doip-mainfunction-doip-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_MainFunction函数定义 (DoIP_MainFunction function definition)<a class="headerlink" href="#doip-mainfunction-doip-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1779,7 +1786,7 @@
 </table>
 </section>
 <section id="doip-mainfunction-highfrequency-doip-mainfunction-highfrequency-function-definition">
-<h2>DoIP_MainFunction_HighFrequency函数定义 (DoIP_MainFunction_HighFrequency function definition)<a class="headerlink" href="#doip-mainfunction-highfrequency-doip-mainfunction-highfrequency-function-definition" title="Link to this heading">¶</a></h2>
+<h2>DoIP_MainFunction_HighFrequency函数定义 (DoIP_MainFunction_HighFrequency function definition)<a class="headerlink" href="#doip-mainfunction-highfrequency-doip-mainfunction-highfrequency-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1803,11 +1810,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="user-doipgetpowermodecallback">
-<h2>&lt;User&gt;_DoIPGetPowerModeCallback<a class="headerlink" href="#user-doipgetpowermodecallback" title="Link to this heading">¶</a></h2>
+<h2>&lt;User&gt;_DoIPGetPowerModeCallback<a class="headerlink" href="#user-doipgetpowermodecallback" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1877,7 +1884,7 @@
 </table>
 </section>
 <section id="user-doiproutingactivationconfirmation">
-<h2>&lt;User&gt;_DoIPRoutingActivationConfirmation<a class="headerlink" href="#user-doiproutingactivationconfirmation" title="Link to this heading">¶</a></h2>
+<h2>&lt;User&gt;_DoIPRoutingActivationConfirmation<a class="headerlink" href="#user-doiproutingactivationconfirmation" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1957,7 +1964,7 @@
 </table>
 </section>
 <section id="user-doiproutingactivationauthentication">
-<h2>&lt;User&gt;_DoIPRoutingActivationAuthentication<a class="headerlink" href="#user-doiproutingactivationauthentication" title="Link to this heading">¶</a></h2>
+<h2>&lt;User&gt;_DoIPRoutingActivationAuthentication<a class="headerlink" href="#user-doiproutingactivationauthentication" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2032,7 +2039,7 @@
 </table>
 </section>
 <section id="user-doiptriggergidsynccallback">
-<h2>&lt;User&gt;_DoIPTriggerGidSyncCallback<a class="headerlink" href="#user-doiptriggergidsynccallback" title="Link to this heading">¶</a></h2>
+<h2>&lt;User&gt;_DoIPTriggerGidSyncCallback<a class="headerlink" href="#user-doiptriggergidsynccallback" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2097,7 +2104,7 @@
 </table>
 </section>
 <section id="user-doipgetgidcallback">
-<h2>&lt;User&gt;_DoIPGetGidCallback<a class="headerlink" href="#user-doipgetgidcallback" title="Link to this heading">¶</a></h2>
+<h2>&lt;User&gt;_DoIPGetGidCallback<a class="headerlink" href="#user-doipgetgidcallback" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2162,7 +2169,7 @@
 </table>
 </section>
 <section id="user-doipgetfurtheractionbytecallback">
-<h2>&lt;User&gt;_DoIPGetFurtherActionByteCallback<a class="headerlink" href="#user-doipgetfurtheractionbytecallback" title="Link to this heading">¶</a></h2>
+<h2>&lt;User&gt;_DoIPGetFurtherActionByteCallback<a class="headerlink" href="#user-doipgetfurtheractionbytecallback" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2227,9 +2234,9 @@
 </table>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="doipgeneral">
-<h3>DoIPGeneral<a class="headerlink" href="#doipgeneral" title="Link to this heading">¶</a></h3>
+<h3>DoIPGeneral<a class="headerlink" href="#doipgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doipgeneral-doipgeneral-configuration">
 <img alt="DoIPGeneral配置 (DoIPGeneral Configuration)" src="../../_images/image325.png" />
 </figure>
@@ -2754,7 +2761,7 @@
 </section>
 </section>
 <section id="doipgetgidcallback">
-<h2>DoIPGetGidCallback<a class="headerlink" href="#doipgetgidcallback" title="Link to this heading">¶</a></h2>
+<h2>DoIPGetGidCallback<a class="headerlink" href="#doipgetgidcallback" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doipgetgidcallback-doipgetgidcallback-configuration">
 <img alt="DoIPGetGidCallback配置 (DoIPGetGidCallback Configuration)" src="../../_images/image419.png" />
 </figure>
@@ -2798,7 +2805,7 @@
 </table>
 </section>
 <section id="doippowermodecallback">
-<h2>DoIPPowerModeCallback<a class="headerlink" href="#doippowermodecallback" title="Link to this heading">¶</a></h2>
+<h2>DoIPPowerModeCallback<a class="headerlink" href="#doippowermodecallback" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doippowermodedirect-doip-power-mode-direct-configuration">
 <img alt="DoIPPowerModeDirect配置 (DoIP Power Mode Direct Configuration)" src="../../_images/image518.png" />
 </figure>
@@ -2842,7 +2849,7 @@
 </table>
 </section>
 <section id="doiptriggergidsynccallback">
-<h2>DoIPTriggerGidSyncCallback<a class="headerlink" href="#doiptriggergidsynccallback" title="Link to this heading">¶</a></h2>
+<h2>DoIPTriggerGidSyncCallback<a class="headerlink" href="#doiptriggergidsynccallback" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doiptriggergidsyncdirect-doiptriggergidsyncdirect-configuration">
 <img alt="DoIPTriggerGidSyncDirect配置 (DoIPTriggerGidSyncDirect Configuration)" src="../../_images/image618.png" />
 </figure>
@@ -2885,7 +2892,7 @@
 </tbody>
 </table>
 <section id="doipconfigset">
-<h3>DoIPConfigSet<a class="headerlink" href="#doipconfigset" title="Link to this heading">¶</a></h3>
+<h3>DoIPConfigSet<a class="headerlink" href="#doipconfigset" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doipconfigset-doip-configset-configuration">
 <img alt="DoIPConfigSet配置 (DoIP ConfigSet Configuration)" src="../../_images/image715.png" />
 </figure>
@@ -2966,7 +2973,7 @@
 </section>
 </section>
 <section id="doipinterface">
-<h2>DoIPInterface<a class="headerlink" href="#doipinterface" title="Link to this heading">¶</a></h2>
+<h2>DoIPInterface<a class="headerlink" href="#doipinterface" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doipinterface-doip-interface-configuration">
 <img alt="DoIPInterface配置 (DoIP Interface Configuration)" src="../../_images/image814.png" />
 </figure>
@@ -3226,7 +3233,7 @@
 </table>
 </section>
 <section id="doipchannel">
-<h2>DoIPChannel<a class="headerlink" href="#doipchannel" title="Link to this heading">¶</a></h2>
+<h2>DoIPChannel<a class="headerlink" href="#doipchannel" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doipchannel-doip-channel-configuration">
 <img alt="DoIPChannel配置 (DoIP Channel Configuration)" src="../../_images/image914.png" />
 </figure>
@@ -3365,7 +3372,7 @@
 </tbody>
 </table>
 <section id="doippdurrxpdu">
-<h3>DoIPPduRRxPdu<a class="headerlink" href="#doippdurrxpdu" title="Link to this heading">¶</a></h3>
+<h3>DoIPPduRRxPdu<a class="headerlink" href="#doippdurrxpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doippdurrxpdu-do-ippdu-rrx-pdu-configuration">
 <img alt="DoIPPduRRxPdu配置 (Do IPPdu RRx Pdu Configuration)" src="../../_images/image1013.png" />
 </figure>
@@ -3433,7 +3440,7 @@
 </table>
 </section>
 <section id="doippdurtxpdu">
-<h3>DoIPPduRTxPdu<a class="headerlink" href="#doippdurtxpdu" title="Link to this heading">¶</a></h3>
+<h3>DoIPPduRTxPdu<a class="headerlink" href="#doippdurtxpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doippdurtxpdu-doippdurtxpdu-configuration">
 <img alt="DoIPPduRTxPdu配置 (DoIPPduRTxPdu Configuration)" src="../../_images/image1117.png" />
 </figure>
@@ -3513,7 +3520,7 @@
 </table>
 </section>
 <section id="doipgatewaywaitresponse">
-<h3>DoIPGatewayWaitResponse<a class="headerlink" href="#doipgatewaywaitresponse" title="Link to this heading">¶</a></h3>
+<h3>DoIPGatewayWaitResponse<a class="headerlink" href="#doipgatewaywaitresponse" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doipgatewaywaitresponse-doip-gateway-wait-response-configuration">
 <img alt="DoIPGatewayWaitResponse配置 (DoIP Gateway Wait Response configuration)" src="../../_images/image1214.png" />
 </figure>
@@ -3594,9 +3601,9 @@
 </section>
 </section>
 <section id="doipconnections">
-<h2>DoIPConnections<a class="headerlink" href="#doipconnections" title="Link to this heading">¶</a></h2>
+<h2>DoIPConnections<a class="headerlink" href="#doipconnections" title="链接到此标题。">¶</a></h2>
 <section id="doiptargetaddress">
-<h3>DoIPTargetAddress<a class="headerlink" href="#doiptargetaddress" title="Link to this heading">¶</a></h3>
+<h3>DoIPTargetAddress<a class="headerlink" href="#doiptargetaddress" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doiptargetaddress-configureiptargetaddress">
 <img alt="DoIPTargetAddress配置 (ConfigureIPTargetAddress)" src="../../_images/image1313.png" />
 </figure>
@@ -3640,7 +3647,7 @@
 </table>
 </section>
 <section id="doiptcpconnection">
-<h3>DoIPTcpConnection<a class="headerlink" href="#doiptcpconnection" title="Link to this heading">¶</a></h3>
+<h3>DoIPTcpConnection<a class="headerlink" href="#doiptcpconnection" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doiptcpconnection-configuredoiptcpconnection">
 <img alt="DoIPTcpConnection配置 (ConfigureDoIPTcpConnection)" src="../../_images/image1411.png" />
 </figure>
@@ -3719,7 +3726,7 @@
 </tbody>
 </table>
 <section id="doipsoadtcprxpdu">
-<h4>DoIPSoAdTcpRxPdu<a class="headerlink" href="#doipsoadtcprxpdu" title="Link to this heading">¶</a></h4>
+<h4>DoIPSoAdTcpRxPdu<a class="headerlink" href="#doipsoadtcprxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="doipsoadtcprxpdu-doipsoadtcprxpdu-configuration">
 <img alt="DoIPSoAdTcpRxPdu配置 (DoIPSoAdTcpRxPdu Configuration)" src="../../_images/image1510.png" />
 </figure>
@@ -3805,7 +3812,7 @@
 </table>
 </section>
 <section id="doipsoadtcptxpdu">
-<h4>DoIPSoAdTcpTxPdu<a class="headerlink" href="#doipsoadtcptxpdu" title="Link to this heading">¶</a></h4>
+<h4>DoIPSoAdTcpTxPdu<a class="headerlink" href="#doipsoadtcptxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="doipsoadtxpdu-doip-so-ad-tx-pdu-configuration">
 <img alt="DoIPSoAdTxPdu配置 (DoIP So Ad Tx Pdu Configuration)" src="../../_images/image169.png" />
 </figure>
@@ -3874,7 +3881,7 @@
 </section>
 </section>
 <section id="doipudpconnection">
-<h3>DoIPUdpConnection<a class="headerlink" href="#doipudpconnection" title="Link to this heading">¶</a></h3>
+<h3>DoIPUdpConnection<a class="headerlink" href="#doipudpconnection" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doipudpconnection-doipudpconnection-configuration">
 <img alt="DoIPUdpConnection配置 (DoIPUdpConnection Configuration)" src="../../_images/image177.png" />
 </figure>
@@ -3935,7 +3942,7 @@
 </tbody>
 </table>
 <section id="doipsoadudprxpdu">
-<h4>DoIPSoAdUdpRxPdu<a class="headerlink" href="#doipsoadudprxpdu" title="Link to this heading">¶</a></h4>
+<h4>DoIPSoAdUdpRxPdu<a class="headerlink" href="#doipsoadudprxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="doipsoadudprxpdu-doipsoadudprxpdu-configuration">
 <img alt="DoIPSoAdUdpRxPdu配置 (DoIPSoAdUdpRxPdu Configuration)" src="../../_images/image1510.png" />
 </figure>
@@ -4021,7 +4028,7 @@
 </table>
 </section>
 <section id="doipsoadudptxpdu">
-<h4>DoIPSoAdUdpTxPdu<a class="headerlink" href="#doipsoadudptxpdu" title="Link to this heading">¶</a></h4>
+<h4>DoIPSoAdUdpTxPdu<a class="headerlink" href="#doipsoadudptxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="doipsoadudptxpdu-doipsoadudptxpdu-configuration">
 <img alt="DoIPSoAdUdpTxPdu配置 (DoIPSoAdUdpTxPdu Configuration)" src="../../_images/image169.png" />
 </figure>
@@ -4090,7 +4097,7 @@
 </section>
 </section>
 <section id="doipudpvehicleannouncementconnection">
-<h3>DoIPUdpVehicleAnnouncementConnection<a class="headerlink" href="#doipudpvehicleannouncementconnection" title="Link to this heading">¶</a></h3>
+<h3>DoIPUdpVehicleAnnouncementConnection<a class="headerlink" href="#doipudpvehicleannouncementconnection" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doipudpvehicleannouncementconnection-doip-udp-vehicle-announcement-connection-configuration">
 <img alt="DoIPUdpVehicleAnnouncementConnection配置 (DoIP Udp Vehicle Announcement Connection configuration)" src="../../_images/image185.png" />
 </figure>
@@ -4169,7 +4176,7 @@
 </tbody>
 </table>
 <section id="doipsoadudpvehicleannouncementtxpdu">
-<h4>DoIPSoAdUdpVehicleAnnouncementTxPdu<a class="headerlink" href="#doipsoadudpvehicleannouncementtxpdu" title="Link to this heading">¶</a></h4>
+<h4>DoIPSoAdUdpVehicleAnnouncementTxPdu<a class="headerlink" href="#doipsoadudpvehicleannouncementtxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="doipsoadudpvehicleannouncementtxpdu-doipsoadudpvehicleannouncementtxpdu-configuration">
 <img alt="DoIPSoAdUdpVehicleAnnouncementTxPdu配置 (DoIPSoAdUdpVehicleAnnouncementTxPdu Configuration)" src="../../_images/image194.png" />
 </figure>
@@ -4263,7 +4270,7 @@
 </section>
 </section>
 <section id="doipfurtheractionbytecallback">
-<h2>DoIPFurtherActionByteCallback<a class="headerlink" href="#doipfurtheractionbytecallback" title="Link to this heading">¶</a></h2>
+<h2>DoIPFurtherActionByteCallback<a class="headerlink" href="#doipfurtheractionbytecallback" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doipfurtheractionbytecallback-doip-further-action-byte-callback-configuration">
 <img alt="DoIPFurtherActionByteCallback配置 (DoIP Further Action Byte Callback Configuration)" src="../../_images/image204.png" />
 </figure>
@@ -4307,7 +4314,7 @@
 </table>
 </section>
 <section id="doipclientcallback">
-<h2>DoIPClientCallback<a class="headerlink" href="#doipclientcallback" title="Link to this heading">¶</a></h2>
+<h2>DoIPClientCallback<a class="headerlink" href="#doipclientcallback" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doipclientcallback-doipclientcallback-configuration">
 <img alt="DoIPClientCallback配置 (DoIPClientCallback Configuration)" src="../../_images/image2112.png" />
 </figure>
@@ -4351,7 +4358,7 @@
 </table>
 </section>
 <section id="doiproutingactivation">
-<h2>DoIPRoutingActivation<a class="headerlink" href="#doiproutingactivation" title="Link to this heading">¶</a></h2>
+<h2>DoIPRoutingActivation<a class="headerlink" href="#doiproutingactivation" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doiproutingactication-do-ip-routing-activation-configuration">
 <img alt="DoIPRoutingActication配置 (DO_IP_ROUTING_Activation Configuration)" src="../../_images/image2211.png" />
 </figure>
@@ -4430,7 +4437,7 @@
 </tbody>
 </table>
 <section id="doiproutingactivationauthenticationcallback">
-<h3>DoIPRoutingActivationAuthenticationCallback<a class="headerlink" href="#doiproutingactivationauthenticationcallback" title="Link to this heading">¶</a></h3>
+<h3>DoIPRoutingActivationAuthenticationCallback<a class="headerlink" href="#doiproutingactivationauthenticationcallback" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doiproutingacticatioauthenticationcallback-doip-routing-activation-authentication-callback-configuration">
 <img alt="DoIPRoutingActicatioAuthenticationCallback配置 (DoIP Routing Activation Authentication Callback Configuration)" src="../../_images/image235.png" />
 </figure>
@@ -4510,7 +4517,7 @@
 </table>
 </section>
 <section id="doiproutingacticationconfirmationcallback">
-<h3>DoIPRoutingActicationConfirmationCallback<a class="headerlink" href="#doiproutingacticationconfirmationcallback" title="Link to this heading">¶</a></h3>
+<h3>DoIPRoutingActicationConfirmationCallback<a class="headerlink" href="#doiproutingacticationconfirmationcallback" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="doiproutingacticationconfirmationcallback-doip-routing-actication-confirmation-callback-configuration">
 <img alt="DoIPRoutingActicationConfirmationCallback配置 (DoIP Routing Actication Confirmation Callback Configuration)" src="../../_images/image244.png" />
 </figure>
@@ -4591,7 +4598,7 @@
 </section>
 </section>
 <section id="doiptester">
-<h2>DoIPTester<a class="headerlink" href="#doiptester" title="Link to this heading">¶</a></h2>
+<h2>DoIPTester<a class="headerlink" href="#doiptester" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doiptester-configuration-of-doip-tester">
 <img alt="DoIPTester配置 (Configuration of DoIP Tester)" src="../../_images/image254.png" />
 </figure>
@@ -4671,7 +4678,7 @@
 </table>
 </section>
 <section id="doipvehicle">
-<h2>DoIPVehicle<a class="headerlink" href="#doipvehicle" title="Link to this heading">¶</a></h2>
+<h2>DoIPVehicle<a class="headerlink" href="#doipvehicle" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="doipvehicle-doip-vehicle-configuration">
 <img alt="DoIPVehicle配置 (DoIP Vehicle Configuration)" src="../../_images/image264.png" />
 </figure>
@@ -4768,7 +4775,7 @@
 </tbody>
 </table>
 <section id="soad">
-<h3>依赖模块(SoAd)<a class="headerlink" href="#soad" title="Link to this heading">¶</a></h3>
+<h3>依赖模块(SoAd)<a class="headerlink" href="#soad" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="soad-soad-configuration">
 <img alt="SoAd配置 (SoAd Configuration)" src="../../_images/image274.png" />
 </figure>
@@ -4830,7 +4837,7 @@
 </table>
 </section>
 <section id="engineering-related">
-<h3>工程相关 (Engineering related)<a class="headerlink" href="#engineering-related" title="Link to this heading">¶</a></h3>
+<h3>工程相关 (Engineering related)<a class="headerlink" href="#engineering-related" title="链接到此标题。">¶</a></h3>
 <p class="centered">
 <strong><strong>表 工程相关配置 (Table Engineering-related Configuration)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -5015,7 +5022,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -5024,11 +5031,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

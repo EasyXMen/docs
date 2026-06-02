@@ -9,6 +9,7 @@
         <title>EthIf &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ethif">
-<h1>EthIf<a class="headerlink" href="#ethif" title="Link to this heading">¶</a></h1>
+<h1>EthIf<a class="headerlink" href="#ethif" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -213,40 +220,40 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>EthIf向上层提供与以太网硬件无关的独立接口，该接口可以支持多个不同的有线或无线以太网控制器和收发器。这些接口按功能可以大体分为模式控制相关的接口、时间同步相关的接口、数据接收发送相关的接口、EthIf本身的初始化或周期任务接口等。</p>
 <p>EthIf provides an interface to the upper layers that is independent of Ethernet hardware and can support multiple different wired or wireless Ethernet controllers and transceivers. These interfaces can be broadly categorized into interfaces related to mode control, interfaces related to time synchronization, interfaces related to data reception and transmission, and interfaces for initializing EthIf itself or periodic tasks.</p>
 <figure class="align-center" id="ethif-hierarchy-chart">
 <img alt="EthIf层次图 (Hierarchy Chart)" src="../../_images/image189.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_EthernetInterface.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="interfacefunction">
-<h3>接口传递功能功能 (Interface传递function功能)<a class="headerlink" href="#interfacefunction" title="Link to this heading">¶</a></h3>
+<h3>接口传递功能功能 (Interface传递function功能)<a class="headerlink" href="#interfacefunction" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="function-introduction-for-interface-transmission">
-<h2>接口传递功能介绍 (Function Introduction for Interface Transmission)<a class="headerlink" href="#function-introduction-for-interface-transmission" title="Link to this heading">¶</a></h2>
+<h2>接口传递功能介绍 (Function Introduction for Interface Transmission)<a class="headerlink" href="#function-introduction-for-interface-transmission" title="链接到此标题。">¶</a></h2>
 <p>EthIf负责对底层驱动提供给上层模块的接口进行抽象，通过EthDriver提供的接收发送接口实现对以太网数据的收发。</p>
 <p>EthIf is responsible for abstracting the interface provided by the underlying driver to the upper-layer modules, and realizing the reception and transmission of Ethernet data through the receive and send interfaces provided by EthDriver.</p>
 </section>
 <section id="vlan-vlan-send-and-receive-function-introduction">
-<h2>Vlan收发功能介绍 (VLAN Send and Receive Function Introduction)<a class="headerlink" href="#vlan-vlan-send-and-receive-function-introduction" title="Link to this heading">¶</a></h2>
+<h2>Vlan收发功能介绍 (VLAN Send and Receive Function Introduction)<a class="headerlink" href="#vlan-vlan-send-and-receive-function-introduction" title="链接到此标题。">¶</a></h2>
 <p>EthIf负责对VLAN报文的解/加Tag操作，当接收时，通过EthIf传递给上层的以太网报文将在EthIf中提取出VLAN头，并把剩余的数据传递给上层模块。当上层模块需要向下传输报文时，在EthIf中添加VLAN头，并通过合适的Eth通道发送出去。</p>
 <p>EthIf is responsible for tagging/untagging VLAN packets. When receiving, the Ethernet packets passed to the upper layer by EthIf will have their VLAN headers extracted and the remaining data passed to the upper layer module. When the upper layer module needs to transmit packets downwards, VLAN headers are added in EthIf and the packets are sent out through appropriate Ethernet channels.</p>
 </section>
 <section id="introduction-to-status-notification-function">
-<h2>状态通知功能介绍 (Introduction to Status Notification Function)<a class="headerlink" href="#introduction-to-status-notification-function" title="Link to this heading">¶</a></h2>
+<h2>状态通知功能介绍 (Introduction to Status Notification Function)<a class="headerlink" href="#introduction-to-status-notification-function" title="链接到此标题。">¶</a></h2>
 <p>EthIf负责向EthSM通知下层EthController和EthTrcv的状态变化。</p>
 <p>EthIf is responsible for notifying EthSM of state changes in the underlying EthController and EthTrcv.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 EthIf组件文件描述 (Table EthIf Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -287,13 +294,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethif-configtype-ethif-configtype-configuration-type-definition">
-<h2>EthIf_ConfigType类型定义 (EthIf_ConfigType Configuration Type Definition)<a class="headerlink" href="#ethif-configtype-ethif-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_ConfigType类型定义 (EthIf_ConfigType Configuration Type Definition)<a class="headerlink" href="#ethif-configtype-ethif-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -318,7 +325,7 @@
 </table>
 </section>
 <section id="ethif-ethdriverapitype-ethif-ethdriverapitype-type-definition">
-<h2>EthIf_EthDriverApiType类型定义 (EthIf_EthDriverApiType type definition)<a class="headerlink" href="#ethif-ethdriverapitype-ethif-ethdriverapitype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_EthDriverApiType类型定义 (EthIf_EthDriverApiType type definition)<a class="headerlink" href="#ethif-ethdriverapitype-ethif-ethdriverapitype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -343,7 +350,7 @@
 </table>
 </section>
 <section id="ethif-ethtrcvdriverapitype-ethif-ethtrcvdriverapitype-type-definition">
-<h2>EthIf_EthTrcvDriverApiType类型定义 (EthIf_EthTrcvDriverApiType type definition)<a class="headerlink" href="#ethif-ethtrcvdriverapitype-ethif-ethtrcvdriverapitype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_EthTrcvDriverApiType类型定义 (EthIf_EthTrcvDriverApiType type definition)<a class="headerlink" href="#ethif-ethtrcvdriverapitype-ethif-ethtrcvdriverapitype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -367,7 +374,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -416,11 +423,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethif-init-the-ethif-init-function-defines">
-<h2>EthIf_Init函数定义 (The EthIf_Init function defines)<a class="headerlink" href="#ethif-init-the-ethif-init-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_Init函数定义 (The EthIf_Init function defines)<a class="headerlink" href="#ethif-init-the-ethif-init-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -485,7 +492,7 @@
 </table>
 </section>
 <section id="ethif-setcontrollermode-the-ethif-setcontrollermode-function-defines">
-<h2>EthIf_SetControllerMode函数定义 (The EthIf_SetControllerMode function defines)<a class="headerlink" href="#ethif-setcontrollermode-the-ethif-setcontrollermode-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetControllerMode函数定义 (The EthIf_SetControllerMode function defines)<a class="headerlink" href="#ethif-setcontrollermode-the-ethif-setcontrollermode-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -570,7 +577,7 @@
 </table>
 </section>
 <section id="ethif-getcontrollermode-the-ethif-getcontrollermode-function-defines">
-<h2>EthIf_GetControllerMode函数定义 (The EthIf_GetControllerMode function defines)<a class="headerlink" href="#ethif-getcontrollermode-the-ethif-getcontrollermode-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetControllerMode函数定义 (The EthIf_GetControllerMode function defines)<a class="headerlink" href="#ethif-getcontrollermode-the-ethif-getcontrollermode-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -650,7 +657,7 @@
 </table>
 </section>
 <section id="ethif-settransceiverwakeupmode-the-ethif-settransceiverwakeupmode-function-defines">
-<h2>EthIf_SetTransceiverWakeupMode函数定义 (The EthIf_SetTransceiverWakeupMode function defines)<a class="headerlink" href="#ethif-settransceiverwakeupmode-the-ethif-settransceiverwakeupmode-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetTransceiverWakeupMode函数定义 (The EthIf_SetTransceiverWakeupMode function defines)<a class="headerlink" href="#ethif-settransceiverwakeupmode-the-ethif-settransceiverwakeupmode-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -735,7 +742,7 @@
 </table>
 </section>
 <section id="ethif-gettransceiverwakeupmode-the-ethif-gettransceiverwakeupmode-function-definition">
-<h2>EthIf_GetTransceiverWakeupMode函数定义 (The EthIf_GetTransceiverWakeupMode function definition)<a class="headerlink" href="#ethif-gettransceiverwakeupmode-the-ethif-gettransceiverwakeupmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetTransceiverWakeupMode函数定义 (The EthIf_GetTransceiverWakeupMode function definition)<a class="headerlink" href="#ethif-gettransceiverwakeupmode-the-ethif-gettransceiverwakeupmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -815,7 +822,7 @@
 </table>
 </section>
 <section id="ethif-checkwakeup-ethif-checkwakeup-function-definition">
-<h2>EthIf_CheckWakeup函数定义 (EthIf_CheckWakeup function definition)<a class="headerlink" href="#ethif-checkwakeup-ethif-checkwakeup-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_CheckWakeup函数定义 (EthIf_CheckWakeup function definition)<a class="headerlink" href="#ethif-checkwakeup-ethif-checkwakeup-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -890,7 +897,7 @@
 </table>
 </section>
 <section id="ethif-gettransceivermode-the-ethif-gettransceivermode-function-definition">
-<h2>EthIf_GetTransceiverMode函数定义 (The EthIf_GetTransceiverMode function definition)<a class="headerlink" href="#ethif-gettransceivermode-the-ethif-gettransceivermode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetTransceiverMode函数定义 (The EthIf_GetTransceiverMode function definition)<a class="headerlink" href="#ethif-gettransceivermode-the-ethif-gettransceivermode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -970,7 +977,7 @@
 </table>
 </section>
 <section id="ethif-providetxbuffer-the-ethif-providetxbuffer-function-definition">
-<h2>EthIf_ProvideTxBuffer函数定义 (The EthIf_ProvideTxBuffer function definition)<a class="headerlink" href="#ethif-providetxbuffer-the-ethif-providetxbuffer-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_ProvideTxBuffer函数定义 (The EthIf_ProvideTxBuffer function definition)<a class="headerlink" href="#ethif-providetxbuffer-the-ethif-providetxbuffer-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1085,7 +1092,7 @@
 </table>
 </section>
 <section id="ethif-transmit-the-function-definition-for-ethif-transmit">
-<h2>EthIf_Transmit函数定义 (The function definition for EthIf_Transmit)<a class="headerlink" href="#ethif-transmit-the-function-definition-for-ethif-transmit" title="Link to this heading">¶</a></h2>
+<h2>EthIf_Transmit函数定义 (The function definition for EthIf_Transmit)<a class="headerlink" href="#ethif-transmit-the-function-definition-for-ethif-transmit" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1210,7 +1217,7 @@
 </table>
 </section>
 <section id="ethif-txconfirmation-the-ethif-txconfirmation-function-definition">
-<h2>EthIf_TxConfirmation函数定义 (The EthIf_TxConfirmation function definition)<a class="headerlink" href="#ethif-txconfirmation-the-ethif-txconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_TxConfirmation函数定义 (The EthIf_TxConfirmation function definition)<a class="headerlink" href="#ethif-txconfirmation-the-ethif-txconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1300,7 +1307,7 @@
 </table>
 </section>
 <section id="ethif-rxindication-ethif-rxindication-function-definition">
-<h2>EthIf_RxIndication函数定义 (EthIf_RxIndication function definition)<a class="headerlink" href="#ethif-rxindication-ethif-rxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_RxIndication函数定义 (EthIf_RxIndication function definition)<a class="headerlink" href="#ethif-rxindication-ethif-rxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1420,7 +1427,7 @@
 </table>
 </section>
 <section id="ethif-setphysaddr-the-ethif-setphysaddr-function-definition">
-<h2>EthIf_SetPhysAddr函数定义 (The EthIf_SetPhysAddr function definition)<a class="headerlink" href="#ethif-setphysaddr-the-ethif-setphysaddr-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetPhysAddr函数定义 (The EthIf_SetPhysAddr function definition)<a class="headerlink" href="#ethif-setphysaddr-the-ethif-setphysaddr-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1500,7 +1507,7 @@
 </table>
 </section>
 <section id="ethif-getphysaddr-the-ethif-getphysaddr-function-definition">
-<h2>EthIf_GetPhysAddr函数定义 (The EthIf_GetPhysAddr function definition)<a class="headerlink" href="#ethif-getphysaddr-the-ethif-getphysaddr-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetPhysAddr函数定义 (The EthIf_GetPhysAddr function definition)<a class="headerlink" href="#ethif-getphysaddr-the-ethif-getphysaddr-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1575,7 +1582,7 @@
 </table>
 </section>
 <section id="ethif-updatephysaddrfilter-the-ethif-updatephysaddrfilter-function-definition">
-<h2>EthIf_UpdatePhysAddrFilter函数定义 (The EthIf_UpdatePhysAddrFilter function definition)<a class="headerlink" href="#ethif-updatephysaddrfilter-the-ethif-updatephysaddrfilter-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_UpdatePhysAddrFilter函数定义 (The EthIf_UpdatePhysAddrFilter function definition)<a class="headerlink" href="#ethif-updatephysaddrfilter-the-ethif-updatephysaddrfilter-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1670,7 +1677,7 @@
 </table>
 </section>
 <section id="ethif-getcurrenttime-the-ethif-getcurrenttime-function-definition">
-<h2>EthIf_GetCurrentTime函数定义 (The EthIf_GetCurrentTime function definition)<a class="headerlink" href="#ethif-getcurrenttime-the-ethif-getcurrenttime-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetCurrentTime函数定义 (The EthIf_GetCurrentTime function definition)<a class="headerlink" href="#ethif-getcurrenttime-the-ethif-getcurrenttime-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1770,7 +1777,7 @@
 </table>
 </section>
 <section id="ethif-enableegresstimestamp-the-ethif-enableegresstimestamp-function-defines">
-<h2>EthIf_EnableEgressTimeStamp函数定义 (The EthIf_EnableEgressTimeStamp function defines)<a class="headerlink" href="#ethif-enableegresstimestamp-the-ethif-enableegresstimestamp-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_EnableEgressTimeStamp函数定义 (The EthIf_EnableEgressTimeStamp function defines)<a class="headerlink" href="#ethif-enableegresstimestamp-the-ethif-enableegresstimestamp-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1840,7 +1847,7 @@
 </table>
 </section>
 <section id="ethif-getegresstimestamp-the-ethif-getegresstimestamp-function-definition">
-<h2>EthIf_GetEgressTimeStamp函数定义 (The EthIf_GetEgressTimeStamp function definition)<a class="headerlink" href="#ethif-getegresstimestamp-the-ethif-getegresstimestamp-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetEgressTimeStamp函数定义 (The EthIf_GetEgressTimeStamp function definition)<a class="headerlink" href="#ethif-getegresstimestamp-the-ethif-getegresstimestamp-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1940,7 +1947,7 @@
 </table>
 </section>
 <section id="ethif-getingresstimestamp-the-ethif-getingresstimestamp-function-definition">
-<h2>EthIf_GetIngressTimeStamp函数定义 (The EthIf_GetIngressTimeStamp Function Definition)<a class="headerlink" href="#ethif-getingresstimestamp-the-ethif-getingresstimestamp-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetIngressTimeStamp函数定义 (The EthIf_GetIngressTimeStamp Function Definition)<a class="headerlink" href="#ethif-getingresstimestamp-the-ethif-getingresstimestamp-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2040,7 +2047,7 @@
 </table>
 </section>
 <section id="ethif-mainfunctionrx-the-ethif-mainfunctionrx-function-definition">
-<h2>EthIf_MainFunctionRx函数定义 (The EthIf_MainFunctionRx function definition)<a class="headerlink" href="#ethif-mainfunctionrx-the-ethif-mainfunctionrx-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_MainFunctionRx函数定义 (The EthIf_MainFunctionRx function definition)<a class="headerlink" href="#ethif-mainfunctionrx-the-ethif-mainfunctionrx-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2083,7 +2090,7 @@
 </table>
 </section>
 <section id="ethif-mainfunctiontx-ethif-mainfunctiontx-function-definition">
-<h2>EthIf_MainFunctionTx函数定义 (EthIf_MainFunctionTx function definition)<a class="headerlink" href="#ethif-mainfunctiontx-ethif-mainfunctiontx-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_MainFunctionTx函数定义 (EthIf_MainFunctionTx function definition)<a class="headerlink" href="#ethif-mainfunctiontx-ethif-mainfunctiontx-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2126,7 +2133,7 @@
 </table>
 </section>
 <section id="ethif-mainfunctionstate-ethif-mainfunctionstate-function-definition">
-<h2>EthIf_MainFunctionState函数定义 (EthIf_MainFunctionState function definition)<a class="headerlink" href="#ethif-mainfunctionstate-ethif-mainfunctionstate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_MainFunctionState函数定义 (EthIf_MainFunctionState function definition)<a class="headerlink" href="#ethif-mainfunctionstate-ethif-mainfunctionstate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2169,7 +2176,7 @@
 </table>
 </section>
 <section id="ethif-getvlanid-the-ethif-getvlanid-function-definition">
-<h2>EthIf_GetVlanId函数定义 (The EthIf_GetVlanId function definition)<a class="headerlink" href="#ethif-getvlanid-the-ethif-getvlanid-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetVlanId函数定义 (The EthIf_GetVlanId function definition)<a class="headerlink" href="#ethif-getvlanid-the-ethif-getvlanid-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2249,7 +2256,7 @@
 </table>
 </section>
 <section id="ethif-getportmacaddr-the-function-definition-for-ethif-getportmacaddr">
-<h2>EthIf_ GetPortMacAddr函数定义 (The function definition for EthIf_GetPortMacAddr)<a class="headerlink" href="#ethif-getportmacaddr-the-function-definition-for-ethif-getportmacaddr" title="Link to this heading">¶</a></h2>
+<h2>EthIf_ GetPortMacAddr函数定义 (The function definition for EthIf_GetPortMacAddr)<a class="headerlink" href="#ethif-getportmacaddr-the-function-definition-for-ethif-getportmacaddr" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2339,7 +2346,7 @@
 </table>
 </section>
 <section id="ethif-getarltable-ethif-getarltable-function-definition">
-<h2>EthIf_GetArlTable函数定义 (EthIf_GetArlTable function definition)<a class="headerlink" href="#ethif-getarltable-ethif-getarltable-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetArlTable函数定义 (EthIf_GetArlTable function definition)<a class="headerlink" href="#ethif-getarltable-ethif-getarltable-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2429,7 +2436,7 @@
 </table>
 </section>
 <section id="ethif-storeconfiguration-ethif-storeconfiguration-function-definition">
-<h2>EthIf_StoreConfiguration函数定义 (EthIf_StoreConfiguration function definition)<a class="headerlink" href="#ethif-storeconfiguration-ethif-storeconfiguration-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_StoreConfiguration函数定义 (EthIf_StoreConfiguration function definition)<a class="headerlink" href="#ethif-storeconfiguration-ethif-storeconfiguration-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2499,7 +2506,7 @@
 </table>
 </section>
 <section id="ethif-resetconfiguration-the-ethif-resetconfiguration-function-defines">
-<h2>EthIf_ResetConfiguration函数定义 (The EthIf_ResetConfiguration function defines)<a class="headerlink" href="#ethif-resetconfiguration-the-ethif-resetconfiguration-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_ResetConfiguration函数定义 (The EthIf_ResetConfiguration function defines)<a class="headerlink" href="#ethif-resetconfiguration-the-ethif-resetconfiguration-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2569,7 +2576,7 @@
 </table>
 </section>
 <section id="ethif-switchportgrouprequestmode-the-ethif-switchportgrouprequestmode-function-defines">
-<h2>EthIf_SwitchPortGroupRequestMode函数定义 (The EthIf_SwitchPortGroupRequestMode function defines)<a class="headerlink" href="#ethif-switchportgrouprequestmode-the-ethif-switchportgrouprequestmode-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGroupRequestMode函数定义 (The EthIf_SwitchPortGroupRequestMode function defines)<a class="headerlink" href="#ethif-switchportgrouprequestmode-the-ethif-switchportgrouprequestmode-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2654,7 +2661,7 @@
 </table>
 </section>
 <section id="ethif-startallports-the-ethif-startallports-function-definition">
-<h2>EthIf_StartAllPorts函数定义 (The EthIf_StartAllPorts function definition)<a class="headerlink" href="#ethif-startallports-the-ethif-startallports-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_StartAllPorts函数定义 (The EthIf_StartAllPorts function definition)<a class="headerlink" href="#ethif-startallports-the-ethif-startallports-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2700,7 +2707,7 @@
 </table>
 </section>
 <section id="ethif-setswitchmgmtinfo-the-ethif-setswitchmgmtinfo-function-defines">
-<h2>EthIf_SetSwitchMgmtInfo函数定义 (The EthIf_SetSwitchMgmtInfo function defines)<a class="headerlink" href="#ethif-setswitchmgmtinfo-the-ethif-setswitchmgmtinfo-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetSwitchMgmtInfo函数定义 (The EthIf_SetSwitchMgmtInfo function defines)<a class="headerlink" href="#ethif-setswitchmgmtinfo-the-ethif-setswitchmgmtinfo-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2795,7 +2802,7 @@
 </table>
 </section>
 <section id="ethif-getrxmgmtobject-the-ethif-getrxmgmtobject-function-definition">
-<h2>EthIf_GetRxMgmtObject函数定义 (The EthIf_GetRxMgmtObject function definition)<a class="headerlink" href="#ethif-getrxmgmtobject-the-ethif-getrxmgmtobject-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetRxMgmtObject函数定义 (The EthIf_GetRxMgmtObject function definition)<a class="headerlink" href="#ethif-getrxmgmtobject-the-ethif-getrxmgmtobject-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2885,7 +2892,7 @@
 </table>
 </section>
 <section id="ethif-gettxmgmtobject-ethif-gettxmgmtobject-function-definition">
-<h2>EthIf_GetTxMgmtObject函数定义 (EthIf_GetTxMgmtObject function definition)<a class="headerlink" href="#ethif-gettxmgmtobject-ethif-gettxmgmtobject-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetTxMgmtObject函数定义 (EthIf_GetTxMgmtObject function definition)<a class="headerlink" href="#ethif-gettxmgmtobject-ethif-gettxmgmtobject-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2975,7 +2982,7 @@
 </table>
 </section>
 <section id="ethif-switchenabletimestamping-the-ethif-switchenabletimestamping-function-definition">
-<h2>EthIf_SwitchEnableTimeStamping函数定义 (The EthIf_SwitchEnableTimeStamping function definition)<a class="headerlink" href="#ethif-switchenabletimestamping-the-ethif-switchenabletimestamping-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchEnableTimeStamping函数定义 (The EthIf_SwitchEnableTimeStamping function definition)<a class="headerlink" href="#ethif-switchenabletimestamping-the-ethif-switchenabletimestamping-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3065,7 +3072,7 @@
 </table>
 </section>
 <section id="ethif-verifyconfig-the-ethif-verifyconfig-function-definition">
-<h2>EthIf_VerifyConfig函数定义 (The EthIf_VerifyConfig function definition)<a class="headerlink" href="#ethif-verifyconfig-the-ethif-verifyconfig-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_VerifyConfig函数定义 (The EthIf_VerifyConfig function definition)<a class="headerlink" href="#ethif-verifyconfig-the-ethif-verifyconfig-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3150,7 +3157,7 @@
 </table>
 </section>
 <section id="ethif-setforwardingmode-the-ethif-setforwardingmode-function-defines">
-<h2>EthIf_SetForwardingMode函数定义 (The EthIf_SetForwardingMode function defines)<a class="headerlink" href="#ethif-setforwardingmode-the-ethif-setforwardingmode-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetForwardingMode函数定义 (The EthIf_SetForwardingMode function defines)<a class="headerlink" href="#ethif-setforwardingmode-the-ethif-setforwardingmode-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3235,7 +3242,7 @@
 </table>
 </section>
 <section id="ethif-getswitchportsignalquality-the-ethif-getswitchportsignalquality-function-definition">
-<h2>EthIf_GetSwitchPortSignalQuality函数定义 (The EthIf_GetSwitchPortSignalQuality function definition)<a class="headerlink" href="#ethif-getswitchportsignalquality-the-ethif-getswitchportsignalquality-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetSwitchPortSignalQuality函数定义 (The EthIf_GetSwitchPortSignalQuality function definition)<a class="headerlink" href="#ethif-getswitchportsignalquality-the-ethif-getswitchportsignalquality-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3325,7 +3332,7 @@
 </table>
 </section>
 <section id="ethif-clearswitchportsignalquality-the-ethif-clearswitchportsignalquality-function-definition">
-<h2>EthIf_ClearSwitchPortSignalQuality函数定义 (The EthIf_ClearSwitchPortSignalQuality function definition)<a class="headerlink" href="#ethif-clearswitchportsignalquality-the-ethif-clearswitchportsignalquality-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_ClearSwitchPortSignalQuality函数定义 (The EthIf_ClearSwitchPortSignalQuality function definition)<a class="headerlink" href="#ethif-clearswitchportsignalquality-the-ethif-clearswitchportsignalquality-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3410,7 +3417,7 @@
 </table>
 </section>
 <section id="ethif-getswitchportmode-the-ethif-getswitchportmode-function-definition">
-<h2>EthIf_GetSwitchPortMode函数定义 (The EthIf_GetSwitchPortMode function definition)<a class="headerlink" href="#ethif-getswitchportmode-the-ethif-getswitchportmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetSwitchPortMode函数定义 (The EthIf_GetSwitchPortMode function definition)<a class="headerlink" href="#ethif-getswitchportmode-the-ethif-getswitchportmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3505,7 +3512,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetlinkstate-the-ethif-switchportgetlinkstate-function-definition">
-<h2>EthIf_SwitchPortGetLinkState函数定义 (The EthIf_SwitchPortGetLinkState function definition)<a class="headerlink" href="#ethif-switchportgetlinkstate-the-ethif-switchportgetlinkstate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetLinkState函数定义 (The EthIf_SwitchPortGetLinkState function definition)<a class="headerlink" href="#ethif-switchportgetlinkstate-the-ethif-switchportgetlinkstate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3595,7 +3602,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetbaudrate-the-ethif-switchportgetbaudrate-function-definition">
-<h2>EthIf_SwitchPortGetBaudRate函数定义 (The EthIf_SwitchPortGetBaudRate function definition)<a class="headerlink" href="#ethif-switchportgetbaudrate-the-ethif-switchportgetbaudrate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetBaudRate函数定义 (The EthIf_SwitchPortGetBaudRate function definition)<a class="headerlink" href="#ethif-switchportgetbaudrate-the-ethif-switchportgetbaudrate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3685,7 +3692,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetduplexmode-the-ethif-switchportgetduplexmode-function-definition">
-<h2>EthIf_SwitchPortGetDuplexMode函数定义 (The EthIf_SwitchPortGetDuplexMode function definition)<a class="headerlink" href="#ethif-switchportgetduplexmode-the-ethif-switchportgetduplexmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetDuplexMode函数定义 (The EthIf_SwitchPortGetDuplexMode function definition)<a class="headerlink" href="#ethif-switchportgetduplexmode-the-ethif-switchportgetduplexmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3775,7 +3782,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetcountervalue-the-function-definition-for-ethif-switchportgetcountervalue">
-<h2>EthIf_SwitchPortGetCounterValue函数定义 (The function definition for EthIf_SwitchPortGetCounterValue)<a class="headerlink" href="#ethif-switchportgetcountervalue-the-function-definition-for-ethif-switchportgetcountervalue" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetCounterValue函数定义 (The function definition for EthIf_SwitchPortGetCounterValue)<a class="headerlink" href="#ethif-switchportgetcountervalue-the-function-definition-for-ethif-switchportgetcountervalue" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3865,7 +3872,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetrxstats-the-ethif-switchportgetrxstats-function-definition">
-<h2>EthIf_SwitchPortGetRxStats函数定义 (The EthIf_SwitchPortGetRxStats function definition)<a class="headerlink" href="#ethif-switchportgetrxstats-the-ethif-switchportgetrxstats-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetRxStats函数定义 (The EthIf_SwitchPortGetRxStats function definition)<a class="headerlink" href="#ethif-switchportgetrxstats-the-ethif-switchportgetrxstats-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3955,7 +3962,7 @@
 </table>
 </section>
 <section id="ethif-switchportgettxstats-the-ethif-switchportgettxstats-function-definition">
-<h2>EthIf_SwitchPortGetTxStats函数定义 (The EthIf_SwitchPortGetTxStats function definition)<a class="headerlink" href="#ethif-switchportgettxstats-the-ethif-switchportgettxstats-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetTxStats函数定义 (The EthIf_SwitchPortGetTxStats function definition)<a class="headerlink" href="#ethif-switchportgettxstats-the-ethif-switchportgettxstats-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4045,7 +4052,7 @@
 </table>
 </section>
 <section id="ethif-switchportgettxerrorcountervalues-the-function-definition-for-ethif-switchportgettxerrorcountervalues">
-<h2>EthIf_SwitchPortGetTxErrorCounterValues函数定义 (The function definition for EthIf_SwitchPortGetTxErrorCounterValues)<a class="headerlink" href="#ethif-switchportgettxerrorcountervalues-the-function-definition-for-ethif-switchportgettxerrorcountervalues" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetTxErrorCounterValues函数定义 (The function definition for EthIf_SwitchPortGetTxErrorCounterValues)<a class="headerlink" href="#ethif-switchportgettxerrorcountervalues-the-function-definition-for-ethif-switchportgettxerrorcountervalues" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4135,7 +4142,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetmaclearningmode-the-ethif-switchportgetmaclearningmode-function-definition">
-<h2>EthIf_SwitchPortGetMacLearningMode函数定义 (The EthIf_SwitchPortGetMacLearningMode function definition)<a class="headerlink" href="#ethif-switchportgetmaclearningmode-the-ethif-switchportgetmaclearningmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetMacLearningMode函数定义 (The EthIf_SwitchPortGetMacLearningMode function definition)<a class="headerlink" href="#ethif-switchportgetmaclearningmode-the-ethif-switchportgetmaclearningmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4225,7 +4232,7 @@
 </table>
 </section>
 <section id="ethif-getswitchportidentifier-the-ethif-getswitchportidentifier-function-definition">
-<h2>EthIf_GetSwitchPortIdentifier函数定义 (The EthIf_GetSwitchPortIdentifier function definition)<a class="headerlink" href="#ethif-getswitchportidentifier-the-ethif-getswitchportidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetSwitchPortIdentifier函数定义 (The EthIf_GetSwitchPortIdentifier function definition)<a class="headerlink" href="#ethif-getswitchportidentifier-the-ethif-getswitchportidentifier-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4340,7 +4347,7 @@
 </table>
 </section>
 <section id="ethif-getswitchidentifier-the-ethif-getswitchidentifier-function-definition">
-<h2>EthIf_GetSwitchIdentifier函数定义 (The EthIf_GetSwitchIdentifier function definition)<a class="headerlink" href="#ethif-getswitchidentifier-the-ethif-getswitchidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetSwitchIdentifier函数定义 (The EthIf_GetSwitchIdentifier function definition)<a class="headerlink" href="#ethif-getswitchidentifier-the-ethif-getswitchidentifier-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4420,7 +4427,7 @@
 </table>
 </section>
 <section id="ethif-writeportmirrorconfiguration-the-ethif-writeportmirrorconfiguration-function-defines">
-<h2>EthIf_WritePortMirrorConfiguration函数定义 (The EthIf_WritePortMirrorConfiguration function defines)<a class="headerlink" href="#ethif-writeportmirrorconfiguration-the-ethif-writeportmirrorconfiguration-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_WritePortMirrorConfiguration函数定义 (The EthIf_WritePortMirrorConfiguration function defines)<a class="headerlink" href="#ethif-writeportmirrorconfiguration-the-ethif-writeportmirrorconfiguration-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4515,7 +4522,7 @@
 </table>
 </section>
 <section id="ethif-readportmirrorconfiguration-the-ethif-readportmirrorconfiguration-function-defines">
-<h2>EthIf_ReadPortMirrorConfiguration函数定义 (The EthIf_ReadPortMirrorConfiguration function defines)<a class="headerlink" href="#ethif-readportmirrorconfiguration-the-ethif-readportmirrorconfiguration-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_ReadPortMirrorConfiguration函数定义 (The EthIf_ReadPortMirrorConfiguration function defines)<a class="headerlink" href="#ethif-readportmirrorconfiguration-the-ethif-readportmirrorconfiguration-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4595,7 +4602,7 @@
 </table>
 </section>
 <section id="ethif-deleteportmirrorconfiguration-the-ethif-deleteportmirrorconfiguration-function-definition">
-<h2>EthIf_DeletePortMirrorConfiguration函数定义 (The EthIf_DeletePortMirrorConfiguration function definition)<a class="headerlink" href="#ethif-deleteportmirrorconfiguration-the-ethif-deleteportmirrorconfiguration-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_DeletePortMirrorConfiguration函数定义 (The EthIf_DeletePortMirrorConfiguration function definition)<a class="headerlink" href="#ethif-deleteportmirrorconfiguration-the-ethif-deleteportmirrorconfiguration-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4670,7 +4677,7 @@
 </table>
 </section>
 <section id="ethif-getportmirrorstate-the-ethif-getportmirrorstate-function-definition">
-<h2>EthIf_GetPortMirrorState函数定义 (The EthIf_GetPortMirrorState function definition)<a class="headerlink" href="#ethif-getportmirrorstate-the-ethif-getportmirrorstate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetPortMirrorState函数定义 (The EthIf_GetPortMirrorState function definition)<a class="headerlink" href="#ethif-getportmirrorstate-the-ethif-getportmirrorstate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4760,7 +4767,7 @@
 </table>
 </section>
 <section id="ethif-setportmirrorstate-the-ethif-setportmirrorstate-function-defines">
-<h2>EthIf_SetPortMirrorState函数定义 (The EthIf_SetPortMirrorState function defines)<a class="headerlink" href="#ethif-setportmirrorstate-the-ethif-setportmirrorstate-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetPortMirrorState函数定义 (The EthIf_SetPortMirrorState function defines)<a class="headerlink" href="#ethif-setportmirrorstate-the-ethif-setportmirrorstate-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4855,7 +4862,7 @@
 </table>
 </section>
 <section id="ethif-setporttestmode-the-ethif-setporttestmode-function-definition">
-<h2>EthIf_SetPortTestMode函数定义 (The EthIf_SetPortTestMode function definition)<a class="headerlink" href="#ethif-setporttestmode-the-ethif-setporttestmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetPortTestMode函数定义 (The EthIf_SetPortTestMode function definition)<a class="headerlink" href="#ethif-setporttestmode-the-ethif-setporttestmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4950,7 +4957,7 @@
 </table>
 </section>
 <section id="ethif-setportloopbackmode-the-ethif-setportloopbackmode-function-definition">
-<h2>EthIf_SetPortLoopbackMode函数定义 (The EthIf_SetPortLoopbackMode function definition)<a class="headerlink" href="#ethif-setportloopbackmode-the-ethif-setportloopbackmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetPortLoopbackMode函数定义 (The EthIf_SetPortLoopbackMode function definition)<a class="headerlink" href="#ethif-setportloopbackmode-the-ethif-setportloopbackmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5045,7 +5052,7 @@
 </table>
 </section>
 <section id="ethif-setporttxmode-the-ethif-setporttxmode-function-definition">
-<h2>EthIf_SetPortTxMode函数定义 (The EthIf_SetPortTxMode function definition)<a class="headerlink" href="#ethif-setporttxmode-the-ethif-setporttxmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SetPortTxMode函数定义 (The EthIf_SetPortTxMode function definition)<a class="headerlink" href="#ethif-setporttxmode-the-ethif-setporttxmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5140,7 +5147,7 @@
 </table>
 </section>
 <section id="ethif-getportcablediagnosticsresult-the-function-definition-for-ethif-getportcablediagnosticsresult">
-<h2>EthIf_GetPortCableDiagnosticsResult函数定义 (The function definition for EthIf_GetPortCableDiagnosticsResult)<a class="headerlink" href="#ethif-getportcablediagnosticsresult-the-function-definition-for-ethif-getportcablediagnosticsresult" title="Link to this heading">¶</a></h2>
+<h2>EthIf_GetPortCableDiagnosticsResult函数定义 (The function definition for EthIf_GetPortCableDiagnosticsResult)<a class="headerlink" href="#ethif-getportcablediagnosticsresult-the-function-definition-for-ethif-getportcablediagnosticsresult" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5235,7 +5242,7 @@
 </table>
 </section>
 <section id="ethif-runportcablediagnostic-ethif-runportcablediagnostic-function-definition">
-<h2>EthIf_RunPortCableDiagnostic函数定义 (EthIf_RunPortCableDiagnostic function definition)<a class="headerlink" href="#ethif-runportcablediagnostic-ethif-runportcablediagnostic-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_RunPortCableDiagnostic函数定义 (EthIf_RunPortCableDiagnostic function definition)<a class="headerlink" href="#ethif-runportcablediagnostic-ethif-runportcablediagnostic-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5320,7 +5327,7 @@
 </table>
 </section>
 <section id="ethif-switchgetcfgdataraw-the-function-definition-for-ethif-switchgetcfgdataraw">
-<h2>EthIf_SwitchGetCfgDataRaw函数定义 (The function definition for EthIf_SwitchGetCfgDataRaw)<a class="headerlink" href="#ethif-switchgetcfgdataraw-the-function-definition-for-ethif-switchgetcfgdataraw" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchGetCfgDataRaw函数定义 (The function definition for EthIf_SwitchGetCfgDataRaw)<a class="headerlink" href="#ethif-switchgetcfgdataraw-the-function-definition-for-ethif-switchgetcfgdataraw" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5420,7 +5427,7 @@
 </table>
 </section>
 <section id="ethif-switchgetcfgdatainfo-the-ethif-switchgetcfgdatainfo-function-definition">
-<h2>EthIf_SwitchGetCfgDataInfo函数定义 (The EthIf_SwitchGetCfgDataInfo function definition)<a class="headerlink" href="#ethif-switchgetcfgdatainfo-the-ethif-switchgetcfgdatainfo-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchGetCfgDataInfo函数定义 (The EthIf_SwitchGetCfgDataInfo function definition)<a class="headerlink" href="#ethif-switchgetcfgdatainfo-the-ethif-switchgetcfgdatainfo-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5510,7 +5517,7 @@
 </table>
 </section>
 <section id="ethif-switchportgetmaxfifobufferfilllevel-the-ethif-switchportgetmaxfifobufferfilllevel-function-definition">
-<h2>EthIf_SwitchPortGetMaxFIFOBufferFillLevel函数定义 (The EthIf_SwitchPortGetMaxFIFOBufferFillLevel function definition)<a class="headerlink" href="#ethif-switchportgetmaxfifobufferfilllevel-the-ethif-switchportgetmaxfifobufferfilllevel-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthIf_SwitchPortGetMaxFIFOBufferFillLevel函数定义 (The EthIf_SwitchPortGetMaxFIFOBufferFillLevel function definition)<a class="headerlink" href="#ethif-switchportgetmaxfifobufferfilllevel-the-ethif-switchportgetmaxfifobufferfilllevel-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5610,9 +5617,9 @@
 </table>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="ethifgeneral">
-<h3>EthIfGeneral<a class="headerlink" href="#ethifgeneral" title="Link to this heading">¶</a></h3>
+<h3>EthIfGeneral<a class="headerlink" href="#ethifgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="EthIfGeneral" src="../../_images/image334.png" />
 </figure>
@@ -6268,7 +6275,7 @@
 </table>
 </section>
 <section id="ethifconfigset">
-<h3>EthIfConfigSet<a class="headerlink" href="#ethifconfigset" title="Link to this heading">¶</a></h3>
+<h3>EthIfConfigSet<a class="headerlink" href="#ethifconfigset" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="EthIfConfigSet" src="../../_images/image427.png" />
 </figure>
@@ -6493,7 +6500,7 @@
 </section>
 </section>
 <section id="ethifcontroller">
-<h2>EthIfController<a class="headerlink" href="#ethifcontroller" title="Link to this heading">¶</a></h2>
+<h2>EthIfController<a class="headerlink" href="#ethifcontroller" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id3">
 <img alt="EthIfController" src="../../_images/image525.png" />
 </figure>
@@ -6651,7 +6658,7 @@
 </table>
 </section>
 <section id="ethifframeownerconfig">
-<h2>EthIfFrameOwnerConfig<a class="headerlink" href="#ethifframeownerconfig" title="Link to this heading">¶</a></h2>
+<h2>EthIfFrameOwnerConfig<a class="headerlink" href="#ethifframeownerconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="ethifframeowerconfig">
 <img alt="EthIfFrameOwerConfig" src="../../_images/image625.png" />
 </figure>
@@ -6713,7 +6720,7 @@
 </table>
 </section>
 <section id="ethifphyscontroller">
-<h2>EthIfPhysController<a class="headerlink" href="#ethifphyscontroller" title="Link to this heading">¶</a></h2>
+<h2>EthIfPhysController<a class="headerlink" href="#ethifphyscontroller" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id4">
 <img alt="EthIfPhysController" src="../../_images/image720.png" />
 </figure>
@@ -6774,7 +6781,7 @@
 </tbody>
 </table>
 <section id="ethifphysctrlrxmainfunctionpriorityprocessing">
-<h3>EthIfPhysCtrlRxMainFunctionPriorityProcessing<a class="headerlink" href="#ethifphysctrlrxmainfunctionpriorityprocessing" title="Link to this heading">¶</a></h3>
+<h3>EthIfPhysCtrlRxMainFunctionPriorityProcessing<a class="headerlink" href="#ethifphysctrlrxmainfunctionpriorityprocessing" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethifphysctrlrxmainfunctionpriorityprocessing-container-configuration-diagram-for-ethifphysctrlrxmainfunctionpriorityprocessing">
 <img alt="EthIfPhysCtrlRxMainFunctionPriorityProcessing容器配置图 (Container Configuration Diagram for EthIfPhysCtrlRxMainFunctionPriorityProcessing)" src="../../_images/image819.png" />
 </figure>
@@ -6855,7 +6862,7 @@
 </section>
 </section>
 <section id="ethifrxindicationconfig">
-<h2>EthIfRxIndicationConfig<a class="headerlink" href="#ethifrxindicationconfig" title="Link to this heading">¶</a></h2>
+<h2>EthIfRxIndicationConfig<a class="headerlink" href="#ethifrxindicationconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="ethifrxidicationconfig">
 <img alt="EthIfRxIdicationConfig" src="../../_images/image919.png" />
 </figure>
@@ -6899,7 +6906,7 @@
 </table>
 </section>
 <section id="ethifswitch">
-<h2>EthIfSwitch<a class="headerlink" href="#ethifswitch" title="Link to this heading">¶</a></h2>
+<h2>EthIfSwitch<a class="headerlink" href="#ethifswitch" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id5">
 <img alt="EthIfSwitch" src="../../_images/image1018.png" />
 </figure>
@@ -6961,7 +6968,7 @@
 </table>
 </section>
 <section id="ethifswitchmgmtinfoindicationconfig">
-<h2>EthIfSwitchMgmtInfoIndicationConfig<a class="headerlink" href="#ethifswitchmgmtinfoindicationconfig" title="Link to this heading">¶</a></h2>
+<h2>EthIfSwitchMgmtInfoIndicationConfig<a class="headerlink" href="#ethifswitchmgmtinfoindicationconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id6">
 <img alt="EthIfSwitchMgmtInfoIndicationConfig" src="../../_images/image1122.png" />
 </figure>
@@ -7005,7 +7012,7 @@
 </table>
 </section>
 <section id="ethifswitchportgroup">
-<h2>EthIfSwitchPortGroup<a class="headerlink" href="#ethifswitchportgroup" title="Link to this heading">¶</a></h2>
+<h2>EthIfSwitchPortGroup<a class="headerlink" href="#ethifswitchportgroup" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id7">
 <img alt="EthIfSwitchPortGroup" src="../../_images/image1219.png" />
 </figure>
@@ -7085,7 +7092,7 @@
 </table>
 </section>
 <section id="ethifswitchtimestampindicationconfig">
-<h2>EthIfSwitchTimeStampIndicationConfig<a class="headerlink" href="#ethifswitchtimestampindicationconfig" title="Link to this heading">¶</a></h2>
+<h2>EthIfSwitchTimeStampIndicationConfig<a class="headerlink" href="#ethifswitchtimestampindicationconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id8">
 <img alt="EthIfSwitchTimeStampIndicationConfig" src="../../_images/image1316.png" />
 </figure>
@@ -7147,7 +7154,7 @@
 </table>
 </section>
 <section id="ethiftransceiver">
-<h2>EthIfTransceiver<a class="headerlink" href="#ethiftransceiver" title="Link to this heading">¶</a></h2>
+<h2>EthIfTransceiver<a class="headerlink" href="#ethiftransceiver" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id9">
 <img alt="EthIfTransceiver" src="../../_images/image1414.png" />
 </figure>
@@ -7209,7 +7216,7 @@
 </table>
 </section>
 <section id="ethiftrcvlinkstatechgconfig">
-<h2>EthIfTrcvLinkStateChgConfig<a class="headerlink" href="#ethiftrcvlinkstatechgconfig" title="Link to this heading">¶</a></h2>
+<h2>EthIfTrcvLinkStateChgConfig<a class="headerlink" href="#ethiftrcvlinkstatechgconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id10">
 <img alt="EthIfTrcvLinkStateChgConfig" src="../../_images/image1514.png" />
 </figure>
@@ -7253,7 +7260,7 @@
 </table>
 </section>
 <section id="ethiftxconfirmationconfig">
-<h2>EthIfTxConfirmationConfig<a class="headerlink" href="#ethiftxconfirmationconfig" title="Link to this heading">¶</a></h2>
+<h2>EthIfTxConfirmationConfig<a class="headerlink" href="#ethiftxconfirmationconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id11">
 <img alt="EthIfTxConfirmationConfig" src="../../_images/image1612.png" />
 </figure>
@@ -7296,7 +7303,7 @@
 </tbody>
 </table>
 <section id="ethtrcv-driverapiconfigset">
-<h3>EthTrcv_DriverApiConfigSet<a class="headerlink" href="#ethtrcv-driverapiconfigset" title="Link to this heading">¶</a></h3>
+<h3>EthTrcv_DriverApiConfigSet<a class="headerlink" href="#ethtrcv-driverapiconfigset" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id12">
 <img alt="EthTrcv_DriverApiConfigSet" src="../../_images/image1710.png" />
 </figure>
@@ -7466,7 +7473,7 @@
 </table>
 </section>
 <section id="eth-driverapiconfigeset">
-<h3>Eth_DriverApiConfigeSet<a class="headerlink" href="#eth-driverapiconfigeset" title="Link to this heading">¶</a></h3>
+<h3>Eth_DriverApiConfigeSet<a class="headerlink" href="#eth-driverapiconfigeset" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id13">
 <img alt="Eth_DriverApiConfigeSet" src="../../_images/image1810.png" />
 </figure>
@@ -7744,7 +7751,7 @@
 </table>
 </section>
 <section id="ethswt-driverapiconfigeset">
-<h3>EthSwt_DriverApiConfigeSet<a class="headerlink" href="#ethswt-driverapiconfigeset" title="Link to this heading">¶</a></h3>
+<h3>EthSwt_DriverApiConfigeSet<a class="headerlink" href="#ethswt-driverapiconfigeset" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethswt-driverapiconfigset">
 <img alt="EthSwt_DriverApiConfigSet" src="../../_images/image196.png" />
 </figure>
@@ -8623,7 +8630,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -8632,11 +8639,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

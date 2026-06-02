@@ -9,6 +9,7 @@
         <title>CanTSyn &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="cantsyn">
-<h1>CanTSyn<a class="headerlink" href="#cantsyn" title="Link to this heading">¶</a></h1>
+<h1>CanTSyn<a class="headerlink" href="#cantsyn" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -265,7 +272,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>CanTSyn在AutoSAR软件层级架构如下图，其所属于时间同步栈。</p>
 <p>As shown in the figure below, CanTSyn is located in the AUTOSAR software layered architecture and belongs to the time synchronization stack.</p>
 <figure class="align-center" id="cantsynautosar-cantsyn-in-autosar-software-architecture">
@@ -274,27 +281,27 @@
 <p>本文中描述CanTSyn，StbM负责管理时间域，给CanTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。CanTSyn负责Can总线上的时间同步。</p>
 <p>This article describes CanTSyn, where StbM is responsible for managing the time domain, providing interfaces to CanTSyn for updating synchronization time and to other users for obtaining/notifying synchronization time. CanTSyn is in charge of time synchronization on the CAN bus.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_TimeSyncOverCAN.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_SynchronizedTimeBaseManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="cantsyn-cantsyn-function">
-<h3>CanTSyn功能 (CanTSyn Function)<a class="headerlink" href="#cantsyn-cantsyn-function" title="Link to this heading">¶</a></h3>
+<h3>CanTSyn功能 (CanTSyn Function)<a class="headerlink" href="#cantsyn-cantsyn-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="cantsyn-introduction-to-cantsyn-function">
-<h2>CanTSyn功能介绍 (Introduction to CanTSyn Function)<a class="headerlink" href="#cantsyn-introduction-to-cantsyn-function" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn功能介绍 (Introduction to CanTSyn Function)<a class="headerlink" href="#cantsyn-introduction-to-cantsyn-function" title="链接到此标题。">¶</a></h2>
 <p>CanTSyn模块和StbM模块息息相关，StbM模块提供了时间同步的功能和时钟实例的指针，但不负责在各个总线内的时间分发任务。那么CanTSyn模块就处理了在CAN总线发放时间信息的任务。</p>
 <p>The CanTSyn module and the StbM module are closely related. The StbM module provides time synchronization functionality and clock instance pointers, but it is not responsible for distributing time across various buses. Therefore, the CanTSyn module handles the task of disseminating time information on the CAN bus.</p>
 <p>仅仅通过广播的方式把时间信息从Time Masters发送到Time Slaves会导致时间不精准，这是因为CAN总线传输仲裁机制以及BSW的延迟。</p>
 <p>Simply broadcasting time information from Time Masters to Time Slaves via radio would result in inaccuracies, due to the CAN bus transmission arbitration mechanism and BSW delays.</p>
 </section>
 <section id="cantsyn-cantsyn-function-implementation">
-<h2>CanTSyn功能实现 (CanTSyn Function Implementation)<a class="headerlink" href="#cantsyn-cantsyn-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn功能实现 (CanTSyn Function Implementation)<a class="headerlink" href="#cantsyn-cantsyn-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>我们通过以下的两步算法来尽可能消除这样的延迟：</p>
 <p>We eliminate such delays through the following two-step algorithm:</p>
 <p>发送方（Time Master）首先记录当前的同步时间（SYNC）以及本地时间(T0VLT)并在第一个广播信息（所谓的SYNC信息）里，把同步好的时间的秒部分（SYNCSEC）作为内容发送。发送方在收到“CAN transmit confirmation”时记录时间戳来得到信息实际发送的时间点（T1VLT）。</p>
@@ -314,7 +321,7 @@
 </figure>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CanTSyn组件文件描述 (Table Description for CanTSyn Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -352,13 +359,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="cantsyn-configtype-cantsyn-configtype-type-definition">
-<h2>CanTSyn_ConfigType类型定义 (CanTSyn_ConfigType Type Definition)<a class="headerlink" href="#cantsyn-configtype-cantsyn-configtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_ConfigType类型定义 (CanTSyn_ConfigType Type Definition)<a class="headerlink" href="#cantsyn-configtype-cantsyn-configtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -383,7 +390,7 @@
 </table>
 </section>
 <section id="cantsyn-transmissionmodetype-cantsyn-transmissionmodetype-type-definition">
-<h2>CanTSyn_TransmissionModeType类型定义 (CanTSyn_TransmissionModeType Type Definition)<a class="headerlink" href="#cantsyn-transmissionmodetype-cantsyn-transmissionmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_TransmissionModeType类型定义 (CanTSyn_TransmissionModeType Type Definition)<a class="headerlink" href="#cantsyn-transmissionmodetype-cantsyn-transmissionmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -410,7 +417,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -453,11 +460,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="cantsyn-getversioninfo-the-cantsyn-getversioninfo-function-definition">
-<h2>CanTSyn_GetVersionInfo函数定义 (The CanTSyn_GetVersionInfo function definition)<a class="headerlink" href="#cantsyn-getversioninfo-the-cantsyn-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_GetVersionInfo函数定义 (The CanTSyn_GetVersionInfo function definition)<a class="headerlink" href="#cantsyn-getversioninfo-the-cantsyn-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -506,7 +513,7 @@
 </table>
 </section>
 <section id="cantsyn-init-the-cantsyn-init-function-defines">
-<h2>CanTSyn_Init函数定义 (The CanTSyn_Init function defines)<a class="headerlink" href="#cantsyn-init-the-cantsyn-init-function-defines" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_Init函数定义 (The CanTSyn_Init function defines)<a class="headerlink" href="#cantsyn-init-the-cantsyn-init-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -594,7 +601,7 @@
 </table>
 </section>
 <section id="cantsyn-settransmissionmode-the-cantsyn-settransmissionmode-function-defines">
-<h2>CanTSyn_SetTransmissionMode函数定义 (The CanTSyn_SetTransmissionMode function defines)<a class="headerlink" href="#cantsyn-settransmissionmode-the-cantsyn-settransmissionmode-function-defines" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_SetTransmissionMode函数定义 (The CanTSyn_SetTransmissionMode function defines)<a class="headerlink" href="#cantsyn-settransmissionmode-the-cantsyn-settransmissionmode-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -679,7 +686,7 @@
 </table>
 </section>
 <section id="cantsyn-rxindication-the-cantsyn-rxindication-function-definition">
-<h2>CanTSyn_RxIndication函数定义 (The CanTSyn_RxIndication function definition)<a class="headerlink" href="#cantsyn-rxindication-the-cantsyn-rxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_RxIndication函数定义 (The CanTSyn_RxIndication function definition)<a class="headerlink" href="#cantsyn-rxindication-the-cantsyn-rxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -764,7 +771,7 @@
 </table>
 </section>
 <section id="cantsyn-txconfirmation-the-cantsyn-txconfirmation-function-defines">
-<h2>CanTSyn_TxConfirmation函数定义 (The CanTSyn_TxConfirmation function defines)<a class="headerlink" href="#cantsyn-txconfirmation-the-cantsyn-txconfirmation-function-defines" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_TxConfirmation函数定义 (The CanTSyn_TxConfirmation function defines)<a class="headerlink" href="#cantsyn-txconfirmation-the-cantsyn-txconfirmation-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -849,7 +856,7 @@
 </table>
 </section>
 <section id="cantsyn-mainfunction-cantsyn-mainfunction-function-definition">
-<h2>CanTSyn_MainFunction函数定义 (CanTSyn_MainFunction function definition)<a class="headerlink" href="#cantsyn-mainfunction-cantsyn-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>CanTSyn_MainFunction函数定义 (CanTSyn_MainFunction function definition)<a class="headerlink" href="#cantsyn-mainfunction-cantsyn-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -879,13 +886,13 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>配置列表 (Configuration List)</strong></strong></p><p class="centered">
 <strong><strong>表 属性描述 (Table Properties Description)</strong></strong></p><table class="docutils align-default">
@@ -914,7 +921,7 @@
 </tbody>
 </table>
 <section id="cantsyngeneral">
-<h3>CanTSynGeneral<a class="headerlink" href="#cantsyngeneral" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGeneral<a class="headerlink" href="#cantsyngeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsyngeneral-cantsyngeneral-tool-configuration">
 <img alt="CanTSynGeneral 工具配置 (CanTSynGeneral Tool Configuration)" src="../../_images/image45.png" />
 </figure>
@@ -1036,7 +1043,7 @@
 </table>
 </section>
 <section id="cantsynglobaltimedomain">
-<h3>CanTSynGlobalTimeDomain<a class="headerlink" href="#cantsynglobaltimedomain" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeDomain<a class="headerlink" href="#cantsynglobaltimedomain" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimedomain-cantsynglobaltimedomain-tool-configuration">
 <img alt="CanTSynGlobalTimeDomain 工具配置 (CanTSynGlobalTimeDomain Tool Configuration)" src="../../_images/image55.png" />
 </figure>
@@ -1163,12 +1170,12 @@
 </section>
 </section>
 <section id="cantsynglobaltimesyncdataidlist">
-<h2>CanTSynGlobalTimeSyncDataIDList<a class="headerlink" href="#cantsynglobaltimesyncdataidlist" title="Link to this heading">¶</a></h2>
+<h2>CanTSynGlobalTimeSyncDataIDList<a class="headerlink" href="#cantsynglobaltimesyncdataidlist" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="cantsynglobaltimesyncdataidlist-cantsynglobaltimesyncdataidlist-tool-configuration">
 <img alt="CanTSynGlobalTimeSyncDataIDList工具配置 (CanTSynGlobalTimeSyncDataIDList Tool Configuration)" src="../../_images/image65.png" />
 </figure>
 <section id="cantsynglobaltimesyncdataidlistelement">
-<h3>CanTSynGlobalTimeSyncDataIDListElement<a class="headerlink" href="#cantsynglobaltimesyncdataidlistelement" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeSyncDataIDListElement<a class="headerlink" href="#cantsynglobaltimesyncdataidlistelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimesyncdataidlistelement-cantsynglobaltimesyncdataidlistelement-tool-configuration">
 <img alt="CanTSynGlobalTimeSyncDataIdListElement工具配置 (CanTSynGlobalTimeSyncDataIdListElement Tool Configuration)" src="../../_images/image75.png" />
 </figure>
@@ -1231,12 +1238,12 @@
 </section>
 </section>
 <section id="cantsynglobaltimefupdataidlist">
-<h2>CanTSynGlobalTimeFupDataIDList<a class="headerlink" href="#cantsynglobaltimefupdataidlist" title="Link to this heading">¶</a></h2>
+<h2>CanTSynGlobalTimeFupDataIDList<a class="headerlink" href="#cantsynglobaltimefupdataidlist" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="cantsynglobaltimefupdataidlist-tool-configuration-for-cantsynglobaltimefupdataidlist">
 <img alt="CanTSynGlobalTimeFupDataIdList工具配置 (Tool Configuration for CanTSynGlobalTimeFupDataIdList)" src="../../_images/image85.png" />
 </figure>
 <section id="cantsynglobaltimefupdataidlistelement">
-<h3>CanTSynGlobalTimeFupDataIDListElement<a class="headerlink" href="#cantsynglobaltimefupdataidlistelement" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeFupDataIDListElement<a class="headerlink" href="#cantsynglobaltimefupdataidlistelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimefupdataidlistelement-cantsynglobaltimefupdataidlistelement-tool-configuration">
 <img alt="CanTSynGlobalTimeFupDataIdListElement工具配置 (CanTSynGlobalTimeFupDataIdListElement Tool Configuration)" src="../../_images/image95.png" />
 </figure>
@@ -1299,12 +1306,12 @@
 </section>
 </section>
 <section id="cantsynglobaltimeofsdataidlist">
-<h2>CanTSynGlobalTimeOfsDataIDList<a class="headerlink" href="#cantsynglobaltimeofsdataidlist" title="Link to this heading">¶</a></h2>
+<h2>CanTSynGlobalTimeOfsDataIDList<a class="headerlink" href="#cantsynglobaltimeofsdataidlist" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="cantsynglobaltimeofsdataidlist-cantsynglobaltimeofdayconfig-data-id-list-tool-configuration">
 <img alt="CanTSynGlobalTimeOfsDataIdList工具配置 (CanTSynGlobalTimeOfDayConfig Data ID List Tool Configuration)" src="../../_images/image105.png" />
 </figure>
 <section id="cantsynglobaltimeofsdataidlistelement">
-<h3>CanTSynGlobalTimeOfsDataIDListElement<a class="headerlink" href="#cantsynglobaltimeofsdataidlistelement" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeOfsDataIDListElement<a class="headerlink" href="#cantsynglobaltimeofsdataidlistelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimeofsdataidlistelement-cantsynglobaltimeofsdataidlistelement-tool-configuration">
 <img alt="CanTSynGlobalTimeOfsDataIdListElement工具配置 (CanTSynGlobalTimeOfsDataIdListElement Tool Configuration)" src="../../_images/image1110.png" />
 </figure>
@@ -1367,12 +1374,12 @@
 </section>
 </section>
 <section id="cantsynglobaltimeofnsdataidlist">
-<h2>CanTSynGlobalTimeOfnsDataIDList<a class="headerlink" href="#cantsynglobaltimeofnsdataidlist" title="Link to this heading">¶</a></h2>
+<h2>CanTSynGlobalTimeOfnsDataIDList<a class="headerlink" href="#cantsynglobaltimeofnsdataidlist" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="cantsynglobaltimeofnsdataidlist-tool-configuration-for-cantsynglobaltime-ofns-data-id-list">
 <img alt="CanTSynGlobalTimeOfnsDataIdList工具配置 (Tool Configuration for CanTSynGlobalTime Ofns Data Id List)" src="../../_images/image125.png" />
 </figure>
 <section id="cantsynglobaltimeofnsdataidlistelement">
-<h3>CanTSynGlobalTimeOfnsDataIDListElement<a class="headerlink" href="#cantsynglobaltimeofnsdataidlistelement" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeOfnsDataIDListElement<a class="headerlink" href="#cantsynglobaltimeofnsdataidlistelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimeofnsdataidlistelement-cantsynglobaltimeofnsdataidlistelement-tool-configuration">
 <img alt="CanTSynGlobalTimeOfnsDataIdListElement工具配置 (CanTSynGlobalTimeOfnsDataIdListElement Tool Configuration)" src="../../_images/image133.png" />
 </figure>
@@ -1435,7 +1442,7 @@
 </section>
 </section>
 <section id="cantsynglobaltimemaster">
-<h2>CanTSynGlobalTimeMaster<a class="headerlink" href="#cantsynglobaltimemaster" title="Link to this heading">¶</a></h2>
+<h2>CanTSynGlobalTimeMaster<a class="headerlink" href="#cantsynglobaltimemaster" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="cantsynglobaltimemaster-cantsynglobaltimemaster-tool-configuration">
 <img alt="CanTSynGlobalTimeMaster工具配置 (CanTSynGlobalTimeMaster Tool Configuration)" src="../../_images/image143.png" />
 </figure>
@@ -1568,7 +1575,7 @@
 </tbody>
 </table>
 <section id="cantsynglobaltimemasterpdu">
-<h3>CanTSynGlobalTimeMasterPdu<a class="headerlink" href="#cantsynglobaltimemasterpdu" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeMasterPdu<a class="headerlink" href="#cantsynglobaltimemasterpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimemasterpdu-cantsynglobaltimemasterpdu-tool-configuration">
 <img alt="CanTSynGlobalTimeMasterPdu工具配置 (CanTSynGlobalTimeMasterPdu Tool Configuration)" src="../../_images/image152.png" />
 </figure>
@@ -1613,7 +1620,7 @@
 </section>
 </section>
 <section id="cantsynglobaltimeslave">
-<h2>CanTSynGlobalTimeSlave<a class="headerlink" href="#cantsynglobaltimeslave" title="Link to this heading">¶</a></h2>
+<h2>CanTSynGlobalTimeSlave<a class="headerlink" href="#cantsynglobaltimeslave" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="cantsynglobaltimeslave-cantsynglobaltimeslave-tool-configuration">
 <img alt="CanTSynGlobalTimeSlave工具配置 (CanTSynGlobalTimeSlave Tool Configuration)" src="../../_images/image162.png" />
 </figure>
@@ -1704,7 +1711,7 @@
 </tbody>
 </table>
 <section id="cantsynglobaltimeslavepdu">
-<h3>CanTSynGlobalTimeSlavePdu<a class="headerlink" href="#cantsynglobaltimeslavepdu" title="Link to this heading">¶</a></h3>
+<h3>CanTSynGlobalTimeSlavePdu<a class="headerlink" href="#cantsynglobaltimeslavepdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cantsynglobaltimeslavepdu-cantsynglobaltimeslavepdu-tool-configuration">
 <img alt="CanTSynGlobalTimeSlavePdu工具配置 (CanTSynGlobalTimeSlavePdu Tool Configuration)" src="../../_images/image171.png" />
 </figure>
@@ -1851,7 +1858,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -1860,11 +1867,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

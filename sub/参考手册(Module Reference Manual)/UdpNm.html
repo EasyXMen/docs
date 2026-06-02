@@ -9,6 +9,7 @@
         <title>UdpNm &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="udpnm">
-<h1>UdpNm<a class="headerlink" href="#udpnm" title="Link to this heading">¶</a></h1>
+<h1>UdpNm<a class="headerlink" href="#udpnm" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -265,7 +272,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>UdpNm模块的核心功能是协调网络正常运行和总线睡眠模式之间的转换，除此之外，还提供了可选功能，例如检测当前节点或检测其他所有节点是否准备休眠等。</p>
 <p>The core function of the UdpNm module is to coordinate the transition between normal network operation and bus sleep mode, in addition to providing optional features such as detecting whether the current node or other all nodes are ready for sleep.</p>
 <p>UdpNm提供网络管理接口（Nm）和TCP/IP协议栈之间的适配。UdpNm通过调用SoAd模块的发送API来传输数据，并提供接收API给SoAd用于接收下层网络管理报文。Nm模块调用UdpNm模块API来更改UdpNm的当前状态机状态，UdpNm的状态机模式切换需要通知给Nm模块。</p>
@@ -304,7 +311,7 @@
 <p>4、车辆唤醒功能</p>
 <p>Vehicle Wake-up Function</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_SocketAdaptor.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_UDPNetworkManagement.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_NetworkManagementInterface.pdf，R19-11</p>
@@ -312,17 +319,17 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <p>AUTOSAR UdpNm基于分散的直接网络管理策略，这意味着每个网络节点仅根据在通信系统内接收和/或发送报文，执行自给自足的活动。</p>
 <p>AUTOSAR UdpNm is based on a decentralized direct network management strategy, which means that each network node performs autonomous activities only according to the reception and/or transmission of messages within the communication system.</p>
 <p>AUTOSAR UdpNm协调算法基于周期性的NM数据包，集群中的所有节点都通过广播传输接收这些数据包。接收到NM数据包表明发送节点要保持NM集群处于唤醒状态。如果任何节点准备好进入总线睡眠模式，它将停止发送NM数据包，但是只要接收到来自其他节点的NM数据包，它就会推迟过渡到总线睡眠模式。如果在专用计时器超时前都未接收到NM数据包，则每个节点都会启动到总线休眠模式的转换。UdpNm通过状态机切换和各状态定时器管理来完成协调算法。</p>
 <p>The AUTOSAR UdpNm coordination algorithm is based on periodic NM packets. All nodes in the cluster receive these packets via broadcast transmission. Receiving an NM packet indicates that the sending node wants to keep the NM cluster awake. If any node is ready to enter the bus sleep mode, it will stop sending NM packets; however, as long as it receives NM packets from other nodes, it will delay transitioning to the bus sleep mode. If no NM packets are received before a dedicated timer times out, each node will initiate a transition to the bus sleep mode. UdpNm completes the coordination algorithm through state machine transitions and定时器管理。</p>
 <section id="state-machine-transition">
-<h3>状态机切换 (State machine transition)<a class="headerlink" href="#state-machine-transition" title="Link to this heading">¶</a></h3>
+<h3>状态机切换 (State machine transition)<a class="headerlink" href="#state-machine-transition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="introduction-of-patterns">
-<h2>模式介绍 (Introduction of Patterns)<a class="headerlink" href="#introduction-of-patterns" title="Link to this heading">¶</a></h2>
+<h2>模式介绍 (Introduction of Patterns)<a class="headerlink" href="#introduction-of-patterns" title="链接到此标题。">¶</a></h2>
 <p>AUTOSAR UdpNm协调算法的三种操作模式：</p>
 <p>Three operation modes of the AUTOSAR UdpNm Coordination Algorithm:</p>
 <ul class="simple">
@@ -344,7 +351,7 @@
 </figure>
 </section>
 <section id="network-mode">
-<h2>Network Mode<a class="headerlink" href="#network-mode" title="Link to this heading">¶</a></h2>
+<h2>Network Mode<a class="headerlink" href="#network-mode" title="链接到此标题。">¶</a></h2>
 <p>Network Mode下包括三种内部状态：</p>
 <p>Network Mode includes three internal states:</p>
 <ul class="simple">
@@ -384,7 +391,7 @@
 <p>When entering the Ready Sleep State, this node will no longer transmit data. Upon receiving a message from another node, the NM-Timeout timer is reset. When the NM-Timeout timer times out and the node is in the Ready Sleep State, network management enters the Prepare Bus-Sleep Mode. The time for the NM-Timeout timer is decided by UdpNmTimeoutTime (configuration parameter).</p>
 </section>
 <section id="prepare-bus-sleep-mode">
-<h2>Prepare Bus Sleep Mode<a class="headerlink" href="#prepare-bus-sleep-mode" title="Link to this heading">¶</a></h2>
+<h2>Prepare Bus Sleep Mode<a class="headerlink" href="#prepare-bus-sleep-mode" title="链接到此标题。">¶</a></h2>
 <p>Prepare Bus Sleep state目的是确保所有节点都有时间在进入总线休眠状态之前停止其网络活动，使总线活动平静下来，最后在“准备总线睡眠模式”下总线上没有任何活动。</p>
 <p>The purpose of Prepare Bus Sleep state is to ensure that all nodes have the opportunity to stop their network activities before entering the bus sleep state, thereby calming down the bus activity, and finally ensuring there is no activity on the bus under &quot;Prepare Bus Sleep mode&quot;.</p>
 <p>当本节点进入Prepare Bus-Sleep Mode，UdpNmWaitBusSleepTime（配置参数）定时器被启动，当UdpNmWaitBusSleepTime定时器超时，当前状态将由Prepare Bus-Sleep Mode切换至Bus-Sleep Mode。</p>
@@ -395,7 +402,7 @@
 <p>If a network request is received while in the Prepare Bus-Sleep Mode, the current state will switch to Network Mode by default, entering the Repeat Message State. If UdpNmImmediateRestartEnabled (configuration parameter) is set to TRUE, a transmission will be triggered immediately in this case. The rationale behind this is that other nodes in the cluster are still in the Prepare Bus-Sleep Mode; therefore, it should be avoided to transition to Bus-Sleep Mode and bus communication should be restored as soon as possible. Due to the transmission offset of network management PDUs in UdpNm, the first network management PDU in the Repeat Message State may experience significant delay. To avoid such delays, a request can be immediately sent to restart the network by transmitting the network management PDU.</p>
 </section>
 <section id="bus-sleep-mode">
-<h2>Bus-Sleep Mode<a class="headerlink" href="#bus-sleep-mode" title="Link to this heading">¶</a></h2>
+<h2>Bus-Sleep Mode<a class="headerlink" href="#bus-sleep-mode" title="链接到此标题。">¶</a></h2>
 <p>Bus-Sleep state的目的是在不交换任何消息时降低节点的功耗。将通信控制器切换到睡眠模式，激活相应的唤醒机制，最后将功耗降低到总线睡眠模式下的适当水平。</p>
 <p>The purpose of Bus-Sleep state is to reduce node power consumption without exchanging any messages. By switching the communication controller to sleep mode, activating the corresponding wake-up mechanisms, and finally reducing power consumption to an appropriate level for the bus sleep mode.</p>
 <p>当UdpNm处于Bus-Sleep Mode接收到网络管理报文时，此时UdpNm不会切换至Network Mode，而是通知Nm模块，由上层模块做决策。</p>
@@ -403,7 +410,7 @@
 <p>当UdpNm处于Bus-Sleep Mode接收到被动请求或网络请求时，当前状态将由Bus-Sleep Mode切换至Network Mode， 默认情况下，将进入Repeat Message State。</p>
 <p>When UdpNm is in Bus-Sleep Mode and receives a passive request or network request, the current state will switch from Bus-Sleep Mode to Network Mode. By default, it will enter the Repeat Message State.</p>
 <section id="pdu-pdu-format">
-<h3>PDU格式 (PDU Format)<a class="headerlink" href="#pdu-pdu-format" title="Link to this heading">¶</a></h3>
+<h3>PDU格式 (PDU Format)<a class="headerlink" href="#pdu-pdu-format" title="链接到此标题。">¶</a></h3>
 <p>网络管理的报文有特定的格式要求，报文数据段格式如图：</p>
 <p>Network management messages have specific format requirements, and the message data segment format is as follows:</p>
 <figure class="align-center" id="nm-pdu-nm-pdu-default-format">
@@ -460,13 +467,13 @@
 <p>User Data in Nm Pdu can be referenced from Pdu in EcuC via UdpNm configuration. By default, it is all 0xFF if not used. The current received and sent User Data can be captured through the interface of Nm.</p>
 </section>
 <section id="optional-features">
-<h3>可选功能 (Optional Features)<a class="headerlink" href="#optional-features" title="Link to this heading">¶</a></h3>
+<h3>可选功能 (Optional Features)<a class="headerlink" href="#optional-features" title="链接到此标题。">¶</a></h3>
 <p>UdpNm可以通过使能配置参数来使能以下可选功能。</p>
 <p>UdpNm can enable the following optional features by enabling configuration parameters.</p>
 </section>
 </section>
 <section id="detect-remote-sleep-command-functionality">
-<h2>检测远程睡眠指令功能 (Detect remote sleep command functionality)<a class="headerlink" href="#detect-remote-sleep-command-functionality" title="Link to this heading">¶</a></h2>
+<h2>检测远程睡眠指令功能 (Detect remote sleep command functionality)<a class="headerlink" href="#detect-remote-sleep-command-functionality" title="链接到此标题。">¶</a></h2>
 <p>远程睡眠指示应用于一种情况，当处于Normal Operation State的节点发现集群中的所有其他节点都准备睡眠，但处于Normal Operation State状态的节点仍将保持总线苏醒。为了避免这种情况，可以使能远程睡眠指示功能。</p>
 <p>Remote sleep indication is applied in a scenario where a node in Normal Operation State detects that all other nodes in the cluster are ready to sleep, but the node in Normal Operation State will still keep the bus awake. To avoid this situation, remote sleep indication functionality can be enabled.</p>
 <p>如果当前UdpNm状态为Normal Operation State，并且在UdpNmRemoteSleepIndTime（配置参数）定时器内未收到其他节点发送的网络管理报文，则通知上层Nm模块集群内的其他节点均已准备睡眠。</p>
@@ -475,7 +482,7 @@
 <p>If UdpNm has informed the upper-layer Nm module, and then receives a network management message in the Normal Operation State or Ready Sleep State, or if UdpNm switches from the Normal Operation State to the Repeat Message State, UdpNm needs to notify the upper-layer Nm module that certain nodes in the cluster are no longer准备睡眠。</p>
 </section>
 <section id="user-data-functionality">
-<h2>用户数据功能 (User data functionality)<a class="headerlink" href="#user-data-functionality" title="Link to this heading">¶</a></h2>
+<h2>用户数据功能 (User data functionality)<a class="headerlink" href="#user-data-functionality" title="链接到此标题。">¶</a></h2>
 <p>使用UdpNmUserDataEnabled开关（配置参数）对NM用户数据的支持进行静态配置。</p>
 <p>Use the UdpNmUserDataEnabled switch (configuration parameter) for static configuration of support for NM user data.</p>
 <p>当用户数据功能使能，可以调用UdpNm_SetUserData，该函数可以设置总线上接下来发送的NM数据包的NM用户数据。也可以调用UdpNm_GetUserDat，该函数可以提供包含在最近接收到的NM PDU的有效载荷中的NM用户数据。</p>
@@ -484,29 +491,29 @@
 <p>If UdpNmComUserDataSupport (configuration parameter) is configured as enabled, UdpNm will collect NM user data from the referenced NM I-PDU and merge it with other NM bytes before sending the corresponding NM message in each request. In this case, user data cannot be set via the UdpNm_SetUserData function.</p>
 </section>
 <section id="passive-mode-function">
-<h2>被动模式功能 (Passive Mode Function)<a class="headerlink" href="#passive-mode-function" title="Link to this heading">¶</a></h2>
+<h2>被动模式功能 (Passive Mode Function)<a class="headerlink" href="#passive-mode-function" title="链接到此标题。">¶</a></h2>
 <p>在被动模式下，节点仅接收NM消息，但不发送任何NM消息。被动模式应使用UdpNmPassiveModeEnabled开关（配置参数）进行静态配置。</p>
 <p>In passive mode, nodes only receive NM messages but do not send any NM messages. Passive mode should be statically configured using the UdpNmPassiveModeEnabled switch (configuration parameter).</p>
 </section>
 <section id="nm-pdu-rx-nm-pdu-rx-indication-function">
-<h2>NM PDU Rx指示功能 (NM PDU Rx Indication Function)<a class="headerlink" href="#nm-pdu-rx-nm-pdu-rx-indication-function" title="Link to this heading">¶</a></h2>
+<h2>NM PDU Rx指示功能 (NM PDU Rx Indication Function)<a class="headerlink" href="#nm-pdu-rx-nm-pdu-rx-indication-function" title="链接到此标题。">¶</a></h2>
 <p>若UdpNmPduRxIndicationEnabled（配置参数）使能，在成功接收NM PDU时，UdpNm应通过调用Nm_PduRxIndication通知上层。</p>
 <p>If UdpNmPduRxIndicationEnabled (configuration parameter) is enabled, UdpNm should notify the upper layer by calling Nm_PduRxIndication upon successful reception of NM PDU.</p>
 </section>
 <section id="notification-for-state-change-functionality">
-<h2>状态变化通知功能 (Notification for State Change Functionality)<a class="headerlink" href="#notification-for-state-change-functionality" title="Link to this heading">¶</a></h2>
+<h2>状态变化通知功能 (Notification for State Change Functionality)<a class="headerlink" href="#notification-for-state-change-functionality" title="链接到此标题。">¶</a></h2>
 <p>如果UdpNmStateChangeIndEnabled（配置参数）使能，则UdpNm需要将UdpNm状态的所有更改通知上层Nm。</p>
 <p>If UdpNmStateChangeIndEnabled (configuration parameter) is enabled, UdpNm needs to notify the upper-layer Nm of all state changes.</p>
 </section>
 <section id="communication-control-function">
-<h2>通讯控制功能 (Communication Control Function)<a class="headerlink" href="#communication-control-function" title="Link to this heading">¶</a></h2>
+<h2>通讯控制功能 (Communication Control Function)<a class="headerlink" href="#communication-control-function" title="链接到此标题。">¶</a></h2>
 <p>使用UdpNmComControlEnabled开关（配置参数），可以静态配置通信控制。当UdpNm_DisableCommunication函数被调用，UdpNm模块NM报文的传输能力将被停止，直到调用UdpNm_EnableCommunication，UdpNm的nm报文传输能力被恢复。</p>
 <p>Using the UdpNmComControlEnabled switch (configuration parameter), communication control can be statically configured. When the UdpNm_DisableCommunication function is called, the transmission capability of UdpNm module NM messages will be stopped until UdpNm_EnableCommunication is called, restoring UdpNm's nm message transmission capability.</p>
 <p>当UdpNm_DisableCommunication函数被调用，UdpNm的NM-Timeout定时器将被停止，调用函数UdpNm_EnableCommunication，NM-Timeout定时器将被恢复。若一直未调用UdpNm_EnableCommunication，UdpNm会一直处在Ready Sleep State中无法进入休眠状态，在这种情况下，AutoSar规定，当网络被释放后，UdpNm将从Ready Sleep State切换至Prepare Bus-Sleep Mode。</p>
 <p>When the UdpNm_DisableCommunication function is called, the NM-Timeout timer of UdpNm will be stopped. Calling the UdpNm_EnableCommunication function will restore the NM-Timeout timer. If UdpNm_EnableCommunication is never called, UdpNm will remain in the Ready Sleep State and unable to enter sleep mode. In this case, according to AutoSar regulations, when the network is released, UdpNm will switch from the Ready Sleep State to the Prepare Bus-Sleep Mode.</p>
 </section>
 <section id="nm-nm-coordinator-synchronization-support-function">
-<h2>NM协调器同步支持功能 (NM Coordinator Synchronization Support Function)<a class="headerlink" href="#nm-nm-coordinator-synchronization-support-function" title="Link to this heading">¶</a></h2>
+<h2>NM协调器同步支持功能 (NM Coordinator Synchronization Support Function)<a class="headerlink" href="#nm-nm-coordinator-synchronization-support-function" title="链接到此标题。">¶</a></h2>
 <p>当有多个协调器连接到同一条总线时，在CBV中，NmCoordinatorSleepReady位用于指示主协调器请求启动关闭，有关CBV的概念见1.2.4章。</p>
 <p>When multiple coordinators are connected to the same bus in CBV, the NmCoordinatorSleepReady bit is used to indicate that the master coordinator requests a power-off initiation, see Chapter 1.2.4 for concepts related to CBV.</p>
 <p>当UdpNm处于网络模式，接收网络管理报文的CBV中NmCoordinatorSleepReady=1，则UdpNm通知上层协调睡眠功能被请求。</p>
@@ -515,7 +522,7 @@
 <p>When UdpNm notifies the upper layer that the coordination sleep function is requested and the CBV receiving network management messages has NmCoordinatorSleepReady=0, UdpNm informs the upper layer that the request for the coordination sleep function is cancelled.</p>
 </section>
 <section id="pn-pn-function">
-<h2>PN功能  (PN Function)<a class="headerlink" href="#pn-pn-function" title="Link to this heading">¶</a></h2>
+<h2>PN功能  (PN Function)<a class="headerlink" href="#pn-pn-function" title="链接到此标题。">¶</a></h2>
 <p>Autosar4.x版本开始支持PN功能，Pn功能的目的是基于功能划分网络，形成局域网；这种功能的划分由整车设计完成，对于各节点只需要关心自身存在的网段。只有在UdpNmGlobalPnSupport(配置参数)和各通道下的UdpNmPnEnabled(配置参数)使能的情况下，Pn功能才能正常工作。</p>
 <p>Autosar 4.x versions began supporting PN functionality. The purpose of the PN function is to segment networks based on functional divisions, forming local networks; this division is completed during整车设计. For each node, only its existing segment needs to be concerned. Only when the UdpNmGlobalPnSupport (configuration parameter) and the UdpNmPnEnabled (configuration parameter) under each channel are enabled can the PN function operate normally.</p>
 <p>如果UdpNmPnEnabled(配置参数)为FALSE，则UdpNm将执行正常的Rx指示处理，并且应禁用Pn功能。如果UdpNmPnEnabled为TRUE，接收到的NM-PDU CBV中的PNI位为0，则UdpNm模块应执行常规的Rx指示处理，从而省去了Pn功能的扩展。如果UdpNmPnEnabled为TRUE并且接收到的NM-PDU CBV中的PNI位为1，则UdpNm模块处理NM-PDU的Pn信息。</p>
@@ -529,7 +536,7 @@
 <p>例如当UdpNmPnInfoOffset = 3，UdpNmPnInfoLength =2，代表NM消息只有字节3和字节4包含PN请求信息。</p>
 <p>For example, when UdpNmPnInfoOffset = 3 and UdpNmPnInfoLength = 2, it represents that only bytes 3 and 4 contain PN request information in the NM message.</p>
 <section id="pn-pn-filtering">
-<h3>PN过滤 (PN filtering)<a class="headerlink" href="#pn-pn-filtering" title="Link to this heading">¶</a></h3>
+<h3>PN过滤 (PN filtering)<a class="headerlink" href="#pn-pn-filtering" title="链接到此标题。">¶</a></h3>
 <p>PNC是Partial Network Cluster的缩写，它是指为了在车辆网络中支持一个或多个车辆功能而由多个ECU构成的集群。PNC的编号我们称为PNC ID，范围8~63，整车网络统一编号，关于PNC id与UdpNm Pdu 映射关系说明：PNC ID对应UdpNm Pdu中的一个bit，例如PNC ID=8，对应UdpNm Pdu Byte 1的bit0；PNC ID=63，对应Byte 7的bit7；PNC ID对应的bit数值为1，则表示当前PN网络被请求，为0则表示网络释放。</p>
 <p>PNC is the abbreviation for Partial Network Cluster, referring to a cluster composed of multiple ECUs to support one or more vehicle functions in a vehicle network. The numbering we call PNC ID, ranging from 8 to 63, with unified numbering across the entire vehicle network. Regarding the mapping relationship between PNC id and UdpNm Pdu: PNC ID corresponds to one bit in UdpNm Pdu, for example, PNC ID=8 corresponds to bit0 of Byte 1 of UdpNm Pdu; PNC ID=63 corresponds to bit7 of Byte 7; if the bit value corresponding to PNC ID is 1, it indicates that the current PN network is requested; if it is 0, it indicates that the network is released.</p>
 <p>通过配置参数UdpNmPnFilterMaskByte，UdpNm可以检测到哪个PN与ECU相关，而哪个与PN不相关。</p>
@@ -544,7 +551,7 @@
 <p>If at least one PN request related to this ECU is present, then this NM PDU is useful for UdpNm and needs to be processed. If there are no PN requests related to this ECU, then this NM PDU will be ignored.</p>
 </section>
 <section id="eraeira-era-and-eira">
-<h3>ERA与EIRA (ERA and EIRA)<a class="headerlink" href="#eraeira-era-and-eira" title="Link to this heading">¶</a></h3>
+<h3>ERA与EIRA (ERA and EIRA)<a class="headerlink" href="#eraeira-era-and-eira" title="链接到此标题。">¶</a></h3>
 <p>ERA是指ECU外部的PN请求的聚合，当UdpNmPnEraCalcEnabled使能(配置参数)，表示支持ERA功能。而EIRA是指ECU内部和外部Pn请求的聚合，当UdpNmPnEiraCalcEnabled使能(配置参数)，表示支持EIRA功能。</p>
 <p>ERA refers to the aggregation of PN requests from outside the ECU, and it indicates support for ERA functionality when UdpNmPnEraCalcEnabled (configuration parameter) is enabled.而EIRA refers to the aggregation of PN requests both inside and outside the ECU, and it indicates support for EIRA functionality when UdpNmPnEiraCalcEnabled (configuration parameter) is enabled.</p>
 <p>ERA是在网关节点才使用，此时没有内部的请求，只有不同的Channel对Pn的外部请求，ERA会为每个channel的每个PN位都设置一个监测的定时器，当UdpNmPnResetTime(配置参数)时间内未请求PN，则将该PN的请求状态设置为未请求，每次请求状态有变化的时候都会通知上层PduR，由PduR模块进行转发。</p>
@@ -553,20 +560,20 @@
 <p>EIRA reflects the request and release conditions of a PNC by the current node with other nodes on the network; EIRA does not distinguish between physical Channels, but targets different PN. EIRA sets a monitoring timer for each PN bit. If no request for PN is made within UdpNmPnResetTime (configuration parameter), the request status of that PN will be set to unrequested. Every time the request status changes, it notifies the upper-layer PduR, which forwards this information via the PduR module.</p>
 </section>
 <section id="spontaneous-transmission">
-<h3>自发传输 (Spontaneous Transmission)<a class="headerlink" href="#spontaneous-transmission" title="Link to this heading">¶</a></h3>
+<h3>自发传输 (Spontaneous Transmission)<a class="headerlink" href="#spontaneous-transmission" title="链接到此标题。">¶</a></h3>
 <p>如果网络被请求并且UdpNmPnHandleMultipleNetworkRequest（配置参数）设置为TRUE，无论UdpNm处于Ready Sleep State，Normal Operation State或Repeat Message State，UdpNm应更改为或重新启动为Repeat Message State。并且，UdpNm会传输UdpNmImmediateNmTransmissions（配置参数）数量的报文，其中第一条报文立即传输，其他报文按UdpNmImmediateNmCycleTime传输（配置参数）。</p>
 <p>If the network is requested and UdpNmPnHandleMultipleNetworkRequest (configuration parameter) is set to TRUE, regardless of whether UdpNm is in the Ready Sleep State, Normal Operation State, or Repeat Message State, UdpNm should change to or be restarted into the Repeat Message State. Furthermore, UdpNm will transmit a number of messages equal to UdpNmImmediateNmTransmissions (configuration parameter), where the first message is transmitted immediately, and the other messages are transmitted according to UdpNmImmediateNmCycleTime (configuration parameter).</p>
 </section>
 </section>
 <section id="vehicle-wake-up-function">
-<h2>车辆唤醒功能 (Vehicle wake-up function)<a class="headerlink" href="#vehicle-wake-up-function" title="Link to this heading">¶</a></h2>
+<h2>车辆唤醒功能 (Vehicle wake-up function)<a class="headerlink" href="#vehicle-wake-up-function" title="链接到此标题。">¶</a></h2>
 <p>当UdpNmCarWakeUpRxEnabled（配置参数）使能时，车辆唤醒功能被启用，目前暂时没有使用场景。如果任何接收到的NM-PDU中的Car Wakeup位为1，都会通知上层Nm。</p>
 <p>When UdpNmCarWakeUpRxEnabled (configuration parameter) is enabled, the vehicle wake-up function is activated. Currently, there are no use cases. If any received NM-PDU has the Car Wakeup bit set to 1, it will notify the upper layer Nm.</p>
 <p>当UdpNmCarWakeUpRxEnabled（配置参数）使能，UdpNmCarWakeUpFilterEnabled（配置参数）也使能时，只有收到NodeId等于UdpNmCarWakeUpFilterNodeId的报文时，才会通知上层。</p>
 <p>When UdpNmCarWakeUpRxEnabled (configuration parameter) and UdpNmCarWakeUpFilterEnabled (configuration parameter) are enabled, notification to the upper layer is only triggered when a message with NodeId equal to UdpNmCarWakeUpFilterNodeId is received.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 UdpNm组件文件描述 (UdpNm Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -607,13 +614,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="udpnm-configtype-udpnm-configtype-type-definition">
-<h2>UdpNm_ConfigType类型定义 (UdpNm_ConfigType Type Definition)<a class="headerlink" href="#udpnm-configtype-udpnm-configtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_ConfigType类型定义 (UdpNm_ConfigType Type Definition)<a class="headerlink" href="#udpnm-configtype-udpnm-configtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -637,7 +644,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -710,11 +717,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="udpnm-init-udpnm-init-function-definition">
-<h2>UdpNm_Init函数定义 (udpNm_Init function definition)<a class="headerlink" href="#udpnm-init-udpnm-init-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_Init函数定义 (udpNm_Init function definition)<a class="headerlink" href="#udpnm-init-udpnm-init-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -789,7 +796,7 @@
 </table>
 </section>
 <section id="udpnm-passivestartup-the-udpnm-passivestartup-function-definition">
-<h2>UdpNm_PassiveStartUp函数定义 (The UdpNm_PassiveStartUp function definition)<a class="headerlink" href="#udpnm-passivestartup-the-udpnm-passivestartup-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_PassiveStartUp函数定义 (The UdpNm_PassiveStartUp function definition)<a class="headerlink" href="#udpnm-passivestartup-the-udpnm-passivestartup-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -869,7 +876,7 @@
 </table>
 </section>
 <section id="udpnm-networkrequest-udpnm-networkrequest-function-definition">
-<h2>UdpNm_NetworkRequest函数定义 (UdpNm_NetworkRequest function definition)<a class="headerlink" href="#udpnm-networkrequest-udpnm-networkrequest-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_NetworkRequest函数定义 (UdpNm_NetworkRequest function definition)<a class="headerlink" href="#udpnm-networkrequest-udpnm-networkrequest-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -949,7 +956,7 @@
 </table>
 </section>
 <section id="udpnm-networkrelease-udpnm-networkrelease-function-definition">
-<h2>UdpNm_NetworkRelease函数定义 (udpNm_NetworkRelease function definition)<a class="headerlink" href="#udpnm-networkrelease-udpnm-networkrelease-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_NetworkRelease函数定义 (udpNm_NetworkRelease function definition)<a class="headerlink" href="#udpnm-networkrelease-udpnm-networkrelease-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1029,7 +1036,7 @@
 </table>
 </section>
 <section id="udpnm-disablecommunication-the-udpnm-disablecommunication-function-definition">
-<h2>UdpNm_DisableCommunication函数定义 (The UdpNm_DisableCommunication function definition)<a class="headerlink" href="#udpnm-disablecommunication-the-udpnm-disablecommunication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_DisableCommunication函数定义 (The UdpNm_DisableCommunication function definition)<a class="headerlink" href="#udpnm-disablecommunication-the-udpnm-disablecommunication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1109,7 +1116,7 @@
 </table>
 </section>
 <section id="udpnm-enablecommunication-the-udpnm-enablecommunication-function-definition">
-<h2>UdpNm_EnableCommunication函数定义 (The UdpNm_EnableCommunication function definition)<a class="headerlink" href="#udpnm-enablecommunication-the-udpnm-enablecommunication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_EnableCommunication函数定义 (The UdpNm_EnableCommunication function definition)<a class="headerlink" href="#udpnm-enablecommunication-the-udpnm-enablecommunication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1189,7 +1196,7 @@
 </table>
 </section>
 <section id="udpnm-setuserdata-the-udpnm-setuserdata-function-definition">
-<h2>UdpNm_SetUserData函数定义 (The UdpNm_SetUserData function definition)<a class="headerlink" href="#udpnm-setuserdata-the-udpnm-setuserdata-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_SetUserData函数定义 (The UdpNm_SetUserData function definition)<a class="headerlink" href="#udpnm-setuserdata-the-udpnm-setuserdata-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1279,7 +1286,7 @@
 </table>
 </section>
 <section id="udpnm-getuserdata-the-udpnm-getuserdata-function-definition">
-<h2>UdpNm_GetUserData函数定义 (The UdpNm_GetUserData function definition)<a class="headerlink" href="#udpnm-getuserdata-the-udpnm-getuserdata-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_GetUserData函数定义 (The UdpNm_GetUserData function definition)<a class="headerlink" href="#udpnm-getuserdata-the-udpnm-getuserdata-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1364,7 +1371,7 @@
 </table>
 </section>
 <section id="udpnm-getnodeidentifier-the-udpnm-getnodeidentifier-function-definition">
-<h2>UdpNm_GetNodeIdentifier函数定义 (The UdpNm_GetNodeIdentifier function definition)<a class="headerlink" href="#udpnm-getnodeidentifier-the-udpnm-getnodeidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_GetNodeIdentifier函数定义 (The UdpNm_GetNodeIdentifier function definition)<a class="headerlink" href="#udpnm-getnodeidentifier-the-udpnm-getnodeidentifier-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1449,7 +1456,7 @@
 </table>
 </section>
 <section id="udpnm-getlocalnodeidentifier-the-udpnm-getlocalnodeidentifier-function-definition">
-<h2>UdpNm_GetLocalNodeIdentifier函数定义 (The UdpNm_GetLocalNodeIdentifier function definition)<a class="headerlink" href="#udpnm-getlocalnodeidentifier-the-udpnm-getlocalnodeidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_GetLocalNodeIdentifier函数定义 (The UdpNm_GetLocalNodeIdentifier function definition)<a class="headerlink" href="#udpnm-getlocalnodeidentifier-the-udpnm-getlocalnodeidentifier-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1534,7 +1541,7 @@
 </table>
 </section>
 <section id="udpnm-repeatmessagerequest-the-udpnm-repeatmessagerequest-function-definition">
-<h2>UdpNm_RepeatMessageRequest函数定义 (The UdpNm_RepeatMessageRequest function definition)<a class="headerlink" href="#udpnm-repeatmessagerequest-the-udpnm-repeatmessagerequest-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_RepeatMessageRequest函数定义 (The UdpNm_RepeatMessageRequest function definition)<a class="headerlink" href="#udpnm-repeatmessagerequest-the-udpnm-repeatmessagerequest-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1614,7 +1621,7 @@
 </table>
 </section>
 <section id="udpnm-getpdudata-function-udpnm-getpdudata-definition">
-<h2>UdpNm_GetPduData函数定义 (Function UdpNm_GetPduData definition)<a class="headerlink" href="#udpnm-getpdudata-function-udpnm-getpdudata-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_GetPduData函数定义 (Function UdpNm_GetPduData definition)<a class="headerlink" href="#udpnm-getpdudata-function-udpnm-getpdudata-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1699,7 +1706,7 @@
 </table>
 </section>
 <section id="udpnm-getstate-udpnm-getstate-function-definition">
-<h2>UdpNm_GetState函数定义 (udpNm_GetState function definition)<a class="headerlink" href="#udpnm-getstate-udpnm-getstate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_GetState函数定义 (udpNm_GetState function definition)<a class="headerlink" href="#udpnm-getstate-udpnm-getstate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1794,7 +1801,7 @@
 </table>
 </section>
 <section id="udpnm-getversioninfo-the-udpnm-getversioninfo-function-definition">
-<h2>UdpNm_GetVersionInfo函数定义 (The UdpNm_GetVersionInfo function definition)<a class="headerlink" href="#udpnm-getversioninfo-the-udpnm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_GetVersionInfo函数定义 (The UdpNm_GetVersionInfo function definition)<a class="headerlink" href="#udpnm-getversioninfo-the-udpnm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1869,7 +1876,7 @@
 </table>
 </section>
 <section id="udpnm-requestbussynchronization-the-udpnm-requestbussynchronization-function-definition">
-<h2>UdpNm_RequestBusSynchronization函数定义 (The UdpNm_RequestBusSynchronization function definition)<a class="headerlink" href="#udpnm-requestbussynchronization-the-udpnm-requestbussynchronization-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_RequestBusSynchronization函数定义 (The UdpNm_RequestBusSynchronization function definition)<a class="headerlink" href="#udpnm-requestbussynchronization-the-udpnm-requestbussynchronization-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1949,7 +1956,7 @@
 </table>
 </section>
 <section id="udpnm-checkremotesleepindication-the-udpnm-checkremotesleepindication-function-definition">
-<h2>UdpNm_CheckRemoteSleepIndication函数定义 (The UdpNm_CheckRemoteSleepIndication function definition)<a class="headerlink" href="#udpnm-checkremotesleepindication-the-udpnm-checkremotesleepindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_CheckRemoteSleepIndication函数定义 (The UdpNm_CheckRemoteSleepIndication function definition)<a class="headerlink" href="#udpnm-checkremotesleepindication-the-udpnm-checkremotesleepindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2034,7 +2041,7 @@
 </table>
 </section>
 <section id="udpnm-setcoordbits-the-udpnm-setcoordbits-function-definition">
-<h2>UdpNm_SetCoordBits函数定义 (The UdpNm_SetCoordBits function definition)<a class="headerlink" href="#udpnm-setcoordbits-the-udpnm-setcoordbits-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_SetCoordBits函数定义 (The UdpNm_SetCoordBits function definition)<a class="headerlink" href="#udpnm-setcoordbits-the-udpnm-setcoordbits-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2124,7 +2131,7 @@
 </table>
 </section>
 <section id="udpnm-setsleepreadybit-the-function-definition-for-udpnm-setsleepreadybit">
-<h2>UdpNm_SetSleepReadyBit函数定义  (The function definition for UdpNm_SetSleepReadyBit)<a class="headerlink" href="#udpnm-setsleepreadybit-the-function-definition-for-udpnm-setsleepreadybit" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_SetSleepReadyBit函数定义  (The function definition for UdpNm_SetSleepReadyBit)<a class="headerlink" href="#udpnm-setsleepreadybit-the-function-definition-for-udpnm-setsleepreadybit" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2214,7 +2221,7 @@
 </table>
 </section>
 <section id="udpnm-transmit-the-udpnm-transmit-function-definition">
-<h2>UdpNm_Transmit函数定义 (The UdpNm_Transmit function definition)<a class="headerlink" href="#udpnm-transmit-the-udpnm-transmit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_Transmit函数定义 (The UdpNm_Transmit function definition)<a class="headerlink" href="#udpnm-transmit-the-udpnm-transmit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2304,7 +2311,7 @@
 </table>
 </section>
 <section id="udpnm-soadiftxconfirmation-the-udpnm-soadiftxconfirmation-function-definition">
-<h2>UdpNm_SoAdIfTxConfirmation函数定义 (The UdpNm_SoAdIfTxConfirmation function definition)<a class="headerlink" href="#udpnm-soadiftxconfirmation-the-udpnm-soadiftxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_SoAdIfTxConfirmation函数定义 (The UdpNm_SoAdIfTxConfirmation function definition)<a class="headerlink" href="#udpnm-soadiftxconfirmation-the-udpnm-soadiftxconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2379,7 +2386,7 @@
 </table>
 </section>
 <section id="udpnm-soadifrxindication-udpnm-soadifrxindication-function-definition">
-<h2>UdpNm_SoAdIfRxIndication函数定义 (UdpNm_SoAdIfRxIndication function definition)<a class="headerlink" href="#udpnm-soadifrxindication-udpnm-soadifrxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_SoAdIfRxIndication函数定义 (UdpNm_SoAdIfRxIndication function definition)<a class="headerlink" href="#udpnm-soadifrxindication-udpnm-soadifrxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2464,7 +2471,7 @@
 </table>
 </section>
 <section id="udpnm-soadiftriggertransmit-the-udpnm-soadiftriggertransmit-function-definition">
-<h2>UdpNm_SoAdIfTriggerTransmit函数定义 (The UdpNm_SoAdIfTriggerTransmit function definition)<a class="headerlink" href="#udpnm-soadiftriggertransmit-the-udpnm-soadiftriggertransmit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_SoAdIfTriggerTransmit函数定义 (The UdpNm_SoAdIfTriggerTransmit function definition)<a class="headerlink" href="#udpnm-soadiftriggertransmit-the-udpnm-soadiftriggertransmit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2549,7 +2556,7 @@
 </table>
 </section>
 <section id="udpnm-mainfunction-udpnm-mainfunction-function-definition">
-<h2>UdpNm_MainFunction函数定义 (UdpNm_MainFunction function definition)<a class="headerlink" href="#udpnm-mainfunction-udpnm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>UdpNm_MainFunction函数定义 (UdpNm_MainFunction function definition)<a class="headerlink" href="#udpnm-mainfunction-udpnm-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2623,15 +2630,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="udpnmglobalconfig">
-<h3>UdpNmGlobalConfig<a class="headerlink" href="#udpnmglobalconfig" title="Link to this heading">¶</a></h3>
+<h3>UdpNmGlobalConfig<a class="headerlink" href="#udpnmglobalconfig" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="udpnmglobalconfig-udpnmglobalconfig-container-configuration-diagram">
 <img alt="UdpNmGlobalConfig容器配置图 (UdpNmGlobalConfig Container Configuration Diagram)" src="../../_images/image654.png" />
 </figure>
@@ -2958,7 +2965,7 @@
 </section>
 </section>
 <section id="udpnmchannelconfig">
-<h2>UdpNmChannelConfig<a class="headerlink" href="#udpnmchannelconfig" title="Link to this heading">¶</a></h2>
+<h2>UdpNmChannelConfig<a class="headerlink" href="#udpnmchannelconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="udpnmchannelconfig-udpnmchannelconfig-container-configuration-diagram">
 <img alt="UdpNmChannelConfig容器配置图 (UdpNmChannelConfig Container Configuration Diagram)" src="../../_images/image744.png" />
 </figure>
@@ -3637,7 +3644,7 @@
 </tbody>
 </table>
 <section id="udpnmrxpdu">
-<h3>UdpNmRxPdu<a class="headerlink" href="#udpnmrxpdu" title="Link to this heading">¶</a></h3>
+<h3>UdpNmRxPdu<a class="headerlink" href="#udpnmrxpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="udpnmrxpdu-udpnmrxpdu-container-configuration-diagram">
 <img alt="UdpNmRxPdu容器配置图 (UdpNmRxPdu Container Configuration Diagram)" src="../../_images/image839.png" />
 </figure>
@@ -3699,7 +3706,7 @@
 </table>
 </section>
 <section id="udpnmtxpdu">
-<h3>UdpNmTxPdu<a class="headerlink" href="#udpnmtxpdu" title="Link to this heading">¶</a></h3>
+<h3>UdpNmTxPdu<a class="headerlink" href="#udpnmtxpdu" title="链接到此标题。">¶</a></h3>
 <p>仅当 UdpNmPassiveModeEnabled 为 false 时，此容器的配置有效。</p>
 <p>This configuration is effective only when UdpNmPassiveModeEnabled is false.</p>
 <figure class="align-center" id="udpnmtxpdu-udpnmtxpdu-container-configuration-diagram">
@@ -3763,7 +3770,7 @@
 </table>
 </section>
 <section id="udpnmuserdatatxpdu">
-<h3>UdpNmUserDataTxPdu<a class="headerlink" href="#udpnmuserdatatxpdu" title="Link to this heading">¶</a></h3>
+<h3>UdpNmUserDataTxPdu<a class="headerlink" href="#udpnmuserdatatxpdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="udpnmuserdatatxpdu-container-configuration-diagram-for-udpnmuserdatatxpdu">
 <img alt="UdpNmUserDataTxPdu容器配置图 (Container Configuration Diagram for UdpNmUserDataTxPdu)" src="../../_images/image1035.png" />
 </figure>
@@ -3826,7 +3833,7 @@
 </section>
 </section>
 <section id="udpnmpninfo">
-<h2>UdpNmPnInfo<a class="headerlink" href="#udpnmpninfo" title="Link to this heading">¶</a></h2>
+<h2>UdpNmPnInfo<a class="headerlink" href="#udpnmpninfo" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="udpnmpninfo-udpnmpninfo-container-configuration-diagram">
 <img alt="UdpNmPnInfo容器配置图 (UdpNmPnInfo Container Configuration Diagram)" src="../../_images/image1150.png" />
 </figure>
@@ -3887,7 +3894,7 @@
 </tbody>
 </table>
 <section id="udpnmpnfiltermaskbyte">
-<h3>UdpNmPnFilterMaskByte<a class="headerlink" href="#udpnmpnfiltermaskbyte" title="Link to this heading">¶</a></h3>
+<h3>UdpNmPnFilterMaskByte<a class="headerlink" href="#udpnmpnfiltermaskbyte" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="udpnmpnfiltermaskbyte-udpnmpnfiltermaskbyte-container-configuration-diagram">
 <img alt="UdpNmPnFilterMaskByte容器配置图 (UdpNmPnFilterMaskByte Container Configuration Diagram)" src="../../_images/image1231.png" />
 </figure>
@@ -4073,7 +4080,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -4082,11 +4089,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

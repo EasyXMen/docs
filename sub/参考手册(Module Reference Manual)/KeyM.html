@@ -9,6 +9,7 @@
         <title>KeyM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="keym">
-<h1>KeyM<a class="headerlink" href="#keym" title="Link to this heading">¶</a></h1>
+<h1>KeyM<a class="headerlink" href="#keym" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -213,18 +220,18 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>在一个加密功能中，密钥和证书的功能占比重很大。首先，密钥是一种参数，它是在明文转换为密文或将密文转换为明文的算法中输入的参数。许多加密算法需要使用到密钥，因此，就需要keyM模块来管理密钥，而keyM对于密钥的管理主要体现在对密钥的更新和生成密钥方面。</p>
 <p>In an encryption function, the proportion of key and certificate functions is significant. First, a key is a parameter that is input into the algorithm for converting plaintext to ciphertext or vice versa. Many encryption algorithms require the use of keys, so the keyM module is needed to manage these keys. The management by keyM mainly involves updating keys and generating new keys.</p>
 <p>而证书对网络用户在网络交流中的信息和数据等以加密或解密的形式保证了信息和数据的完整性和安全性。KeyM模块可以实现证书的链的配置保存与验证，这使得网络中的信息和数据的安全性更高。</p>
 <p>And certificates ensure the integrity and security of information and data in online communications through encryption or decryption forms. The KeyM module can achieve configuration, storage, and validation of certificate chains, further enhancing the security of information and data in the network.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_KeyManager.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <p>Key Management分为两部分：key子模块和证书子模块。</p>
 <p>Key Management is divided into two parts: the key submodule and the certificate submodule.</p>
 <p>key子模块通过会话模式更新key及key元素，当会话开启后，可以对key进行更新，结束会话后，更新的key将被置成可用状态。</p>
@@ -237,7 +244,7 @@
 <p>Before storage, the certificate will be parsed and verified to determine its reliability.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 KeyM组件文件描述 (Table Description of KeyM Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -290,11 +297,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 <section id="keym-certificate-keym-certificate-type-definition">
-<h4>KeyM_Certificate类型定义 (KeyM_Certificate Type Definition)<a class="headerlink" href="#keym-certificate-keym-certificate-type-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Certificate类型定义 (KeyM_Certificate Type Definition)<a class="headerlink" href="#keym-certificate-keym-certificate-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -319,7 +326,7 @@
 </table>
 </section>
 <section id="keym-certificateelement-keym-certificateelement-type-definition">
-<h4>KeyM_CertificateElement类型定义 (KeyM_CertificateElement Type Definition)<a class="headerlink" href="#keym-certificateelement-keym-certificateelement-type-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertificateElement类型定义 (KeyM_CertificateElement Type Definition)<a class="headerlink" href="#keym-certificateelement-keym-certificateelement-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -344,7 +351,7 @@
 </table>
 </section>
 <section id="keym-certificateelementverification-type-definition-for-keym-certificateelementverification">
-<h4>KeyM_CertificateElementVerification类型定义 (Type Definition for KeyM_CertificateElementVerification)<a class="headerlink" href="#keym-certificateelementverification-type-definition-for-keym-certificateelementverification" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertificateElementVerification类型定义 (Type Definition for KeyM_CertificateElementVerification)<a class="headerlink" href="#keym-certificateelementverification-type-definition-for-keym-certificateelementverification" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -369,7 +376,7 @@
 </table>
 </section>
 <section id="keym-certificateelementrule-keym-certificateelementrule-type-definition">
-<h4>KeyM_CertificateElementRule类型定义 (KeyM_CertificateElementRule Type Definition)<a class="headerlink" href="#keym-certificateelementrule-keym-certificateelementrule-type-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertificateElementRule类型定义 (KeyM_CertificateElementRule Type Definition)<a class="headerlink" href="#keym-certificateelementrule-keym-certificateelementrule-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -394,7 +401,7 @@
 </table>
 </section>
 <section id="keym-certificateelementcondition-typedefinitionforkeym-certificateelementcondition">
-<h4>KeyM_CertificateElementCondition类型定义 (TypeDefinitionForKeyM_CertificateElementCondition)<a class="headerlink" href="#keym-certificateelementcondition-typedefinitionforkeym-certificateelementcondition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertificateElementCondition类型定义 (TypeDefinitionForKeyM_CertificateElementCondition)<a class="headerlink" href="#keym-certificateelementcondition-typedefinitionforkeym-certificateelementcondition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -419,7 +426,7 @@
 </table>
 </section>
 <section id="keym-certificateelementconditionvalue-typedefinitionforkeym-certificateelementconditionvalue">
-<h4>KeyM_CertificateElementConditionValue类型定义 (TypeDefinitionForKeyM_CertificateElementConditionValue)<a class="headerlink" href="#keym-certificateelementconditionvalue-typedefinitionforkeym-certificateelementconditionvalue" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertificateElementConditionValue类型定义 (TypeDefinitionForKeyM_CertificateElementConditionValue)<a class="headerlink" href="#keym-certificateelementconditionvalue-typedefinitionforkeym-certificateelementconditionvalue" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -444,7 +451,7 @@
 </table>
 </section>
 <section id="keym-certificateelementconditionarrayelement-type-definition-for-keym-certificateelementconditionarrayelement">
-<h4>KeyM_CertificateElementConditionArrayElement类型定义 (Type definition for KeyM_CertificateElementConditionArrayElement)<a class="headerlink" href="#keym-certificateelementconditionarrayelement-type-definition-for-keym-certificateelementconditionarrayelement" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertificateElementConditionArrayElement类型定义 (Type definition for KeyM_CertificateElementConditionArrayElement)<a class="headerlink" href="#keym-certificateelementconditionarrayelement-type-definition-for-keym-certificateelementconditionarrayelement" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -469,7 +476,7 @@
 </table>
 </section>
 <section id="keym-cryptokey-keym-cryptokey-type-definition">
-<h4>KeyM_CryptoKey类型定义 (KeyM_CryptoKey Type Definition)<a class="headerlink" href="#keym-cryptokey-keym-cryptokey-type-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CryptoKey类型定义 (KeyM_CryptoKey Type Definition)<a class="headerlink" href="#keym-cryptokey-keym-cryptokey-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -495,7 +502,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -538,9 +545,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <section id="keym-init-the-keym-init-function-definition">
-<h4>KeyM_Init函数定义 (The KeyM_Init function definition)<a class="headerlink" href="#keym-init-the-keym-init-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Init函数定义 (The KeyM_Init function definition)<a class="headerlink" href="#keym-init-the-keym-init-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -605,7 +612,7 @@
 </table>
 </section>
 <section id="keym-deinit-the-keym-deinit-function-definition">
-<h4>KeyM_Deinit函数定义 (The KeyM_Deinit function definition)<a class="headerlink" href="#keym-deinit-the-keym-deinit-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Deinit函数定义 (The KeyM_Deinit function definition)<a class="headerlink" href="#keym-deinit-the-keym-deinit-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -670,7 +677,7 @@
 </table>
 </section>
 <section id="keym-getversioninfo-the-keym-getversioninfo-function-definition">
-<h4>KeyM_GetVersionInfo函数定义 (The KeyM_GetVersionInfo function definition)<a class="headerlink" href="#keym-getversioninfo-the-keym-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_GetVersionInfo函数定义 (The KeyM_GetVersionInfo function definition)<a class="headerlink" href="#keym-getversioninfo-the-keym-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -735,7 +742,7 @@
 </table>
 </section>
 <section id="keym-start-the-keym-start-function-definition">
-<h4>KeyM_Start函数定义 (The KeyM_Start function definition)<a class="headerlink" href="#keym-start-the-keym-start-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Start函数定义 (The KeyM_Start function definition)<a class="headerlink" href="#keym-start-the-keym-start-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -850,7 +857,7 @@
 </table>
 </section>
 <section id="keym-prepare-the-keym-prepare-function-definition">
-<h4>KeyM_Prepare函数定义 (The KeyM_Prepare function definition)<a class="headerlink" href="#keym-prepare-the-keym-prepare-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Prepare函数定义 (The KeyM_Prepare function definition)<a class="headerlink" href="#keym-prepare-the-keym-prepare-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -950,7 +957,7 @@
 </table>
 </section>
 <section id="keym-update-the-keym-update-function-definition">
-<h4>KeyM_Update函数定义 (The KeyM_Update function definition)<a class="headerlink" href="#keym-update-the-keym-update-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Update函数定义 (The KeyM_Update function definition)<a class="headerlink" href="#keym-update-the-keym-update-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1075,7 +1082,7 @@
 </table>
 </section>
 <section id="keym-finalize-the-keym-finalize-function-definition">
-<h4>KeyM_Finalize函数定义 (The KeyM_Finalize function definition)<a class="headerlink" href="#keym-finalize-the-keym-finalize-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Finalize函数定义 (The KeyM_Finalize function definition)<a class="headerlink" href="#keym-finalize-the-keym-finalize-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1145,7 +1152,7 @@
 </table>
 </section>
 <section id="keym-verify-definition-of-keym-verify-function">
-<h4>KeyM_Verify函数定义 (Definition of KeyM_Verify function)<a class="headerlink" href="#keym-verify-definition-of-keym-verify-function" title="Link to this heading">¶</a></h4>
+<h4>KeyM_Verify函数定义 (Definition of KeyM_Verify function)<a class="headerlink" href="#keym-verify-definition-of-keym-verify-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1270,7 +1277,7 @@
 </table>
 </section>
 <section id="keym-servicecertificate-the-keym-servicecertificate-function-definition">
-<h4>KeyM_ServiceCertificate函数定义 (The KeyM_ServiceCertificate function definition)<a class="headerlink" href="#keym-servicecertificate-the-keym-servicecertificate-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_ServiceCertificate函数定义 (The KeyM_ServiceCertificate function definition)<a class="headerlink" href="#keym-servicecertificate-the-keym-servicecertificate-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1405,7 +1412,7 @@
 </table>
 </section>
 <section id="keym-setcertificate-the-keym-setcertificate-function-defines">
-<h4>KeyM_SetCertificate函数定义 (The KeyM_SetCertificate function defines)<a class="headerlink" href="#keym-setcertificate-the-keym-setcertificate-function-defines" title="Link to this heading">¶</a></h4>
+<h4>KeyM_SetCertificate函数定义 (The KeyM_SetCertificate function defines)<a class="headerlink" href="#keym-setcertificate-the-keym-setcertificate-function-defines" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1500,7 +1507,7 @@
 </table>
 </section>
 <section id="keym-getcertificate-the-keym-getcertificate-function-definition">
-<h4>KeyM_GetCertificate函数定义 (The KeyM_GetCertificate function definition)<a class="headerlink" href="#keym-getcertificate-the-keym-getcertificate-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_GetCertificate函数定义 (The KeyM_GetCertificate function definition)<a class="headerlink" href="#keym-getcertificate-the-keym-getcertificate-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1590,7 +1597,7 @@
 </table>
 </section>
 <section id="keym-verifycertificates-keym-verifycertificates-function-definition">
-<h4>KeyM_VerifyCertificates函数定义 (KeyM_VerifyCertificates function definition)<a class="headerlink" href="#keym-verifycertificates-keym-verifycertificates-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_VerifyCertificates函数定义 (KeyM_VerifyCertificates function definition)<a class="headerlink" href="#keym-verifycertificates-keym-verifycertificates-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1685,7 +1692,7 @@
 </table>
 </section>
 <section id="keym-verifycertificate-the-keym-verifycertificate-function-definition">
-<h4>KeyM_VerifyCertificate函数定义 (The KeyM_VerifyCertificate function definition)<a class="headerlink" href="#keym-verifycertificate-the-keym-verifycertificate-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_VerifyCertificate函数定义 (The KeyM_VerifyCertificate function definition)<a class="headerlink" href="#keym-verifycertificate-the-keym-verifycertificate-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1770,7 +1777,7 @@
 </table>
 </section>
 <section id="keym-verifycertificatechain-the-keym-verifycertificatechain-function-definition">
-<h4>KeyM_VerifyCertificateChain函数定义 (The KeyM_VerifyCertificateChain function definition)<a class="headerlink" href="#keym-verifycertificatechain-the-keym-verifycertificatechain-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_VerifyCertificateChain函数定义 (The KeyM_VerifyCertificateChain function definition)<a class="headerlink" href="#keym-verifycertificatechain-the-keym-verifycertificatechain-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1875,7 +1882,7 @@
 </table>
 </section>
 <section id="keym-certelementget-the-keym-certelementget-function-definition">
-<h4>KeyM_CertElementGet函数定义 (The KeyM_CertElementGet function definition)<a class="headerlink" href="#keym-certelementget-the-keym-certelementget-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertElementGet函数定义 (The KeyM_CertElementGet function definition)<a class="headerlink" href="#keym-certelementget-the-keym-certelementget-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1980,7 +1987,7 @@
 </table>
 </section>
 <section id="keym-certelementgetfirst-the-keym-certelementgetfirst-function-definition">
-<h4>KeyM_CertElementGetFirst函数定义 (The KeyM_CertElementGetFirst function definition)<a class="headerlink" href="#keym-certelementgetfirst-the-keym-certelementgetfirst-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertElementGetFirst函数定义 (The KeyM_CertElementGetFirst function definition)<a class="headerlink" href="#keym-certelementgetfirst-the-keym-certelementgetfirst-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2095,7 +2102,7 @@
 </table>
 </section>
 <section id="keym-certelementgetnext-the-keym-certelementgetnext-function-definition">
-<h4>KeyM_CertElementGetNext函数定义 (The KeyM_CertElementGetNext function definition)<a class="headerlink" href="#keym-certelementgetnext-the-keym-certelementgetnext-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertElementGetNext函数定义 (The KeyM_CertElementGetNext function definition)<a class="headerlink" href="#keym-certelementgetnext-the-keym-certelementgetnext-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2195,7 +2202,7 @@
 </table>
 </section>
 <section id="keym-certgetstatus-the-keym-certgetstatus-function-definition">
-<h4>KeyM_CertGetStatus函数定义 (The KeyM_CertGetStatus function definition)<a class="headerlink" href="#keym-certgetstatus-the-keym-certgetstatus-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_CertGetStatus函数定义 (The KeyM_CertGetStatus function definition)<a class="headerlink" href="#keym-certgetstatus-the-keym-certgetstatus-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2285,7 +2292,7 @@
 </table>
 </section>
 <section id="keym-mainfunction-keym-mainfunction-function-definition">
-<h4>KeyM_MainFunction函数定义 (KeyM_MainFunction function definition)<a class="headerlink" href="#keym-mainfunction-keym-mainfunction-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_MainFunction函数定义 (KeyM_MainFunction function definition)<a class="headerlink" href="#keym-mainfunction-keym-mainfunction-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2350,7 +2357,7 @@
 </table>
 </section>
 <section id="keym-mainbackgroudfunction-keym-mainbackgroudfunction-function-definition">
-<h4>KeyM_MainBackgroudFunction函数定义 (KeyM_MainBackgroudFunction function definition)<a class="headerlink" href="#keym-mainbackgroudfunction-keym-mainbackgroudfunction-function-definition" title="Link to this heading">¶</a></h4>
+<h4>KeyM_MainBackgroudFunction函数定义 (KeyM_MainBackgroudFunction function definition)<a class="headerlink" href="#keym-mainbackgroudfunction-keym-mainbackgroudfunction-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2417,9 +2424,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="keymgeneral">
-<h3>KeyMGeneral<a class="headerlink" href="#keymgeneral" title="Link to this heading">¶</a></h3>
+<h3>KeyMGeneral<a class="headerlink" href="#keymgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymgeneral-keymgeneral-container-configuration-diagram">
 <img alt="KeyMGeneral容器配置图 (KeyMGeneral Container Configuration Diagram)" src="../../_images/image267.png" />
 </figure>
@@ -2751,7 +2758,7 @@
 </table>
 </section>
 <section id="keymcertificate">
-<h3>KeyMCertificate<a class="headerlink" href="#keymcertificate" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificate<a class="headerlink" href="#keymcertificate" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificate-keymcertificate-container-configuration-diagram">
 <img alt="KeyMCertificate容器配置图 (KeyMCertificate Container Configuration Diagram)" src="../../_images/image347.png" />
 </figure>
@@ -3083,7 +3090,7 @@
 </table>
 </section>
 <section id="keymcertificateelement">
-<h3>KeyMCertificateElement<a class="headerlink" href="#keymcertificateelement" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElement<a class="headerlink" href="#keymcertificateelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelement-keymcertificateelement-container-configuration-diagram">
 <img alt="KeyMCertificateElement容器配置图 (KeyMCertificateElement Container Configuration Diagram)" src="../../_images/image439.png" />
 </figure>
@@ -3235,7 +3242,7 @@
 </table>
 </section>
 <section id="keymcertificateelementrule">
-<h3>KeyMCertificateElementRule<a class="headerlink" href="#keymcertificateelementrule" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElementRule<a class="headerlink" href="#keymcertificateelementrule" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelementrule-keymcertificateelementrule-container-configuration-diagram">
 <img alt="KeyMCertificateElementRule容器配置图 (KeyMCertificateElementRule Container Configuration Diagram)" src="../../_images/image537.png" />
 </figure>
@@ -3303,7 +3310,7 @@
 </table>
 </section>
 <section id="keymcertificateelementcondition">
-<h3>KeyMCertificateElementCondition<a class="headerlink" href="#keymcertificateelementcondition" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElementCondition<a class="headerlink" href="#keymcertificateelementcondition" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelementcondition-keymcertificateelementcondition-container-configuration-diagram">
 <img alt="KeyMCertificateElementCondition容器配置图 (KeyMCertificateElementCondition Container Configuration Diagram)" src="../../_images/image636.png" />
 </figure>
@@ -3365,7 +3372,7 @@
 </table>
 </section>
 <section id="keymcertificateelementconditionarrayelement">
-<h3>KeyMCertificateElementConditionArrayElement<a class="headerlink" href="#keymcertificateelementconditionarrayelement" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElementConditionArrayElement<a class="headerlink" href="#keymcertificateelementconditionarrayelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelementconditionarrayelement-keymcertificateelementconditionarrayelement-container-configuration-diagram">
 <img alt="KeyMCertificateElementConditionArrayElement容器配置图 (KeyMCertificateElementConditionArrayElement Container Configuration Diagram)" src="../../_images/image729.png" />
 </figure>
@@ -3433,7 +3440,7 @@
 </table>
 </section>
 <section id="keymcertificateelementconditionarray">
-<h3>KeyMCertificateElementConditionArray<a class="headerlink" href="#keymcertificateelementconditionarray" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElementConditionArray<a class="headerlink" href="#keymcertificateelementconditionarray" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelementconditionarray-keymcertificateelementconditionarray-container-configuration-diagram">
 <img alt="KeyMCertificateElementConditionArray容器配置图 (KeyMCertificateElementConditionArray Container Configuration Diagram)" src="../../_images/image826.png" />
 </figure>
@@ -3477,7 +3484,7 @@
 </table>
 </section>
 <section id="keymcertificateelementconditionprimitive">
-<h3>KeyMCertificateElementConditionPrimitive<a class="headerlink" href="#keymcertificateelementconditionprimitive" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElementConditionPrimitive<a class="headerlink" href="#keymcertificateelementconditionprimitive" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelementconditionprimitive-keymcertificateelementconditionprimitive-container-configuration-diagram">
 <img alt="KeyMCertificateElementConditionPrimitive容器配置图 (KeyMCertificateElementConditionPrimitive Container Configuration Diagram)" src="../../_images/image925.png" />
 </figure>
@@ -3527,7 +3534,7 @@
 </table>
 </section>
 <section id="keymcertificateelementconditionsenderreceiver">
-<h3>KeyMCertificateElementConditionSenderReceiver<a class="headerlink" href="#keymcertificateelementconditionsenderreceiver" title="Link to this heading">¶</a></h3>
+<h3>KeyMCertificateElementConditionSenderReceiver<a class="headerlink" href="#keymcertificateelementconditionsenderreceiver" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcertificateelementconditionsenderreceiver-keymcertificateelementconditionsenderreceiver-container-configuration-diagram">
 <img alt="KeyMCertificateElementConditionSenderReceiver容器配置图 (KeyMCertificateElementConditionSenderReceiver Container Configuration Diagram)" src="../../_images/image1023.png" />
 </figure>
@@ -3571,7 +3578,7 @@
 </table>
 </section>
 <section id="keymcryptokey">
-<h3>KeyMCryptoKey<a class="headerlink" href="#keymcryptokey" title="Link to this heading">¶</a></h3>
+<h3>KeyMCryptoKey<a class="headerlink" href="#keymcryptokey" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymcryptokey-keymcryptokey-container-configuration-diagram">
 <img alt="KeyMCryptoKey容器配置图 (KeyMCryptoKey Container Configuration Diagram)" src="../../_images/image1127.png" />
 </figure>
@@ -3813,7 +3820,7 @@
 </table>
 </section>
 <section id="keymnvmblock">
-<h3>KeyMNvmBlock<a class="headerlink" href="#keymnvmblock" title="Link to this heading">¶</a></h3>
+<h3>KeyMNvmBlock<a class="headerlink" href="#keymnvmblock" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="keymnvmblock-keymnvmblock-container-configuration-diagram">
 <img alt="KeyMNvmBlock容器配置图 (KeyMNvmBlock Container Configuration Diagram)" src="../../_images/image1224.png" />
 </figure>
@@ -3977,7 +3984,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -3986,11 +3993,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,6 +9,7 @@
         <title>EthTSyn &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ethtsyn">
-<h1>EthTSyn<a class="headerlink" href="#ethtsyn" title="Link to this heading">¶</a></h1>
+<h1>EthTSyn<a class="headerlink" href="#ethtsyn" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -213,7 +220,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>EthTSyn在AutoSAR中软件层级架构如下图，其属于时间同步栈。</p>
 <p>EthTSyn in AutoSAR has a software hierarchy as shown below, and it belongs to the time synchronization stack.</p>
 <figure class="align-center" id="ethtsynautosar-ethtsyn-in-autosar-software-architecture-diagram">
@@ -224,7 +231,7 @@
 <p>EthTSyn负责以太网总线的时间同步相关报文发送/算法。</p>
 <p>EthTSyn is responsible for the transmission/algorithms related to time synchronization over Ethernet bus.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_SynchronizedTimeBaseManager.pdf，R19-11</p>
 <p>[2] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_TimeSyncOverEthernet.pdf，R19-11</p>
@@ -232,13 +239,13 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="ethtsyn-ethtsyn-function">
-<h3>EthTSyn功能 (EthTSyn Function)<a class="headerlink" href="#ethtsyn-ethtsyn-function" title="Link to this heading">¶</a></h3>
+<h3>EthTSyn功能 (EthTSyn Function)<a class="headerlink" href="#ethtsyn-ethtsyn-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtsyn-function-introduction-of-ethtsyn">
-<h2>EthTSyn功能介绍 (Function Introduction of EthTSyn)<a class="headerlink" href="#ethtsyn-function-introduction-of-ethtsyn" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn功能介绍 (Function Introduction of EthTSyn)<a class="headerlink" href="#ethtsyn-function-introduction-of-ethtsyn" title="链接到此标题。">¶</a></h2>
 <p>EthTSyn模块负责确保以太网同步时间信息的采集和分发。它与StbM交互，并为StbM提供所有特定于以太网的功能。</p>
 <p>The EthTSyn module is responsible for ensuring the collection and distribution of Ethernet synchronization time information. It interacts with StbM and provides all Ethernet-specific functionalities to StbM.</p>
 <p>EthTSyn主要功能包括测量以太网消息之间的延迟和不同时基之前的时间同步。</p>
@@ -247,7 +254,7 @@
 <p>The main functions of EthTSyn include measuring the delay between Ethernet messages and synchronizing time between different time bases.</p>
 </section>
 <section id="ethtsyn-ethtsyn-function-implementation">
-<h2>EthTSyn功能实现 (EthTSyn Function Implementation)<a class="headerlink" href="#ethtsyn-ethtsyn-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn功能实现 (EthTSyn Function Implementation)<a class="headerlink" href="#ethtsyn-ethtsyn-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>关于延迟的测量，EthTSyn使用的是GPTP的延迟测量方法，即</p>
 <p>For the measurement of latency, EthTSyn uses the GPTP delay measurement method, which</p>
 <figure class="align-center" id="gptp-gptp-delay-measurement">
@@ -262,7 +269,7 @@
 <p>And the time synchronization function should have EthTSyn send SYNC messages at the configured frequency, followed by Follow_Up messages with sync send times according to the configured interval, and finally derive the correct time for StbM based on time values and delay measurements. Among them, SYNC and Follow_Up messages have two formats specifically for IEEE 802.1 and AUTOSAR; the message format needs to be determined according to configuration.</p>
 </section>
 <section id="ethtsyn-ethernet-tsyn-function-limitations">
-<h2>EthTSyn功能限制 (Ethernet TSyn Function Limitations)<a class="headerlink" href="#ethtsyn-ethernet-tsyn-function-limitations" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn功能限制 (Ethernet TSyn Function Limitations)<a class="headerlink" href="#ethtsyn-ethernet-tsyn-function-limitations" title="链接到此标题。">¶</a></h2>
 <p>根据[3]以及结合自身实现情况，EthTSyn以下功能存在限制：</p>
 <p>According to [3] and based on actual implementation, EthTSyn has the following limitations:</p>
 <ol class="arabic simple">
@@ -299,7 +306,7 @@
 <p>EthTSyn itself does not maintain the hardware clock, which is maintained by StbM.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 EthTSyn组件文件描述 (Table EthTSyn Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -337,13 +344,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtsyn-configtype-ethtsyn-configtype-configuration-type">
-<h2>EthTSyn_ConfigType类型定义 (EthTSyn_ConfigType Configuration Type)<a class="headerlink" href="#ethtsyn-configtype-ethtsyn-configtype-configuration-type" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_ConfigType类型定义 (EthTSyn_ConfigType Configuration Type)<a class="headerlink" href="#ethtsyn-configtype-ethtsyn-configtype-configuration-type" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -368,7 +375,7 @@
 </table>
 </section>
 <section id="ethtsyn-transmissionmodetype-ethtsyn-transmissionmodetype-type-definition">
-<h2>EthTSyn_TransmissionModeType类型定义 (EthTSyn_TransmissionModeType type definition)<a class="headerlink" href="#ethtsyn-transmissionmodetype-ethtsyn-transmissionmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_TransmissionModeType类型定义 (EthTSyn_TransmissionModeType type definition)<a class="headerlink" href="#ethtsyn-transmissionmodetype-ethtsyn-transmissionmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -395,7 +402,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -456,11 +463,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtsyn-init-the-function-definition-for-ethtsyn-init">
-<h2>EthTSyn_Init函数定义 (The function definition for EthTSyn_Init)<a class="headerlink" href="#ethtsyn-init-the-function-definition-for-ethtsyn-init" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_Init函数定义 (The function definition for EthTSyn_Init)<a class="headerlink" href="#ethtsyn-init-the-function-definition-for-ethtsyn-init" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -535,7 +542,7 @@
 </table>
 </section>
 <section id="ethtsyn-getversioninfo-the-function-definition-for-ethtsyn-getversioninfo">
-<h2>EthTSyn_GetVersionInfo函数定义 (The function definition for EthTSyn_GetVersionInfo)<a class="headerlink" href="#ethtsyn-getversioninfo-the-function-definition-for-ethtsyn-getversioninfo" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_GetVersionInfo函数定义 (The function definition for EthTSyn_GetVersionInfo)<a class="headerlink" href="#ethtsyn-getversioninfo-the-function-definition-for-ethtsyn-getversioninfo" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -610,7 +617,7 @@
 </table>
 </section>
 <section id="ethtsyn-settransmissionmode-the-ethtsyn-settransmissionmode-function-definition">
-<h2>EthTSyn_SetTransmissionMode函数定义 (The EthTSyn_SetTransmissionMode function definition)<a class="headerlink" href="#ethtsyn-settransmissionmode-the-ethtsyn-settransmissionmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_SetTransmissionMode函数定义 (The EthTSyn_SetTransmissionMode function definition)<a class="headerlink" href="#ethtsyn-settransmissionmode-the-ethtsyn-settransmissionmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -695,7 +702,7 @@
 </table>
 </section>
 <section id="ethtsyn-rxindication-the-ethtsyn-rxindication-function-definition">
-<h2>EthTSyn_RxIndication函数定义 (The EthTSyn_RxIndication function definition)<a class="headerlink" href="#ethtsyn-rxindication-the-ethtsyn-rxindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_RxIndication函数定义 (The EthTSyn_RxIndication function definition)<a class="headerlink" href="#ethtsyn-rxindication-the-ethtsyn-rxindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -820,7 +827,7 @@
 </table>
 </section>
 <section id="ethtsyn-txconfirmation-the-ethtsyn-txconfirmation-function-definition">
-<h2>EthTSyn_TxConfirmation函数定义 (The EthTSyn_TxConfirmation function definition)<a class="headerlink" href="#ethtsyn-txconfirmation-the-ethtsyn-txconfirmation-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_TxConfirmation函数定义 (The EthTSyn_TxConfirmation function definition)<a class="headerlink" href="#ethtsyn-txconfirmation-the-ethtsyn-txconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -920,7 +927,7 @@
 </table>
 </section>
 <section id="ethtsyn-trcvlinkstatechg-the-ethtsyn-trcvlinkstatechg-function-definition">
-<h2>EthTSyn_TrcvLinkStateChg函数定义 (The EthTSyn_TrcvLinkStateChg function definition)<a class="headerlink" href="#ethtsyn-trcvlinkstatechg-the-ethtsyn-trcvlinkstatechg-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_TrcvLinkStateChg函数定义 (The EthTSyn_TrcvLinkStateChg function definition)<a class="headerlink" href="#ethtsyn-trcvlinkstatechg-the-ethtsyn-trcvlinkstatechg-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1010,7 +1017,7 @@
 </table>
 </section>
 <section id="ethtsyn-mainfunction-ethtsyn-mainfunction-function-definition">
-<h2>EthTSyn_MainFunction函数定义 (EthTSyn_MainFunction function definition)<a class="headerlink" href="#ethtsyn-mainfunction-ethtsyn-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTSyn_MainFunction函数定义 (EthTSyn_MainFunction function definition)<a class="headerlink" href="#ethtsyn-mainfunction-ethtsyn-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1040,15 +1047,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="configuration-list">
-<h3>配置列表 (Configuration List)<a class="headerlink" href="#configuration-list" title="Link to this heading">¶</a></h3>
+<h3>配置列表 (Configuration List)<a class="headerlink" href="#configuration-list" title="链接到此标题。">¶</a></h3>
 <p class="centered">
 <strong><strong>表 属性描述 (Table 5-1 Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -1077,7 +1084,7 @@
 </table>
 </section>
 <section id="ethtsyngeneral">
-<h3>EthTSynGeneral<a class="headerlink" href="#ethtsyngeneral" title="Link to this heading">¶</a></h3>
+<h3>EthTSynGeneral<a class="headerlink" href="#ethtsyngeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtsyngeneral-ethtsyngeneral-tool-configuration">
 <img alt="EthTSynGeneral工具配置 (EthTSynGeneral Tool Configuration)" src="../../_images/image528.png" />
 </figure>
@@ -1259,7 +1266,7 @@
 </table>
 </section>
 <section id="ethtsynglobaltimedomain">
-<h3>EthTSynGlobalTimeDomain<a class="headerlink" href="#ethtsynglobaltimedomain" title="Link to this heading">¶</a></h3>
+<h3>EthTSynGlobalTimeDomain<a class="headerlink" href="#ethtsynglobaltimedomain" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtsynglobaltimedomain-ethtsynglobaltimedomain-tool-configuration">
 <img alt="EthTSynGlobalTimeDomain工具配置 (EthTSynGlobalTimeDomain Tool Configuration)" src="../../_images/image628.png" />
 </figure>
@@ -1340,12 +1347,12 @@
 </section>
 </section>
 <section id="ethtsynglobaltimefollowupdataidlist">
-<h2>EthTSynGlobalTimeFollowUpDataIDList<a class="headerlink" href="#ethtsynglobaltimefollowupdataidlist" title="Link to this heading">¶</a></h2>
+<h2>EthTSynGlobalTimeFollowUpDataIDList<a class="headerlink" href="#ethtsynglobaltimefollowupdataidlist" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="ethtsynglobaltimefollowupdataidlist-ethtsynglobaltimefollowupdataidlist-tool-configuration">
 <img alt="EthTSynGlobalTimeFollowUpDataIDList工具配置 (EthTSynGlobalTimeFollowUpDataIDList Tool Configuration)" src="../../_images/image723.png" />
 </figure>
 <section id="ethtsynglobaltimefollowupdataidlistelement">
-<h3>EthTSynGlobalTimeFollowUpDataIDListElement<a class="headerlink" href="#ethtsynglobaltimefollowupdataidlistelement" title="Link to this heading">¶</a></h3>
+<h3>EthTSynGlobalTimeFollowUpDataIDListElement<a class="headerlink" href="#ethtsynglobaltimefollowupdataidlistelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtsynglobaltimefollowupdataidlistelement-ethtsynglobaltimefollowupdataidlistelement-tool-configuration">
 <img alt="EthTSynGlobalTimeFollowUpDataIDListElement工具配置 (EthTSynGlobalTimeFollowUpDataIDListElement Tool Configuration)" src="../../_images/image821.png" />
 </figure>
@@ -1408,7 +1415,7 @@
 </section>
 </section>
 <section id="ethtsynportconfig">
-<h2>EthTSynPortConfig<a class="headerlink" href="#ethtsynportconfig" title="Link to this heading">¶</a></h2>
+<h2>EthTSynPortConfig<a class="headerlink" href="#ethtsynportconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="ethtsynportconfig-ethtsynportconfig-tool-configuration">
 <img alt="EthTSynPortConfig工具配置 (EthTSynPortConfig Tool Configuration)" src="../../_images/image921.png" />
 </figure>
@@ -1487,7 +1494,7 @@
 </tbody>
 </table>
 <section id="ethtsynpdelayconfig">
-<h3>EthTSynPdelayConfig<a class="headerlink" href="#ethtsynpdelayconfig" title="Link to this heading">¶</a></h3>
+<h3>EthTSynPdelayConfig<a class="headerlink" href="#ethtsynpdelayconfig" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtsynpdelayconfig-ethtsynpdelayconfig-tool-configuration">
 <img alt="EthTSynPdelayConfig工具配置 (EthTSynPdelayConfig Tool Configuration)" src="../../_images/image1020.png" />
 </figure>
@@ -1609,12 +1616,12 @@
 </table>
 </section>
 <section id="ethtsynportrole">
-<h3>EthTSynPortRole<a class="headerlink" href="#ethtsynportrole" title="Link to this heading">¶</a></h3>
+<h3>EthTSynPortRole<a class="headerlink" href="#ethtsynportrole" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtsynportrole-ethtsynportrole-tool-configuration">
 <img alt="EthTSynPortRole工具配置 (EthTSynPortRole Tool Configuration)" src="../../_images/image1124.png" />
 </figure>
 <section id="ethtsynglobaltimemaster">
-<h4>EthTSynGlobalTimeMaster<a class="headerlink" href="#ethtsynglobaltimemaster" title="Link to this heading">¶</a></h4>
+<h4>EthTSynGlobalTimeMaster<a class="headerlink" href="#ethtsynglobaltimemaster" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="ethtsynglobaltimemaster-tool-configuration-for-ethtsynglobaltimemaster">
 <img alt="EthTSynGlobalTimeMaster工具配置 (Tool Configuration for EthTSynGlobalTimeMaster)" src="../../_images/image1221.png" />
 </figure>
@@ -1855,7 +1862,7 @@
 </table>
 </section>
 <section id="ethtsyncrctimeflagstxsecured">
-<h4>EthTSynCrcTimeFlagsTxSecured<a class="headerlink" href="#ethtsyncrctimeflagstxsecured" title="Link to this heading">¶</a></h4>
+<h4>EthTSynCrcTimeFlagsTxSecured<a class="headerlink" href="#ethtsyncrctimeflagstxsecured" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="ethtsyncrctimeflagstxsecured-ethtsyncrctimeflagstxsecured-tool-configuration">
 <img alt="EthTSynCrcTimeFlagsTxSecured工具配置 (EthTSynCrcTimeFlagsTxSecured Tool Configuration)" src="../../_images/image1318.png" />
 </figure>
@@ -1989,7 +1996,7 @@
 </table>
 </section>
 <section id="ethtsynglobaltimeslave">
-<h4>EthTSynGlobalTimeSlave<a class="headerlink" href="#ethtsynglobaltimeslave" title="Link to this heading">¶</a></h4>
+<h4>EthTSynGlobalTimeSlave<a class="headerlink" href="#ethtsynglobaltimeslave" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="ethtsynglobaltimeslave-ethtsynglobaltimeslave-tool-configuration">
 <img alt="EthTSynGlobalTimeSlave工具配置 (EthTSynGlobalTimeSlave Tool Configuration)" src="../../_images/image1416.png" />
 </figure>
@@ -2114,7 +2121,7 @@
 </tbody>
 </table>
 <section id="ethtsyncrcflagsrxvalidated">
-<h5>EthTSynCrcFlagsRxValidated<a class="headerlink" href="#ethtsyncrcflagsrxvalidated" title="Link to this heading">¶</a></h5>
+<h5>EthTSynCrcFlagsRxValidated<a class="headerlink" href="#ethtsyncrcflagsrxvalidated" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="ethtsyncrcflagsrxvalidated-ethtsyncrcflagsrxvalidated-tool-configuration">
 <img alt="EthTSynCrcFlagsRxValidated工具配置 (EthTSynCrcFlagsRxValidated Tool Configuration)" src="../../_images/image1516.png" />
 </figure>
@@ -2349,7 +2356,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -2358,11 +2365,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

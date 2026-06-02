@@ -9,6 +9,7 @@
         <title>MemIf &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="memif">
-<h1>MemIf<a class="headerlink" href="#memif" title="Link to this heading">¶</a></h1>
+<h1>MemIf<a class="headerlink" href="#memif" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -237,7 +244,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="introduction-to-software-components">
 <img alt="软件组件简介 (Introduction to Software Components)" src="../../_images/image1109.png" />
 </figure>
@@ -249,7 +256,7 @@
 <p>AUTOSAR中的存储协议栈处于BSW基础软件层，包括存储器驱动层、存储器硬件抽象层、存储器服务层。存储协议栈软件是用来为整车电子模块（ECU）存储非易失性或者标定数据定义一套统一访问内存的服务软件。</p>
 <p>The storage protocol stack in AUTOSAR is located in the BSW Basic Software layer and includes the memory driver layer, memory hardware abstraction layer, and memory service layer. The storage protocol stack software defines a unified service software for accessing memory to store non-volatile or calibration data for the entire vehicle's electronic modules (ECUs).</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SRS_EEPROMDriver.pdf，R19-11</p>
 <p>[2] AUTOSAR_SRS_FlashDriver.pdf，R19-11</p>
 <p>[3] AUTOSAR_SRS_MemoryHWAbstractionLayer.pdf，R19-11</p>
@@ -261,11 +268,11 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="memif-memif-function">
-<h3>MemIf功能 (MemIf Function)<a class="headerlink" href="#memif-memif-function" title="Link to this heading">¶</a></h3>
+<h3>MemIf功能 (MemIf Function)<a class="headerlink" href="#memif-memif-function" title="链接到此标题。">¶</a></h3>
 <section id="memif-memif-function-introduction">
-<h4>MemIf功能介绍 (MemIf Function Introduction)<a class="headerlink" href="#memif-memif-function-introduction" title="Link to this heading">¶</a></h4>
+<h4>MemIf功能介绍 (MemIf Function Introduction)<a class="headerlink" href="#memif-memif-function-introduction" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="storage-protocol-stack-software-architecture-diagram">
 <img alt="存储协议栈软件架构图 (Storage protocol stack software architecture diagram)" src="../../_images/image355.png" />
 </figure>
@@ -273,7 +280,7 @@
 <p>The gray part at the lowest layer of the storage protocol stack software architecture diagram is the hardware controller of the storage stack, which belongs to the internal or external Flash (EEPROM) memory devices of ECU and implements the physical storage medium for Flash or EEPROM data storage units; The second layer, light pink in color, represents the Microcontroller Abstraction Layer (MCAL) of the storage stack, which also belongs to the abstract layer of the internal or external Flash (EEPROM) memory devices of ECU, and realizes the hardware control driver programs for storage stack Flash or EEPROM storage devices, i.e., directly operating on the registers of the hardware controller, providing write, read, erase, compare APIs interfaces for the upper-level FEE or EA modules to use; The third layer, light green in color, represents the Memory Abstraction Layer (FEE and EA) of the storage stack, which also belongs to the abstract layer of the internal or external Flash (EEPROM) memory devices of ECU, and realizes the abstraction and interface mapping of storage devices for the storage stack. The Storage Stack Abstraction Layer does not involve any hardware operations; it only requests permission to perform behavior actions on memory and address mappings, with MemIf Interface Layer providing unified FLASH or EEPROM memory write, read, erase, compare interfaces for use by the storage stack service layer. All state control classes, operation results, and data types in the storage stack are also realized by the MemIf Interface Layer; The light blue part at the topmost layer of the storage protocol stack software architecture diagram represents the Non-Volatile Memory Management section, which belongs to the non-volatile data management and maintenance of ECU's storage stack. It realizes APIs for data write, read, erase, etc., in single or multiple blocks within the storage stack, facilitating use by storage stack users and managing their needs and requirements for non-volatile data.</p>
 </section>
 <section id="memif-memif-functional-implementation">
-<h4>MemIf功能实现 (MemIf Functional Implementation)<a class="headerlink" href="#memif-memif-functional-implementation" title="Link to this heading">¶</a></h4>
+<h4>MemIf功能实现 (MemIf Functional Implementation)<a class="headerlink" href="#memif-memif-functional-implementation" title="链接到此标题。">¶</a></h4>
 <p>MemIf对FLASH或EEPROM存储器的抽象，属于硬件无关层。其作用为：</p>
 <p>Abstraction of MEMIf for FLASH or EEPROM memory, belonging to the hardware-agnostic layer. Its function is:</p>
 <ul class="simple">
@@ -309,7 +316,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 MemIf组件文件描述 (Table MemIf Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -350,11 +357,11 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 <section id="memif-statustype-memif-statustype-type-definition">
-<h4>MemIf_StatusType类型定义 (MemIf_StatusType type definition)<a class="headerlink" href="#memif-statustype-memif-statustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>MemIf_StatusType类型定义 (MemIf_StatusType type definition)<a class="headerlink" href="#memif-statustype-memif-statustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -391,7 +398,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-jobresulttype-memif-jobresulttype-type-definition">
-<h4>MemIf_JobResultType类型定义 (MemIf_JobResultType type definition)<a class="headerlink" href="#memif-jobresulttype-memif-jobresulttype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>MemIf_JobResultType类型定义 (MemIf_JobResultType type definition)<a class="headerlink" href="#memif-jobresulttype-memif-jobresulttype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -435,7 +442,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -502,12 +509,12 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="memifapi-memory-abstraction-api-interface-mapping-for-the-memif-module">
 <img alt="MemIf模块的内存抽象API接口映射 (Memory abstraction API interface mapping for the MemIf module)" src="../../_images/image540.png" />
 </figure>
 <section id="memif-setmode-the-memif-setmode-function-definition">
-<h4>MemIf_SetMode函数定义 (The MemIf_SetMode function definition)<a class="headerlink" href="#memif-setmode-the-memif-setmode-function-definition" title="Link to this heading">¶</a></h4>
+<h4>MemIf_SetMode函数定义 (The MemIf_SetMode function definition)<a class="headerlink" href="#memif-setmode-the-memif-setmode-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -597,7 +604,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-read-the-memif-read-function-definition">
-<h4>MemIf_Read函数定义 (The MemIf_Read function definition)<a class="headerlink" href="#memif-read-the-memif-read-function-definition" title="Link to this heading">¶</a></h4>
+<h4>MemIf_Read函数定义 (The MemIf_Read function definition)<a class="headerlink" href="#memif-read-the-memif-read-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -727,7 +734,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-write-the-memif-write-function-definition">
-<h4>MemIf_Write函数定义 (The MemIf_Write function definition)<a class="headerlink" href="#memif-write-the-memif-write-function-definition" title="Link to this heading">¶</a></h4>
+<h4>MemIf_Write函数定义 (The MemIf_Write function definition)<a class="headerlink" href="#memif-write-the-memif-write-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -842,7 +849,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-cancel-the-function-definition-for-memif-cancel">
-<h4>MemIf_Cancel函数定义 (The function definition for MemIf_Cancel)<a class="headerlink" href="#memif-cancel-the-function-definition-for-memif-cancel" title="Link to this heading">¶</a></h4>
+<h4>MemIf_Cancel函数定义 (The function definition for MemIf_Cancel)<a class="headerlink" href="#memif-cancel-the-function-definition-for-memif-cancel" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -932,7 +939,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-getstatus-the-memif-getstatus-function-definition">
-<h4>MemIf_GetStatus函数定义 (The MemIf_GetStatus function definition)<a class="headerlink" href="#memif-getstatus-the-memif-getstatus-function-definition" title="Link to this heading">¶</a></h4>
+<h4>MemIf_GetStatus函数定义 (The MemIf_GetStatus function definition)<a class="headerlink" href="#memif-getstatus-the-memif-getstatus-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1027,7 +1034,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-getjobresult-the-definition-of-memif-getjobresult-function">
-<h4>MemIf_GetJobResult函数定义 (The definition of MemIf_GetJobResult function)<a class="headerlink" href="#memif-getjobresult-the-definition-of-memif-getjobresult-function" title="Link to this heading">¶</a></h4>
+<h4>MemIf_GetJobResult函数定义 (The definition of MemIf_GetJobResult function)<a class="headerlink" href="#memif-getjobresult-the-definition-of-memif-getjobresult-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1122,7 +1129,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-invalidateblock-the-function-definition-for-memif-invalidateblock">
-<h4>MemIf_InvalidateBlock函数定义 (The function definition for MemIf_InvalidateBlock)<a class="headerlink" href="#memif-invalidateblock-the-function-definition-for-memif-invalidateblock" title="Link to this heading">¶</a></h4>
+<h4>MemIf_InvalidateBlock函数定义 (The function definition for MemIf_InvalidateBlock)<a class="headerlink" href="#memif-invalidateblock-the-function-definition-for-memif-invalidateblock" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1237,7 +1244,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-getversioninfo-the-function-definition-for-memif-getversioninfo">
-<h4>MemIf_GetVersionInfo函数定义 (The function definition for MemIf_GetVersionInfo)<a class="headerlink" href="#memif-getversioninfo-the-function-definition-for-memif-getversioninfo" title="Link to this heading">¶</a></h4>
+<h4>MemIf_GetVersionInfo函数定义 (The function definition for MemIf_GetVersionInfo)<a class="headerlink" href="#memif-getversioninfo-the-function-definition-for-memif-getversioninfo" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1322,7 +1329,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </table>
 </section>
 <section id="memif-eraseimmediateblock-the-function-definition-for-memif-eraseimmediateblock">
-<h4>MemIf_EraseImmediateBlock函数定义 (The function definition for MemIf_EraseImmediateBlock)<a class="headerlink" href="#memif-eraseimmediateblock-the-function-definition-for-memif-eraseimmediateblock" title="Link to this heading">¶</a></h4>
+<h4>MemIf_EraseImmediateBlock函数定义 (The function definition for MemIf_EraseImmediateBlock)<a class="headerlink" href="#memif-eraseimmediateblock-the-function-definition-for-memif-eraseimmediateblock" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1438,13 +1445,13 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <p>表5‑1属性描述</p>
 <p>Table 5-1 Property Description</p>
 <table class="docutils align-default">
@@ -1473,7 +1480,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
 </tbody>
 </table>
 <section id="memifgeneral-configurations-for-memifgeneral">
-<h3>MemIfGeneral配置 (Configurations for MemIfGeneral)<a class="headerlink" href="#memifgeneral-configurations-for-memifgeneral" title="Link to this heading">¶</a></h3>
+<h3>MemIfGeneral配置 (Configurations for MemIfGeneral)<a class="headerlink" href="#memifgeneral-configurations-for-memifgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="memif-general-memif-general-container-configuration-diagram">
 <img alt="MemIf General容器配置图 (MemIf General Container Configuration Diagram)" src="../../_images/image639.png" />
 </figure>
@@ -1750,7 +1757,7 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -1759,11 +1766,11 @@ Index将NvM模块的指令转发给对应的Fee模块或者Ea模块</p></li>
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,6 +9,7 @@
         <title>Com &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="com">
-<h1>Com<a class="headerlink" href="#com" title="Link to this heading">¶</a></h1>
+<h1>Com<a class="headerlink" href="#com" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -229,7 +236,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>Com模块主要实现了Signal在I-PDU中的封装及解析功能，为RTE层提供了基于Signal的发送与接收接口，实现了基于Signal的网关功能，实现了PDU的不同发送模式，以及Signal滤波，Update bit，Pdu Counter等功能。</p>
 <p>The Com module mainly实现ed the encapsulation and parsing functions of Signal in I-PDU, providing send and receive interfaces based on Signal for the RTE layer. It realized gateway functionality based on Signal, different PDU sending modes, as well as Signal filtering, Update bit, and Pdu Counter functionalities.</p>
 <figure class="align-center" id="com-com-module-hierarchy-diagram">
@@ -238,23 +245,23 @@
 <p>Com模块处于AUTOSAR架构中的通信服务层，其下层模块为PduR模块，上层模块为RTE。</p>
 <p>The Com module is in the communication service layer of the AUTOSAR architecture, with the PduR module as its lower-layer module and the RTE as its upper-layer module.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SRS_COM.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_COM.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_PDURouter.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="i-pdu-group-i-pdu-group-function">
-<h3>I-PDU Group功能 (I-PDU Group Function)<a class="headerlink" href="#i-pdu-group-i-pdu-group-function" title="Link to this heading">¶</a></h3>
+<h3>I-PDU Group功能 (I-PDU Group Function)<a class="headerlink" href="#i-pdu-group-i-pdu-group-function" title="链接到此标题。">¶</a></h3>
 <section id="i-pdu-group-introduction-to-i-pdu-group-function">
-<h4>I-PDU Group功能介绍 (Introduction to I-PDU Group Function)<a class="headerlink" href="#i-pdu-group-introduction-to-i-pdu-group-function" title="Link to this heading">¶</a></h4>
+<h4>I-PDU Group功能介绍 (Introduction to I-PDU Group Function)<a class="headerlink" href="#i-pdu-group-introduction-to-i-pdu-group-function" title="链接到此标题。">¶</a></h4>
 <p>Com模块实现基于I-PDU Group的使能控制，接收超时检测使能控制。根据I-PDU与I-PDU Group的包含关系，间接实现对各个I-PDU的通信使能控制及Rx I-PDU的接收超时检测使能控制。</p>
 <p>The Com module implements enable control based on I-PDU Group and receives timeout detection enable control. According to the inclusion relationship between I-PDU and I-PDU Group, it indirectly实现enables communication for each I-PDU and enables reception timeout detection for Rx I-PDU.</p>
 </section>
 <section id="i-pdu-group-i-pdu-group-control-function-enabled">
-<h4>I-PDU Group使能控制功能实现 (I-PDU Group Control Function Enabled)<a class="headerlink" href="#i-pdu-group-i-pdu-group-control-function-enabled" title="Link to this heading">¶</a></h4>
+<h4>I-PDU Group使能控制功能实现 (I-PDU Group Control Function Enabled)<a class="headerlink" href="#i-pdu-group-i-pdu-group-control-function-enabled" title="链接到此标题。">¶</a></h4>
 <p>通过ComIPdu配置参数ComIPduGroupRef，以及ComIPduGroup的配置实现将ComIPdu进行不同的分组。对于不从属于任何ComIPduGroup的ComIPdu其通信使能状态初始化之后一直为Enable且不可动态更改，Rx ComIPdu接收超时使能状态初始化之后一直为Disable且不可动态更改。</p>
 <p>By configuring the ComIPdu configuration parameter ComIPduGroupRef and ComIPduGroup, ComIPdus can be grouped in different ways. For ComIPdus that do not belong to any ComIPduGroup, their communication enable state is initialized to Enable and cannot be dynamically changed. The Rx ComIPdu receive timeout enable state is initialized to Disable and cannot be dynamically changed.</p>
 <p>IpduGroupVector中的每个bit位代表一个ComIPduGroup，通过调用Com_IpduGroupControl和Com_ReceptionDMControl实现ComIPduGroup通信使能控制和接收超时使能控制，间接实现每个ComIPdu的控制。</p>
@@ -264,16 +271,16 @@
 </section>
 </section>
 <section id="signal-signal-encapsulation-analysis-function">
-<h3>Signal封装解析功能 (Signal Encapsulation Analysis Function)<a class="headerlink" href="#signal-signal-encapsulation-analysis-function" title="Link to this heading">¶</a></h3>
+<h3>Signal封装解析功能 (Signal Encapsulation Analysis Function)<a class="headerlink" href="#signal-signal-encapsulation-analysis-function" title="链接到此标题。">¶</a></h3>
 <section id="signal-introduction-to-signal-packaging-and-parsing-function">
-<h4>Signal封装解析功能介绍 (Introduction to Signal Packaging and Parsing Function)<a class="headerlink" href="#signal-introduction-to-signal-packaging-and-parsing-function" title="Link to this heading">¶</a></h4>
+<h4>Signal封装解析功能介绍 (Introduction to Signal Packaging and Parsing Function)<a class="headerlink" href="#signal-introduction-to-signal-packaging-and-parsing-function" title="链接到此标题。">¶</a></h4>
 <p>信号的封装和解析是Com模块的核心功能，根据各个信号的配置信息将发送Signal封装到关联的Tx IPdu数据中，从Rx IPdu数据中解析接收Signal。</p>
 <p>The encapsulation and parsing of signals are the core functions of the Com module. According to the configuration information of each signal, send signals are encapsulated into associated Tx IPdu data, and received signals are parsed from Rx IPdu data.</p>
 <p>Com模块为RTE/应用层提供了完整的基于Signal/SignalGroup的收发接口。</p>
 <p>The Com module provides complete send/receive interfaces based on Signal/SignalGroup for the RTE/application layer.</p>
 </section>
 <section id="signal-signal-encapsulation-parsing-functionality-implementation">
-<h4>Signal封装解析功能实现 (Signal encapsulation parsing functionality implementation)<a class="headerlink" href="#signal-signal-encapsulation-parsing-functionality-implementation" title="Link to this heading">¶</a></h4>
+<h4>Signal封装解析功能实现 (Signal encapsulation parsing functionality implementation)<a class="headerlink" href="#signal-signal-encapsulation-parsing-functionality-implementation" title="链接到此标题。">¶</a></h4>
 <p>信号的封装和解析涉及的信号配置参数为ComBitPosition，ComBitSize，ComSignalEndianness，ComSignalType，ComSignalLength。Com模块根据这些配置信息，将发送信号值封装到对应IPdu报文数据中，从接收IPdu报文数据中解析出接收信号值。</p>
 <p>The encapsulation and parsing of signals involve configuration parameters such as ComBitPosition, ComBitSize, ComSignalEndianness, ComSignalType, and ComSignalLength. The Com module encloses the send signal values in corresponding IPdu message data according to these configuration information and parses the receive signal values from received IPdu message data.</p>
 <p>上层通过调用Com_SendSignal来请求非动态长度类型Signal/GroupSignal的发送，调用Com_SendDynSignal来请求动态长度类型（UINT8_DYN）Signal/GroupSignal的发送，调用Com_SendSignalGroup来请求SignalGroup的发送，调用Com_InvalidateSignal来请求Signal发送无效值，调用Com_InvalidateSignalGroup来请求SignalGroup发送无效值，调用Com_SendSignalGroupArray请求上层字节对齐的SignalGroup（已完成各GroupSignal的封装）发送。</p>
@@ -283,16 +290,16 @@
 </section>
 </section>
 <section id="ipdu-ipdu-send-and-receive-function">
-<h3>IPdu收发功能 (IPdu Send and Receive Function)<a class="headerlink" href="#ipdu-ipdu-send-and-receive-function" title="Link to this heading">¶</a></h3>
+<h3>IPdu收发功能 (IPdu Send and Receive Function)<a class="headerlink" href="#ipdu-ipdu-send-and-receive-function" title="链接到此标题。">¶</a></h3>
 <section id="ipdu-introduction-to-ipdu-reception-and-transmission-function">
-<h4>IPdu收发功能介绍 (Introduction to IPdu Reception and Transmission Function)<a class="headerlink" href="#ipdu-introduction-to-ipdu-reception-and-transmission-function" title="Link to this heading">¶</a></h4>
+<h4>IPdu收发功能介绍 (Introduction to IPdu Reception and Transmission Function)<a class="headerlink" href="#ipdu-introduction-to-ipdu-reception-and-transmission-function" title="链接到此标题。">¶</a></h4>
 <p>Com模块实现IPdu的收发方式按数据流分两种类型，即IF方式和TP方式，IF方式通常用于“数据长度较小”的IPdu，而TP方式通常用于“数据长度较大”的IPdu，这里的“数据长度”是相对于传输总线来定义的，如CAN总线为8字节，CANFD为64字节，ETH可以达到1000+字节。其中IF IPdu的发送又分为Direct和TriggerTransmit两种类型，前者发送时机由Com决定，后者发送时机由下层模块决定。</p>
 <p>The Com module implements the sending and receiving of IPDUs in two types based on data flow, namely IF mode and TP mode. IF mode is typically used for &quot;shorter data length&quot; IPDUs, while TP mode is usually used for &quot;larger data length&quot; IPDUs. Here, &quot;data length&quot; is defined relative to the communication bus; for example, CAN has 8 bytes, CANFD has 64 bytes, and ETH can reach over 1000 bytes. Among these, the sending of IF IPDUs is divided into Direct and TriggerTransmit types. The former's sending时机is decided by Com, while the latter's sending时机is decided by the lower-level module.</p>
 <p>Tx IPdu从发送时机角度又分为四种模式，即PERIODIC，DIRECT，MIXED，NONE。NONE模式通常与TriggerTransmit，或者调用Com_TriggerIPDUSend/Com_TriggerIPDUSendWithMetaData来配置实现IPdu的发送。</p>
 <p>Tx IPdu can be divided into four modes from the perspective of transmission时机, namely PERIODIC, DIRECT, MIXED, and NONE. In NONE mode, Tx IPdu is typically configured for sending through TriggerTransmit or by calling Com_TriggerIPDUSend/Com_TriggerIPDUSendWithMetaData.</p>
 </section>
 <section id="ipdu-ipdu-send-receive-function-implementation">
-<h4>IPdu收发功能实现 (IPDU Send/Receive Function Implementation)<a class="headerlink" href="#ipdu-ipdu-send-receive-function-implementation" title="Link to this heading">¶</a></h4>
+<h4>IPdu收发功能实现 (IPDU Send/Receive Function Implementation)<a class="headerlink" href="#ipdu-ipdu-send-receive-function-implementation" title="链接到此标题。">¶</a></h4>
 <p>通过ComIPdu的配置参数ComIPduType决定该IPdu通过IF/TP方式进行收发：</p>
 <p>By configuring the parameter ComIPduType of ComIPdu, it decides whether the IPDU receives and sends data via IF/TP methods:</p>
 <p>1.IF发送：PduR_ComTransmit→ Com_TxConfirmation；</p>
@@ -308,14 +315,14 @@
 </section>
 </section>
 <section id="timeout-monitoring-function">
-<h3>超时监测功能 (Timeout monitoring function)<a class="headerlink" href="#timeout-monitoring-function" title="Link to this heading">¶</a></h3>
+<h3>超时监测功能 (Timeout monitoring function)<a class="headerlink" href="#timeout-monitoring-function" title="链接到此标题。">¶</a></h3>
 <section id="timeout-monitoring-feature-introduction">
-<h4>超时监测功能介绍 (Timeout Monitoring Feature Introduction)<a class="headerlink" href="#timeout-monitoring-feature-introduction" title="Link to this heading">¶</a></h4>
+<h4>超时监测功能介绍 (Timeout Monitoring Feature Introduction)<a class="headerlink" href="#timeout-monitoring-feature-introduction" title="链接到此标题。">¶</a></h4>
 <p>Com模块实现基于Signal/SignalGroup的超时监测功能。对于发送实现超时通知机制，对于接收实现超时通知和超时替换两种机制。</p>
 <p>The Com module implements timeout monitoring functionality based on Signal/SignalGroup. For sending, it realizes a timeout notification mechanism. For receiving, it implements both timeout notification and timeout replacement mechanisms.</p>
 </section>
 <section id="timeout-monitoring-function-implementation">
-<h4>超时监测功能实现 (Timeout monitoring function implementation)<a class="headerlink" href="#timeout-monitoring-function-implementation" title="Link to this heading">¶</a></h4>
+<h4>超时监测功能实现 (Timeout monitoring function implementation)<a class="headerlink" href="#timeout-monitoring-function-implementation" title="链接到此标题。">¶</a></h4>
 <p>发送超时监测：监测Signal/SignalGroup请求发送到其所在的IPdu发送成功这段时间，IPdu超时时间阈值取请求发送的Signal/SignalGroup配置的超时时间最小值。当发生发送超时，调用各Signal/SignalGroup配置的超时通知函数ComTimeoutNotification通知上层模块。</p>
 <p>Timeout Monitoring for Sending: Monitor the period from when Signal/SignalGroup request is sent to its corresponding IPdu sending success, with the IPdu timeout threshold taking the minimum timeout value configured for the Signal/SignalGroup. In case of a send timeout, invoke the timeout notification functions ComTimeoutNotification configured for each Signal/SignalGroup to inform the upper-layer module.</p>
 <p>接收超时监测：监测两次正确接收Signal/SignalGroup信号值之间的时间段，Signal/SignalGroup超时时间阈值根据其各自的配置参数决定。当发生超时时，调用其超时通知函数ComTimeoutNotification通知上层模块，也可以将接收信号值替换为初始值（通过配置参数ComRxDataTimeoutAction选择REPLACE实现）或者替换为替代值（通过配置参数ComRxDataTimeoutAction选择SUBSTITUE，且ComSignal配置ComTimeoutSubstitutionValue或者ComGroupSignal配置ComTimeoutSubstitutionValue实现）。</p>
@@ -323,9 +330,9 @@
 </section>
 </section>
 <section id="signal-filtering-function">
-<h3>信号滤波功能 (Signal filtering function)<a class="headerlink" href="#signal-filtering-function" title="Link to this heading">¶</a></h3>
+<h3>信号滤波功能 (Signal filtering function)<a class="headerlink" href="#signal-filtering-function" title="链接到此标题。">¶</a></h3>
 <section id="introduction-to-signal-filtering-function">
-<h4>信号滤波功能介绍 (Introduction to Signal Filtering Function)<a class="headerlink" href="#introduction-to-signal-filtering-function" title="Link to this heading">¶</a></h4>
+<h4>信号滤波功能介绍 (Introduction to Signal Filtering Function)<a class="headerlink" href="#introduction-to-signal-filtering-function" title="链接到此标题。">¶</a></h4>
 <p>Com模块实现基于信号的信号值进行过滤的机制，虽然对于收发信号的过滤算法一样，但过滤的目的完全不同。</p>
 <p>The Com module implements a mechanism for filtering based on signal values, although the filtering algorithms for receiving and sending signals are the same, their purposes are different.</p>
 <p>对于接收Signal/SignalGroup，过滤算法未通过时，将舍弃当前接收到的Signal/SignalGroup。</p>
@@ -334,7 +341,7 @@
 <p>For sending Signal/GroupSignal, the filtering algorithm's result only determines whether to choose ComTxModeTrue or ComTxModeFalse for message transmission, but it does not discard the signal itself.</p>
 </section>
 <section id="implementation-of-signal-filtering-function">
-<h4>信号滤波功能实现 (Implementation of Signal Filtering Function)<a class="headerlink" href="#implementation-of-signal-filtering-function" title="Link to this heading">¶</a></h4>
+<h4>信号滤波功能实现 (Implementation of Signal Filtering Function)<a class="headerlink" href="#implementation-of-signal-filtering-function" title="链接到此标题。">¶</a></h4>
 <p>通过配置Signal/GroupSignal的ComFilter来选择其过滤算法及算法所需的各种参数，过滤算法的结果分TRUE和FALSE两种。</p>
 <p>By configuring the ComFilter of Signal/GroupSignal to select its filtering algorithm and various parameters required by the algorithm, the filtering algorithm results in two types: TRUE and FALSE.</p>
 <p>对于接收Signal/SignalGroup只有当通过过滤算法，才将接收信号值更新到接收Buffer中供上层模块获取，未通过过滤算法则舍弃当前接收信号值，不更新接收Buffer中的信号值。对于SignalGroup，只要其包含的任一GroupSignal未通过过滤算法，则整个SignalGroup信号值都将舍弃。</p>
@@ -344,14 +351,14 @@
 </section>
 </section>
 <section id="update-signal-update-feature">
-<h3>信号Update功能 (Signal Update Feature)<a class="headerlink" href="#update-signal-update-feature" title="Link to this heading">¶</a></h3>
+<h3>信号Update功能 (Signal Update Feature)<a class="headerlink" href="#update-signal-update-feature" title="链接到此标题。">¶</a></h3>
 <section id="update-signal-update-feature-introduction">
-<h4>信号Update功能介绍 (Signal Update Feature Introduction)<a class="headerlink" href="#update-signal-update-feature-introduction" title="Link to this heading">¶</a></h4>
+<h4>信号Update功能介绍 (Signal Update Feature Introduction)<a class="headerlink" href="#update-signal-update-feature-introduction" title="链接到此标题。">¶</a></h4>
 <p>Com模块实现基于Signal/SignalGroup的Update Bit机制来识别信号是否更新（信号更新，但信号值不一定变化）。</p>
 <p>The Com module implements an Update Bit mechanism based on Signal/SignalGroup to identify whether a signal has been updated (signal update does not necessarily mean value change).</p>
 </section>
 <section id="update-signal-update-functionality-implemented">
-<h4>信号Update功能实现 (Signal update functionality implemented)<a class="headerlink" href="#update-signal-update-functionality-implemented" title="Link to this heading">¶</a></h4>
+<h4>信号Update功能实现 (Signal update functionality implemented)<a class="headerlink" href="#update-signal-update-functionality-implemented" title="链接到此标题。">¶</a></h4>
 <p>Signal/SignalGroup通过配置参数ComUpdateBitPosition来决定是否支持Update机制，Update Bit本身占用IPdu中一个Bit位，该Bit位为1表示对应Signal/SignalGroup有更新，为0表示对应Signal/SignalGroup没有更新。</p>
 <p>Signal/SignalGroup uses the configuration parameter ComUpdateBitPosition to decide whether to support the Update mechanism. The Update Bit itself occupies one Bit position in IPdu. This Bit is set to 1 if there is an update for the corresponding Signal/SignalGroup, and it is set to 0 if there is no update.</p>
 <p>对于发送信号，当请求Signal/SignalGroup发送时，Com模块将其Update位置1，表示该信号有更新，通过ComTxIPdu的配置参数ComTxIPduClearUpdateBit决定什么时候清除（置0）该发送IPdu中所有的Update位。</p>
@@ -361,14 +368,14 @@
 </section>
 </section>
 <section id="ipdu-rolling-counter-ipdu-rolling-counter-function">
-<h3>IPdu Rolling Counter功能 (IPdu Rolling Counter Function)<a class="headerlink" href="#ipdu-rolling-counter-ipdu-rolling-counter-function" title="Link to this heading">¶</a></h3>
+<h3>IPdu Rolling Counter功能 (IPdu Rolling Counter Function)<a class="headerlink" href="#ipdu-rolling-counter-ipdu-rolling-counter-function" title="链接到此标题。">¶</a></h3>
 <section id="ipdu-rolling-counter-ipdu-rolling-counter-feature-introduction">
-<h4>IPdu Rolling Counter功能介绍 (IPdu Rolling Counter Feature Introduction)<a class="headerlink" href="#ipdu-rolling-counter-ipdu-rolling-counter-feature-introduction" title="Link to this heading">¶</a></h4>
+<h4>IPdu Rolling Counter功能介绍 (IPdu Rolling Counter Feature Introduction)<a class="headerlink" href="#ipdu-rolling-counter-ipdu-rolling-counter-feature-introduction" title="链接到此标题。">¶</a></h4>
 <p>Com模块实现基于IPdu的Rolling Counter功能，让IPdu接收端能够识别出IPdu的序列是否正确。</p>
 <p>The Com module implements the Rolling Counter function based on IPdu, enabling the IPdu receiver to identify whether the sequence of IPdus is correct.</p>
 </section>
 <section id="ipdu-rolling-counter-ipdu-rolling-counter-function-implementation">
-<h4>IPdu Rolling Counter功能实现 (IPdu Rolling Counter Function Implementation)<a class="headerlink" href="#ipdu-rolling-counter-ipdu-rolling-counter-function-implementation" title="Link to this heading">¶</a></h4>
+<h4>IPdu Rolling Counter功能实现 (IPdu Rolling Counter Function Implementation)<a class="headerlink" href="#ipdu-rolling-counter-ipdu-rolling-counter-function-implementation" title="链接到此标题。">¶</a></h4>
 <p>对于配置了ComIPduCounter的Tx IPdu，Com每发送一次该IPdu将其Counter值+1，到达Counter最大值之后翻转到0（初始Counter值为0）。Counter值在IPdu中的位置由配置参数ComIPduCounterStartPosition和ComIPduCounterSize决定，需注意的是Counter值所在范围不能跨字节。</p>
 <p>For Tx IPdus configured with ComIPduCounter, Com increments the Counter value by 1 each time it sends such an IPdu. The Counter value resets to 0 after reaching its maximum value (initial Counter value is 0). The position of the Counter value within the IPdu is determined by the configuration parameters ComIPduCounterStartPosition and ComIPduCounterSize. Note that the range of the Counter value should not span bytes.</p>
 <p>对于配置了ComIPduCounter的Rx IPdu，启动后接收到的第一帧IPdu，其Counter值无论为什么值都匹配成功，之后期望Counter值根据上一次接收IPdu（即使该IPdu的Counter值不匹配）的Counter值+1而定。对于接收Counter是否匹配，需结合当前期望Counter以及ComIPduCounterThreshold来决定。对于Counter不匹配的IPdu，Com将舍弃该IPdu，并可以通过配置ComIPduCounterErrorNotification实现接收Counter错误通知。</p>
@@ -376,9 +383,9 @@
 </section>
 </section>
 <section id="gateway-function-for-signaling">
-<h3>信号网关功能 (Gateway Function for Signaling)<a class="headerlink" href="#gateway-function-for-signaling" title="Link to this heading">¶</a></h3>
+<h3>信号网关功能 (Gateway Function for Signaling)<a class="headerlink" href="#gateway-function-for-signaling" title="链接到此标题。">¶</a></h3>
 <section id="function-introduction-of-signal-gateway">
-<h4>信号网关功能介绍 (Function Introduction of Signal Gateway)<a class="headerlink" href="#function-introduction-of-signal-gateway" title="Link to this heading">¶</a></h4>
+<h4>信号网关功能介绍 (Function Introduction of Signal Gateway)<a class="headerlink" href="#function-introduction-of-signal-gateway" title="链接到此标题。">¶</a></h4>
 <p>Com中信号的网关只针对Signal和GroupSignal，R19_11标准中不再支持基于SignalGroup的网关。信号网关不仅支持1：1，同样支持1：N。</p>
 <p>The gateway for signals in Com is only targeting Signal and GroupSignal. The R19_11 standard no longer supports gateways based on SignalGroup. Signal gateways support both 1:1 and 1:N.</p>
 <p>对于GwSource信号与GwDestination信号，其信号类型及信号长度必须一致。GwSource信号关联Rx IPdu，GwDestination信号关联Tx IPdu。</p>
@@ -387,7 +394,7 @@
 <p>Note: The Signal/Group Signal in TP Pdu does not support signal gateway.</p>
 </section>
 <section id="function-implementation-of-signal-gateway">
-<h4>信号网关功能实现 (Function implementation of signal gateway)<a class="headerlink" href="#function-implementation-of-signal-gateway" title="Link to this heading">¶</a></h4>
+<h4>信号网关功能实现 (Function implementation of signal gateway)<a class="headerlink" href="#function-implementation-of-signal-gateway" title="链接到此标题。">¶</a></h4>
 <p>信号网关路由通过配置ComGwMapping实现，信号网关的周期性处理主函数为Com_MainFunctionRouteSignals。</p>
 <p>Signal gateway routing is achieved through configuration of ComGwMapping. The periodic processing main function of the signal gateway is Com_MainFunctionRouteSignals.</p>
 <p>注：当配置了ComGwMapping时，ComGwSource和ComGwDestination必须要配置具体内容。</p>
@@ -399,16 +406,16 @@
 </section>
 </section>
 <section id="multi-core-distribution">
-<h3>多核分布 (Multi-core Distribution)<a class="headerlink" href="#multi-core-distribution" title="Link to this heading">¶</a></h3>
+<h3>多核分布 (Multi-core Distribution)<a class="headerlink" href="#multi-core-distribution" title="链接到此标题。">¶</a></h3>
 <section id="introduction-to-multi-core-distribution-function">
-<h4>多核分布功能介绍 (Introduction to Multi-core Distribution Function)<a class="headerlink" href="#introduction-to-multi-core-distribution-function" title="Link to this heading">¶</a></h4>
+<h4>多核分布功能介绍 (Introduction to Multi-core Distribution Function)<a class="headerlink" href="#introduction-to-multi-core-distribution-function" title="链接到此标题。">¶</a></h4>
 <p>为了在多分区（核）之间提供负载分配，通信栈的不同部分可以被分配到不同的分区。不同的网络类型如FlexRay，CAN 和 Ethernet 的部分可以被分配到不同的分区（核）。</p>
 <p>To provide load balancing across multiple partitions (cores), different parts of the communication stack can be allocated to separate partitions. Different network types such as FlexRay, CAN, and Ethernet can have their respective parts allocated to different partitions (cores).</p>
 <p>为了支持上述灵活的分配，减少分区间的通信（从而潜在的减少跨分区同步带来的阻塞），COM 模块可以按照网络类型创建不同的MainFunction（每个分区至少一个）。在具体的 MainFunction 中仅处理与该网络类型相关的PDU，接收和发送将保持在单个网络范围内（即在单个分区中），因此不需要考虑跨分区同步的问题。唯一的例外是信号网关，当信号网关的源和目的PDU不在同一个分区时，COM模块提供跨分区的数据一致性保护。每个MainFunction 都拥有独立的 Time Base。</p>
 <p>To support the above flexible allocation, reduce communication between partitions (thus potentially reducing blocking caused by cross-partition synchronization), the COM module can create different MainFunctions based on network types (with at least one per partition). In specific MainFunctions, only PDU related to that network type is processed; reception and transmission are kept within a single network scope (i.e., within a single partition), so cross-partition synchronization issues do not need to be considered. The only exception is the signal gateway, where the COM module provides data consistency protection across partitions when the source and destination PDU of the signal gateway are in different partitions. Each MainFunction has its own independent Time Base.</p>
 </section>
 <section id="multi-core-distribution-functionality-implementation">
-<h4>多核分布功能实现 (Multi-core distribution functionality implementation)<a class="headerlink" href="#multi-core-distribution-functionality-implementation" title="Link to this heading">¶</a></h4>
+<h4>多核分布功能实现 (Multi-core distribution functionality implementation)<a class="headerlink" href="#multi-core-distribution-functionality-implementation" title="链接到此标题。">¶</a></h4>
 <p>ComIPdu 通过 ComIPduMainFunctionRef 与特定的 ComMainFunctionRx/ComMainFunctionTx 关联。ComMainFunctionRouteSignalsRef 仅在信号网关目标信号所在的 ComIPdu 上使用。ComMainRxPartitionRef/ComMainTxPartitionRef/ComMainRouteSignalsPartitionRef 分别表示该 ComMainFunction 实例运行的分区。如果配置了分区信息，则ComMainFunction 所在的分区必须与 ComIPdu 关联的Pdu（EcucPduDefaultPartitionRef）的分区一致。此处强调，如果发送IPDU（IPDU或者IPDU包含的信号和组信号）用于信号网关，则其需要同时配置ComIPduMainFunctionRef 关联到ComMainFunctionTx 和配置ComMainFunctionRouteSignalsRef，并且分区一致。</p>
 <p>ComIPdu is associated with a specific ComMainFunctionRx / ComMainFunctionTx via ComIPduMainFunctionRef. ComMainFunctionRouteSignalsRef is used only on the ComIPdu where the target signal of the signal gateway is located. ComMainRxPartitionRef/ComMainTxPartitionRef/ComMainRouteSignalsPartitionRef respectively indicate the partition where this ComMainFunction instance runs. If partition information is configured, the partition of the ComMainFunction must be consistent with the PDU (EcucPduDefaultPartitionRef) associated with the ComIPdu. It is emphasized here that if an IPDU for signal gateway usage (IPDU or signals and groups within it) is used, it needs to be configured to have both ComIPduMainFunctionRef associated with ComMainFunctionTx and ComMainFunctionRouteSignalsRef, and the partitions must be consistent.</p>
 <p>Com模块如果配置了ComIpduGroup，则其必须被至少一个IPDU关联，且关联在同一个ComIpduGroup的IPDU的分区必须一致。</p>
@@ -422,7 +429,7 @@
 <p>The code generator will generate a function for each ComMainFunction (declared in SchM_Com.h). Each instance of ComMainFunction and its API interface need to be called from the correct partition during integration. It is recommended to enable the ComConfigurationUseDet configuration during development; an Det error will be reported if there are unreasonable partition calls.</p>
 </section>
 <section id="com-component-file-description">
-<h4>Com组件文件描述 (Component file description)<a class="headerlink" href="#com-component-file-description" title="Link to this heading">¶</a></h4>
+<h4>Com组件文件描述 (Component file description)<a class="headerlink" href="#com-component-file-description" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -488,11 +495,11 @@
 </section>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 <section id="com-statustype-definition-of-com-statustype-type">
-<h4>Com_StatusType类型定义 (Definition of Com_StatusType Type)<a class="headerlink" href="#com-statustype-definition-of-com-statustype-type" title="Link to this heading">¶</a></h4>
+<h4>Com_StatusType类型定义 (Definition of Com_StatusType Type)<a class="headerlink" href="#com-statustype-definition-of-com-statustype-type" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -520,7 +527,7 @@
 </table>
 </section>
 <section id="com-signalidtype-definition-of-com-signalidtype-type">
-<h4>Com_SignalIdType类型定义 (Definition of Com_SignalIdType Type)<a class="headerlink" href="#com-signalidtype-definition-of-com-signalidtype-type" title="Link to this heading">¶</a></h4>
+<h4>Com_SignalIdType类型定义 (Definition of Com_SignalIdType Type)<a class="headerlink" href="#com-signalidtype-definition-of-com-signalidtype-type" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -545,7 +552,7 @@
 </table>
 </section>
 <section id="com-signalgroupidtype-com-signalgroupidtype-type-definition">
-<h4>Com_SignalGroupIdType类型定义 (Com_SignalGroupIdType type definition)<a class="headerlink" href="#com-signalgroupidtype-com-signalgroupidtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_SignalGroupIdType类型定义 (Com_SignalGroupIdType type definition)<a class="headerlink" href="#com-signalgroupidtype-com-signalgroupidtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -570,7 +577,7 @@
 </table>
 </section>
 <section id="com-ipdugroupidtype-type-definition-for-com-ipdugroupidtype">
-<h4>Com_IpduGroupIdType类型定义 (Type definition for Com_IpduGroupIdType)<a class="headerlink" href="#com-ipdugroupidtype-type-definition-for-com-ipdugroupidtype" title="Link to this heading">¶</a></h4>
+<h4>Com_IpduGroupIdType类型定义 (Type definition for Com_IpduGroupIdType)<a class="headerlink" href="#com-ipdugroupidtype-type-definition-for-com-ipdugroupidtype" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -595,7 +602,7 @@
 </table>
 </section>
 <section id="com-ipdugroupvector-type-definition-for-com-ipdugroupvector">
-<h4>Com_IpduGroupVector类型定义 (Type definition for Com_IpduGroupVector)<a class="headerlink" href="#com-ipdugroupvector-type-definition-for-com-ipdugroupvector" title="Link to this heading">¶</a></h4>
+<h4>Com_IpduGroupVector类型定义 (Type definition for Com_IpduGroupVector)<a class="headerlink" href="#com-ipdugroupvector-type-definition-for-com-ipdugroupvector" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -620,7 +627,7 @@
 </table>
 </section>
 <section id="com-configtype-configtype-configuration-type-definition">
-<h4>Com_ConfigType类型定义 (ConfigType Configuration Type Definition)<a class="headerlink" href="#com-configtype-configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_ConfigType类型定义 (ConfigType Configuration Type Definition)<a class="headerlink" href="#com-configtype-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -646,7 +653,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -698,9 +705,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <section id="com-init-the-com-init-function-definition">
-<h4>Com_Init函数定义 (The Com_Init Function Definition)<a class="headerlink" href="#com-init-the-com-init-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_Init函数定义 (The Com_Init Function Definition)<a class="headerlink" href="#com-init-the-com-init-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -765,7 +772,7 @@
 </table>
 </section>
 <section id="com-deinit-definition-of-com-deinit-function">
-<h4>Com_DeInit函数定义 (Definition of Com_DeInit function)<a class="headerlink" href="#com-deinit-definition-of-com-deinit-function" title="Link to this heading">¶</a></h4>
+<h4>Com_DeInit函数定义 (Definition of Com_DeInit function)<a class="headerlink" href="#com-deinit-definition-of-com-deinit-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -808,7 +815,7 @@
 </table>
 </section>
 <section id="com-ipdugroupcontrol-the-com-ipdugroupcontrol-function-definition">
-<h4>Com_IpduGroupControl函数定义 (The_Com_IpduGroupControl_function_definition)<a class="headerlink" href="#com-ipdugroupcontrol-the-com-ipdugroupcontrol-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_IpduGroupControl函数定义 (The_Com_IpduGroupControl_function_definition)<a class="headerlink" href="#com-ipdugroupcontrol-the-com-ipdugroupcontrol-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -888,7 +895,7 @@
 </table>
 </section>
 <section id="com-receptiondmcontrol-com-receptiondmcontrol-function-definition">
-<h4>Com_ReceptionDMControl函数定义 (Com_ReceptionDMControl function definition)<a class="headerlink" href="#com-receptiondmcontrol-com-receptiondmcontrol-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_ReceptionDMControl函数定义 (Com_ReceptionDMControl function definition)<a class="headerlink" href="#com-receptiondmcontrol-com-receptiondmcontrol-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -958,7 +965,7 @@
 </table>
 </section>
 <section id="com-getstatus-definition-of-com-getstatus-function">
-<h4>Com_GetStatus函数定义 (Definition of Com_GetStatus function)<a class="headerlink" href="#com-getstatus-definition-of-com-getstatus-function" title="Link to this heading">¶</a></h4>
+<h4>Com_GetStatus函数定义 (Definition of Com_GetStatus function)<a class="headerlink" href="#com-getstatus-definition-of-com-getstatus-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1007,7 +1014,7 @@
 </table>
 </section>
 <section id="com-getversioninfo-the-function-definition-for-com-getversioninfo">
-<h4>Com_GetVersionInfo函数定义 (The function definition for Com_GetVersionInfo)<a class="headerlink" href="#com-getversioninfo-the-function-definition-for-com-getversioninfo" title="Link to this heading">¶</a></h4>
+<h4>Com_GetVersionInfo函数定义 (The function definition for Com_GetVersionInfo)<a class="headerlink" href="#com-getversioninfo-the-function-definition-for-com-getversioninfo" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1077,7 +1084,7 @@
 </table>
 </section>
 <section id="com-clearipdugroupvector-the-function-definition-for-com-clearipdugroupvector">
-<h4>Com_ClearIpduGroupVector函数定义 (The function definition for Com_ClearIpduGroupVector)<a class="headerlink" href="#com-clearipdugroupvector-the-function-definition-for-com-clearipdugroupvector" title="Link to this heading">¶</a></h4>
+<h4>Com_ClearIpduGroupVector函数定义 (The function definition for Com_ClearIpduGroupVector)<a class="headerlink" href="#com-clearipdugroupvector-the-function-definition-for-com-clearipdugroupvector" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1147,7 +1154,7 @@
 </table>
 </section>
 <section id="com-setipdugroup-the-com-setipdugroup-function-definition">
-<h4>Com_SetIpduGroup函数定义 (The Com_SetIpduGroup function definition)<a class="headerlink" href="#com-setipdugroup-the-com-setipdugroup-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_SetIpduGroup函数定义 (The Com_SetIpduGroup function definition)<a class="headerlink" href="#com-setipdugroup-the-com-setipdugroup-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1232,7 +1239,7 @@
 </table>
 </section>
 <section id="com-sendsignal-the-com-sendsignal-function-definition">
-<h4>Com_SendSignal函数定义 (The Com_SendSignal function definition)<a class="headerlink" href="#com-sendsignal-the-com-sendsignal-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_SendSignal函数定义 (The Com_SendSignal function definition)<a class="headerlink" href="#com-sendsignal-the-com-sendsignal-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1327,7 +1334,7 @@
 </table>
 </section>
 <section id="com-senddynsignal-the-function-definition-for-com-senddynsignal">
-<h4>Com_SendDynSignal函数定义 (The function definition for Com_SendDynSignal)<a class="headerlink" href="#com-senddynsignal-the-function-definition-for-com-senddynsignal" title="Link to this heading">¶</a></h4>
+<h4>Com_SendDynSignal函数定义 (The function definition for Com_SendDynSignal)<a class="headerlink" href="#com-senddynsignal-the-function-definition-for-com-senddynsignal" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1437,7 +1444,7 @@
 </table>
 </section>
 <section id="com-receivesignal-the-com-receivesignal-function-definition">
-<h4>Com_ReceiveSignal函数定义 (The_Com_ReceiveSignal_function_definition)<a class="headerlink" href="#com-receivesignal-the-com-receivesignal-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_ReceiveSignal函数定义 (The_Com_ReceiveSignal_function_definition)<a class="headerlink" href="#com-receivesignal-the-com-receivesignal-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1527,7 +1534,7 @@
 </table>
 </section>
 <section id="com-receivedynsignal-the-com-receivedynsignal-function-definition">
-<h4>Com_ReceiveDynSignal函数定义 (The_Com_ReceiveDynSignal_function_definition)<a class="headerlink" href="#com-receivedynsignal-the-com-receivedynsignal-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_ReceiveDynSignal函数定义 (The_Com_ReceiveDynSignal_function_definition)<a class="headerlink" href="#com-receivedynsignal-the-com-receivedynsignal-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1627,7 +1634,7 @@
 </table>
 </section>
 <section id="com-sendsignalgroup-the-function-definition-for-com-sendsignalgroup">
-<h4>Com_SendSignalGroup函数定义 (The function definition for Com_SendSignalGroup)<a class="headerlink" href="#com-sendsignalgroup-the-function-definition-for-com-sendsignalgroup" title="Link to this heading">¶</a></h4>
+<h4>Com_SendSignalGroup函数定义 (The function definition for Com_SendSignalGroup)<a class="headerlink" href="#com-sendsignalgroup-the-function-definition-for-com-sendsignalgroup" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1712,7 +1719,7 @@
 </table>
 </section>
 <section id="com-receivesignalgroup-the-com-receivesignalgroup-function-definition">
-<h4>Com_ReceiveSignalGroup函数定义 (The Com_ReceiveSignalGroup function definition)<a class="headerlink" href="#com-receivesignalgroup-the-com-receivesignalgroup-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_ReceiveSignalGroup函数定义 (The Com_ReceiveSignalGroup function definition)<a class="headerlink" href="#com-receivesignalgroup-the-com-receivesignalgroup-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1797,7 +1804,7 @@
 </table>
 </section>
 <section id="com-sendsignalgrouparray-the-function-definition-for-com-sendsignalgrouparray">
-<h4>Com_SendSignalGroupArray函数定义 (The function definition for Com_SendSignalGroupArray)<a class="headerlink" href="#com-sendsignalgrouparray-the-function-definition-for-com-sendsignalgrouparray" title="Link to this heading">¶</a></h4>
+<h4>Com_SendSignalGroupArray函数定义 (The function definition for Com_SendSignalGroupArray)<a class="headerlink" href="#com-sendsignalgrouparray-the-function-definition-for-com-sendsignalgrouparray" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1892,7 +1899,7 @@
 </table>
 </section>
 <section id="com-receivesignalgrouparray-the-definition-of-com-receivesignalgrouparray-function">
-<h4>Com_ReceiveSignalGroupArray函数定义 (The definition of Com_ReceiveSignalGroupArray function)<a class="headerlink" href="#com-receivesignalgrouparray-the-definition-of-com-receivesignalgrouparray-function" title="Link to this heading">¶</a></h4>
+<h4>Com_ReceiveSignalGroupArray函数定义 (The definition of Com_ReceiveSignalGroupArray function)<a class="headerlink" href="#com-receivesignalgrouparray-the-definition-of-com-receivesignalgrouparray-function" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1998,7 +2005,7 @@
 </table>
 </section>
 <section id="com-invalidatesignal-the-com-invalidatesignal-function-definition">
-<h4>Com_InvalidateSignal函数定义 (The Com_InvalidateSignal function definition)<a class="headerlink" href="#com-invalidatesignal-the-com-invalidatesignal-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_InvalidateSignal函数定义 (The Com_InvalidateSignal function definition)<a class="headerlink" href="#com-invalidatesignal-the-com-invalidatesignal-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2078,7 +2085,7 @@
 </table>
 </section>
 <section id="com-invalidatesignalgroup-the-function-definition-for-com-invalidatesignalgroup">
-<h4>Com_InvalidateSignalGroup函数定义 (The function definition for Com_InvalidateSignalGroup)<a class="headerlink" href="#com-invalidatesignalgroup-the-function-definition-for-com-invalidatesignalgroup" title="Link to this heading">¶</a></h4>
+<h4>Com_InvalidateSignalGroup函数定义 (The function definition for Com_InvalidateSignalGroup)<a class="headerlink" href="#com-invalidatesignalgroup-the-function-definition-for-com-invalidatesignalgroup" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2163,7 +2170,7 @@
 </table>
 </section>
 <section id="com-triggeripdusend-the-function-define-for-com-triggeripdusend">
-<h4>Com_TriggerIPDUSend函数定义 (The Function Define for Com_TriggerIPDUSend)<a class="headerlink" href="#com-triggeripdusend-the-function-define-for-com-triggeripdusend" title="Link to this heading">¶</a></h4>
+<h4>Com_TriggerIPDUSend函数定义 (The Function Define for Com_TriggerIPDUSend)<a class="headerlink" href="#com-triggeripdusend-the-function-define-for-com-triggeripdusend" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2238,7 +2245,7 @@
 </table>
 </section>
 <section id="com-triggeripdusendwithmetadata-the-function-definition-for-com-triggeripdusendwithmetadata">
-<h4>Com_TriggerIPDUSendWithMetaData函数定义 (The function definition for Com_TriggerIPDUSendWithMetaData)<a class="headerlink" href="#com-triggeripdusendwithmetadata-the-function-definition-for-com-triggeripdusendwithmetadata" title="Link to this heading">¶</a></h4>
+<h4>Com_TriggerIPDUSendWithMetaData函数定义 (The function definition for Com_TriggerIPDUSendWithMetaData)<a class="headerlink" href="#com-triggeripdusendwithmetadata-the-function-definition-for-com-triggeripdusendwithmetadata" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2328,7 +2335,7 @@
 </table>
 </section>
 <section id="com-switchipdutxmode-the-com-switchipdutxmode-function-definition">
-<h4>Com_SwitchIpduTxMode函数定义 (The_Com_SwitchIpduTxMode_function_definition)<a class="headerlink" href="#com-switchipdutxmode-the-com-switchipdutxmode-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_SwitchIpduTxMode函数定义 (The_Com_SwitchIpduTxMode_function_definition)<a class="headerlink" href="#com-switchipdutxmode-the-com-switchipdutxmode-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2408,7 +2415,7 @@
 </table>
 </section>
 <section id="com-triggertransmit-com-triggertransmit-function-definition">
-<h4>Com_TriggerTransmit函数定义 (Com_TriggerTransmit function definition)<a class="headerlink" href="#com-triggertransmit-com-triggertransmit-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_TriggerTransmit函数定义 (Com_TriggerTransmit function definition)<a class="headerlink" href="#com-triggertransmit-com-triggertransmit-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2493,7 +2500,7 @@
 </table>
 </section>
 <section id="com-rxindication-function-definition-for-com-rxindication">
-<h4>Com_RxIndication函数定义 (Function definition for Com_RxIndication)<a class="headerlink" href="#com-rxindication-function-definition-for-com-rxindication" title="Link to this heading">¶</a></h4>
+<h4>Com_RxIndication函数定义 (Function definition for Com_RxIndication)<a class="headerlink" href="#com-rxindication-function-definition-for-com-rxindication" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2573,7 +2580,7 @@
 </table>
 </section>
 <section id="com-tprxindication-function-definition-for-com-tprxindication">
-<h4>Com_TpRxIndication函数定义 (Function definition for Com_TpRxIndication)<a class="headerlink" href="#com-tprxindication-function-definition-for-com-tprxindication" title="Link to this heading">¶</a></h4>
+<h4>Com_TpRxIndication函数定义 (Function definition for Com_TpRxIndication)<a class="headerlink" href="#com-tprxindication-function-definition-for-com-tprxindication" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2653,7 +2660,7 @@
 </table>
 </section>
 <section id="com-txconfirmation-the-function-definition-for-com-txconfirmation">
-<h4>Com_TxConfirmation函数定义 (The function definition for Com_TxConfirmation)<a class="headerlink" href="#com-txconfirmation-the-function-definition-for-com-txconfirmation" title="Link to this heading">¶</a></h4>
+<h4>Com_TxConfirmation函数定义 (The function definition for Com_TxConfirmation)<a class="headerlink" href="#com-txconfirmation-the-function-definition-for-com-txconfirmation" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2723,7 +2730,7 @@
 </table>
 </section>
 <section id="com-tptxconfirmation-the-function-definition-for-com-tptxconfirmation">
-<h4>Com_TpTxConfirmation函数定义 (The function definition for Com_TpTxConfirmation)<a class="headerlink" href="#com-tptxconfirmation-the-function-definition-for-com-tptxconfirmation" title="Link to this heading">¶</a></h4>
+<h4>Com_TpTxConfirmation函数定义 (The function definition for Com_TpTxConfirmation)<a class="headerlink" href="#com-tptxconfirmation-the-function-definition-for-com-tptxconfirmation" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2803,7 +2810,7 @@
 </table>
 </section>
 <section id="com-startofreception-function-definition-for-com-startofreception">
-<h4>Com_StartOfReception函数定义 (Function definition for Com_StartOfReception)<a class="headerlink" href="#com-startofreception-function-definition-for-com-startofreception" title="Link to this heading">¶</a></h4>
+<h4>Com_StartOfReception函数定义 (Function definition for Com_StartOfReception)<a class="headerlink" href="#com-startofreception-function-definition-for-com-startofreception" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2913,7 +2920,7 @@
 </table>
 </section>
 <section id="com-copyrxdata-the-function-definition-for-com-copyrxdata">
-<h4>Com_CopyRxData函数定义 (The function definition for Com_CopyRxData)<a class="headerlink" href="#com-copyrxdata-the-function-definition-for-com-copyrxdata" title="Link to this heading">¶</a></h4>
+<h4>Com_CopyRxData函数定义 (The function definition for Com_CopyRxData)<a class="headerlink" href="#com-copyrxdata-the-function-definition-for-com-copyrxdata" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3008,7 +3015,7 @@
 </table>
 </section>
 <section id="com-copytxdata-the-function-definition-for-com-copytxdata">
-<h4>Com_CopyTxData函数定义 (The function definition for Com_CopyTxData)<a class="headerlink" href="#com-copytxdata-the-function-definition-for-com-copytxdata" title="Link to this heading">¶</a></h4>
+<h4>Com_CopyTxData函数定义 (The function definition for Com_CopyTxData)<a class="headerlink" href="#com-copytxdata-the-function-definition-for-com-copytxdata" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3118,7 +3125,7 @@
 </table>
 </section>
 <section id="com-mainfunctionrx-the-com-mainfunctionrx-function-definition">
-<h4>Com_MainFunctionRx函数定义 (The Com_MainFunctionRx function definition)<a class="headerlink" href="#com-mainfunctionrx-the-com-mainfunctionrx-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_MainFunctionRx函数定义 (The Com_MainFunctionRx function definition)<a class="headerlink" href="#com-mainfunctionrx-the-com-mainfunctionrx-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3183,7 +3190,7 @@
 </table>
 </section>
 <section id="com-mainfunctiontx-com-mainfunctiontx-function-definition">
-<h4>Com_MainFunctionTx函数定义 (Com_MainFunctionTx function definition)<a class="headerlink" href="#com-mainfunctiontx-com-mainfunctiontx-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_MainFunctionTx函数定义 (Com_MainFunctionTx function definition)<a class="headerlink" href="#com-mainfunctiontx-com-mainfunctiontx-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3248,7 +3255,7 @@
 </table>
 </section>
 <section id="com-mainfunctionroutesignals-the-com-mainfunctionroutesignals-function-definition">
-<h4>Com_MainFunctionRouteSignals函数定义 (The Com_MainFunctionRouteSignals function definition)<a class="headerlink" href="#com-mainfunctionroutesignals-the-com-mainfunctionroutesignals-function-definition" title="Link to this heading">¶</a></h4>
+<h4>Com_MainFunctionRouteSignals函数定义 (The Com_MainFunctionRouteSignals function definition)<a class="headerlink" href="#com-mainfunctionroutesignals-the-com-mainfunctionroutesignals-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3323,7 +3330,7 @@
 </table>
 </section>
 <section id="com-enablereceptiondm-function-definition-for-com-enablereceptiondm">
-<h4>Com_EnableReceptionDM函数定义 (Function definition for Com_EnableReceptionDM)<a class="headerlink" href="#com-enablereceptiondm-function-definition-for-com-enablereceptiondm" title="Link to this heading">¶</a></h4>
+<h4>Com_EnableReceptionDM函数定义 (Function definition for Com_EnableReceptionDM)<a class="headerlink" href="#com-enablereceptiondm-function-definition-for-com-enablereceptiondm" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3388,7 +3395,7 @@
 </table>
 </section>
 <section id="com-disablereceptiondm-function-definition-for-com-disablereceptiondm">
-<h4>Com_DisableReceptionDM函数定义 (Function definition for Com_DisableReceptionDM)<a class="headerlink" href="#com-disablereceptiondm-function-definition-for-com-disablereceptiondm" title="Link to this heading">¶</a></h4>
+<h4>Com_DisableReceptionDM函数定义 (Function definition for Com_DisableReceptionDM)<a class="headerlink" href="#com-disablereceptiondm-function-definition-for-com-disablereceptiondm" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3454,15 +3461,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="comgeneral">
-<h3>ComGeneral<a class="headerlink" href="#comgeneral" title="Link to this heading">¶</a></h3>
+<h3>ComGeneral<a class="headerlink" href="#comgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="ComGeneral" src="../../_images/image48.png" />
 </figure>
@@ -3650,7 +3657,7 @@
 </table>
 </section>
 <section id="comconfig">
-<h3>ComConfig<a class="headerlink" href="#comconfig" title="Link to this heading">¶</a></h3>
+<h3>ComConfig<a class="headerlink" href="#comconfig" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="ComConfig" src="../../_images/image58.png" />
 </figure>
@@ -3724,7 +3731,7 @@
 </table>
 </section>
 <section id="commainfunctionrx">
-<h3>ComMainFunctionRx<a class="headerlink" href="#commainfunctionrx" title="Link to this heading">¶</a></h3>
+<h3>ComMainFunctionRx<a class="headerlink" href="#commainfunctionrx" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id3">
 <img alt="ComMainFunctionRx" src="../../_images/image68.png" />
 </figure>
@@ -3786,7 +3793,7 @@
 </table>
 </section>
 <section id="commainfunctiontx">
-<h3>ComMainFunctionTx<a class="headerlink" href="#commainfunctiontx" title="Link to this heading">¶</a></h3>
+<h3>ComMainFunctionTx<a class="headerlink" href="#commainfunctiontx" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id4">
 <img alt="ComMainFunctionTx" src="../../_images/image78.png" />
 </figure>
@@ -3866,7 +3873,7 @@
 </table>
 </section>
 <section id="commainfunctionroutesignals">
-<h3>ComMainFunctionRouteSignals<a class="headerlink" href="#commainfunctionroutesignals" title="Link to this heading">¶</a></h3>
+<h3>ComMainFunctionRouteSignals<a class="headerlink" href="#commainfunctionroutesignals" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id5">
 <img alt="ComMainFunctionRouteSignals" src="../../_images/image88.png" />
 </figure>
@@ -3928,7 +3935,7 @@
 </table>
 </section>
 <section id="comipdugroup">
-<h3>ComIPduGroup<a class="headerlink" href="#comipdugroup" title="Link to this heading">¶</a></h3>
+<h3>ComIPduGroup<a class="headerlink" href="#comipdugroup" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="ComIPduGroup" src="../../_images/image98.png" />
 </figure>
@@ -3990,7 +3997,7 @@
 </table>
 </section>
 <section id="comipdu">
-<h3>ComIPdu<a class="headerlink" href="#comipdu" title="Link to this heading">¶</a></h3>
+<h3>ComIPdu<a class="headerlink" href="#comipdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id7">
 <img alt="ComIPdu" src="../../_images/image108.png" />
 </figure>
@@ -4253,7 +4260,7 @@
 </table>
 </section>
 <section id="comipducounter">
-<h3>ComIPduCounter<a class="headerlink" href="#comipducounter" title="Link to this heading">¶</a></h3>
+<h3>ComIPduCounter<a class="headerlink" href="#comipducounter" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id8">
 <img alt="ComIPduCounter" src="../../_images/image1210.png" />
 </figure>
@@ -4351,7 +4358,7 @@
 </table>
 </section>
 <section id="comipdureplication">
-<h3>ComIPduReplication<a class="headerlink" href="#comipdureplication" title="Link to this heading">¶</a></h3>
+<h3>ComIPduReplication<a class="headerlink" href="#comipdureplication" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id9">
 <img alt="ComIPduReplication" src="../../_images/image136.png" />
 </figure>
@@ -4395,7 +4402,7 @@
 </table>
 </section>
 <section id="comtxipdu">
-<h3>ComTxIPdu<a class="headerlink" href="#comtxipdu" title="Link to this heading">¶</a></h3>
+<h3>ComTxIPdu<a class="headerlink" href="#comtxipdu" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id10">
 <img alt="ComTxIPdu" src="../../_images/image146.png" />
 </figure>
@@ -4493,7 +4500,7 @@
 </table>
 </section>
 <section id="comtxmode">
-<h3>ComTxMode<a class="headerlink" href="#comtxmode" title="Link to this heading">¶</a></h3>
+<h3>ComTxMode<a class="headerlink" href="#comtxmode" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id11">
 <img alt="ComTxMode" src="../../_images/image155.png" />
 </figure>
@@ -4609,7 +4616,7 @@
 </table>
 </section>
 <section id="comsignal">
-<h3>ComSignal<a class="headerlink" href="#comsignal" title="Link to this heading">¶</a></h3>
+<h3>ComSignal<a class="headerlink" href="#comsignal" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id12">
 <img alt="ComSignal" src="../../_images/image165.png" />
 </figure>
@@ -5013,7 +5020,7 @@
 </table>
 </section>
 <section id="comfilter">
-<h3>ComFilter<a class="headerlink" href="#comfilter" title="Link to this heading">¶</a></h3>
+<h3>ComFilter<a class="headerlink" href="#comfilter" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id13">
 <img alt="ComFilter" src="../../_images/image173.png" />
 </figure>
@@ -5165,7 +5172,7 @@
 </table>
 </section>
 <section id="comsignalgroup">
-<h3>ComSignalGroup<a class="headerlink" href="#comsignalgroup" title="Link to this heading">¶</a></h3>
+<h3>ComSignalGroup<a class="headerlink" href="#comsignalgroup" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id14">
 <img alt="ComSignalGroup" src="../../_images/image181.png" />
 </figure>
@@ -5443,7 +5450,7 @@
 </table>
 </section>
 <section id="comgroupsignal">
-<h3>ComGroupSignal<a class="headerlink" href="#comgroupsignal" title="Link to this heading">¶</a></h3>
+<h3>ComGroupSignal<a class="headerlink" href="#comgroupsignal" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id15">
 <img alt="ComGroupSignal" src="../../_images/image191.png" />
 </figure>
@@ -5667,7 +5674,7 @@
 </table>
 </section>
 <section id="comgwsignal">
-<h3>ComGwSignal<a class="headerlink" href="#comgwsignal" title="Link to this heading">¶</a></h3>
+<h3>ComGwSignal<a class="headerlink" href="#comgwsignal" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id16">
 <img alt="ComGwSignal" src="../../_images/image201.png" />
 </figure>
@@ -5711,7 +5718,7 @@
 </table>
 </section>
 <section id="comgwsourcedescription">
-<h3>ComGwSourceDescription<a class="headerlink" href="#comgwsourcedescription" title="Link to this heading">¶</a></h3>
+<h3>ComGwSourceDescription<a class="headerlink" href="#comgwsourcedescription" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id17">
 <img alt="ComGwSourceDescription" src="../../_images/image219.png" />
 </figure>
@@ -5863,7 +5870,7 @@
 </table>
 </section>
 <section id="comgwdestinationdescription">
-<h3>ComGwDestinationDescription<a class="headerlink" href="#comgwdestinationdescription" title="Link to this heading">¶</a></h3>
+<h3>ComGwDestinationDescription<a class="headerlink" href="#comgwdestinationdescription" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id18">
 <img alt="ComGwDestinationDescription" src="../../_images/image221.png" />
 </figure>
@@ -6166,7 +6173,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -6175,11 +6182,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

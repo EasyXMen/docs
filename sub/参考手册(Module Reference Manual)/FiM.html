@@ -9,6 +9,7 @@
         <title>FiM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="fim">
-<h1>FiM<a class="headerlink" href="#fim" title="Link to this heading">¶</a></h1>
+<h1>FiM<a class="headerlink" href="#fim" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -201,7 +208,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="fim-fim-module-hierarchy-diagram">
 <img alt="FiM模块层次图 (FIM Module Hierarchy Diagram)" src="../../_images/image1102.png" />
 </figure>
@@ -213,19 +220,19 @@
 <img alt="FiM与其他模块交互图 (Diagram of interaction between FiM and other modules)" src="../../_images/image258.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_FunctionInhibitionManager.PDF，4.2.2</p>
 <p>[2] AUTOSAR_SWS_FunctionInhibitionManager.PDF，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="disable-management-function">
-<h3>功能禁止管理功能 (Disable Management Function)<a class="headerlink" href="#disable-management-function" title="Link to this heading">¶</a></h3>
+<h3>功能禁止管理功能 (Disable Management Function)<a class="headerlink" href="#disable-management-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="introduction-to-function-management-functional-features">
-<h2>功能禁止管理功能介绍 (Introduction to Function Management Functional Features)<a class="headerlink" href="#introduction-to-function-management-functional-features" title="Link to this heading">¶</a></h2>
+<h2>功能禁止管理功能介绍 (Introduction to Function Management Functional Features)<a class="headerlink" href="#introduction-to-function-management-functional-features" title="链接到此标题。">¶</a></h2>
 <p>FiM模块允许查询软件组件的许可/抑制状态及其功能。功能在执行之前轮询其FID的许可状态。如果禁止条件适用于特定的标识符，则不再允许执行相应的功能。通过FiM，这些功能的抑制可以通过校准来配置甚至修改。支持Dem事件及其状态信息作为抑制条件。在FiM的配置过程中，建立了数据结构(即禁止矩阵)来处理标识符对某些事件的敏感性。</p>
 <p>The permission/inhibition status and their functionalities. permission status. If a prohibition condition applies to a specific identifier, the corresponding function is no longer allowed to execute. Through FiM, the inhibition of these functions can be configured or even modified via calibration. Dem events and their status information are supported as inhibition conditions. During the configuration of FiM, data structures (i.e., prohibit matrices) are established to handle the sensitivity of identifiers to certain events.</p>
 <p>FiM与Dem密切相关，因为诊断事件及其状态信息是抑制条件的基础。因此，在发生故障时需要停止的功能，例如某个传感器，可以用一个特定的标识符来表示。如果检测到故障并将事件报告给Dem，那么FiM就会阻止FID，从而阻止相应的功能。</p>
@@ -239,14 +246,14 @@
 </figure>
 </section>
 <section id="function">
-<h2>功能禁止管理功能实现 (Function禁用管理功能实现)<a class="headerlink" href="#function" title="Link to this heading">¶</a></h2>
+<h2>功能禁止管理功能实现 (Function禁用管理功能实现)<a class="headerlink" href="#function" title="链接到此标题。">¶</a></h2>
 <p>根据配置，如果是轮询方式获取信息，则在FiM_MainFunction中轮询调用Dem_GetComponentFailed和Dem_GetEventStatus来获取诊断事件状态信息，然后根据状态信息以及相关功能的配置关系表来进行计算，得出功能抑制计数，SWC通过调用FiM_GetFunctionPermission来获取功能的允许使用状态。</p>
 <p>Based on the configuration, if information is retrieved through polling in FiM_MainFunction, it will poll call Dem_GetComponentFailed and Dem_GetEventStatus to acquire diagnostic event status information. Then, based on this status information and the configuration relationship table of related functions, it calculates the functional suppression count. The SWC retrieves the allowed usage status of the function by calling FiM_GetFunctionPermission.</p>
 <p>如果不是轮询方式获取信息，则DEM模块调用FiM_DemTriggerOnEventStatus和FiM_DemTriggerOnComponentStatus来通知诊断事件状态信息，然后根据状态信息以及相关功能的配置关系表来进行计算，得出功能抑制计数，SWC通过调用FiM_GetFunctionPermission来获取功能的允许使用状态。</p>
 <p>If information is not acquired through polling, the DEM module invokes FiM_DemTriggerOnEventStatus and FiM_DemTriggerOnComponentStatus to notify diagnostic event status information. Then, based on the status information and the configuration relationship table of related functions, it calculates the functional inhibition count. SWC obtains the allowable usage status of the function by calling FiM_GetFunctionPermission.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 FiM组件文件描述 (Table Description of FiM Component Files)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -290,13 +297,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="fim-functionidtype-fim-functionidtype-type-definition">
-<h2>FiM_FunctionIdType类型定义 (FIM_FunctionIdType Type Definition)<a class="headerlink" href="#fim-functionidtype-fim-functionidtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_FunctionIdType类型定义 (FIM_FunctionIdType Type Definition)<a class="headerlink" href="#fim-functionidtype-fim-functionidtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -321,7 +328,7 @@
 </table>
 </section>
 <section id="fim-configtype-fim-configtype-configuration-type-definition">
-<h2>FiM_ConfigType类型定义 (FiM_ConfigType Configuration Type Definition)<a class="headerlink" href="#fim-configtype-fim-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_ConfigType类型定义 (FiM_ConfigType Configuration Type Definition)<a class="headerlink" href="#fim-configtype-fim-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -345,7 +352,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -370,11 +377,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="fim-init-the-fim-init-function-definition">
-<h2>FiM_Init函数定义 (The FiM_Init function definition)<a class="headerlink" href="#fim-init-the-fim-init-function-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_Init函数定义 (The FiM_Init function definition)<a class="headerlink" href="#fim-init-the-fim-init-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -439,7 +446,7 @@
 </table>
 </section>
 <section id="fim-getfunctionpermission-fim-getfunctionpermission-function-definition">
-<h2>FiM_GetFunctionPermission函数定义 (FiM_GetFunctionPermission function definition)<a class="headerlink" href="#fim-getfunctionpermission-fim-getfunctionpermission-function-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_GetFunctionPermission函数定义 (FiM_GetFunctionPermission function definition)<a class="headerlink" href="#fim-getfunctionpermission-fim-getfunctionpermission-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -504,7 +511,7 @@
 </table>
 </section>
 <section id="fim-setfunctionavailable-fim-setfunctionavailable-function-definition">
-<h2>FiM_SetFunctionAvailable函数定义 (FiM_SetFunctionAvailable function definition)<a class="headerlink" href="#fim-setfunctionavailable-fim-setfunctionavailable-function-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_SetFunctionAvailable函数定义 (FiM_SetFunctionAvailable function definition)<a class="headerlink" href="#fim-setfunctionavailable-fim-setfunctionavailable-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -574,7 +581,7 @@
 </table>
 </section>
 <section id="fim-demtriggeroneventstatus-function-definition-for-fim-demtriggeroneventstatus">
-<h2>FiM_DemTriggerOnEventStatus函数定义 (Function definition for FiM_DemTriggerOnEventStatus)<a class="headerlink" href="#fim-demtriggeroneventstatus-function-definition-for-fim-demtriggeroneventstatus" title="Link to this heading">¶</a></h2>
+<h2>FiM_DemTriggerOnEventStatus函数定义 (Function definition for FiM_DemTriggerOnEventStatus)<a class="headerlink" href="#fim-demtriggeroneventstatus-function-definition-for-fim-demtriggeroneventstatus" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -649,7 +656,7 @@
 </table>
 </section>
 <section id="fim-demtriggeroncomponentstatus-function-definition-for-fim-demtriggeroncomponentstatus">
-<h2>FiM_DemTriggerOnComponentStatus函数定义 (Function Definition for FiM_DemTriggerOnComponentStatus)<a class="headerlink" href="#fim-demtriggeroncomponentstatus-function-definition-for-fim-demtriggeroncomponentstatus" title="Link to this heading">¶</a></h2>
+<h2>FiM_DemTriggerOnComponentStatus函数定义 (Function Definition for FiM_DemTriggerOnComponentStatus)<a class="headerlink" href="#fim-demtriggeroncomponentstatus-function-definition-for-fim-demtriggeroncomponentstatus" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -719,7 +726,7 @@
 </table>
 </section>
 <section id="fim-deminit-fim-deminit-function-definition">
-<h2>FiM_DemInit函数定义 (FIM_DemInit function definition)<a class="headerlink" href="#fim-deminit-fim-deminit-function-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_DemInit函数定义 (FIM_DemInit function definition)<a class="headerlink" href="#fim-deminit-fim-deminit-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -784,7 +791,7 @@
 </table>
 </section>
 <section id="fim-getversioninfo-function-definition-for-fim-getversioninfo">
-<h2>FiM_GetVersionInfo函数定义 (Function Definition for FiM_GetVersionInfo)<a class="headerlink" href="#fim-getversioninfo-function-definition-for-fim-getversioninfo" title="Link to this heading">¶</a></h2>
+<h2>FiM_GetVersionInfo函数定义 (Function Definition for FiM_GetVersionInfo)<a class="headerlink" href="#fim-getversioninfo-function-definition-for-fim-getversioninfo" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -849,7 +856,7 @@
 </table>
 </section>
 <section id="fim-mainfunction-fm-mainfunction-function-definition">
-<h2>FiM_MainFunction函数定义 (FM_MainFunction function definition)<a class="headerlink" href="#fim-mainfunction-fm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>FiM_MainFunction函数定义 (FM_MainFunction function definition)<a class="headerlink" href="#fim-mainfunction-fm-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -913,22 +920,22 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="swc-swc-service-component-packaging">
-<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="链接到此标题。">¶</a></h3>
 <p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接。</p>
 <p>The following types and interfaces can be encapsulated into SWC to generate complete service components, which can be connected to the application via ports.</p>
 </section>
 </section>
 <section id="cs-cs-interface-packaging">
-<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="链接到此标题。">¶</a></h2>
 <p>注：下面提到的&lt;UserModule&gt;和&lt;UserPort&gt;分别为用户SWC的名字和对应端口名，在与FiM服务组件端口连接后适用。</p>
 <p>Note: The &lt;UserModule&gt; and &lt;UserPort&gt; mentioned below are the names of the user SWC and its corresponding port, respectively, applicable after being connected to the FiM service component ports.</p>
 <section id="rte-call-usermodule-userport-getfunctionpermission">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetFunctionPermission<a class="headerlink" href="#rte-call-usermodule-userport-getfunctionpermission" title="Link to this heading">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetFunctionPermission<a class="headerlink" href="#rte-call-usermodule-userport-getfunctionpermission" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -959,7 +966,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-setfunctionavailable">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetFunctionAvailable<a class="headerlink" href="#rte-call-usermodule-userport-setfunctionavailable" title="Link to this heading">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetFunctionAvailable<a class="headerlink" href="#rte-call-usermodule-userport-setfunctionavailable" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -991,9 +998,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="fimgeneral">
-<h3>FiMGeneral<a class="headerlink" href="#fimgeneral" title="Link to this heading">¶</a></h3>
+<h3>FiMGeneral<a class="headerlink" href="#fimgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="fimgeneral-fimgeneral-container-configuration-diagram">
 <img alt="FiMGeneral容器配置图 (FiMGeneral Container Configuration Diagram)" src="../../_images/image533.png" />
 </figure>
@@ -1241,7 +1248,7 @@
 </table>
 </section>
 <section id="fimconfigset">
-<h3>FiMConfigSet<a class="headerlink" href="#fimconfigset" title="Link to this heading">¶</a></h3>
+<h3>FiMConfigSet<a class="headerlink" href="#fimconfigset" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="fimconfigset-fimconfigset-container-configuration-diagram">
 <img alt="FiMConfigSet容器配置图 (FIMConfigSet Container Configuration Diagram)" src="../../_images/image633.png" />
 </figure>
@@ -1322,7 +1329,7 @@
 </section>
 </section>
 <section id="fimfid">
-<h2>FiMFID<a class="headerlink" href="#fimfid" title="Link to this heading">¶</a></h2>
+<h2>FiMFID<a class="headerlink" href="#fimfid" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="fimfid-container-configuration-diagram-for-fimfid">
 <img alt="FiMFID容器配置图 (Container Configuration Diagram for FiMFID)" src="../../_images/image726.png" />
 </figure>
@@ -1366,7 +1373,7 @@
 </table>
 </section>
 <section id="fiminhibitionconfiguration">
-<h2>FiMInhibitionConfiguration<a class="headerlink" href="#fiminhibitionconfiguration" title="Link to this heading">¶</a></h2>
+<h2>FiMInhibitionConfiguration<a class="headerlink" href="#fiminhibitionconfiguration" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="fiminhibitionconfiguration-fim-inhibition-configuration-container-configurations">
 <img alt="FiMInhibitionConfiguration容器配置图 (FiM Inhibition Configuration Container Configurations)" src="../../_images/image823.png" />
 </figure>
@@ -1500,7 +1507,7 @@
 </table>
 </section>
 <section id="fimsummaryevent">
-<h2>FiMSummaryEvent<a class="headerlink" href="#fimsummaryevent" title="Link to this heading">¶</a></h2>
+<h2>FiMSummaryEvent<a class="headerlink" href="#fimsummaryevent" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="fimsummaryevent-fimsummaryevent-container-configuration-diagram">
 <img alt="FiMSummaryEvent容器配置图 (FiMSummaryEvent Container Configuration Diagram)" src="../../_images/image922.png" />
 </figure>
@@ -1633,7 +1640,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -1642,11 +1649,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

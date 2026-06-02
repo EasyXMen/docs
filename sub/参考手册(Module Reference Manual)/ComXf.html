@@ -9,6 +9,7 @@
         <title>ComXf &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="comxf">
-<h1>ComXf<a class="headerlink" href="#comxf" title="Link to this heading">¶</a></h1>
+<h1>ComXf<a class="headerlink" href="#comxf" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -205,7 +212,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>数据序列化功能在AUTOSAR架构中属于RTE的功能点，为适配无RTE项目的集成需求，将ComXf作为序列化模块Xfrm中的子模块实现。</p>
 <p>The data serialization function in the AUTOSAR architecture is a functional point of RTE. To meet the integration requirements for projects without an RTE, ComXf is implemented as a sub-module of the Xfrm serialization module.</p>
 <figure class="align-center" id="comxf-comxf-module-hierarchy-diagram">
@@ -214,45 +221,45 @@
 <p>ComXf模块处于AUTOSAR架构中RTE层，主要实现Com中Signal Group（Array）数据的序列化与反序列化功能，使得在Com层将Signal Group（Array）数据作为整体封装在I-PDU中，或者从I-PDU中作为整体解析。</p>
 <p>The ComXf module is located in the RTE layer of the AUTOSAR architecture, primarily achieving the serialization and deserialization functions of Signal Group (Array) data in Com. This allows for encapsulating Signal Group (Array) data as a whole in I-PDU at the Com layer or parsing them as a whole from I-PDU.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_COMBasedTransformer.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_COM.pdf，R19-11</p>
 <p>[3] AUTOSAR_SRS_COM.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="data-serialization-functionality">
-<h3>数据序列化功能 (Data serialization functionality)<a class="headerlink" href="#data-serialization-functionality" title="Link to this heading">¶</a></h3>
+<h3>数据序列化功能 (Data serialization functionality)<a class="headerlink" href="#data-serialization-functionality" title="链接到此标题。">¶</a></h3>
 <section id="introduction-to-data-serialization-functionality">
-<h4>数据序列化功能介绍 (Introduction to Data Serialization Functionality)<a class="headerlink" href="#introduction-to-data-serialization-functionality" title="Link to this heading">¶</a></h4>
+<h4>数据序列化功能介绍 (Introduction to Data Serialization Functionality)<a class="headerlink" href="#introduction-to-data-serialization-functionality" title="链接到此标题。">¶</a></h4>
 <p>将字节对齐的SignalGroup中关联的N个GroupSignal根据其在Com中的</p>
 <p>Align the N GroupSignals associated with the byte-aligned SignalGroup in Com according to their placement.</p>
 <p>配置信息，通过ComXf序列化将各个GroupSignal信号值封装到序列化数据中。</p>
 <p>Configuration information is packaged into serialized data by ComXf serialization, encapsulating values of various GroupSignal signals.</p>
 </section>
 <section id="data-serialization-functionality-implementation">
-<h4>数据序列化功能实现 (Data serialization functionality implementation)<a class="headerlink" href="#data-serialization-functionality-implementation" title="Link to this heading">¶</a></h4>
+<h4>数据序列化功能实现 (Data serialization functionality implementation)<a class="headerlink" href="#data-serialization-functionality-implementation" title="链接到此标题。">¶</a></h4>
 <p>ComXf通过Ref到Com中各个GroupSignal的起始位置，信号长度，大小端，信号类型，未使用位默认值等信息。将关联的各个GroupSignal同时封装到序列化数据中，保证SignalGroup的数据一致性。</p>
 <p>ComXf通过Ref到Com中各个GroupSignal的起始位置, 信号长度, 大小端, 信号类型, 未使用位默认值等信息。将关联的各个GroupSignal同时封装到序列化数据中, 保证SignalGroup的数据一致性。</p>
 </section>
 </section>
 <section id="data-deserialization-function">
-<h3>数据反序列化功能 (Data deserialization function)<a class="headerlink" href="#data-deserialization-function" title="Link to this heading">¶</a></h3>
+<h3>数据反序列化功能 (Data deserialization function)<a class="headerlink" href="#data-deserialization-function" title="链接到此标题。">¶</a></h3>
 <section id="introduction-to-data-deserialization-function">
-<h4>数据反序列化功能介绍 (Introduction to Data Deserialization Function)<a class="headerlink" href="#introduction-to-data-deserialization-function" title="Link to this heading">¶</a></h4>
+<h4>数据反序列化功能介绍 (Introduction to Data Deserialization Function)<a class="headerlink" href="#introduction-to-data-deserialization-function" title="链接到此标题。">¶</a></h4>
 <p>从字节对齐的序列化数据中将关联的N个GroupSignal根据其在Com中的配置信息，通过ComXf反序列化将各个GroupSignal信号值解析出来。</p>
 <p>From byte-aligned serialized data, parse out the associated N GroupSignals based on their configuration information in Com through ComXf deserialization.</p>
 </section>
 <section id="data-deserialization-functionality-implementation">
-<h4>数据反序列化功能实现 (Data deserialization functionality implementation)<a class="headerlink" href="#data-deserialization-functionality-implementation" title="Link to this heading">¶</a></h4>
+<h4>数据反序列化功能实现 (Data deserialization functionality implementation)<a class="headerlink" href="#data-deserialization-functionality-implementation" title="链接到此标题。">¶</a></h4>
 <p>ComXf通过Ref到Com中各个GroupSignal的起始位置，信号长度，大小端，信号类型等信息。将关联的各个GroupSignal信号值从序列化数据中解析出来。</p>
 <p>ComXf retrieves information about the start position, signal length, byte order, and signal type of various GroupSignals in Com through Ref. It parses out the values of the associated GroupSignals from the serialized data.</p>
 </section>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 ComXf组件文件描述 (Table Describes ComXf Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -287,11 +294,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 <section id="comxf-configtype-comxf-configtype-type-definition">
-<h4>ComXf_ConfigType类型定义 (ComXf_ConfigType Type Definition)<a class="headerlink" href="#comxf-configtype-comxf-configtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>ComXf_ConfigType类型定义 (ComXf_ConfigType Type Definition)<a class="headerlink" href="#comxf-configtype-comxf-configtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -316,7 +323,7 @@
 </table>
 </section>
 <section id="paramtype-type-definition">
-<h4>&lt;paramtype&gt;类型定义 (Type Definition)<a class="headerlink" href="#paramtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>&lt;paramtype&gt;类型定义 (Type Definition)<a class="headerlink" href="#paramtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -342,14 +349,14 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <section id="comxf-init-comxf-init-function-definition">
-<h4>ComXf_Init函数定义 (ComXf_Init function definition)<a class="headerlink" href="#comxf-init-comxf-init-function-definition" title="Link to this heading">¶</a></h4>
+<h4>ComXf_Init函数定义 (ComXf_Init function definition)<a class="headerlink" href="#comxf-init-comxf-init-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -414,7 +421,7 @@
 </table>
 </section>
 <section id="comxf-deinit-comxf-deinit-function-definition">
-<h4>ComXf_DeInit函数定义 (ComXf_DeInit function definition)<a class="headerlink" href="#comxf-deinit-comxf-deinit-function-definition" title="Link to this heading">¶</a></h4>
+<h4>ComXf_DeInit函数定义 (ComXf_DeInit function definition)<a class="headerlink" href="#comxf-deinit-comxf-deinit-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -457,7 +464,7 @@
 </table>
 </section>
 <section id="comxf-getversioninfo-the-function-definition-for-comxc-getversioninfo">
-<h4>ComXf_GetVersionInfo函数定义 (The function definition for ComXc_GetVersionInfo)<a class="headerlink" href="#comxf-getversioninfo-the-function-definition-for-comxc-getversioninfo" title="Link to this heading">¶</a></h4>
+<h4>ComXf_GetVersionInfo函数定义 (The function definition for ComXc_GetVersionInfo)<a class="headerlink" href="#comxf-getversioninfo-the-function-definition-for-comxc-getversioninfo" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -527,7 +534,7 @@
 </table>
 </section>
 <section id="comxf-transformerid-comxf-transformerid-function-definition">
-<h4>ComXf_&lt;transformerId&gt;函数定义 (ComXf&lt;transformerId&gt; function definition)<a class="headerlink" href="#comxf-transformerid-comxf-transformerid-function-definition" title="Link to this heading">¶</a></h4>
+<h4>ComXf_&lt;transformerId&gt;函数定义 (ComXf&lt;transformerId&gt; function definition)<a class="headerlink" href="#comxf-transformerid-comxf-transformerid-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -612,7 +619,7 @@
 </table>
 </section>
 <section id="comxf-inv-transformerid-comxf-inv-transformerid-function-definition">
-<h4>ComXf_Inv_&lt;transformerId&gt;函数定义 (ComXf_Inv&lt;transformerId&gt; Function Definition)<a class="headerlink" href="#comxf-inv-transformerid-comxf-inv-transformerid-function-definition" title="Link to this heading">¶</a></h4>
+<h4>ComXf_Inv_&lt;transformerId&gt;函数定义 (ComXf_Inv&lt;transformerId&gt; Function Definition)<a class="headerlink" href="#comxf-inv-transformerid-comxf-inv-transformerid-function-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -698,15 +705,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="comxfgeneral">
-<h3>ComXfGeneral<a class="headerlink" href="#comxfgeneral" title="Link to this heading">¶</a></h3>
+<h3>ComXfGeneral<a class="headerlink" href="#comxfgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="ComXfGeneral" src="../../_images/image314.png" />
 </figure>
@@ -768,7 +775,7 @@
 </table>
 </section>
 <section id="comxf-transformer">
-<h3>ComXf_Transformer<a class="headerlink" href="#comxf-transformer" title="Link to this heading">¶</a></h3>
+<h3>ComXf_Transformer<a class="headerlink" href="#comxf-transformer" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="ComXf_Transformer" src="../../_images/image410.png" />
 </figure>
@@ -951,7 +958,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -960,11 +967,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,6 +9,7 @@
         <title>Memory(Protection Functions) &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../../_static/version-switcher.css?v=5a6714a8" />
@@ -57,7 +58,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CanIf.html">CanIf</a></li>
@@ -169,7 +176,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="memory-protection-functions">
-<h1>Memory(Protection Functions)<a class="headerlink" href="#memory-protection-functions" title="Link to this heading">¶</a></h1>
+<h1>Memory(Protection Functions)<a class="headerlink" href="#memory-protection-functions" title="链接到此标题。">¶</a></h1>
 <p>内存保护策略是基于可执行程序的(数据，代码和堆栈)段。</p>
 <p>The memory protection strategy is based on the segments (data, code, and stack) of the executable program.</p>
 <p>堆栈：OS-Application包含许多任务和中断。根据定义，这些对象的堆栈仅属于所有者，因此即使这些对象属于同一OS-Application，对象之间也不应共享堆栈数据。</p>
@@ -191,7 +198,7 @@
 <p>代码：代码段是OS-Application专用的，也可以在所有OS-Applications之间共享(以使用共享库)。在不使用代码保护的情况下，执行不正确的代码最终将导致内存，时序或服务冲突。</p>
 <p>Code: Code segments are dedicated to an OS-Application but can also be shared among all OS-Applications (e.g., for using shared libraries). Without code protection, executing incorrect code will eventually result in memory, timing, or service conflicts.</p>
 <section id="checkisrmemoryaccess">
-<h2>CheckISRMemoryAccess<a class="headerlink" href="#checkisrmemoryaccess" title="Link to this heading">¶</a></h2>
+<h2>CheckISRMemoryAccess<a class="headerlink" href="#checkisrmemoryaccess" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AccessType</span> <span class="n">CheckISRMemoryAccess</span><span class="p">(</span><span class="n">ISRType</span> <span class="n">ISRID</span><span class="p">,</span> <span class="n">MemoryStartAddressType</span> <span class="n">Address</span><span class="p">,</span> <span class="n">MemorySizeType</span> <span class="n">Size</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -276,7 +283,7 @@
 </div>
 </section>
 <section id="checktaskmemoryaccess">
-<h2>CheckTaskMemoryAccess<a class="headerlink" href="#checktaskmemoryaccess" title="Link to this heading">¶</a></h2>
+<h2>CheckTaskMemoryAccess<a class="headerlink" href="#checktaskmemoryaccess" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AccessType</span> <span class="n">CheckTaskMemoryAccess</span><span class="p">(</span><span class="n">TaskType</span> <span class="n">TaskID</span><span class="p">,</span> <span class="n">MemoryStartAddressType</span> <span class="n">Address</span><span class="p">,</span> <span class="n">MemorySizeType</span> <span class="n">Size</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -434,7 +441,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -443,11 +450,11 @@
         </div>
     </footer>
         <script src="../../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../../_static/translations.js?v=540d3cec"></script>
         <script src="../../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>

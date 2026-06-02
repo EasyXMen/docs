@@ -9,6 +9,7 @@
         <title>J1939Dcm &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,11 +178,11 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="j1939dcm">
-<h1>J1939Dcm<a class="headerlink" href="#j1939dcm" title="Link to this heading">¶</a></h1>
+<h1>J1939Dcm<a class="headerlink" href="#j1939dcm" title="链接到此标题。">¶</a></h1>
 <section id="document-information">
-<h2>文档信息(Document Information)<a class="headerlink" href="#document-information" title="Link to this heading">¶</a></h2>
+<h2>文档信息(Document Information)<a class="headerlink" href="#document-information" title="链接到此标题。">¶</a></h2>
 <section id="version-history">
-<h3>版本历史(Version History)<a class="headerlink" href="#version-history" title="Link to this heading">¶</a></h3>
+<h3>版本历史(Version History)<a class="headerlink" href="#version-history" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>日期(Date)</p></th>
@@ -208,7 +215,7 @@
 </table>
 </section>
 <section id="references">
-<h3>参考文档(References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
+<h3>参考文档(References)<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>编号(Number)</p></th>
@@ -268,9 +275,9 @@
 </section>
 </section>
 <section id="terms-and-abbreviations">
-<h2>术语与缩略语(Terms and Abbreviations)<a class="headerlink" href="#terms-and-abbreviations" title="Link to this heading">¶</a></h2>
+<h2>术语与缩略语(Terms and Abbreviations)<a class="headerlink" href="#terms-and-abbreviations" title="链接到此标题。">¶</a></h2>
 <section id="terms">
-<h3>术语(Terms)<a class="headerlink" href="#terms" title="Link to this heading">¶</a></h3>
+<h3>术语(Terms)<a class="headerlink" href="#terms" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>术语(Terms)</p></th>
@@ -357,7 +364,7 @@
 </table>
 </section>
 <section id="abbreviations">
-<h3>缩略语(Abbreviations)<a class="headerlink" href="#abbreviations" title="Link to this heading">¶</a></h3>
+<h3>缩略语(Abbreviations)<a class="headerlink" href="#abbreviations" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>简写 (Abbreviation)</p></th>
@@ -555,7 +562,7 @@
 </section>
 </section>
 <section id="introduction">
-<h2>简介(Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介(Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>J1939Dcm用于负责处理诊断请求消息并发送适当的响应ACKM-PG，对1939Rm转发过来的诊断请求进行DMx解析，执行相应的诊断处理，如果诊断服务处理正常，则发送积极响应的诊断消息报文，设置故障灯的状态等，否则发送否定响应的确认报文。
 J1939Dcm组件需要实现功能：模块初始化、请求接收、缓存管理、诊断服务处理，支持诊断消息响应、Generic诊断消息响应、DTC状态，立即故障、冻结帧，Radio、诊断Readiness、广播控制、校验信息、错误检测以及若干J1939诊断指令交互等：</p>
 <p>J1939Dcm is used to handle diagnostic request messages and send appropriate ACKM-PG responses. It parses DMx from diagnostic requests forwarded by 1939Rm, performs the corresponding diagnostic processing, and if the diagnostic service is processed correctly, it sends a positive response diagnostic message and sets the fault lamp status, etc.; otherwise, it sends a negative response acknowledgment message.</p>
@@ -563,15 +570,15 @@ J1939Dcm组件需要实现功能：模块初始化、请求接收、缓存管理
 <figure class="align-center" id="id1">
 <img alt="J1939Dcm模块层次图" src="../../_images/J1939DcmInAutosarLayer.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块层次图</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块层次图</span><a class="headerlink" href="#id1" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#id1"><span class="std std-ref">J1939Dcm模块层次图</span></a> 所示，J1939Dcm模块处于AUTOSAR软件架构中的通信栈服务层，其下层模块为PduR模块，上层模块为Rte，并于同层级的Dem模块（系统服务）进行交互。</p>
 <p>As shown in the figure <a class="reference internal" href="#id1"><span class="std std-ref">J1939Dcm模块层次图</span></a>, the J1939Dcm module is located in the communication stack service layer of the AUTOSAR software architecture. Its lower layer module is the PduR module, its upper layer module is the Rte, and it interacts with the Dem module (system service) at the same level.</p>
 <section id="j1939dcmgenneric-non-generic-type-diagnostic-messages-supported-by-j1939dcm">
-<h3>J1939Dcm支持的非Genneric类型的诊断消息(Non-Generic Type Diagnostic Messages Supported by J1939Dcm)<a class="headerlink" href="#j1939dcmgenneric-non-generic-type-diagnostic-messages-supported-by-j1939dcm" title="Link to this heading">¶</a></h3>
+<h3>J1939Dcm支持的非Genneric类型的诊断消息(Non-Generic Type Diagnostic Messages Supported by J1939Dcm)<a class="headerlink" href="#j1939dcmgenneric-non-generic-type-diagnostic-messages-supported-by-j1939dcm" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-left" id="j1939dcmnongenericdmxsupportedlist">
-<caption><span class="caption-text">J1939DcmNonGenericDMxSupportedList</span><a class="headerlink" href="#j1939dcmnongenericdmxsupportedlist" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmNonGenericDMxSupportedList</span><a class="headerlink" href="#j1939dcmnongenericdmxsupportedlist" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>PGN</p></th>
@@ -857,9 +864,9 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="j1939dcmgenneric-diagnostic-messages-of-generic-type-supported-by-j1939-dcm">
-<h3>J1939Dcm支持的Genneric类型的诊断消息(Diagnostic messages of Generic type supported by J1939 DCM)<a class="headerlink" href="#j1939dcmgenneric-diagnostic-messages-of-generic-type-supported-by-j1939-dcm" title="Link to this heading">¶</a></h3>
+<h3>J1939Dcm支持的Genneric类型的诊断消息(Diagnostic messages of Generic type supported by J1939 DCM)<a class="headerlink" href="#j1939dcmgenneric-diagnostic-messages-of-generic-type-supported-by-j1939-dcm" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-left" id="j1939dcmgenericdmxsupportedlist">
-<caption><span class="caption-text">J1939DcmGenericDMxSupportedList</span><a class="headerlink" href="#j1939dcmgenericdmxsupportedlist" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmGenericDMxSupportedList</span><a class="headerlink" href="#j1939dcmgenericdmxsupportedlist" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>PGN</p></th>
@@ -1149,33 +1156,33 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </section>
 </section>
 <section id="functional-description">
-<h2>功能描述(Functional Description)<a class="headerlink" href="#functional-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述(Functional Description)<a class="headerlink" href="#functional-description" title="链接到此标题。">¶</a></h2>
 <section id="public-features">
-<h3>公共特性(Public Features)<a class="headerlink" href="#public-features" title="Link to this heading">¶</a></h3>
+<h3>公共特性(Public Features)<a class="headerlink" href="#public-features" title="链接到此标题。">¶</a></h3>
 <section id="multi-core-and-multi-partition-features">
-<h4>多核多分区功能(Multi-core and Multi-partition Features)<a class="headerlink" href="#multi-core-and-multi-partition-features" title="Link to this heading">¶</a></h4>
+<h4>多核多分区功能(Multi-core and Multi-partition Features)<a class="headerlink" href="#multi-core-and-multi-partition-features" title="链接到此标题。">¶</a></h4>
 <p>不支持。</p>
 <p>Not supported.</p>
 </section>
 <section id="pbs-pbs-features">
-<h4>PBS功能(PBS Features)<a class="headerlink" href="#pbs-pbs-features" title="Link to this heading">¶</a></h4>
+<h4>PBS功能(PBS Features)<a class="headerlink" href="#pbs-pbs-features" title="链接到此标题。">¶</a></h4>
 <p>无配置项，不支持。</p>
 <p>No configurations, not supported.</p>
 </section>
 <section id="memmap-memmap-features">
-<h4>Memmap功能(Memmap Features)<a class="headerlink" href="#memmap-memmap-features" title="Link to this heading">¶</a></h4>
+<h4>Memmap功能(Memmap Features)<a class="headerlink" href="#memmap-memmap-features" title="链接到此标题。">¶</a></h4>
 <p>memmap文件是动态的。存在J1939DCM_START_SEC_CODE、J1939DCM_STOP_SEC_CODE、J1939DCM_START_SEC_CONFIG_DATA_8、J1939DCM_STOP_SEC_CONFIG_DATA_8、J1939DCM_START_SEC_CONFIG_DATA_16、J1939DCM_STOP_SEC_CONFIG_DATA_16、J1939DCM_START_SEC_CONFIG_DATA_32、J1939DCM_STOP_SEC_CONFIG_DATA_32、J1939DCM_START_SEC_CONFIG_DATA_UNSPECIFIED、J1939DCM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、J1939DCM_START_SEC_VAR_CLEARED_BOOLEAN、J1939DCM_STOP_SEC_VAR_CLEARED_BOOLEAN、J1939DCM_START_SEC_VAR_CLEARED_8、J1939DCM_STOP_SEC_VAR_CLEARED_8、J1939DCM_START_SEC_VAR_CLEARED_16、J1939DCM_STOP_SEC_VAR_CLEARED_16、J1939DCM_START_SEC_VAR_CLEARED_32、J1939DCM_STOP_SEC_VAR_CLEARED_32、J1939DCM_START_SEC_VAR_CLEARED_UNSPECIFIED、J1939DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、J1939DCM_START_SEC_VAR_CLEARED_PTR、J1939DCM_STOP_SEC_VAR_CLEARED_PTR、J1939DCM_START_SEC_VAR_INIT_8、J1939DCM_STOP_SEC_VAR_INIT_8、J1939DCM_START_SEC_VAR_INIT_UNSPECIFIED、J1939DCM_STOP_SEC_VAR_INIT_UNSPECIFIED字段。</p>
 <p>The memmap file is Dynamic.There are J1939DCM_START_SEC_CODE、J1939DCM_STOP_SEC_CODE、J1939DCM_START_SEC_CONFIG_DATA_8、J1939DCM_STOP_SEC_CONFIG_DATA_8、J1939DCM_START_SEC_CONFIG_DATA_16、J1939DCM_STOP_SEC_CONFIG_DATA_16、J1939DCM_START_SEC_CONFIG_DATA_32、J1939DCM_STOP_SEC_CONFIG_DATA_32、J1939DCM_START_SEC_CONFIG_DATA_UNSPECIFIED、J1939DCM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、J1939DCM_START_SEC_VAR_CLEARED_BOOLEAN、J1939DCM_STOP_SEC_VAR_CLEARED_BOOLEAN、J1939DCM_START_SEC_VAR_CLEARED_8、J1939DCM_STOP_SEC_VAR_CLEARED_8、J1939DCM_START_SEC_VAR_CLEARED_16、J1939DCM_STOP_SEC_VAR_CLEARED_16、J1939DCM_START_SEC_VAR_CLEARED_32、J1939DCM_STOP_SEC_VAR_CLEARED_32、J1939DCM_START_SEC_VAR_CLEARED_UNSPECIFIED、J1939DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、J1939DCM_START_SEC_VAR_CLEARED_PTR、J1939DCM_STOP_SEC_VAR_CLEARED_PTR、J1939DCM_START_SEC_VAR_INIT_8、J1939DCM_STOP_SEC_VAR_INIT_8、J1939DCM_START_SEC_VAR_INIT_UNSPECIFIED and J1939DCM_STOP_SEC_VAR_INIT_UNSPECIFIED fields.</p>
 </section>
 <section id="exclusive-area-features">
-<h4>独占区功能(Exclusive Area Features)<a class="headerlink" href="#exclusive-area-features" title="Link to this heading">¶</a></h4>
+<h4>独占区功能(Exclusive Area Features)<a class="headerlink" href="#exclusive-area-features" title="链接到此标题。">¶</a></h4>
 <p>None.</p>
 </section>
 </section>
 <section id="module-features">
-<h3>模块特性(Module Features)<a class="headerlink" href="#module-features" title="Link to this heading">¶</a></h3>
+<h3>模块特性(Module Features)<a class="headerlink" href="#module-features" title="链接到此标题。">¶</a></h3>
 <section id="initialization">
-<h4>初始化：Initialization<a class="headerlink" href="#initialization" title="Link to this heading">¶</a></h4>
+<h4>初始化：Initialization<a class="headerlink" href="#initialization" title="链接到此标题。">¶</a></h4>
 <p>J1939Dcm通过J1939Dcm_Init接口函数执行初始化操作，并通过J1939Dcm_DeInit完成取消初始化操作。除了J1939Dcm_GetVer-sionInfo和J1939Dcm_Init之外，J1939Dcm的API函数只能在已正确初始化模块时被调用。</p>
 <p>J1939Dcm performs initialization through the J1939Dcm_Init interface function and completes de-initialization through J1939Dcm_DeInit. Except for J1939Dcm_GetVersionInfo and J1939Dcm_Init, the API functions of J1939Dcm can only be called when the module has been correctly initialized.</p>
 <table class="docutils align-default">
@@ -1207,12 +1214,12 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="error-handling">
-<h4>错误处理：Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h4>
+<h4>错误处理：Error Handling<a class="headerlink" href="#error-handling" title="链接到此标题。">¶</a></h4>
 <p>对于错误和异常，J1939Dcm模块不修改其当前模块状态，而只是报告错误事件。</p>
 <p>For errors and exceptions, the J1939Dcm module does not alter its current module state but only reports the error events.</p>
 </section>
 <section id="reception-of-requests">
-<h4>接收请求：Reception of Requests<a class="headerlink" href="#reception-of-requests" title="Link to this heading">¶</a></h4>
+<h4>接收请求：Reception of Requests<a class="headerlink" href="#reception-of-requests" title="链接到此标题。">¶</a></h4>
 <p>J1939Dcm通过J1939Dcm_RequestIndication接收来自J1939Rm的大多数DMx PG请求；
 特例情况是命令消息，J1939Dcm通过J1939Dcm_RxIndication接收来自PduR的DMx PG请求。</p>
 <p>J1939Dcm receives most DMx PG requests from J1939Rm via J1939Dcm_RequestIndication; the special case is command messages, where J1939Dcm receives DMx PG requests from PduR via J1939Dcm_RxIndication.</p>
@@ -1269,7 +1276,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="failed-message-transmission">
-<h4>消息发送失败：Failed Message Transmission<a class="headerlink" href="#failed-message-transmission" title="Link to this heading">¶</a></h4>
+<h4>消息发送失败：Failed Message Transmission<a class="headerlink" href="#failed-message-transmission" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1287,7 +1294,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="termination-of-message">
-<h4>消息发送成功：Termination of Message<a class="headerlink" href="#termination-of-message" title="Link to this heading">¶</a></h4>
+<h4>消息发送成功：Termination of Message<a class="headerlink" href="#termination-of-message" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1311,7 +1318,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="meta-handling-of-meta-data">
-<h4>Meta数据的处理：Handling of Meta Data<a class="headerlink" href="#meta-handling-of-meta-data" title="Link to this heading">¶</a></h4>
+<h4>Meta数据的处理：Handling of Meta Data<a class="headerlink" href="#meta-handling-of-meta-data" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1341,7 +1348,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="communication-state-handling">
-<h4>通讯状态处理：Communication State Handling<a class="headerlink" href="#communication-state-handling" title="Link to this heading">¶</a></h4>
+<h4>通讯状态处理：Communication State Handling<a class="headerlink" href="#communication-state-handling" title="链接到此标题。">¶</a></h4>
 <p>一般来说，只有当J1939Nm将ECU设置为在线时，诊断才处于活动状态并可用。J1939Dcm提供了一个J1939Dcm_SetState接口函数， BSW模式管理器（BswM）使用该API通知J1939通信状态。</p>
 <p>In general, diagnostics are only active and available when J1939Nm sets the ECU to online. J1939Dcm provides a J1939Dcm_SetState interface function, which the BSW mode manager (BswM) uses to notify the J1939 communication status through this API.</p>
 <table class="docutils align-default">
@@ -1379,7 +1386,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="j1939dcmdem-interaction-between-the-j1939-dcm-module-and-the-dem-component">
-<h4>J1939Dcm模块与Dem组件的交互(Interaction between the J1939 Dcm module and the Dem component)<a class="headerlink" href="#j1939dcmdem-interaction-between-the-j1939-dcm-module-and-the-dem-component" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm模块与Dem组件的交互(Interaction between the J1939 Dcm module and the Dem component)<a class="headerlink" href="#j1939dcmdem-interaction-between-the-j1939-dcm-module-and-the-dem-component" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1409,9 +1416,9 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="dtcstatus">
-<h4>诊断故障码状态：DTCStatus<a class="headerlink" href="#dtcstatus" title="Link to this heading">¶</a></h4>
+<h4>诊断故障码状态：DTCStatus<a class="headerlink" href="#dtcstatus" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-left" id="id2">
-<caption><span class="caption-text">DTCStatus</span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DTCStatus</span><a class="headerlink" href="#id2" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Diagnostic message</p></th>
 <th class="head"><p>Description</p></th>
@@ -1530,7 +1537,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="freezeframe">
-<h4>冻结帧：FreezeFrame<a class="headerlink" href="#freezeframe" title="Link to this heading">¶</a></h4>
+<h4>冻结帧：FreezeFrame<a class="headerlink" href="#freezeframe" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1630,7 +1637,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="radio">
-<h4>Radio<a class="headerlink" href="#radio" title="Link to this heading">¶</a></h4>
+<h4>Radio<a class="headerlink" href="#radio" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1684,7 +1691,7 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="service-only-dtcs">
-<h4>Service Only DTCs<a class="headerlink" href="#service-only-dtcs" title="Link to this heading">¶</a></h4>
+<h4>Service Only DTCs<a class="headerlink" href="#service-only-dtcs" title="链接到此标题。">¶</a></h4>
 <p>J1939涉及“只服务的DTC”的概念。这些DTC被认为存储在DEM的任何用户定义的故障存储器中；所有其他DTC被认为存储在主故障内存中。</p>
 <p>J1939 involves the concept of 'service-only DTCs.' These DTCs are considered to be stored in any user-defined fault memory of the DEM; all other DTCs are considered to be stored in the primary fault memory.</p>
 <table class="docutils align-default">
@@ -1710,18 +1717,18 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="diagnostic-messages">
-<h4>诊断消息：Diagnostic Messages<a class="headerlink" href="#diagnostic-messages" title="Link to this heading">¶</a></h4>
+<h4>诊断消息：Diagnostic Messages<a class="headerlink" href="#diagnostic-messages" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id3">
 <img alt="J1939Dcm模块中的诊断消息处理流程流程图" src="../../_images/J1939DcmMessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的诊断消息处理流程流程图</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的诊断消息处理流程流程图</span><a class="headerlink" href="#id3" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="rqst-request-message-format-for-receiving-diagnostic-messages-rqst">
-<h4>诊断消息的接受请求报文格式：RQST(Request message format for receiving diagnostic messages: RQST)<a class="headerlink" href="#rqst-request-message-format-for-receiving-diagnostic-messages-rqst" title="Link to this heading">¶</a></h4>
+<h4>诊断消息的接受请求报文格式：RQST(Request message format for receiving diagnostic messages: RQST)<a class="headerlink" href="#rqst-request-message-format-for-receiving-diagnostic-messages-rqst" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-left" id="request">
-<caption><span class="caption-text">Request</span><a class="headerlink" href="#request" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">Request</span><a class="headerlink" href="#request" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Group Name:</p></th>
 <th class="head" colspan="2"><p>Request (RQST)</p></th>
@@ -1767,9 +1774,9 @@ DEM_DTC_ORIGIN_PERMANENT_MEMORY</p></td>
 </table>
 </section>
 <section id="ackm-diagnostic-message-sending-acknowledgment-message-format-ackm">
-<h4>诊断消息的发送确认报文格式：ACKM(Diagnostic message sending acknowledgment message format: ACKM)<a class="headerlink" href="#ackm-diagnostic-message-sending-acknowledgment-message-format-ackm" title="Link to this heading">¶</a></h4>
+<h4>诊断消息的发送确认报文格式：ACKM(Diagnostic message sending acknowledgment message format: ACKM)<a class="headerlink" href="#ackm-diagnostic-message-sending-acknowledgment-message-format-ackm" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-left" id="acknowledgment">
-<caption><span class="caption-text">Acknowledgment</span><a class="headerlink" href="#acknowledgment" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">Acknowledgment</span><a class="headerlink" href="#acknowledgment" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Group Name:</p></th>
 <th class="head" colspan="3"><p>Acknowledgment (ACKM)</p></th>
@@ -1843,9 +1850,9 @@ devices. See Table 5 and notes to Table 5 for further information about using th
 </table>
 </section>
 <section id="rqst2-format-of-request-message-for-receiving-diagnostic-messages-rqst2">
-<h4>诊断消息的接受请求报文格式：RQST2(Format of request message for receiving diagnostic messages: RQST2)<a class="headerlink" href="#rqst2-format-of-request-message-for-receiving-diagnostic-messages-rqst2" title="Link to this heading">¶</a></h4>
+<h4>诊断消息的接受请求报文格式：RQST2(Format of request message for receiving diagnostic messages: RQST2)<a class="headerlink" href="#rqst2-format-of-request-message-for-receiving-diagnostic-messages-rqst2" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-left" id="request2">
-<caption><span class="caption-text">Request2</span><a class="headerlink" href="#request2" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">Request2</span><a class="headerlink" href="#request2" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter Group Name:</p></th>
 <th class="head" colspan="3"><p>Request2 (RQST2)</p></th>
@@ -1917,7 +1924,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <p>备注：RQST2只支持J1939Rm转发到Com的通信请求，并不支持J1939Rm转发到J1939Dcm的诊断请求（RQST2 only supports the communication request of J1939Rm being forwarded to Com, but does not support the diagnostic request of J1939Rm being forwarded to J1939Dcm）。</p>
 </section>
 <section id="dtc-dm01-diagnostic-messages-are-used-for-periodic-broadcasting-and-reporting-the-currently-active-dtc-dm01">
-<h4>诊断消息用于定期广播和报告当前激活DTC：DM01(Diagnostic messages are used for periodic broadcasting and reporting the currently active DTC: DM01)<a class="headerlink" href="#dtc-dm01-diagnostic-messages-are-used-for-periodic-broadcasting-and-reporting-the-currently-active-dtc-dm01" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于定期广播和报告当前激活DTC：DM01(Diagnostic messages are used for periodic broadcasting and reporting the currently active DTC: DM01)<a class="headerlink" href="#dtc-dm01-diagnostic-messages-are-used-for-periodic-broadcasting-and-reporting-the-currently-active-dtc-dm01" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -1984,12 +1991,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm01">
 <img alt="J1939Dcm模块中的DM01诊断消息处理流程流程图" src="../../_images/DM01MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM01诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm01" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM01诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm01" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Active Diagnostic Trouble Codes:</p>
 <table class="docutils align-left" id="activediagnostictroublecodes">
-<caption><span class="caption-text">ActiveDiagnosticTroubleCodes</span><a class="headerlink" href="#activediagnostictroublecodes" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">ActiveDiagnosticTroubleCodes</span><a class="headerlink" href="#activediagnostictroublecodes" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="4"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2075,7 +2082,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="dtc-dm02-diagnostic-messages-are-used-to-report-historical-active-dtcs-dm02">
-<h4>诊断消息用于报告历史激活DTC：DM02(Diagnostic messages are used to report historical active DTCs: DM02)<a class="headerlink" href="#dtc-dm02-diagnostic-messages-are-used-to-report-historical-active-dtcs-dm02" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告历史激活DTC：DM02(Diagnostic messages are used to report historical active DTCs: DM02)<a class="headerlink" href="#dtc-dm02-diagnostic-messages-are-used-to-report-historical-active-dtcs-dm02" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -2124,12 +2131,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm02">
 <img alt="J1939Dcm模块中的DM02诊断消息处理流程流程图" src="../../_images/DM02MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM02诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm02" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM02诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm02" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Previously Active Diagnostic Trouble Codes:</p>
 <table class="docutils align-left" id="previouslyactivediagnostictroublecodes">
-<caption><span class="caption-text">PreviouslyActiveDiagnosticTroubleCodes</span><a class="headerlink" href="#previouslyactivediagnostictroublecodes" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">PreviouslyActiveDiagnosticTroubleCodes</span><a class="headerlink" href="#previouslyactivediagnostictroublecodes" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2211,7 +2218,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="dtc-dm03-diagnostic-messages-are-used-for-clearing-resetting-diagnostic-data-of-historically-activated-dtcs-dm03">
-<h4>诊断消息用于历史激活DTC的诊断数据清除/重置：DM03(Diagnostic messages are used for clearing/resetting diagnostic data of historically activated DTCs: DM03)<a class="headerlink" href="#dtc-dm03-diagnostic-messages-are-used-for-clearing-resetting-diagnostic-data-of-historically-activated-dtcs-dm03" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于历史激活DTC的诊断数据清除/重置：DM03(Diagnostic messages are used for clearing/resetting diagnostic data of historically activated DTCs: DM03)<a class="headerlink" href="#dtc-dm03-diagnostic-messages-are-used-for-clearing-resetting-diagnostic-data-of-historically-activated-dtcs-dm03" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -2272,12 +2279,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm03">
 <img alt="J1939Dcm模块中的DM03诊断消息处理流程流程图" src="../../_images/DM03MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM03诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm03" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM03诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm03" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Diagnostic Data Clear Reset into Previously Active DTCs:</p>
 <table class="docutils align-left" id="diagnosticdataclearresetforpreviouslyactivedtcs">
-<caption><span class="caption-text">DiagnosticDataClearResetforPreviouslyActiveDTCs</span><a class="headerlink" href="#diagnosticdataclearresetforpreviouslyactivedtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DiagnosticDataClearResetforPreviouslyActiveDTCs</span><a class="headerlink" href="#diagnosticdataclearresetforpreviouslyactivedtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2311,7 +2318,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="dm04-diagnostic-messages-are-used-to-report-stored-freeze-frame-parameters-dm04">
-<h4>诊断消息用于报告存储的冻结帧参数：DM04(Diagnostic messages are used to report stored freeze frame parameters: DM04)<a class="headerlink" href="#dm04-diagnostic-messages-are-used-to-report-stored-freeze-frame-parameters-dm04" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告存储的冻结帧参数：DM04(Diagnostic messages are used to report stored freeze frame parameters: DM04)<a class="headerlink" href="#dm04-diagnostic-messages-are-used-to-report-stored-freeze-frame-parameters-dm04" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号</p></th>
@@ -2360,12 +2367,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm04">
 <img alt="J1939Dcm模块中的DM04诊断消息处理流程流程图" src="../../_images/DM04MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM04诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm04" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM04诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm04" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for FreezeFrame Parameters:</p>
 <table class="docutils align-left" id="freezeframeparameters">
-<caption><span class="caption-text">FreezeFrameParameters</span><a class="headerlink" href="#freezeframeparameters" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">FreezeFrameParameters</span><a class="headerlink" href="#freezeframeparameters" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2450,7 +2457,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="dm05-diagnostic-messages-are-used-to-report-the-diagnostic-readiness-status-1-data-dm05">
-<h4>诊断消息用于报告诊断就绪情况1数据：DM05(Diagnostic messages are used to report the diagnostic readiness status 1 data: DM05)<a class="headerlink" href="#dm05-diagnostic-messages-are-used-to-report-the-diagnostic-readiness-status-1-data-dm05" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告诊断就绪情况1数据：DM05(Diagnostic messages are used to report the diagnostic readiness status 1 data: DM05)<a class="headerlink" href="#dm05-diagnostic-messages-are-used-to-report-the-diagnostic-readiness-status-1-data-dm05" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -2493,12 +2500,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm05">
 <img alt="J1939Dcm模块中的DM05诊断消息处理流程流程图" src="../../_images/DM05MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM05诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm05" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM05诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm05" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Diagnostic Readiness 1:</p>
 <table class="docutils align-left" id="diagnosticreadiness1">
-<caption><span class="caption-text">DiagnosticReadiness1</span><a class="headerlink" href="#diagnosticreadiness1" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DiagnosticReadiness1</span><a class="headerlink" href="#diagnosticreadiness1" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2552,7 +2559,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="obddtc-dm06-diagnostic-messages-are-used-to-report-pending-dtcs-related-to-obd-emissions-dm06">
-<h4>诊断消息用于报告与OBD排放相关的待挂DTC：DM06(Diagnostic messages are used to report pending DTCs related to OBD emissions: DM06)<a class="headerlink" href="#obddtc-dm06-diagnostic-messages-are-used-to-report-pending-dtcs-related-to-obd-emissions-dm06" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告与OBD排放相关的待挂DTC：DM06(Diagnostic messages are used to report pending DTCs related to OBD emissions: DM06)<a class="headerlink" href="#obddtc-dm06-diagnostic-messages-are-used-to-report-pending-dtcs-related-to-obd-emissions-dm06" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -2601,12 +2608,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm06">
 <img alt="J1939Dcm模块中的DM06诊断消息处理流程流程图" src="../../_images/DM06MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM06诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm06" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM06诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm06" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Emission Related Pending DTCs:</p>
 <table class="docutils align-left" id="emissionrelatedpendingdtcs">
-<caption><span class="caption-text">EmissionRelatedPendingDTCs</span><a class="headerlink" href="#emissionrelatedpendingdtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">EmissionRelatedPendingDTCs</span><a class="headerlink" href="#emissionrelatedpendingdtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2688,7 +2695,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="dtc-dm11-diagnostic-messages-are-used-for-clearing-resetting-diagnostic-data-of-currently-active-dtcs-dm11">
-<h4>诊断消息用于当前激活DTC的诊断数据清除/重置：DM11(Diagnostic messages are used for clearing/resetting diagnostic data of currently active DTCs: DM11)<a class="headerlink" href="#dtc-dm11-diagnostic-messages-are-used-for-clearing-resetting-diagnostic-data-of-currently-active-dtcs-dm11" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于当前激活DTC的诊断数据清除/重置：DM11(Diagnostic messages are used for clearing/resetting diagnostic data of currently active DTCs: DM11)<a class="headerlink" href="#dtc-dm11-diagnostic-messages-are-used-for-clearing-resetting-diagnostic-data-of-currently-active-dtcs-dm11" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -2743,12 +2750,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm11">
 <img alt="J1939Dcm模块中的DM11诊断消息处理流程流程图" src="../../_images/DM11MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM11诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm11" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM11诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm11" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The message format that describe the diagnostic data Clear - reset of the active DTC:</p>
 <table class="docutils align-left" id="diagnosticdataclearresetforactivedtcs">
-<caption><span class="caption-text">DiagnosticDataClearResetforActiveDTCs</span><a class="headerlink" href="#diagnosticdataclearresetforactivedtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DiagnosticDataClearResetforActiveDTCs</span><a class="headerlink" href="#diagnosticdataclearresetforactivedtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2782,7 +2789,7 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="obddtc-dm12-diagnostic-messages-are-used-to-report-currently-active-dtcs-related-to-obd-emissions-dm12">
-<h4>诊断消息用于报告与OBD排放相关的当前激活DTC：DM12(Diagnostic messages are used to report currently active DTCs related to OBD emissions: DM12)<a class="headerlink" href="#obddtc-dm12-diagnostic-messages-are-used-to-report-currently-active-dtcs-related-to-obd-emissions-dm12" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告与OBD排放相关的当前激活DTC：DM12(Diagnostic messages are used to report currently active DTCs related to OBD emissions: DM12)<a class="headerlink" href="#obddtc-dm12-diagnostic-messages-are-used-to-report-currently-active-dtcs-related-to-obd-emissions-dm12" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -2831,12 +2838,12 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm12">
 <img alt="J1939Dcm模块中的DM12诊断消息处理流程流程图" src="../../_images/DM12MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM12诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm12" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM12诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm12" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Active DTC related to emissions:</p>
 <table class="docutils align-left" id="emissionsrelatedactivedtcs">
-<caption><span class="caption-text">EmissionsRelatedActiveDTCs</span><a class="headerlink" href="#emissionsrelatedactivedtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">EmissionsRelatedActiveDTCs</span><a class="headerlink" href="#emissionsrelatedactivedtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -2918,9 +2925,9 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 </table>
 </section>
 <section id="dm13-diagnostic-message-for-stop-start-broadcast-dm13">
-<h4>诊断消息用于停止-启动广播：DM13(Diagnostic message for stop-start broadcast: DM13)<a class="headerlink" href="#dm13-diagnostic-message-for-stop-start-broadcast-dm13" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于停止-启动广播：DM13(Diagnostic message for stop-start broadcast: DM13)<a class="headerlink" href="#dm13-diagnostic-message-for-stop-start-broadcast-dm13" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-left" id="supportablenetwork">
-<caption><span class="caption-text">The following networks are available</span><a class="headerlink" href="#supportablenetwork" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">The following networks are available</span><a class="headerlink" href="#supportablenetwork" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Network type</p></th>
 <th class="head"><p>Detailed description</p></th>
@@ -3040,13 +3047,13 @@ When a device supports Request2, a NACK is required if the PGN requested from a 
 <figure class="align-center" id="j1939dcmdm13">
 <img alt="J1939Dcm模块中的DM13诊断消息处理流程流程图" src="../../_images/DM13MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM13诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm13" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM13诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm13" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>描述停止与启动广播的消息格式：</p>
 <p>Description of the message format for stopping and starting broadcasts:</p>
 <table class="docutils align-left" id="stopstartbroadcast">
-<caption><span class="caption-text">StopStartBroadcast</span><a class="headerlink" href="#stopstartbroadcast" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">StopStartBroadcast</span><a class="headerlink" href="#stopstartbroadcast" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="3"><p>Transmission Rate</p></th>
 <th class="head" colspan="3"><p>Sent whenever a Stop or Start broadcast event is necessary.
@@ -3234,7 +3241,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <p>用于描述挂起维持时间的2个字节段域解析：</p>
 <p>Parsing of the 2-byte segment field used to describe the pending maintenance time:</p>
 <table class="docutils align-left" id="suspendduration">
-<caption><span class="caption-text">SuspendDuration</span><a class="headerlink" href="#suspendduration" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">SuspendDuration</span><a class="headerlink" href="#suspendduration" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Suspend Duration</p></th>
 <th class="head"><p>Detailed description</p></th>
@@ -3257,7 +3264,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm19-diagnostic-message-is-used-to-report-calibration-verification-number-dm19">
-<h4>诊断消息用于报告校准验证号：DM19(Diagnostic message is used to report calibration verification number: DM19)<a class="headerlink" href="#dm19-diagnostic-message-is-used-to-report-calibration-verification-number-dm19" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告校准验证号：DM19(Diagnostic message is used to report calibration verification number: DM19)<a class="headerlink" href="#dm19-diagnostic-message-is-used-to-report-calibration-verification-number-dm19" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3318,12 +3325,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm19">
 <img alt="J1939Dcm模块中的DM19诊断消息处理流程流程图" src="../../_images/DM19MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM19诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm19" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM19诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm19" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for calibration information:</p>
 <table class="docutils align-left" id="calibrationinformation">
-<caption><span class="caption-text">CalibrationInformation</span><a class="headerlink" href="#calibrationinformation" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">CalibrationInformation</span><a class="headerlink" href="#calibrationinformation" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -3366,7 +3373,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm20-diagnostic-messages-are-used-to-report-the-performance-ratio-of-the-monitor-in-use-dm20">
-<h4>诊断消息用于报告使用的监视器性能比率：DM20(Diagnostic messages are used to report the performance ratio of the monitor in use: DM20)<a class="headerlink" href="#dm20-diagnostic-messages-are-used-to-report-the-performance-ratio-of-the-monitor-in-use-dm20" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告使用的监视器性能比率：DM20(Diagnostic messages are used to report the performance ratio of the monitor in use: DM20)<a class="headerlink" href="#dm20-diagnostic-messages-are-used-to-report-the-performance-ratio-of-the-monitor-in-use-dm20" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3409,12 +3416,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm20">
 <img alt="J1939Dcm模块中的DM20诊断消息处理流程流程图" src="../../_images/DM20MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM20诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm20" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM20诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm20" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Monitor Performance Ratio:</p>
 <table class="docutils align-left" id="monitorperformanceratio">
-<caption><span class="caption-text">MonitorPerformanceRatio</span><a class="headerlink" href="#monitorperformanceratio" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">MonitorPerformanceRatio</span><a class="headerlink" href="#monitorperformanceratio" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -3463,7 +3470,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm21-diagnostic-messages-are-used-to-report-the-data-of-diagnostic-readiness-2-dm21">
-<h4>诊断消息用于报告诊断就绪情况2的数据：DM21(Diagnostic messages are used to report the data of diagnostic readiness 2: DM21)<a class="headerlink" href="#dm21-diagnostic-messages-are-used-to-report-the-data-of-diagnostic-readiness-2-dm21" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告诊断就绪情况2的数据：DM21(Diagnostic messages are used to report the data of diagnostic readiness 2: DM21)<a class="headerlink" href="#dm21-diagnostic-messages-are-used-to-report-the-data-of-diagnostic-readiness-2-dm21" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3506,12 +3513,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm21">
 <img alt="J1939Dcm模块中的DM21诊断消息处理流程流程图" src="../../_images/DM21MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM21诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm21" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM21诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm21" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Diagnostic Readiness 2:</p>
 <table class="docutils align-left" id="diagnosticreadiness2">
-<caption><span class="caption-text">DiagnosticReadiness2</span><a class="headerlink" href="#diagnosticreadiness2" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DiagnosticReadiness2</span><a class="headerlink" href="#diagnosticreadiness2" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -3561,7 +3568,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="obddtc-dm23-diagnostic-messages-are-used-to-report-dtcs-related-to-historical-activations-in-obd-dm23">
-<h4>诊断消息用于报告与OBD相关的历史激活的DTC：DM23(Diagnostic messages are used to report DTCs related to historical activations in OBD: DM23)<a class="headerlink" href="#obddtc-dm23-diagnostic-messages-are-used-to-report-dtcs-related-to-historical-activations-in-obd-dm23" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告与OBD相关的历史激活的DTC：DM23(Diagnostic messages are used to report DTCs related to historical activations in OBD: DM23)<a class="headerlink" href="#obddtc-dm23-diagnostic-messages-are-used-to-report-dtcs-related-to-historical-activations-in-obd-dm23" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3610,12 +3617,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm23">
 <img alt="J1939Dcm模块中的DM23诊断消息处理流程流程图" src="../../_images/DM23MessageProcessingFlow1.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM23诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm23" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM23诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm23" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Previously Active Emission Related Faults:</p>
 <table class="docutils align-left" id="previouslyactiveemissionrelatedfaults">
-<caption><span class="caption-text">PreviouslyActiveEmissionRelatedFaults</span><a class="headerlink" href="#previouslyactiveemissionrelatedfaults" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">PreviouslyActiveEmissionRelatedFaults</span><a class="headerlink" href="#previouslyactiveemissionrelatedfaults" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -3697,7 +3704,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm25datastreamspn-dm24-diagnostic-messages-are-used-to-report-spns-supported-by-dm25-and-datastream-dm24">
-<h4>诊断消息用于报告支持DM25和DataStream的SPN：DM24(Diagnostic messages are used to report SPNs supported by DM25 and DataStream: DM24)<a class="headerlink" href="#dm25datastreamspn-dm24-diagnostic-messages-are-used-to-report-spns-supported-by-dm25-and-datastream-dm24" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告支持DM25和DataStream的SPN：DM24(Diagnostic messages are used to report SPNs supported by DM25 and DataStream: DM24)<a class="headerlink" href="#dm25datastreamspn-dm24-diagnostic-messages-are-used-to-report-spns-supported-by-dm25-and-datastream-dm24" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3746,12 +3753,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm24">
 <img alt="J1939Dcm模块中的DM24诊断消息处理流程流程图" src="../../_images/DM24MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM24诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm24" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM24诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm24" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for SPN Support:</p>
 <table class="docutils align-left" id="supportedofspn">
-<caption><span class="caption-text">SupportedOfSPN</span><a class="headerlink" href="#supportedofspn" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">SupportedOfSPN</span><a class="headerlink" href="#supportedofspn" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="3"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -3818,7 +3825,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm25">
-<h4>诊断消息用于报告扩展冻结帧的数据：DM25<a class="headerlink" href="#dm25" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告扩展冻结帧的数据：DM25<a class="headerlink" href="#dm25" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3861,12 +3868,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm25">
 <img alt="../../_images/DM25MessageProcessingFlow.PNG" src="../../_images/DM25MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM25诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm25" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM25诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm25" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Expanded FreezeFrame:</p>
 <table class="docutils align-left" id="expandedfreezeframe">
-<caption><span class="caption-text">ExpandedFreezeFrame</span><a class="headerlink" href="#expandedfreezeframe" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">ExpandedFreezeFrame</span><a class="headerlink" href="#expandedfreezeframe" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="3"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -3932,7 +3939,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm26-diagnostic-messages-are-used-to-report-the-data-of-diagnostic-readiness-3-dm26">
-<h4>诊断消息用于报告诊断就绪情况3的数据：DM26(Diagnostic messages are used to report the data of diagnostic readiness 3: DM26)<a class="headerlink" href="#dm26-diagnostic-messages-are-used-to-report-the-data-of-diagnostic-readiness-3-dm26" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告诊断就绪情况3的数据：DM26(Diagnostic messages are used to report the data of diagnostic readiness 3: DM26)<a class="headerlink" href="#dm26-diagnostic-messages-are-used-to-report-the-data-of-diagnostic-readiness-3-dm26" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -3975,12 +3982,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm26">
 <img alt="../../_images/DM26MessageProcessingFlow.PNG" src="../../_images/DM26MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM26诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm26" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM26诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm26" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Diagnostic Readiness 3:</p>
 <table class="docutils align-left" id="diagnosticreadiness3">
-<caption><span class="caption-text">DiagnosticReadiness3</span><a class="headerlink" href="#diagnosticreadiness3" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DiagnosticReadiness3</span><a class="headerlink" href="#diagnosticreadiness3" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4034,7 +4041,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="obddtc-dm28-diagnostic-messages-are-used-to-report-permanent-dtcs-related-to-obd-and-emissions-dm28">
-<h4>诊断消息用于报告OBD与排放相关的永久性DTC：DM28(Diagnostic messages are used to report permanent DTCs related to OBD and emissions: DM28)<a class="headerlink" href="#obddtc-dm28-diagnostic-messages-are-used-to-report-permanent-dtcs-related-to-obd-and-emissions-dm28" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告OBD与排放相关的永久性DTC：DM28(Diagnostic messages are used to report permanent DTCs related to OBD and emissions: DM28)<a class="headerlink" href="#obddtc-dm28-diagnostic-messages-are-used-to-report-permanent-dtcs-related-to-obd-and-emissions-dm28" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4089,12 +4096,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm28">
 <img alt="../../_images/DM28MessageProcessingFlow.PNG" src="../../_images/DM28MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM28诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm28" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM28诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm28" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Permanent DTCs:</p>
 <table class="docutils align-left" id="permanentdtcs">
-<caption><span class="caption-text">PermanentDTCs</span><a class="headerlink" href="#permanentdtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">PermanentDTCs</span><a class="headerlink" href="#permanentdtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4176,7 +4183,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dtc-dm29">
-<h4>诊断消息用于报告每个类别中的DTC计数：DM29<a class="headerlink" href="#dtc-dm29" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告每个类别中的DTC计数：DM29<a class="headerlink" href="#dtc-dm29" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4225,12 +4232,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm29">
 <img alt="J1939Dcm模块中的DM29诊断消息处理流程流程图" src="../../_images/DM29MessageProcessingFlow1.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM29诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm29" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM29诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm29" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Regulated DTC Counts:</p>
 <table class="docutils align-left" id="regulateddtccounts">
-<caption><span class="caption-text">RegulatedDTCCounts</span><a class="headerlink" href="#regulateddtccounts" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">RegulatedDTCCounts</span><a class="headerlink" href="#regulateddtccounts" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4282,7 +4289,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dtc-dm31-diagnostic-messages-are-used-to-report-dtcs-to-the-lighting-protocol-dm31">
-<h4>诊断消息用于向灯协议报告DTC：DM31(Diagnostic messages are used to report DTCs to the lighting protocol: DM31)<a class="headerlink" href="#dtc-dm31-diagnostic-messages-are-used-to-report-dtcs-to-the-lighting-protocol-dm31" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于向灯协议报告DTC：DM31(Diagnostic messages are used to report DTCs to the lighting protocol: DM31)<a class="headerlink" href="#dtc-dm31-diagnostic-messages-are-used-to-report-dtcs-to-the-lighting-protocol-dm31" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4325,12 +4332,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm31">
 <img alt="J1939Dcm模块中的DM31诊断消息处理流程流程图" src="../../_images/DM31MessageProcessingFlow1.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM31诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm31" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM31诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm31" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for DTC To Lamp Association:</p>
 <table class="docutils align-left" id="dtctolampassociation">
-<caption><span class="caption-text">DTCToLampAssociation</span><a class="headerlink" href="#dtctolampassociation" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DTCToLampAssociation</span><a class="headerlink" href="#dtctolampassociation" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4412,7 +4419,7 @@ must send the Hold Signal once every 5 seconds.</p></th>
 </table>
 </section>
 <section id="dm35-diagnostic-messages-are-used-to-report-immediate-fault-status-dm35">
-<h4>诊断消息用于报告立即故障状态：DM35(Diagnostic messages are used to report immediate fault status: DM35)<a class="headerlink" href="#dm35-diagnostic-messages-are-used-to-report-immediate-fault-status-dm35" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告立即故障状态：DM35(Diagnostic messages are used to report immediate fault status: DM35)<a class="headerlink" href="#dm35-diagnostic-messages-are-used-to-report-immediate-fault-status-dm35" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4479,12 +4486,12 @@ must send the Hold Signal once every 5 seconds.</p></th>
 <figure class="align-center" id="j1939dcmdm35">
 <img alt="../../_images/DM35MessageProcessingFlow.png" src="../../_images/DM35MessageProcessingFlow.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM35诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm35" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM35诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm35" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Immediate Fault Status:</p>
 <table class="docutils align-left" id="immediatefaultstatus">
-<caption><span class="caption-text">ImmediateFaultStatus</span><a class="headerlink" href="#immediatefaultstatus" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">ImmediateFaultStatus</span><a class="headerlink" href="#immediatefaultstatus" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="9"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4605,7 +4612,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="active-service-only-dtc-dm53-diagnostic-message-used-to-report-active-service-only-dtc-dm53">
-<h4>诊断消息用于报告Active Service Only DTC：DM53(Diagnostic message used to report Active Service Only DTC: DM53)<a class="headerlink" href="#active-service-only-dtc-dm53-diagnostic-message-used-to-report-active-service-only-dtc-dm53" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告Active Service Only DTC：DM53(Diagnostic message used to report Active Service Only DTC: DM53)<a class="headerlink" href="#active-service-only-dtc-dm53-diagnostic-message-used-to-report-active-service-only-dtc-dm53" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4666,12 +4673,12 @@ tool may optionally request the message every few seconds as required.</p></li>
 <figure class="align-center" id="j1939dcmdm53">
 <img alt="../../_images/DM53MessageProcessingFlow.PNG" src="../../_images/DM53MessageProcessingFlow.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM53诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm53" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM53诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm53" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Active Service Only DTCs:</p>
 <table class="docutils align-left" id="activeserviceonlydtcs">
-<caption><span class="caption-text">ActiveServiceOnlyDTCs</span><a class="headerlink" href="#activeserviceonlydtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">ActiveServiceOnlyDTCs</span><a class="headerlink" href="#activeserviceonlydtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4753,7 +4760,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="previously-active-service-only-dtc-dm54">
-<h4>诊断消息用于报告Previously Active Service Only DTC：DM54<a class="headerlink" href="#previously-active-service-only-dtc-dm54" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于报告Previously Active Service Only DTC：DM54<a class="headerlink" href="#previously-active-service-only-dtc-dm54" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4814,12 +4821,12 @@ tool may optionally request the message every few seconds as required.</p></li>
 <figure class="align-center" id="j1939dcmdm54">
 <img alt="../../_images/DM54MessageProcessingFlow.png" src="../../_images/DM54MessageProcessingFlow.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM54诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm54" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM54诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm54" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Previously Active Service Only DTCs:</p>
 <table class="docutils align-left" id="previouslyactiveserviceonlydtcs">
-<caption><span class="caption-text">PreviouslyActiveServiceOnlyDTCs</span><a class="headerlink" href="#previouslyactiveserviceonlydtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">PreviouslyActiveServiceOnlyDTCs</span><a class="headerlink" href="#previouslyactiveserviceonlydtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head" colspan="2"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -4901,7 +4908,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="service-only-dtc-dm55-the-diagnostic-message-is-used-to-clear-or-reset-diagnostic-data-for-all-service-only-dtcs-dm55">
-<h4>诊断消息用于为所有Service Only DTC的诊断数据清除或重置：DM55(The diagnostic message is used to clear or reset diagnostic data for all Service Only DTCs: DM55)<a class="headerlink" href="#service-only-dtc-dm55-the-diagnostic-message-is-used-to-clear-or-reset-diagnostic-data-for-all-service-only-dtcs-dm55" title="Link to this heading">¶</a></h4>
+<h4>诊断消息用于为所有Service Only DTC的诊断数据清除或重置：DM55(The diagnostic message is used to clear or reset diagnostic data for all Service Only DTCs: DM55)<a class="headerlink" href="#service-only-dtc-dm55-the-diagnostic-message-is-used-to-clear-or-reset-diagnostic-data-for-all-service-only-dtcs-dm55" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>序号(Serial Number)</p></th>
@@ -4962,12 +4969,12 @@ tool may optionally request the message every few seconds as required.</p></li>
 <figure class="align-center" id="j1939dcmdm55">
 <img alt="J1939Dcm模块中的DM55诊断消息处理流程流程图" src="../../_images/DM55MessageProcessingFlow1.png" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的DM55诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm55" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的DM55诊断消息处理流程流程图</span><a class="headerlink" href="#j1939dcmdm55" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>The Describes that the message format for Diagnostic Data Clear Reset by all Service Only DTCs:</p>
 <table class="docutils align-left" id="diagnosticdataclearresetforallserviceonlydtcs">
-<caption><span class="caption-text">DiagnosticDataClearResetforallServiceOnlyDTCs</span><a class="headerlink" href="#diagnosticdataclearresetforallserviceonlydtcs" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">DiagnosticDataClearResetforallServiceOnlyDTCs</span><a class="headerlink" href="#diagnosticdataclearresetforallserviceonlydtcs" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Transmission Rate</p></th>
 <th class="head"><p>On request using PGN 59904(0xEA00)</p></th>
@@ -5002,7 +5009,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </section>
 </section>
 <section id="deviations">
-<h3>偏差(Deviations)<a class="headerlink" href="#deviations" title="Link to this heading">¶</a></h3>
+<h3>偏差(Deviations)<a class="headerlink" href="#deviations" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>需求类型(Type of demand)</p></th>
@@ -5119,22 +5126,22 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="extension">
-<h3>扩展(Extension)<a class="headerlink" href="#extension" title="Link to this heading">¶</a></h3>
+<h3>扩展(Extension)<a class="headerlink" href="#extension" title="链接到此标题。">¶</a></h3>
 <p>None</p>
 </section>
 </section>
 <section id="integration">
-<h2>集成(Integration)<a class="headerlink" href="#integration" title="Link to this heading">¶</a></h2>
+<h2>集成(Integration)<a class="headerlink" href="#integration" title="链接到此标题。">¶</a></h2>
 <section id="file-list">
-<h3>文件列表(File List)<a class="headerlink" href="#file-list" title="Link to this heading">¶</a></h3>
+<h3>文件列表(File List)<a class="headerlink" href="#file-list" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id4">
 <img alt="../../_images/J1939DcmFileListMap.PNG" src="../../_images/J1939DcmFileListMap.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的文件列表映射拓扑图</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的文件列表映射拓扑图</span><a class="headerlink" href="#id4" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <section id="static-files">
-<h4>静态文件(Static files)<a class="headerlink" href="#static-files" title="Link to this heading">¶</a></h4>
+<h4>静态文件(Static files)<a class="headerlink" href="#static-files" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>文件(Document)</p></th>
@@ -5239,7 +5246,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dynamic-file">
-<h4>动态文件(Dynamic file)<a class="headerlink" href="#dynamic-file" title="Link to this heading">¶</a></h4>
+<h4>动态文件(Dynamic file)<a class="headerlink" href="#dynamic-file" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>文件(Document)</p></th>
@@ -5264,9 +5271,9 @@ tool may optionally request the message every few seconds as required.</p></li>
 </section>
 </section>
 <section id="id5">
-<h3>错误处理(Error Handling)<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<h3>错误处理(Error Handling)<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h3>
 <section id="development-error">
-<h4>开发错误(Development Error)<a class="headerlink" href="#development-error" title="Link to this heading">¶</a></h4>
+<h4>开发错误(Development Error)<a class="headerlink" href="#development-error" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>Error code</p></th>
@@ -5315,7 +5322,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="runtime-error">
-<h4>运行时错误(Runtime error)<a class="headerlink" href="#runtime-error" title="Link to this heading">¶</a></h4>
+<h4>运行时错误(Runtime error)<a class="headerlink" href="#runtime-error" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>Error code</p></th>
@@ -5332,17 +5339,17 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="product-error">
-<h4>产品错误(Product error)<a class="headerlink" href="#product-error" title="Link to this heading">¶</a></h4>
+<h4>产品错误(Product error)<a class="headerlink" href="#product-error" title="链接到此标题。">¶</a></h4>
 <p>None</p>
 </section>
 </section>
 </section>
 <section id="api-api-interface-description">
-<h2>API接口描述(API Interface Description)<a class="headerlink" href="#api-api-interface-description" title="Link to this heading">¶</a></h2>
+<h2>API接口描述(API Interface Description)<a class="headerlink" href="#api-api-interface-description" title="链接到此标题。">¶</a></h2>
 <section id="data-type-definition">
-<h3>数据类型定义 (Data Type definition)<a class="headerlink" href="#data-type-definition" title="Link to this heading">¶</a></h3>
+<h3>数据类型定义 (Data Type definition)<a class="headerlink" href="#data-type-definition" title="链接到此标题。">¶</a></h3>
 <section id="std-versioninfotype-std-versioninfotype-type-definition">
-<h4>Std_VersionInfoType类型定义 (Std_VersionInfoType type definition)<a class="headerlink" href="#std-versioninfotype-std-versioninfotype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Std_VersionInfoType类型定义 (Std_VersionInfoType type definition)<a class="headerlink" href="#std-versioninfotype-std-versioninfotype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5394,7 +5401,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="std-returntype-std-returntype-type-definition">
-<h4>Std_ReturnType类型定义 (Std_ReturnType Type Definition)<a class="headerlink" href="#std-returntype-std-returntype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Std_ReturnType类型定义 (Std_ReturnType Type Definition)<a class="headerlink" href="#std-returntype-std-returntype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5422,7 +5429,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="bufreq-returntype-bufreq-returntype-type-definition">
-<h4>BufReq_ReturnType类型定义 (BufReq_ReturnType Type Definition)<a class="headerlink" href="#bufreq-returntype-bufreq-returntype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>BufReq_ReturnType类型定义 (BufReq_ReturnType Type Definition)<a class="headerlink" href="#bufreq-returntype-bufreq-returntype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5456,7 +5463,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="networkhandletype-networkhandletype-type-definition">
-<h4>NetworkHandleType类型定义 (NetworkHandleType Type Definition)<a class="headerlink" href="#networkhandletype-networkhandletype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>NetworkHandleType类型定义 (NetworkHandleType Type Definition)<a class="headerlink" href="#networkhandletype-networkhandletype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5484,7 +5491,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="pduidtype-pduidtype-type-definition">
-<h4>PduIdType类型定义 (PduIdType Type Definition)<a class="headerlink" href="#pduidtype-pduidtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>PduIdType类型定义 (PduIdType Type Definition)<a class="headerlink" href="#pduidtype-pduidtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5512,7 +5519,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="pdulengthtype-pdulengthtype-type-definition">
-<h4>PduLengthType类型定义 (PduLengthType Type Definition)<a class="headerlink" href="#pdulengthtype-pdulengthtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>PduLengthType类型定义 (PduLengthType Type Definition)<a class="headerlink" href="#pdulengthtype-pdulengthtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5540,7 +5547,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="pduinfotype-pduinfotype-type-definition">
-<h4>PduInfoType类型定义 (PduInfoType Type Definition)<a class="headerlink" href="#pduinfotype-pduinfotype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>PduInfoType类型定义 (PduInfoType Type Definition)<a class="headerlink" href="#pduinfotype-pduinfotype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5583,7 +5590,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="tpdatastatetype-tpdatastatetype-type-definition">
-<h4>TpDataStateType类型定义 (TpDataStateType Type Definition)<a class="headerlink" href="#tpdatastatetype-tpdatastatetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>TpDataStateType类型定义 (TpDataStateType Type Definition)<a class="headerlink" href="#tpdatastatetype-tpdatastatetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5614,7 +5621,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="tpparametertype-tpparametertype-type-definition">
-<h4>TPParameterType类型定义 (TPParameterType Type Definition)<a class="headerlink" href="#tpparametertype-tpparametertype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>TPParameterType类型定义 (TPParameterType Type Definition)<a class="headerlink" href="#tpparametertype-tpparametertype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5645,7 +5652,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939rm-ackcode-j1939rm-ackcode-type-definition">
-<h4>J1939Rm_AckCode类型定义 (J1939Rm_AckCode Type Definition)<a class="headerlink" href="#j1939rm-ackcode-j1939rm-ackcode-type-definition" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_AckCode类型定义 (J1939Rm_AckCode Type Definition)<a class="headerlink" href="#j1939rm-ackcode-j1939rm-ackcode-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5673,7 +5680,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939rm-extidtype-j1939rm-extidtype-type-definition">
-<h4>J1939Rm_ExtIdType类型定义 (J1939Rm_ExtIdType Type Definition)<a class="headerlink" href="#j1939rm-extidtype-j1939rm-extidtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_ExtIdType类型定义 (J1939Rm_ExtIdType Type Definition)<a class="headerlink" href="#j1939rm-extidtype-j1939rm-extidtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5701,7 +5708,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939rm-extidinfotype-j1939rm-extidinfotype-type-definition">
-<h4>J1939Rm_ExtIdInfoType类型定义 (J1939Rm_ExtIdInfoType Type Definition)<a class="headerlink" href="#j1939rm-extidinfotype-j1939rm-extidinfotype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_ExtIdInfoType类型定义 (J1939Rm_ExtIdInfoType Type Definition)<a class="headerlink" href="#j1939rm-extidinfotype-j1939rm-extidinfotype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5747,7 +5754,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmdtcstatusfiltertype-dem-j1939dcmdtcstatusfiltertype-type-definition">
-<h4>Dem_J1939DcmDTCStatusFilterType类型定义 (Dem_J1939DcmDTCStatusFilterType Type Definition)<a class="headerlink" href="#dem-j1939dcmdtcstatusfiltertype-dem-j1939dcmdtcstatusfiltertype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmDTCStatusFilterType类型定义 (Dem_J1939DcmDTCStatusFilterType Type Definition)<a class="headerlink" href="#dem-j1939dcmdtcstatusfiltertype-dem-j1939dcmdtcstatusfiltertype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5775,7 +5782,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness1type-type-definition">
-<h4>Dem_J1939DcmDiagnosticReadiness1Type类型定义 ( Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness1type-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmDiagnosticReadiness1Type类型定义 ( Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness1type-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5803,7 +5810,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness1type-dem-j1939dcmdiagnosticreadiness1type-type-definition">
-<h4>Dem_J1939DcmDiagnosticReadiness1Type类型定义 (Dem_J1939DcmDiagnosticReadiness1Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness1type-dem-j1939dcmdiagnosticreadiness1type-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmDiagnosticReadiness1Type类型定义 (Dem_J1939DcmDiagnosticReadiness1Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness1type-dem-j1939dcmdiagnosticreadiness1type-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5861,7 +5868,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness2type-dem-j1939dcmdiagnosticreadiness2type-type-definition">
-<h4>Dem_J1939DcmDiagnosticReadiness2Type类型定义 (Dem_J1939DcmDiagnosticReadiness2Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness2type-dem-j1939dcmdiagnosticreadiness2type-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmDiagnosticReadiness2Type类型定义 (Dem_J1939DcmDiagnosticReadiness2Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness2type-dem-j1939dcmdiagnosticreadiness2type-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5907,7 +5914,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness3type-dem-j1939dcmdiagnosticreadiness3type-type-definition">
-<h4>Dem_J1939DcmDiagnosticReadiness3Type类型定义 (Dem_J1939DcmDiagnosticReadiness3Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness3type-dem-j1939dcmdiagnosticreadiness3type-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmDiagnosticReadiness3Type类型定义 (Dem_J1939DcmDiagnosticReadiness3Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness3type-dem-j1939dcmdiagnosticreadiness3type-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5962,7 +5969,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmlampstatustype-dem-j1939dcmlampstatustype-type-definition">
-<h4>Dem_J1939DcmLampStatusType类型定义 (Dem_J1939DcmLampStatusType Type Definition)<a class="headerlink" href="#dem-j1939dcmlampstatustype-dem-j1939dcmlampstatustype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmLampStatusType类型定义 (Dem_J1939DcmLampStatusType Type Definition)<a class="headerlink" href="#dem-j1939dcmlampstatustype-dem-j1939dcmlampstatustype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6002,7 +6009,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmsetclearfiltertype-dem-j1939dcmsetclearfiltertype-type-definition">
-<h4>Dem_J1939DcmSetClearFilterType类型定义 (Dem_J1939DcmSetClearFilterType Type Definition)<a class="headerlink" href="#dem-j1939dcmsetclearfiltertype-dem-j1939dcmsetclearfiltertype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmSetClearFilterType类型定义 (Dem_J1939DcmSetClearFilterType Type Definition)<a class="headerlink" href="#dem-j1939dcmsetclearfiltertype-dem-j1939dcmsetclearfiltertype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6030,7 +6037,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-j1939dcmsetfreezeframefiltertype-dem-j1939dcmsetfreezeframefiltertype-type-definition">
-<h4>Dem_J1939DcmSetFreezeFrameFilterType类型定义 (Dem_J1939DcmSetFreezeFrameFilterType Type Definition)<a class="headerlink" href="#dem-j1939dcmsetfreezeframefiltertype-dem-j1939dcmsetfreezeframefiltertype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_J1939DcmSetFreezeFrameFilterType类型定义 (Dem_J1939DcmSetFreezeFrameFilterType Type Definition)<a class="headerlink" href="#dem-j1939dcmsetfreezeframefiltertype-dem-j1939dcmsetfreezeframefiltertype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6058,7 +6065,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-dtckindtype-dem-dtckindtype-type-definition">
-<h4>Dem_DTCKindType类型定义 (Dem_DTCKindType Type Definition)<a class="headerlink" href="#dem-dtckindtype-dem-dtckindtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_DTCKindType类型定义 (Dem_DTCKindType Type Definition)<a class="headerlink" href="#dem-dtckindtype-dem-dtckindtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6086,7 +6093,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="dem-dtcorigintype-dem-dtcorigintype-type-definition">
-<h4>Dem_DTCOriginType类型定义 (Dem_DTCOriginType Type Definition)<a class="headerlink" href="#dem-dtcorigintype-dem-dtcorigintype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Dem_DTCOriginType类型定义 (Dem_DTCOriginType Type Definition)<a class="headerlink" href="#dem-dtcorigintype-dem-dtcorigintype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6115,7 +6122,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6194,9 +6201,9 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <section id="j1939dcm-init">
-<h4>J1939Dcm_Init<a class="headerlink" href="#j1939dcm-init" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_Init<a class="headerlink" href="#j1939dcm-init" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_Init</span><span class="p">(</span><span class="n">const</span> <span class="n">J1939Dcm_ConfigType</span> <span class="o">*</span><span class="n">configPtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6233,7 +6240,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-deinit">
-<h4>J1939Dcm_DeInit<a class="headerlink" href="#j1939dcm-deinit" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_DeInit<a class="headerlink" href="#j1939dcm-deinit" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_DeInit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6248,7 +6255,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-getversioninfo">
-<h4>J1939Dcm_GetVersionInfo<a class="headerlink" href="#j1939dcm-getversioninfo" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_GetVersionInfo<a class="headerlink" href="#j1939dcm-getversioninfo" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_GetVersionInfo</span><span class="p">(</span><span class="n">Std_VersionInfoType</span> <span class="o">*</span><span class="n">versionInfo</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6285,7 +6292,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-setstate">
-<h4>J1939Dcm_SetState<a class="headerlink" href="#j1939dcm-setstate" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_SetState<a class="headerlink" href="#j1939dcm-setstate" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">J1939Dcm_SetState</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">node</span><span class="p">,</span> <span class="n">J1939Dcm_StateType</span> <span class="n">newState</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6350,7 +6357,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939dcm-genericdmxtransmit">
-<h4>J1939Dcm_GenericDMxTransmit<a class="headerlink" href="#j1939dcm-genericdmxtransmit" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_GenericDMxTransmit<a class="headerlink" href="#j1939dcm-genericdmxtransmit" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">J1939Dcm_GenericDMxTransmit</span><span class="p">(</span><span class="n">uint8</span> <span class="n">dmId</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">node</span><span class="p">,</span> <span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">destAddress</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">priority</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6423,7 +6430,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939dcm-requestindication">
-<h4>J1939Dcm_RequestIndication<a class="headerlink" href="#j1939dcm-requestindication" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_RequestIndication<a class="headerlink" href="#j1939dcm-requestindication" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_RequestIndication</span><span class="p">(</span><span class="n">uint8</span> <span class="n">node</span><span class="p">,</span> <span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">requestedPgn</span><span class="p">,</span> <span class="n">const</span> <span class="n">J1939Rm_ExtIdInfoType</span> <span class="o">*</span><span class="n">extIdInfo</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">sourceAddress</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">destAddress</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">priority</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6484,7 +6491,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-rxindication">
-<h4>J1939Dcm_RxIndication<a class="headerlink" href="#j1939dcm-rxindication" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_RxIndication<a class="headerlink" href="#j1939dcm-rxindication" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_RxIndication</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">rxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">pduInfoPtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6525,7 +6532,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-txconfirmation">
-<h4>J1939Dcm_TxConfirmation<a class="headerlink" href="#j1939dcm-txconfirmation" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_TxConfirmation<a class="headerlink" href="#j1939dcm-txconfirmation" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_TxConfirmation</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">txPduId</span><span class="p">,</span> <span class="n">Std_ReturnType</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6566,7 +6573,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-startofreception">
-<h4>J1939Dcm_StartOfReception<a class="headerlink" href="#j1939dcm-startofreception" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_StartOfReception<a class="headerlink" href="#j1939dcm-startofreception" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BufReq_ReturnType</span> <span class="n">J1939Dcm_StartOfReception</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">rxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">pduInfoPtr</span><span class="p">,</span> <span class="n">PduLengthType</span> <span class="n">tpSduLength</span><span class="p">,</span> <span class="n">PduLengthType</span> <span class="o">*</span><span class="n">bufferSizePtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6638,7 +6645,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939dcm-copyrxdata">
-<h4>J1939Dcm_CopyRxData<a class="headerlink" href="#j1939dcm-copyrxdata" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_CopyRxData<a class="headerlink" href="#j1939dcm-copyrxdata" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BufReq_ReturnType</span> <span class="n">J1939Dcm_CopyRxData</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">rxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">pduInfoPtr</span><span class="p">,</span> <span class="n">PduLengthType</span> <span class="o">*</span><span class="n">bufferSizePtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6703,7 +6710,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </table>
 </section>
 <section id="j1939dcm-tprxindication">
-<h4>J1939Dcm_TpRxIndication<a class="headerlink" href="#j1939dcm-tprxindication" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_TpRxIndication<a class="headerlink" href="#j1939dcm-tprxindication" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_TpRxIndication</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">rxPduId</span><span class="p">,</span> <span class="n">Std_ReturnType</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6744,7 +6751,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-copytxdata">
-<h4>J1939Dcm_CopyTxData<a class="headerlink" href="#j1939dcm-copytxdata" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_CopyTxData<a class="headerlink" href="#j1939dcm-copytxdata" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BufReq_ReturnType</span> <span class="n">J1939Dcm_CopyTxData</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">txPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">pduInfoPtr</span><span class="p">,</span> <span class="n">const</span> <span class="n">RetryInfoType</span> <span class="o">*</span><span class="n">retryPtr</span><span class="p">,</span> <span class="n">PduLengthType</span> <span class="o">*</span><span class="n">availableDataPtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6793,7 +6800,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-tptxconfirmation">
-<h4>J1939Dcm_TpTxConfirmation<a class="headerlink" href="#j1939dcm-tptxconfirmation" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_TpTxConfirmation<a class="headerlink" href="#j1939dcm-tptxconfirmation" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_TpTxConfirmation</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">txPduId</span><span class="p">,</span> <span class="n">Std_ReturnType</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6834,7 +6841,7 @@ tool may optionally request the message every few seconds as required.</p></li>
 </dl>
 </section>
 <section id="j1939dcm-demtriggerondtcstatus">
-<h4>J1939Dcm_DemTriggerOnDTCStatus<a class="headerlink" href="#j1939dcm-demtriggerondtcstatus" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_DemTriggerOnDTCStatus<a class="headerlink" href="#j1939dcm-demtriggerondtcstatus" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_DemTriggerOnDTCStatus</span><span class="p">(</span><span class="n">uint32</span> <span class="n">DTC</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">clientId</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6876,9 +6883,9 @@ tool may optionally request the message every few seconds as required.</p></li>
 </section>
 </section>
 <section id="configurable-callback-function">
-<h3>可配置回调函数(Configurable callback function)<a class="headerlink" href="#configurable-callback-function" title="Link to this heading">¶</a></h3>
+<h3>可配置回调函数(Configurable callback function)<a class="headerlink" href="#configurable-callback-function" title="链接到此标题。">¶</a></h3>
 <section id="j1939dcm-mainfunction">
-<h4>J1939Dcm_MainFunction<a class="headerlink" href="#j1939dcm-mainfunction" title="Link to this heading">¶</a></h4>
+<h4>J1939Dcm_MainFunction<a class="headerlink" href="#j1939dcm-mainfunction" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Dcm_MainFunction_</span><span class="o">&lt;</span><span class="n">ComMChannel</span><span class="o">.</span><span class="n">ShortName</span><span class="o">&gt;</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6894,7 +6901,7 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </dl>
 </section>
 <section id="configuration-interface">
-<h4>配置接口(Configuration Interface)<a class="headerlink" href="#configuration-interface" title="Link to this heading">¶</a></h4>
+<h4>配置接口(Configuration Interface)<a class="headerlink" href="#configuration-interface" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head stub"><p>API Function</p></th>
@@ -6925,17 +6932,17 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </section>
 </section>
 <section id="configuration-description">
-<h2>配置描述(Configuration Description)<a class="headerlink" href="#configuration-description" title="Link to this heading">¶</a></h2>
+<h2>配置描述(Configuration Description)<a class="headerlink" href="#configuration-description" title="链接到此标题。">¶</a></h2>
 <section id="j1939dcm-general-configuration-of-the-j1939-dcm-module">
-<h3>J1939Dcm模块的常规配置(General Configuration of the J1939 DCM Module)<a class="headerlink" href="#j1939dcm-general-configuration-of-the-j1939-dcm-module" title="Link to this heading">¶</a></h3>
+<h3>J1939Dcm模块的常规配置(General Configuration of the J1939 DCM Module)<a class="headerlink" href="#j1939dcm-general-configuration-of-the-j1939-dcm-module" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="../../_images/J1939DcmGeneral.PNG" src="../../_images/J1939DcmGeneral.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的常规配置项参数描述</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的常规配置项参数描述</span><a class="headerlink" href="#id6" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="j1939dcmgeneral">
-<caption><span class="caption-text">J1939DcmGeneral</span><a class="headerlink" href="#j1939dcmgeneral" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmGeneral</span><a class="headerlink" href="#j1939dcmgeneral" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmGeneral</p></th>
 <th class="head" colspan="3"><p>Contains the general configuration parameters of the module.</p></th>
@@ -7282,15 +7289,15 @@ WithJ1939Rm</p></td>
 </table>
 </section>
 <section id="j1939dcm-specific-configuration-of-the-j1939-dcm-module">
-<h3>J1939Dcm模块的特定配置(Specific configuration of the J1939 DCM module)<a class="headerlink" href="#j1939dcm-specific-configuration-of-the-j1939-dcm-module" title="Link to this heading">¶</a></h3>
+<h3>J1939Dcm模块的特定配置(Specific configuration of the J1939 DCM module)<a class="headerlink" href="#j1939dcm-specific-configuration-of-the-j1939-dcm-module" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id7">
 <img alt="../../_images/J1939DcmConfigSet.PNG" src="../../_images/J1939DcmConfigSet.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的特定配置项参数描述</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的特定配置项参数描述</span><a class="headerlink" href="#id7" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="j1939dcmconfigset">
-<caption><span class="caption-text">J1939DcmConfigSet</span><a class="headerlink" href="#j1939dcmconfigset" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmConfigSet</span><a class="headerlink" href="#j1939dcmconfigset" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmConfigSet</p></th>
 <th class="head" colspan="2"><p>This container contains the configuration parameters and sub containers of the AUTOSAR J1939Dcm module</p></th>
@@ -7344,15 +7351,15 @@ WithJ1939Rm</p></td>
 </tbody>
 </table>
 <section id="j1939dcmchannel">
-<h4>J1939DcmChannel<a class="headerlink" href="#j1939dcmchannel" title="Link to this heading">¶</a></h4>
+<h4>J1939DcmChannel<a class="headerlink" href="#j1939dcmchannel" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id8">
 <img alt="../../_images/J1939DcmChannel.PNG" src="../../_images/J1939DcmChannel.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的通道配置项参数描述</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的通道配置项参数描述</span><a class="headerlink" href="#id8" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id9">
-<caption><span class="caption-text">J1939DcmChannel</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmChannel</span><a class="headerlink" href="#id9" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmChannel</p></th>
 <th class="head" colspan="2"><p>Contains the J1939DcmChannel parameters.</p></th>
@@ -7410,15 +7417,15 @@ J1939DCM_PROPRIETARY_NETWORK_2</p></td>
 </table>
 </section>
 <section id="j1939dcmnode">
-<h4>J1939DcmNode<a class="headerlink" href="#j1939dcmnode" title="Link to this heading">¶</a></h4>
+<h4>J1939DcmNode<a class="headerlink" href="#j1939dcmnode" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id10">
 <img alt="../../_images/J1939DcmNode.PNG" src="../../_images/J1939DcmNode.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的节点配置项参数描述</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的节点配置项参数描述</span><a class="headerlink" href="#id10" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id11">
-<caption><span class="caption-text">J1939DcmNode</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmNode</span><a class="headerlink" href="#id11" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmNode</p></th>
 <th class="head" colspan="2"><p>Contains the parameters for the support of a logical J1939 node.</p></th>
@@ -7682,15 +7689,15 @@ handled by DM53, DM54, and DM55.</p></td>
 </table>
 </section>
 <section id="j1939dcmdiagnosticmessagesupport">
-<h4>J1939DcmDiagnosticMessageSupport<a class="headerlink" href="#j1939dcmdiagnosticmessagesupport" title="Link to this heading">¶</a></h4>
+<h4>J1939DcmDiagnosticMessageSupport<a class="headerlink" href="#j1939dcmdiagnosticmessagesupport" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id12">
 <img alt="../../_images/J1939DcmDiagnosticMessageSupport.PNG" src="../../_images/J1939DcmDiagnosticMessageSupport.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的诊断消息支持配置项参数描述</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的诊断消息支持配置项参数描述</span><a class="headerlink" href="#id12" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id13">
-<caption><span class="caption-text">J1939DcmDiagnosticMessageSupport</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmDiagnosticMessageSupport</span><a class="headerlink" href="#id13" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmDiagnosticMessageSupport</p></th>
 <th class="head" colspan="2"><p>Contains parameters to configure the diagnostic message support.</p></th>
@@ -7753,15 +7760,15 @@ SupportChannelRef</p></td>
 </table>
 </section>
 <section id="j1939dcmrxpdu">
-<h4>J1939DcmRxPdu<a class="headerlink" href="#j1939dcmrxpdu" title="Link to this heading">¶</a></h4>
+<h4>J1939DcmRxPdu<a class="headerlink" href="#j1939dcmrxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="j1939dcmrx-pdu">
 <img alt="../../_images/J1939DcmRxPdu.PNG" src="../../_images/J1939DcmRxPdu.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的Rx-Pdu配置项参数描述</span><a class="headerlink" href="#j1939dcmrx-pdu" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的Rx-Pdu配置项参数描述</span><a class="headerlink" href="#j1939dcmrx-pdu" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id14">
-<caption><span class="caption-text">J1939DcmRxPdu</span><a class="headerlink" href="#id14" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmRxPdu</span><a class="headerlink" href="#id14" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmRxPdu</p></th>
 <th class="head" colspan="2"><p>Contains parameters to configure the J1939DcmRxPdu.</p></th>
@@ -7817,15 +7824,15 @@ SupportChannelRef</p></td>
 <p>备注：DM03，DM11，DM55禁止创建J1939DcmRxPdu容器，并且只有DM13才能创建J1939DcmRxPdu容器。</p>
 </section>
 <section id="j1939dcmtxpdu">
-<h4>J1939DcmTxPdu<a class="headerlink" href="#j1939dcmtxpdu" title="Link to this heading">¶</a></h4>
+<h4>J1939DcmTxPdu<a class="headerlink" href="#j1939dcmtxpdu" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="j1939dcmtx-pdu">
 <img alt="../../_images/J1939DcmTxPdu.PNG" src="../../_images/J1939DcmTxPdu.PNG" />
 <figcaption>
-<p><span class="caption-text">J1939Dcm模块中的Tx-Pdu配置项参数描述</span><a class="headerlink" href="#j1939dcmtx-pdu" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Dcm模块中的Tx-Pdu配置项参数描述</span><a class="headerlink" href="#j1939dcmtx-pdu" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id15">
-<caption><span class="caption-text">J1939DcmTxPdu</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text">J1939DcmTxPdu</span><a class="headerlink" href="#id15" title="链接到此表格。">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>J1939DcmTxPdu</p></th>
 <th class="head" colspan="2"><p>Contains parameters to configure the J1939DcmTxPdu.</p></th>
@@ -8072,7 +8079,7 @@ SupportChannelRef</p></td>
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -8081,11 +8088,11 @@ SupportChannelRef</p></td>
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

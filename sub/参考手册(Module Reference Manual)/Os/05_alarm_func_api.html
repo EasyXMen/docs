@@ -9,6 +9,7 @@
         <title>Alarm(Functions) &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../../_static/version-switcher.css?v=5a6714a8" />
@@ -57,7 +58,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CanIf.html">CanIf</a></li>
@@ -169,13 +176,13 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="alarm-functions">
-<h1>Alarm(Functions)<a class="headerlink" href="#alarm-functions" title="Link to this heading">¶</a></h1>
+<h1>Alarm(Functions)<a class="headerlink" href="#alarm-functions" title="链接到此标题。">¶</a></h1>
 <p>Os提供用于处理重复事件的服务，例如在Alarm到期时激活任务，设置事件或调用AlarmCallBack回调函数。Alarm回调函数是应用程序提供的简短函数。</p>
 <p>The OS provides services for handling recurring events, such as activating tasks upon alarm expiration, setting events, or invoking the AlarmCallback function. The alarm callback is a short function supplied by the application.</p>
 <figure class="align-center" id="id1">
 <img alt="Alarm的分层模型 Alarm Layered Model" src="../../../_images/alarm%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png" />
 <figcaption>
-<p><span class="caption-text">管理Alarm的分层模型 (Hierarchical Model for Alarm Management)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-text">管理Alarm的分层模型 (Hierarchical Model for Alarm Management)</span><a class="headerlink" href="#id1" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>Counter和Alarm是静态定义的。Counter到Alarm的分配以及Alarm到期时要执行的具体操作也是静态定义的。</p>
@@ -183,7 +190,7 @@
 <p>动态参数是Alarm到期时的计数器值，以及周期性Alarm的周期时间。</p>
 <p>Dynamic parameters include the counter value at alarm expiration and the cycle time for periodic alarms.</p>
 <section id="getalarmbase">
-<h2>GetAlarmBase<a class="headerlink" href="#getalarmbase" title="Link to this heading">¶</a></h2>
+<h2>GetAlarmBase<a class="headerlink" href="#getalarmbase" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetAlarmBase</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">,</span> <span class="n">AlarmBaseRefType</span> <span class="n">Info</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -288,7 +295,7 @@
 </div>
 </section>
 <section id="getalarm">
-<h2>GetAlarm<a class="headerlink" href="#getalarm" title="Link to this heading">¶</a></h2>
+<h2>GetAlarm<a class="headerlink" href="#getalarm" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetAlarm</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">,</span> <span class="n">TickRefType</span> <span class="n">Tick</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -400,7 +407,7 @@
 </div>
 </section>
 <section id="setrelalarm">
-<h2>SetRelAlarm<a class="headerlink" href="#setrelalarm" title="Link to this heading">¶</a></h2>
+<h2>SetRelAlarm<a class="headerlink" href="#setrelalarm" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">SetRelAlarm</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">,</span> <span class="n">TickType</span> <span class="n">increment</span><span class="p">,</span> <span class="n">TickType</span> <span class="n">cycle</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -503,7 +510,7 @@
 </div>
 </section>
 <section id="setabsalarm">
-<h2>SetAbsAlarm<a class="headerlink" href="#setabsalarm" title="Link to this heading">¶</a></h2>
+<h2>SetAbsAlarm<a class="headerlink" href="#setabsalarm" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">SetAbsAlarm</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">,</span> <span class="n">TickType</span> <span class="n">start</span><span class="p">,</span> <span class="n">TickType</span> <span class="n">cycle</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -629,7 +636,7 @@
 </div>
 </section>
 <section id="cancelalarm">
-<h2>CancelAlarm<a class="headerlink" href="#cancelalarm" title="Link to this heading">¶</a></h2>
+<h2>CancelAlarm<a class="headerlink" href="#cancelalarm" title="链接到此标题。">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">CancelAlarm</span><span class="p">(</span><span class="n">AlarmType</span> <span class="n">AlarmID</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -772,7 +779,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -781,11 +788,11 @@
         </div>
     </footer>
         <script src="../../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../../_static/translations.js?v=540d3cec"></script>
         <script src="../../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>

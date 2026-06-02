@@ -9,6 +9,7 @@
         <title>RTE &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="rte">
-<h1>RTE<a class="headerlink" href="#rte" title="Link to this heading">¶</a></h1>
+<h1>RTE<a class="headerlink" href="#rte" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -266,7 +273,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>RTE 是 AUTOSAR 虚拟功能总线 (VFB) 基于特定 ECU 的实现，分解为针对Application的Rte和针对BSW的SchM功能。Rte 为整个AUTOSAR 基础软件的接口层，为整个ECU提供了运行时环境：</p>
 <p>RTE is the AUTOSAR Virtual Function Bus (VFB) implementation specific to a particular ECU, decomposed into Rte for Application and SchM functionality for BSW. Rte serves as the interface layer for the entire AUTOSAR basic software, providing a runtime environment for the entire ECU:</p>
 <p>生成TASK函数，负责映射到Task的RunnableEntity的运行调度；</p>
@@ -285,7 +292,7 @@
 <img alt="AUTOSAR 体系结构 (AUTOSAR Architecture)" src="../../_images/image1134.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_TPS_SystemTemplate.pdf，R19-11</p>
 <p>[2] AUTOSAR_TPS_SoftwareComponentTemplate.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_RTE.pdf.pdf，R19-11</p>
@@ -299,17 +306,17 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <p>详细描述面向应用Application的Rte功能，SchM功能适配普华BSW实现需求进行简要描述。</p>
 <p>Detailed description of Rte functionality oriented towards Application. Briefly describe SchM functionality adapted to meet the requirements for Pragmatic BSW implementation.</p>
 <section id="rte-function-description-of-rte">
-<h3>Rte功能描述 (Function Description of Rte)<a class="headerlink" href="#rte-function-description-of-rte" title="Link to this heading">¶</a></h3>
+<h3>Rte功能描述 (Function Description of Rte)<a class="headerlink" href="#rte-function-description-of-rte" title="链接到此标题。">¶</a></h3>
 <p>Rte实现Application RunnableEntity的调度，SWC内部通信，SWC与SWC间基于Port的通信，SWC与BSW服务间基于Port的通信。</p>
 <p>Rte实现Application Runnable Entity的调度，SWC内部通信，SWC与SWC间基于Port的通信，SWC与BSW服务间基于Port的通信。</p>
 <p>Rte功能描述分为通用功能（参见章节2.1.1）和具体功能点（参见章节2.1.2-2.1.11），具体功能点为面向Application直接使用的功能描述，通用功能为支撑具体功能点实现的基础功能。</p>
 <p>Rte functionality descriptions are divided into general functions (refer to Section 2.1.1) and specific function points (refer to Sections 2.1.2-2.1.11), with the specific function points being the functionality descriptions directly used by Application, while the general functions serve as the foundational support for implementing these specific function points.</p>
 <section id="general-functions">
-<h4>通用功能 (General Functions)<a class="headerlink" href="#general-functions" title="Link to this heading">¶</a></h4>
+<h4>通用功能 (General Functions)<a class="headerlink" href="#general-functions" title="链接到此标题。">¶</a></h4>
 <p>数据类型：实现数据类型的定义；</p>
 <p>Data Type: Implementing the definition of data types;</p>
 <p>TASK调度：调度所有映射到Task的Application RunnableEntity；</p>
@@ -321,7 +328,7 @@
 <p>生命周期：实现Rte模块的Start和Stop；</p>
 <p>Lifecycle: Implement the Start and Stop of the Rte module;</p>
 <section id="data-types">
-<h5>数据类型 (Data types)<a class="headerlink" href="#data-types" title="Link to this heading">¶</a></h5>
+<h5>数据类型 (Data types)<a class="headerlink" href="#data-types" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -361,7 +368,7 @@
 </table>
 </section>
 <section id="task-task-scheduling">
-<h5>TASK调度 (TASK Scheduling)<a class="headerlink" href="#task-task-scheduling" title="Link to this heading">¶</a></h5>
+<h5>TASK调度 (TASK Scheduling)<a class="headerlink" href="#task-task-scheduling" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -425,7 +432,7 @@
 </table>
 </section>
 <section id="cts-ctt-instantiation">
-<h5>CTS实例化 (CTT Instantiation)<a class="headerlink" href="#cts-ctt-instantiation" title="Link to this heading">¶</a></h5>
+<h5>CTS实例化 (CTT Instantiation)<a class="headerlink" href="#cts-ctt-instantiation" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -447,7 +454,7 @@
 </table>
 </section>
 <section id="serialization">
-<h5>序列化 (Serialization)<a class="headerlink" href="#serialization" title="Link to this heading">¶</a></h5>
+<h5>序列化 (Serialization)<a class="headerlink" href="#serialization" title="链接到此标题。">¶</a></h5>
 <p>序列化功能仅支持ECU间通信（CS和SR）。</p>
 <p>Serialization functionality only supports communication between ECUs (CS and SR).</p>
 <table class="docutils align-default">
@@ -489,7 +496,7 @@
 </table>
 </section>
 <section id="lifecycle">
-<h5>生命周期 (Lifecycle)<a class="headerlink" href="#lifecycle" title="Link to this heading">¶</a></h5>
+<h5>生命周期 (Lifecycle)<a class="headerlink" href="#lifecycle" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -521,7 +528,7 @@
 </section>
 </section>
 <section id="sr-sr-communication">
-<h4>SR通信 (SR Communication)<a class="headerlink" href="#sr-sr-communication" title="Link to this heading">¶</a></h4>
+<h4>SR通信 (SR Communication)<a class="headerlink" href="#sr-sr-communication" title="链接到此标题。">¶</a></h4>
 <p>SR通信负责组件实例间基于Port进行数据传输。</p>
 <p>SR Communication is responsible for data transmission between component instances based on Port.</p>
 <table class="docutils align-default">
@@ -659,7 +666,7 @@
 </table>
 </section>
 <section id="cs-cs-communication">
-<h4>CS通信 (CS Communication)<a class="headerlink" href="#cs-cs-communication" title="Link to this heading">¶</a></h4>
+<h4>CS通信 (CS Communication)<a class="headerlink" href="#cs-cs-communication" title="链接到此标题。">¶</a></h4>
 <p>CS通信负责组件实例间基于Port进行函数调用。</p>
 <p>CS communication is responsible for function calls between component instances based on Port.</p>
 <table class="docutils align-default">
@@ -737,7 +744,7 @@
 </table>
 </section>
 <section id="pattern-management">
-<h4>模式管理 (Pattern Management)<a class="headerlink" href="#pattern-management" title="Link to this heading">¶</a></h4>
+<h4>模式管理 (Pattern Management)<a class="headerlink" href="#pattern-management" title="链接到此标题。">¶</a></h4>
 <p>实现Mode Manager与Mode User基于Port的模式切换通信。</p>
 <p>Implement communication for mode switching between Mode Manager and Mode User based on Port.</p>
 <table class="docutils align-default">
@@ -815,7 +822,7 @@
 </table>
 </section>
 <section id="nv-store-nv">
-<h4>存储NV (Store NV)<a class="headerlink" href="#nv-store-nv" title="Link to this heading">¶</a></h4>
+<h4>存储NV (Store NV)<a class="headerlink" href="#nv-store-nv" title="链接到此标题。">¶</a></h4>
 <p>Rte内部实现NvM Block数据的读写供应用通过SR接口进行读写。</p>
 <p>Rte internally implements the reading and writing of NvM Block data for applications to read and write via the SR interface.</p>
 <table class="docutils align-default">
@@ -872,7 +879,7 @@
 </table>
 </section>
 <section id="irv-irv-communication">
-<h4>IRV通信 (IRV Communication)<a class="headerlink" href="#irv-irv-communication" title="Link to this heading">¶</a></h4>
+<h4>IRV通信 (IRV Communication)<a class="headerlink" href="#irv-irv-communication" title="链接到此标题。">¶</a></h4>
 <p>IRV实现同一组件实例内部RunnableEntity间的通信。</p>
 <p>IRV实现同一组件实例内部RunnableEntity间的通信。</p>
 <table class="docutils align-default">
@@ -896,7 +903,7 @@
 </table>
 </section>
 <section id="trigger-internal-and-external-triggers">
-<h4>内外部Trigger (Internal and External Triggers)<a class="headerlink" href="#trigger-internal-and-external-triggers" title="Link to this heading">¶</a></h4>
+<h4>内外部Trigger (Internal and External Triggers)<a class="headerlink" href="#trigger-internal-and-external-triggers" title="链接到此标题。">¶</a></h4>
 <p>实现组件实例内部/外部RunnableEntity的触发。</p>
 <p>Trigger the internal/external RunnableEntity within/external to the component instance.</p>
 <table class="docutils align-default">
@@ -929,7 +936,7 @@
 </table>
 </section>
 <section id="calibration-measurement">
-<h4>测量标定 (Calibration Measurement)<a class="headerlink" href="#calibration-measurement" title="Link to this heading">¶</a></h4>
+<h4>测量标定 (Calibration Measurement)<a class="headerlink" href="#calibration-measurement" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -972,7 +979,7 @@
 </table>
 </section>
 <section id="rte-api-exclusive-area-rte-api">
-<h4>独占区Rte API (Exclusive Area Rte API)<a class="headerlink" href="#rte-api-exclusive-area-rte-api" title="Link to this heading">¶</a></h4>
+<h4>独占区Rte API (Exclusive Area Rte API)<a class="headerlink" href="#rte-api-exclusive-area-rte-api" title="链接到此标题。">¶</a></h4>
 <p>为Application RunnableEntity提供独占区保护接口。</p>
 <p>Provide exclusive zone protection interfaces for Application RunnableEntity.</p>
 <table class="docutils align-default">
@@ -1020,7 +1027,7 @@
 </table>
 </section>
 <section id="indirect-api">
-<h4>Indirect API<a class="headerlink" href="#indirect-api" title="Link to this heading">¶</a></h4>
+<h4>Indirect API<a class="headerlink" href="#indirect-api" title="链接到此标题。">¶</a></h4>
 <p>为Application RunnableEntity提供基于Port的Rte API函数指针。</p>
 <p>Provide Rte API function pointers based on Port for Application RunnableEntity.</p>
 <table class="docutils align-default">
@@ -1047,7 +1054,7 @@
 </table>
 </section>
 <section id="pim">
-<h4>PIM<a class="headerlink" href="#pim" title="Link to this heading">¶</a></h4>
+<h4>PIM<a class="headerlink" href="#pim" title="链接到此标题。">¶</a></h4>
 <p>为Application RunnableEntity提供组件实例内部内存空间地址。</p>
 <p>Provide the internal memory space address of component instances for Application RunnableEntity.</p>
 <table class="docutils align-default">
@@ -1072,7 +1079,7 @@
 </section>
 </section>
 <section id="schm-function-description-of-schm">
-<h3>SchM功能描述 (Function description of SchM)<a class="headerlink" href="#schm-function-description-of-schm" title="Link to this heading">¶</a></h3>
+<h3>SchM功能描述 (Function description of SchM)<a class="headerlink" href="#schm-function-description-of-schm" title="链接到此标题。">¶</a></h3>
 <p>SchM功能支撑普华BSW的实现，与应用无交互，工程配置、集成时客户无需额外关注。</p>
 <p>SchM functionality supports the implementation of PuHua BSW, interacts with no application. During engineering configuration and integration, customers do not need to pay additional attention.</p>
 <table class="docutils align-default">
@@ -1109,13 +1116,13 @@
 </section>
 </section>
 <section id="api-api-description">
-<h2>API描述 (API Description)<a class="headerlink" href="#api-api-description" title="Link to this heading">¶</a></h2>
+<h2>API描述 (API Description)<a class="headerlink" href="#api-api-description" title="链接到此标题。">¶</a></h2>
 <section id="id1">
-<h3>Rte<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<h3>Rte<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h3>
 <section id="rte-rte-lifecycle">
-<h4>Rte生命周期 (RTE Lifecycle)<a class="headerlink" href="#rte-rte-lifecycle" title="Link to this heading">¶</a></h4>
+<h4>Rte生命周期 (RTE Lifecycle)<a class="headerlink" href="#rte-rte-lifecycle" title="链接到此标题。">¶</a></h4>
 <section id="rte-start">
-<h5>Rte_Start<a class="headerlink" href="#rte-start" title="Link to this heading">¶</a></h5>
+<h5>Rte_Start<a class="headerlink" href="#rte-start" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1157,7 +1164,7 @@
 </table>
 </section>
 <section id="rte-stop">
-<h5>Rte_Stop<a class="headerlink" href="#rte-stop" title="Link to this heading">¶</a></h5>
+<h5>Rte_Stop<a class="headerlink" href="#rte-stop" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1200,9 +1207,9 @@
 </section>
 </section>
 <section id="callback-callback-callback">
-<h4>CallBack回调 (Callback Callback)<a class="headerlink" href="#callback-callback-callback" title="Link to this heading">¶</a></h4>
+<h4>CallBack回调 (Callback Callback)<a class="headerlink" href="#callback-callback-callback" title="链接到此标题。">¶</a></h4>
 <section id="rte-comcbk-sn">
-<h5>Rte_COMCbk&lt;sn&gt;<a class="headerlink" href="#rte-comcbk-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbk&lt;sn&gt;<a class="headerlink" href="#rte-comcbk-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1233,7 +1240,7 @@
 </table>
 </section>
 <section id="rte-comcbktack-sn">
-<h5>Rte_COMCbkTAck&lt;sn&gt;<a class="headerlink" href="#rte-comcbktack-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkTAck&lt;sn&gt;<a class="headerlink" href="#rte-comcbktack-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1264,7 +1271,7 @@
 </table>
 </section>
 <section id="rte-comcbkterr-sn">
-<h5>Rte_COMCbkTErr&lt;sn&gt;<a class="headerlink" href="#rte-comcbkterr-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkTErr&lt;sn&gt;<a class="headerlink" href="#rte-comcbkterr-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1295,7 +1302,7 @@
 </table>
 </section>
 <section id="rte-comcbkinv-sn">
-<h5>Rte_COMCbkInv&lt;sn&gt;<a class="headerlink" href="#rte-comcbkinv-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkInv&lt;sn&gt;<a class="headerlink" href="#rte-comcbkinv-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1326,7 +1333,7 @@
 </table>
 </section>
 <section id="rte-comcbkrxtout-sn">
-<h5>Rte_COMCbkRxTOut&lt;sn&gt;<a class="headerlink" href="#rte-comcbkrxtout-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkRxTOut&lt;sn&gt;<a class="headerlink" href="#rte-comcbkrxtout-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1357,7 +1364,7 @@
 </table>
 </section>
 <section id="rte-comcbktxtout-sn">
-<h5>Rte_COMCbkTxTOut&lt;sn&gt;<a class="headerlink" href="#rte-comcbktxtout-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkTxTOut&lt;sn&gt;<a class="headerlink" href="#rte-comcbktxtout-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1388,7 +1395,7 @@
 </table>
 </section>
 <section id="rte-comcbk-sg">
-<h5>Rte_COMCbk&lt;sg&gt;<a class="headerlink" href="#rte-comcbk-sg" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbk&lt;sg&gt;<a class="headerlink" href="#rte-comcbk-sg" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1419,7 +1426,7 @@
 </table>
 </section>
 <section id="rte-comcbktack-sg">
-<h5>Rte_COMCbkTAck&lt;sg&gt;<a class="headerlink" href="#rte-comcbktack-sg" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkTAck&lt;sg&gt;<a class="headerlink" href="#rte-comcbktack-sg" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1450,7 +1457,7 @@
 </table>
 </section>
 <section id="rte-comcbkterr-sg">
-<h5>Rte_COMCbkTErr&lt;sg&gt;<a class="headerlink" href="#rte-comcbkterr-sg" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkTErr&lt;sg&gt;<a class="headerlink" href="#rte-comcbkterr-sg" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1481,7 +1488,7 @@
 </table>
 </section>
 <section id="rte-comcbkinv-sg">
-<h5>Rte_COMCbkInv&lt;sg&gt;<a class="headerlink" href="#rte-comcbkinv-sg" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkInv&lt;sg&gt;<a class="headerlink" href="#rte-comcbkinv-sg" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1512,7 +1519,7 @@
 </table>
 </section>
 <section id="rte-comcbkrxtout-sg">
-<h5>Rte_COMCbkRxTOut&lt;sg&gt;<a class="headerlink" href="#rte-comcbkrxtout-sg" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkRxTOut&lt;sg&gt;<a class="headerlink" href="#rte-comcbkrxtout-sg" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1543,7 +1550,7 @@
 </table>
 </section>
 <section id="rte-comcbktxtout-sg">
-<h5>Rte_COMCbkTxTOut&lt;sg&gt;<a class="headerlink" href="#rte-comcbktxtout-sg" title="Link to this heading">¶</a></h5>
+<h5>Rte_COMCbkTxTOut&lt;sg&gt;<a class="headerlink" href="#rte-comcbktxtout-sg" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1574,7 +1581,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbkrxindication-sn">
-<h5>Rte_LdComCbkRxIndication&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkrxindication-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkRxIndication&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkrxindication-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1612,7 +1619,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbktxconfirmation-sn">
-<h5>Rte_LdComCbkTxConfirmation&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktxconfirmation-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkTxConfirmation&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktxconfirmation-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1643,7 +1650,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbkcopyrxdata-sn">
-<h5>Rte_LdComCbkCopyRxData_&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkcopyrxdata-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkCopyRxData_&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkcopyrxdata-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1685,7 +1692,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbkcopytxdata-sn">
-<h5>Rte_LdComCbkCopyTxData&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkcopytxdata-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkCopyTxData&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkcopytxdata-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1731,7 +1738,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbkstartofreception-sn">
-<h5>Rte_LdComCbkStartOfReception&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkstartofreception-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkStartOfReception&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbkstartofreception-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1777,7 +1784,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbktprxindication-sn">
-<h5>Rte_LdComCbkTpRxIndication&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktprxindication-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkTpRxIndication&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktprxindication-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1815,7 +1822,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbktptxconfirmation-sn">
-<h5>Rte_LdComCbkTpTxConfirmation&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktptxconfirmation-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkTpTxConfirmation&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktptxconfirmation-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1853,7 +1860,7 @@
 </table>
 </section>
 <section id="rte-ldcomcbktriggertransmit-sn">
-<h5>Rte_LdComCbkTriggerTransmit_&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktriggertransmit-sn" title="Link to this heading">¶</a></h5>
+<h5>Rte_LdComCbkTriggerTransmit_&lt;sn&gt;<a class="headerlink" href="#rte-ldcomcbktriggertransmit-sn" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1892,9 +1899,9 @@
 </section>
 </section>
 <section id="id2">
-<h4>Indirect API<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<h4>Indirect API<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h4>
 <section id="rte-ports-i-r-p-pr">
-<h5>Rte_Ports&lt;i&gt;_&lt;R/P/PR&gt;<a class="headerlink" href="#rte-ports-i-r-p-pr" title="Link to this heading">¶</a></h5>
+<h5>Rte_Ports&lt;i&gt;_&lt;R/P/PR&gt;<a class="headerlink" href="#rte-ports-i-r-p-pr" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1932,7 +1939,7 @@
 </table>
 </section>
 <section id="rte-nports-i-r-p-pr">
-<h5>Rte_NPorts&lt;i&gt;_&lt;R/P/PR&gt;<a class="headerlink" href="#rte-nports-i-r-p-pr" title="Link to this heading">¶</a></h5>
+<h5>Rte_NPorts&lt;i&gt;_&lt;R/P/PR&gt;<a class="headerlink" href="#rte-nports-i-r-p-pr" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1970,7 +1977,7 @@
 </table>
 </section>
 <section id="rte-port-p">
-<h5>Rte_Port&lt;p&gt;<a class="headerlink" href="#rte-port-p" title="Link to this heading">¶</a></h5>
+<h5>Rte_Port&lt;p&gt;<a class="headerlink" href="#rte-port-p" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2009,9 +2016,9 @@
 </section>
 </section>
 <section id="id3">
-<h4>SR通信 (SR Communication)<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<h4>SR通信 (SR Communication)<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h4>
 <section id="rte-write-p-o">
-<h5>Rte_Write&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-write-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Write&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-write-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2057,7 +2064,7 @@
 </table>
 </section>
 <section id="rte-send-p-o">
-<h5>Rte_Send&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-send-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Send&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-send-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2103,7 +2110,7 @@
 </table>
 </section>
 <section id="rte-invalidate-p-o">
-<h5>Rte_Invalidate&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-invalidate-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Invalidate&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-invalidate-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2145,7 +2152,7 @@
 </table>
 </section>
 <section id="rte-feedback-p-o">
-<h5>Rte_Feedback&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-feedback-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Feedback&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-feedback-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2183,7 +2190,7 @@
 </table>
 </section>
 <section id="rte-read-p-o">
-<h5>Rte_Read&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-read-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Read&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-read-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2229,7 +2236,7 @@
 </table>
 </section>
 <section id="rte-dread-p-o">
-<h5>Rte_DRead&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-dread-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_DRead&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-dread-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2267,7 +2274,7 @@
 </table>
 </section>
 <section id="rte-receive-p-o">
-<h5>Rte_Receive&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-receive-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Receive&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-receive-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2313,7 +2320,7 @@
 </table>
 </section>
 <section id="rte-iread-re-p-o">
-<h5>Rte_IRead&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iread-re-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IRead&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iread-re-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2351,7 +2358,7 @@
 </table>
 </section>
 <section id="rte-iwrite-re-p-o">
-<h5>Rte_IWrite&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iwrite-re-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IWrite&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iwrite-re-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2393,7 +2400,7 @@
 </table>
 </section>
 <section id="rte-iwriteref-re-p-o">
-<h5>Rte_IWriteRef&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iwriteref-re-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IWriteRef&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iwriteref-re-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2431,7 +2438,7 @@
 </table>
 </section>
 <section id="rte-iinvalidate-re-p-o">
-<h5>Rte_IInvalidate&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iinvalidate-re-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IInvalidate&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-iinvalidate-re-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2469,7 +2476,7 @@
 </table>
 </section>
 <section id="rte-istatus-re-p-o">
-<h5>Rte_IStatus&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-istatus-re-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IStatus&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-istatus-re-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2511,7 +2518,7 @@
 </table>
 </section>
 <section id="rte-ifeedback-re-p-o">
-<h5>Rte_IFeedback&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-ifeedback-re-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IFeedback&lt;re&gt;_&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-ifeedback-re-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2549,7 +2556,7 @@
 </table>
 </section>
 <section id="rte-isupdated-p-o">
-<h5>Rte_IsUpdated&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-isupdated-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IsUpdated&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-isupdated-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2588,9 +2595,9 @@
 </section>
 </section>
 <section id="id4">
-<h4>CS通信 (CS Communication)<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
+<h4>CS通信 (CS Communication)<a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h4>
 <section id="rte-call-p-o">
-<h5>Rte_Call&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-call-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Call&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-call-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2640,7 +2647,7 @@
 </table>
 </section>
 <section id="rte-result-p-o">
-<h5>Rte_Result&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-result-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Result&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-result-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2691,9 +2698,9 @@
 </section>
 </section>
 <section id="mode-switch">
-<h4>模式切换 (Mode Switch)<a class="headerlink" href="#mode-switch" title="Link to this heading">¶</a></h4>
+<h4>模式切换 (Mode Switch)<a class="headerlink" href="#mode-switch" title="链接到此标题。">¶</a></h4>
 <section id="rte-switch-p-o">
-<h5>Rte_Switch&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-switch-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Switch&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-switch-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2735,7 +2742,7 @@
 </table>
 </section>
 <section id="rte-switchack-p-o">
-<h5>Rte_SwitchAck&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-switchack-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_SwitchAck&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-switchack-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2773,7 +2780,7 @@
 </table>
 </section>
 <section id="rte-mode-p-o">
-<h5>Rte_Mode&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-mode-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Mode&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-mode-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2820,9 +2827,9 @@
 </section>
 </section>
 <section id="pim-pim-instance-memory-access">
-<h4>PIM实例内存访问 (PIM Instance Memory Access)<a class="headerlink" href="#pim-pim-instance-memory-access" title="Link to this heading">¶</a></h4>
+<h4>PIM实例内存访问 (PIM Instance Memory Access)<a class="headerlink" href="#pim-pim-instance-memory-access" title="链接到此标题。">¶</a></h4>
 <section id="rte-pim-name">
-<h5>Rte_Pim&lt;name&gt;<a class="headerlink" href="#rte-pim-name" title="Link to this heading">¶</a></h5>
+<h5>Rte_Pim&lt;name&gt;<a class="headerlink" href="#rte-pim-name" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2861,9 +2868,9 @@
 </section>
 </section>
 <section id="calibrate-data-access">
-<h4>标定数据访问 (Calibrate data access)<a class="headerlink" href="#calibrate-data-access" title="Link to this heading">¶</a></h4>
+<h4>标定数据访问 (Calibrate data access)<a class="headerlink" href="#calibrate-data-access" title="链接到此标题。">¶</a></h4>
 <section id="rte-cdata-name">
-<h5>Rte_CData&lt;name&gt;<a class="headerlink" href="#rte-cdata-name" title="Link to this heading">¶</a></h5>
+<h5>Rte_CData&lt;name&gt;<a class="headerlink" href="#rte-cdata-name" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2901,7 +2908,7 @@
 </table>
 </section>
 <section id="rte-prm-p-o">
-<h5>Rte_Prm&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-prm-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Prm&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-prm-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2940,9 +2947,9 @@
 </section>
 </section>
 <section id="id5">
-<h4>IRV通信 (IRV Communication)<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
+<h4>IRV通信 (IRV Communication)<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h4>
 <section id="rte-irviread-re-o">
-<h5>Rte_IrvIRead&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irviread-re-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IrvIRead&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irviread-re-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2980,7 +2987,7 @@
 </table>
 </section>
 <section id="rte-irviwrite-re-o">
-<h5>Rte_IrvIWrite&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irviwrite-re-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IrvIWrite&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irviwrite-re-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3022,7 +3029,7 @@
 </table>
 </section>
 <section id="rte-irviwriteref-re-o">
-<h5>Rte_IrvIWriteRef&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irviwriteref-re-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IrvIWriteRef&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irviwriteref-re-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3060,7 +3067,7 @@
 </table>
 </section>
 <section id="rte-irvread-re-o">
-<h5>Rte_IrvRead&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irvread-re-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IrvRead&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irvread-re-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3102,7 +3109,7 @@
 </table>
 </section>
 <section id="rte-irvwrite-re-o">
-<h5>Rte_IrvWrite&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irvwrite-re-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IrvWrite&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irvwrite-re-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3145,9 +3152,9 @@
 </section>
 </section>
 <section id="exclusive-zone-protection">
-<h4>独占区保护 (Exclusive Zone Protection)<a class="headerlink" href="#exclusive-zone-protection" title="Link to this heading">¶</a></h4>
+<h4>独占区保护 (Exclusive Zone Protection)<a class="headerlink" href="#exclusive-zone-protection" title="链接到此标题。">¶</a></h4>
 <section id="rte-enter-re-name">
-<h5>Rte_Enter[&lt;re&gt;]&lt;name&gt;<a class="headerlink" href="#rte-enter-re-name" title="Link to this heading">¶</a></h5>
+<h5>Rte_Enter[&lt;re&gt;]&lt;name&gt;<a class="headerlink" href="#rte-enter-re-name" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3185,7 +3192,7 @@
 </table>
 </section>
 <section id="rte-exit-re-name">
-<h5>Rte_Exit[&lt;re&gt;]&lt;name&gt;<a class="headerlink" href="#rte-exit-re-name" title="Link to this heading">¶</a></h5>
+<h5>Rte_Exit[&lt;re&gt;]&lt;name&gt;<a class="headerlink" href="#rte-exit-re-name" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3224,9 +3231,9 @@
 </section>
 </section>
 <section id="internal-and-external-triggers">
-<h4>内外部触发 (Internal and external triggers)<a class="headerlink" href="#internal-and-external-triggers" title="Link to this heading">¶</a></h4>
+<h4>内外部触发 (Internal and external triggers)<a class="headerlink" href="#internal-and-external-triggers" title="链接到此标题。">¶</a></h4>
 <section id="rte-trigger-p-o">
-<h5>Rte_Trigger&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-trigger-p-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_Trigger&lt;p&gt;_&lt;o&gt;<a class="headerlink" href="#rte-trigger-p-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3282,7 +3289,7 @@
 </table>
 </section>
 <section id="rte-irtrigger-re-o">
-<h5>Rte_IrTrigger&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irtrigger-re-o" title="Link to this heading">¶</a></h5>
+<h5>Rte_IrTrigger&lt;re&gt;_&lt;o&gt;<a class="headerlink" href="#rte-irtrigger-re-o" title="链接到此标题。">¶</a></h5>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -3322,7 +3329,7 @@
 </section>
 </section>
 <section id="schm">
-<h3>SchM<a class="headerlink" href="#schm" title="Link to this heading">¶</a></h3>
+<h3>SchM<a class="headerlink" href="#schm" title="链接到此标题。">¶</a></h3>
 <p>SchM实现AUTOSAR BSW模块MainFunction主函数的调度，为BSW模块提供独占区接口服务，为BSW模块间实现跨分区函数调用提供CS接口。</p>
 <p>SchM implements the scheduling of the MainFunction in AUTOSAR BSW modules, providing exclusive area interface services for BSW modules and CS interfaces for cross-partition function calls between BSW modules.</p>
 <p>所有SchM接口均与应用无关，只适配普华BSW的实现逻辑。故只列出实现的接口清单，不对其进行详细描述。</p>
@@ -3364,7 +3371,7 @@
 </section>
 </section>
 <section id="rte-rte-configuration">
-<h2>RTE配置 (RTE Configuration)<a class="headerlink" href="#rte-rte-configuration" title="Link to this heading">¶</a></h2>
+<h2>RTE配置 (RTE Configuration)<a class="headerlink" href="#rte-rte-configuration" title="链接到此标题。">¶</a></h2>
 <p>普华RTE模块的配置页面分为Rte Editor页面和通用页面，核心配置通过Editor进行配置，配置后映射到通用配置页面的配置项，然后用户基于项目需求，通过通用配置页面进行调整、适配。</p>
 <p>The configuration page of the Prhua RTE module is divided into the Rte Editor page and the general page. Core configurations are set through the Editor, which then maps to the configuration items on the general page. Users can then adjust and adapt based on project requirements using the general configuration page.</p>
 <p>Rte Editor配置页面：普华根据工具链实现，自定义配置页面；</p>
@@ -3374,7 +3381,7 @@
 <p>RTE-OS同步配置功能；</p>
 <p>RTE-OS Synchronization Configuration Function;</p>
 <section id="rte-editor-rte-editor-page">
-<h3>Rte Editor页面 (Rte Editor Page)<a class="headerlink" href="#rte-editor-rte-editor-page" title="Link to this heading">¶</a></h3>
+<h3>Rte Editor页面 (Rte Editor Page)<a class="headerlink" href="#rte-editor-rte-editor-page" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="rte-editor-rte-editor-configuration-page">
 <img alt="Rte Editor配置页面 (Rte Editor Configuration Page)" src="../../_images/image285.png" />
 </figure>
@@ -3411,9 +3418,9 @@
 </table>
 </section>
 <section id="general-configuration-page">
-<h3>通用配置页面 (General Configuration Page)<a class="headerlink" href="#general-configuration-page" title="Link to this heading">¶</a></h3>
+<h3>通用配置页面 (General Configuration Page)<a class="headerlink" href="#general-configuration-page" title="链接到此标题。">¶</a></h3>
 <section id="rtegeneration">
-<h4>RteGeneration<a class="headerlink" href="#rtegeneration" title="Link to this heading">¶</a></h4>
+<h4>RteGeneration<a class="headerlink" href="#rtegeneration" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="rtegeneration-general-configuration-page-rtegeneration">
 <img alt="通用配置页面-RteGeneration (General Configuration Page-RteGeneration)" src="../../_images/image359.png" />
 </figure>
@@ -3666,7 +3673,7 @@
 </table>
 </section>
 <section id="rteosinteraction">
-<h4>RteOsInteraction<a class="headerlink" href="#rteosinteraction" title="Link to this heading">¶</a></h4>
+<h4>RteOsInteraction<a class="headerlink" href="#rteosinteraction" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="rteosinteraction-general-configuration-page-rteosinteraction">
 <img alt="通用配置页面-RteOsInteraction (General Configuration Page-RteOsInteraction)" src="../../_images/image450.png" />
 </figure>
@@ -3763,7 +3770,7 @@
 </table>
 </section>
 <section id="rteswcomponentinstance">
-<h4>RteSwComponentInstance<a class="headerlink" href="#rteswcomponentinstance" title="Link to this heading">¶</a></h4>
+<h4>RteSwComponentInstance<a class="headerlink" href="#rteswcomponentinstance" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="rteswcomponentinstance-general-configuration-page-rteswcomponentinstance">
 <img alt="通用配置页面-RteSwComponentInstance (General Configuration Page-RteSwComponentInstance)" src="../../_images/image547.png" />
 </figure>
@@ -3805,7 +3812,7 @@
 </tbody>
 </table>
 <section id="rteeventtotaskmapping">
-<h5>RteEventToTaskMapping<a class="headerlink" href="#rteeventtotaskmapping" title="Link to this heading">¶</a></h5>
+<h5>RteEventToTaskMapping<a class="headerlink" href="#rteeventtotaskmapping" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rteeventtotaskmapping-general-configuration-page-rteeventtotaskmapping">
 <img alt="通用配置页面-RteEventToTaskMapping (General Configuration Page-RteEventToTaskMapping)" src="../../_images/image645.png" />
 </figure>
@@ -3938,7 +3945,7 @@
 </table>
 </section>
 <section id="rteexclusiveareaimplementation">
-<h5>RteExclusiveAreaImplementation<a class="headerlink" href="#rteexclusiveareaimplementation" title="Link to this heading">¶</a></h5>
+<h5>RteExclusiveAreaImplementation<a class="headerlink" href="#rteexclusiveareaimplementation" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rteexclusiveareaimplementation-general-configuration-page-rteexclusiveareaimplementation">
 <img alt="通用配置页面-RteExclusiveAreaImplementation (General Configuration Page-RteExclusiveAreaImplementation)" src="../../_images/image735.png" />
 </figure>
@@ -4035,7 +4042,7 @@
 </table>
 </section>
 <section id="rteexternaltriggerconfig">
-<h5>RteExternalTriggerConfig<a class="headerlink" href="#rteexternaltriggerconfig" title="Link to this heading">¶</a></h5>
+<h5>RteExternalTriggerConfig<a class="headerlink" href="#rteexternaltriggerconfig" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rteexternaltriggerconfig-general-configuration-page-rteexternaltriggerconfig">
 <img alt="通用配置页面-RteExternalTriggerConfig (General Configuration Page-RteExternalTriggerConfig)" src="../../_images/image831.png" />
 </figure>
@@ -4114,7 +4121,7 @@
 </table>
 </section>
 <section id="rteinternaltriggerconfig">
-<h5>RteInternalTriggerConfig<a class="headerlink" href="#rteinternaltriggerconfig" title="Link to this heading">¶</a></h5>
+<h5>RteInternalTriggerConfig<a class="headerlink" href="#rteinternaltriggerconfig" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rteinternaltriggerconfig-general-configuration-page-rteinternaltriggerconfig">
 <img alt="通用配置页面-RteInternalTriggerConfig (General Configuration Page-RteInternalTriggerConfig)" src="../../_images/image930.png" />
 </figure>
@@ -4175,7 +4182,7 @@
 </table>
 </section>
 <section id="rtenvramallocation">
-<h5>RteNvRamAllocation<a class="headerlink" href="#rtenvramallocation" title="Link to this heading">¶</a></h5>
+<h5>RteNvRamAllocation<a class="headerlink" href="#rtenvramallocation" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rtenvramallocation-general-configuration-page-rtenvramallocation">
 <img alt="通用配置页面-RteNvRamAllocation (General Configuration Page-RteNvRamAllocation)" src="../../_images/image1028.png" />
 </figure>
@@ -4237,7 +4244,7 @@
 </section>
 </section>
 <section id="rtebswmoduleinstance">
-<h4>RteBswModuleInstance<a class="headerlink" href="#rtebswmoduleinstance" title="Link to this heading">¶</a></h4>
+<h4>RteBswModuleInstance<a class="headerlink" href="#rtebswmoduleinstance" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="rtebswmoduleinstance-general-configuration-page-rtebswmoduleinstance">
 <img alt="通用配置页面-RteBswModuleInstance (General Configuration Page-RteBswModuleInstance)" src="../../_images/image1135.png" />
 </figure>
@@ -4279,7 +4286,7 @@
 </tbody>
 </table>
 <section id="rtebsweventtotaskmapping">
-<h5>RteBswEventToTaskMapping<a class="headerlink" href="#rtebsweventtotaskmapping" title="Link to this heading">¶</a></h5>
+<h5>RteBswEventToTaskMapping<a class="headerlink" href="#rtebsweventtotaskmapping" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rtebsweventtotaskmapping-general-configuration-page-rtebsweventtotaskmapping">
 <img alt="通用配置页面-RteBswEventToTaskMapping (General Configuration Page-RteBswEventToTaskMapping)" src="../../_images/image1226.png" />
 </figure>
@@ -4412,7 +4419,7 @@
 </table>
 </section>
 <section id="rtebswexclusiveareaimpl">
-<h5>RteBswExclusiveAreaImpl<a class="headerlink" href="#rtebswexclusiveareaimpl" title="Link to this heading">¶</a></h5>
+<h5>RteBswExclusiveAreaImpl<a class="headerlink" href="#rtebswexclusiveareaimpl" title="链接到此标题。">¶</a></h5>
 <figure class="align-center" id="rtebswexclusiveareaimpl-general-configuration-page-rtebswexclusiveareaimpl">
 <img alt="通用配置页面-RteBswExclusiveAreaImpl (General Configuration Page-RteBswExclusiveAreaImpl)" src="../../_images/image1322.png" />
 </figure>
@@ -4535,7 +4542,7 @@
 </section>
 </section>
 <section id="rte-os-rte-os-synchronized-configuration">
-<h3>RTE-OS同步配置 (RTE-OS Synchronized Configuration)<a class="headerlink" href="#rte-os-rte-os-synchronized-configuration" title="Link to this heading">¶</a></h3>
+<h3>RTE-OS同步配置 (RTE-OS Synchronized Configuration)<a class="headerlink" href="#rte-os-rte-os-synchronized-configuration" title="链接到此标题。">¶</a></h3>
 <p>基于ECU萃取arxml文件，BSW的模块描述文件，根据模型需求自动配置OS模块。自动配置分两种：</p>
 <p>Extract ARXML files from ECU, module description files for BSW based on extracted models, and automatically configure OS modules according to model requirements. Automatic configuration is divided into two types:</p>
 <p>与RTE实现相关，OS必须按实现需求进行配置且客户不能修改；</p>
@@ -4548,9 +4555,9 @@
 </section>
 </section>
 <section id="rte-rte-generation-and-integration">
-<h2>RTE生成和集成 (RTE Generation and Integration)<a class="headerlink" href="#rte-rte-generation-and-integration" title="Link to this heading">¶</a></h2>
+<h2>RTE生成和集成 (RTE Generation and Integration)<a class="headerlink" href="#rte-rte-generation-and-integration" title="链接到此标题。">¶</a></h2>
 <section id="overview-of-the-tool-development-process">
-<h3>工具开发流程概述 (Overview of the Tool Development Process)<a class="headerlink" href="#overview-of-the-tool-development-process" title="Link to this heading">¶</a></h3>
+<h3>工具开发流程概述 (Overview of the Tool Development Process)<a class="headerlink" href="#overview-of-the-tool-development-process" title="链接到此标题。">¶</a></h3>
 <p>导入ECU萃取arxml文件（包含完整的SWC组件，BSW服务，Port连接关系，信号映射等信息）；</p>
 <p>Import ECU extracted arxml files (including complete SWCs, BSW services, port connections, signal mappings, etc.).</p>
 <p>完成除OS和RTE之外的所有BSW模块配置；</p>
@@ -4567,7 +4574,7 @@
 <p>Generate RTE code first, then generate OS code (the full engineering generation order is other BSW → RTE → OS);</p>
 </section>
 <section id="rte-rte-file-structure">
-<h3>RTE文件结构 (RTE File Structure)<a class="headerlink" href="#rte-rte-file-structure" title="Link to this heading">¶</a></h3>
+<h3>RTE文件结构 (RTE File Structure)<a class="headerlink" href="#rte-rte-file-structure" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="RTE文件结构 (RTE File Structure)" src="../../_images/image1520.png" />
 </figure>
@@ -4646,14 +4653,14 @@
 </table>
 </section>
 <section id="application-runnableentity-application-runnableentity-pogo-code-generation">
-<h3>Application RunnableEntity桩代码生成 (Application RunnableEntity POGO code generation)<a class="headerlink" href="#application-runnableentity-application-runnableentity-pogo-code-generation" title="Link to this heading">¶</a></h3>
+<h3>Application RunnableEntity桩代码生成 (Application RunnableEntity POGO code generation)<a class="headerlink" href="#application-runnableentity-application-runnableentity-pogo-code-generation" title="链接到此标题。">¶</a></h3>
 <p>可选操作，如果应用开发未完成，可使用BSW工具（图5-2）生成Application RunnableEntity的桩代码。</p>
 <figure class="align-center" id="peg-code-generation">
 <img alt="桩代码生成 (Peg code generation)" src="../../_images/image1617.png" />
 </figure>
 </section>
 <section id="integrate">
-<h3>集成 (Integrate)<a class="headerlink" href="#integrate" title="Link to this heading">¶</a></h3>
+<h3>集成 (Integrate)<a class="headerlink" href="#integrate" title="链接到此标题。">¶</a></h3>
 <p>按照5.1章节完成工程的配置，生成所有BSW（包括OS、RTE、MCAL）动态配置代码后，基于芯片、编译器搭建代码工程，集成BSW静态代码以及工具生成的动态代码，再加上Application RunnableEntity代码（若应用开发未完成，可使用5.3生成Application RunnableEntity的桩代码），基于内存布局需求、以及BSW和Application RunnableEntity的MemMap进行链接文件设计，整体进行编译、链接。</p>
 <p>After completing the engineering configuration according to Chapter 5.1, generate all BSW (including OS, RTE, MCAL) dynamic configuration codes. Based on the chip and compiler, set up the code engineering, integrate BSW static code along with the dynamically generated code from the tools, and add Application RunnableEntity code (if application development is not completed, use the stub code generated in Section 5.3). Design the link file based on memory layout requirements, BSW, and Application RunnableEntity MemMap, and then compile and link overall.</p>
 </section>
@@ -4857,7 +4864,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -4866,11 +4873,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

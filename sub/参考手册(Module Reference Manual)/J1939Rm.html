@@ -9,6 +9,7 @@
         <title>J1939Rm &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,11 +178,11 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="j1939rm">
-<h1>J1939Rm<a class="headerlink" href="#j1939rm" title="Link to this heading">¶</a></h1>
+<h1>J1939Rm<a class="headerlink" href="#j1939rm" title="链接到此标题。">¶</a></h1>
 <section id="document-information">
-<h2>文档信息(Document Information)<a class="headerlink" href="#document-information" title="Link to this heading">¶</a></h2>
+<h2>文档信息(Document Information)<a class="headerlink" href="#document-information" title="链接到此标题。">¶</a></h2>
 <section id="version-history">
-<h3>版本历史(Version History)<a class="headerlink" href="#version-history" title="Link to this heading">¶</a></h3>
+<h3>版本历史(Version History)<a class="headerlink" href="#version-history" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16.7%" />
@@ -215,7 +222,7 @@
 </table>
 </section>
 <section id="references">
-<h3>参考文档(References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
+<h3>参考文档(References)<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16.7%" />
@@ -320,11 +327,11 @@
 </table>
 </section>
 <section id="id1">
-<h3>术语<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<h3>术语<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h3>
 <p>None</p>
 </section>
 <section id="id2">
-<h3>简写<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<h3>简写<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16.7%" />
@@ -451,23 +458,23 @@
 </section>
 </section>
 <section id="id3">
-<h2>简介<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h2>简介<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="id4">
 <img alt="../../_images/J1939Rm%E6%9E%B6%E6%9E%84%E6%A1%86%E5%9B%BE.png" src="../../_images/J1939Rm%E6%9E%B6%E6%9E%84%E6%A1%86%E5%9B%BE.png" />
 </figure>
 <p>J1939Rm 主要用于 J1939 网络中 RQST 和 RQST2 请求的接收与发送、应答的接收与发送。根据 PGN 的配置情况，J1939Rm 将请求传递给 J1939Dcm、J1939Nm、RTE、CDD 和 COM。因此，本模块需要实现如下功能：模块初始化、通信状态修改、请求接收与发送、请求传递、应答接收与发送、请求与应答发送队列管理、超时监督、错误检测，不支持 SAE J1939-21 中的 Transfer PG。</p>
 </section>
 <section id="id5">
-<h2>功能描述<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<h2>功能描述<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
 <section id="public-features">
-<h3>公共特性(Public Features)<a class="headerlink" href="#public-features" title="Link to this heading">¶</a></h3>
+<h3>公共特性(Public Features)<a class="headerlink" href="#public-features" title="链接到此标题。">¶</a></h3>
 <section id="multi-core-and-multi-partition-features">
-<h4>多核多分区功能(Multi-core and Multi-partition Features)<a class="headerlink" href="#multi-core-and-multi-partition-features" title="Link to this heading">¶</a></h4>
+<h4>多核多分区功能(Multi-core and Multi-partition Features)<a class="headerlink" href="#multi-core-and-multi-partition-features" title="链接到此标题。">¶</a></h4>
 <p>不支持。</p>
 <p>Not supported.</p>
 </section>
 <section id="pbs-pbs-features">
-<h4>PBS功能(PBS Features)<a class="headerlink" href="#pbs-pbs-features" title="Link to this heading">¶</a></h4>
+<h4>PBS功能(PBS Features)<a class="headerlink" href="#pbs-pbs-features" title="链接到此标题。">¶</a></h4>
 <ul class="simple">
 <li><p>支持配置不同数量的J1939NmChannel通道。
 Supports configuring different numbers of J1939NmChannel channels.</p></li>
@@ -478,58 +485,58 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </ul>
 </section>
 <section id="memmap-memmap-features">
-<h4>Memmap功能(Memmap Features)<a class="headerlink" href="#memmap-memmap-features" title="Link to this heading">¶</a></h4>
+<h4>Memmap功能(Memmap Features)<a class="headerlink" href="#memmap-memmap-features" title="链接到此标题。">¶</a></h4>
 <p>memmap文件是动态的。存在J1939RM_START_SEC_CODE、J1939RM_STOP_SEC_CODE、J1939RM_START_SEC_CODE_FAST、J1939RM_STOP_SEC_CODE_FAST、J1939RM_START_SEC_CONFIG_DATA_UNSPECIFIED、J1939RM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、J1939RM_START_SEC_VAR_CLEARED_BOOLEAN、J1939RM_STOP_SEC_VAR_CLEARED_BOOLEAN、J1939RM_START_SEC_VAR_CLEARED_UNSPECIFIED、J1939RM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、J1939RM_START_SEC_VAR_CLEARED_PTR、J1939RM_STOP_SEC_VAR_CLEARED_PTR、J1939RM_START_SEC_VAR_INIT_UNSPECIFIED、J1939RM_STOP_SEC_VAR_INIT_UNSPECIFIED、J1939RM_START_SEC_CONFIG_DATA_16、J1939RM_STOP_SEC_CONFIG_DATA_16字段。</p>
 <p>The memmap file is Dynamic.There are J1939RM_START_SEC_CODE、J1939RM_STOP_SEC_CODE、J1939RM_START_SEC_CODE_FAST、J1939RM_STOP_SEC_CODE_FAST、J1939RM_START_SEC_CONFIG_DATA_UNSPECIFIED、J1939RM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、J1939RM_START_SEC_VAR_CLEARED_BOOLEAN、J1939RM_STOP_SEC_VAR_CLEARED_BOOLEAN、J1939RM_START_SEC_VAR_CLEARED_UNSPECIFIED、J1939RM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、J1939RM_START_SEC_VAR_CLEARED_PTR、J1939RM_STOP_SEC_VAR_CLEARED_PTR、J1939RM_START_SEC_VAR_INIT_UNSPECIFIED、J1939RM_STOP_SEC_VAR_INIT_UNSPECIFIED、J1939RM_START_SEC_CONFIG_DATA_16 and J1939RM_STOP_SEC_CONFIG_DATA_16 fields.</p>
 </section>
 <section id="exclusive-area-features">
-<h4>独占区功能(Exclusive Area Features)<a class="headerlink" href="#exclusive-area-features" title="Link to this heading">¶</a></h4>
+<h4>独占区功能(Exclusive Area Features)<a class="headerlink" href="#exclusive-area-features" title="链接到此标题。">¶</a></h4>
 <p>None.</p>
 </section>
 </section>
 <section id="module-features">
-<h3>模块特性(Module Features)<a class="headerlink" href="#module-features" title="Link to this heading">¶</a></h3>
+<h3>模块特性(Module Features)<a class="headerlink" href="#module-features" title="链接到此标题。">¶</a></h3>
 <section id="state-management-functionality">
-<h4>状态管理功能(State management functionality)<a class="headerlink" href="#state-management-functionality" title="Link to this heading">¶</a></h4>
+<h4>状态管理功能(State management functionality)<a class="headerlink" href="#state-management-functionality" title="链接到此标题。">¶</a></h4>
 <p>状态管理功能指J1939Rm中的Node，Channel状态通过外部接口J1939Rm_SetState进行控制。J1939Rm中每个Node与之映射的Channel状态管理独立，状态分为Online、Offline。模块初始化完成时默认为Offline状态，Offline 状态下只能接收Request请求AddressClaimed PG。在Offline 状态下发送Request(2)超时监控以及ACKM都将禁止。Online状态将支持Offline下禁止的内容。</p>
 <p>The state management function refers to the Node in J1939Rm, where the Channel state is controlled through the external interface J1939Rm_SetState. In J1939Rm, the state management of each Node and its corresponding Channel is independent, with states classified as Online or Offline. When the module initialization is complete, the default state is Offline. In the Offline state, only Request and AddressClaimed PG requests can be received. In the Offline state, sending Request(2), timeout monitoring, and ACKM are all disabled. The Online state will support the functionalities that are prohibited in the Offline state.</p>
 </section>
 <section id="request-request2-receive-request-request2">
-<h4>接收Request/Request2(Receive Request/Request2)<a class="headerlink" href="#request-request2-receive-request-request2" title="Link to this heading">¶</a></h4>
+<h4>接收Request/Request2(Receive Request/Request2)<a class="headerlink" href="#request-request2-receive-request-request2" title="链接到此标题。">¶</a></h4>
 <p>接收到的Request/Request2涉及到PGN识别，识别成功后转发到其他模块。接收到Request(2)将被PGN进行检查，以确定目标路径。若不支持的PGN将发送ACKM中的NACK报文（目标地址非全局地址时）；对于确定了有效的PGN转发时涉及到Com与非COM的目标路劲。对于非Com的目标路径调用上层的模板接口&lt;User&gt;_RequestIndication，这样的目标路径对应的模块有J1939Dcm、J1939Nm、Rte、Cdd。对于COM的PGN请求，转发时调用的接口Com_TriggerIPDUSendWithMetaData。</p>
 <p>The received Request/Request2 involves PGN identification. After successful identification, it is forwarded to other modules. The received Request(2) will have its PGN checked to determine the target path. If the PGN is not supported, a NACK message will be sent in ACKM (when the target address is not a global address). For PGNs with a valid determined path, forwarding involves both COM and non-COM target paths. For non-COM target paths, the upper-layer template interface &lt;User&gt;_RequestIndication is called. Modules corresponding to such target paths include J1939Dcm, J1939Nm, Rte, and Cdd. For COM PGN requests, the interface Com_TriggerIPDUSendWithMetaData is called during forwarding.</p>
 </section>
 <section id="request-request2-send-request-request2">
-<h4>发送Request/Request2(Send Request/Request2)<a class="headerlink" href="#request-request2-send-request-request2" title="Link to this heading">¶</a></h4>
+<h4>发送Request/Request2(Send Request/Request2)<a class="headerlink" href="#request-request2-send-request-request2" title="链接到此标题。">¶</a></h4>
 <p>发送Request(2)用于请求对方发出对应的PGN或触发，发送请求涉及到超时监控。发送Request(2)来源于J1939Rm的上层模块RTE或CDD调用接口J1939Rm_SendRequest，当调用时带有扩展信息标识时则视为发送Request2，不带则发送Request。Request与Request2都带有自己的队列，队列的大小来源于配置界面J1939RmRequestQueueSize与J1939RmRequestQueue2Size，发送Request(2)将触发超时监控（可选）。超时监控时间为SAE规定的Request(2)应答超时时间1.25s。当发生超时后，将调用&lt;User&gt;_RequestTimeoutIndication接口；当发送的Request(2)对方的应答未ACKM时，若为Com将调用J1939Rm_ComRxIpduCallout，非COM将调用J1939Rm_CancelRequestTimeout取消超时监控。</p>
 <p>Sending Request(2) is used to request the other party to send the corresponding PGN or trigger an action. Sending a request involves timeout monitoring. Sending Request(2) originates from the upper-level module RTE or CDD of J1939Rm calling the interface J1939Rm_SendRequest. When the call includes an extended information identifier, it is considered sending Request2; if not, it sends Request. Both Request and Request2 have their own queues, with the queue size coming from the configuration interface J1939RmRequestQueueSize and J1939RmRequestQueue2Size. Sending Request(2) will trigger timeout monitoring (optional). The timeout monitoring period is the SAE-specified Request(2) response timeout of 1.25 seconds. When a timeout occurs, the &lt;User&gt;_RequestTimeoutIndication interface will be called; if the sent Request(2) response from the other party is not ACKM, for COM it will call J1939Rm_ComRxIpduCallout, and for non-COM it will call J1939Rm_CancelRequestTimeout to cancel timeout monitoring.</p>
 </section>
 <section id="ack-send-ack">
-<h4>发送ACK(Send ACK)<a class="headerlink" href="#ack-send-ack" title="Link to this heading">¶</a></h4>
+<h4>发送ACK(Send ACK)<a class="headerlink" href="#ack-send-ack" title="链接到此标题。">¶</a></h4>
 <p>发送ACK可以是上层模块调用J1939Rm的接口J1939Rm_SendAck触发。ACK发送的ACKM报文目标地址限定为全局地址FF，ACK的发送有队列机制，队列的大小通过配置项J1939RmAckQueueSize决定。通过调用接口触发的ACK发送将回环给J1939Rm自己。</p>
 <p>Sending an ACK can be triggered by an upper-layer module calling the J1939Rm interface J1939Rm_SendAck. The target address of the ACKM message for ACK sending is limited to the global address FF. The sending of ACKs uses a queue mechanism, and the size of the queue is determined by the configuration item J1939RmAckQueueSize. The ACK sent by calling the interface will loop back to J1939Rm itself.</p>
 </section>
 <section id="ack-receive-ack">
-<h4>接收ACK(Receive ACK)<a class="headerlink" href="#ack-receive-ack" title="Link to this heading">¶</a></h4>
+<h4>接收ACK(Receive ACK)<a class="headerlink" href="#ack-receive-ack" title="链接到此标题。">¶</a></h4>
 <p>接收Ack：J1939Rm校验通过后转发给上层模块&lt;User&gt;_AckIndication。接收ACK校验包括PGN、源地址、应答地址。校验通过后J1939Rm根据配置中的User类型决定转发的上层模块，ACK模块包括CDD、Rte。</p>
 <p>Receive Ack: After the J1939Rm verification is passed, it is forwarded to the upper-layer module &lt;User&gt;_AckIndication. The reception ACK verification includes PGN, source address, and destination address. Once the verification is passed, J1939Rm determines which upper-layer module to forward to based on the User type configured. The ACK modules include CDD and Rte.</p>
 </section>
 </section>
 <section id="deviation">
-<h3>偏差(Deviation)<a class="headerlink" href="#deviation" title="Link to this heading">¶</a></h3>
+<h3>偏差(Deviation)<a class="headerlink" href="#deviation" title="链接到此标题。">¶</a></h3>
 <p>None</p>
 </section>
 <section id="extension">
-<h3>扩展(Extension)<a class="headerlink" href="#extension" title="Link to this heading">¶</a></h3>
+<h3>扩展(Extension)<a class="headerlink" href="#extension" title="链接到此标题。">¶</a></h3>
 <p>None</p>
 </section>
 </section>
 <section id="integration">
-<h2>集成(Integration)<a class="headerlink" href="#integration" title="Link to this heading">¶</a></h2>
+<h2>集成(Integration)<a class="headerlink" href="#integration" title="链接到此标题。">¶</a></h2>
 <section id="file-list">
-<h3>文件列表(File List)<a class="headerlink" href="#file-list" title="Link to this heading">¶</a></h3>
+<h3>文件列表(File List)<a class="headerlink" href="#file-list" title="链接到此标题。">¶</a></h3>
 <section id="static-files">
-<h4>静态文件(Static Files)<a class="headerlink" href="#static-files" title="Link to this heading">¶</a></h4>
+<h4>静态文件(Static Files)<a class="headerlink" href="#static-files" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -563,7 +570,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="dynamic-file">
-<h4>动态文件(Dynamic file)<a class="headerlink" href="#dynamic-file" title="Link to this heading">¶</a></h4>
+<h4>动态文件(Dynamic file)<a class="headerlink" href="#dynamic-file" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -601,9 +608,9 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </section>
 </section>
 <section id="error-handling">
-<h3>错误处理(Error Handling)<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h3>
+<h3>错误处理(Error Handling)<a class="headerlink" href="#error-handling" title="链接到此标题。">¶</a></h3>
 <section id="development-errors">
-<h4>开发错误(Development Errors)<a class="headerlink" href="#development-errors" title="Link to this heading">¶</a></h4>
+<h4>开发错误(Development Errors)<a class="headerlink" href="#development-errors" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33.3%" />
@@ -681,21 +688,21 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="product-errors">
-<h4>产品错误(Product Errors)<a class="headerlink" href="#product-errors" title="Link to this heading">¶</a></h4>
+<h4>产品错误(Product Errors)<a class="headerlink" href="#product-errors" title="链接到此标题。">¶</a></h4>
 <p>None</p>
 </section>
 <section id="runtime-errors">
-<h4>运行时错误(Runtime Errors)<a class="headerlink" href="#runtime-errors" title="Link to this heading">¶</a></h4>
+<h4>运行时错误(Runtime Errors)<a class="headerlink" href="#runtime-errors" title="链接到此标题。">¶</a></h4>
 <p>None</p>
 </section>
 </section>
 </section>
 <section id="api-api-interface-description">
-<h2>API接口描述(API Interface Description)<a class="headerlink" href="#api-api-interface-description" title="Link to this heading">¶</a></h2>
+<h2>API接口描述(API Interface Description)<a class="headerlink" href="#api-api-interface-description" title="链接到此标题。">¶</a></h2>
 <section id="data-type-definition">
-<h3>数据类型定义 (Data Type definition)<a class="headerlink" href="#data-type-definition" title="Link to this heading">¶</a></h3>
+<h3>数据类型定义 (Data Type definition)<a class="headerlink" href="#data-type-definition" title="链接到此标题。">¶</a></h3>
 <section id="std-versioninfotype-std-versioninfotype-type-definition">
-<h4>Std_VersionInfoType类型定义 (Std_VersionInfoType type definition)<a class="headerlink" href="#std-versioninfotype-std-versioninfotype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Std_VersionInfoType类型定义 (Std_VersionInfoType type definition)<a class="headerlink" href="#std-versioninfotype-std-versioninfotype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -747,7 +754,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="std-returntype-std-returntype-type-definition">
-<h4>Std_ReturnType类型定义 (Std_ReturnType Type Definition)<a class="headerlink" href="#std-returntype-std-returntype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>Std_ReturnType类型定义 (Std_ReturnType Type Definition)<a class="headerlink" href="#std-returntype-std-returntype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -775,7 +782,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="networkhandletype-networkhandletype-type-definition">
-<h4>NetworkHandleType类型定义 (NetworkHandleType Type Definition)<a class="headerlink" href="#networkhandletype-networkhandletype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>NetworkHandleType类型定义 (NetworkHandleType Type Definition)<a class="headerlink" href="#networkhandletype-networkhandletype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -803,7 +810,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="pduidtype-pduidtype-type-definition">
-<h4>PduIdType类型定义 (PduIdType Type Definition)<a class="headerlink" href="#pduidtype-pduidtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>PduIdType类型定义 (PduIdType Type Definition)<a class="headerlink" href="#pduidtype-pduidtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -831,7 +838,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="pdulengthtype-pdulengthtype-type-definition">
-<h4>PduLengthType类型定义 (PduLengthType Type Definition)<a class="headerlink" href="#pdulengthtype-pdulengthtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>PduLengthType类型定义 (PduLengthType Type Definition)<a class="headerlink" href="#pdulengthtype-pdulengthtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -859,7 +866,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="pduinfotype-pduinfotype-type-definition">
-<h4>PduInfoType类型定义 (PduInfoType Type Definition)<a class="headerlink" href="#pduinfotype-pduinfotype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>PduInfoType类型定义 (PduInfoType Type Definition)<a class="headerlink" href="#pduinfotype-pduinfotype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -902,7 +909,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-extidtype-j1939rm-extidtype-type-definition">
-<h4>J1939Rm_ExtIdType类型定义 (J1939Rm_ExtIdType Type Definition)<a class="headerlink" href="#j1939rm-extidtype-j1939rm-extidtype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_ExtIdType类型定义 (J1939Rm_ExtIdType Type Definition)<a class="headerlink" href="#j1939rm-extidtype-j1939rm-extidtype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -930,7 +937,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-extidinfotype-j1939rm-extidinfotype-type-definition">
-<h4>J1939Rm_ExtIdInfoType类型定义 (J1939Rm_ExtIdInfoType Type Definition)<a class="headerlink" href="#j1939rm-extidinfotype-j1939rm-extidinfotype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_ExtIdInfoType类型定义 (J1939Rm_ExtIdInfoType Type Definition)<a class="headerlink" href="#j1939rm-extidinfotype-j1939rm-extidinfotype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -976,7 +983,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-statetype-j1939rm-statetype-type-definition">
-<h4>J1939Rm_StateType类型定义 (J1939Rm_StateType Type Definition)<a class="headerlink" href="#j1939rm-statetype-j1939rm-statetype-type-definition" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_StateType类型定义 (J1939Rm_StateType Type Definition)<a class="headerlink" href="#j1939rm-statetype-j1939rm-statetype-type-definition" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1005,7 +1012,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1048,9 +1055,9 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 <section id="j1939rm-init">
-<h4>J1939Rm_Init<a class="headerlink" href="#j1939rm-init" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_Init<a class="headerlink" href="#j1939rm-init" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Rm_Init</span><span class="p">(</span><span class="n">const</span> <span class="n">J1939Rm_ConfigType</span> <span class="o">*</span><span class="n">configPtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1087,7 +1094,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </dl>
 </section>
 <section id="j1939rm-deinit">
-<h4>J1939Rm_DeInit<a class="headerlink" href="#j1939rm-deinit" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_DeInit<a class="headerlink" href="#j1939rm-deinit" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Rm_DeInit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1102,7 +1109,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </dl>
 </section>
 <section id="j1939rm-getversioninfo">
-<h4>J1939Rm_GetVersionInfo<a class="headerlink" href="#j1939rm-getversioninfo" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_GetVersionInfo<a class="headerlink" href="#j1939rm-getversioninfo" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Rm_GetVersionInfo</span><span class="p">(</span><span class="n">Std_VersionInfoType</span> <span class="o">*</span><span class="n">versionInfo</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1139,7 +1146,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </dl>
 </section>
 <section id="j1939rm-setstate">
-<h4>J1939Rm_SetState<a class="headerlink" href="#j1939rm-setstate" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_SetState<a class="headerlink" href="#j1939rm-setstate" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">J1939Rm_SetState</span><span class="p">(</span><span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">node</span><span class="p">,</span> <span class="n">J1939Rm_StateType</span> <span class="n">newState</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1204,7 +1211,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-sendrequest">
-<h4>J1939Rm_SendRequest<a class="headerlink" href="#j1939rm-sendrequest" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_SendRequest<a class="headerlink" href="#j1939rm-sendrequest" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">J1939Rm_SendRequest</span><span class="p">(</span><span class="n">uint8</span> <span class="n">userId</span><span class="p">,</span> <span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">requestedPgn</span><span class="p">,</span> <span class="n">const</span> <span class="n">J1939Rm_ExtIdInfoType</span> <span class="o">*</span><span class="n">extIdInfo</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">destAddress</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">priority</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">checkTimeout</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1285,7 +1292,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-cancelrequesttimeout">
-<h4>J1939Rm_CancelRequestTimeout<a class="headerlink" href="#j1939rm-cancelrequesttimeout" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_CancelRequestTimeout<a class="headerlink" href="#j1939rm-cancelrequesttimeout" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">J1939Rm_CancelRequestTimeout</span><span class="p">(</span><span class="n">uint8</span> <span class="n">userId</span><span class="p">,</span> <span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">requestedPgn</span><span class="p">,</span> <span class="n">const</span> <span class="n">J1939Rm_ExtIdInfoType</span> <span class="o">*</span><span class="n">extIdInfo</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">destAddress</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1358,7 +1365,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-sendack">
-<h4>J1939Rm_SendAck<a class="headerlink" href="#j1939rm-sendack" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_SendAck<a class="headerlink" href="#j1939rm-sendack" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Std_ReturnType</span> <span class="n">J1939Rm_SendAck</span><span class="p">(</span><span class="n">uint8</span> <span class="n">userId</span><span class="p">,</span> <span class="n">NetworkHandleType</span> <span class="n">channel</span><span class="p">,</span> <span class="n">uint32</span> <span class="n">ackPgn</span><span class="p">,</span> <span class="n">const</span> <span class="n">J1939Rm_ExtIdInfoType</span> <span class="o">*</span><span class="n">extIdInfo</span><span class="p">,</span> <span class="n">J1939Rm_AckCode</span> <span class="n">ackCode</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">ackAddress</span><span class="p">,</span> <span class="n">uint8</span> <span class="n">priority</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">broadcast</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1443,7 +1450,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </table>
 </section>
 <section id="j1939rm-rxindication">
-<h4>J1939Rm_RxIndication<a class="headerlink" href="#j1939rm-rxindication" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_RxIndication<a class="headerlink" href="#j1939rm-rxindication" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Rm_RxIndication</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">RxPduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span> <span class="o">*</span><span class="n">PduInfoPtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1484,7 +1491,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </dl>
 </section>
 <section id="j1939rm-txconfirmation">
-<h4>J1939Rm_TxConfirmation<a class="headerlink" href="#j1939rm-txconfirmation" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_TxConfirmation<a class="headerlink" href="#j1939rm-txconfirmation" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Rm_TxConfirmation</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">TxPduId</span><span class="p">,</span> <span class="n">Std_ReturnType</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1525,7 +1532,7 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </dl>
 </section>
 <section id="j1939rm-checkreceivedcomipdu">
-<h4>J1939Rm_CheckReceivedComIPdu<a class="headerlink" href="#j1939rm-checkreceivedcomipdu" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_CheckReceivedComIPdu<a class="headerlink" href="#j1939rm-checkreceivedcomipdu" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boolean</span> <span class="n">J1939Rm_CheckReceivedComIPdu</span><span class="p">(</span><span class="n">PduIdType</span> <span class="n">PduId</span><span class="p">,</span> <span class="n">const</span> <span class="n">PduInfoType</span><span class="o">*</span> <span class="n">PduInfoPtr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1587,9 +1594,9 @@ Supports configuring J1939NmChannel channels and nodes with different content.</
 </section>
 </section>
 <section id="configurable-callback-function">
-<h3>可配置回调函数(Configurable callback function)<a class="headerlink" href="#configurable-callback-function" title="Link to this heading">¶</a></h3>
+<h3>可配置回调函数(Configurable callback function)<a class="headerlink" href="#configurable-callback-function" title="链接到此标题。">¶</a></h3>
 <section id="j1939rm-mainfunction">
-<h4>J1939Rm_MainFunction<a class="headerlink" href="#j1939rm-mainfunction" title="Link to this heading">¶</a></h4>
+<h4>J1939Rm_MainFunction<a class="headerlink" href="#j1939rm-mainfunction" title="链接到此标题。">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">J1939Rm_MainFunction_</span><span class="o">&lt;</span><span class="n">ComMChannel</span><span class="o">.</span><span class="n">ShortName</span><span class="o">&gt;</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1607,20 +1614,20 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </section>
 </section>
 <section id="configuration">
-<h2>配置(Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<h2>配置(Configuration)<a class="headerlink" href="#configuration" title="链接到此标题。">¶</a></h2>
 <section id="j19939rmeneral-j19939rmeneral-configuration">
-<h3>J19939Rmeneral配置(J19939Rmeneral Configuration)<a class="headerlink" href="#j19939rmeneral-j19939rmeneral-configuration" title="Link to this heading">¶</a></h3>
+<h3>J19939Rmeneral配置(J19939Rmeneral Configuration)<a class="headerlink" href="#j19939rmeneral-j19939rmeneral-configuration" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="j1939rmgeneral">
 <img alt="fig_J1939RmGeneral" src="../../_images/J1939RmGeneral.png" />
 <figcaption>
-<p><span class="caption-text">J1939RmGeneral配置图</span><a class="headerlink" href="#j1939rmgeneral" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmGeneral配置图</span><a class="headerlink" href="#j1939rmgeneral" title="链接到此图片">¶</a></p>
 <div class="legend">
 <p>J1939Rm General Configuration</p>
 </div>
 </figcaption>
 </figure>
 <section id="list-of-standard-parameter-configurations">
-<h4>常规参数配置列表(List of standard parameter configurations)<a class="headerlink" href="#list-of-standard-parameter-configurations" title="Link to this heading">¶</a></h4>
+<h4>常规参数配置列表(List of standard parameter configurations)<a class="headerlink" href="#list-of-standard-parameter-configurations" title="链接到此标题。">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 12.5%" />
@@ -1697,11 +1704,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </section>
 </section>
 <section id="j1939rmchannel-j1939rmchannel-configuration">
-<h3>J1939RmChannel配置(J1939RmChannel Configuration)<a class="headerlink" href="#j1939rmchannel-j1939rmchannel-configuration" title="Link to this heading">¶</a></h3>
+<h3>J1939RmChannel配置(J1939RmChannel Configuration)<a class="headerlink" href="#j1939rmchannel-j1939rmchannel-configuration" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="j1939rmchannel">
 <img alt="fig_J1939RmChannel" src="../../_images/J1939RmChannel.png" />
 <figcaption>
-<p><span class="caption-text">J1939RmChannel配置图</span><a class="headerlink" href="#j1939rmchannel" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmChannel配置图</span><a class="headerlink" href="#j1939rmchannel" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#j1939rmchannel"><span class="std std-ref">J1939RmChannel配置图</span></a>，此处主要配置的内容是每个channel的属性。主要包括该channel下的发送Request/Request2/Ack队列大小，以及该Channel映射的ComM channel。</p>
@@ -1757,11 +1764,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </table>
 </section>
 <section id="j1939rmchannel-pdu-j1939rmchannel-pdu-configuration">
-<h3>J1939RmChannel Pdu配置(J1939RmChannel Pdu Configuration)<a class="headerlink" href="#j1939rmchannel-pdu-j1939rmchannel-pdu-configuration" title="Link to this heading">¶</a></h3>
+<h3>J1939RmChannel Pdu配置(J1939RmChannel Pdu Configuration)<a class="headerlink" href="#j1939rmchannel-pdu-j1939rmchannel-pdu-configuration" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="j1939rmchannel-pdu">
 <img alt="fig_J1939Rmchannel_Pdu" src="../../_images/J1939Rmchannel_Pdu.png" />
 <figcaption>
-<p><span class="caption-text">J1939Rmchannel_Pdu配置图</span><a class="headerlink" href="#j1939rmchannel-pdu" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939Rmchannel_Pdu配置图</span><a class="headerlink" href="#j1939rmchannel-pdu" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#j1939rmchannel-pdu"><span class="std std-ref">J1939Rmchannel_Pdu配置图</span></a> 此处需要填配置的是该channel下的 Ackm/Rqst2/Rqst的Pdu引用，便于触发Ackm/Rqst2/Rqst的接收与发送。此处仅介绍Ackm的Pdu配置，Rqst2/Rqst同理。</p>
@@ -1799,11 +1806,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </table>
 </section>
 <section id="j1939rmnode-j1939rmnode-configuration">
-<h3>J1939RmNode 配置(J1939RmNode Configuration)<a class="headerlink" href="#j1939rmnode-j1939rmnode-configuration" title="Link to this heading">¶</a></h3>
+<h3>J1939RmNode 配置(J1939RmNode Configuration)<a class="headerlink" href="#j1939rmnode-j1939rmnode-configuration" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="j1939rmnode">
 <img alt="fig_J1939RmNode" src="../../_images/J1939RmNode.png" />
 <figcaption>
-<p><span class="caption-text">J1939RmNode配置图</span><a class="headerlink" href="#j1939rmnode" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmNode配置图</span><a class="headerlink" href="#j1939rmnode" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#j1939rmnode"><span class="std std-ref">J1939RmNode配置图</span></a>,此处为Node节点配置，每个Node下会配置很多User，此处介绍每个Node下的通用属性。</p>
@@ -1841,15 +1848,15 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </table>
 </section>
 <section id="j1939rmuser-j1939rmuser-configuration">
-<h3>J1939RmUser 配置(J1939RmUser Configuration)<a class="headerlink" href="#j1939rmuser-j1939rmuser-configuration" title="Link to this heading">¶</a></h3>
+<h3>J1939RmUser 配置(J1939RmUser Configuration)<a class="headerlink" href="#j1939rmuser-j1939rmuser-configuration" title="链接到此标题。">¶</a></h3>
 <p>J1939RmUser 服务的用户有 J1939Dcm、J1939Nm、Rte、Cdd、Com模块，负责处理对应的Pgn请求或者发送。</p>
 <p>The users of the J1939RmUser service include the J1939Dcm, J1939Nm, Rte, Cdd, and Com modules, which are responsible for handling the corresponding PGN requests or transmissions.</p>
 <section id="j1939rmdcmuser">
-<h4>J1939RmDcmUser<a class="headerlink" href="#j1939rmdcmuser" title="Link to this heading">¶</a></h4>
+<h4>J1939RmDcmUser<a class="headerlink" href="#j1939rmdcmuser" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id6">
 <img alt="J1939Rm_模块配置图" src="../../_images/J1939RmDcmUser.png" />
 <figcaption>
-<p><span class="caption-text">J1939RmDcmUser配置图</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmDcmUser配置图</span><a class="headerlink" href="#id6" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#id6"><span class="std std-ref">J1939RmDcmUser配置图</span></a>,此处配置J1939RmDcmUser</p>
@@ -1887,11 +1894,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </table>
 </section>
 <section id="j1939rmrteuser">
-<h4>J1939RmRteUser<a class="headerlink" href="#j1939rmrteuser" title="Link to this heading">¶</a></h4>
+<h4>J1939RmRteUser<a class="headerlink" href="#j1939rmrteuser" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id7">
 <img alt="fig_J1939RmRteUser" src="../../_images/J1939RmRteUser.png" />
 <figcaption>
-<p><span class="caption-text">J1939RmRteUser配置图</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmRteUser配置图</span><a class="headerlink" href="#id7" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#id7"><span class="std std-ref">J1939RmRteUser配置图</span></a> 所示,此处配置J1939RmRteUser，具体配置如下</p>
@@ -1965,12 +1972,12 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </table>
 </section>
 <section id="j1939rmcomuser">
-<h4>J1939RmComUser<a class="headerlink" href="#j1939rmcomuser" title="Link to this heading">¶</a></h4>
+<h4>J1939RmComUser<a class="headerlink" href="#j1939rmcomuser" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="j1939rmcomipdu">
-<a class="reference internal image-reference" href="../../_images/J1939RmComIPdu.png"><img alt="../../_images/J1939RmComIPdu.png" src="../../_images/J1939RmComIPdu.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="../../_images/J1939RmComIPdu.png"><img alt="../../_images/J1939RmComIPdu.png" src="../../_images/J1939RmComIPdu.png" width="500" />
 </a>
 <figcaption>
-<p><span class="caption-text">J1939RmComUser容器下J1939RmComIPdu配置图</span><a class="headerlink" href="#j1939rmcomipdu" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmComUser容器下J1939RmComIPdu配置图</span><a class="headerlink" href="#j1939rmcomipdu" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#j1939rmcomipdu"><span class="std std-ref">J1939RmComUser容器下J1939RmComIPdu配置图</span></a> ,此处配置J1939RmComUser下的J1939RmComIPdu，具体配置如下</p>
@@ -2026,11 +2033,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 </table>
 </section>
 <section id="j1939rmcdduser">
-<h4>J1939RmCddUser<a class="headerlink" href="#j1939rmcdduser" title="Link to this heading">¶</a></h4>
+<h4>J1939RmCddUser<a class="headerlink" href="#j1939rmcdduser" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="id8">
 <img alt="fig_J1939RmCddUser" src="../../_images/J1939RmCddUser.png" />
 <figcaption>
-<p><span class="caption-text">J1939RmCddUser配置图</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+<p><span class="caption-text">J1939RmCddUser配置图</span><a class="headerlink" href="#id8" title="链接到此图片">¶</a></p>
 </figcaption>
 </figure>
 <p>如图 <a class="reference internal" href="#id8"><span class="std std-ref">J1939RmCddUser配置图</span></a>,此处配置J1939RmCddUser，具体配置如下</p>
@@ -2247,7 +2254,7 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -2256,11 +2263,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

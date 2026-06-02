@@ -9,6 +9,7 @@
         <title>EthTrcv &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ethtrcv">
-<h1>EthTrcv<a class="headerlink" href="#ethtrcv" title="Link to this heading">¶</a></h1>
+<h1>EthTrcv<a class="headerlink" href="#ethtrcv" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -217,28 +224,28 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>在AUTOSAR分层软件体系结构中，EthTrcv属于微控制器抽象层，它是一个以太网收发器的驱动模块。EthTrcv模块的主要任务是向上层（以太网接口）提供独立于硬件的接口，因为包括多个相同的收发器，所以对于所有的收发器来说，接口应该统一，这样上层（以太网接口）可以以统一的方式访问底层总线系统。</p>
 <p>In the AUTOSAR layered software architecture, EthTrcv belongs to the Microcontroller Abstraction Layer and is a driver module for an Ethernet transceiver. The main task of the EthTrcv module is to provide hardware-independent interfaces to the upper layer (Ethernet interface) because it includes multiple identical transceivers, so the interfaces should be unified for all transceivers, allowing the upper layer (Ethernet interface) to access the underlying bus system in a uniform manner.</p>
 <figure class="align-center" id="ethtrcvautosar-the-position-of-ethtrcv-in-autosar">
 <img alt="EthTrcv在AUTOSAR中的位置 (The position of EthTrcv in AUTOSAR)" src="../../_images/image1100.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_EthernetTransceiverDriver.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_ECUStateManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_EthernetInterface.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="mode-settings-function">
-<h3>模式设置功能 (Mode settings function)<a class="headerlink" href="#mode-settings-function" title="Link to this heading">¶</a></h3>
+<h3>模式设置功能 (Mode settings function)<a class="headerlink" href="#mode-settings-function" title="链接到此标题。">¶</a></h3>
 <p>以设置收发器的状态为例，上层EthIf调用设置收发器状态的API，EthTrcv通过对芯片的寄存器的值进行修改，从而到达修改收发器状态的目的。</p>
 <p>For example, when setting the state of a transmitter, the upper-layer EthIf calls the API to set the transmitter's state. EthTrcv achieves this goal by modifying the values of the chip's registers.</p>
 </section>
 <section id="wake-up-detection-function">
-<h3>唤醒检测功能 (Wake-up Detection Function)<a class="headerlink" href="#wake-up-detection-function" title="Link to this heading">¶</a></h3>
+<h3>唤醒检测功能 (Wake-up Detection Function)<a class="headerlink" href="#wake-up-detection-function" title="链接到此标题。">¶</a></h3>
 <p>以太网收发器驱动程序应支持唤醒取决于配置参数 EthTrcvWakeUpSupport 要么根本不支持(ETHTRCV_WAKEUP_NOT_SUPPORTED)或通过中断(ETHTRCV_WAKEUP_BY_INTERRUPT)或通过轮询(ETHTRCV_WAKEUP_BY_POLLING)。</p>
 <p>The Ethernet transceiver driver should support wake-up depending on the configuration parameter EthTrcvWakeUpSupport, either not supporting it (ETHTRCV_WAKEUP_NOT_SUPPORTED), or through interrupt (ETHTRCV_WAKEUP_BY_INTERRUPT), or through polling (ETHTRCV_WAKEUP_BY_POLLING).</p>
 <p>如果以太网收发器驱动程序检测到唤醒，它会将收发器硬件提供的唤醒原因映射到EcuM 定义的唤醒事件。以太网收发器驱动程序将支持以下场景：</p>
@@ -250,7 +257,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 EthTrcv组件文件描述 (Table EthTrcv Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -300,13 +307,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtrcv-configtype-ethtrcv-configtype-type-definition">
-<h2>EthTrcv_ConfigType类型定义 (EthTrcv_ConfigType type definition)<a class="headerlink" href="#ethtrcv-configtype-ethtrcv-configtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_ConfigType类型定义 (EthTrcv_ConfigType type definition)<a class="headerlink" href="#ethtrcv-configtype-ethtrcv-configtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -331,7 +338,7 @@
 </table>
 </section>
 <section id="ethtrcv-linkstatetype-ethtrcv-linkstatetype-type-definition">
-<h2>EthTrcv_LinkStateType类型定义 (EthTrcv_LinkStateType type definition)<a class="headerlink" href="#ethtrcv-linkstatetype-ethtrcv-linkstatetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_LinkStateType类型定义 (EthTrcv_LinkStateType type definition)<a class="headerlink" href="#ethtrcv-linkstatetype-ethtrcv-linkstatetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -359,7 +366,7 @@
 </table>
 </section>
 <section id="ethtrcv-statetype-ethtrcv-statetype-type-definition">
-<h2>EthTrcv_StateType类型定义 (EthTrcv_StateType type definition)<a class="headerlink" href="#ethtrcv-statetype-ethtrcv-statetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_StateType类型定义 (EthTrcv_StateType type definition)<a class="headerlink" href="#ethtrcv-statetype-ethtrcv-statetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -387,7 +394,7 @@
 </table>
 </section>
 <section id="ethtrcv-baudratetype-definition-of-ethtrcv-baudratetype-type">
-<h2>EthTrcv_BaudRateType类型定义 (Definition of EthTrcv_BaudRateType Type)<a class="headerlink" href="#ethtrcv-baudratetype-definition-of-ethtrcv-baudratetype-type" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_BaudRateType类型定义 (Definition of EthTrcv_BaudRateType Type)<a class="headerlink" href="#ethtrcv-baudratetype-definition-of-ethtrcv-baudratetype-type" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -421,7 +428,7 @@
 </table>
 </section>
 <section id="ethtrcv-duplexmodetype-ethtrcv-duplexmodetype-type-definition">
-<h2>EthTrcv_DuplexModeType类型定义 (EthTrcv_DuplexModeType type definition)<a class="headerlink" href="#ethtrcv-duplexmodetype-ethtrcv-duplexmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_DuplexModeType类型定义 (EthTrcv_DuplexModeType type definition)<a class="headerlink" href="#ethtrcv-duplexmodetype-ethtrcv-duplexmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -449,7 +456,7 @@
 </table>
 </section>
 <section id="ethtrcv-wakeupmodetype-ethtrcv-wakeupmodetype-type-definition">
-<h2>EthTrcv_WakeupModeType类型定义 (EthTrcv_WakeupModeType type definition)<a class="headerlink" href="#ethtrcv-wakeupmodetype-ethtrcv-wakeupmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_WakeupModeType类型定义 (EthTrcv_WakeupModeType type definition)<a class="headerlink" href="#ethtrcv-wakeupmodetype-ethtrcv-wakeupmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -480,7 +487,7 @@
 </table>
 </section>
 <section id="ethtrcv-wakeupreasontype-ethtrcv-wakeupreasontype-type-definition">
-<h2>EthTrcv_WakeupReasonType类型定义 (EthTrcv_WakeupReasonType type definition)<a class="headerlink" href="#ethtrcv-wakeupreasontype-ethtrcv-wakeupreasontype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_WakeupReasonType类型定义 (EthTrcv_WakeupReasonType type definition)<a class="headerlink" href="#ethtrcv-wakeupreasontype-ethtrcv-wakeupreasontype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -526,7 +533,7 @@
 </table>
 </section>
 <section id="ethtrcv-phytestmodetype-ethtrcv-phytestmodetype-type-definition">
-<h2>EthTrcv_PhyTestModeType类型定义 (EthTrcv_PhyTestModeType type definition)<a class="headerlink" href="#ethtrcv-phytestmodetype-ethtrcv-phytestmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_PhyTestModeType类型定义 (EthTrcv_PhyTestModeType type definition)<a class="headerlink" href="#ethtrcv-phytestmodetype-ethtrcv-phytestmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -566,7 +573,7 @@
 </table>
 </section>
 <section id="ethtrcv-phyloopbackmodetype-ethtrcv-phyloopbackmodetype-type-definition">
-<h2>EthTrcv_PhyLoopbackModeType类型定义 (EthTrcv_PhyLoopbackModeType type definition)<a class="headerlink" href="#ethtrcv-phyloopbackmodetype-ethtrcv-phyloopbackmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_PhyLoopbackModeType类型定义 (EthTrcv_PhyLoopbackModeType type definition)<a class="headerlink" href="#ethtrcv-phyloopbackmodetype-ethtrcv-phyloopbackmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -600,7 +607,7 @@
 </table>
 </section>
 <section id="ethtrcv-phytxmodetype-ethtrcv-phytxmodetype-type-definition">
-<h2>EthTrcv_PhyTxModeType类型定义 (EthTrcv_PhyTxModeType type definition)<a class="headerlink" href="#ethtrcv-phytxmodetype-ethtrcv-phytxmodetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_PhyTxModeType类型定义 (EthTrcv_PhyTxModeType type definition)<a class="headerlink" href="#ethtrcv-phytxmodetype-ethtrcv-phytxmodetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -631,7 +638,7 @@
 </table>
 </section>
 <section id="ethtrcv-cablediagresulttype-ethtrcv-cablediagresulttype-type-definition">
-<h2>EthTrcv_CableDiagResultType类型定义 (EthTrcv_CableDiagResultType type definition)<a class="headerlink" href="#ethtrcv-cablediagresulttype-ethtrcv-cablediagresulttype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_CableDiagResultType类型定义 (EthTrcv_CableDiagResultType type definition)<a class="headerlink" href="#ethtrcv-cablediagresulttype-ethtrcv-cablediagresulttype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -670,7 +677,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -716,11 +723,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtrcv-init-the-ethtrcv-init-function-defines">
-<h2>EthTrcv_Init函数定义 (The EthTrcv_Init function defines)<a class="headerlink" href="#ethtrcv-init-the-ethtrcv-init-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_Init函数定义 (The EthTrcv_Init function defines)<a class="headerlink" href="#ethtrcv-init-the-ethtrcv-init-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -785,7 +792,7 @@
 </table>
 </section>
 <section id="ethtrcv-settransceivermode-the-function-definition-for-ethtrcv-settransceivermode">
-<h2>EthTrcv_SetTransceiverMode函数定义 (The function definition for EthTrcv_SetTransceiverMode)<a class="headerlink" href="#ethtrcv-settransceivermode-the-function-definition-for-ethtrcv-settransceivermode" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_SetTransceiverMode函数定义 (The function definition for EthTrcv_SetTransceiverMode)<a class="headerlink" href="#ethtrcv-settransceivermode-the-function-definition-for-ethtrcv-settransceivermode" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -860,7 +867,7 @@
 </table>
 </section>
 <section id="ethtrcv-gettransceivermode-the-function-definition-for-ethtrcv-gettransceivermode">
-<h2>EthTrcv_GetTransceiverMode函数定义 (The function definition for EthTrcv_GetTransceiverMode)<a class="headerlink" href="#ethtrcv-gettransceivermode-the-function-definition-for-ethtrcv-gettransceivermode" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetTransceiverMode函数定义 (The function definition for EthTrcv_GetTransceiverMode)<a class="headerlink" href="#ethtrcv-gettransceivermode-the-function-definition-for-ethtrcv-gettransceivermode" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -930,7 +937,7 @@
 </table>
 </section>
 <section id="ethtrcv-settransceiverwakeupmode-the-function-definition-for-ethtrcv-settransceiverwakeupmode">
-<h2>EthTrcv_SetTransceiverWakeupMode函数定义 (The function definition for EthTrcv_SetTransceiverWakeupMode)<a class="headerlink" href="#ethtrcv-settransceiverwakeupmode-the-function-definition-for-ethtrcv-settransceiverwakeupmode" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_SetTransceiverWakeupMode函数定义 (The function definition for EthTrcv_SetTransceiverWakeupMode)<a class="headerlink" href="#ethtrcv-settransceiverwakeupmode-the-function-definition-for-ethtrcv-settransceiverwakeupmode" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1005,7 +1012,7 @@
 </table>
 </section>
 <section id="ethtrcv-gettransceiverwakeupmode-the-ethtrcv-gettransceiverwakeupmode-function-definition">
-<h2>EthTrcv_GetTransceiverWakeupMode函数定义 (The EthTrcv_GetTransceiverWakeupMode function definition)<a class="headerlink" href="#ethtrcv-gettransceiverwakeupmode-the-ethtrcv-gettransceiverwakeupmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetTransceiverWakeupMode函数定义 (The EthTrcv_GetTransceiverWakeupMode function definition)<a class="headerlink" href="#ethtrcv-gettransceiverwakeupmode-the-ethtrcv-gettransceiverwakeupmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1070,7 +1077,7 @@
 </table>
 </section>
 <section id="ethtrcv-checkwakeup-the-function-definition-for-ethtrcv-checkwakeup">
-<h2>EthTrcv_CheckWakeup函数定义 (The function definition for EthTrcv_CheckWakeup)<a class="headerlink" href="#ethtrcv-checkwakeup-the-function-definition-for-ethtrcv-checkwakeup" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_CheckWakeup函数定义 (The function definition for EthTrcv_CheckWakeup)<a class="headerlink" href="#ethtrcv-checkwakeup-the-function-definition-for-ethtrcv-checkwakeup" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1140,7 +1147,7 @@
 </table>
 </section>
 <section id="ethtrcv-startautonegotiation-the-ethtrcv-startautonegotiation-function-defines">
-<h2>EthTrcv_StartAutoNegotiation函数定义 (The EthTrcv_StartAutoNegotiation function defines)<a class="headerlink" href="#ethtrcv-startautonegotiation-the-ethtrcv-startautonegotiation-function-defines" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_StartAutoNegotiation函数定义 (The EthTrcv_StartAutoNegotiation function defines)<a class="headerlink" href="#ethtrcv-startautonegotiation-the-ethtrcv-startautonegotiation-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1210,7 +1217,7 @@
 </table>
 </section>
 <section id="ethtrcv-transceiverlinkstaterequest-the-ethtrcv-transceiverlinkstaterequest-function-definition">
-<h2>EthTrcv_TransceiverLinkStateRequest函数定义 (The EthTrcv_TransceiverLinkStateRequest function definition)<a class="headerlink" href="#ethtrcv-transceiverlinkstaterequest-the-ethtrcv-transceiverlinkstaterequest-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_TransceiverLinkStateRequest函数定义 (The EthTrcv_TransceiverLinkStateRequest function definition)<a class="headerlink" href="#ethtrcv-transceiverlinkstaterequest-the-ethtrcv-transceiverlinkstaterequest-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1285,7 +1292,7 @@
 </table>
 </section>
 <section id="ethtrcv-getlinkstate-the-ethtrcv-getlinkstate-function-definition">
-<h2>EthTrcv_GetLinkState函数定义 (The EthTrcv_GetLinkState function definition)<a class="headerlink" href="#ethtrcv-getlinkstate-the-ethtrcv-getlinkstate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetLinkState函数定义 (The EthTrcv_GetLinkState function definition)<a class="headerlink" href="#ethtrcv-getlinkstate-the-ethtrcv-getlinkstate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1360,7 +1367,7 @@
 </table>
 </section>
 <section id="ethtrcv-getbaudrate-function-definition-for-ethtrcv-getbaudrate">
-<h2>EthTrcv_GetBaudRate函数定义 (Function definition for EthTrcv_GetBaudRate)<a class="headerlink" href="#ethtrcv-getbaudrate-function-definition-for-ethtrcv-getbaudrate" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetBaudRate函数定义 (Function definition for EthTrcv_GetBaudRate)<a class="headerlink" href="#ethtrcv-getbaudrate-function-definition-for-ethtrcv-getbaudrate" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1445,7 +1452,7 @@
 </table>
 </section>
 <section id="ethtrcv-getduplexmode-the-ethtrcv-getduplexmode-function-definition">
-<h2>EthTrcv_GetDuplexMode函数定义 (The EthTrcv_GetDuplexMode function definition)<a class="headerlink" href="#ethtrcv-getduplexmode-the-ethtrcv-getduplexmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetDuplexMode函数定义 (The EthTrcv_GetDuplexMode function definition)<a class="headerlink" href="#ethtrcv-getduplexmode-the-ethtrcv-getduplexmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1520,7 +1527,7 @@
 </table>
 </section>
 <section id="ethtrcv-setphytestmode-the-function-definition-for-ethtrcv-setphytestmode">
-<h2>EthTrcv_SetPhyTestMode函数定义 (The function definition for EthTrcv_SetPhyTestMode)<a class="headerlink" href="#ethtrcv-setphytestmode-the-function-definition-for-ethtrcv-setphytestmode" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_SetPhyTestMode函数定义 (The function definition for EthTrcv_SetPhyTestMode)<a class="headerlink" href="#ethtrcv-setphytestmode-the-function-definition-for-ethtrcv-setphytestmode" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1595,7 +1602,7 @@
 </table>
 </section>
 <section id="ethtrcv-setphyloopbackmode-the-function-defines-ethtrcv-setphyloopbackmode">
-<h2>EthTrcv_SetPhyLoopbackMode函数定义 (The function defines EthTrcv_SetPhyLoopbackMode.)<a class="headerlink" href="#ethtrcv-setphyloopbackmode-the-function-defines-ethtrcv-setphyloopbackmode" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_SetPhyLoopbackMode函数定义 (The function defines EthTrcv_SetPhyLoopbackMode.)<a class="headerlink" href="#ethtrcv-setphyloopbackmode-the-function-defines-ethtrcv-setphyloopbackmode" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1670,7 +1677,7 @@
 </table>
 </section>
 <section id="ethtrcv-getphysignalquality-the-ethtrcv-getphysignalquality-function-definition">
-<h2>EthTrcv_GetPhySignalQuality函数定义 (The EthTrcv_GetPhySignalQuality function definition)<a class="headerlink" href="#ethtrcv-getphysignalquality-the-ethtrcv-getphysignalquality-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetPhySignalQuality函数定义 (The EthTrcv_GetPhySignalQuality function definition)<a class="headerlink" href="#ethtrcv-getphysignalquality-the-ethtrcv-getphysignalquality-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1740,7 +1747,7 @@
 </table>
 </section>
 <section id="ethtrcv-setphytxmode-the-ethtrcv-setphytxmode-function-definition">
-<h2>EthTrcv_SetPhyTxMode函数定义 (The EthTrcv_SetPhyTxMode function definition)<a class="headerlink" href="#ethtrcv-setphytxmode-the-ethtrcv-setphytxmode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_SetPhyTxMode函数定义 (The EthTrcv_SetPhyTxMode function definition)<a class="headerlink" href="#ethtrcv-setphytxmode-the-ethtrcv-setphytxmode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1815,7 +1822,7 @@
 </table>
 </section>
 <section id="ethtrcv-runcablediagnostic-the-ethtrcv-runcablediagnostic-function-definition">
-<h2>EthTrcv_RunCableDiagnostic函数定义 (The EthTrcv_RunCableDiagnostic function definition)<a class="headerlink" href="#ethtrcv-runcablediagnostic-the-ethtrcv-runcablediagnostic-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_RunCableDiagnostic函数定义 (The EthTrcv_RunCableDiagnostic function definition)<a class="headerlink" href="#ethtrcv-runcablediagnostic-the-ethtrcv-runcablediagnostic-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1885,7 +1892,7 @@
 </table>
 </section>
 <section id="ethtrcv-getcablediagnosticsresult-the-ethtrcv-getcablediagnosticsresult-function-definition">
-<h2>EthTrcv_GetCableDiagnosticsResult函数定义 (The EthTrcv_GetCableDiagnosticsResult function definition)<a class="headerlink" href="#ethtrcv-getcablediagnosticsresult-the-ethtrcv-getcablediagnosticsresult-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetCableDiagnosticsResult函数定义 (The EthTrcv_GetCableDiagnosticsResult function definition)<a class="headerlink" href="#ethtrcv-getcablediagnosticsresult-the-ethtrcv-getcablediagnosticsresult-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1955,7 +1962,7 @@
 </table>
 </section>
 <section id="ethtrcv-getphyidentifier-the-ethtrcv-getphyidentifier-function-definition">
-<h2>EthTrcv_GetPhyIdentifier函数定义 (The EthTrcv_GetPhyIdentifier function definition)<a class="headerlink" href="#ethtrcv-getphyidentifier-the-ethtrcv-getphyidentifier-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetPhyIdentifier函数定义 (The EthTrcv_GetPhyIdentifier function definition)<a class="headerlink" href="#ethtrcv-getphyidentifier-the-ethtrcv-getphyidentifier-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2035,7 +2042,7 @@
 </table>
 </section>
 <section id="ethtrcv-getversioninfo-the-function-definition-for-ethtrcv-getversioninfo">
-<h2>EthTrcv_GetVersionInfo函数定义 (The function definition for EthTrcv_GetVersionInfo)<a class="headerlink" href="#ethtrcv-getversioninfo-the-function-definition-for-ethtrcv-getversioninfo" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_GetVersionInfo函数定义 (The function definition for EthTrcv_GetVersionInfo)<a class="headerlink" href="#ethtrcv-getversioninfo-the-function-definition-for-ethtrcv-getversioninfo" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2100,7 +2107,7 @@
 </table>
 </section>
 <section id="ethtrcv-readmiiindication-the-ethtrcv-readmiiindication-function-definition">
-<h2>EthTrcv_ReadMiiIndication函数定义 (The EthTrcv_ReadMiiIndication function definition)<a class="headerlink" href="#ethtrcv-readmiiindication-the-ethtrcv-readmiiindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_ReadMiiIndication函数定义 (The EthTrcv_ReadMiiIndication function definition)<a class="headerlink" href="#ethtrcv-readmiiindication-the-ethtrcv-readmiiindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2180,7 +2187,7 @@
 </table>
 </section>
 <section id="ethtrcv-writemiiindication-the-ethtrcv-writemiiindication-function-definition">
-<h2>EthTrcv_WriteMiiIndication函数定义 (The EthTrcv_WriteMiiIndication function definition)<a class="headerlink" href="#ethtrcv-writemiiindication-the-ethtrcv-writemiiindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_WriteMiiIndication函数定义 (The EthTrcv_WriteMiiIndication function definition)<a class="headerlink" href="#ethtrcv-writemiiindication-the-ethtrcv-writemiiindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2255,7 +2262,7 @@
 </table>
 </section>
 <section id="ethtrcv-mainfunction-ethtrcv-mainfunction-function-definition">
-<h2>EthTrcv_MainFunction函数定义 (EthTrcv_MainFunction function definition)<a class="headerlink" href="#ethtrcv-mainfunction-ethtrcv-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthTrcv_MainFunction函数定义 (EthTrcv_MainFunction function definition)<a class="headerlink" href="#ethtrcv-mainfunction-ethtrcv-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2297,11 +2304,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtrcvwakeupcallout-ethtrcvwakeupcallout-function-definition">
-<h2>&lt; EthTrcvWakeUpCallout &gt;函数定义 (&lt;EthTrcvWakeUpCallout&gt; function definition)<a class="headerlink" href="#ethtrcvwakeupcallout-ethtrcvwakeupcallout-function-definition" title="Link to this heading">¶</a></h2>
+<h2>&lt; EthTrcvWakeUpCallout &gt;函数定义 (&lt;EthTrcvWakeUpCallout&gt; function definition)<a class="headerlink" href="#ethtrcvwakeupcallout-ethtrcvwakeupcallout-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2366,9 +2373,9 @@
 </table>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="ethtrcvgeneral">
-<h3>EthTrcvGeneral<a class="headerlink" href="#ethtrcvgeneral" title="Link to this heading">¶</a></h3>
+<h3>EthTrcvGeneral<a class="headerlink" href="#ethtrcvgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtrcvgeneral-ethtrcvgeneral-container-configuration-diagram">
 <img alt="EthTrcvGeneral容器配置图 (EthTrcvGeneral Container Configuration Diagram)" src="../../_images/image338.png" />
 </figure>
@@ -2796,11 +2803,11 @@
 </table>
 </section>
 <section id="ethtrcvconfigset">
-<h3>EthTrcvConfigSet<a class="headerlink" href="#ethtrcvconfigset" title="Link to this heading">¶</a></h3>
+<h3>EthTrcvConfigSet<a class="headerlink" href="#ethtrcvconfigset" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethtrcvconfig">
-<h2>EthTrcvConfig<a class="headerlink" href="#ethtrcvconfig" title="Link to this heading">¶</a></h2>
+<h2>EthTrcvConfig<a class="headerlink" href="#ethtrcvconfig" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="ethtrcvconfig-ethtrcvconfig-container-configuration-diagram">
 <img alt="EthTrcvConfig容器配置图 (EthTrcvConfig Container Configuration Diagram)" src="../../_images/image433.png" />
 </figure>
@@ -3023,7 +3030,7 @@
 </tbody>
 </table>
 <section id="ethtrcvdemeventparameterrefs">
-<h3>EthTrcvDemEventParameterRefs<a class="headerlink" href="#ethtrcvdemeventparameterrefs" title="Link to this heading">¶</a></h3>
+<h3>EthTrcvDemEventParameterRefs<a class="headerlink" href="#ethtrcvdemeventparameterrefs" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtrcvdemeventparameterrefs-container-configuration-for-ethtrcvdemeventparameterrefs">
 <img alt="EthTrcvDemEventParameterRefs容器配置图 (Container Configuration for EthTrcvDemEventParameterRefs)" src="../../_images/image529.png" />
 </figure>
@@ -3067,7 +3074,7 @@
 </table>
 </section>
 <section id="ethtrcvwakeupmap">
-<h3>EthTrcvWakeupMap<a class="headerlink" href="#ethtrcvwakeupmap" title="Link to this heading">¶</a></h3>
+<h3>EthTrcvWakeupMap<a class="headerlink" href="#ethtrcvwakeupmap" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethtrcvwakeupmap-container-configuration-diagram-for-ethtrcvwakeupmap">
 <img alt="EthTrcvWakeupMap容器配置图 (Container Configuration Diagram for EthTrcvWakeupMap)" src="../../_images/image629.png" />
 </figure>
@@ -3129,9 +3136,9 @@
 </table>
 </section>
 <section id="ethtrcvmgmtinterface">
-<h3>EthTrcvMgmtInterface<a class="headerlink" href="#ethtrcvmgmtinterface" title="Link to this heading">¶</a></h3>
+<h3>EthTrcvMgmtInterface<a class="headerlink" href="#ethtrcvmgmtinterface" title="链接到此标题。">¶</a></h3>
 <section id="ethtrcvmiiinterface">
-<h4>EthTrcvMiiInterface<a class="headerlink" href="#ethtrcvmiiinterface" title="Link to this heading">¶</a></h4>
+<h4>EthTrcvMiiInterface<a class="headerlink" href="#ethtrcvmiiinterface" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="ethtrcvmiiinterface-container-configuration-diagram-for-ethtrcvmiiinterface">
 <img alt="EthTrcvMiiInterface容器配置图 (Container Configuration Diagram for EthTrcvMiiInterface)" src="../../_images/image724.png" />
 </figure>
@@ -3193,7 +3200,7 @@
 </table>
 </section>
 <section id="ethtrcvswitchinterface">
-<h4>EthTrcvSwitchInterface<a class="headerlink" href="#ethtrcvswitchinterface" title="Link to this heading">¶</a></h4>
+<h4>EthTrcvSwitchInterface<a class="headerlink" href="#ethtrcvswitchinterface" title="链接到此标题。">¶</a></h4>
 <figure class="align-center" id="ethtrcvswitchinterface-ethernetreceiveswitchinterface-container-configuration-diagram">
 <img alt="EthTrcvSwitchInterface容器配置图 (EthernetReceiveSwitchInterface Container Configuration Diagram)" src="../../_images/image822.png" />
 </figure>
@@ -3370,7 +3377,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -3379,11 +3386,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

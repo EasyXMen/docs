@@ -9,6 +9,7 @@
         <title>EthSM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ethsm">
-<h1>EthSM<a class="headerlink" href="#ethsm" title="Link to this heading">¶</a></h1>
+<h1>EthSM<a class="headerlink" href="#ethsm" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -201,32 +208,32 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <p>EthSM模块提供一套抽象的接口给ComM用于打开和关闭以太网通信。</p>
 <p>The EthSM module provides a set of abstract interfaces to ComM for opening and closing Ethernet communication.</p>
 <figure class="align-center" id="ethsm-ethsm-module-hierarchy-diagram">
 <img alt="EthSM模块层次图 (EthSM Module Hierarchy Diagram)" src="../../_images/image190.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_EthernetStateManager.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_EthernetInterface.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_ComManager.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="ethernet-communication-status-management-function">
-<h3>以太网通信状态管理功能 (Ethernet Communication Status Management Function)<a class="headerlink" href="#ethernet-communication-status-management-function" title="Link to this heading">¶</a></h3>
+<h3>以太网通信状态管理功能 (Ethernet Communication Status Management Function)<a class="headerlink" href="#ethernet-communication-status-management-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethernet-communication-status-management-function-introduction">
-<h2>以太网通信状态管理功能介绍 (Ethernet Communication Status Management Function Introduction)<a class="headerlink" href="#ethernet-communication-status-management-function-introduction" title="Link to this heading">¶</a></h2>
+<h2>以太网通信状态管理功能介绍 (Ethernet Communication Status Management Function Introduction)<a class="headerlink" href="#ethernet-communication-status-management-function-introduction" title="链接到此标题。">¶</a></h2>
 <p>EthSM提供接口给ComM，用于接受来自ComM的通信模式请求。EthSM根据ComM提供的参数，处理内部的网络模式状态机。根据状态机的迁移条件，调用EthIf和TcpIp的接口控制以太网控制器，收发器以及TcpIp协议栈来控制以太网通信的状态。并将当前的通信模式通过ComM和BswM的接口通知给ComM和BswM。</p>
 <p>EthSM provides interfaces to ComM for accepting communication mode requests from ComM. EthSM processes internal network mode state machines based on parameters provided by ComM. Depending on the state machine's transition conditions, it calls interfaces of EthIf and TcpIp to control the Ethernet controller, transceiver, and TcpIp protocol stack for managing Ethernet communication status. It then notifies ComM and BswM of the current communication mode through interfaces between them.</p>
 </section>
 <section id="ethernet-communication-status-management-function-implementation">
-<h2>以太网通信状态管理功能功能实现 (Ethernet communication status management function implementation)<a class="headerlink" href="#ethernet-communication-status-management-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>以太网通信状态管理功能功能实现 (Ethernet communication status management function implementation)<a class="headerlink" href="#ethernet-communication-status-management-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>EthSM根据以下状态机管理以太网通信状态：</p>
 <p>EthSM manages Ethernet communication states according to the following state machine:</p>
 <figure class="align-center" id="ethsm-ethsm-network-status-transition-state-machine">
@@ -243,7 +250,7 @@
 <li><p>ETHSM_STATE_WAIT_OFFLINE</p></li>
 </ol>
 <section id="state-transition-process">
-<h3>状态迁移过程 (State transition process)<a class="headerlink" href="#state-transition-process" title="Link to this heading">¶</a></h3>
+<h3>状态迁移过程 (State transition process)<a class="headerlink" href="#state-transition-process" title="链接到此标题。">¶</a></h3>
 <p>初始化后EthSM处于ETHSM_STATE_OFFLINE状态。</p>
 <p>After initialization, EthSM is in the ETHSM_STATE_OFFLINE state.</p>
 <p>当EthSM_RequestComMode(COMM_FULL_COMMUNICATION)被调用，EthSM调用EthIf_SetControllerMode(ETH_MODE_ACTIVE)请求EthIf将以太网控制器设置为ACTIVE模式，并调用BswM_EthSM_CurrentState(ETHSM_STATE_WAIT_TRCVLINK)通知BswM模块。之后EthSM从ETHSM_STATE_OFFLINE迁移到ETHSM_STATE_WAIT_TRCVLINK状态。</p>
@@ -258,7 +265,7 @@
 <p>When EthSM_TcpIpModeIndication(TCPIP_STATE_OFFLINE) is called, EthSM transitions from ETHSM_STATE_WAIT_OFFLINE to the ETHSM_STATE_OFFLINE state. It then calls EthIf_SetControllerMode(ETH_MODE_DOWN) to request that the Ethernet controller be set to DOWN mode, and calls BswM_EthSM_CurrentState(ETHSM_STATE_OFFLINE) to notify the BswM module, and calls ComM_BusSM_ModeIndication(COMM_NO_COMMUNICATION) to inform the ComM module.</p>
 </section>
 <section id="state-comparison-table">
-<h3>状态对照表 (State Comparison Table)<a class="headerlink" href="#state-comparison-table" title="Link to this heading">¶</a></h3>
+<h3>状态对照表 (State Comparison Table)<a class="headerlink" href="#state-comparison-table" title="链接到此标题。">¶</a></h3>
 <p>EthSM各状态下以太网控制器，收发器，TCPIP与ComM状态对照表：</p>
 <p>Ethernet controller, transceiver, TCP/IP, and ComM status对照 table for EthSM in various states:</p>
 <figure class="align-center" id="ethsm-ethsm-status-table">
@@ -267,7 +274,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 EthSM组件文件描述 (Table Descriptions of EthSM Component Files)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -311,13 +318,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethsm-networkmodestatetype-ethsm-networkmodestatetype-type-definition">
-<h2>EthSM_NetworkModeStateType类型定义 (EthSM_NetworkModeStateType type definition)<a class="headerlink" href="#ethsm-networkmodestatetype-ethsm-networkmodestatetype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_NetworkModeStateType类型定义 (EthSM_NetworkModeStateType type definition)<a class="headerlink" href="#ethsm-networkmodestatetype-ethsm-networkmodestatetype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -356,7 +363,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -393,11 +400,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="ethsm-init-the-ethsm-init-function-definition">
-<h2>EthSM_Init函数定义 (The EthSM_Init function definition)<a class="headerlink" href="#ethsm-init-the-ethsm-init-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_Init函数定义 (The EthSM_Init function definition)<a class="headerlink" href="#ethsm-init-the-ethsm-init-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -440,7 +447,7 @@
 </table>
 </section>
 <section id="ethsm-getversioninfo-the-ethsm-getversioninfo-function-definition">
-<h2>EthSM_GetVersionInfo函数定义 (The EthSM_GetVersionInfo function definition)<a class="headerlink" href="#ethsm-getversioninfo-the-ethsm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_GetVersionInfo函数定义 (The EthSM_GetVersionInfo function definition)<a class="headerlink" href="#ethsm-getversioninfo-the-ethsm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -515,7 +522,7 @@
 </table>
 </section>
 <section id="ethsm-requestcommode-the-ethsm-requestcommode-function-definition">
-<h2>EthSM_RequestComMode函数定义 (The EthSM_RequestComMode function definition)<a class="headerlink" href="#ethsm-requestcommode-the-ethsm-requestcommode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_RequestComMode函数定义 (The EthSM_RequestComMode function definition)<a class="headerlink" href="#ethsm-requestcommode-the-ethsm-requestcommode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -605,7 +612,7 @@
 </table>
 </section>
 <section id="ethsm-getcurrentcommode-the-ethsm-getcurrentcommode-function-definition">
-<h2>EthSM_GetCurrentComMode函数定义 (The EthSM_GetCurrentComMode function definition)<a class="headerlink" href="#ethsm-getcurrentcommode-the-ethsm-getcurrentcommode-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_GetCurrentComMode函数定义 (The EthSM_GetCurrentComMode function definition)<a class="headerlink" href="#ethsm-getcurrentcommode-the-ethsm-getcurrentcommode-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -690,7 +697,7 @@
 </table>
 </section>
 <section id="ethsm-ctrlmodeindication-ethsm-ctrlmodeindication-function-definition">
-<h2>EthSM_CtrlModeIndication函数定义 (EthSM_CtrlModeIndication function definition)<a class="headerlink" href="#ethsm-ctrlmodeindication-ethsm-ctrlmodeindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_CtrlModeIndication函数定义 (EthSM_CtrlModeIndication function definition)<a class="headerlink" href="#ethsm-ctrlmodeindication-ethsm-ctrlmodeindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -775,7 +782,7 @@
 </table>
 </section>
 <section id="ethsm-trcvlinkstatechg-the-ethsm-trcvlinkstatechg-function-definition">
-<h2>EthSM_TrcvLinkStateChg函数定义 (The EthSM_TrcvLinkStateChg function definition)<a class="headerlink" href="#ethsm-trcvlinkstatechg-the-ethsm-trcvlinkstatechg-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_TrcvLinkStateChg函数定义 (The EthSM_TrcvLinkStateChg function definition)<a class="headerlink" href="#ethsm-trcvlinkstatechg-the-ethsm-trcvlinkstatechg-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -860,7 +867,7 @@
 </table>
 </section>
 <section id="ethsm-tcpipmodeindication-the-ethsm-tcpipmodeindication-function-definition">
-<h2>EthSM_TcpIpModeIndication函数定义 (The EthSM_TcpIpModeIndication function definition)<a class="headerlink" href="#ethsm-tcpipmodeindication-the-ethsm-tcpipmodeindication-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_TcpIpModeIndication函数定义 (The EthSM_TcpIpModeIndication function definition)<a class="headerlink" href="#ethsm-tcpipmodeindication-the-ethsm-tcpipmodeindication-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -945,7 +952,7 @@
 </table>
 </section>
 <section id="ethsm-mainfunction-ethsm-mainfunction-function-definition">
-<h2>EthSM_MainFunction函数定义 (EthSM_MainFunction function definition)<a class="headerlink" href="#ethsm-mainfunction-ethsm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
+<h2>EthSM_MainFunction函数定义 (EthSM_MainFunction function definition)<a class="headerlink" href="#ethsm-mainfunction-ethsm-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1009,15 +1016,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="ethsmgeneral">
-<h3>EthSMGeneral<a class="headerlink" href="#ethsmgeneral" title="Link to this heading">¶</a></h3>
+<h3>EthSMGeneral<a class="headerlink" href="#ethsmgeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethsmgeneral-ethsmgeneral-container-configuration-diagram">
 <img alt="EthSMGeneral容器配置图 (EthSMGeneral Container Configuration Diagram)" src="../../_images/image526.png" />
 </figure>
@@ -1115,7 +1122,7 @@
 </table>
 </section>
 <section id="ethsmnetwork">
-<h3>EthSMNetwork<a class="headerlink" href="#ethsmnetwork" title="Link to this heading">¶</a></h3>
+<h3>EthSMNetwork<a class="headerlink" href="#ethsmnetwork" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="ethsmnetwork-ethsmnetwork-container-configuration-diagram">
 <img alt="EthSMNetwork容器配置图 (EthSMNetwork Container Configuration Diagram)" src="../../_images/image626.png" />
 </figure>
@@ -1297,7 +1304,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -1306,11 +1313,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

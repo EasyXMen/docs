@@ -9,6 +9,7 @@
         <title>Crypto &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -59,7 +60,13 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/RH850U2A16/RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="BswM.html">BswM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CanIf.html">CanIf</a></li>
@@ -171,7 +178,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="crypto">
-<h1>Crypto<a class="headerlink" href="#crypto" title="Link to this heading">¶</a></h1>
+<h1>Crypto<a class="headerlink" href="#crypto" title="链接到此标题。">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -205,7 +212,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
 <figure class="align-center" id="crypto-driver-crypto-driver-protocol-stack-architecture-diagram">
 <img alt="Crypto Driver协议栈架构图 (Crypto Driver Protocol Stack Architecture Diagram)" src="../../_images/image139.png" />
 </figure>
@@ -214,19 +221,19 @@
 <p>Crypto Driver能够向上层提供多种加密算法，如散列算法SHA、对称加密AES、非对称加密RSA以及随机数生成等。</p>
 <p>The Crypto Driver provides various encryption algorithms to the upper layer, such as hash algorithms SHA, symmetric encryption AES, asymmetric encryption RSA, and random number generation.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
 <p>[1] AUTOSAR_SWS_CryptoDriver.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_CryptoServiceManager.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
 <section id="key-function">
-<h3>秘钥功能 (Key Function)<a class="headerlink" href="#key-function" title="Link to this heading">¶</a></h3>
+<h3>秘钥功能 (Key Function)<a class="headerlink" href="#key-function" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="key-features-introduced">
-<h2>秘钥功能介绍 (Key Features Introduced)<a class="headerlink" href="#key-features-introduced" title="Link to this heading">¶</a></h2>
+<h2>秘钥功能介绍 (Key Features Introduced)<a class="headerlink" href="#key-features-introduced" title="链接到此标题。">¶</a></h2>
 <p>加密算法包含了对称加密与非对称加密。</p>
 <p>Encryption algorithms include symmetric encryption and asymmetric encryption.</p>
 <p>对称加密，即使用A秘钥进行加密得出的密文，一样可以通过A秘钥进行解密，如果截获秘钥和算法，即可通过密文计算出明文。</p>
@@ -237,7 +244,7 @@
 <p>The primary function of key management involves the storage and retrieval of keys, including the generation of public and private keys.</p>
 </section>
 <section id="key-function-implementation">
-<h2>秘钥功能实现 (Key function implementation)<a class="headerlink" href="#key-function-implementation" title="Link to this heading">¶</a></h2>
+<h2>秘钥功能实现 (Key function implementation)<a class="headerlink" href="#key-function-implementation" title="链接到此标题。">¶</a></h2>
 <p>秘钥通过Crypto_KeyElementSet把Key Element设置到内部Ram中，然后通过调用Crypto_KeySetValid把指定的key设置为有效。</p>
 <p>Secret keys are set to internal RAM by Crypto_KeyElementSet, and then the specified key is marked as valid by calling Crypto_KeySetValid.</p>
 <p>秘钥功能首先需要在Crypto中配置CryptoKeys，然后配置CryptoKeys-&gt;CryptoKeyTypes-&gt;CryptoKeyElements，不同的算法所需要的的Key Elements是不一样的，可参考[SWS_Csm_01022]规范，如下图：</p>
@@ -248,56 +255,56 @@
 <p>如MAC所示，使用时就可以配置3个KeyElement，分别为CRYPTO_KE_MAC_KEY（1），CRYPTO_KE_MAC_PROOF（2）以及CRYPTO_KE_KEYGENERATE_SEED（16）。</p>
 <p>As shown in MAC, three KeyElements can be configured when used: CRYPTO_KE_MAC_KEY (1), CRYPTO_KE_MAC_PROOF (2), and CRYPTO_KE_KEYGENERATE_SEED (16).</p>
 <section id="encryption-algorithm">
-<h3>加密算法 (Encryption algorithm)<a class="headerlink" href="#encryption-algorithm" title="Link to this heading">¶</a></h3>
+<h3>加密算法 (Encryption algorithm)<a class="headerlink" href="#encryption-algorithm" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="algorithm-introduction">
-<h2>算法介绍 (Algorithm Introduction)<a class="headerlink" href="#algorithm-introduction" title="Link to this heading">¶</a></h2>
+<h2>算法介绍 (Algorithm Introduction)<a class="headerlink" href="#algorithm-introduction" title="链接到此标题。">¶</a></h2>
 <section id="hash-hash-algorithm">
-<h3>HASH算法 (Hash algorithm)<a class="headerlink" href="#hash-hash-algorithm" title="Link to this heading">¶</a></h3>
+<h3>HASH算法 (Hash algorithm)<a class="headerlink" href="#hash-hash-algorithm" title="链接到此标题。">¶</a></h3>
 <p>HASH（哈希）算法为不需要秘钥的算法，哈希算法又称杂凑算法，能将一定长度的消息计算出固定长度的字符串（又称消息摘要）。SHA包含5个算法，分别是SHA-1、SHA-224、SHA-256、SHA-384和SHA-512，后四者并称为SHA-2。SHA-1最大计算明文长度为2^64bit，属于分组算法，分组长度为512bit，产生的信息摘要长度为160bit，也就是20个字节。</p>
 <p>HASH (Hash) algorithms are keyless algorithms, also known as hash functions, which can compute a fixed-length string (also called a message digest) from a certain length of message. SHA includes five algorithms: SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512; the latter four are collectively referred to as SHA-2. SHA-1 can compute plaintext up to 2^64 bits, belongs to block ciphers with a block length of 512 bits and produces an information digest of 160 bits, i.e., 20 bytes.</p>
 </section>
 <section id="aes-aes-symmetric-encryption-algorithm">
-<h3>AES对称加密算法 (AES symmetric encryption algorithm)<a class="headerlink" href="#aes-aes-symmetric-encryption-algorithm" title="Link to this heading">¶</a></h3>
+<h3>AES对称加密算法 (AES symmetric encryption algorithm)<a class="headerlink" href="#aes-aes-symmetric-encryption-algorithm" title="链接到此标题。">¶</a></h3>
 <p>AES的处理单位是字节，128位的输入明文分组P和输入密钥K都被分成16个字节，分别记为P= P0 P1 … P15 和 K = K0 K1 … K15。如，明文分组为P =abcdefghijklmnop，其中的字符a对应P0，p对应P15。一般地，明文分组用字节为单位的正方形矩阵描述，称为状态矩阵。在算法的每一轮中，状态矩阵的内容不断发生变化，最后的结果作为密文输出。</p>
 <p>The processing unit of AES is bytes. The 128-bit input plaintext block P and the input key K are each divided into 16 bytes, denoted as P = P0 P1 … P15 and K = K0 K1 … K15 respectively. For instance, if the plaintext block is P = abcdefghijklmnop, where 'a' corresponds to P0 and 'p' to P15. Generally, the plaintext block is described using a square matrix of bytes called the state matrix. In each round of the algorithm, the content of the state matrix changes continuously, with the final result output as ciphertext.</p>
 </section>
 <section id="rsa-rsa-asymmetric-encryption-algorithm">
-<h3>RSA非对称加密算法 (RSA Asymmetric Encryption Algorithm)<a class="headerlink" href="#rsa-rsa-asymmetric-encryption-algorithm" title="Link to this heading">¶</a></h3>
+<h3>RSA非对称加密算法 (RSA Asymmetric Encryption Algorithm)<a class="headerlink" href="#rsa-rsa-asymmetric-encryption-algorithm" title="链接到此标题。">¶</a></h3>
 <p>非对称加密指双方用不同的KEY加密和解密明文，通信双方都要有自己公共密钥和私有密钥。举个例子比较容易理解，我们们假设通信双方分别是A,B。A拥有KEY_A1（私钥），KEY_A2（公钥）。B拥有KEY_B1（私钥）,KEY_B2（公钥）。公钥和私钥的特点是，经过其中任何一把加密过的明文，只能用另外一把才能够解开。也就是说经过KEY_A1加密过的明文，只有KEY_A2才能够解密，反之亦然。</p>
 <p>Asymmetric encryption refers to the use of different keys for encrypting and decrypting plaintext, where both parties need their own public and private keys. To illustrate with an example, let's assume the communicating parties are A and B. A has KEY_A1 (private key) and KEY_A2 (public key). B has KEY_B1 (private key) and KEY_B2 (public key). The characteristic of public and private keys is that plaintext encrypted with either can only be decrypted by the other. That is, plaintext encrypted with KEY_A1 can only be decrypted with KEY_A2, and vice versa.</p>
 </section>
 <section id="mac-mac-algorithm">
-<h3>MAC算法 (MAC Algorithm)<a class="headerlink" href="#mac-mac-algorithm" title="Link to this heading">¶</a></h3>
+<h3>MAC算法 (MAC Algorithm)<a class="headerlink" href="#mac-mac-algorithm" title="链接到此标题。">¶</a></h3>
 <p>MAC算法，SecOc比较常使用的算法，即带秘密密钥的Hash算法。消息的散列值由只有通信双方知道的秘钥K来控制。此时Hash值称作MAC。先对报文第一个64bit加密，得到64bit的加密后数据data1，接着再拿加密后的data1与报文第二个64bit数据进行按位异或，得到同样长64bit的数据data2，再用Key对data2加密，得到加密后的数据data3，再拿data3与报文第三个64bit数据进行按位异或，同样的处理依次类推，直到最后会得到一个64bit的数据，这个算法就叫做MAC算法。</p>
 <p>MAC algorithm, SecOc commonly uses hash algorithms with a secret key. The hash value of the message is controlled by a secret key K known only to the communicating parties. In this case, the hash value is called MAC. First, encrypt the first 64-bit segment of the message to get 64-bit encrypted data data1. Then, perform bitwise XOR between the encrypted data1 and the second 64-bit segment of the message to obtain another 64-bit data data2 with the same length. Use Key to encrypt data2 to get the encrypted data data3. Perform bitwise XOR between data3 and the third 64-bit segment of the message, and continue processing in the same manner until a final 64-bit piece of data is obtained. This algorithm is called the MAC algorithm.</p>
 </section>
 </section>
 <section id="algorithm-implementation">
-<h2>算法实现 (Algorithm implementation)<a class="headerlink" href="#algorithm-implementation" title="Link to this heading">¶</a></h2>
+<h2>算法实现 (Algorithm implementation)<a class="headerlink" href="#algorithm-implementation" title="链接到此标题。">¶</a></h2>
 <p>加密算法均是参考开源库算法，此处对于细节不多加介绍。唯一需要注意的是对称加密与非对称加密的实现。对称加密与非对称加密在crypto driver中均是通过Encrypt和Decrypt实现，在CSM中配置CsmPrimitives时的CsmEncryptAlgorithmFamily需要配置为CRYPTO_ALGOFAM_AES和CRYPTO_ALGOFAM_RSA的区别。</p>
 <p>Encryption algorithms are referred to open-source library algorithms, and details are not elaborated here. The only thing to note is the implementation of symmetric and asymmetric encryption. Symmetric and asymmetric encryption are both implemented through Encrypt and Decrypt in the crypto driver. In CSM configuration of CsmPrimitives, CsmEncryptAlgorithmFamily needs to be configured as CRYPTO_ALGOFAM_AES for symmetric encryption and CRYPTO_ALGOFAM_RSA for asymmetric encryption.</p>
 <p>当配置CRYPTO_ALGOFAM_RSA时，调用Csm_Encrypt传入的resultLengthPtr长度必须为128，且必须先调用Csm_KeyGenerate生成执行算法所需的公钥和私钥。</p>
 <p>When CONFIGURING CRYPTO_ALGOFAM_RSA, the length of resultLengthPtr passed to Csm_Encrypt must be 128, and Csm_KeyGenerate must be called first to generate the public and private keys required for the execution algorithm.</p>
 <section id="queue-functionality">
-<h3>队列功能 (Queue functionality)<a class="headerlink" href="#queue-functionality" title="Link to this heading">¶</a></h3>
+<h3>队列功能 (Queue functionality)<a class="headerlink" href="#queue-functionality" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="queue-introduction">
-<h2>队列介绍 (Queue Introduction)<a class="headerlink" href="#queue-introduction" title="Link to this heading">¶</a></h2>
+<h2>队列介绍 (Queue Introduction)<a class="headerlink" href="#queue-introduction" title="链接到此标题。">¶</a></h2>
 <p>由于软件加密算法可能比较耗时，所以个别的算法可以配置为异步模式，即把内容传给下层后，下层不会直接运算，而是会根据下层的功能机制，在后续的mainfunction中对加密任务进行计算，并通过回调函数返回给上层。</p>
 <p>Since software encryption algorithms can be time-consuming, individual algorithms can be configured to run in asynchronous mode, meaning that after passing the content to the lower layer, the lower layer will not perform the computation immediately but will calculate the encryption task in subsequent main functions based on its functional mechanism and return the result to the upper layer through a callback function.</p>
 <p>由于异步加密任务可能存在延迟，例如未完成一次计算，又传入了很多其它的加密任务，这时可以启用队列功能。队列功能打开后，便可以同时缓存多个加密任务，每次在Crypto_Mainfunction中去依次执行缓存队列中的加密任务。</p>
 <p>Because asynchronous encryption tasks may have delays, for example, if many other encryption tasks are submitted before a single task is completed, you can enable the queue function. After enabling the queue function, multiple encryption tasks can be cached simultaneously, and each time they will be executed sequentially from the Crypto_Mainfunction.</p>
 </section>
 <section id="queue-implementation">
-<h2>队列实现 (Queue implementation)<a class="headerlink" href="#queue-implementation" title="Link to this heading">¶</a></h2>
+<h2>队列实现 (Queue implementation)<a class="headerlink" href="#queue-implementation" title="链接到此标题。">¶</a></h2>
 <p>通过配置项CryptoQueueSize定义队列大小。CSM和Crypto Driver中均可定义队列，两者的功能大体一致，一般情况下是两者选其一即可。</p>
 <p>The queue size is defined by the configuration item CryptoQueueSize. It can be defined in both CSM and Crypto Driver, with their functionalities being largely consistent; generally, one of the two is sufficient.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
 <p class="centered">
 <strong><strong>表 Crypto组件文件描述 (Describe Crypto Component Files)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -344,13 +351,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="crypto-configtype-crypto-configtype-type-definition">
-<h2>Crypto_ConfigType类型定义 (Crypto_ConfigType type definition)<a class="headerlink" href="#crypto-configtype-crypto-configtype-type-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_ConfigType类型定义 (Crypto_ConfigType type definition)<a class="headerlink" href="#crypto-configtype-crypto-configtype-type-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -374,7 +381,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -399,11 +406,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
 </section>
 </section>
 <section id="crypto-init-the-crypto-init-function-defines">
-<h2>Crypto_Init函数定义 (The Crypto_Init function defines)<a class="headerlink" href="#crypto-init-the-crypto-init-function-defines" title="Link to this heading">¶</a></h2>
+<h2>Crypto_Init函数定义 (The Crypto_Init function defines)<a class="headerlink" href="#crypto-init-the-crypto-init-function-defines" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -473,7 +480,7 @@
 </table>
 </section>
 <section id="crypto-getversioninfo-the-crypto-getversioninfo-function-definition">
-<h2>Crypto_GetVersionInfo函数定义 (The Crypto_GetVersionInfo function definition)<a class="headerlink" href="#crypto-getversioninfo-the-crypto-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_GetVersionInfo函数定义 (The Crypto_GetVersionInfo function definition)<a class="headerlink" href="#crypto-getversioninfo-the-crypto-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -548,7 +555,7 @@
 </table>
 </section>
 <section id="crypto-processjob-the-crypto-processjob-function-definition">
-<h2>Crypto_ProcessJob函数定义 (The Crypto_ProcessJob function definition)<a class="headerlink" href="#crypto-processjob-the-crypto-processjob-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_ProcessJob函数定义 (The Crypto_ProcessJob function definition)<a class="headerlink" href="#crypto-processjob-the-crypto-processjob-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -688,7 +695,7 @@
 </table>
 </section>
 <section id="crypto-canceljob-the-definition-of-crypto-canceljob-function">
-<h2>Crypto_CancelJob函数定义 (The definition of Crypto_CancelJob function)<a class="headerlink" href="#crypto-canceljob-the-definition-of-crypto-canceljob-function" title="Link to this heading">¶</a></h2>
+<h2>Crypto_CancelJob函数定义 (The definition of Crypto_CancelJob function)<a class="headerlink" href="#crypto-canceljob-the-definition-of-crypto-canceljob-function" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -783,7 +790,7 @@
 </table>
 </section>
 <section id="crypto-keyelementset-the-crypto-keyelementset-function-definition">
-<h2>Crypto_KeyElementSet函数定义 (The Crypto_KeyElementSet function definition)<a class="headerlink" href="#crypto-keyelementset-the-crypto-keyelementset-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyElementSet函数定义 (The Crypto_KeyElementSet function definition)<a class="headerlink" href="#crypto-keyelementset-the-crypto-keyelementset-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -913,7 +920,7 @@
 </table>
 </section>
 <section id="crypto-keysetvalid-the-crypto-keysetvalid-function-definition">
-<h2>Crypto_KeySetValid函数定义 (The Crypto_KeySetValid function definition)<a class="headerlink" href="#crypto-keysetvalid-the-crypto-keysetvalid-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeySetValid函数定义 (The Crypto_KeySetValid function definition)<a class="headerlink" href="#crypto-keysetvalid-the-crypto-keysetvalid-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -998,7 +1005,7 @@
 </table>
 </section>
 <section id="crypto-keysetinvalid-the-definition-of-crypto-keysetinvalid-function">
-<h2>Crypto_KeySetInvalid函数定义 (The definition of Crypto_KeySetInvalid function)<a class="headerlink" href="#crypto-keysetinvalid-the-definition-of-crypto-keysetinvalid-function" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeySetInvalid函数定义 (The definition of Crypto_KeySetInvalid function)<a class="headerlink" href="#crypto-keysetinvalid-the-definition-of-crypto-keysetinvalid-function" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1083,7 +1090,7 @@
 </table>
 </section>
 <section id="crypto-keyelementget-the-crypto-keyelementget-function-definition">
-<h2>Crypto_KeyElementGet函数定义 (The Crypto_KeyElementGet function definition)<a class="headerlink" href="#crypto-keyelementget-the-crypto-keyelementget-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyElementGet函数定义 (The Crypto_KeyElementGet function definition)<a class="headerlink" href="#crypto-keyelementget-the-crypto-keyelementget-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1203,7 +1210,7 @@
 </table>
 </section>
 <section id="crypto-keygetstatus-the-crypto-keygetstatus-function-definition">
-<h2>Crypto_KeyGetStatus函数定义 (The Crypto_KeyGetStatus function definition)<a class="headerlink" href="#crypto-keygetstatus-the-crypto-keygetstatus-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyGetStatus函数定义 (The Crypto_KeyGetStatus function definition)<a class="headerlink" href="#crypto-keygetstatus-the-crypto-keygetstatus-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1288,7 +1295,7 @@
 </table>
 </section>
 <section id="crypto-keyelementcopy-the-crypto-keyelementcopy-function-definition">
-<h2>Crypto_KeyElementCopy函数定义 (The Crypto_KeyElementCopy function definition)<a class="headerlink" href="#crypto-keyelementcopy-the-crypto-keyelementcopy-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyElementCopy函数定义 (The Crypto_KeyElementCopy function definition)<a class="headerlink" href="#crypto-keyelementcopy-the-crypto-keyelementcopy-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1428,7 +1435,7 @@
 </table>
 </section>
 <section id="crypto-keyelementcopypartial-the-crypto-keyelementcopypartial-function-definition">
-<h2>Crypto_KeyElementCopyPartial函数定义 (The Crypto_KeyElementCopyPartial function definition)<a class="headerlink" href="#crypto-keyelementcopypartial-the-crypto-keyelementcopypartial-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyElementCopyPartial函数定义 (The Crypto_KeyElementCopyPartial function definition)<a class="headerlink" href="#crypto-keyelementcopypartial-the-crypto-keyelementcopypartial-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1598,7 +1605,7 @@
 </table>
 </section>
 <section id="crypto-keycopy-the-definition-of-crypto-keycopy-function">
-<h2>Crypto_KeyCopy函数定义 (The definition of Crypto_KeyCopy function)<a class="headerlink" href="#crypto-keycopy-the-definition-of-crypto-keycopy-function" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyCopy函数定义 (The definition of Crypto_KeyCopy function)<a class="headerlink" href="#crypto-keycopy-the-definition-of-crypto-keycopy-function" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1718,7 +1725,7 @@
 </table>
 </section>
 <section id="crypto-keyelementidsget-the-crypto-keyelementidsget-function-definition">
-<h2>Crypto_KeyElementIdsGet函数定义 (The Crypto_KeyElementIdsGet function definition)<a class="headerlink" href="#crypto-keyelementidsget-the-crypto-keyelementidsget-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyElementIdsGet函数定义 (The Crypto_KeyElementIdsGet function definition)<a class="headerlink" href="#crypto-keyelementidsget-the-crypto-keyelementidsget-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1813,7 +1820,7 @@
 </table>
 </section>
 <section id="crypto-randomseed-the-crypto-randomseed-function-definition">
-<h2>Crypto_RandomSeed函数定义 (The Crypto_RandomSeed function definition)<a class="headerlink" href="#crypto-randomseed-the-crypto-randomseed-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_RandomSeed函数定义 (The Crypto_RandomSeed function definition)<a class="headerlink" href="#crypto-randomseed-the-crypto-randomseed-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1918,7 +1925,7 @@
 </table>
 </section>
 <section id="crypto-keygenerate-crypto-keygenerate-function-definition">
-<h2>Crypto_KeyGenerate函数定义 (Crypto_KeyGenerate function definition)<a class="headerlink" href="#crypto-keygenerate-crypto-keygenerate-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyGenerate函数定义 (Crypto_KeyGenerate function definition)<a class="headerlink" href="#crypto-keygenerate-crypto-keygenerate-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2013,7 +2020,7 @@
 </table>
 </section>
 <section id="crypto-keyderive-the-crypto-keyderive-function-definition">
-<h2>Crypto_KeyDerive函数定义 (The Crypto_KeyDerive function definition)<a class="headerlink" href="#crypto-keyderive-the-crypto-keyderive-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyDerive函数定义 (The Crypto_KeyDerive function definition)<a class="headerlink" href="#crypto-keyderive-the-crypto-keyderive-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2118,7 +2125,7 @@
 </table>
 </section>
 <section id="crypto-keyexchangecalcpubval-the-crypto-keyexchangecalcpubval-function-definition">
-<h2>Crypto_KeyExchangeCalcPubVal函数定义 (The Crypto_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#crypto-keyexchangecalcpubval-the-crypto-keyexchangecalcpubval-function-definition" title="Link to this heading">¶</a></h2>
+<h2>Crypto_KeyExchangeCalcPubVal函数定义 (The Crypto_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#crypto-keyexchangecalcpubval-the-crypto-keyexchangecalcpubval-function-definition" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2223,7 +2230,7 @@
 </table>
 </section>
 <section id="crypto-keyexchangecalcpubval-function-definition-1">
-<span id="crypto-keyexchangecalcpubval-1"></span><span id="id1"></span><h2>Crypto_KeyExchangeCalcPubVal函数定义 (The Crypto_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#crypto-keyexchangecalcpubval-function-definition-1" title="Link to this heading">¶</a></h2>
+<span id="crypto-keyexchangecalcpubval-1"></span><span id="id1"></span><h2>Crypto_KeyExchangeCalcPubVal函数定义 (The Crypto_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#crypto-keyexchangecalcpubval-function-definition-1" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2328,7 +2335,7 @@
 </table>
 </section>
 <section id="crypto-keyexchangecalcpubval-function-definition-2">
-<span id="crypto-keyexchangecalcpubval-2"></span><span id="id2"></span><h2>Crypto_KeyExchangeCalcPubVal函数定义 (The Crypto_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#crypto-keyexchangecalcpubval-function-definition-2" title="Link to this heading">¶</a></h2>
+<span id="crypto-keyexchangecalcpubval-2"></span><span id="id2"></span><h2>Crypto_KeyExchangeCalcPubVal函数定义 (The Crypto_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#crypto-keyexchangecalcpubval-function-definition-2" title="链接到此标题。">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2402,15 +2409,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
 <section id="cryptogeneral">
-<h3>CryptoGeneral<a class="headerlink" href="#cryptogeneral" title="Link to this heading">¶</a></h3>
+<h3>CryptoGeneral<a class="headerlink" href="#cryptogeneral" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cryptogeneral-cryptogeneral-container-configuration-diagram">
 <img alt="CryptoGeneral容器配置图 (CryptoGeneral Container Configuration Diagram)" src="../../_images/image412.png" />
 </figure>
@@ -2526,7 +2533,7 @@
 </table>
 </section>
 <section id="cryptodriverobject">
-<h3>CryptoDriverObject<a class="headerlink" href="#cryptodriverobject" title="Link to this heading">¶</a></h3>
+<h3>CryptoDriverObject<a class="headerlink" href="#cryptodriverobject" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cryptodriverobjec-cryptodriverobject-container-configuration-diagram">
 <img alt="CryptoDriverObjec容器配置图 (CryptoDriverObject Container Configuration Diagram)" src="../../_images/image511.png" />
 </figure>
@@ -2660,7 +2667,7 @@
 </table>
 </section>
 <section id="cryptokeyelement">
-<h3>CryptoKeyElement<a class="headerlink" href="#cryptokeyelement" title="Link to this heading">¶</a></h3>
+<h3>CryptoKeyElement<a class="headerlink" href="#cryptokeyelement" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cryptokeyelement-cryptokeyelement-container-configuration-diagram">
 <img alt="CryptoKeyElement容器配置图 (CryptoKeyElement Container Configuration Diagram)" src="../../_images/image611.png" />
 </figure>
@@ -2948,7 +2955,7 @@
 </table>
 </section>
 <section id="cryptokeytype">
-<h3>CryptoKeyType<a class="headerlink" href="#cryptokeytype" title="Link to this heading">¶</a></h3>
+<h3>CryptoKeyType<a class="headerlink" href="#cryptokeytype" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cryptokeytype-cryptokeytype-container-configuration-diagram">
 <img alt="CryptoKeyType容器配置图 (CryptoKeyType Container Configuration Diagram)" src="../../_images/image89.png" />
 </figure>
@@ -2992,7 +2999,7 @@
 </table>
 </section>
 <section id="cryptokey">
-<h3>CryptoKey<a class="headerlink" href="#cryptokey" title="Link to this heading">¶</a></h3>
+<h3>CryptoKey<a class="headerlink" href="#cryptokey" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cryptokey-cryptokey-container-configuration-diagram">
 <img alt="CryptoKey容器配置图 (CryptoKey Container Configuration Diagram)" src="../../_images/image99.png" />
 </figure>
@@ -3054,7 +3061,7 @@
 </table>
 </section>
 <section id="cryptoprimitive">
-<h3>CryptoPrimitive<a class="headerlink" href="#cryptoprimitive" title="Link to this heading">¶</a></h3>
+<h3>CryptoPrimitive<a class="headerlink" href="#cryptoprimitive" title="链接到此标题。">¶</a></h3>
 <figure class="align-center" id="cryptoprimitive-cryptoprimitive-container-configuration-diagram">
 <img alt="CryptoPrimitive容器配置图 (CryptoPrimitive Container Configuration Diagram)" src="../../_images/image109.png" />
 </figure>
@@ -3263,7 +3270,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 8.2.3
+                        Sphinx 9.0.4
                     </a>
                 </small>
             </div>
@@ -3272,11 +3279,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/translations.js?v=540d3cec"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

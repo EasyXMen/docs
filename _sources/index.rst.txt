@@ -47,6 +47,14 @@ I-SOFT
 
 .. toctree::
    :maxdepth: 1
+   :caption: 快速上手指南(Quick_Start_Guide):
+
+   sub/快速上手指南(Quick_Start_Guide)/S32K148/S32K148.rst
+   sub/快速上手指南(Quick_Start_Guide)/TC397/TC397.rst
+   sub/快速上手指南(Quick_Start_Guide)/RH850U2A16/RH850U2A16.rst
+
+.. toctree::
+   :maxdepth: 1
    :caption: 参考手册(Reference Manual):
 
    sub/参考手册(Module Reference Manual)/BswM.rst
