@@ -11,12 +11,8 @@ This repository contains the technical documentation for EasyXMen.
 
 - [参考手册（Module Reference Manual）](https://easyxmen.atomgit.com/)
 
-- [集成手册（Integration Instruction Manual）](https://easyxmen.atomgit.com/)
-
-- [示例工程说明（Demo Project Description）](https://easyxmen.atomgit.com/)
-
-说明：快速上手指南、参考手册、集成手册、示例工程说明等文档页面右上角可选择对应版本的文档，左侧导航栏为所选版本的目录。  
-Note: On documentation pages such as the Quick Start Guide, Reference Manual, Integration Manual, and Sample Project Descriptions, you can select the corresponding version of the documentation in the top-right corner of the page. The left-side navigation will then show the table of contents for that version.
+说明：快速上手指南、参考手册等文档页面右上角可选择对应版本的文档，左侧导航栏为所选版本的目录。  
+Note: On documentation pages such as the Quick Start Guide and Module Reference Manual, you can select the corresponding version of the documentation in the top-right corner of the page. The left-side navigation will then show the table of contents for that version.
 
 
 ## 目录结构 Directory Structure
