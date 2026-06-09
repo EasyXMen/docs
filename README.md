@@ -1,12 +1,26 @@
-## 开源小满EasyXMen技术文档 EasyXMen Technical Documentation
+# 开源小满技术文档 EasyXMen Technical Documentation
 
-本仓库为开源小满EasyXMen的文档仓库，可以使用Pages预览最终的html [阅读链接](https://easyxmen.atomgit.com/index.html)
+本仓库为开源小满EasyXMen项目的技术文档仓库。  
+This repository contains the technical documentation for EasyXMen.
 
-This repository is the documentation repository for EasyXMen. You can use Pages to preview the final html [Reading Link](https://easyxmen.atomgit.com/index.html)
+## 快捷入口 Quick Links
+
+- [版本发布说明（Version Release Notes）](./ReleaseNotes.txt)
+
+- [快速上手指南（Quick Start Guide）](https://easyxmen.atomgit.com/)
+
+- [参考手册（Module Reference Manual）](https://easyxmen.atomgit.com/)
+
+- [集成手册（Integration Instruction Manual）](https://easyxmen.atomgit.com/)
+
+- [示例工程说明（Demo Project Description）](https://easyxmen.atomgit.com/)
+
+说明：快速上手指南、参考手册、集成手册、示例工程说明等文档页面右上角可选择对应版本的文档，左侧导航栏为所选版本的目录。  
+Note: On documentation pages such as the Quick Start Guide, Reference Manual, Integration Manual, and Sample Project Descriptions, you can select the corresponding version of the documentation in the top-right corner of the page. The left-side navigation will then show the table of contents for that version.
+
 
 ## 目录结构 Directory Structure
 ```
-|── QuickStart              # 快速上手指南 (Quick Start Guide)
 |── ReleaseNotes            # 版本发布说明 (Version Release Notes)
 |── source                  # 文档文件夹 (Documentation Folder)
 │   ├── _static             # 文档图片相关静态资料 (Static Materials Related to Document Images)
@@ -19,7 +33,7 @@ This repository is the documentation repository for EasyXMen. You can use Pages 
 
 本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的[LICENSE.txt](./LICENSE.txt)
 
-Copyright (C) 2024 iSoft Infrastructure Software Co., Ltd.
+Copyright (C) 2024-2026 iSoft Infrastructure Software Co., Ltd.
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;

@@ -1,25 +1,4 @@
-开源小满EasyXMen技术文档(Open Source Xiaoman EasyXMen Technical Documentation)
-==========================================================================================
-
-本仓库为开源小满EasyXMen的文档仓库
-
-This repository is the documentation repository for the open-source Xiaoman EasyXMen project.
-
-开源许可(Open Source License)
-================================================================
-
-本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的 LICENSE.txt
-
-Copyright (C) 2024 Isoft Infrastructure Software Co., Ltd.
-Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3
-or any later version published by the Free Software Foundation;
-with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-A copy of the license is included in the section entitled "GNU
-Free Documentation License".
-
-
-I-SOFT
+iSOFT
 ================================================================
 .. list-table::
    :widths: 10 60 20
@@ -34,6 +13,9 @@ I-SOFT
    * - 1.1.0
      - 基于V25.04源码更新模块参考手册 (Update module reference manual based on V25.04 source code)
      - 2025-04-25
+   * - 2.0.0
+     - 发布快速上手指南(Release Quick Start Guide)
+     - 2026-06-01
 
 .. note::
 
