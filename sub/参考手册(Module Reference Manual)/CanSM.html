@@ -9,7 +9,6 @@
         <title>CanSM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="cansm">
-<h1>CanSM<a class="headerlink" href="#cansm" title="链接到此标题。">¶</a></h1>
+<h1>CanSM<a class="headerlink" href="#cansm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -232,14 +231,14 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>CanSM模块负责CAN网络的控制流抽象，它使用CanIf模块的API，根据ComM模块的模式请求更改已配置的CAN网络的通信模式。CAN控制器模式和CAN收发器模式的任何更改将由CanIf模块通知CanSM模块。根据CanIf通知和CanSM状态机的状态，CanSM模块将通知ComM和BswM。</p>
 <p>CanSM module controls the control flow of the CAN network and uses the API of CanIf module to request changes in the communication mode of the configured CAN network according to the modes requested by the ComM module. Any change in the CAN controller mode or CAN transceiver mode will be notified by the CanIf module to the CanSM module. Based on the notifications from the CanIf and the state machine status of the CanSM, the CanSM module notifies the ComM and BswM.</p>
 <figure class="align-center" id="cansmautosar-position-of-cansm-in-autosar">
 <img alt="CanSM在AUTOSAR中的位置(Position of CanSM in AUTOSAR)" src="../../_images/image117.png" />
 </figure>
 <section id="references">
-<h3>参考资料 (References)<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_ CANStateManager.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_COMManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_NetworkManagementInterface.pdf，R19-11</p>
@@ -249,11 +248,11 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="state-management-function">
-<h3>状态管理功能 (State management function)<a class="headerlink" href="#state-management-function" title="链接到此标题。">¶</a></h3>
+<h3>状态管理功能 (State management function)<a class="headerlink" href="#state-management-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-state-management-function">
-<h4>状态管理功能介绍 (Introduction to State Management Function)<a class="headerlink" href="#introduction-to-state-management-function" title="链接到此标题。">¶</a></h4>
+<h4>状态管理功能介绍 (Introduction to State Management Function)<a class="headerlink" href="#introduction-to-state-management-function" title="Link to this heading">¶</a></h4>
 <p>CAN总线的状态管理器CanSM，负责实现CAN网络控制流程的抽象。CanSM提供API以便ComM来请求CAN网络进行通信模式的切换。ComM请求切换网络模式的时候，会传递一个参数（用来标识是哪个网络）。对应网络收到这个请求之后，会执行对应的通信模式切换。在网络通信模式切换的过程中，会执行对应的CAN外设控制和PDU处理。</p>
 <p>CAN bus's state manager, CanSM, is responsible for implementing an abstract of the CAN network control flow. CanSM provides APIs so that Comm can request a switch in communication modes on the CAN network. When Comm requests a mode switch, it passes a parameter (to identify which network). The corresponding network will execute the mode switch upon receiving this request. During the process of switching communication modes, the corresponding CAN peripheral control and PDU processing are executed.</p>
 <p>不同网络请求对应的控制器和收发器状态如下：</p>
@@ -269,7 +268,7 @@
 <p>CanSM uses the callback function provided by ComM to notify changes in communication modes.</p>
 </section>
 <section id="state-management-function-sequence-diagram">
-<h4>状态管理功能序列图 (State Management Function Sequence Diagram)<a class="headerlink" href="#state-management-function-sequence-diagram" title="链接到此标题。">¶</a></h4>
+<h4>状态管理功能序列图 (State Management Function Sequence Diagram)<a class="headerlink" href="#state-management-function-sequence-diagram" title="Link to this heading">¶</a></h4>
 <p>当CanSM接收到来自ComM的FULL_COMMUNICATION请求时，调用下层CanIf的接口来完成请求，请求完成后需要调用ComM回调进行通知。CanSM处理FULL_COMMUNICATION请求时序图如下。</p>
 <p>When CanSM receives a FULL_COMMUNICATION request from ComM, it calls the interface of the lower layer CanIf to complete the request. After the request is completed, it needs to call the ComM callback for notification. The processing sequence diagram of the CANSM for handling the FULL_COMMUNICATION request is as follows.</p>
 <figure class="align-center" id="cansmfull-communication-sequence-diagram-of-cansm-handling-full-communication-request">
@@ -287,7 +286,7 @@
 </figure>
 </section>
 <section id="state-management-feature-main-state-machine">
-<h4>状态管理功能主状态机 (State management feature main state machine)<a class="headerlink" href="#state-management-feature-main-state-machine" title="链接到此标题。">¶</a></h4>
+<h4>状态管理功能主状态机 (State management feature main state machine)<a class="headerlink" href="#state-management-feature-main-state-machine" title="Link to this heading">¶</a></h4>
 <p>State management feature main state machine</p>
 <p>上电后，CanSM会默认处于CANSM_BSM_S_NOT_INITIALIZED状态，在经过初始化后，状态将切换至CANSM_BSM_S_PRE_NOCOM。如果EcuM调用CanSM_StartWakeUpSource通知CanSM唤醒源被启动，那么状态机将切换至CANSM_BSM_WUVALIDATION状态。如果接收到ComM的FULL_COMMUNICATION请求，那么状态机将切换至CANSM_BSM_S_PRE_FULLCOM状态。在CanSM通知上层ComM和BSWM底层网络已经切换至FULL_COMMUNICATION，并且调用CanIf_SetPduMode更新PDU通道状态后，状态机将切换至CANSM_BSM_S_FULLCOM。</p>
 <p>Upon powering up, CanSM will default to the CANSM_BSM_S_NOT_INITIALIZED state. After initialization, the state will switch to CANSM_BSM_S_PRE_NOCOM. If EcuM calls CanSM_StartWakeUpSource to notify CanSM that a wakeup source has been started, the state machine will transition to the CANSM_BSM_WUVALIDATION state. If the ComM receives a FULL_COMMUNICATION request from ComM, the state machine will transition to the CANSM_BSM_S_PRE_FULLCOM state. After CanSM notifies ComM and BSWM that the underlying network has switched to FULL_COMMUNICATION and calls CanIf_SetPduMode to update the PDU channel status, the state machine will transition to the CANSM_BSM_S_FULLCOM state.</p>
@@ -303,13 +302,13 @@
 </section>
 </section>
 <section id="bus-off-bypass-recovery-function">
-<h3>Bus-off恢复功能 (Bypass recovery function)<a class="headerlink" href="#bus-off-bypass-recovery-function" title="链接到此标题。">¶</a></h3>
+<h3>Bus-off恢复功能 (Bypass recovery function)<a class="headerlink" href="#bus-off-bypass-recovery-function" title="Link to this heading">¶</a></h3>
 <p>CanSM可以配置快恢复时间CanSMBorTimeL1和慢恢复时CanSMBorTimeL2，以及经过多少次快恢复切换为慢恢复的次数CanSMBorCounterL1ToL2。当底层发生bus-off时，会调用CanSM的CanSM_ControllerBusOff函数进行通知。CanSM会调用CanIf的CanIf_SetControllerMode函数将控制器状态设置为CAN_CS_STARTED，当接收到底层调用的CanSM_ControllerModeIndication的设置成功的通知后，开始bus-off定时器的计时，当bus-off快恢复的时间超时后，调用CanIf_SetPduMode设置Pdu传输状态为CANIF_ONLINE，当快恢复的次数超过配置参数CanSMBorCounterL1ToL2时，将按照慢恢复的时间进行恢复。</p>
 <p>CanSM can be configured with fast recovery time CanSMBorTimeL1 and slow recovery time CanSMBorTimeL2, as well as the number of times a fast recovery switch is required to enter slow recovery, CanSMBorCounterL1ToL2. When a bus-off occurs at the lower level, it calls the CanSM_ControllerBusOff function in CanSM for notification. CanSM then calls the CanIf's CanIf_SetControllerMode function to set the controller state to CAN_CS_STARTED. After receiving successful notifications from the lower-level call of CanSM_ControllerModeIndication, a bus-off timer starts counting. When the fast recovery time exceeds the timeout, it calls the CanIf_SetPduMode function to set the Pdu transmission status to CANIF_ONLINE. If the number of times a fast recovery switch is exceeded the configuration parameter CanSMBorCounterL1ToL2, slow recovery will be initiated according to the configured slow recovery time.</p>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CanSM组件文件描述 (Table: CanSM Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -362,11 +361,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definitions">
-<h3>类型定义 (Type Definitions)<a class="headerlink" href="#type-definitions" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type Definitions)<a class="headerlink" href="#type-definitions" title="Link to this heading">¶</a></h3>
 <section id="cansm-statetype-cansm-statetype-type-definition">
-<h4>CanSM_StateType类型定义 (CanSM_StateType type definition)<a class="headerlink" href="#cansm-statetype-cansm-statetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_StateType类型定义 (CanSM_StateType type definition)<a class="headerlink" href="#cansm-statetype-cansm-statetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -394,7 +393,7 @@
 </table>
 </section>
 <section id="cansm-configtype-cansm-configtype-type-definition">
-<h4>CanSM_ConfigType类型定义 (CanSM_ConfigType type definition)<a class="headerlink" href="#cansm-configtype-cansm-configtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_ConfigType类型定义 (CanSM_ConfigType type definition)<a class="headerlink" href="#cansm-configtype-cansm-configtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -419,7 +418,7 @@
 </table>
 </section>
 <section id="cansm-bswmcurrentstatetype-cansm-bswmcurrentstatetype-type-definition">
-<h4>CanSM_BswMCurrentStateType类型定义 (CanSM_BswMCurrentStateType type definition)<a class="headerlink" href="#cansm-bswmcurrentstatetype-cansm-bswmcurrentstatetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_BswMCurrentStateType类型定义 (CanSM_BswMCurrentStateType type definition)<a class="headerlink" href="#cansm-bswmcurrentstatetype-cansm-bswmcurrentstatetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -457,7 +456,7 @@
 </section>
 </section>
 <section id="input-function-description">
-<h3>输入函数描述 (Input function description)<a class="headerlink" href="#input-function-description" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Input function description)<a class="headerlink" href="#input-function-description" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -512,9 +511,9 @@
 </table>
 </section>
 <section id="static-function-definition-for-static-interface">
-<h3>静态接口函数定义 (Static function definition for static interface)<a class="headerlink" href="#static-function-definition-for-static-interface" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static function definition for static interface)<a class="headerlink" href="#static-function-definition-for-static-interface" title="Link to this heading">¶</a></h3>
 <section id="cansm-init">
-<h4>CanSM_Init函数定义<a class="headerlink" href="#cansm-init" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_Init函数定义<a class="headerlink" href="#cansm-init" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -589,7 +588,7 @@
 </table>
 </section>
 <section id="cansm-deinit">
-<h4>CanSM_DeInit函数定义<a class="headerlink" href="#cansm-deinit" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_DeInit函数定义<a class="headerlink" href="#cansm-deinit" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -632,7 +631,7 @@
 </table>
 </section>
 <section id="cansm-requestcommode-cansm-requestcommode-function-definition">
-<h4>CanSM_RequestComMode函数定义 (CanSM_RequestComMode function definition)<a class="headerlink" href="#cansm-requestcommode-cansm-requestcommode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_RequestComMode函数定义 (CanSM_RequestComMode function definition)<a class="headerlink" href="#cansm-requestcommode-cansm-requestcommode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -707,7 +706,7 @@
 </table>
 </section>
 <section id="cansm-getcurrentcommode-cansm-getcurrentcommode-function-definition">
-<h4>CanSM_GetCurrentComMode函数定义(CanSM_GetCurrentComMode function definition)<a class="headerlink" href="#cansm-getcurrentcommode-cansm-getcurrentcommode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_GetCurrentComMode函数定义(CanSM_GetCurrentComMode function definition)<a class="headerlink" href="#cansm-getcurrentcommode-cansm-getcurrentcommode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -777,7 +776,7 @@
 </table>
 </section>
 <section id="cansm-startwakeupsource-cansm-startwakeupsource-function-definition">
-<h4>CanSM_StartWakeupSource函数定义 (CanSM_StartWakeupSource function definition)<a class="headerlink" href="#cansm-startwakeupsource-cansm-startwakeupsource-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_StartWakeupSource函数定义 (CanSM_StartWakeupSource function definition)<a class="headerlink" href="#cansm-startwakeupsource-cansm-startwakeupsource-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -847,7 +846,7 @@
 </table>
 </section>
 <section id="cansm-stopwakeupsource-cansm-stopwakeupsource-function-definition">
-<h4>CanSM_StopWakeupSource函数定义 (CanSM_StopWakeupSource function definition)<a class="headerlink" href="#cansm-stopwakeupsource-cansm-stopwakeupsource-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_StopWakeupSource函数定义 (CanSM_StopWakeupSource function definition)<a class="headerlink" href="#cansm-stopwakeupsource-cansm-stopwakeupsource-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -917,7 +916,7 @@
 </table>
 </section>
 <section id="cansm-getversioninfo-cansm-getversioninfo-function-definition">
-<h4>CanSM_GetVersionInfo函数定义 (CanSM_GetVersionInfo function definition)<a class="headerlink" href="#cansm-getversioninfo-cansm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_GetVersionInfo函数定义 (CanSM_GetVersionInfo function definition)<a class="headerlink" href="#cansm-getversioninfo-cansm-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -982,7 +981,7 @@
 </table>
 </section>
 <section id="cansm-setbaudrate-cansm-setbaudrate-function-definition">
-<h4>CanSM_SetBaudrate函数定义 (CanSM_SetBaudrate function definition)<a class="headerlink" href="#cansm-setbaudrate-cansm-setbaudrate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_SetBaudrate函数定义 (CanSM_SetBaudrate function definition)<a class="headerlink" href="#cansm-setbaudrate-cansm-setbaudrate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1057,7 +1056,7 @@
 </table>
 </section>
 <section id="cansm-setecupassive-cansm-setecupassive-function-definition">
-<h4>CanSM_SetEcuPassive函数定义 (CanSM_SetEcuPassive function definition)<a class="headerlink" href="#cansm-setecupassive-cansm-setecupassive-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_SetEcuPassive函数定义 (CanSM_SetEcuPassive function definition)<a class="headerlink" href="#cansm-setecupassive-cansm-setecupassive-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1132,7 +1131,7 @@
 </table>
 </section>
 <section id="cansm-controllerbusoff-cansm-controllerbusoff-function-definition">
-<h4>CanSM_ControllerBusOff函数定义 (CanSM_ControllerBusOff function definition)<a class="headerlink" href="#cansm-controllerbusoff-cansm-controllerbusoff-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_ControllerBusOff函数定义 (CanSM_ControllerBusOff function definition)<a class="headerlink" href="#cansm-controllerbusoff-cansm-controllerbusoff-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1197,7 +1196,7 @@
 </table>
 </section>
 <section id="cansm-controllermodeindication-cansm-controllermodeindication-function-definition">
-<h4>CanSM_ControllerModeIndication函数定义 (CanSM_ControllerModeIndication function definition)<a class="headerlink" href="#cansm-controllermodeindication-cansm-controllermodeindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_ControllerModeIndication函数定义 (CanSM_ControllerModeIndication function definition)<a class="headerlink" href="#cansm-controllermodeindication-cansm-controllermodeindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1267,7 +1266,7 @@
 </table>
 </section>
 <section id="cansm-transceivermodeindication-cansm-transceivermodeindication-function-definition">
-<h4>CanSM_TransceiverModeIndication函数定义 (CanSM_TransceiverModeIndication function definition)<a class="headerlink" href="#cansm-transceivermodeindication-cansm-transceivermodeindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_TransceiverModeIndication函数定义 (CanSM_TransceiverModeIndication function definition)<a class="headerlink" href="#cansm-transceivermodeindication-cansm-transceivermodeindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1337,7 +1336,7 @@
 </table>
 </section>
 <section id="cansm-txtimeoutexception-cansm-txtimeoutexception-function-definition">
-<h4>CanSM_TxTimeoutException函数定义 (CanSM_TxTimeoutException function definition)<a class="headerlink" href="#cansm-txtimeoutexception-cansm-txtimeoutexception-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_TxTimeoutException函数定义 (CanSM_TxTimeoutException function definition)<a class="headerlink" href="#cansm-txtimeoutexception-cansm-txtimeoutexception-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1402,7 +1401,7 @@
 </table>
 </section>
 <section id="cansm-cleartrcvwufflagindication-cansm-cleartrcvwufflagindication-function-definition">
-<h4>CanSM_ClearTrcvWufFlagIndication函数定义 (CanSM_ClearTrcvWufFlagIndication function definition)<a class="headerlink" href="#cansm-cleartrcvwufflagindication-cansm-cleartrcvwufflagindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_ClearTrcvWufFlagIndication函数定义 (CanSM_ClearTrcvWufFlagIndication function definition)<a class="headerlink" href="#cansm-cleartrcvwufflagindication-cansm-cleartrcvwufflagindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1467,7 +1466,7 @@
 </table>
 </section>
 <section id="cansm-checktransceiverwakeflagindication-cansm-checktransceiverwakeflagindication-function-definition">
-<h4>CanSM_CheckTransceiverWakeFlagIndication函数定义 (CanSM_CheckTransceiverWakeFlagIndication function definition)<a class="headerlink" href="#cansm-checktransceiverwakeflagindication-cansm-checktransceiverwakeflagindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_CheckTransceiverWakeFlagIndication函数定义 (CanSM_CheckTransceiverWakeFlagIndication function definition)<a class="headerlink" href="#cansm-checktransceiverwakeflagindication-cansm-checktransceiverwakeflagindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1542,7 +1541,7 @@
 </table>
 </section>
 <section id="cansm-confirmpnavailability-can-sm-confirm-pn-availability-function-definition">
-<h4>CanSM_ConfirmPnAvailability函数定义 (can_sm_confirm_pn_availability function definition)<a class="headerlink" href="#cansm-confirmpnavailability-can-sm-confirm-pn-availability-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_ConfirmPnAvailability函数定义 (can_sm_confirm_pn_availability function definition)<a class="headerlink" href="#cansm-confirmpnavailability-can-sm-confirm-pn-availability-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1607,7 +1606,7 @@
 </table>
 </section>
 <section id="cansm-mainfunction-def-cansm-mainfunction">
-<h4>CanSM_MainFunction函数定义 (def CanSM_MainFunction():)<a class="headerlink" href="#cansm-mainfunction-def-cansm-mainfunction" title="链接到此标题。">¶</a></h4>
+<h4>CanSM_MainFunction函数定义 (def CanSM_MainFunction():)<a class="headerlink" href="#cansm-mainfunction-def-cansm-mainfunction" title="Link to this heading">¶</a></h4>
 <p>def CanSM_MainFunction():</p>
 <table class="docutils align-default">
 <colgroup>
@@ -1634,9 +1633,9 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <section id="user-getbusoffdelay-function-user-getbusoffdelay">
-<h4>&lt;User_GetBusOffDelay&gt;函数定义 (function User_GetBusOffDelay())<a class="headerlink" href="#user-getbusoffdelay-function-user-getbusoffdelay" title="链接到此标题。">¶</a></h4>
+<h4>&lt;User_GetBusOffDelay&gt;函数定义 (function User_GetBusOffDelay())<a class="headerlink" href="#user-getbusoffdelay-function-user-getbusoffdelay" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1703,9 +1702,9 @@
 </section>
 </section>
 <section id="configuration">
-<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="cansmgeneral">
-<h3>CanSMGeneral<a class="headerlink" href="#cansmgeneral" title="链接到此标题。">¶</a></h3>
+<h3>CanSMGeneral<a class="headerlink" href="#cansmgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cansmgeneral-cansmgeneral-container-configuration-diagram">
 <img alt="CanSMGeneral容器配置图(CanSMGeneral container configuration diagram)" src="../../_images/image84.png" />
 </figure>
@@ -1893,7 +1892,7 @@
 </table>
 </section>
 <section id="cansmconfiguration">
-<h3>CanSMConfiguration<a class="headerlink" href="#cansmconfiguration" title="链接到此标题。">¶</a></h3>
+<h3>CanSMConfiguration<a class="headerlink" href="#cansmconfiguration" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cansmconfiguration-cansmconfiguration-container-configuration-diagram">
 <img alt="CanSMConfiguration容器配置图(CanSMConfiguration container configuration diagram)" src="../../_images/image94.png" />
 </figure>
@@ -1954,7 +1953,7 @@
 </tbody>
 </table>
 <section id="cansmmanagernetwork">
-<h4>CanSMManagerNetwork<a class="headerlink" href="#cansmmanagernetwork" title="链接到此标题。">¶</a></h4>
+<h4>CanSMManagerNetwork<a class="headerlink" href="#cansmmanagernetwork" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="cansmmanagernetwork-cansmmanagernetwork-container-configuration-diagram">
 <img alt="CanSMManagerNetwork容器配置图(CanSMManagerNetwork container configuration diagram)" src="../../_images/image104.png" />
 </figure>
@@ -2124,7 +2123,7 @@
 </table>
 </section>
 <section id="cansmcontroller">
-<h4>CanSMController<a class="headerlink" href="#cansmcontroller" title="链接到此标题。">¶</a></h4>
+<h4>CanSMController<a class="headerlink" href="#cansmcontroller" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="cansmcontroller-cansmcontroller-container-configuration-diagram">
 <img alt="CanSMController容器配置图(CanSMController container configuration diagram)" src="../../_images/image118.png" />
 </figure>
@@ -2168,7 +2167,7 @@
 </table>
 </section>
 <section id="cansmdemeventparameterrefs">
-<h4>CanSMDemEventParameterRefs<a class="headerlink" href="#cansmdemeventparameterrefs" title="链接到此标题。">¶</a></h4>
+<h4>CanSMDemEventParameterRefs<a class="headerlink" href="#cansmdemeventparameterrefs" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="cansmdemeventparameterrefs-3cansmdemeventparameterrefs-container-configuration-diagram">
 <img alt="3CanSMDemEventParameterRefs容器配置图(3CanSMDemEventParameterRefs container configuration diagram)" src="../../_images/image124.png" />
 </figure>
@@ -2334,7 +2333,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -2343,11 +2342,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

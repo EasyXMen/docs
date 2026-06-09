@@ -9,7 +9,6 @@
         <title>NvM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="nvm">
-<h1>NvM<a class="headerlink" href="#nvm" title="链接到此标题。">¶</a></h1>
+<h1>NvM<a class="headerlink" href="#nvm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -232,7 +231,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="nvm-nvme-module-hierarchy-diagram">
 <img alt="NvM模块层次图 (NVMe Module Hierarchy Diagram)" src="../../_images/image1131.png" />
 </figure>
@@ -269,7 +268,7 @@
 </ul>
 <p>The NVMe module should provide configurable write protection of different types. Each type of write protection is only related to the NV part of the NVRAM block, meaning that data in the RAM block can be modified but not written to NV memory.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_ FlashEEPROMEmulation.PDF，R19-11</p>
 <p>[2] AUTOSAR_SWS_ FlashDriver.PDF，R19-11</p>
 <p>[3] AUTOSAR_SWS_ MemoryAbstractionInterface.PDF，R19-11</p>
@@ -277,95 +276,95 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="write-data-function">
-<h3>写数据功能 (Write data function)<a class="headerlink" href="#write-data-function" title="链接到此标题。">¶</a></h3>
+<h3>写数据功能 (Write data function)<a class="headerlink" href="#write-data-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="data-writing-functionality">
-<h2>写数据功能介绍 (Data writing functionality)<a class="headerlink" href="#data-writing-functionality" title="链接到此标题。">¶</a></h2>
+<h2>写数据功能介绍 (Data writing functionality)<a class="headerlink" href="#data-writing-functionality" title="Link to this heading">¶</a></h2>
 <p>当接收到一个外部写数据调用后，NvM模块会根据请求的对应块的状态信息和当前队列信息进行入队列操作，然后NvM模块会在后台对队列进行进一步的处理，调用相应的下层接口，执行相应的判断等。</p>
 <p>Upon receiving an external write data call, the NvM module will enqueue the operation based on the status information of the corresponding block and the current queue information. Then, the NvM module will further process the queue in the background, calling relevant lower-layer interfaces and performing相应的判断等.</p>
 </section>
 <section id="data-writing-functionality-implementation">
-<h2>写数据功能实现 (Data writing functionality implementation)<a class="headerlink" href="#data-writing-functionality-implementation" title="链接到此标题。">¶</a></h2>
+<h2>写数据功能实现 (Data writing functionality implementation)<a class="headerlink" href="#data-writing-functionality-implementation" title="Link to this heading">¶</a></h2>
 <p>当NvM模块的NvM_WriteBlock、NvM_WritePRAMBlock、NvM_WriteAll接口被调用的时候，NvM模块会在调用接口里面进行一些入队列之前的判断，条件符合则将请求放入队列中，然后在NvM_MainFunction函数中进行出队列，并执行相应的请求的操作，符合条件之后会调用MemIf_Write接口进行后续的写操作。如果是轮询模式，则需要调用NvM模块的NvM_GetErrorStatus接口进行任务查询，然后下层执行完成则会返回NVM_REQ_OK，否则会一直返回NVM_REQ_PENDING。如果是回调模式，则NvM模块会在下层执行完成之后，在NvM_MainFunction函数中调用对应块的配置接口NvM_SingleBlockCallbackFunction通知用户执行完成。</p>
 <p>When the NvM module's NvM_WriteBlock, NvM_WritePRAMBlock, and NvM_WriteAll interfaces are called, the NvM module performs some checks before queuing the request. If the conditions are met, it will enqueue the request. Then, in the NvM_MainFunction function, it dequeues and executes the corresponding operations. Once the conditions are satisfied, it calls the MemIf_Write interface for subsequent write operations. If in polling mode, the NvM module needs to call the NvM_GetErrorStatus interface to query the task status. Once the lower layer execution is completed, it will return NVM_REQ_OK; otherwise, it will continue to return NVM_REQ_PENDING. In callback mode, after the lower layer execution is complete, the NvM module will call the corresponding block's configuration interface, NvM_SingleBlockCallbackFunction, in the NvM_MainFunction function to notify the user that the operation has been completed.</p>
 <section id="read-data-function">
-<h3>读取数据功能 (Read data function)<a class="headerlink" href="#read-data-function" title="链接到此标题。">¶</a></h3>
+<h3>读取数据功能 (Read data function)<a class="headerlink" href="#read-data-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="introduction-to-data-reading-function">
-<h2>读取数据功能介绍 (Introduction to Data Reading Function)<a class="headerlink" href="#introduction-to-data-reading-function" title="链接到此标题。">¶</a></h2>
+<h2>读取数据功能介绍 (Introduction to Data Reading Function)<a class="headerlink" href="#introduction-to-data-reading-function" title="Link to this heading">¶</a></h2>
 <p>当接收到一个外部读取数据调用后，NvM模块会根据请求的对应块的状态信息和当前队列信息进行入队列操作，然后NvM模块会在后台对队列进行进一步的处理，调用相应的下层接口，执行相应的判断等。</p>
 <p>Upon receiving an external read data call, the NvM module performs enqueue operations based on the status information of the corresponding block and the current queue information. Then, the NvM module processes the queue in the background, calling the appropriate lower-level interfaces and performing relevant judgments, etc.</p>
 </section>
 <section id="implementation-of-read-data-functionality">
-<h2>读取数据功能实现 (Implementation of read data functionality)<a class="headerlink" href="#implementation-of-read-data-functionality" title="链接到此标题。">¶</a></h2>
+<h2>读取数据功能实现 (Implementation of read data functionality)<a class="headerlink" href="#implementation-of-read-data-functionality" title="Link to this heading">¶</a></h2>
 <p>当NvM模块的NvM_ReadBlock、NvM_ReadPRAMBlock、NvM_ReadAll接口被调用的时候，NvM模块会在调用接口里面进行一些入队列之前的判断，条件符合则将请求放入队列中，然后在NvM_MainFunction函数中进行出队列，并执行相应的请求的操作，符合条件之后会调用MemIf_Read接口进行后续的读操作。如果是轮询模式，则需要调用NvM模块的NvM_GetErrorStatus接口进行任务查询，然后下层执行完成则会返回NVM_REQ_OK，否则会一直返回NVM_REQ_PENDING。如果是回调模式，则NvM模块会在下层执行完成之后，在NvM_MainFunction函数中调用对应块的配置接口NvM_SingleBlockCallbackFunction通知用户执行完成。</p>
 <p>When the NvM module's NvM_ReadBlock, NvM_ReadPRAMBlock, and NvM_ReadAll interfaces are called, the NvM module performs some checks before enqueuing the request. If the conditions are met, it places the request in the queue. Then, in the NvM_MainFunction function, it dequeues the requests and executes the corresponding operations. Once the conditions are satisfied, it calls the MemIf_Read interface for subsequent read operations.</p>
 <p>In polling mode, the NvM module needs to call the NvM_GetErrorStatus interface of the NvM module to query the task status. If the lower layer execution is completed, it returns NVM_REQ_OK; otherwise, it continuously returns NVM_REQ_PENDING.</p>
 <p>In callback mode, after the lower layer execution is completed, the NvM module calls the corresponding block's configuration interface, NvM_SingleBlockCallbackFunction, in the NvM_MainFunction function to notify the user that the task has been completed.</p>
 <section id="data-erase-function">
-<h3>擦除数据功能 (Data erase function)<a class="headerlink" href="#data-erase-function" title="链接到此标题。">¶</a></h3>
+<h3>擦除数据功能 (Data erase function)<a class="headerlink" href="#data-erase-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="data-erasure-feature-introduction">
-<h2>擦除数据功能介绍 (Data erasure feature introduction)<a class="headerlink" href="#data-erasure-feature-introduction" title="链接到此标题。">¶</a></h2>
+<h2>擦除数据功能介绍 (Data erasure feature introduction)<a class="headerlink" href="#data-erasure-feature-introduction" title="Link to this heading">¶</a></h2>
 <p>当接收到一个外部擦除数据调用后，NvM模块会根据请求的对应块的状态信息和当前队列信息进行入队列操作，然后NvM模块会在后台对队列进行进一步的处理，调用相应的下层接口，执行相应的判断等。</p>
 <p>After receiving an external erase data call, the NvM module queues the operation based on the status information of the corresponding block and current queue information, then the NvM module processes the queue in the background, calling the appropriate lower-level interfaces and performing relevant judgments, etc.</p>
 </section>
 <section id="the-data-wiping-feature-implementation">
-<h2>擦除数据功能实现 (The data wiping feature implementation)<a class="headerlink" href="#the-data-wiping-feature-implementation" title="链接到此标题。">¶</a></h2>
+<h2>擦除数据功能实现 (The data wiping feature implementation)<a class="headerlink" href="#the-data-wiping-feature-implementation" title="Link to this heading">¶</a></h2>
 <p>当NvM模块的NvM_EraseNvBlock接口被调用的时候，NvM模块会在调用接口里面进行一些入队列之前的判断，条件符合则将请求放入队列中，然后在NvM_MainFunction函数中进行出队列，并执行相应的请求的操作，符合条件之后会调用MemIf_EraseImmediateBlock接口进行后续的擦除操作。如果是轮询模式，则需要调用NvM模块的NvM_GetErrorStatus接口进行任务查询，然后下层执行完成则会返回NVM_REQ_OK，否则会一直返回NVM_REQ_PENDING。如果是回调模式，则NvM模块会在下层执行完成之后，在NvM_MainFunction函数中调用对应块的配置接口NvM_SingleBlockCallbackFunction通知用户执行完成。</p>
 <p>When the NvM module's NvM_EraseNvBlock interface is called, the NvM module performs some checks before queuing the request. If the conditions are met, the request is added to the queue. In the NvM_MainFunction function, requests are dequeued and the corresponding operations are executed. Once the conditions are satisfied, the MemIf_EraseImmediateBlock interface is called for subsequent erase operations. If in polling mode, the NvM module needs to call the NvM_GetErrorStatus interface to query the task status. The lower layer will return NVM_REQ_OK upon completion; otherwise, it will continuously return NVM_REQ_PENDING. In callback mode, once the lower layer execution is complete, the NvM_MainFunction function calls the corresponding block's configuration interface NvM_SingleBlockCallbackFunction to notify the user of the task completion.</p>
 <section id="invalid-valid-data-function">
-<h3>数据无效/有效功能 (Invalid/Valid Data Function)<a class="headerlink" href="#invalid-valid-data-function" title="链接到此标题。">¶</a></h3>
+<h3>数据无效/有效功能 (Invalid/Valid Data Function)<a class="headerlink" href="#invalid-valid-data-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="invalid-valid-data-function-introduction">
-<h2>数据无效/有效功能介绍 (Invalid/Valid Data Function Introduction)<a class="headerlink" href="#invalid-valid-data-function-introduction" title="链接到此标题。">¶</a></h2>
+<h2>数据无效/有效功能介绍 (Invalid/Valid Data Function Introduction)<a class="headerlink" href="#invalid-valid-data-function-introduction" title="Link to this heading">¶</a></h2>
 <p>当接收到一个外部数据无效/有效调用后，NvM模块会根据请求的对应块的状态信息和当前队列信息进行入队列操作，然后NvM模块会在后台对队列进行进一步的处理，调用相应的下层接口，执行相应的判断等。</p>
 <p>After receiving an invalid/call valid external data invocation, the NvM module performs an enqueue operation based on the state information of the requested block and the current queue information. Then, the NvM module processes the queue in the background by calling the corresponding lower-layer interfaces and executing relevant judgments, etc.</p>
 </section>
 <section id="invalid-data-functionality-implementation">
-<h2>数据无效功能实现 (Invalid data functionality implementation)<a class="headerlink" href="#invalid-data-functionality-implementation" title="链接到此标题。">¶</a></h2>
+<h2>数据无效功能实现 (Invalid data functionality implementation)<a class="headerlink" href="#invalid-data-functionality-implementation" title="Link to this heading">¶</a></h2>
 <p>当NvM模块的NvM_InvalidateNvBlock/NvM_ValidateAll接口被调用的时候，NvM模块会在调用接口里面进行一些入队列之前的判断，条件符合则将请求放入队列中，然后在NvM_MainFunction函数中进行出队列，并执行相应的请求的操作，符合条件之后会调用MemIf_InvalidateBlock接口进行后续的无效/有效操作。如果是轮询模式，则需要调用NvM模块的NvM_GetErrorStatus接口进行任务查询，然后下层执行完成则会返回NVM_REQ_OK，否则会一直返回NVM_REQ_PENDING。如果是回调模式，则NvM模块会在下层执行完成之后，在NvM_MainFunction函数中调用对应块的配置接口NvM_SingleBlockCallbackFunction通知用户执行完成。</p>
 <p>When the NvM module's NvM_InvalidateNvBlock/NvM_ValidateAll interface is called, the NvM module performs some checks before enqueueing the request, and if the conditions are met, it places the request in the queue. Then, in the NvM_MainFunction function, the request is dequeued and the corresponding operations are executed. If the conditions are met after that, it will call the MemIf_InvalidateBlock interface to perform subsequent invalidation/validation operations. If polling mode is used, the NvM_GetErrorStatus interface of the NvM module needs to be called for task queries, and once the lower layer execution is complete, it will return NVM_REQ_OK; otherwise, it will continue to return NVM_REQ_PENDING. If callback mode is used, the NvM module will call the corresponding block's configuration interface NvM_SingleBlockCallbackFunction in the NvM_MainFunction function after the lower layer execution is completed to notify the user that the operation has been completed.</p>
 <section id="data-recovery-feature">
-<h3>数据恢复功能 (Data recovery feature)<a class="headerlink" href="#data-recovery-feature" title="链接到此标题。">¶</a></h3>
+<h3>数据恢复功能 (Data recovery feature)<a class="headerlink" href="#data-recovery-feature" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="introduction-to-data-recovery-features">
-<h2>数据恢复功能介绍 (Introduction to Data Recovery Features)<a class="headerlink" href="#introduction-to-data-recovery-features" title="链接到此标题。">¶</a></h2>
+<h2>数据恢复功能介绍 (Introduction to Data Recovery Features)<a class="headerlink" href="#introduction-to-data-recovery-features" title="Link to this heading">¶</a></h2>
 <p>当接收到一个外部数据恢复调用后，NvM模块会根据请求的对应块的状态信息和当前队列信息进行入队列操作，然后NvM模块会在后台对队列进行进一步的处理，调用相应的下层接口，执行相应的判断等。</p>
 <p>After receiving an external data recovery call, the NvM module performs enqueue operations based on the state information of the requested block and the current queue information. Then, the NvM module processes the queue in the background, calling corresponding lower-level interfaces and performing relevant judgments, etc.</p>
 </section>
 <section id="data-recovery-functionality-implementation">
-<h2>数据恢复功能实现 (Data recovery functionality implementation)<a class="headerlink" href="#data-recovery-functionality-implementation" title="链接到此标题。">¶</a></h2>
+<h2>数据恢复功能实现 (Data recovery functionality implementation)<a class="headerlink" href="#data-recovery-functionality-implementation" title="Link to this heading">¶</a></h2>
 <p>当NvM模块的NvM_RestoreBlockDefaults、NvM_RestorePRAMBlockDefaults接口被调用的时候，NvM模块会在调用接口里面进行一些入队列之前的判断，条件符合则将请求放入队列中，然后在NvM_MainFunction函数中进行出队列，并执行相应的请求的操作。如果是轮询模式，则需要调用NvM模块的NvM_GetErrorStatus接口进行任务查询，然后执行完成则会返回NVM_REQ_OK，否则会一直返回NVM_REQ_PENDING。如果是回调模式，则NvM模块会在执行完成之后，在NvM_MainFunction函数中调用对应块的配置接口NvM_SingleBlockCallbackFunction通知用户执行完成。</p>
 <p>When the NvM module's NvM_RestoreBlockDefaults and NvM_RestorePRAMBlockDefaults interfaces are called, the NvM module performs some pre-enqueue checks within the interface call. If the conditions are met, it places the request in the queue, then dequeues and executes the corresponding request in the NvM_MainFunction function. If polling mode is used, a task query needs to be performed by calling the NvM_GetErrorStatus interface of the NvM module. The function will return NVM_REQ_OK upon completion; otherwise, it will continue to return NVM_REQ_PENDING. In callback mode, the NvM module invokes the corresponding block's configuration interface NvM_SingleBlockCallbackFunction in the NvM_MainFunction function to notify the user of completion after the execution is finished.</p>
 <section id="multi-write-cancellation-feature">
-<h3>多块写取消功能 (Multi-write cancellation feature)<a class="headerlink" href="#multi-write-cancellation-feature" title="链接到此标题。">¶</a></h3>
+<h3>多块写取消功能 (Multi-write cancellation feature)<a class="headerlink" href="#multi-write-cancellation-feature" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="multi-write-cancellation-feature-introduction">
-<h2>多块写取消功能介绍 (Multi-write cancellation feature introduction)<a class="headerlink" href="#multi-write-cancellation-feature-introduction" title="链接到此标题。">¶</a></h2>
+<h2>多块写取消功能介绍 (Multi-write cancellation feature introduction)<a class="headerlink" href="#multi-write-cancellation-feature-introduction" title="Link to this heading">¶</a></h2>
 <p>当接收到一个外部数据多块写取消调用后，NvM模块会根据请求的对应块的状态信息和当前队列信息进行入队列操作，然后NvM模块会在后台对队列进行进一步的处理，调用相应的下层接口，执行相应的判断等。然后在执行过程中NvM模块接收到NvM_CancelWriteAll接口调用，则会取消正在进行的多块写操作。</p>
 <p>Upon receiving a multi-block write cancel call, the NvM module queues the operation based on the status information of the requested blocks and current queue info, then performs further processing on the queue in the background by calling corresponding lower-layer interfaces and executing relevant judgments. If during execution the NvM_CancelWriteAll interface is called, the ongoing multi-block write operation will be canceled.</p>
 </section>
 <section id="multi-write-abort-functionality-implementation">
-<h2>多块写取消功能实现 (Multi-write abort functionality implementation)<a class="headerlink" href="#multi-write-abort-functionality-implementation" title="链接到此标题。">¶</a></h2>
+<h2>多块写取消功能实现 (Multi-write abort functionality implementation)<a class="headerlink" href="#multi-write-abort-functionality-implementation" title="Link to this heading">¶</a></h2>
 <p>当NvM模块的NvM_WriteAll接口被调用的时候，NvM模块会在调用接口里面进行一些入队列之前的判断，条件符合则将请求放入队列中，然后在NvM_MainFunction函数中进行出队列，并执行相应的请求的操作。如果在执行过程中NvM模块接收到NvM_CancelWriteAll接口调用，则会取消正在进行的多块写操作。如果是轮询模式，则需要调用NvM模块的NvM_GetErrorStatus接口进行任务查询，会返回NVM_REQ_CANCELED。如果是回调模式，在NvM_MainFunction函数中调用对应块的配置接口NvM_SingleBlockCallbackFunction通知用户NVM_REQ_CANCELED。</p>
 <p>When the NvM module's NvM_WriteAll interface is called, the NvM module performs some checks before queuing the request. If the conditions are met, the request is placed in the queue and then dequeued and executed in the NvM_MainFunction function. If the NvM module receives a call to the NvM_CancelWriteAll interface during execution, it will cancel the ongoing multi-block write operation. In polling mode, the NvM_GetErrorStatus interface of the NvM module needs to be called for task queries, which returns NVM_REQ_CANCELED. In callback mode, the corresponding block's configuration interface NvM_SingleBlockCallbackFunction is called in the NvM_MainFunction function to notify the user of NVM_REQ_CANCELED.</p>
 <section id="dem-support-dem-synchronization-function">
-<h3>支持Dem同步功能 (Support Dem synchronization function)<a class="headerlink" href="#dem-support-dem-synchronization-function" title="链接到此标题。">¶</a></h3>
+<h3>支持Dem同步功能 (Support Dem synchronization function)<a class="headerlink" href="#dem-support-dem-synchronization-function" title="Link to this heading">¶</a></h3>
 <p>当Dem有存储需要的时候，Dem模块会执行同步功能，使NvM会自动创建对应长度与个数的NvMBlock，实现快速同步Dem信息的作用。</p>
 <p>When Dem has storage requirements, the Dem module performs a synchronization function, causing NvM to automatically create corresponding NvMBlocks in terms of length and quantity, achieving the purpose of rapid synchronization of Dem information.</p>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 NvM组件文件描述 (NvM Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -412,15 +411,15 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="import-type-definitions">
-<h2>导入类型定义 (Import type definitions)<a class="headerlink" href="#import-type-definitions" title="链接到此标题。">¶</a></h2>
+<h2>导入类型定义 (Import type definitions)<a class="headerlink" href="#import-type-definitions" title="Link to this heading">¶</a></h2>
 <section id="nvm-configtype-nvm-configtype-type-definition">
-<h3>NvM_ConfigType类型定义 (NvM_ConfigType Type Definition)<a class="headerlink" href="#nvm-configtype-nvm-configtype-type-definition" title="链接到此标题。">¶</a></h3>
+<h3>NvM_ConfigType类型定义 (NvM_ConfigType Type Definition)<a class="headerlink" href="#nvm-configtype-nvm-configtype-type-definition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -445,7 +444,7 @@
 </table>
 </section>
 <section id="nvm-multiblockrequesttype-nvm-multiblockrequesttype-type-definition">
-<h3>NvM_MultiBlockRequestType类型定义 (NvM_MultiBlockRequestType Type Definition)<a class="headerlink" href="#nvm-multiblockrequesttype-nvm-multiblockrequesttype-type-definition" title="链接到此标题。">¶</a></h3>
+<h3>NvM_MultiBlockRequestType类型定义 (NvM_MultiBlockRequestType Type Definition)<a class="headerlink" href="#nvm-multiblockrequesttype-nvm-multiblockrequesttype-type-definition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -483,9 +482,9 @@
 </section>
 </section>
 <section id="define-data-types">
-<h2>实现数据类型定义 (Define data types)<a class="headerlink" href="#define-data-types" title="链接到此标题。">¶</a></h2>
+<h2>实现数据类型定义 (Define data types)<a class="headerlink" href="#define-data-types" title="Link to this heading">¶</a></h2>
 <section id="nvm-requestresulttype-nvm-requestresulttype-type-definition">
-<h3>NvM_RequestResultType类型定义 (NvM_RequestResultType Type Definition)<a class="headerlink" href="#nvm-requestresulttype-nvm-requestresulttype-type-definition" title="链接到此标题。">¶</a></h3>
+<h3>NvM_RequestResultType类型定义 (NvM_RequestResultType Type Definition)<a class="headerlink" href="#nvm-requestresulttype-nvm-requestresulttype-type-definition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -531,7 +530,7 @@
 </table>
 </section>
 <section id="nvm-blockidtype-nvm-blockidtype-type-definition">
-<h3>NvM_BlockIdType类型定义 (NvM_BlockIdType Type Definition)<a class="headerlink" href="#nvm-blockidtype-nvm-blockidtype-type-definition" title="链接到此标题。">¶</a></h3>
+<h3>NvM_BlockIdType类型定义 (NvM_BlockIdType Type Definition)<a class="headerlink" href="#nvm-blockidtype-nvm-blockidtype-type-definition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -565,7 +564,7 @@
 </table>
 </section>
 <section id="nvm-initblockrequesttype-type-definition-for-nvm-initblockrequesttype">
-<h3>NvM_InitBlockRequestType类型定义 (Type definition for NvM_InitBlockRequestType)<a class="headerlink" href="#nvm-initblockrequesttype-type-definition-for-nvm-initblockrequesttype" title="链接到此标题。">¶</a></h3>
+<h3>NvM_InitBlockRequestType类型定义 (Type definition for NvM_InitBlockRequestType)<a class="headerlink" href="#nvm-initblockrequesttype-type-definition-for-nvm-initblockrequesttype" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -602,7 +601,7 @@
 </table>
 </section>
 <section id="nvm-blockrequesttype-nvm-blockrequesttype-type-definition">
-<h3>NvM_BlockRequestType类型定义 (NvM_BlockRequestType Type Definition)<a class="headerlink" href="#nvm-blockrequesttype-nvm-blockrequesttype-type-definition" title="链接到此标题。">¶</a></h3>
+<h3>NvM_BlockRequestType类型定义 (NvM_BlockRequestType Type Definition)<a class="headerlink" href="#nvm-blockrequesttype-nvm-blockrequesttype-type-definition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -648,7 +647,7 @@
 </table>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -712,11 +711,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="nvm-init-the-nvm-init-function-definition">
-<h2>NvM_Init函数定义 (The NvM_Init function definition)<a class="headerlink" href="#nvm-init-the-nvm-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_Init函数定义 (The NvM_Init function definition)<a class="headerlink" href="#nvm-init-the-nvm-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -781,7 +780,7 @@
 </table>
 </section>
 <section id="nvm-setdataindex-the-nvm-setdataindex-function-defines">
-<h2>NvM_SetDataIndex函数定义 (The NvM_SetDataIndex function defines)<a class="headerlink" href="#nvm-setdataindex-the-nvm-setdataindex-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>NvM_SetDataIndex函数定义 (The NvM_SetDataIndex function defines)<a class="headerlink" href="#nvm-setdataindex-the-nvm-setdataindex-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -856,7 +855,7 @@
 </table>
 </section>
 <section id="nvm-getdataindex-the-nvm-getdataindex-function-definition">
-<h2>NvM_GetDataIndex函数定义 (The NvM_GetDataIndex function definition)<a class="headerlink" href="#nvm-getdataindex-the-nvm-getdataindex-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_GetDataIndex函数定义 (The NvM_GetDataIndex function definition)<a class="headerlink" href="#nvm-getdataindex-the-nvm-getdataindex-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -944,7 +943,7 @@
 </table>
 </section>
 <section id="nvm-setblockprotection-the-nvm-setblockprotection-function-definition">
-<h2>NvM_SetBlockProtection函数定义 (The NvM_SetBlockProtection function definition)<a class="headerlink" href="#nvm-setblockprotection-the-nvm-setblockprotection-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_SetBlockProtection函数定义 (The NvM_SetBlockProtection function definition)<a class="headerlink" href="#nvm-setblockprotection-the-nvm-setblockprotection-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1024,7 +1023,7 @@
 </table>
 </section>
 <section id="nvm-geterrorstatus-the-nvm-geterrorstatus-function-definition">
-<h2>NvM_GetErrorStatus函数定义 (The NvM_GetErrorStatus function definition)<a class="headerlink" href="#nvm-geterrorstatus-the-nvm-geterrorstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_GetErrorStatus函数定义 (The NvM_GetErrorStatus function definition)<a class="headerlink" href="#nvm-geterrorstatus-the-nvm-geterrorstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1104,7 +1103,7 @@
 </table>
 </section>
 <section id="nvm-getversioninfo-the-nvm-getversioninfo-function-definition">
-<h2>NvM_GetVersionInfo函数定义 (The NvM_GetVersionInfo function definition)<a class="headerlink" href="#nvm-getversioninfo-the-nvm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_GetVersionInfo函数定义 (The NvM_GetVersionInfo function definition)<a class="headerlink" href="#nvm-getversioninfo-the-nvm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1169,7 +1168,7 @@
 </table>
 </section>
 <section id="nvm-setramblockstatus-the-nvm-setramblockstatus-function-definition">
-<h2>NvM_SetRamBlockStatus函数定义 (The NvM_SetRamBlockStatus function definition)<a class="headerlink" href="#nvm-setramblockstatus-the-nvm-setramblockstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_SetRamBlockStatus函数定义 (The NvM_SetRamBlockStatus function definition)<a class="headerlink" href="#nvm-setramblockstatus-the-nvm-setramblockstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1249,7 +1248,7 @@
 </table>
 </section>
 <section id="nvm-setblocklockstatus-the-nvm-setblocklockstatus-function-definition">
-<h2>NvM_SetBlockLockStatus函数定义 (The NvM_SetBlockLockStatus function definition)<a class="headerlink" href="#nvm-setblocklockstatus-the-nvm-setblocklockstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_SetBlockLockStatus函数定义 (The NvM_SetBlockLockStatus function definition)<a class="headerlink" href="#nvm-setblocklockstatus-the-nvm-setblocklockstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1319,7 +1318,7 @@
 </table>
 </section>
 <section id="nvm-canceljobs-the-nvm-canceljobs-function-definition">
-<h2>NvM_CancelJobs函数定义 (The NvM_CancelJobs function definition)<a class="headerlink" href="#nvm-canceljobs-the-nvm-canceljobs-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_CancelJobs函数定义 (The NvM_CancelJobs function definition)<a class="headerlink" href="#nvm-canceljobs-the-nvm-canceljobs-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1394,7 +1393,7 @@
 </table>
 </section>
 <section id="nvm-readblock-nvm-readblock-function-definition">
-<h2>NvM_ReadBlock函数定义 (NvM_ReadBlock Function Definition)<a class="headerlink" href="#nvm-readblock-nvm-readblock-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_ReadBlock函数定义 (NvM_ReadBlock Function Definition)<a class="headerlink" href="#nvm-readblock-nvm-readblock-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1477,7 +1476,7 @@
 </table>
 </section>
 <section id="nvm-writeblock-the-nvm-writeblock-function-definition">
-<h2>NvM_WriteBlock函数定义 (The NvM_WriteBlock function definition)<a class="headerlink" href="#nvm-writeblock-the-nvm-writeblock-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_WriteBlock函数定义 (The NvM_WriteBlock function definition)<a class="headerlink" href="#nvm-writeblock-the-nvm-writeblock-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1562,7 +1561,7 @@
 </table>
 </section>
 <section id="nvm-restoreblockdefaults-the-nvm-restoreblockdefaults-function-definition">
-<h2>NvM_RestoreBlockDefaults函数定义 (The NvM_RestoreBlockDefaults function definition)<a class="headerlink" href="#nvm-restoreblockdefaults-the-nvm-restoreblockdefaults-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_RestoreBlockDefaults函数定义 (The NvM_RestoreBlockDefaults function definition)<a class="headerlink" href="#nvm-restoreblockdefaults-the-nvm-restoreblockdefaults-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1637,7 +1636,7 @@
 </table>
 </section>
 <section id="nvm-erasenvblock-the-definition-of-nvm-erasenvblock-function">
-<h2>NvM_EraseNvBlock函数定义 (The definition of NvM_EraseNvBlock function)<a class="headerlink" href="#nvm-erasenvblock-the-definition-of-nvm-erasenvblock-function" title="链接到此标题。">¶</a></h2>
+<h2>NvM_EraseNvBlock函数定义 (The definition of NvM_EraseNvBlock function)<a class="headerlink" href="#nvm-erasenvblock-the-definition-of-nvm-erasenvblock-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1712,7 +1711,7 @@
 </table>
 </section>
 <section id="nvm-cancelwriteall-the-definition-of-nvm-cancelwriteall-function">
-<h2>NvM_CancelWriteAll函数定义 (The definition of NvM_CancelWriteAll function)<a class="headerlink" href="#nvm-cancelwriteall-the-definition-of-nvm-cancelwriteall-function" title="链接到此标题。">¶</a></h2>
+<h2>NvM_CancelWriteAll函数定义 (The definition of NvM_CancelWriteAll function)<a class="headerlink" href="#nvm-cancelwriteall-the-definition-of-nvm-cancelwriteall-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1777,7 +1776,7 @@
 </table>
 </section>
 <section id="nvm-invalidatenvblock-the-function-definition-for-nvm-invalidatenvblock">
-<h2>NvM_InvalidateNvBlock函数定义 (The function definition for NvM_InvalidateNvBlock)<a class="headerlink" href="#nvm-invalidatenvblock-the-function-definition-for-nvm-invalidatenvblock" title="链接到此标题。">¶</a></h2>
+<h2>NvM_InvalidateNvBlock函数定义 (The function definition for NvM_InvalidateNvBlock)<a class="headerlink" href="#nvm-invalidatenvblock-the-function-definition-for-nvm-invalidatenvblock" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1860,7 +1859,7 @@
 </table>
 </section>
 <section id="nvm-readpramblock-the-function-definition-for-nvm-readpramblock">
-<h2>NvM_ReadPRAMBlock函数定义 (The function definition for NvM_ReadPRAMBlock)<a class="headerlink" href="#nvm-readpramblock-the-function-definition-for-nvm-readpramblock" title="链接到此标题。">¶</a></h2>
+<h2>NvM_ReadPRAMBlock函数定义 (The function definition for NvM_ReadPRAMBlock)<a class="headerlink" href="#nvm-readpramblock-the-function-definition-for-nvm-readpramblock" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1935,7 +1934,7 @@
 </table>
 </section>
 <section id="nvm-writepramblock-the-definition-of-nvm-writepramblock-function">
-<h2>NvM_WritePRAMBlock函数定义 (The definition of NvM_WritePRAMBlock function)<a class="headerlink" href="#nvm-writepramblock-the-definition-of-nvm-writepramblock-function" title="链接到此标题。">¶</a></h2>
+<h2>NvM_WritePRAMBlock函数定义 (The definition of NvM_WritePRAMBlock function)<a class="headerlink" href="#nvm-writepramblock-the-definition-of-nvm-writepramblock-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2010,7 +2009,7 @@
 </table>
 </section>
 <section id="nvm-restorepramblockdefaults-the-function-definition-for-nvm-restorepramblockdefaults">
-<h2>NvM_RestorePRAMBlockDefaults函数定义 (The function definition for NvM_RestorePRAMBlockDefaults)<a class="headerlink" href="#nvm-restorepramblockdefaults-the-function-definition-for-nvm-restorepramblockdefaults" title="链接到此标题。">¶</a></h2>
+<h2>NvM_RestorePRAMBlockDefaults函数定义 (The function definition for NvM_RestorePRAMBlockDefaults)<a class="headerlink" href="#nvm-restorepramblockdefaults-the-function-definition-for-nvm-restorepramblockdefaults" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2085,7 +2084,7 @@
 </table>
 </section>
 <section id="nvm-readall-the-definition-of-nvm-readall-function">
-<h2>NvM_ReadAll函数定义 (The definition of NvM_ReadAll function)<a class="headerlink" href="#nvm-readall-the-definition-of-nvm-readall-function" title="链接到此标题。">¶</a></h2>
+<h2>NvM_ReadAll函数定义 (The definition of NvM_ReadAll function)<a class="headerlink" href="#nvm-readall-the-definition-of-nvm-readall-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2150,7 +2149,7 @@
 </table>
 </section>
 <section id="nvm-writeall-nvm-writeall-function-definition">
-<h2>NvM_WriteAll函数定义 (NvM_WriteAll function definition)<a class="headerlink" href="#nvm-writeall-nvm-writeall-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_WriteAll函数定义 (NvM_WriteAll function definition)<a class="headerlink" href="#nvm-writeall-nvm-writeall-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2215,7 +2214,7 @@
 </table>
 </section>
 <section id="nvm-validateall-the-nvm-validateall-function-definition">
-<h2>NvM_ValidateAll函数定义 (The NvM_ValidateAll function definition)<a class="headerlink" href="#nvm-validateall-the-nvm-validateall-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_ValidateAll函数定义 (The NvM_ValidateAll function definition)<a class="headerlink" href="#nvm-validateall-the-nvm-validateall-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2280,7 +2279,7 @@
 </table>
 </section>
 <section id="nvm-jobendnotification-the-nvm-jobendnotification-function-definition">
-<h2>NvM_JobEndNotification函数定义 (The NvM_JobEndNotification function definition)<a class="headerlink" href="#nvm-jobendnotification-the-nvm-jobendnotification-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_JobEndNotification函数定义 (The NvM_JobEndNotification function definition)<a class="headerlink" href="#nvm-jobendnotification-the-nvm-jobendnotification-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2345,7 +2344,7 @@
 </table>
 </section>
 <section id="nvm-joberrornotification-the-nvm-joberrornotification-function-definition">
-<h2>NvM_JobErrorNotification函数定义 (The NvM_JobErrorNotification function definition)<a class="headerlink" href="#nvm-joberrornotification-the-nvm-joberrornotification-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_JobErrorNotification函数定义 (The NvM_JobErrorNotification function definition)<a class="headerlink" href="#nvm-joberrornotification-the-nvm-joberrornotification-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2410,7 +2409,7 @@
 </table>
 </section>
 <section id="nvm-mainfunction-nvm-mainfunction-function-definition">
-<h2>NvM_MainFunction函数定义 (NvM_MainFunction function definition)<a class="headerlink" href="#nvm-mainfunction-nvm-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_MainFunction函数定义 (NvM_MainFunction function definition)<a class="headerlink" href="#nvm-mainfunction-nvm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2474,11 +2473,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="nvm-singleblockcallbackfunction-nvm-singleblockcallbackfunction-function-definition">
-<h2>NvM_SingleBlockCallbackFunction函数定义 (NvM_SingleBlockCallbackFunction Function Definition)<a class="headerlink" href="#nvm-singleblockcallbackfunction-nvm-singleblockcallbackfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>NvM_SingleBlockCallbackFunction函数定义 (NvM_SingleBlockCallbackFunction Function Definition)<a class="headerlink" href="#nvm-singleblockcallbackfunction-nvm-singleblockcallbackfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2588,7 +2587,7 @@
 </table>
 </section>
 <section id="nvm-multiblockcallbackfunction-the-definition-of-nvm-multiblockcallbackfunction">
-<h2>NvM_MultiBlockCallbackFunction函数定义 (The definition of NvM_MultiBlockCallbackFunction)<a class="headerlink" href="#nvm-multiblockcallbackfunction-the-definition-of-nvm-multiblockcallbackfunction" title="链接到此标题。">¶</a></h2>
+<h2>NvM_MultiBlockCallbackFunction函数定义 (The definition of NvM_MultiBlockCallbackFunction)<a class="headerlink" href="#nvm-multiblockcallbackfunction-the-definition-of-nvm-multiblockcallbackfunction" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2698,7 +2697,7 @@
 </table>
 </section>
 <section id="initblockcallbackfunction-initblockcallbackfunction-function-definition">
-<h2>InitBlockCallbackFunction函数定义 (InitBlockCallbackFunction function definition)<a class="headerlink" href="#initblockcallbackfunction-initblockcallbackfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>InitBlockCallbackFunction函数定义 (InitBlockCallbackFunction function definition)<a class="headerlink" href="#initblockcallbackfunction-initblockcallbackfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2778,7 +2777,7 @@
 </table>
 </section>
 <section id="nvm-writeramblocktonvm-the-definition-of-nvm-writeramblocktonvm-function">
-<h2>NvM_WriteRamBlockToNvm函数定义 (The definition of NvM_WriteRamBlockToNvm function)<a class="headerlink" href="#nvm-writeramblocktonvm-the-definition-of-nvm-writeramblocktonvm-function" title="链接到此标题。">¶</a></h2>
+<h2>NvM_WriteRamBlockToNvm函数定义 (The definition of NvM_WriteRamBlockToNvm function)<a class="headerlink" href="#nvm-writeramblocktonvm-the-definition-of-nvm-writeramblocktonvm-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2853,7 +2852,7 @@
 </table>
 </section>
 <section id="nvm-readramblockfromnvm-the-definition-of-nvm-readramblockfromnvm-function">
-<h2>NvM_ReadRamBlockFromNvm函数定义 (The definition of NvM_ReadRamBlockFromNvm function)<a class="headerlink" href="#nvm-readramblockfromnvm-the-definition-of-nvm-readramblockfromnvm-function" title="链接到此标题。">¶</a></h2>
+<h2>NvM_ReadRamBlockFromNvm函数定义 (The definition of NvM_ReadRamBlockFromNvm function)<a class="headerlink" href="#nvm-readramblockfromnvm-the-definition-of-nvm-readramblockfromnvm-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2927,13 +2926,13 @@
 </tbody>
 </table>
 <section id="swc-swc-service-component-packaging">
-<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="链接到此标题。">¶</a></h3>
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
 <p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接，没有列出的部分NvM底层暂时不支持。</p>
 <p>The following types and interfaces can be encapsulated to generate complete service components with SWC, which can be connected to the application via ports. The NvM lower layer temporarily does not support the unlisted parts.</p>
 </section>
 </section>
 <section id="implement-data-type-encapsulation">
-<h2>实现数据类型封装 (Implement data type encapsulation)<a class="headerlink" href="#implement-data-type-encapsulation" title="链接到此标题。">¶</a></h2>
+<h2>实现数据类型封装 (Implement data type encapsulation)<a class="headerlink" href="#implement-data-type-encapsulation" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2961,9 +2960,9 @@
 </table>
 </section>
 <section id="cs-cs-interface-packaging">
-<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="链接到此标题。">¶</a></h2>
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
 <section id="rte-call-nvm-padmin-block-setblockprotection">
-<h3>Rte_Call_NvM_PAdmin_{Block}_SetBlockProtection<a class="headerlink" href="#rte-call-nvm-padmin-block-setblockprotection" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PAdmin_{Block}_SetBlockProtection<a class="headerlink" href="#rte-call-nvm-padmin-block-setblockprotection" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2994,7 +2993,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-pm-block-readramblockfromnvm">
-<h3>Rte_Call_NvM_PM_{Block}_ReadRamBlockFromNvM<a class="headerlink" href="#rte-call-nvm-pm-block-readramblockfromnvm" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PM_{Block}_ReadRamBlockFromNvM<a class="headerlink" href="#rte-call-nvm-pm-block-readramblockfromnvm" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3034,7 +3033,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-pm-block-writeramblocktonvm">
-<h3>Rte_Call_NvM_PM_{Block}_WriteRamBlockToNvM<a class="headerlink" href="#rte-call-nvm-pm-block-writeramblocktonvm" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PM_{Block}_WriteRamBlockToNvM<a class="headerlink" href="#rte-call-nvm-pm-block-writeramblocktonvm" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3074,7 +3073,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-pnib-block-initblock">
-<h3>Rte_Call_NvM_PNIB_{Block}_InitBlock<a class="headerlink" href="#rte-call-nvm-pnib-block-initblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PNIB_{Block}_InitBlock<a class="headerlink" href="#rte-call-nvm-pnib-block-initblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3120,7 +3119,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-pnjf-block-jobfinished">
-<h3>Rte_Call_NvM_PNJF_{Block}_JobFinished<a class="headerlink" href="#rte-call-nvm-pnjf-block-jobfinished" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PNJF_{Block}_JobFinished<a class="headerlink" href="#rte-call-nvm-pnjf-block-jobfinished" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3166,7 +3165,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-eraseblock">
-<h3>Rte_Call_NvM_PS_{Block}_EraseBlock<a class="headerlink" href="#rte-call-nvm-ps-block-eraseblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_EraseBlock<a class="headerlink" href="#rte-call-nvm-ps-block-eraseblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3197,7 +3196,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-getdataindex">
-<h3>Rte_Call_NvM_PS_{Block}_GetDataIndex<a class="headerlink" href="#rte-call-nvm-ps-block-getdataindex" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_GetDataIndex<a class="headerlink" href="#rte-call-nvm-ps-block-getdataindex" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3228,7 +3227,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-geterrorstatus">
-<h3>Rte_Call_NvM_PS_{Block}_GetErrorStatus<a class="headerlink" href="#rte-call-nvm-ps-block-geterrorstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_GetErrorStatus<a class="headerlink" href="#rte-call-nvm-ps-block-geterrorstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3259,7 +3258,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-invalidatenvblock">
-<h3>Rte_Call_NvM_PS_{Block}_InvalidateNvBlock<a class="headerlink" href="#rte-call-nvm-ps-block-invalidatenvblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_InvalidateNvBlock<a class="headerlink" href="#rte-call-nvm-ps-block-invalidatenvblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3290,7 +3289,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-readblock">
-<h3>Rte_Call_NvM_PS_{Block}_ReadBlock<a class="headerlink" href="#rte-call-nvm-ps-block-readblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_ReadBlock<a class="headerlink" href="#rte-call-nvm-ps-block-readblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3321,7 +3320,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-readpramblock">
-<h3>Rte_Call_NvM_PS_{Block}_ReadPRAMBlock<a class="headerlink" href="#rte-call-nvm-ps-block-readpramblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_ReadPRAMBlock<a class="headerlink" href="#rte-call-nvm-ps-block-readpramblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3352,7 +3351,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-restoreblockdefaults">
-<h3>Rte_Call_NvM_PS_{Block}_RestoreBlockDefaults<a class="headerlink" href="#rte-call-nvm-ps-block-restoreblockdefaults" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_RestoreBlockDefaults<a class="headerlink" href="#rte-call-nvm-ps-block-restoreblockdefaults" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3383,7 +3382,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-restorepramblockdefaults">
-<h3>Rte_Call_NvM_PS_{Block}_RestorePRAMBlockDefaults<a class="headerlink" href="#rte-call-nvm-ps-block-restorepramblockdefaults" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_RestorePRAMBlockDefaults<a class="headerlink" href="#rte-call-nvm-ps-block-restorepramblockdefaults" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3414,7 +3413,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-setdataindex">
-<h3>Rte_Call_NvM_PS_{Block}_SetDataIndex<a class="headerlink" href="#rte-call-nvm-ps-block-setdataindex" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_SetDataIndex<a class="headerlink" href="#rte-call-nvm-ps-block-setdataindex" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3445,7 +3444,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-setramblockstatus">
-<h3>Rte_Call_NvM_PS_{Block}_SetRamBlockStatus<a class="headerlink" href="#rte-call-nvm-ps-block-setramblockstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_SetRamBlockStatus<a class="headerlink" href="#rte-call-nvm-ps-block-setramblockstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3476,7 +3475,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-writeblock">
-<h3>Rte_Call_NvM_PS_{Block}_WriteBlock<a class="headerlink" href="#rte-call-nvm-ps-block-writeblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_WriteBlock<a class="headerlink" href="#rte-call-nvm-ps-block-writeblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3507,7 +3506,7 @@
 </table>
 </section>
 <section id="rte-call-nvm-ps-block-writepramblock">
-<h3>Rte_Call_NvM_PS_{Block}_WritePRAMBlock<a class="headerlink" href="#rte-call-nvm-ps-block-writepramblock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_NvM_PS_{Block}_WritePRAMBlock<a class="headerlink" href="#rte-call-nvm-ps-block-writepramblock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3539,9 +3538,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="nvmcommon">
-<h3>NvMCommon<a class="headerlink" href="#nvmcommon" title="链接到此标题。">¶</a></h3>
+<h3>NvMCommon<a class="headerlink" href="#nvmcommon" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="nvmcommon-nvmecommon-container-configuration-diagram">
 <img alt="NvMCommon容器配置图 (NVMeCommon Container Configuration Diagram)" src="../../_images/image357.png" />
 </figure>
@@ -3951,7 +3950,7 @@
 </table>
 </section>
 <section id="nvmblockdescriptor">
-<h3>NvMBlockDescriptor<a class="headerlink" href="#nvmblockdescriptor" title="链接到此标题。">¶</a></h3>
+<h3>NvMBlockDescriptor<a class="headerlink" href="#nvmblockdescriptor" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="nvmblockdescriptor-nvm-block-descriptor-container-configuration-diagram">
 <img alt="NvMBlockDescriptor容器配置图 (NvM Block Descriptor container configuration diagram)" src="../../_images/image448.png" />
 </figure>
@@ -4857,7 +4856,7 @@
 </section>
 </section>
 <section id="nvminitblockcallback">
-<h2>NvMInitBlockCallback<a class="headerlink" href="#nvminitblockcallback" title="链接到此标题。">¶</a></h2>
+<h2>NvMInitBlockCallback<a class="headerlink" href="#nvminitblockcallback" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="nvminitblockcallback-nvminitblockcallback-container-configuration-diagram">
 <img alt="NvMInitBlockCallback容器配置图 (NvMInitBlockCallback Container Configuration Diagram)" src="../../_images/image643.png" />
 </figure>
@@ -4901,7 +4900,7 @@
 </table>
 </section>
 <section id="nvmsingleblockcallback">
-<h2>NvMSingleBlockCallback<a class="headerlink" href="#nvmsingleblockcallback" title="链接到此标题。">¶</a></h2>
+<h2>NvMSingleBlockCallback<a class="headerlink" href="#nvmsingleblockcallback" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="nvmsingleblockcallback-nvmsingleblockcallback-container-configuration-diagram">
 <img alt="NvMSingleBlockCallback容器配置图 (NvMSingleBlockCallback Container Configuration Diagram)" src="../../_images/image733.png" />
 </figure>
@@ -4945,7 +4944,7 @@
 </table>
 </section>
 <section id="nvmtargetblockreference">
-<h2>NvMTargetBlockReference<a class="headerlink" href="#nvmtargetblockreference" title="链接到此标题。">¶</a></h2>
+<h2>NvMTargetBlockReference<a class="headerlink" href="#nvmtargetblockreference" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="nvmtargetblockreference-diagram-for-nvm-target-block-reference-container-configuration">
 <img alt="NvMTargetBlockReference容器配置图 (Diagram for NvM Target Block Reference Container Configuration)" src="../../_images/image829.png" />
 </figure>
@@ -5009,7 +5008,7 @@
 </tbody>
 </table>
 <section id="nvmdemeventparameterrefs">
-<h3>NvmDemEventParameterRefs<a class="headerlink" href="#nvmdemeventparameterrefs" title="链接到此标题。">¶</a></h3>
+<h3>NvmDemEventParameterRefs<a class="headerlink" href="#nvmdemeventparameterrefs" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="nvmdemeventparameterrefs-nvmdemeventparameterrefs-container-configuration-diagram">
 <img alt="NvmDemEventParameterRefs容器配置图 (NvmDemEventParameterRefs Container Configuration Diagram)" src="../../_images/image1026.png" />
 </figure>
@@ -5329,7 +5328,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -5338,11 +5337,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

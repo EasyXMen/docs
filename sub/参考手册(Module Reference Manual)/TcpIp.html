@@ -9,7 +9,6 @@
         <title>TcpIp &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="tcpip">
-<h1>TcpIp<a class="headerlink" href="#tcpip" title="链接到此标题。">¶</a></h1>
+<h1>TcpIp<a class="headerlink" href="#tcpip" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -232,7 +231,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>在AUTOSAR架构中，TcpIp模块介于SoAd模块和EthIf模块之间，TcpIp模块软件的设计是在遵循AUTOSAR R19-11规范的情况下，基于lwip代码开发而来。由于开发需求（暂时只实现IPv4），AUTOSAR规范本身存在的一些问题，以及lwip实现的功能情况，TcpIp模块代码并未完全实现AUTOSAR规范所有功能（具体实现情况在后面章节会详细描述）。</p>
 <p>In the AUTOSAR architecture, the TcpIp module is located between the SoAd and EthIf modules. The software design of the TcpIp module is based on lwip code while complying with the AUTOSAR R19-11 specifications. Due to development requirements (only IPv4 implementation for now), issues within the AUTOSAR specification itself, and the capabilities of lwip, the TcpIp module's code has not fully implemented all functionalities specified by the AUTOSAR specification (specific implementation details will be described in later chapters).</p>
 <p>TcpIp模块的主要功能为：</p>
@@ -249,18 +248,18 @@
 <img alt="TcpIp模块层次关系图 (TcpIp Module Hierarchy Diagram)" src="../../_images/image1146.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_TCPIP.pdf ，R19-11</p>
 <p>[2] AUTOSAR_SWS_SocketAdaptor.pdf ，R19-11</p>
 <p>[3] AUTOSAR_SRS_Ethernet.pdf ，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="system-scalability-system-scalability-feature">
-<h3>System Scalability功能 (System Scalability feature)<a class="headerlink" href="#system-scalability-system-scalability-feature" title="链接到此标题。">¶</a></h3>
+<h3>System Scalability功能 (System Scalability feature)<a class="headerlink" href="#system-scalability-system-scalability-feature" title="Link to this heading">¶</a></h3>
 <section id="system-scalability-system-scalability-feature-introduction">
-<h4>System Scalability功能介绍 (System Scalability Feature Introduction)<a class="headerlink" href="#system-scalability-system-scalability-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>System Scalability功能介绍 (System Scalability Feature Introduction)<a class="headerlink" href="#system-scalability-system-scalability-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>根据不同的应用情况，TcpIp模块的功能（对IP协议的支持情况）分为三个等级。因开发需求，目前只支持IPv4，因此只支持SC1功能。</p>
 <p>According to different application scenarios, the TcpIp module's functionality (level of support for IP protocols) is divided into three grades. Due to development requirements, it currently only supports IPv4 and therefore only supports SC1 functionality.</p>
 <figure class="align-center" id="tcpip-tcp-ip-module-functional-level">
@@ -268,15 +267,15 @@
 </figure>
 </section>
 <section id="system-scalability-system-scalability-functionality-implementation">
-<h4>System Scalability功能实现 (System Scalability functionality implementation)<a class="headerlink" href="#system-scalability-system-scalability-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>System Scalability功能实现 (System Scalability functionality implementation)<a class="headerlink" href="#system-scalability-system-scalability-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>根据配置项TcpIpGeneral-&gt;TcpIpScalabilityClass实现TcpIp功能等级的配置，目前工具固定配置为SC1，不可改。因为SC1只支持基于IPv4协议实现的功能，所以关于IPv6的配置（配置时，忽略所有IPv6相关配置项）、API等都不支持。</p>
 <p>According to the configuration item TcpIpGeneral-&gt;TcpIpScalabilityClass, the TcpIp functionality level is configured. Currently, the tool is fixedly configured as SC1 and cannot be changed. Since SC1 only supports functionalities based on IPv4 protocol, configurations related to IPv6 (such as ignoring all IPv6-related configuration items during configuration) and APIs are not supported.</p>
 </section>
 </section>
 <section id="internet-protocol-version-4-internet-protocol-version-4-functionality">
-<h3>Internet Protocol Version 4功能 (Internet Protocol Version 4 Functionality)<a class="headerlink" href="#internet-protocol-version-4-internet-protocol-version-4-functionality" title="链接到此标题。">¶</a></h3>
+<h3>Internet Protocol Version 4功能 (Internet Protocol Version 4 Functionality)<a class="headerlink" href="#internet-protocol-version-4-internet-protocol-version-4-functionality" title="Link to this heading">¶</a></h3>
 <section id="internet-protocol-version-4-ipv4-function-introduction">
-<h4>Internet Protocol Version 4功能介绍 (IPv4 Function Introduction)<a class="headerlink" href="#internet-protocol-version-4-ipv4-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>Internet Protocol Version 4功能介绍 (IPv4 Function Introduction)<a class="headerlink" href="#internet-protocol-version-4-ipv4-function-introduction" title="Link to this heading">¶</a></h4>
 <p>IP协议是整个TCP/IP协议的核心，UDP、TCP、ICMP等协议都是基于IP来传送协议数据。IP协议是一种不可靠，尽最大努力，无连接的网络层协议。除了实现最基本的IP数据报的收发外，还需要完成IP数据报（长度较大）的分片和重组功能。</p>
 <p>The IP protocol is the core of the entire TCP/IP protocol, with protocols such as UDP, TCP, and ICMP based on IP for transmitting protocol data. The IP protocol is an unreliable, best-effort, connectionless network layer protocol. Besides achieving the basic reception and transmission of IP datagrams, it also needs to handle the fragmentation and reassembly functions of IP datagrams (which are relatively large in length).</p>
 <p>ARP协议，译作地址解析协议，ARP只适用于IPv4，在以太网中ARP数据报封装在以太网帧中进行发送。ARP协议的基本功能是使用目标主机的IP地址，查询其对应的MAC地址，以保证底层链路上数据报通信的进行。为了实现在网络接口中物理地址与IP地址间的转换，ARP协议中引入了缓存表的概念（记录了一条一条的&lt;IP地址，MAC地址&gt;对）。</p>
@@ -291,7 +290,7 @@
 <p>Additionally, the ping command essentially sends an ICMP echo request packet.</p>
 </section>
 <section id="internet-protocol-version-4-implementation-of-internet-protocol-version-4-functions">
-<h4>Internet Protocol Version 4功能实现 (Implementation of Internet Protocol Version 4 Functions)<a class="headerlink" href="#internet-protocol-version-4-implementation-of-internet-protocol-version-4-functions" title="链接到此标题。">¶</a></h4>
+<h4>Internet Protocol Version 4功能实现 (Implementation of Internet Protocol Version 4 Functions)<a class="headerlink" href="#internet-protocol-version-4-implementation-of-internet-protocol-version-4-functions" title="Link to this heading">¶</a></h4>
 <p>该部分的功能主要体现在TcpIpIpV4General的配置Container中，涉及的配置参数及功能如下：</p>
 <p>The functionality of this part is mainly reflected in the configuration container of TcpIpIpV4General, involving the following configuration parameters and functions:</p>
 <p>（1）TcpIpArpEnabled：是否使能ARP功能；</p>
@@ -389,9 +388,9 @@
 </section>
 </section>
 <section id="ip-based-protocols-ip-based-protocols-functionality">
-<h3>IP Based Protocols功能 (IP-Based Protocols functionality)<a class="headerlink" href="#ip-based-protocols-ip-based-protocols-functionality" title="链接到此标题。">¶</a></h3>
+<h3>IP Based Protocols功能 (IP-Based Protocols functionality)<a class="headerlink" href="#ip-based-protocols-ip-based-protocols-functionality" title="Link to this heading">¶</a></h3>
 <section id="ip-based-protocols-introduction-to-ip-based-protocols">
-<h4>IP Based Protocols功能介绍 (Introduction to IP Based Protocols)<a class="headerlink" href="#ip-based-protocols-introduction-to-ip-based-protocols" title="链接到此标题。">¶</a></h4>
+<h4>IP Based Protocols功能介绍 (Introduction to IP Based Protocols)<a class="headerlink" href="#ip-based-protocols-introduction-to-ip-based-protocols" title="Link to this heading">¶</a></h4>
 <p>TcpIp模块维护一个本端IP地址表，每个本端IP地址的配置参见配置TcpIpLocalAddr，主要实现IP地址由何种方式分配，每个TcpIpLocalAddr有唯一的ID号（TcpIpAddrId）表示。虽然按AUTOSAR标准，可支持N个本端IP地址关联到同一个硬件Controller，但限于LwIP功能实现，我们目前只支持每个TcpIpCtrl只能被一个单播（TCPIP_UNICAST）TcpIpLocalAddr关联。</p>
 <p>The TcpIp module maintains a local IP address table, with each local IP address's configuration seen in the configuration TcpIpLocalAddr, primarily implementing how IP addresses are allocated. Each TcpIpLocalAddr has a unique ID number (TcpIpAddrId) to represent it. Although according to the AUTOSAR standard, N local IP addresses can be associated with the same hardware Controller, due to the functional implementation limits of LwIP, we currently only support each TcpIpCtrl being associated with one unicast (TCPIP_UNICAST) TcpIpLocalAddr.</p>
 <p>UDP称为用户数据报协议，是一种无连接的、不可靠的传输协议。UDP只是简单地完成数据从一个进程到另一个进程的交付，它没有提供任何流量控制机制，收到的报文也没有确认；在差错控制上，只提供了一种简单的差错控制方法，即校验和计算，当UDP收到的报文校验和计算不成功时，它将丢弃掉这个报文。UDP使用网络层的IP协议来发送报文。</p>
@@ -404,7 +403,7 @@
 <p>DHCP uses UDP for message transmission. Through interaction with a DHCP server, devices can obtain a valid IP address, allowing them to run in specific network environments. Currently, only client functionality for DHCPv4 is supported (neither DHCPv4 servers nor DHCPv6 are supported).</p>
 </section>
 <section id="ip-based-protocols-ip-based-protocols-functionality-implementation">
-<h4>IP Based Protocols功能实现 (IP-Based Protocols functionality implementation)<a class="headerlink" href="#ip-based-protocols-ip-based-protocols-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>IP Based Protocols功能实现 (IP-Based Protocols functionality implementation)<a class="headerlink" href="#ip-based-protocols-ip-based-protocols-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>每个TcpIpLocalAddr配置Container中，主要实现了IP地址的分配机制TcpIpAddrAssignment（考虑到目前标准的不完善以及代码实现的复杂性，暂只支持配置一个IP分配机制）。</p>
 <p>In each TcpIpLocalAddr configuration Container, the main implementation realizes the IP address allocation mechanism TcpIpAddrAssignment (considering the current imperfection of standards and the complexity of code realization, it temporarily only supports configuring one IP allocation mechanism).</p>
 <p>其中TcpIpAssignmentLifetime用以实现分配永久IP的功能未实现（暂无该需求）；TcpIpAssignmentMethod项可根据需求选择何种分配方式（DHCP/AUTO-IP/STATIC等）；TcpIpAssignmentPriority分配方式优先级，用于配置了多个TcpIpAddrAssignment时（目前不支持）；TcpIpAssignmentTrigger用于配置IP分配是自动还是手动方式，自动方式是当调用TcpIp_RequestComMode请求TCPIP_STATE_ONLINE时自动通过配置的IP分配机制请求IP分配，手动方式需要上层模块通过调用TcpIp_RequestIpAddrAssignment，TcpIp_ReleaseIpAddrAssignment来请求IP的分配和释放。</p>
@@ -456,14 +455,14 @@
 </section>
 </section>
 <section id="message-reception-message-reception-function">
-<h3>Message Reception功能 (Message Reception Function)<a class="headerlink" href="#message-reception-message-reception-function" title="链接到此标题。">¶</a></h3>
+<h3>Message Reception功能 (Message Reception Function)<a class="headerlink" href="#message-reception-message-reception-function" title="Link to this heading">¶</a></h3>
 <section id="message-reception-introduction-to-message-reception">
-<h4>Message Reception功能介绍 (Introduction to Message Reception)<a class="headerlink" href="#message-reception-introduction-to-message-reception" title="链接到此标题。">¶</a></h4>
+<h4>Message Reception功能介绍 (Introduction to Message Reception)<a class="headerlink" href="#message-reception-introduction-to-message-reception" title="Link to this heading">¶</a></h4>
 <p>当收到一帧以太网报文时，根据首部信息可解析成IP报文或者ARP报文；IP报文又可根据其首部信息解析成ICMP报文、TCP报文、UDP报文；UDP报文又可进一步解析成DHCP报文。TcpIp模块会将UDP报文（封装的上层协议非DHCP），TCP报文传递给上层模块。ARP、ICMP、DHCP的接收处理实现在TcpIp模块中（具体实现在LwIP代码中）。</p>
 <p>When an Ethernet frame is received, it can be parsed into an IP packet or an ARP packet based on the header information; an IP packet can further be parsed into ICMP packets, TCP packets, or UDP packets based on its header information; a UDP packet can further be parsed into DHCP packets. The TcpIp module will pass UDP packets (with non-DHCP upper-layer protocols encapsulated) and TCP packets to higher-level modules. The reception handling for ARP, ICMP, and DHCP is implemented in the TcpIp module (specifically realized in the LwIP code).</p>
 </section>
 <section id="message-reception-message-reception-functionality-implementation">
-<h4>Message Reception功能实现 (Message Reception functionality implementation)<a class="headerlink" href="#message-reception-message-reception-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Message Reception功能实现 (Message Reception functionality implementation)<a class="headerlink" href="#message-reception-message-reception-functionality-implementation" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="udp-tcp-udp-tcp-reception">
 <img alt="UDP/TCP接收 (UDP/TCP Reception)" src="../../_images/image370.png" />
 </figure>
@@ -472,14 +471,14 @@
 </section>
 </section>
 <section id="message-transmission-message-transmission-function">
-<h3>Message Transmission功能 (Message Transmission Function)<a class="headerlink" href="#message-transmission-message-transmission-function" title="链接到此标题。">¶</a></h3>
+<h3>Message Transmission功能 (Message Transmission Function)<a class="headerlink" href="#message-transmission-message-transmission-function" title="Link to this heading">¶</a></h3>
 <section id="message-transmission-introduction-to-message-transmission">
-<h4>Message Transmission功能介绍 (Introduction to Message Transmission)<a class="headerlink" href="#message-transmission-introduction-to-message-transmission" title="链接到此标题。">¶</a></h4>
+<h4>Message Transmission功能介绍 (Introduction to Message Transmission)<a class="headerlink" href="#message-transmission-introduction-to-message-transmission" title="Link to this heading">¶</a></h4>
 <p>TcpIp模块对外提供ICMP报文，UDP报文，TCP报文的发送接口，分别为TcpIp_IcmpTransmit，TcpIp_UdpTransmit，TcpIp_TcpTransmit；而DHCP报文和ARP报文的发送机制由内部代码实现，用以从DHCP服务器获取IP地址以及获取目的MAC地址。</p>
 <p>The TcpIp module provides sending interfaces for ICMP messages, UDP messages, and TCP messages, namely TcpIp_IcmpTransmit, TcpIp_UdpTransmit, and TcpIp_TcpTransmit; whereas the sending mechanisms for DHCP messages and ARP messages are implemented internally to obtain IP addresses from a DHCP server and acquire the destination MAC address.</p>
 </section>
 <section id="message-transmission-message-transmission-functionality-implementation">
-<h4>Message Transmission功能实现 (Message Transmission functionality implementation)<a class="headerlink" href="#message-transmission-message-transmission-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Message Transmission功能实现 (Message Transmission functionality implementation)<a class="headerlink" href="#message-transmission-message-transmission-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>TcpIp主要实现UDP和TCP的发送功能。相比于UDP，TCP在发送报文之前需要先建立链接（三次握手）。</p>
 <p>TcpIp primarily implements the sending functions of UDP and TCP. Compared to UDP, TCP needs to establish a connection (three-way handshake) before sending packets.</p>
 <figure class="align-center" id="udp-udp-sending">
@@ -497,14 +496,14 @@
 </section>
 </section>
 <section id="tcp-ip-stack-state-handling-tcp-ip-stack-state-handling-functionality">
-<h3>TCP/IP Stack state handling功能 (TCP/IP Stack State Handling functionality)<a class="headerlink" href="#tcp-ip-stack-state-handling-tcp-ip-stack-state-handling-functionality" title="链接到此标题。">¶</a></h3>
+<h3>TCP/IP Stack state handling功能 (TCP/IP Stack State Handling functionality)<a class="headerlink" href="#tcp-ip-stack-state-handling-tcp-ip-stack-state-handling-functionality" title="Link to this heading">¶</a></h3>
 <section id="tcp-ip-stack-state-handling-introduction-to-tcp-ip-stack-state-handling">
-<h4>TCP/IP Stack state handling功能介绍 (Introduction to TCP/IP Stack State Handling)<a class="headerlink" href="#tcp-ip-stack-state-handling-introduction-to-tcp-ip-stack-state-handling" title="链接到此标题。">¶</a></h4>
+<h4>TCP/IP Stack state handling功能介绍 (Introduction to TCP/IP Stack State Handling)<a class="headerlink" href="#tcp-ip-stack-state-handling-introduction-to-tcp-ip-stack-state-handling" title="Link to this heading">¶</a></h4>
 <p>TcpIp的状态指的是每个Controller的状态，分为TCPIP_STATE_OFFLINE、TCPIP_STATE_STARTUP、TCPIP_STATE_OFFLINE、TCPIP_STATE_ONHOLD、TCPIP_STATE_SHUTDOWN五种状态，其中TCPIP_STATE_STARTUP和TCPIP_STATE_SHUTDOWN为中间过渡状态。</p>
 <p>TcpIp status refers to the state of each Controller, divided into TCPIP_STATE_OFFLINE, TCPIP_STATE_STARTUP, TCPIP_STATE_OFFLINE, TCPIP_STATE_ONHOLD, and TCPIP_STATE_SHUTDOWN five states, among which TCPIP_STATE_STARTUP and TCPIP_STATE_SHUTDOWN are intermediate transitional states.</p>
 </section>
 <section id="tcp-ip-stack-state-handling-implementation-of-tcp-ip-stack-state-handling-functionality">
-<h4>TCP/IP Stack state handling功能实现 (Implementation of TCP/IP Stack State Handling Functionality)<a class="headerlink" href="#tcp-ip-stack-state-handling-implementation-of-tcp-ip-stack-state-handling-functionality" title="链接到此标题。">¶</a></h4>
+<h4>TCP/IP Stack state handling功能实现 (Implementation of TCP/IP Stack State Handling Functionality)<a class="headerlink" href="#tcp-ip-stack-state-handling-implementation-of-tcp-ip-stack-state-handling-functionality" title="Link to this heading">¶</a></h4>
 <p>EthSM模块通过调用TcpIp_RequestComMode来请求TcpIp Controller状态的切换，当TcpIp Controller状态发生改变时，TcpIp模块将调用EthSM_TcpIpModeIndication来通知EthSM。</p>
 <p>The EthSM module requests a switch of the TcpIp Controller state by calling TcpIp_RequestComMode. When the TcpIp Controller state changes, the TcpIp module will notify EthSM through EthSM_TcpIpModeIndication.</p>
 <figure class="align-center" id="tcpip-controller-tcpip-controller-state-switching">
@@ -514,7 +513,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 TcpIp组件文件描述 (Describe TcpIp Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -573,11 +572,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="tcpip-configtype-tcpipconfigtype-type-definition">
-<h4>TcpIp_ConfigType类型定义 (TcpIpConfigType type definition)<a class="headerlink" href="#tcpip-configtype-tcpipconfigtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ConfigType类型定义 (TcpIpConfigType type definition)<a class="headerlink" href="#tcpip-configtype-tcpipconfigtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -602,7 +601,7 @@
 </table>
 </section>
 <section id="tcpip-domaintype-tcpip-domaintype-type-definition">
-<h4>TcpIp_DomainType类型定义 (TcpIp_DomainType Type Definition)<a class="headerlink" href="#tcpip-domaintype-tcpip-domaintype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_DomainType类型定义 (TcpIp_DomainType Type Definition)<a class="headerlink" href="#tcpip-domaintype-tcpip-domaintype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -642,7 +641,7 @@
 </table>
 </section>
 <section id="tcpip-protocoltype-tcpip-protocoltype-type-definition">
-<h4>TcpIp_ProtocolType类型定义 (TcpIp_ProtocolType Type Definition)<a class="headerlink" href="#tcpip-protocoltype-tcpip-protocoltype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ProtocolType类型定义 (TcpIp_ProtocolType Type Definition)<a class="headerlink" href="#tcpip-protocoltype-tcpip-protocoltype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -682,7 +681,7 @@
 </table>
 </section>
 <section id="tcpip-sockaddrtype-tcpip-sockaddrtype-type-definition">
-<h4>TcpIp_SockAddrType类型定义 (TcpIp_SockAddrType type definition)<a class="headerlink" href="#tcpip-sockaddrtype-tcpip-sockaddrtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_SockAddrType类型定义 (TcpIp_SockAddrType type definition)<a class="headerlink" href="#tcpip-sockaddrtype-tcpip-sockaddrtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -727,7 +726,7 @@
 </table>
 </section>
 <section id="tcpip-sockaddrinettype-tcpip-sockaddrinettype-type-definition">
-<h4>TcpIp_SockAddrInetType类型定义 (TcpIp_SockAddrInetType type definition)<a class="headerlink" href="#tcpip-sockaddrinettype-tcpip-sockaddrinettype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_SockAddrInetType类型定义 (TcpIp_SockAddrInetType type definition)<a class="headerlink" href="#tcpip-sockaddrinettype-tcpip-sockaddrinettype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -772,7 +771,7 @@
 </table>
 </section>
 <section id="tcpip-sockaddrinet6type-tcpip-sockaddrinet6type-type-definition">
-<h4>TcpIp_SockAddrInet6Type类型定义 (TcpIp_SockAddrInet6Type type definition)<a class="headerlink" href="#tcpip-sockaddrinet6type-tcpip-sockaddrinet6type-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_SockAddrInet6Type类型定义 (TcpIp_SockAddrInet6Type type definition)<a class="headerlink" href="#tcpip-sockaddrinet6type-tcpip-sockaddrinet6type-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -817,7 +816,7 @@
 </table>
 </section>
 <section id="tcpip-localaddridtype-tcpip-localaddridtype-type-definition">
-<h4>TcpIp_LocalAddrIdType类型定义 (TcpIp_LocalAddrIdType type definition)<a class="headerlink" href="#tcpip-localaddridtype-tcpip-localaddridtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_LocalAddrIdType类型定义 (TcpIp_LocalAddrIdType type definition)<a class="headerlink" href="#tcpip-localaddridtype-tcpip-localaddridtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -842,7 +841,7 @@
 </table>
 </section>
 <section id="tcpip-socketidtype-tcpip-socketidtype-type-definition">
-<h4>TcpIp_SocketIdType类型定义 (TcpIp_SocketIdType Type Definition)<a class="headerlink" href="#tcpip-socketidtype-tcpip-socketidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_SocketIdType类型定义 (TcpIp_SocketIdType Type Definition)<a class="headerlink" href="#tcpip-socketidtype-tcpip-socketidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -867,7 +866,7 @@
 </table>
 </section>
 <section id="tcpip-statetype-definition-of-tcpip-statetype-type">
-<h4>TcpIp_StateType类型定义 (Definition of TcpIp_StateType Type)<a class="headerlink" href="#tcpip-statetype-definition-of-tcpip-statetype-type" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_StateType类型定义 (Definition of TcpIp_StateType Type)<a class="headerlink" href="#tcpip-statetype-definition-of-tcpip-statetype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -913,7 +912,7 @@
 </table>
 </section>
 <section id="tcpip-ipaddrstatetype-tcpip-ipaddrstatetype-type-definition">
-<h4>TcpIp_IpAddrStateType类型定义 (TcpIp_IpAddrStateType type definition)<a class="headerlink" href="#tcpip-ipaddrstatetype-tcpip-ipaddrstatetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_IpAddrStateType类型定义 (TcpIp_IpAddrStateType type definition)<a class="headerlink" href="#tcpip-ipaddrstatetype-tcpip-ipaddrstatetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -951,7 +950,7 @@
 </table>
 </section>
 <section id="tcpip-eventtype-tcpip-eventtype-type-definition">
-<h4>TcpIp_EventType类型定义 (TcpIp_EventType type definition)<a class="headerlink" href="#tcpip-eventtype-tcpip-eventtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_EventType类型定义 (TcpIp_EventType type definition)<a class="headerlink" href="#tcpip-eventtype-tcpip-eventtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1006,7 +1005,7 @@
 </table>
 </section>
 <section id="tcpip-ipaddrassignmenttype-tcpip-ipaddrassignmenttype-type-definition">
-<h4>TcpIp_IpAddrAssignmentType类型定义 (TcpIp_IpAddrAssignmentType type definition)<a class="headerlink" href="#tcpip-ipaddrassignmenttype-tcpip-ipaddrassignmenttype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_IpAddrAssignmentType类型定义 (TcpIp_IpAddrAssignmentType type definition)<a class="headerlink" href="#tcpip-ipaddrassignmenttype-tcpip-ipaddrassignmenttype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1056,7 +1055,7 @@
 </table>
 </section>
 <section id="tcpip-returntype-tcpip-returntype-type-definition">
-<h4>TcpIp_ReturnType类型定义 (TcpIp_ReturnType type definition)<a class="headerlink" href="#tcpip-returntype-tcpip-returntype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ReturnType类型定义 (TcpIp_ReturnType type definition)<a class="headerlink" href="#tcpip-returntype-tcpip-returntype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1094,7 +1093,7 @@
 </table>
 </section>
 <section id="tcpip-paramidtype-tcpip-paramidtype-type-definition">
-<h4>TcpIp_ParamIdType类型定义 (TcpIp_ParamIdType Type Definition)<a class="headerlink" href="#tcpip-paramidtype-tcpip-paramidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ParamIdType类型定义 (TcpIp_ParamIdType Type Definition)<a class="headerlink" href="#tcpip-paramidtype-tcpip-paramidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1199,7 +1198,7 @@
 </table>
 </section>
 <section id="tcpipipaddrwildcardtype-tcpipipaddrwildcardtype-type-definition">
-<h4>TcpIpIpAddrWildcardType类型定义 (TcpIpIpAddrWildcardType type definition)<a class="headerlink" href="#tcpipipaddrwildcardtype-tcpipipaddrwildcardtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIpIpAddrWildcardType类型定义 (TcpIpIpAddrWildcardType type definition)<a class="headerlink" href="#tcpipipaddrwildcardtype-tcpipipaddrwildcardtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1229,7 +1228,7 @@
 </table>
 </section>
 <section id="tcpipip6addrwildcardtype-tcpipip6addrwildcardtype-type-definition">
-<h4>TcpIpIp6AddrWildcardType类型定义 (TcpIpIp6AddrWildcardType type definition)<a class="headerlink" href="#tcpipip6addrwildcardtype-tcpipip6addrwildcardtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIpIp6AddrWildcardType类型定义 (TcpIpIp6AddrWildcardType type definition)<a class="headerlink" href="#tcpipip6addrwildcardtype-tcpipip6addrwildcardtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1259,7 +1258,7 @@
 </table>
 </section>
 <section id="tcpipportwildcardtype-tcpipportwildcardtype-type-definition">
-<h4>TcpIpPortWildcardType类型定义 (TcpIpPortWildcardType Type Definition)<a class="headerlink" href="#tcpipportwildcardtype-tcpipportwildcardtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIpPortWildcardType类型定义 (TcpIpPortWildcardType Type Definition)<a class="headerlink" href="#tcpipportwildcardtype-tcpipportwildcardtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1289,7 +1288,7 @@
 </table>
 </section>
 <section id="tcpiplocaladdridwildcardtype-tcpiplocaladdridwildcardtype-type-definition">
-<h4>TcpIpLocalAddrIdWildcardType类型定义 (TcpIpLocalAddrIdWildcardType type definition)<a class="headerlink" href="#tcpiplocaladdridwildcardtype-tcpiplocaladdridwildcardtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIpLocalAddrIdWildcardType类型定义 (TcpIpLocalAddrIdWildcardType type definition)<a class="headerlink" href="#tcpiplocaladdridwildcardtype-tcpiplocaladdridwildcardtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1319,7 +1318,7 @@
 </table>
 </section>
 <section id="tcpip-arpcacheentrytype-tcpip-arpcacheentrytype-type-definition">
-<h4>TcpIp_ArpCacheEntryType 类型定义 (TcpIp_ArpCacheEntryType type definition)<a class="headerlink" href="#tcpip-arpcacheentrytype-tcpip-arpcacheentrytype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ArpCacheEntryType 类型定义 (TcpIp_ArpCacheEntryType type definition)<a class="headerlink" href="#tcpip-arpcacheentrytype-tcpip-arpcacheentrytype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1375,7 +1374,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1409,9 +1408,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="tcpip-init-the-tcpip-init-function-definition">
-<h4>TcpIp_Init函数定义 (The TcpIp_Init function definition)<a class="headerlink" href="#tcpip-init-the-tcpip-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_Init函数定义 (The TcpIp_Init function definition)<a class="headerlink" href="#tcpip-init-the-tcpip-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1481,7 +1480,7 @@
 </table>
 </section>
 <section id="tcpip-getversioninfo-tcpip-getversioninfo-function-definition">
-<h4>TcpIp_GetVersionInfo函数定义 (TcpIp_GetVersionInfo function definition)<a class="headerlink" href="#tcpip-getversioninfo-tcpip-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_GetVersionInfo函数定义 (TcpIp_GetVersionInfo function definition)<a class="headerlink" href="#tcpip-getversioninfo-tcpip-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1551,7 +1550,7 @@
 </table>
 </section>
 <section id="tcpip-close-the-tcpipcloseoperation-is-defined">
-<h4>TcpIp_Close函数定义 (The TcpIpCloseOperation is defined.)<a class="headerlink" href="#tcpip-close-the-tcpipcloseoperation-is-defined" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_Close函数定义 (The TcpIpCloseOperation is defined.)<a class="headerlink" href="#tcpip-close-the-tcpipcloseoperation-is-defined" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1631,7 +1630,7 @@
 </table>
 </section>
 <section id="tcpip-bind-tcpip-bind-function-definition">
-<h4>TcpIp_Bind函数定义 (TcpIp_Bind Function Definition)<a class="headerlink" href="#tcpip-bind-tcpip-bind-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_Bind函数定义 (TcpIp_Bind Function Definition)<a class="headerlink" href="#tcpip-bind-tcpip-bind-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1716,7 +1715,7 @@
 </table>
 </section>
 <section id="tcpip-tcpconnect-tcpip-tcpconnect-function-definition">
-<h4>TcpIp_TcpConnect函数定义 (TcpIp_TcpConnect Function Definition)<a class="headerlink" href="#tcpip-tcpconnect-tcpip-tcpconnect-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_TcpConnect函数定义 (TcpIp_TcpConnect Function Definition)<a class="headerlink" href="#tcpip-tcpconnect-tcpip-tcpconnect-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1796,7 +1795,7 @@
 </table>
 </section>
 <section id="tcpip-tcplisten-tcpip-tcplisten-function-definition">
-<h4>TcpIp_TcpListen函数定义 (TcpIp_TcpListen Function Definition)<a class="headerlink" href="#tcpip-tcplisten-tcpip-tcplisten-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_TcpListen函数定义 (TcpIp_TcpListen Function Definition)<a class="headerlink" href="#tcpip-tcplisten-tcpip-tcplisten-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1876,7 +1875,7 @@
 </table>
 </section>
 <section id="tcpip-tcpreceived-the-tcpip-tcpreceived-function-definition">
-<h4>TcpIp_TcpReceived函数定义 (The TcpIp_TcpReceived Function Definition)<a class="headerlink" href="#tcpip-tcpreceived-the-tcpip-tcpreceived-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_TcpReceived函数定义 (The TcpIp_TcpReceived Function Definition)<a class="headerlink" href="#tcpip-tcpreceived-the-tcpip-tcpreceived-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1956,7 +1955,7 @@
 </table>
 </section>
 <section id="tcpip-requestcommode-the-tcpip-requestcommode-function-definition">
-<h4>TcpIp_RequestComMode函数定义 (The TcpIp_RequestComMode function definition)<a class="headerlink" href="#tcpip-requestcommode-the-tcpip-requestcommode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_RequestComMode函数定义 (The TcpIp_RequestComMode function definition)<a class="headerlink" href="#tcpip-requestcommode-the-tcpip-requestcommode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2036,7 +2035,7 @@
 </table>
 </section>
 <section id="tcpip-requestipaddrassignment-the-tcpip-requestipaddrassignment-function-defines">
-<h4>TcpIp_RequestIpAddrAssignment函数定义 (The TcpIp_RequestIpAddrAssignment function defines)<a class="headerlink" href="#tcpip-requestipaddrassignment-the-tcpip-requestipaddrassignment-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_RequestIpAddrAssignment函数定义 (The TcpIp_RequestIpAddrAssignment function defines)<a class="headerlink" href="#tcpip-requestipaddrassignment-the-tcpip-requestipaddrassignment-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2146,7 +2145,7 @@
 </table>
 </section>
 <section id="tcpip-releaseipaddrassignment-tcpip-releaseipaddrassignment-function-definition">
-<h4>TcpIp_ReleaseIpAddrAssignment函数定义 (TcpIp_ReleaseIpAddrAssignment function definition)<a class="headerlink" href="#tcpip-releaseipaddrassignment-tcpip-releaseipaddrassignment-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ReleaseIpAddrAssignment函数定义 (TcpIp_ReleaseIpAddrAssignment function definition)<a class="headerlink" href="#tcpip-releaseipaddrassignment-tcpip-releaseipaddrassignment-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2216,7 +2215,7 @@
 </table>
 </section>
 <section id="tcpip-resetipassignment-the-tcpip-resetipassignment-function-definition">
-<h4>TcpIp_ResetIpAssignment函数定义 (The TcpIp_ResetIpAssignment function definition)<a class="headerlink" href="#tcpip-resetipassignment-the-tcpip-resetipassignment-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ResetIpAssignment函数定义 (The TcpIp_ResetIpAssignment function definition)<a class="headerlink" href="#tcpip-resetipassignment-the-tcpip-resetipassignment-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2259,7 +2258,7 @@
 </table>
 </section>
 <section id="tcpip-icmptransmit-tcpip-icmptransmit-function-definition">
-<h4>TcpIp_IcmpTransmit函数定义 (TcpIp_IcmpTransmit Function Definition)<a class="headerlink" href="#tcpip-icmptransmit-tcpip-icmptransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_IcmpTransmit函数定义 (TcpIp_IcmpTransmit Function Definition)<a class="headerlink" href="#tcpip-icmptransmit-tcpip-icmptransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2389,7 +2388,7 @@
 </table>
 </section>
 <section id="tcpip-dhcpreadoption-tcpip-dhcpreadoption-function-definition">
-<h4>TcpIp_DhcpReadOption函数定义 (TcpIp_DhcpReadOption function definition)<a class="headerlink" href="#tcpip-dhcpreadoption-tcpip-dhcpreadoption-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_DhcpReadOption函数定义 (TcpIp_DhcpReadOption function definition)<a class="headerlink" href="#tcpip-dhcpreadoption-tcpip-dhcpreadoption-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2479,7 +2478,7 @@
 </table>
 </section>
 <section id="tcpip-dhcpwriteoption-the-tcpip-dhcpwriteoption-function-definition">
-<h4>TcpIp_DhcpWriteOption函数定义 (The TcpIp_DhcpWriteOption function definition)<a class="headerlink" href="#tcpip-dhcpwriteoption-the-tcpip-dhcpwriteoption-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_DhcpWriteOption函数定义 (The TcpIp_DhcpWriteOption function definition)<a class="headerlink" href="#tcpip-dhcpwriteoption-the-tcpip-dhcpwriteoption-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2579,7 +2578,7 @@
 </table>
 </section>
 <section id="tcpip-changeparameter-the-tcpip-changeparameter-function-definition">
-<h4>TcpIp_ChangeParameter函数定义 (The TcpIp_ChangeParameter Function Definition)<a class="headerlink" href="#tcpip-changeparameter-the-tcpip-changeparameter-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_ChangeParameter函数定义 (The TcpIp_ChangeParameter Function Definition)<a class="headerlink" href="#tcpip-changeparameter-the-tcpip-changeparameter-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2669,7 +2668,7 @@
 </table>
 </section>
 <section id="tcpip-getipaddr-the-tcpip-getipaddr-function-definition">
-<h4>TcpIp_GetIpAddr函数定义 (The TcpIp_GetIpAddr function definition)<a class="headerlink" href="#tcpip-getipaddr-the-tcpip-getipaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_GetIpAddr函数定义 (The TcpIp_GetIpAddr function definition)<a class="headerlink" href="#tcpip-getipaddr-the-tcpip-getipaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2759,7 +2758,7 @@
 </table>
 </section>
 <section id="tcpip-getphysaddr-the-tcpip-getphysaddr-function-definition">
-<h4>TcpIp_GetPhysAddr函数定义 (The TcpIp_GetPhysAddr function definition)<a class="headerlink" href="#tcpip-getphysaddr-the-tcpip-getphysaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_GetPhysAddr函数定义 (The TcpIp_GetPhysAddr function definition)<a class="headerlink" href="#tcpip-getphysaddr-the-tcpip-getphysaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2834,7 +2833,7 @@
 </table>
 </section>
 <section id="tcpip-getremotephysaddr-the-tcpip-getremotephysaddr-function-definition">
-<h4>TcpIp_GetRemotePhysAddr函数定义 (The TcpIp_GetRemotePhysAddr function definition)<a class="headerlink" href="#tcpip-getremotephysaddr-the-tcpip-getremotephysaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_GetRemotePhysAddr函数定义 (The TcpIp_GetRemotePhysAddr function definition)<a class="headerlink" href="#tcpip-getremotephysaddr-the-tcpip-getremotephysaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2929,7 +2928,7 @@
 </table>
 </section>
 <section id="tcpip-getctrlidx-tcpip-getctrlidx-function-definition">
-<h4>TcpIp_GetCtrlIdx函数定义 (TcpIp_GetCtrlIdx function definition)<a class="headerlink" href="#tcpip-getctrlidx-tcpip-getctrlidx-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_GetCtrlIdx函数定义 (TcpIp_GetCtrlIdx function definition)<a class="headerlink" href="#tcpip-getctrlidx-tcpip-getctrlidx-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3004,7 +3003,7 @@
 </table>
 </section>
 <section id="tcpip-udptransmit-tcpip-udptransmit-function-definition">
-<h4>TcpIp_UdpTransmit函数定义 (TcpIp_UdpTransmit Function Definition)<a class="headerlink" href="#tcpip-udptransmit-tcpip-udptransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_UdpTransmit函数定义 (TcpIp_UdpTransmit Function Definition)<a class="headerlink" href="#tcpip-udptransmit-tcpip-udptransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3104,7 +3103,7 @@
 </table>
 </section>
 <section id="tcpip-tcptransmit-definition-of-tcpip-tcptransmit-function">
-<h4>TcpIp_TcpTransmit函数定义 (Definition of TcpIp_TcpTransmit function)<a class="headerlink" href="#tcpip-tcptransmit-definition-of-tcpip-tcptransmit-function" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_TcpTransmit函数定义 (Definition of TcpIp_TcpTransmit function)<a class="headerlink" href="#tcpip-tcptransmit-definition-of-tcpip-tcptransmit-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3204,7 +3203,7 @@
 </table>
 </section>
 <section id="tcpip-rxindication-tcpip-rxindication-function-definition">
-<h4>TcpIp_RxIndication函数定义 (TcpIp_RxIndication function definition)<a class="headerlink" href="#tcpip-rxindication-tcpip-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_RxIndication函数定义 (TcpIp_RxIndication function definition)<a class="headerlink" href="#tcpip-rxindication-tcpip-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3324,7 +3323,7 @@
 </table>
 </section>
 <section id="tcpip-mainfunction-tcpip-mainfunction-function-definition">
-<h4>TcpIp_MainFunction函数定义 (TcpIp_MainFunction function definition)<a class="headerlink" href="#tcpip-mainfunction-tcpip-mainfunction-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_MainFunction函数定义 (TcpIp_MainFunction function definition)<a class="headerlink" href="#tcpip-mainfunction-tcpip-mainfunction-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3368,9 +3367,9 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <section id="tcpip-up-getsocket-soad-autosar-tcpip-up-getsocket-function-definition-implements-soad-autosar-defined-in-configuration-function">
-<h4>TcpIp_&lt;Up&gt;GetSocket函数定义（实现SoAd，AUTOSAR定义在配置函数中） (TcpIp&lt;Up&gt;GetSocket Function Definition (Implements SoAd, AUTOSAR Defined in Configuration Function))<a class="headerlink" href="#tcpip-up-getsocket-soad-autosar-tcpip-up-getsocket-function-definition-implements-soad-autosar-defined-in-configuration-function" title="链接到此标题。">¶</a></h4>
+<h4>TcpIp_&lt;Up&gt;GetSocket函数定义（实现SoAd，AUTOSAR定义在配置函数中） (TcpIp&lt;Up&gt;GetSocket Function Definition (Implements SoAd, AUTOSAR Defined in Configuration Function))<a class="headerlink" href="#tcpip-up-getsocket-soad-autosar-tcpip-up-getsocket-function-definition-implements-soad-autosar-defined-in-configuration-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3455,7 +3454,7 @@
 </table>
 </section>
 <section id="up-physaddrtablechg-function-definition-not-implemented">
-<h4>&lt;Up_PhysAddrTableChg&gt;函数定义（未实现） (Function Definition (Not Implemented))<a class="headerlink" href="#up-physaddrtablechg-function-definition-not-implemented" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_PhysAddrTableChg&gt;函数定义（未实现） (Function Definition (Not Implemented))<a class="headerlink" href="#up-physaddrtablechg-function-definition-not-implemented" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3555,7 +3554,7 @@
 </table>
 </section>
 <section id="up-rxindication-the-function-definition-for-up-rxindication">
-<h4>&lt;Up_RxIndication&gt;函数定义 (The function definition for &lt;Up_RxIndication&gt;)<a class="headerlink" href="#up-rxindication-the-function-definition-for-up-rxindication" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_RxIndication&gt;函数定义 (The function definition for &lt;Up_RxIndication&gt;)<a class="headerlink" href="#up-rxindication-the-function-definition-for-up-rxindication" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3655,7 +3654,7 @@
 </table>
 </section>
 <section id="up-tcpipevent-the-function-definition-for-up-tcpipevent">
-<h4>&lt;Up_TcpIpEvent&gt;函数定义 (The function definition for &lt;Up_TcpIpEvent&gt;)<a class="headerlink" href="#up-tcpipevent-the-function-definition-for-up-tcpipevent" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_TcpIpEvent&gt;函数定义 (The function definition for &lt;Up_TcpIpEvent&gt;)<a class="headerlink" href="#up-tcpipevent-the-function-definition-for-up-tcpipevent" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3735,7 +3734,7 @@
 </table>
 </section>
 <section id="up-txconfirmation-the-function-definition-for-up-txconfirmation">
-<h4>&lt;Up_TxConfirmation&gt;函数定义 (The function definition for &lt;Up_TxConfirmation&gt;)<a class="headerlink" href="#up-txconfirmation-the-function-definition-for-up-txconfirmation" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_TxConfirmation&gt;函数定义 (The function definition for &lt;Up_TxConfirmation&gt;)<a class="headerlink" href="#up-txconfirmation-the-function-definition-for-up-txconfirmation" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3815,7 +3814,7 @@
 </table>
 </section>
 <section id="up-tcpaccepted-the-function-definition-for-up-tcpaccepted">
-<h4>&lt;Up_TcpAccepted&gt;函数定义 (The function definition for Up_TcpAccepted)<a class="headerlink" href="#up-tcpaccepted-the-function-definition-for-up-tcpaccepted" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_TcpAccepted&gt;函数定义 (The function definition for Up_TcpAccepted)<a class="headerlink" href="#up-tcpaccepted-the-function-definition-for-up-tcpaccepted" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3905,7 +3904,7 @@
 </table>
 </section>
 <section id="up-tcpconnected-the-function-definition">
-<h4>&lt;Up_TcpConnected&gt;函数定义 (The function definition)<a class="headerlink" href="#up-tcpconnected-the-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_TcpConnected&gt;函数定义 (The function definition)<a class="headerlink" href="#up-tcpconnected-the-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3975,7 +3974,7 @@
 </table>
 </section>
 <section id="up-copytxdata-the-definition-of-up-copytxdata-function">
-<h4>&lt;Up_CopyTxData&gt;函数定义 (The definition of &lt;Up_CopyTxData&gt; function)<a class="headerlink" href="#up-copytxdata-the-definition-of-up-copytxdata-function" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_CopyTxData&gt;函数定义 (The definition of &lt;Up_CopyTxData&gt; function)<a class="headerlink" href="#up-copytxdata-the-definition-of-up-copytxdata-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4060,7 +4059,7 @@
 </table>
 </section>
 <section id="up-localipaddrassignmentchg-the-function-definition-for-up-localipaddrassignmentchg">
-<h4>&lt;Up_LocalIpAddrAssignmentChg&gt;函数定义 (The function definition for &lt;Up_LocalIpAddrAssignmentChg&gt;)<a class="headerlink" href="#up-localipaddrassignmentchg-the-function-definition-for-up-localipaddrassignmentchg" title="链接到此标题。">¶</a></h4>
+<h4>&lt;Up_LocalIpAddrAssignmentChg&gt;函数定义 (The function definition for &lt;Up_LocalIpAddrAssignmentChg&gt;)<a class="headerlink" href="#up-localipaddrassignmentchg-the-function-definition-for-up-localipaddrassignmentchg" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4142,9 +4141,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="tcpipgeneral">
-<h3>TcpIpGeneral<a class="headerlink" href="#tcpipgeneral" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpGeneral<a class="headerlink" href="#tcpipgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpipgeneral-tcpipgeneral-container-configuration-diagram">
 <img alt="TcpIpGeneral容器配置图 (TcpIpGeneral Container Configuration Diagram)" src="../../_images/image1034.png" />
 </figure>
@@ -4512,7 +4511,7 @@
 </table>
 </section>
 <section id="tcpipipv4general">
-<h3>TcpIpIpV4General<a class="headerlink" href="#tcpipipv4general" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpIpV4General<a class="headerlink" href="#tcpipipv4general" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpipv4general-tcpipv4general-container-configuration-diagram">
 <img alt="TcpIpV4General容器配置图 (TcpIpV4General Container Configuration Diagram)" src="../../_images/image1147.png" />
 </figure>
@@ -4682,7 +4681,7 @@
 </table>
 </section>
 <section id="tcpipctrl">
-<h3>TcpIpCtrl<a class="headerlink" href="#tcpipctrl" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpCtrl<a class="headerlink" href="#tcpipctrl" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpipctrl-tcpipctrl-container-configuration-diagram">
 <img alt="TcpIpCtrl容器配置图 (TcpIpCtrl Container Configuration Diagram)" src="../../_images/image1327.png" />
 </figure>
@@ -4834,7 +4833,7 @@
 </table>
 </section>
 <section id="tcpipipv4config">
-<h3>TcpIpIpV4Config<a class="headerlink" href="#tcpipipv4config" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpIpV4Config<a class="headerlink" href="#tcpipipv4config" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpipv4config-tcpipv4config-container-configuration-diagram">
 <img alt="TcpIpV4Config容器配置图 (TcpIpV4Config Container Configuration Diagram)" src="../../_images/image1425.png" />
 </figure>
@@ -5040,7 +5039,7 @@
 </table>
 </section>
 <section id="tcpiparpstatictable">
-<h3>TcpIpArpStaticTable<a class="headerlink" href="#tcpiparpstatictable" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpArpStaticTable<a class="headerlink" href="#tcpiparpstatictable" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpiparpstratictable-tcpiparpstratictable-container-configuration-diagram">
 <img alt="TcpIpArpStraticTable容器配置图 (TcpIpArpStraticTable Container Configuration Diagram)" src="../../_images/image1524.png" />
 </figure>
@@ -5102,7 +5101,7 @@
 </table>
 </section>
 <section id="tcpiplocaladdr">
-<h3>TcpIpLocalAddr<a class="headerlink" href="#tcpiplocaladdr" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpLocalAddr<a class="headerlink" href="#tcpiplocaladdr" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpiplocaladdr-tcpiplocaladdr-container-configuration-diagram">
 <img alt="TcpIpLocalAddr容器配置图 (TcpIpLocalAddr Container Configuration Diagram)" src="../../_images/image1621.png" />
 </figure>
@@ -5326,7 +5325,7 @@
 </table>
 </section>
 <section id="tcpipsocketownerconfig">
-<h3>TcpIpSocketOwnerConfig<a class="headerlink" href="#tcpipsocketownerconfig" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpSocketOwnerConfig<a class="headerlink" href="#tcpipsocketownerconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpipsocketownerconfig-tcpipsocketownerconfig-container-configuration-diagram">
 <img alt="TcpIpSocketOwnerConfig容器配置图 (TcpIpSocketOwnerConfig Container Configuration Diagram)" src="../../_images/image1718.png" />
 </figure>
@@ -5514,7 +5513,7 @@
 </table>
 </section>
 <section id="tcpiptcpconfig">
-<h3>TcpIpTcpConfig<a class="headerlink" href="#tcpiptcpconfig" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpTcpConfig<a class="headerlink" href="#tcpiptcpconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpiptcpconfig-tcpiptcpconfig-container-configuration-diagram">
 <img alt="TcpIpTcpConfig容器配置图 (TcpIpTcpConfig Container Configuration Diagram)" src="../../_images/image1818.png" />
 </figure>
@@ -5882,7 +5881,7 @@
 </table>
 </section>
 <section id="tcpipudpconfig">
-<h3>TcpIpUdpConfig<a class="headerlink" href="#tcpipudpconfig" title="链接到此标题。">¶</a></h3>
+<h3>TcpIpUdpConfig<a class="headerlink" href="#tcpipudpconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="tcpipudpconfig-tcpipudpconfig-container-configuration-diagram">
 <img alt="TcpIpUdpConfig容器配置图 (TcpIpUdpConfig Container Configuration Diagram)" src="../../_images/image1916.png" />
 </figure>
@@ -6084,7 +6083,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -6093,11 +6092,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

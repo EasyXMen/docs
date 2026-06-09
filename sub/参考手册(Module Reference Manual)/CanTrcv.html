@@ -9,7 +9,6 @@
         <title>CanTrcv &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="cantrcv">
-<h1>CanTrcv<a class="headerlink" href="#cantrcv" title="链接到此标题。">¶</a></h1>
+<h1>CanTrcv<a class="headerlink" href="#cantrcv" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -252,7 +251,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>CanTrcv在AutoSar R19-11软件层级架构如下图：</p>
 <p>CanTrcv in AutoSar R19-11 software hierarchical architecture is as follows:</p>
 <figure class="align-center" id="cantrcvautosar-cantrcv-in-autosar-s-software-hierarchy-architecture-diagram">
@@ -261,33 +260,33 @@
 <p>CanTrcv抽象化Can收发器硬件，提供独立于硬件的接口给CanIf等上层模块。它通过使用MCAL层的API接口访问CAN收发器硬件，从ECU布局中抽象出来。</p>
 <p>CanTrcv abstracts the Can transceiver hardware, providing a hardware-independent interface to upper layers such as CanIf. It accesses the CAN transceiver hardware via MCAL layer APIs, abstracting it from the ECU layout.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_CanTransceiverDriver.PDF，R19-11</p>
 <p>[2] AUTOSAR_SRS_CAN.PDF，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="cantrcv-cantrcv-function">
-<h3>CanTrcv功能 (CanTrcv Function)<a class="headerlink" href="#cantrcv-cantrcv-function" title="链接到此标题。">¶</a></h3>
+<h3>CanTrcv功能 (CanTrcv Function)<a class="headerlink" href="#cantrcv-cantrcv-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="cantrcv-function-introduction-of-cantrcv">
-<h2>CanTrcv功能介绍 (Function Introduction of CanTrcv)<a class="headerlink" href="#cantrcv-function-introduction-of-cantrcv" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv功能介绍 (Function Introduction of CanTrcv)<a class="headerlink" href="#cantrcv-function-introduction-of-cantrcv" title="Link to this heading">¶</a></h2>
 <p>CAN收发器驱动程序模块负责处理ECU上的CAN收发器硬件芯片，并将CAN总线上使用的信号电平调整为微控制器可以识别的逻辑(数字)信号电平。此外，收发器还能检测到电气故障，如线路问题、地面偏移或长主导信号的传输。</p>
 <p>The CAN transceiver driver module is responsible for handling the CAN transceiver hardware chip on the ECU and converting the signal levels used on the CAN bus to logical (digital) signal levels that the microcontroller can recognize. Additionally, the transceiver can detect electrical faults such as line issues, ground offset, or long dominant signal transmission.</p>
 <p>根据CAN收发器与微控制器的接口，驱动程序模块可以标记由外部端口pin记录的探测错误或由SPI总线记录的检测错误；特定CAN收发器支持电源控制，并通过CAN总线唤醒。有些CAN收发器具备特定功能，如系统基础芯片(SBC)，它除了CAN基本功能之外，还实现了电源控制和高级监控，并通过SPI总线和MCU进行访问。部分网络唤醒是CAN系统中的一种状态，其中一些节点处于低功耗模式，而其他节点正在通信。这减少了整个网络的功耗。在低功耗模式下，节点被预先定义的唤醒帧唤醒。支持选择性唤醒的收发器除了普通收发器提供的唤醒模式(Wakeup Pattern)外，还可以通过唤醒帧(Wakeup Frame)来唤醒。</p>
 <p>Based on the interface between the CAN transceiver and microcontroller, the driver module can mark探测 errors recorded by external port pins or detection errors recorded by SPI bus; specific CAN transceivers support power control and wake up through the CAN bus. Some CAN transceivers have specific functionalities such as System Basis Chip (SBC), which in addition to basic CAN functions, implements power control and advanced monitoring, and is accessible via SPI bus and MCU. Partial network wake-up is a state in CAN systems where some nodes are in low-power modes while other nodes are communicating. This reduces the overall network power consumption. In low-power mode, nodes are awakened by predefined wake-up frames. Transceivers that support selective wake-up have additional wake-up frame (Wakeup Frame) to awaken on top of the normal wakeup patterns provided by regular transceivers.</p>
 </section>
 <section id="cantrcv-cantrcv-functionality-implementation">
-<h2>CanTrcv功能实现 (CanTrcv functionality implementation)<a class="headerlink" href="#cantrcv-cantrcv-functionality-implementation" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv功能实现 (CanTrcv functionality implementation)<a class="headerlink" href="#cantrcv-cantrcv-functionality-implementation" title="Link to this heading">¶</a></h2>
 <p>CAN收发器驱动程序的目标是指定适合CAN收发器设备的接口和行为和抽象CAN收发器硬件；它为上层提供了一个独立于硬件的接口；它通过使用MCAL层的API接口访问CAN收发器硬件，从ECU布局中抽象出来。</p>
 <p>The goal of the CAN transceiver driver is to specify the interface and behavior suitable for CAN transceiver devices, abstracting the hardware; it provides an hardware-independent interface to the upper layers; it accesses the CAN transceiver hardware through API interfaces of the MCAL layer, abstracting from ECU layout.</p>
 <p>CanTrcv在访问到硬件，发现唤醒事件之后，也可以通过回调接口通知到上层CanIf/EcuM从而使BSW能处理这些唤醒事件。</p>
 <p>CanTrcv can also notify CanIf/EcuM at the upper layer through callback interfaces after accessing the hardware and detecting wake-up events, so that BSW can handle these wake-up events.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CanTrcv组件文件描述 (Table CanTrcv Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -331,13 +330,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="cantrcv-configtype-cantrcv-configtype-type-definition">
-<h2>CanTrcv_ConfigType类型定义 (CanTrcv_ConfigType Type Definition)<a class="headerlink" href="#cantrcv-configtype-cantrcv-configtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_ConfigType类型定义 (CanTrcv_ConfigType Type Definition)<a class="headerlink" href="#cantrcv-configtype-cantrcv-configtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -362,7 +361,7 @@
 </table>
 </section>
 <section id="cantrcv-pnactivationtype-cantrcv-pnactivationtype-type-definition">
-<h2>CanTrcv_PNActivationType类型定义 (CanTrcv_PNActivationType Type Definition)<a class="headerlink" href="#cantrcv-pnactivationtype-cantrcv-pnactivationtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_PNActivationType类型定义 (CanTrcv_PNActivationType Type Definition)<a class="headerlink" href="#cantrcv-pnactivationtype-cantrcv-pnactivationtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -390,7 +389,7 @@
 </table>
 </section>
 <section id="cantrcv-trcvflagstatetype-cantrcv-trcvflagstatetype-type-definition">
-<h2>CanTrcv_TrcvFlagStateType类型定义 (CanTrcv_TrcvFlagStateType type definition)<a class="headerlink" href="#cantrcv-trcvflagstatetype-cantrcv-trcvflagstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_TrcvFlagStateType类型定义 (CanTrcv_TrcvFlagStateType type definition)<a class="headerlink" href="#cantrcv-trcvflagstatetype-cantrcv-trcvflagstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -417,7 +416,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -472,11 +471,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="cantrcv-init-the-cantrcv-init-function-defines">
-<h2>CanTrcv_Init函数定义 (The CanTrcv_Init function defines)<a class="headerlink" href="#cantrcv-init-the-cantrcv-init-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_Init函数定义 (The CanTrcv_Init function defines)<a class="headerlink" href="#cantrcv-init-the-cantrcv-init-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -541,7 +540,7 @@
 </table>
 </section>
 <section id="cantrcv-setopmode-the-cantrcv-setopmode-function-defines">
-<h2>CanTrcv_SetOpMode函数定义 (The CanTrcv_SetOpMode function defines)<a class="headerlink" href="#cantrcv-setopmode-the-cantrcv-setopmode-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_SetOpMode函数定义 (The CanTrcv_SetOpMode function defines)<a class="headerlink" href="#cantrcv-setopmode-the-cantrcv-setopmode-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -631,7 +630,7 @@
 </table>
 </section>
 <section id="cantrcv-getopmode-cantrcv-getopmode-function-definition">
-<h2>CanTrcv_GetOpMode函数定义 (CanTrcv_GetOpMode function definition)<a class="headerlink" href="#cantrcv-getopmode-cantrcv-getopmode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_GetOpMode函数定义 (CanTrcv_GetOpMode function definition)<a class="headerlink" href="#cantrcv-getopmode-cantrcv-getopmode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -716,7 +715,7 @@
 </table>
 </section>
 <section id="cantrcv-getbuswureason-the-function-definition-for-cantrcv-getbuswureason">
-<h2>CanTrcv_GetBusWuReason函数定义 (The function definition for CanTrcv_GetBusWuReason)<a class="headerlink" href="#cantrcv-getbuswureason-the-function-definition-for-cantrcv-getbuswureason" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_GetBusWuReason函数定义 (The function definition for CanTrcv_GetBusWuReason)<a class="headerlink" href="#cantrcv-getbuswureason-the-function-definition-for-cantrcv-getbuswureason" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -801,7 +800,7 @@
 </table>
 </section>
 <section id="cantrcv-getversioninfo-the-cantrcv-getversioninfo-function-defines">
-<h2>CanTrcv_GetVersionInfo函数定义 (The CanTrcv_GetVersionInfo function defines)<a class="headerlink" href="#cantrcv-getversioninfo-the-cantrcv-getversioninfo-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_GetVersionInfo函数定义 (The CanTrcv_GetVersionInfo function defines)<a class="headerlink" href="#cantrcv-getversioninfo-the-cantrcv-getversioninfo-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -876,7 +875,7 @@
 </table>
 </section>
 <section id="cantrcv-setwakeupmode-the-cantrcv-setwakeupmode-function-defines">
-<h2>CanTrcv_SetWakeupMode函数定义 (The CanTrcv_SetWakeupMode function defines)<a class="headerlink" href="#cantrcv-setwakeupmode-the-cantrcv-setwakeupmode-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_SetWakeupMode函数定义 (The CanTrcv_SetWakeupMode function defines)<a class="headerlink" href="#cantrcv-setwakeupmode-the-cantrcv-setwakeupmode-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -966,7 +965,7 @@
 </table>
 </section>
 <section id="cantrcv-mainfunction-cantrcv-mainfunction-function-definition">
-<h2>CanTrcv_MainFunction函数定义 (CanTrcv_MainFunction function definition)<a class="headerlink" href="#cantrcv-mainfunction-cantrcv-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_MainFunction函数定义 (CanTrcv_MainFunction function definition)<a class="headerlink" href="#cantrcv-mainfunction-cantrcv-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1009,7 +1008,7 @@
 </table>
 </section>
 <section id="cantrcv-checkwakeup-the-cantrcv-checkwakeup-function-definition">
-<h2>CanTrcv_CheckWakeup函数定义 (The CanTrcv_CheckWakeup function definition)<a class="headerlink" href="#cantrcv-checkwakeup-the-cantrcv-checkwakeup-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_CheckWakeup函数定义 (The CanTrcv_CheckWakeup function definition)<a class="headerlink" href="#cantrcv-checkwakeup-the-cantrcv-checkwakeup-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1079,7 +1078,7 @@
 </table>
 </section>
 <section id="cantrcv-mainfunctiondiagnostics-cantrcv-mainfunctiondiagnostics-function-definition">
-<h2>CanTrcv_MainFunctionDiagnostics函数定义 (CanTrcv_MainFunctionDiagnostics function definition)<a class="headerlink" href="#cantrcv-mainfunctiondiagnostics-cantrcv-mainfunctiondiagnostics-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_MainFunctionDiagnostics函数定义 (CanTrcv_MainFunctionDiagnostics function definition)<a class="headerlink" href="#cantrcv-mainfunctiondiagnostics-cantrcv-mainfunctiondiagnostics-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1122,7 +1121,7 @@
 </table>
 </section>
 <section id="cantrcv-deinit-the-cantrcv-deinit-function-definition">
-<h2>CanTrcv_DeInit函数定义 (The CanTrcv_DeInit function definition)<a class="headerlink" href="#cantrcv-deinit-the-cantrcv-deinit-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_DeInit函数定义 (The CanTrcv_DeInit function definition)<a class="headerlink" href="#cantrcv-deinit-the-cantrcv-deinit-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1165,7 +1164,7 @@
 </table>
 </section>
 <section id="cantrcv-gettrcvsystemdata-the-cantrcv-gettrcvsystemdata-function-definition">
-<h2>CanTrcv_GetTrcvSystemData函数定义 (The CanTrcv_GetTrcvSystemData function definition)<a class="headerlink" href="#cantrcv-gettrcvsystemdata-the-cantrcv-gettrcvsystemdata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_GetTrcvSystemData函数定义 (The CanTrcv_GetTrcvSystemData function definition)<a class="headerlink" href="#cantrcv-gettrcvsystemdata-the-cantrcv-gettrcvsystemdata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1250,7 +1249,7 @@
 </table>
 </section>
 <section id="cantrcv-cleartrcvwufflag-the-function-definition-for-cantrcv-cleartrcvwufflag">
-<h2>CanTrcv_ClearTrcvWufFlag函数定义 (The function definition for CanTrcv_ClearTrcvWufFlag)<a class="headerlink" href="#cantrcv-cleartrcvwufflag-the-function-definition-for-cantrcv-cleartrcvwufflag" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_ClearTrcvWufFlag函数定义 (The function definition for CanTrcv_ClearTrcvWufFlag)<a class="headerlink" href="#cantrcv-cleartrcvwufflag-the-function-definition-for-cantrcv-cleartrcvwufflag" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1320,7 +1319,7 @@
 </table>
 </section>
 <section id="cantrcv-readtrcvtimeoutflag-the-cantrcv-readtrcvtimeoutflag-function-definition">
-<h2>CanTrcv_ReadTrcvTimeoutFlag函数定义 (The CanTrcv_ReadTrcvTimeoutFlag function definition)<a class="headerlink" href="#cantrcv-readtrcvtimeoutflag-the-cantrcv-readtrcvtimeoutflag-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_ReadTrcvTimeoutFlag函数定义 (The CanTrcv_ReadTrcvTimeoutFlag function definition)<a class="headerlink" href="#cantrcv-readtrcvtimeoutflag-the-cantrcv-readtrcvtimeoutflag-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1405,7 +1404,7 @@
 </table>
 </section>
 <section id="cantrcv-cleartrcvtimeoutflag-the-function-definition-for-cantrcv-cleartrcvtimeoutflag">
-<h2>CanTrcv_ClearTrcvTimeoutFlag函数定义 (The function definition for CanTrcv_ClearTrcvTimeoutFlag)<a class="headerlink" href="#cantrcv-cleartrcvtimeoutflag-the-function-definition-for-cantrcv-cleartrcvtimeoutflag" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_ClearTrcvTimeoutFlag函数定义 (The function definition for CanTrcv_ClearTrcvTimeoutFlag)<a class="headerlink" href="#cantrcv-cleartrcvtimeoutflag-the-function-definition-for-cantrcv-cleartrcvtimeoutflag" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1475,7 +1474,7 @@
 </table>
 </section>
 <section id="cantrcv-readtrcvsilenceflag-the-function-defines-cantrcv-readtrcvsilenceflag">
-<h2>CanTrcv_ReadTrcvSilenceFlag函数定义 (The function defines CanTrcv_ReadTrcvSilenceFlag)<a class="headerlink" href="#cantrcv-readtrcvsilenceflag-the-function-defines-cantrcv-readtrcvsilenceflag" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_ReadTrcvSilenceFlag函数定义 (The function defines CanTrcv_ReadTrcvSilenceFlag)<a class="headerlink" href="#cantrcv-readtrcvsilenceflag-the-function-defines-cantrcv-readtrcvsilenceflag" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1560,7 +1559,7 @@
 </table>
 </section>
 <section id="cantrcv-checkwakeflag-cantrcv-checkwakeflag-function-definition">
-<h2>CanTrcv_CheckWakeFlag函数定义 (CanTrcv_CheckWakeFlag function definition)<a class="headerlink" href="#cantrcv-checkwakeflag-cantrcv-checkwakeflag-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_CheckWakeFlag函数定义 (CanTrcv_CheckWakeFlag function definition)<a class="headerlink" href="#cantrcv-checkwakeflag-cantrcv-checkwakeflag-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1630,7 +1629,7 @@
 </table>
 </section>
 <section id="cantrcv-setpnactivationstate-the-cantrcv-setpnactivationstate-function-defines">
-<h2>CanTrcv_SetPNActivationState函数定义 (The CanTrcv_SetPNActivationState function defines)<a class="headerlink" href="#cantrcv-setpnactivationstate-the-cantrcv-setpnactivationstate-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcv_SetPNActivationState函数定义 (The CanTrcv_SetPNActivationState function defines)<a class="headerlink" href="#cantrcv-setpnactivationstate-the-cantrcv-setpnactivationstate-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1709,13 +1708,13 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>配置列表 (Configuration List)</strong></strong></p><p class="centered">
 <strong><strong>表 属性描述 (Table Properties Description)</strong></strong></p><table class="docutils align-default">
@@ -1744,7 +1743,7 @@
 </tbody>
 </table>
 <section id="cantrcvgeneral">
-<h3>CanTrcvGeneral<a class="headerlink" href="#cantrcvgeneral" title="链接到此标题。">¶</a></h3>
+<h3>CanTrcvGeneral<a class="headerlink" href="#cantrcvgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantrcvgeneral-cantrcvgeneral-tool-configuration">
 <img alt="CanTrcvGeneral工具配置 (CanTrcvGeneral Tool Configuration)" src="../../_images/image311.png" />
 </figure>
@@ -1914,7 +1913,7 @@
 </table>
 </section>
 <section id="cantrcvconfigset">
-<h3>CanTrcvConfigSet<a class="headerlink" href="#cantrcvconfigset" title="链接到此标题。">¶</a></h3>
+<h3>CanTrcvConfigSet<a class="headerlink" href="#cantrcvconfigset" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantrcvconfigset-cantrcvconfigset-tool-configuration">
 <img alt="CanTrcvConfigSet工具配置 (CanTrcvConfigSet Tool Configuration)" src="../../_images/image47.png" />
 </figure>
@@ -1977,7 +1976,7 @@
 </section>
 </section>
 <section id="cantrcvchannels">
-<h2>CanTrcvChannels<a class="headerlink" href="#cantrcvchannels" title="链接到此标题。">¶</a></h2>
+<h2>CanTrcvChannels<a class="headerlink" href="#cantrcvchannels" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="cantrcvchannel-cantrcvchannel-tool-configuration">
 <img alt="CanTrcvChannel工具配置 (CanTrcvChannel Tool Configuration)" src="../../_images/image57.png" />
 </figure>
@@ -2242,12 +2241,12 @@
 </tbody>
 </table>
 <section id="cantrcvaccess">
-<h3>CanTrcvAccess<a class="headerlink" href="#cantrcvaccess" title="链接到此标题。">¶</a></h3>
+<h3>CanTrcvAccess<a class="headerlink" href="#cantrcvaccess" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantrcvaccess-cantrcvaccess-tool-configuration">
 <img alt="CanTrcvAccess工具配置 (CanTrcvAccess Tool Configuration)" src="../../_images/image67.png" />
 </figure>
 <section id="cantrcvdioaccess">
-<h4>CanTrcvDioAccess<a class="headerlink" href="#cantrcvdioaccess" title="链接到此标题。">¶</a></h4>
+<h4>CanTrcvDioAccess<a class="headerlink" href="#cantrcvdioaccess" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="cantrcvdioaccess-cantrcvdioaccess-tool-configuration">
 <img alt="CanTrcvDioAccess工具配置 (CanTrcvDioAccess Tool Configuration)" src="../../_images/image77.png" />
 </figure>
@@ -2312,7 +2311,7 @@
 </table>
 </section>
 <section id="cantrcvspiaccess">
-<h4>CanTrcvSpiAccess<a class="headerlink" href="#cantrcvspiaccess" title="链接到此标题。">¶</a></h4>
+<h4>CanTrcvSpiAccess<a class="headerlink" href="#cantrcvspiaccess" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="cantrcvspiaccess-cantrcvspiaccess-tool-configuration">
 <img alt="CanTrcvSpiAccess工具配置 (CanTrcvSpiAccess Tool Configuration)" src="../../_images/image97.png" />
 </figure>
@@ -2378,7 +2377,7 @@
 </section>
 </section>
 <section id="cantrcvpartialnetwork">
-<h3>CanTrcvPartialNetwork<a class="headerlink" href="#cantrcvpartialnetwork" title="链接到此标题。">¶</a></h3>
+<h3>CanTrcvPartialNetwork<a class="headerlink" href="#cantrcvpartialnetwork" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantrcvpartialnetwork-cantrcvpartialnetwork-tool-configuration">
 <img alt="CanTrcvPartialNetwork工具配置 (CanTrcvPartialNetwork Tool Configuration)" src="../../_images/image1112.png" />
 </figure>
@@ -2556,7 +2555,7 @@
 </tbody>
 </table>
 <section id="cantrcvpnframedatamaskspec">
-<h4>CanTrcvPnFrameDataMaskSpec<a class="headerlink" href="#cantrcvpnframedatamaskspec" title="链接到此标题。">¶</a></h4>
+<h4>CanTrcvPnFrameDataMaskSpec<a class="headerlink" href="#cantrcvpnframedatamaskspec" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="cantrcvpnframedatamaskspec-cantrcvpnframedatamaskspec-tool-configuration">
 <img alt="CanTrcvPnFrameDataMaskSpec工具配置 (CanTrcvPnFrameDataMaskSpec Tool Configuration)" src="../../_images/image135.png" />
 </figure>
@@ -2622,7 +2621,7 @@
 </section>
 </section>
 <section id="cantrcvdemeventparameterref">
-<h3>CanTrcvDemEventParameterRef<a class="headerlink" href="#cantrcvdemeventparameterref" title="链接到此标题。">¶</a></h3>
+<h3>CanTrcvDemEventParameterRef<a class="headerlink" href="#cantrcvdemeventparameterref" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantrcvdemeventparameterref-cantrcvdemeventparameterref-tool-configuration">
 <img alt="CanTrcvDemEventParameterRef工具配置 (CanTrcvDemEventParameterRef Tool Configuration)" src="../../_images/image154.png" />
 </figure>
@@ -2775,7 +2774,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -2784,11 +2783,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

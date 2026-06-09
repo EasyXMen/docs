@@ -9,7 +9,6 @@
         <title>DLT &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="dlt">
-<h1>DLT<a class="headerlink" href="#dlt" title="链接到此标题。">¶</a></h1>
+<h1>DLT<a class="headerlink" href="#dlt" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -276,7 +275,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="autosar-autosar-software-architecture-diagram">
 <img alt="AUTOSAR软件架构图 (AUTOSAR Software Architecture Diagram)" src="../../_images/image150.png" />
 </figure>
@@ -287,7 +286,7 @@
 <p>AUTOSAR日志与跟踪诊断协议栈处于BSW基础软件层，包括DLT、DET等系统服务。如图 所示，橙色区域标注的所有模块都归属于AUTOSAR软件架构中日志与跟踪诊断协议栈的管理范畴，基础软件层还提供系统服务，网络通信服务，I/O服务以及复杂设备驱动。</p>
 <p>AUTOSAR logging and tracing diagnostic protocol stack resides in the BSW basic software layer, including systems like DLT, DET, etc. As shown in the figure, all modules marked in orange belong to the management scope of the logging and tracing diagnostic protocol stack within the AUTOSAR software architecture. The basic software layer also provides system services, network communication services, I/O services, and complex device drivers.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SRS_DiagnosticLogAndTrace.pdf</p>
 <p>[2] AUTOSAR_PRS_LogAndTraceProtocol.pdf</p>
 <p>[3] AUTOSAR_SWS_DiagnosticLogAndTrace.pdf</p>
@@ -295,13 +294,13 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="dlt-dlt-function">
-<h3>DLT功能 (DLT Function)<a class="headerlink" href="#dlt-dlt-function" title="链接到此标题。">¶</a></h3>
+<h3>DLT功能 (DLT Function)<a class="headerlink" href="#dlt-dlt-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dlt-dlt-function-introduction">
-<h2>DLT功能介绍 (DLT Function Introduction)<a class="headerlink" href="#dlt-dlt-function-introduction" title="链接到此标题。">¶</a></h2>
+<h2>DLT功能介绍 (DLT Function Introduction)<a class="headerlink" href="#dlt-dlt-function-introduction" title="Link to this heading">¶</a></h2>
 <p>描述AUTOSAR软件架构中的基础软件模块DLT的功能设计和配置说明；它可以收集来自DET和DLT使用者的日志与跟踪信息；DLT模块通过通信总线转发诊断日志与跟踪消息，使这些信息可以在ECU外部可见；为此，DLT模块定义了在总线上发送和接收专用日志/跟踪信息的API；此外，可以选择使用NvM模块持久地存储DLT模块的更新过滤设置。这使ECU能够以所需的级别发送日志/跟踪信息，而不需要每次在ECU启动时通过外部客户端工具在通信总线上发出显式设置请求。</p>
 <p>Describe the functional design and configuration specification of the basic software module DLT in the AUTOSAR software architecture; it can collect log and trace information from DET and DLT users; the DLT module forwards diagnostic logs and trace messages via the communication bus, making this information visible externally from the ECU; for this purpose, the DLT module defines APIs for sending and receiving dedicated log/trace information on the bus; additionally, it is possible to persistently store the updated filter settings of the DLT module using the NvM module. This allows the ECU to send log/trace information at the desired level without having to issue explicit setup requests via external client tools on the communication bus each time the ECU starts up.</p>
 <figure class="align-center" id="interactions-between-modules">
@@ -309,7 +308,7 @@
 </figure>
 </section>
 <section id="dlt-dlt-function-implementation">
-<h2>DLT功能实现 (DLT Function Implementation)<a class="headerlink" href="#dlt-dlt-function-implementation" title="链接到此标题。">¶</a></h2>
+<h2>DLT功能实现 (DLT Function Implementation)<a class="headerlink" href="#dlt-dlt-function-implementation" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="autosardlt-2-2-software-architecture-based-on-autosar-for-dlt">
 <img alt="2‑2 基于AUTOSAR的DLT软件架构 (2-2 Software Architecture Based on AUTOSAR for DLT)" src="../../_images/image323.png" />
 </figure>
@@ -317,7 +316,7 @@
 <p>The software layer architecture of the AUTOSAR Diagnostic Log and Trace Message Recording DLT module, as shown in the figure, demonstrates its placement within the BSW basic software's system service layer. It is on par with the DET module, whereupon the detection of an error message by the DET module, it reports via API interface to the DLT module; the DLT module can also encapsulate collected standard-format diagnostic logs and trace messages into specific formats of Pdu data, then forward them to the PduR module in the communication protocol stack. The PduR module selects a communication protocol to send the assembled Pdu data over the network bus, where external client's host software captures the diagnostic logs and trace messages on the network bus; the communication protocol stack can receive DLT control command messages from external clients, with the PduR module retrieving Pdu data from the network bus. Then, the PduR module submits parsed data to the DLT module, which extracts control command messages according to DLT command words and sets corresponding configuration information in the DLT user.</p>
 </section>
 <section id="dlt-dlt-component-interaction">
-<h2>DLT组件交互 (DLT Component Interaction)<a class="headerlink" href="#dlt-dlt-component-interaction" title="链接到此标题。">¶</a></h2>
+<h2>DLT组件交互 (DLT Component Interaction)<a class="headerlink" href="#dlt-dlt-component-interaction" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="dltautosar-the-position-of-dlt-in-the-autosar-layered-architecture">
 <img alt="DLT在AUTOSAR分层架构中的位置 (The position of DLT in the AUTOSAR layered architecture)" src="../../_images/image418.png" />
 </figure>
@@ -349,7 +348,7 @@
 <p>Enable or disable log and trace messages for each channel, and control the log level and trace status of each channel through feedback.</p>
 </section>
 <section id="dlt-dlt-control-command-set">
-<h2>DLT控制命令集 (DLT Control Command Set)<a class="headerlink" href="#dlt-dlt-control-command-set" title="链接到此标题。">¶</a></h2>
+<h2>DLT控制命令集 (DLT Control Command Set)<a class="headerlink" href="#dlt-dlt-control-command-set" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 DLT控制命令集描述 (Table DLTCtrlCommandSetDescribes)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -555,7 +554,7 @@
 </table>
 </section>
 <section id="dltapplicationidcontextid-dlt-module-registers-or-unregisters-applicationid-and-contextid">
-<h2>DLT模块注册或注销ApplicationID和ContextId (DLT module registers or unregisters ApplicationID and ContextId)<a class="headerlink" href="#dltapplicationidcontextid-dlt-module-registers-or-unregisters-applicationid-and-contextid" title="链接到此标题。">¶</a></h2>
+<h2>DLT模块注册或注销ApplicationID和ContextId (DLT module registers or unregisters ApplicationID and ContextId)<a class="headerlink" href="#dltapplicationidcontextid-dlt-module-registers-or-unregisters-applicationid-and-contextid" title="Link to this heading">¶</a></h2>
 <p>DLT模块能够通知日志级别的变化，DLT模块只有注册相应的ApplicationId /ContextId，才能在运行时使用ApplicationId/ContextId的元组，并存储到本地进行全局管理。如果参数DltGeneralRegisterContextNotification设置为TRUE，那么每次调用Dlt_RegisterContext时，Dlt模块将发送包含所提供的ApplicationId / ContextId的DLT消息。</p>
 <p>The DLT module can notify of log level changes. The DLT module only uses the ApplicationId/ContextId tuple at runtime and stores it for global management if it registers the corresponding ApplicationId/ContextId. If the parameter DltGeneralRegisterContextNotification is set to TRUE, then each call to Dlt_RegisterContext will result in a DLT message being sent that includes the provided ApplicationId/ContextId.</p>
 <p>DLT模块可以从已注册的用户列表中删除所有软件组件对应元组的应用程序ApplicationId和上下文ContextId标识符。</p>
@@ -564,7 +563,7 @@
 <p>If the parameter DltGeneralRegisterContextNotification is set to TRUE, then each time Dlt_UnregisterContext is called, the Dlt module will send a DLT message containing the provided ApplicationId/ContextId.</p>
 </section>
 <section id="dlt-dlt-logs-and-tracking-messages-sent">
-<h2>DLT日志与跟踪消息发送 (DLT Logs and Tracking Messages Sent)<a class="headerlink" href="#dlt-dlt-logs-and-tracking-messages-sent" title="链接到此标题。">¶</a></h2>
+<h2>DLT日志与跟踪消息发送 (DLT Logs and Tracking Messages Sent)<a class="headerlink" href="#dlt-dlt-logs-and-tracking-messages-sent" title="Link to this heading">¶</a></h2>
 <p>Dlt消息发送路径描述Dlt日志和跟踪消息从源到接收的流程。源可以是DLT用户，而PDU路由通信栈表示接收端。</p>
 <p>Description of DLT Message Sending Path DLT logs and tracing messages describe the flow from source to receiver. The source can be a DLT user, while PDU routing communication stack represents the receiver.</p>
 <p>在调用Dlt_SendLogMessage或Dlt_SendTraceMessage的上下文中，如图所示描述用于描述在通信总线上发送Dlt消息的各个步骤。</p>
@@ -582,7 +581,7 @@
 </figure>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 DLT组件文件描述 (Table DLT Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -631,13 +630,13 @@
 <p>The file structure of the Dlt module is shown in the figure. The Dlt functional module consists of 9 files, among which Dlt.c and Dlt.h implement the main functionality of Dlt. These two files must be implemented in each Dlt module.</p>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dlt-messagetracetype-dlt-messagetracetype-type-definition">
-<h2>Dlt_MessageTraceType类型定义 (Dlt_MessageTraceType Type Definition)<a class="headerlink" href="#dlt-messagetracetype-dlt-messagetracetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_MessageTraceType类型定义 (Dlt_MessageTraceType Type Definition)<a class="headerlink" href="#dlt-messagetracetype-dlt-messagetracetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -674,7 +673,7 @@
 </table>
 </section>
 <section id="dlt-messagetype-definition-of-dlt-messagetype-type">
-<h2>Dlt_MessageType类型定义 (Definition of Dlt_MessageType Type)<a class="headerlink" href="#dlt-messagetype-definition-of-dlt-messagetype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_MessageType类型定义 (Definition of Dlt_MessageType Type)<a class="headerlink" href="#dlt-messagetype-definition-of-dlt-messagetype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -708,7 +707,7 @@
 </table>
 </section>
 <section id="dlt-messagecontroltype-dlt-messagecontroltype-type-definition">
-<h2>Dlt_MessageControlType类型定义 (Dlt_MessageControlType Type Definition)<a class="headerlink" href="#dlt-messagecontroltype-dlt-messagecontroltype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_MessageControlType类型定义 (Dlt_MessageControlType Type Definition)<a class="headerlink" href="#dlt-messagecontroltype-dlt-messagecontroltype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -736,7 +735,7 @@
 </table>
 </section>
 <section id="dlt-messagenetworktraceinfotype-dlt-messagenetworktraceinfotype-type-definition">
-<h2>Dlt_MessageNetworkTraceInfoType类型定义 (Dlt_MessageNetworkTraceInfoType Type Definition)<a class="headerlink" href="#dlt-messagenetworktraceinfotype-dlt-messagenetworktraceinfotype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_MessageNetworkTraceInfoType类型定义 (Dlt_MessageNetworkTraceInfoType Type Definition)<a class="headerlink" href="#dlt-messagenetworktraceinfotype-dlt-messagenetworktraceinfotype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -776,7 +775,7 @@
 </table>
 </section>
 <section id="dlt-swccontexttype-dlt-swccontexttype-type-definition">
-<h2>Dlt_SwcContextType类型定义 (Dlt_SwcContextType Type Definition)<a class="headerlink" href="#dlt-swccontexttype-dlt-swccontexttype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SwcContextType类型定义 (Dlt_SwcContextType Type Definition)<a class="headerlink" href="#dlt-swccontexttype-dlt-swccontexttype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -816,7 +815,7 @@
 </table>
 </section>
 <section id="dlt-loglevelthesholdtype-dlt-loglevelthresholdtype-type-definition">
-<h2>Dlt_LogLevelThesholdType类型定义 (DLT_LogLevelThresholdType type definition)<a class="headerlink" href="#dlt-loglevelthesholdtype-dlt-loglevelthresholdtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_LogLevelThesholdType类型定义 (DLT_LogLevelThresholdType type definition)<a class="headerlink" href="#dlt-loglevelthesholdtype-dlt-loglevelthresholdtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -856,7 +855,7 @@
 </table>
 </section>
 <section id="dlt-loglevelsettingtype-dlt-loglevelsettingtype-type-definition">
-<h2>Dlt_LogLevelSettingType类型定义 (Dlt_LogLevelSettingType type definition)<a class="headerlink" href="#dlt-loglevelsettingtype-dlt-loglevelsettingtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_LogLevelSettingType类型定义 (Dlt_LogLevelSettingType type definition)<a class="headerlink" href="#dlt-loglevelsettingtype-dlt-loglevelsettingtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -899,7 +898,7 @@
 </table>
 </section>
 <section id="dlt-txpdutype-dlt-txpdutype-type-definition">
-<h2>Dlt_TxPduType类型定义 (Dlt_TxPduType Type Definition)<a class="headerlink" href="#dlt-txpdutype-dlt-txpdutype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TxPduType类型定义 (Dlt_TxPduType Type Definition)<a class="headerlink" href="#dlt-txpdutype-dlt-txpdutype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -948,7 +947,7 @@
 </table>
 </section>
 <section id="dlt-rxpdutype-dlt-rxpdutype-type-definition">
-<h2>Dlt_RxPduType类型定义 (Dlt_RxPduType Type Definition)<a class="headerlink" href="#dlt-rxpdutype-dlt-rxpdutype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_RxPduType类型定义 (Dlt_RxPduType Type Definition)<a class="headerlink" href="#dlt-rxpdutype-dlt-rxpdutype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -988,7 +987,7 @@
 </table>
 </section>
 <section id="dlt-logchanneltype-dlt-logchanneltype-type-definition">
-<h2>Dlt_LogChannelType类型定义 (Dlt_LogChannelType Type Definition)<a class="headerlink" href="#dlt-logchanneltype-dlt-logchanneltype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_LogChannelType类型定义 (Dlt_LogChannelType Type Definition)<a class="headerlink" href="#dlt-logchanneltype-dlt-logchanneltype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1052,7 +1051,7 @@
 </table>
 </section>
 <section id="dlt-logchannelassignmenttype-dlt-logchannelassignmenttype-type-definition">
-<h2>Dlt_LogChannelAssignmentType类型定义 (Dlt_LogChannelAssignmentType type definition)<a class="headerlink" href="#dlt-logchannelassignmenttype-dlt-logchannelassignmenttype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_LogChannelAssignmentType类型定义 (Dlt_LogChannelAssignmentType type definition)<a class="headerlink" href="#dlt-logchannelassignmenttype-dlt-logchannelassignmenttype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1092,7 +1091,7 @@
 </table>
 </section>
 <section id="dlt-logoutputtype-dlt-logoutputtype-type-definition">
-<h2>Dlt_LogOutputType类型定义 (Dlt_LogOutputType Type Definition)<a class="headerlink" href="#dlt-logoutputtype-dlt-logoutputtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_LogOutputType类型定义 (Dlt_LogOutputType Type Definition)<a class="headerlink" href="#dlt-logoutputtype-dlt-logoutputtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1141,7 +1140,7 @@
 </table>
 </section>
 <section id="dlt-ecuidtypes-definition-of-dlt-ecuidtypes-types">
-<h2>Dlt_EcuIdTypes类型定义 (Definition of Dlt_EcuIdTypes Types)<a class="headerlink" href="#dlt-ecuidtypes-definition-of-dlt-ecuidtypes-types" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_EcuIdTypes类型定义 (Definition of Dlt_EcuIdTypes Types)<a class="headerlink" href="#dlt-ecuidtypes-definition-of-dlt-ecuidtypes-types" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1181,7 +1180,7 @@
 </table>
 </section>
 <section id="dlt-protocoltype-dlt-protocoltype-type-definition">
-<h2>Dlt_ProtocolType类型定义 (Dlt_ProtocolType Type Definition)<a class="headerlink" href="#dlt-protocoltype-dlt-protocoltype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_ProtocolType类型定义 (Dlt_ProtocolType Type Definition)<a class="headerlink" href="#dlt-protocoltype-dlt-protocoltype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1233,7 +1232,7 @@
 </table>
 </section>
 <section id="dlt-tracestatusassignmenttypes-definition-of-dlt-tracestatusassignmenttypes-types">
-<h2>Dlt_TraceStatusAssignmentTypes类型定义 (Definition of Dlt_TraceStatusAssignmentTypes Types)<a class="headerlink" href="#dlt-tracestatusassignmenttypes-definition-of-dlt-tracestatusassignmenttypes-types" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TraceStatusAssignmentTypes类型定义 (Definition of Dlt_TraceStatusAssignmentTypes Types)<a class="headerlink" href="#dlt-tracestatusassignmenttypes-definition-of-dlt-tracestatusassignmenttypes-types" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1273,7 +1272,7 @@
 </table>
 </section>
 <section id="dlt-tracestatussettingtype-dlt-tracestatussettingtype-type-definition">
-<h2>Dlt_TraceStatusSettingType类型定义 (Dlt_TraceStatusSettingType Type Definition)<a class="headerlink" href="#dlt-tracestatussettingtype-dlt-tracestatussettingtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TraceStatusSettingType类型定义 (Dlt_TraceStatusSettingType Type Definition)<a class="headerlink" href="#dlt-tracestatussettingtype-dlt-tracestatussettingtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1316,7 +1315,7 @@
 </table>
 </section>
 <section id="dlt-configtype-definition-of-dlt-configtype-type">
-<h2>Dlt_ConfigType类型定义 (Definition of Dlt_ConfigType Type)<a class="headerlink" href="#dlt-configtype-definition-of-dlt-configtype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_ConfigType类型定义 (Definition of Dlt_ConfigType Type)<a class="headerlink" href="#dlt-configtype-definition-of-dlt-configtype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1368,7 +1367,7 @@
 </table>
 </section>
 <section id="dlt-swctypes-definition-of-dlt-swctypes-types">
-<h2>Dlt_SwcTypes类型定义 (Definition of Dlt_SwcTypes Types)<a class="headerlink" href="#dlt-swctypes-definition-of-dlt-swctypes-types" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SwcTypes类型定义 (Definition of Dlt_SwcTypes Types)<a class="headerlink" href="#dlt-swctypes-definition-of-dlt-swctypes-types" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1444,7 +1443,7 @@
 </table>
 </section>
 <section id="dlt-bufferdatatypetypes-dlt-bufferdatatypetypes-type-definition">
-<h2>Dlt_BufferDataTypeTypes类型定义 (Dlt_BufferDataTypeTypes Type Definition)<a class="headerlink" href="#dlt-bufferdatatypetypes-dlt-bufferdatatypetypes-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_BufferDataTypeTypes类型定义 (Dlt_BufferDataTypeTypes Type Definition)<a class="headerlink" href="#dlt-bufferdatatypetypes-dlt-bufferdatatypetypes-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1478,7 +1477,7 @@
 </table>
 </section>
 <section id="dlt-statustypes-definition-of-dlt-statustypes-types">
-<h2>Dlt_statusTypes类型定义 (Definition of dlt_statusTypes Types)<a class="headerlink" href="#dlt-statustypes-definition-of-dlt-statustypes-types" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_statusTypes类型定义 (Definition of dlt_statusTypes Types)<a class="headerlink" href="#dlt-statustypes-definition-of-dlt-statustypes-types" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1512,7 +1511,7 @@
 </table>
 </section>
 <section id="dlt-swccontextinoftype-dlt-swccontextinoftype-type-definition">
-<h2>Dlt_SwcContextInofType类型定义 (Dlt_SwcContextInofType type definition)<a class="headerlink" href="#dlt-swccontextinoftype-dlt-swccontextinoftype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SwcContextInofType类型定义 (Dlt_SwcContextInofType type definition)<a class="headerlink" href="#dlt-swccontextinoftype-dlt-swccontextinoftype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1576,7 +1575,7 @@
 </table>
 </section>
 <section id="dlt-swcinfotype-definition-of-dlt-swcinfotype-type">
-<h2>Dlt_SwcInfoType类型定义 (Definition of Dlt_SwcInfoType Type)<a class="headerlink" href="#dlt-swcinfotype-definition-of-dlt-swcinfotype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SwcInfoType类型定义 (Definition of Dlt_SwcInfoType Type)<a class="headerlink" href="#dlt-swcinfotype-definition-of-dlt-swcinfotype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1619,7 +1618,7 @@
 </table>
 </section>
 <section id="dlt-channelinfotype-definition-of-dlt-channelinfotype-type">
-<h2>Dlt_ChannelInfoType类型定义 (Definition of Dlt_ChannelInfoType Type)<a class="headerlink" href="#dlt-channelinfotype-definition-of-dlt-channelinfotype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_ChannelInfoType类型定义 (Definition of Dlt_ChannelInfoType Type)<a class="headerlink" href="#dlt-channelinfotype-definition-of-dlt-channelinfotype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1659,7 +1658,7 @@
 </table>
 </section>
 <section id="dlt-messageinfotype-definition-of-dlt-messageinfotype-type">
-<h2>Dlt_MessageInfoType类型定义 (Definition of Dlt_MessageInfoType Type)<a class="headerlink" href="#dlt-messageinfotype-definition-of-dlt-messageinfotype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_MessageInfoType类型定义 (Definition of Dlt_MessageInfoType Type)<a class="headerlink" href="#dlt-messageinfotype-definition-of-dlt-messageinfotype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1693,7 +1692,7 @@
 </table>
 </section>
 <section id="dlt-runtimetype-dlt-runtimetype-runtime-type-definition">
-<h2>Dlt_RunTimeType类型定义 (Dlt_RunTimeType Runtime Type Definition)<a class="headerlink" href="#dlt-runtimetype-dlt-runtimetype-runtime-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_RunTimeType类型定义 (Dlt_RunTimeType Runtime Type Definition)<a class="headerlink" href="#dlt-runtimetype-dlt-runtimetype-runtime-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1751,7 +1750,7 @@
 </table>
 </section>
 <section id="dlt-modestatetype-type-definition-for-dlt-modestatetype">
-<h2>Dlt_ModeStateType类型定义 (Type definition for Dlt_ModeStateType)<a class="headerlink" href="#dlt-modestatetype-type-definition-for-dlt-modestatetype" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_ModeStateType类型定义 (Type definition for Dlt_ModeStateType)<a class="headerlink" href="#dlt-modestatetype-type-definition-for-dlt-modestatetype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1782,7 +1781,7 @@
 </table>
 </section>
 <section id="dlt-sendstatetype-type-definition-for-dlt-sendstatetype">
-<h2>Dlt_SendStateType类型定义 (Type definition for Dlt_SendStateType)<a class="headerlink" href="#dlt-sendstatetype-type-definition-for-dlt-sendstatetype" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SendStateType类型定义 (Type definition for Dlt_SendStateType)<a class="headerlink" href="#dlt-sendstatetype-type-definition-for-dlt-sendstatetype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1828,7 +1827,7 @@
 </table>
 </section>
 <section id="dlt-rxstatustypes-dlt-rxstatustypes-type-definition">
-<h2>Dlt_RxStatusTypes类型定义 (Dlt_RxStatusTypes type definition)<a class="headerlink" href="#dlt-rxstatustypes-dlt-rxstatustypes-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_RxStatusTypes类型定义 (Dlt_RxStatusTypes type definition)<a class="headerlink" href="#dlt-rxstatustypes-dlt-rxstatustypes-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1877,7 +1876,7 @@
 </table>
 </section>
 <section id="dlt-createextendedheaderinfotypes-dlt-createextendedheaderinfotypes-type-definition">
-<h2>Dlt_CreateExtendedHeaderInfoTypes类型定义 (Dlt_CreateExtendedHeaderInfoTypes type definition)<a class="headerlink" href="#dlt-createextendedheaderinfotypes-dlt-createextendedheaderinfotypes-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_CreateExtendedHeaderInfoTypes类型定义 (Dlt_CreateExtendedHeaderInfoTypes type definition)<a class="headerlink" href="#dlt-createextendedheaderinfotypes-dlt-createextendedheaderinfotypes-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1929,7 +1928,7 @@
 </table>
 </section>
 <section id="dlt-createstandardheaderinfotypes-dlt-createstandardheaderinfotypes-type-definition">
-<h2>Dlt_CreateStandardHeaderInfoTypes类型定义 (Dlt_CreateStandardHeaderInfoTypes type definition)<a class="headerlink" href="#dlt-createstandardheaderinfotypes-dlt-createstandardheaderinfotypes-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_CreateStandardHeaderInfoTypes类型定义 (Dlt_CreateStandardHeaderInfoTypes type definition)<a class="headerlink" href="#dlt-createstandardheaderinfotypes-dlt-createstandardheaderinfotypes-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1975,7 +1974,7 @@
 </table>
 </section>
 <section id="dlt-overflowinfotypes-definition-of-dlt-overflowinfotypes-types">
-<h2>Dlt_OverFlowInfoTypes类型定义 (Definition of Dlt_OverFlowInfoTypes Types)<a class="headerlink" href="#dlt-overflowinfotypes-definition-of-dlt-overflowinfotypes-types" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_OverFlowInfoTypes类型定义 (Definition of Dlt_OverFlowInfoTypes Types)<a class="headerlink" href="#dlt-overflowinfotypes-definition-of-dlt-overflowinfotypes-types" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2033,7 +2032,7 @@
 </table>
 </section>
 <section id="dlt-channeltype-definition-of-dlt-channeltype-type">
-<h2>Dlt_ChannelType类型定义 (Definition of Dlt_ChannelType Type)<a class="headerlink" href="#dlt-channeltype-definition-of-dlt-channeltype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_ChannelType类型定义 (Definition of Dlt_ChannelType Type)<a class="headerlink" href="#dlt-channeltype-definition-of-dlt-channeltype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2108,7 +2107,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2184,11 +2183,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dlt-init-the-dlt-init-function-defines">
-<h2>Dlt_Init函数定义 (The Dlt_Init function defines)<a class="headerlink" href="#dlt-init-the-dlt-init-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_Init函数定义 (The Dlt_Init function defines)<a class="headerlink" href="#dlt-init-the-dlt-init-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2263,7 +2262,7 @@
 </table>
 </section>
 <section id="dlt-getversioninfo-dlt-getversioninfo-function-definition">
-<h2>Dlt_GetVersionInfo函数定义 (DLT_GetVersionInfo function definition)<a class="headerlink" href="#dlt-getversioninfo-dlt-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetVersionInfo函数定义 (DLT_GetVersionInfo function definition)<a class="headerlink" href="#dlt-getversioninfo-dlt-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2333,7 +2332,7 @@
 </table>
 </section>
 <section id="dlt-sendtracemessage-the-dlt-sendtracemessage-function-definition">
-<h2>Dlt_SendTraceMessage函数定义 (The Dlt_SendTraceMessage function definition)<a class="headerlink" href="#dlt-sendtracemessage-the-dlt-sendtracemessage-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SendTraceMessage函数定义 (The Dlt_SendTraceMessage function definition)<a class="headerlink" href="#dlt-sendtracemessage-the-dlt-sendtracemessage-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2433,7 +2432,7 @@
 </table>
 </section>
 <section id="dlt-sendlogmessage-the-dlt-sendlogmessage-function-definition">
-<h2>Dlt_SendLogMessage函数定义 (The Dlt_SendLogMessage function definition)<a class="headerlink" href="#dlt-sendlogmessage-the-dlt-sendlogmessage-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SendLogMessage函数定义 (The Dlt_SendLogMessage function definition)<a class="headerlink" href="#dlt-sendlogmessage-the-dlt-sendlogmessage-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2533,7 +2532,7 @@
 </table>
 </section>
 <section id="dlt-detforwarderrortrace-the-dlt-detforwarderrortrace-function-definition">
-<h2>Dlt_DetForwardErrorTrace函数定义 (The Dlt_DetForwardErrorTrace function definition)<a class="headerlink" href="#dlt-detforwarderrortrace-the-dlt-detforwarderrortrace-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_DetForwardErrorTrace函数定义 (The Dlt_DetForwardErrorTrace function definition)<a class="headerlink" href="#dlt-detforwarderrortrace-the-dlt-detforwarderrortrace-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2613,7 +2612,7 @@
 </table>
 </section>
 <section id="dlt-registercontext-the-dlt-registercontext-function-definition">
-<h2>Dlt_RegisterContext函数定义 (The Dlt_RegisterContext function definition)<a class="headerlink" href="#dlt-registercontext-the-dlt-registercontext-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_RegisterContext函数定义 (The Dlt_RegisterContext function definition)<a class="headerlink" href="#dlt-registercontext-the-dlt-registercontext-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2718,7 +2717,7 @@
 </table>
 </section>
 <section id="dlt-unregistercontext-the-dlt-unregistercontext-function-definition">
-<h2>Dlt_UnRegisterContext函数定义 (The Dlt_UnRegisterContext function definition)<a class="headerlink" href="#dlt-unregistercontext-the-dlt-unregistercontext-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_UnRegisterContext函数定义 (The Dlt_UnRegisterContext function definition)<a class="headerlink" href="#dlt-unregistercontext-the-dlt-unregistercontext-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2803,7 +2802,7 @@
 </table>
 </section>
 <section id="dlt-setloglevel-the-dlt-setloglevel-function-defines">
-<h2>Dlt_SetLogLevel函数定义 (The Dlt_SetLogLevel function defines)<a class="headerlink" href="#dlt-setloglevel-the-dlt-setloglevel-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetLogLevel函数定义 (The Dlt_SetLogLevel function defines)<a class="headerlink" href="#dlt-setloglevel-the-dlt-setloglevel-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2913,7 +2912,7 @@
 </table>
 </section>
 <section id="dlt-settracestatus-the-dlt-settracestatus-function-definition">
-<h2>Dlt_SetTraceStatus函数定义 (The Dlt_SetTraceStatus function definition)<a class="headerlink" href="#dlt-settracestatus-the-dlt-settracestatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetTraceStatus函数定义 (The Dlt_SetTraceStatus function definition)<a class="headerlink" href="#dlt-settracestatus-the-dlt-settracestatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2998,7 +2997,7 @@
 </table>
 </section>
 <section id="dlt-getloginfo-define-the-dlt-getloginfo-function">
-<h2>Dlt_GetLogInfo函数定义 (Define the Dlt_GetLogInfo function)<a class="headerlink" href="#dlt-getloginfo-define-the-dlt-getloginfo-function" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetLogInfo函数定义 (Define the Dlt_GetLogInfo function)<a class="headerlink" href="#dlt-getloginfo-define-the-dlt-getloginfo-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3088,7 +3087,7 @@
 </table>
 </section>
 <section id="dlt-getdefaultloglevel-the-dlt-getdefaultloglevel-function-definition">
-<h2>Dlt_GetDefaultLogLevel函数定义 (The Dlt_GetDefaultLogLevel function definition)<a class="headerlink" href="#dlt-getdefaultloglevel-the-dlt-getdefaultloglevel-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetDefaultLogLevel函数定义 (The Dlt_GetDefaultLogLevel function definition)<a class="headerlink" href="#dlt-getdefaultloglevel-the-dlt-getdefaultloglevel-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3163,7 +3162,7 @@
 </table>
 </section>
 <section id="dlt-storeconfiguration-the-dlt-storeconfiguration-function-defines">
-<h2>Dlt_StoreConfiguration函数定义 (The Dlt_StoreConfiguration function defines)<a class="headerlink" href="#dlt-storeconfiguration-the-dlt-storeconfiguration-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_StoreConfiguration函数定义 (The Dlt_StoreConfiguration function defines)<a class="headerlink" href="#dlt-storeconfiguration-the-dlt-storeconfiguration-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3215,7 +3214,7 @@
 </table>
 </section>
 <section id="dlt-resettofactorydefault-dlt-resettofactorydefault-function-definition">
-<h2>Dlt_ResetToFactoryDefault函数定义 (Dlt_ResetToFactoryDefault function definition)<a class="headerlink" href="#dlt-resettofactorydefault-dlt-resettofactorydefault-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_ResetToFactoryDefault函数定义 (Dlt_ResetToFactoryDefault function definition)<a class="headerlink" href="#dlt-resettofactorydefault-dlt-resettofactorydefault-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3264,7 +3263,7 @@
 </table>
 </section>
 <section id="dlt-setmessagefiltering-dlt-setmessagefiltering-function-definition">
-<h2>Dlt_SetMessageFiltering函数定义 (Dlt_SetMessageFiltering function definition)<a class="headerlink" href="#dlt-setmessagefiltering-dlt-setmessagefiltering-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetMessageFiltering函数定义 (Dlt_SetMessageFiltering function definition)<a class="headerlink" href="#dlt-setmessagefiltering-dlt-setmessagefiltering-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3339,7 +3338,7 @@
 </table>
 </section>
 <section id="dlt-setdefaultloglevel-the-dlt-setdefaultloglevel-function-defines">
-<h2>Dlt_SetDefaultLogLevel函数定义 (The Dlt_SetDefaultLogLevel function defines)<a class="headerlink" href="#dlt-setdefaultloglevel-the-dlt-setdefaultloglevel-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetDefaultLogLevel函数定义 (The Dlt_SetDefaultLogLevel function defines)<a class="headerlink" href="#dlt-setdefaultloglevel-the-dlt-setdefaultloglevel-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3439,7 +3438,7 @@
 </table>
 </section>
 <section id="dlt-setdefaulttracestatus-the-dlt-setdefaulttracestatus-function-defines">
-<h2>Dlt_SetDefaultTraceStatus函数定义 (The Dlt_SetDefaultTraceStatus function defines)<a class="headerlink" href="#dlt-setdefaulttracestatus-the-dlt-setdefaulttracestatus-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetDefaultTraceStatus函数定义 (The Dlt_SetDefaultTraceStatus function defines)<a class="headerlink" href="#dlt-setdefaulttracestatus-the-dlt-setdefaulttracestatus-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3519,7 +3518,7 @@
 </table>
 </section>
 <section id="dlt-getdefaulttracestatus-the-dlt-getdefaulttracestatus-function-defines">
-<h2>Dlt_GetDefaultTraceStatus函数定义 (The Dlt_GetDefaultTraceStatus function defines)<a class="headerlink" href="#dlt-getdefaulttracestatus-the-dlt-getdefaulttracestatus-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetDefaultTraceStatus函数定义 (The Dlt_GetDefaultTraceStatus function defines)<a class="headerlink" href="#dlt-getdefaulttracestatus-the-dlt-getdefaulttracestatus-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3594,7 +3593,7 @@
 </table>
 </section>
 <section id="dlt-getlogchannelnames-dlt-getlogchannelnames-function-definition">
-<h2>Dlt_GetLogChannelNames函数定义 (Dlt_GetLogChannelNames function definition)<a class="headerlink" href="#dlt-getlogchannelnames-dlt-getlogchannelnames-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetLogChannelNames函数定义 (Dlt_GetLogChannelNames function definition)<a class="headerlink" href="#dlt-getlogchannelnames-dlt-getlogchannelnames-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3674,7 +3673,7 @@
 </table>
 </section>
 <section id="dlt-gettracestatus-the-dlt-gettracestatus-function-definition">
-<h2>Dlt_GetTraceStatus函数定义 (The Dlt_GetTraceStatus function definition)<a class="headerlink" href="#dlt-gettracestatus-the-dlt-gettracestatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetTraceStatus函数定义 (The Dlt_GetTraceStatus function definition)<a class="headerlink" href="#dlt-gettracestatus-the-dlt-gettracestatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3754,7 +3753,7 @@
 </table>
 </section>
 <section id="dlt-setlogchannelassignment-the-dlt-setlogchannelassignment-function-defines">
-<h2>Dlt_SetLogChannelAssignment函数定义 (The Dlt_SetLogChannelAssignment function defines)<a class="headerlink" href="#dlt-setlogchannelassignment-the-dlt-setlogchannelassignment-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetLogChannelAssignment函数定义 (The Dlt_SetLogChannelAssignment function defines)<a class="headerlink" href="#dlt-setlogchannelassignment-the-dlt-setlogchannelassignment-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3844,7 +3843,7 @@
 </table>
 </section>
 <section id="dlt-setlogchannelthreshold-the-dlt-setlogchannelthreshold-function-defines">
-<h2>Dlt_SetLogChannelThreshold函数定义 (The Dlt_SetLogChannelThreshold function defines)<a class="headerlink" href="#dlt-setlogchannelthreshold-the-dlt-setlogchannelthreshold-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_SetLogChannelThreshold函数定义 (The Dlt_SetLogChannelThreshold function defines)<a class="headerlink" href="#dlt-setlogchannelthreshold-the-dlt-setlogchannelthreshold-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3919,7 +3918,7 @@
 </table>
 </section>
 <section id="dlt-getlogchannelthreshold-the-dlt-getlogchannelthreshold-function-definition">
-<h2>Dlt_GetLogChannelThreshold函数定义 (The Dlt_GetLogChannelThreshold function definition)<a class="headerlink" href="#dlt-getlogchannelthreshold-the-dlt-getlogchannelthreshold-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_GetLogChannelThreshold函数定义 (The Dlt_GetLogChannelThreshold function definition)<a class="headerlink" href="#dlt-getlogchannelthreshold-the-dlt-getlogchannelthreshold-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4014,7 +4013,7 @@
 </table>
 </section>
 <section id="dlt-txfunction-dlt-txfunction-function-definition">
-<h2>Dlt_TxFunction函数定义 (Dlt_TxFunction function definition)<a class="headerlink" href="#dlt-txfunction-dlt-txfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TxFunction函数定义 (Dlt_TxFunction function definition)<a class="headerlink" href="#dlt-txfunction-dlt-txfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -4038,11 +4037,11 @@
 </tbody>
 </table>
 <section id="definition-of-communication-callback-interface-function">
-<h3>通信回调接口函数定义 (Definition of Communication Callback Interface Function)<a class="headerlink" href="#definition-of-communication-callback-interface-function" title="链接到此标题。">¶</a></h3>
+<h3>通信回调接口函数定义 (Definition of Communication Callback Interface Function)<a class="headerlink" href="#definition-of-communication-callback-interface-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dlt-rxindication-the-dlt-rxindication-function-definition">
-<h2>Dlt_RxIndication函数定义 (The Dlt_RxIndication function definition)<a class="headerlink" href="#dlt-rxindication-the-dlt-rxindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_RxIndication函数定义 (The Dlt_RxIndication function definition)<a class="headerlink" href="#dlt-rxindication-the-dlt-rxindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4112,7 +4111,7 @@
 </table>
 </section>
 <section id="dlt-triggertransmit-the-dlt-triggertransmit-function-definition">
-<h2>Dlt_TriggerTransmit函数定义 (The Dlt_TriggerTransmit function definition)<a class="headerlink" href="#dlt-triggertransmit-the-dlt-triggertransmit-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TriggerTransmit函数定义 (The Dlt_TriggerTransmit function definition)<a class="headerlink" href="#dlt-triggertransmit-the-dlt-triggertransmit-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4182,7 +4181,7 @@
 </table>
 </section>
 <section id="dlt-txconfirmation-the-dlt-txconfirmation-function-definition">
-<h2>Dlt_TxConfirmation函数定义 (The Dlt_TxConfirmation function definition)<a class="headerlink" href="#dlt-txconfirmation-the-dlt-txconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TxConfirmation函数定义 (The Dlt_TxConfirmation function definition)<a class="headerlink" href="#dlt-txconfirmation-the-dlt-txconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4257,7 +4256,7 @@
 </table>
 </section>
 <section id="dlt-tptxconfirmation-the-dlt-tptxconfirmation-function-definition">
-<h2>Dlt_TpTxConfirmation函数定义 (The Dlt_TpTxConfirmation function definition)<a class="headerlink" href="#dlt-tptxconfirmation-the-dlt-tptxconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TpTxConfirmation函数定义 (The Dlt_TpTxConfirmation function definition)<a class="headerlink" href="#dlt-tptxconfirmation-the-dlt-tptxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4332,7 +4331,7 @@
 </table>
 </section>
 <section id="dlt-copytxdata-the-dlt-copytxdata-function-definition">
-<h2>Dlt_CopyTxData函数定义 (The Dlt_CopyTxData function definition)<a class="headerlink" href="#dlt-copytxdata-the-dlt-copytxdata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_CopyTxData函数定义 (The Dlt_CopyTxData function definition)<a class="headerlink" href="#dlt-copytxdata-the-dlt-copytxdata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4437,7 +4436,7 @@
 </table>
 </section>
 <section id="dlt-startofreception-startofreceptionfunctiondefinition">
-<h2>Dlt_StartOfReception函数定义 (StartOfReceptionFunctionDefinition)<a class="headerlink" href="#dlt-startofreception-startofreceptionfunctiondefinition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_StartOfReception函数定义 (StartOfReceptionFunctionDefinition)<a class="headerlink" href="#dlt-startofreception-startofreceptionfunctiondefinition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4542,7 +4541,7 @@
 </table>
 </section>
 <section id="dlt-tprxindication-the-dlt-tprxindication-function-definition">
-<h2>Dlt_TpRxIndication函数定义 (The Dlt_TpRxIndication function definition)<a class="headerlink" href="#dlt-tprxindication-the-dlt-tprxindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TpRxIndication函数定义 (The Dlt_TpRxIndication function definition)<a class="headerlink" href="#dlt-tprxindication-the-dlt-tprxindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4612,7 +4611,7 @@
 </table>
 </section>
 <section id="dlt-copyrxdata-the-dlt-copyrxdata-function-definition">
-<h2>Dlt_CopyRxData函数定义 (The Dlt_CopyRxData function definition)<a class="headerlink" href="#dlt-copyrxdata-the-dlt-copyrxdata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_CopyRxData函数定义 (The Dlt_CopyRxData function definition)<a class="headerlink" href="#dlt-copyrxdata-the-dlt-copyrxdata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4691,11 +4690,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dlt-injectioncallback-user-dlt-injectioncallback-user-function-definition">
-<h2>Dlt_InjectionCallback_&lt;User&gt;函数定义 (Dlt_InjectionCallback_&lt;User&gt; Function Definition)<a class="headerlink" href="#dlt-injectioncallback-user-dlt-injectioncallback-user-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_InjectionCallback_&lt;User&gt;函数定义 (Dlt_InjectionCallback_&lt;User&gt; Function Definition)<a class="headerlink" href="#dlt-injectioncallback-user-dlt-injectioncallback-user-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4765,7 +4764,7 @@
 </table>
 </section>
 <section id="dlt-loglevelchangednotification-user-dlt-loglevelchangednotification-user-function-definition">
-<h2>Dlt_LogLevelChangedNotification_&lt;User&gt;函数定义 (Dlt_LogLevelChangedNotification_&lt;User&gt; function definition)<a class="headerlink" href="#dlt-loglevelchangednotification-user-dlt-loglevelchangednotification-user-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_LogLevelChangedNotification_&lt;User&gt;函数定义 (Dlt_LogLevelChangedNotification_&lt;User&gt; function definition)<a class="headerlink" href="#dlt-loglevelchangednotification-user-dlt-loglevelchangednotification-user-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4835,7 +4834,7 @@
 </table>
 </section>
 <section id="dlt-tracestatuschangednotification-user-dlt-tracestatuschangednotification-user-function-definition">
-<h2>Dlt_TraceStatusChangedNotification_&lt;User&gt;函数定义 (Dlt_TraceStatusChangedNotification_&lt;User&gt; Function Definition)<a class="headerlink" href="#dlt-tracestatuschangednotification-user-dlt-tracestatuschangednotification-user-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dlt_TraceStatusChangedNotification_&lt;User&gt;函数定义 (Dlt_TraceStatusChangedNotification_&lt;User&gt; Function Definition)<a class="headerlink" href="#dlt-tracestatuschangednotification-user-dlt-tracestatuschangednotification-user-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4930,7 +4929,7 @@
 </table>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <p>主要介绍DLT模块的配置参数，列举配置项在配置界面显示的名称，对应的标准、可能的取值、默认的取值、参数描述及依赖关系，旨在指导用户如何使用配置工具进行DLT模块参数的配置。</p>
 <p>Mainly introduce the configuration parameters of the DLT module, list the names of configuration items displayed in the configuration interface, their corresponding standards, possible values, default values, parameter descriptions, and dependencies, aimed at guiding users on how to configure the DLT module parameters using the configuration tool.</p>
 <p class="centered">
@@ -4960,7 +4959,7 @@
 </tbody>
 </table>
 <section id="dltgeneral-dltgeneral-configuration">
-<h3>DltGeneral配置 (DltGeneral Configuration)<a class="headerlink" href="#dltgeneral-dltgeneral-configuration" title="链接到此标题。">¶</a></h3>
+<h3>DltGeneral配置 (DltGeneral Configuration)<a class="headerlink" href="#dltgeneral-dltgeneral-configuration" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dltgeneral-diagram-of-general-container-configuration-for-dlt-module">
 <img alt="Dlt模块的General容器配置图 (Diagram of General Container Configuration for Dlt Module)" src="../../_images/image714.png" />
 </figure>
@@ -5340,11 +5339,11 @@
 </table>
 </section>
 <section id="dltconfigset-dltconfigset-configuration">
-<h3>DltConfigSet配置 (DltConfigSet Configuration)<a class="headerlink" href="#dltconfigset-dltconfigset-configuration" title="链接到此标题。">¶</a></h3>
+<h3>DltConfigSet配置 (DltConfigSet Configuration)<a class="headerlink" href="#dltconfigset-dltconfigset-configuration" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dltconfigset-createnewdltconfigset">
-<h2>新建DltConfigSet (CreateNewDltConfigSet)<a class="headerlink" href="#dltconfigset-createnewdltconfigset" title="链接到此标题。">¶</a></h2>
+<h2>新建DltConfigSet (CreateNewDltConfigSet)<a class="headerlink" href="#dltconfigset-createnewdltconfigset" title="Link to this heading">¶</a></h2>
 <p>DltConfigSet添加步骤为：鼠标选中DltConfigSets—单击右键—New—DltConfigSet。默认情况，无该配置项。</p>
 <p>DltConfigSet addition steps are as follows: select DltConfigSets with the mouse — right-click — New — DltConfigSet. By default, there is no such configuration item.</p>
 <figure class="align-center" id="dltconfigset-dlt-module-new-configset-configuration-container-interface">
@@ -5352,7 +5351,7 @@
 </figure>
 </section>
 <section id="dltconfigset-configure-container-for-dltconfigset">
-<h2>DltConfigSet配置容器 (Configure Container for DltConfigSet)<a class="headerlink" href="#dltconfigset-configure-container-for-dltconfigset" title="链接到此标题。">¶</a></h2>
+<h2>DltConfigSet配置容器 (Configure Container for DltConfigSet)<a class="headerlink" href="#dltconfigset-configure-container-for-dltconfigset" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="dltconfigset-dlt-module-configset-configuration-container-interface">
 <img alt="Dlt模块ConfigSet配置容器界面 (DLT Module ConfigSet Configuration Container Interface)" src="../../_images/image913.png" />
 </figure>
@@ -5486,9 +5485,9 @@
 </table>
 </section>
 <section id="dltloglevelsettings-configuration-of-dltloglevelsettings">
-<h2>DltLogLevelSettings配置 (Configuration of DltLogLevelSettings)<a class="headerlink" href="#dltloglevelsettings-configuration-of-dltloglevelsettings" title="链接到此标题。">¶</a></h2>
+<h2>DltLogLevelSettings配置 (Configuration of DltLogLevelSettings)<a class="headerlink" href="#dltloglevelsettings-configuration-of-dltloglevelsettings" title="Link to this heading">¶</a></h2>
 <section id="dltloglevelsettings-createdltloglevelsettings">
-<h3>新建DltLogLevelSettings (CreateDltLogLevelSettings)<a class="headerlink" href="#dltloglevelsettings-createdltloglevelsettings" title="链接到此标题。">¶</a></h3>
+<h3>新建DltLogLevelSettings (CreateDltLogLevelSettings)<a class="headerlink" href="#dltloglevelsettings-createdltloglevelsettings" title="Link to this heading">¶</a></h3>
 <p>DltLogLevelSettings添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltLogLevelSettings。默认情况，无该配置项。</p>
 <p>Add steps for DltLogLevelSettings: Right-click on DltConfigSet—Select New—DltLogLevelSettings. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltloglevelsetting-dlt-module-new-loglevel-setting-container-interface">
@@ -5496,7 +5495,7 @@
 </figure>
 </section>
 <section id="dltloglevelsettings-configure-container-for-dltloglevelsettings">
-<h3>DltLogLevelSettings配置容器 (Configure Container for DltLogLevelSettings)<a class="headerlink" href="#dltloglevelsettings-configure-container-for-dltloglevelsettings" title="链接到此标题。">¶</a></h3>
+<h3>DltLogLevelSettings配置容器 (Configure Container for DltLogLevelSettings)<a class="headerlink" href="#dltloglevelsettings-configure-container-for-dltloglevelsettings" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块设置初始默认日志级别，在DltLogLevelSettings选项卡中点击默认日志级别设置按钮DltDefaultLogLevel，从下拉菜单中选中一个配置作为默认日志级别。</p>
 <p>Set the initial default log level for the Dlt module on the DltLogLevelSettings tab by clicking the Default Log Level button DltDefaultLogLevel and selecting a configuration from the drop-down menu as the default log level.</p>
 <figure class="align-center" id="dltloglevelsetting-dlt-module-loglevel-setting-configuration-interface-container">
@@ -5504,7 +5503,7 @@
 </figure>
 </section>
 <section id="dltloglevelthreshold-new-dltloglevelthreshold">
-<h3>新建DltLogLevelThreshold (New DltLogLevelThreshold)<a class="headerlink" href="#dltloglevelthreshold-new-dltloglevelthreshold" title="链接到此标题。">¶</a></h3>
+<h3>新建DltLogLevelThreshold (New DltLogLevelThreshold)<a class="headerlink" href="#dltloglevelthreshold-new-dltloglevelthreshold" title="Link to this heading">¶</a></h3>
 <p>DltLogLevelThreshold添加步骤为：鼠标选中DltLogLevelSetting—单击右键—New—DltLogLevelThreshold。默认情况，无该配置项。</p>
 <p>DltLogLevelThreshold addition step is: right-click DltLogLevelSetting — select New — DltLogLevelThreshold. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltloglevelthreshold-dlt-module-new-loglevel-threshold-container-interface">
@@ -5512,7 +5511,7 @@
 </figure>
 </section>
 <section id="dltloglevelthreshold-configure-container-with-dltloglevelthreshold">
-<h3>DltLogLevelThreshold配置容器 (Configure Container with DltLogLevelThreshold)<a class="headerlink" href="#dltloglevelthreshold-configure-container-with-dltloglevelthreshold" title="链接到此标题。">¶</a></h3>
+<h3>DltLogLevelThreshold配置容器 (Configure Container with DltLogLevelThreshold)<a class="headerlink" href="#dltloglevelthreshold-configure-container-with-dltloglevelthreshold" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块设置初始日志级别，在DltLogLevelThreshold选项卡中点击日志级别阈值设置按钮Threshold，从下拉菜单中选中一个配置作为初始日志级别阈值。默认情况，该配置项设置为DLT_LOG_OFF。</p>
 <p>Set the initial log level for the Dlt module by clicking the Log Level Threshold button in the DltLogLevelThreshold tab. From the drop-down menu, select a configuration as the initial log level threshold. By default, this configuration item is set to DLT_LOG_OFF.</p>
 <figure class="align-center" id="dltloglevelthreshold-the-loglevelthreshold-configuration-for-dlt-module-in-container-interface">
@@ -5520,7 +5519,7 @@
 </figure>
 </section>
 <section id="dltloglevelthresholdswccontextref-configure-container-with-dltloglevelthresholdswccontextref">
-<h3>DltLogLevelThresholdSwcContextRef配置容器 (Configure Container with DltLogLevelThresholdSwcContextRef)<a class="headerlink" href="#dltloglevelthresholdswccontextref-configure-container-with-dltloglevelthresholdswccontextref" title="链接到此标题。">¶</a></h3>
+<h3>DltLogLevelThresholdSwcContextRef配置容器 (Configure Container with DltLogLevelThresholdSwcContextRef)<a class="headerlink" href="#dltloglevelthresholdswccontextref-configure-container-with-dltloglevelthresholdswccontextref" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块对应的日志级别阈值挂接SWC上下文注册的参考配置信息，在DltLogLevelThreshold选项卡中点击日志级别阈值SWC上下文引用挂接设置按钮LogLevelThresholdSwcContextRef，从下拉菜单中选中一个配置作为相应日志级别阈值的上下文配置信息。默认情况，无该配置项。</p>
 <p>In the DltLogLevelThreshold option card, click the LogLevelThresholdSwcContextRef button for logging level threshold SWC context reference attachment. Select a configuration from the drop-down menu as the context configuration information for the corresponding logging level threshold. By default, there is no such configuration item.</p>
 <figure class="align-center" id="dltloglevelthresholdswccontextref-the-loglevelthresholdswccontextref-configuration-for-the-dlt-module-container-interface">
@@ -5528,7 +5527,7 @@
 </figure>
 </section>
 <section id="dltloglevelsetting-configuration-for-setting-the-log-level-of-the-container-properties-description">
-<h3>DltLogLevelSetting配置容器的属性描述 (Configuration for setting the log level of the container properties description)<a class="headerlink" href="#dltloglevelsetting-configuration-for-setting-the-log-level-of-the-container-properties-description" title="链接到此标题。">¶</a></h3>
+<h3>DltLogLevelSetting配置容器的属性描述 (Configuration for setting the log level of the container properties description)<a class="headerlink" href="#dltloglevelsetting-configuration-for-setting-the-log-level-of-the-container-properties-description" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表 Dlt模块的LogLevelSetting配置属性描述 (Description of the LogLevelSetting configuration property for Dlt module)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -5606,9 +5605,9 @@
 </section>
 </section>
 <section id="dltlogoutputs-configuration-of-dltlogoutputs">
-<h2>DltLogOutputs配置 (Configuration of DltLogOutputs)<a class="headerlink" href="#dltlogoutputs-configuration-of-dltlogoutputs" title="链接到此标题。">¶</a></h2>
+<h2>DltLogOutputs配置 (Configuration of DltLogOutputs)<a class="headerlink" href="#dltlogoutputs-configuration-of-dltlogoutputs" title="Link to this heading">¶</a></h2>
 <section id="dltlogoutputs-create-dltlogoutputs">
-<h3>新建DltLogOutputs (Create DltLogOutputs)<a class="headerlink" href="#dltlogoutputs-create-dltlogoutputs" title="链接到此标题。">¶</a></h3>
+<h3>新建DltLogOutputs (Create DltLogOutputs)<a class="headerlink" href="#dltlogoutputs-create-dltlogoutputs" title="Link to this heading">¶</a></h3>
 <p>DltLogOutputs添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltLogOutputs。默认情况，无该配置项。</p>
 <p>Add steps for DltLogOutputs: Right-click on DltConfigSet — New — DltLogOutputs. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltlogoutput-interface-for-creating-logoutput-container-in-dlt-module">
@@ -5616,7 +5615,7 @@
 </figure>
 </section>
 <section id="dltlogoutput-configure-container-for-dltlogoutput">
-<h3>DltLogOutput配置容器 (Configure Container for DltLogOutput)<a class="headerlink" href="#dltlogoutput-configure-container-for-dltlogoutput" title="链接到此标题。">¶</a></h3>
+<h3>DltLogOutput配置容器 (Configure Container for DltLogOutput)<a class="headerlink" href="#dltlogoutput-configure-container-for-dltlogoutput" title="Link to this heading">¶</a></h3>
 <p>引用默认日志通道，如果没有找到其他匹配项，则必须将其用于日志/跟踪输出。在DltLogOutput选项卡中点击默认日志通道引用设置按钮。</p>
 <p>Reference default log channel; it must be used for log/tracing output if no other match is found. Click the default log channel reference setting button in the DltLogOutput tab.</p>
 <p>DltDefaultLogChannelRef，从下拉菜单中选中一个配置作为默认日志通道。默认情况，无该配置项。</p>
@@ -5718,7 +5717,7 @@
 </table>
 </section>
 <section id="dltlogchannel-createdltlogchannel">
-<h3>新建DltLogChannel (CreateDltLogChannel)<a class="headerlink" href="#dltlogchannel-createdltlogchannel" title="链接到此标题。">¶</a></h3>
+<h3>新建DltLogChannel (CreateDltLogChannel)<a class="headerlink" href="#dltlogchannel-createdltlogchannel" title="Link to this heading">¶</a></h3>
 <p>DltLogChannel添加步骤为：鼠标选中DltLogOutput—单击右键—New—DltLogChannel。默认情况，无该配置项。</p>
 <p>Add steps for DltLogChannel: right-click on DltLogOutput — select New — DltLogChannel. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltlogchannel-dlt-module-new-log-channel-container-interface">
@@ -5726,7 +5725,7 @@
 </figure>
 </section>
 <section id="dltlogchannel-configure-container-for-dltlogchannel">
-<h3>DltLogChannel配置容器 (Configure Container for DltLogChannel)<a class="headerlink" href="#dltlogchannel-configure-container-for-dltlogchannel" title="链接到此标题。">¶</a></h3>
+<h3>DltLogChannel配置容器 (Configure Container for DltLogChannel)<a class="headerlink" href="#dltlogchannel-configure-container-for-dltlogchannel" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块设置日志通道指定发生缓冲区溢出时重置缓冲区溢出标志的周期时间；为日志通道特定消息缓冲区设置缓冲区大小；为日志通道配置索引名称；为Dlt日志或跟踪消息设置长限制；为日志通道设置日志级别阈值；为日志通道设置通信带宽；为日志通道的传输功能指定周期时间；打开/关闭对应日志通道。</p>
 <p>Set the cycle time for resetting the buffer overflow flag when a buffer overflow occurs for the Dlt module logging channel; set the buffer size for specific message buffers of the logging channel; configure the index name for the logging channel; set the length limit for Dlt logs or tracing messages; set the log level threshold for the logging channel; set the communication bandwidth for the logging channel; specify the cycle time for the transmission function of the logging channel; enable/disable the corresponding logging channel.</p>
 <p>默认情况，无该配置项。</p>
@@ -5948,7 +5947,7 @@
 </table>
 </section>
 <section id="dlttxpdu-createnewdlttxpdu">
-<h3>新建DltTxPdu (CreateNewDltTxPdu)<a class="headerlink" href="#dlttxpdu-createnewdlttxpdu" title="链接到此标题。">¶</a></h3>
+<h3>新建DltTxPdu (CreateNewDltTxPdu)<a class="headerlink" href="#dlttxpdu-createnewdlttxpdu" title="Link to this heading">¶</a></h3>
 <p>DltTxPdu添加步骤为：鼠标选中DltLogChannel—单击右键—New—DltTxPdu。默认情况，无该配置项。</p>
 <p>Add steps for DltTxPdu: Right-click on DltLogChannel — select New — DltTxPdu. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dlttxpdu-dlt-module-new-txpdu-container-interface">
@@ -5956,7 +5955,7 @@
 </figure>
 </section>
 <section id="dlttxpdu-dlttxpdu-configuration-container">
-<h3>DltTxPdu配置容器 (DLTTxPdu Configuration Container)<a class="headerlink" href="#dlttxpdu-dlttxpdu-configuration-container" title="链接到此标题。">¶</a></h3>
+<h3>DltTxPdu配置容器 (DLTTxPdu Configuration Container)<a class="headerlink" href="#dlttxpdu-dlttxpdu-configuration-container" title="Link to this heading">¶</a></h3>
 <p>将相应日志通道的发送PDU与ECU模块的PDU信号关联起来，并对相应配置项进行设置，如DltTxPduHandleId、DltTxPduUseTp和DltTxPduIdRef等参数设置。</p>
 <p>Associate the sent PDU of the corresponding log channel with the PDU signal of the ECU module and set relevant configuration items such as DltTxPduHandleId, DltTxPduUseTp, and DltTxPduIdRef.</p>
 <figure class="align-center" id="dlttxpdu-dlt-module-txpdu-configuration-container-interface">
@@ -6068,7 +6067,7 @@
 </table>
 </section>
 <section id="dltlogchannelassignment-new-dltlogchannelassignment">
-<h3>新建DltLogChannelAssignment (New DltLogChannelAssignment)<a class="headerlink" href="#dltlogchannelassignment-new-dltlogchannelassignment" title="链接到此标题。">¶</a></h3>
+<h3>新建DltLogChannelAssignment (New DltLogChannelAssignment)<a class="headerlink" href="#dltlogchannelassignment-new-dltlogchannelassignment" title="Link to this heading">¶</a></h3>
 <p>DltLogChannelAssignment添加步骤为：鼠标选中DltLogOutput—单击右键—New—DltLogChannelAssignment。默认情况，无该配置项。</p>
 <p>Add steps for DltLogChannelAssignment: Right-click DltLogOutput — New — DltLogChannelAssignment. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltlogchannelassignment-dlt-module-new-log-channel-assignment-container-interface">
@@ -6076,7 +6075,7 @@
 </figure>
 </section>
 <section id="dltlogchannelassignment-configure-container-for-dltlogchannelassignment">
-<h3>DltLogChannelAssignment配置容器 (Configure Container for DltLogChannelAssignment)<a class="headerlink" href="#dltlogchannelassignment-configure-container-for-dltlogchannelassignment" title="链接到此标题。">¶</a></h3>
+<h3>DltLogChannelAssignment配置容器 (Configure Container for DltLogChannelAssignment)<a class="headerlink" href="#dltlogchannelassignment-configure-container-for-dltlogchannelassignment" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块的日志通道分配挂接相应的上下文配置ContextRef信息，在DltLogChannelAssignment项卡中点击日志通道阈值设置按钮Assignment，从下拉菜单中选中一个配置作为日志通道分配的信息。</p>
 <p>Assign the挂接 corresponding context configuration ContextRef information for the Dlt module log channels on the DltLogChannelAssignment tab. Click the log channel threshold setting button Assignment and select a configuration from the dropdown menu as the log channel assignment information.</p>
 <figure class="align-center" id="dltlogchannelassignment-the-log-channel-assignment-configuration-interface-for-dlt-module">
@@ -6159,9 +6158,9 @@
 </section>
 </section>
 <section id="dltprotocols-dltprotocols-configuration">
-<h2>DltProtocols配置 (DLTProtocols Configuration)<a class="headerlink" href="#dltprotocols-dltprotocols-configuration" title="链接到此标题。">¶</a></h2>
+<h2>DltProtocols配置 (DLTProtocols Configuration)<a class="headerlink" href="#dltprotocols-dltprotocols-configuration" title="Link to this heading">¶</a></h2>
 <section id="dltprotocols-createdltprotocols">
-<h3>新建DltProtocols (CreateDltProtocols)<a class="headerlink" href="#dltprotocols-createdltprotocols" title="链接到此标题。">¶</a></h3>
+<h3>新建DltProtocols (CreateDltProtocols)<a class="headerlink" href="#dltprotocols-createdltprotocols" title="Link to this heading">¶</a></h3>
 <p>DltProtocols添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltProtocols。默认情况，无该配置项。</p>
 <p>Add steps for DltProtocols: Right-click on DltConfigSet—select New—DltProtocols. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltprotocol-dlt-module-new-protocol-configuration-container-interface">
@@ -6169,7 +6168,7 @@
 </figure>
 </section>
 <section id="dltprotocols-configure-dltprotocols-container">
-<h3>DltProtocols配置容器 (Configure DltProtocols Container)<a class="headerlink" href="#dltprotocols-configure-dltprotocols-container" title="链接到此标题。">¶</a></h3>
+<h3>DltProtocols配置容器 (Configure DltProtocols Container)<a class="headerlink" href="#dltprotocols-configure-dltprotocols-container" title="Link to this heading">¶</a></h3>
 <p>用于处理特定协议变体的配置参数，如Dlt标准消息报文头中是否使用EcuId，SessionId、TimeStamp等参数的配置，在非Verbose模式中是否使用扩展消息报文头的参数配置，Verbose模式的参数配置，Dlt消息过滤的状态配置。</p>
 <p>Configuration parameters for handling specific protocol variants, such as whether to use EcuId, SessionId, TimeStamp, etc., in the DLT standard message header; parameter configuration for using extended message headers in non-Verbose mode; parameter configuration for Verbose mode; and status configuration for DLT message filtering.</p>
 <figure class="align-center" id="dltprotocols-dlt-module-protocols-configuration-container-interface">
@@ -6347,13 +6346,13 @@
 </table>
 </section>
 <section id="dltecuid-new-dltecuid">
-<h3>新建DltEcuId (New DltEcuId)<a class="headerlink" href="#dltecuid-new-dltecuid" title="链接到此标题。">¶</a></h3>
+<h3>新建DltEcuId (New DltEcuId)<a class="headerlink" href="#dltecuid-new-dltecuid" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dltecuid-dlt-module-new-ecu-id-configuration-container-interface">
 <img alt="Dlt模块新建EcuId配置容器界面 (DLT Module New ECU ID Configuration Container Interface)" src="../../_images/image253.png" />
 </figure>
 </section>
 <section id="dltecuid-configure-container-for-dltecuid">
-<h3>DltEcuId配置容器 (Configure Container for DltEcuId)<a class="headerlink" href="#dltecuid-configure-container-for-dltecuid" title="链接到此标题。">¶</a></h3>
+<h3>DltEcuId配置容器 (Configure Container for DltEcuId)<a class="headerlink" href="#dltecuid-configure-container-for-dltecuid" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表 Dlt模块的EcuId配置属性描述 (Description of the EcuId Configuration Property for Dlt Module)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -6430,13 +6429,13 @@
 </table>
 </section>
 <section id="dltecuidvaluechoice-new-dltecuidvaluechoice">
-<h3>新建DltEcuIdValueChoice (New DltEcuIdValueChoice)<a class="headerlink" href="#dltecuidvaluechoice-new-dltecuidvaluechoice" title="链接到此标题。">¶</a></h3>
+<h3>新建DltEcuIdValueChoice (New DltEcuIdValueChoice)<a class="headerlink" href="#dltecuidvaluechoice-new-dltecuidvaluechoice" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dltecuidvaluechoice-dlt-module-new-ecuidvaluechoice-configuration-container-interface">
 <img alt="Dlt模块新建EcuIdValueChoice配置容器界面 (Dlt Module New EcuIdValueChoice Configuration Container Interface)" src="../../_images/image263.png" />
 </figure>
 </section>
 <section id="dltecuidvaluechoice-configuration-container-for-dltecuidvaluechoice">
-<h3>DltEcuIdValueChoice配置容器 (Configuration Container for DltEcuIdValueChoice)<a class="headerlink" href="#dltecuidvaluechoice-configuration-container-for-dltecuidvaluechoice" title="链接到此标题。">¶</a></h3>
+<h3>DltEcuIdValueChoice配置容器 (Configuration Container for DltEcuIdValueChoice)<a class="headerlink" href="#dltecuidvaluechoice-configuration-container-for-dltecuidvaluechoice" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dltecuidvaluechoice1-dlt-module-new-ecuidvaluechoice-configuration-container-interface">
 <img alt="Dlt模块新建EcuIdValueChoice配置容器界面1 (Dlt Module New EcuIdValueChoice Configuration Container Interface)" src="../../_images/image273.png" />
 </figure>
@@ -6498,7 +6497,7 @@
 </table>
 </section>
 <section id="dltecuidcalloutchoice-dltecuidcalloutchoice-configuration-container">
-<h3>DltEcuIdCalloutChoice配置容器 (DltEcuIdCalloutChoice Configuration Container)<a class="headerlink" href="#dltecuidcalloutchoice-dltecuidcalloutchoice-configuration-container" title="链接到此标题。">¶</a></h3>
+<h3>DltEcuIdCalloutChoice配置容器 (DltEcuIdCalloutChoice Configuration Container)<a class="headerlink" href="#dltecuidcalloutchoice-dltecuidcalloutchoice-configuration-container" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dltecuidcalloutchoice-dlt-module-ecuid-callout-choice-configuration-container-interface">
 <img alt="Dlt模块EcuIdCalloutChoice配置容器界面 (DLT Module EcuId Callout Choice Configuration Container Interface)" src="../../_images/image283.png" />
 </figure>
@@ -6561,9 +6560,9 @@
 </section>
 </section>
 <section id="dltrxpdus-dltrxpdus-configuration">
-<h2>DltRxPdus配置 (DLTRxPDUs Configuration)<a class="headerlink" href="#dltrxpdus-dltrxpdus-configuration" title="链接到此标题。">¶</a></h2>
+<h2>DltRxPdus配置 (DLTRxPDUs Configuration)<a class="headerlink" href="#dltrxpdus-dltrxpdus-configuration" title="Link to this heading">¶</a></h2>
 <section id="dltrxpdus-createnewdltrxpdus">
-<h3>新建DltRxPdus (CreateNewDltRxPdus)<a class="headerlink" href="#dltrxpdus-createnewdltrxpdus" title="链接到此标题。">¶</a></h3>
+<h3>新建DltRxPdus (CreateNewDltRxPdus)<a class="headerlink" href="#dltrxpdus-createnewdltrxpdus" title="Link to this heading">¶</a></h3>
 <p>DltRxPdus添加步骤为：鼠标选中DltConfigSet—单击右键—New—DltRxPdus。默认情况，无该配置项。</p>
 <p>Add steps for DltRxPdus: Right-click on DltConfigSet — select New — DltRxPdus. This configuration item is not default.</p>
 <figure class="align-center" id="dltrxpdu-dlt-module-new-rx-pdu-configuration-container-interface">
@@ -6571,7 +6570,7 @@
 </figure>
 </section>
 <section id="dltrxpdus-dltrxpdus-configuration-container">
-<h3>DltRxPdus配置容器 (DLTRxPDUs Configuration Container)<a class="headerlink" href="#dltrxpdus-dltrxpdus-configuration-container" title="链接到此标题。">¶</a></h3>
+<h3>DltRxPdus配置容器 (DLTRxPDUs Configuration Container)<a class="headerlink" href="#dltrxpdus-dltrxpdus-configuration-container" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块通信机制的接收链路配置PDU参数，如DltIRxPduHandleId、DltIRxPduUsesTp和DltRxPduIdRef等参数的设置。</p>
 <p>Configure PDU parameters for the reception chain of the Dlt module communication mechanism, such as setting DltIRxPduHandleId, DltIRxPduUsesTp, and DltRxPduIdRef parameters.</p>
 <figure class="align-center" id="dltrxpdus-dlt-module-rx-pdus-configuration-container-interface">
@@ -6678,9 +6677,9 @@
 </section>
 </section>
 <section id="dlttracestatussettings-dlttracestatussettings-configuration">
-<h2>DltTraceStatusSettings配置 (DltTraceStatusSettings Configuration)<a class="headerlink" href="#dlttracestatussettings-dlttracestatussettings-configuration" title="链接到此标题。">¶</a></h2>
+<h2>DltTraceStatusSettings配置 (DltTraceStatusSettings Configuration)<a class="headerlink" href="#dlttracestatussettings-dlttracestatussettings-configuration" title="Link to this heading">¶</a></h2>
 <section id="dlttracestatussettings-createdlttracestatussettings">
-<h3>新建DltTraceStatusSettings (CreateDltTraceStatusSettings)<a class="headerlink" href="#dlttracestatussettings-createdlttracestatussettings" title="链接到此标题。">¶</a></h3>
+<h3>新建DltTraceStatusSettings (CreateDltTraceStatusSettings)<a class="headerlink" href="#dlttracestatussettings-createdlttracestatussettings" title="Link to this heading">¶</a></h3>
 <p>DlttraceStatusSettings添加步骤为：鼠标选中DltConfigSet—单击右键—New—DlttraceStatusSettings。默认情况，无该配置项。</p>
 <p>Add steps for DlttraceStatusSettings: Select the DltConfigSet with the mouse — right-click — New — DlttraceStatusSettings. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dlttracestatussetting-dlt-module-new-tracestatussetting-configuration-container-interface">
@@ -6688,7 +6687,7 @@
 </figure>
 </section>
 <section id="dlttracestatussettings-configure-container-for-dlttracestatussettings">
-<h3>DltTraceStatusSettings配置容器 (Configure Container for DltTraceStatusSettings)<a class="headerlink" href="#dlttracestatussettings-configure-container-for-dlttracestatussettings" title="链接到此标题。">¶</a></h3>
+<h3>DltTraceStatusSettings配置容器 (Configure Container for DltTraceStatusSettings)<a class="headerlink" href="#dlttracestatussettings-configure-container-for-dlttracestatussettings" title="Link to this heading">¶</a></h3>
 <p>为Dlt模块设置初始默认跟踪状态，在DltTraceStatusSettings选项卡中点击默认跟踪状态设置按钮DltDefaultTraceStatus，从下拉菜单中选中一个配置作为默认跟踪状态。默认情况，该配置项设置为FALSE。</p>
 <p>Set the initial default tracing status for the Dlt module by clicking the DltDefaultTraceStatus button under the Default Trace Status Settings tab. From the dropdown menu, select a configuration as the default trace status. By default, this configuration item is set to FALSE.</p>
 <figure class="align-center" id="dlttracestatussettings-dlt-module-tracestatussettings-configuration-interface">
@@ -6770,7 +6769,7 @@
 </table>
 </section>
 <section id="dlttracestatussettingsswccontext-configuration-container-for-dlttracestatussettingsswccontext">
-<h3>DltTraceStatusSettingsSwcContext配置容器 (Configuration Container for DltTraceStatusSettingsSwcContext)<a class="headerlink" href="#dlttracestatussettingsswccontext-configuration-container-for-dlttracestatussettingsswccontext" title="链接到此标题。">¶</a></h3>
+<h3>DltTraceStatusSettingsSwcContext配置容器 (Configuration Container for DltTraceStatusSettingsSwcContext)<a class="headerlink" href="#dlttracestatussettingsswccontext-configuration-container-for-dlttracestatussettingsswccontext" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dlttracestatusassignmentswccontext-diagram-dlt-module-tracestatusassignment-swc-context-configuration-container-interface">
 <img alt="Dlt模块TraceStatusAssignmentSwcContext配置容器界面 (Diagram Dlt module TraceStatusAssignment Swc Context configuration container interface)" src="../../_images/image333.png" />
 </figure>
@@ -6850,11 +6849,11 @@
 </table>
 </section>
 <section id="dltswc-configure-dltswc">
-<h3>DltSwc配置 (Configure DltSwc)<a class="headerlink" href="#dltswc-configure-dltswc" title="链接到此标题。">¶</a></h3>
+<h3>DltSwc配置 (Configure DltSwc)<a class="headerlink" href="#dltswc-configure-dltswc" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dltswc-create-dltswc">
-<h2>新建DltSwc (Create DltSwc)<a class="headerlink" href="#dltswc-create-dltswc" title="链接到此标题。">¶</a></h2>
+<h2>新建DltSwc (Create DltSwc)<a class="headerlink" href="#dltswc-create-dltswc" title="Link to this heading">¶</a></h2>
 <p>DltSwc添加步骤为：鼠标选中DltConfigSets—单击右键—New—DltConfigSet。默认情况，无该配置项。</p>
 <p>Add steps for DltSwc: Select DltConfigSets with the mouse — right-click — New — DltConfigSet. By default, this configuration item is not present.</p>
 <figure class="align-center" id="dltswc-dlt-module-new-swc-configuration-container-diagram">
@@ -6862,7 +6861,7 @@
 </figure>
 </section>
 <section id="dltswc-configure-container-for-dltswc">
-<h2>DltSwc配置容器 (Configure Container for DltSwc)<a class="headerlink" href="#dltswc-configure-container-for-dltswc" title="链接到此标题。">¶</a></h2>
+<h2>DltSwc配置容器 (Configure Container for DltSwc)<a class="headerlink" href="#dltswc-configure-container-for-dltswc" title="Link to this heading">¶</a></h2>
 <p>为Dlt模块的SWC上下文配置表设置会话标识符、是否支持日志级别更新通知、日志消息最大长度和跟踪消息最大长度等参数的配置。</p>
 <p>Configure session identifiers, support for log level update notifications, maximum length of log messages, and maximum length of tracing messages for the SWC context configuration table of the Dlt module.</p>
 <p>默认情况，无该配置项。</p>
@@ -7054,7 +7053,7 @@
 </table>
 </section>
 <section id="dltswccontext-configure-container-for-dltswccontext">
-<h2>DltSwcContext配置容器 (Configure Container for DltSwcContext)<a class="headerlink" href="#dltswccontext-configure-container-for-dltswccontext" title="链接到此标题。">¶</a></h2>
+<h2>DltSwcContext配置容器 (Configure Container for DltSwcContext)<a class="headerlink" href="#dltswccontext-configure-container-for-dltswccontext" title="Link to this heading">¶</a></h2>
 <p>为Dlt模块的SWC上下文配置表设置应用程序标识符和上下文标识符。默认情况，无该配置项。</p>
 <p>Set application identifier and context identifier for the SWC context configuration table of the Dlt module. By default, this configuration item is not set.</p>
 <figure class="align-center" id="dltswccontext-dlt-module-swccontext-configuration-interface">
@@ -7326,7 +7325,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -7335,11 +7334,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

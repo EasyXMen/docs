@@ -9,7 +9,6 @@
         <title>CanIf &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="canif">
-<h1>CanIf<a class="headerlink" href="#canif" title="链接到此标题。">¶</a></h1>
+<h1>CanIf<a class="headerlink" href="#canif" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -228,7 +227,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>CanIf模块将底层不同的Can驱动，CanTrcv驱动抽象化，方便上层模块统一通过CanIf模块进行访问。在AUTOSAR架构中，其上层模块主要为PduR，CanTp，J1939Tp，CanNm，CanSm等。CanIf主要功能包含L-PDU的接收指示，L-PDU的发送及发送确认等通信功能，以及Can Controller/Trcv的模式控制，波特率切换，睡眠唤醒等其它功能栈功能。</p>
 <p>The CanIf module abstracts the different underlying Can drivers and CanTrcv drivers, making it easier for upper-layer modules to access them uniformly through the CanIf module.In the AUTOSAR architecture, its upper modules are mainly PduR, CanTp, J1939Tp, CanNm, CanSm, etc.The main functions of CanIf include communication functions such as L-PDU reception instructions, L-PDU transmission and transmission confirmation, as well as Can Controller/Trcv mode control, baud rate switching, sleep wake-up and other function stack functions.</p>
 <figure class="align-center">
@@ -239,7 +238,7 @@
 <p>CanIf实现了与上下层模块间基于PDU的发送/接收，实现了对硬件单元模式的控制以及模式切换通知，实现了对睡眠/唤醒机制的支持。</p>
 <p>CanIf implements PDU-based sending/receiving with upper and lower-layer modules, implements control of hardware unit modes and mode switching notifications, and supports sleep/wake-up mechanisms.</p>
 <section id="references">
-<h3>参考资料 (References)<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_CANInterface.pdf, R19-11 and 4.2.2</p>
 <p>[2] AUTOSAR_SWS_CANDriver.pdf, R19-11 and 4.2.2</p>
 <p>[3] AUTOSAR_SWS_CANTransceiverDriver.pdf, R19-11 and 4.2.2</p>
@@ -249,11 +248,11 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="mode-control-function">
-<h3>模式控制功能 (Mode control function)<a class="headerlink" href="#mode-control-function" title="链接到此标题。">¶</a></h3>
+<h3>模式控制功能 (Mode control function)<a class="headerlink" href="#mode-control-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-mode-control-function">
-<h4>模式控制功能介绍 (Introduction to mode control function)<a class="headerlink" href="#introduction-to-mode-control-function" title="链接到此标题。">¶</a></h4>
+<h4>模式控制功能介绍 (Introduction to mode control function)<a class="headerlink" href="#introduction-to-mode-control-function" title="Link to this heading">¶</a></h4>
 <p>1.CanIf模块的状态机控制，包括未初始化和已初始化状态，除了CanIf_Init 和CanIf_GetVersionInfo之外，都需要在已初始化状态下才能正常调用。</p>
 <p>The state machine control of the CanIf module includes uninitialized and initialized states. Except for CanIf_Init and CanIf_GetVersionInfo, they need to be in the initialized state before they can be called normally.</p>
 <p>2.Controller模式控制，分为STOPPED，STARTED，SLEEP三种，只有在START状态下Controller才能正常通信。</p>
@@ -264,7 +263,7 @@
 <p>The Pdu mode control of the Controller is divided into four types: OFFLINE, TX_OFFLINE, TX_OFFLINE_ACTIVE, and ONLINE. Normal transceiver communication is allowed in ONLINE mode, only reception cannot be sent in TX_OFFLINE mode, reception and virtual transmission are allowed in TX_OFFLINE_ACTIVE mode, and transceiver communication is not allowed in OFFLINE mode.</p>
 </section>
 <section id="mode-control-function-implementation">
-<h4>模式控制功能实现 (Mode control function implementation)<a class="headerlink" href="#mode-control-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>模式控制功能实现 (Mode control function implementation)<a class="headerlink" href="#mode-control-function-implementation" title="Link to this heading">¶</a></h4>
 <p>1.上电之后CanIf处于CANIF_UNINIT状态，正确调用CanIf_Init（参数为CanIf模块PB配置参数指针）之后状态切换到CANIF_INITED。</p>
 <p>After powering on, CanIf is in CANIF_UNINIT state. After calling CanIf_Init correctly (the parameter is the CanIf module PB configuration parameter pointer), the state switches to CANIF_INITED.</p>
 <p>2.CanIf_Init初始化之后，Controller模式为STOPPED，调用接口CanIf_SetControllerMode切换Controller模式，调用CanIf_GetControllerMode获取当前Controller模式。当Controller发生BusOff事件时，Controller模式切换到STOPPED。</p>
@@ -276,9 +275,9 @@
 </section>
 </section>
 <section id="txpdu-txpdu-send-function">
-<h3>TxPdu发送功能 (TxPdu send function)<a class="headerlink" href="#txpdu-txpdu-send-function" title="链接到此标题。">¶</a></h3>
+<h3>TxPdu发送功能 (TxPdu send function)<a class="headerlink" href="#txpdu-txpdu-send-function" title="Link to this heading">¶</a></h3>
 <section id="txpdu-introduction-to-txpdu-sending-function">
-<h4>TxPdu发送功能介绍 (Introduction to TxPdu sending function)<a class="headerlink" href="#txpdu-introduction-to-txpdu-sending-function" title="链接到此标题。">¶</a></h4>
+<h4>TxPdu发送功能介绍 (Introduction to TxPdu sending function)<a class="headerlink" href="#txpdu-introduction-to-txpdu-sending-function" title="Link to this heading">¶</a></h4>
 <p>当模块初始化成功，Controller模式及其Pdu模式，Trcv模式均处于允许发送状态时，可通过CanIf两种发送机制来发送L-Pdu：</p>
 <p>When the module is initialized successfully, Controller mode, its Pdu mode, and Trcv mode are all in the allowed sending state, L-Pdu can be sent through two sending mechanisms of CanIf:</p>
 <p>方式一：上层模块调用CanIf_Transmit请求TxPdu的发送，发送时机由上层决定；</p>
@@ -289,7 +288,7 @@
 <p>After TxPdu is sent successfully, the lower driver calls CanIf_TxConfirmation to confirm the sending.</p>
 </section>
 <section id="txpdu-txpdu-sending-function-implementation">
-<h4>TxPdu发送功能实现 (TxPdu sending function implementation)<a class="headerlink" href="#txpdu-txpdu-sending-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>TxPdu发送功能实现 (TxPdu sending function implementation)<a class="headerlink" href="#txpdu-txpdu-sending-function-implementation" title="Link to this heading">¶</a></h4>
 <p>当上层模块调用CanIf_Transmit请求TxPdu发送，并传入L-PDU的SDU及可能存在的MetaData数据时，CanIf根据Static/Dynamic CanId策略计算出该TxPdu当前对应的CanId，调用Can_Write由配置的HTH进行发送。</p>
 <p>When the upper module calls CanIf_Transmit to request TxPdu to be sent, and passes in the SDU of L-PDU and possible MetaData data, CanIf calculates the current corresponding CanId of the TxPdu based on the Static/Dynamic CanId policy, and calls Can_Write to send it through the configured HTH.</p>
 <p>CAN总线通常不支持TriggerTransmit进行发送，该机制通常用于LIN总线。</p>
@@ -301,14 +300,14 @@
 </section>
 </section>
 <section id="rxpdu-rxpdu-receive-function">
-<h3>RxPdu接收功能 (RxPdu receive function)<a class="headerlink" href="#rxpdu-rxpdu-receive-function" title="链接到此标题。">¶</a></h3>
+<h3>RxPdu接收功能 (RxPdu receive function)<a class="headerlink" href="#rxpdu-rxpdu-receive-function" title="Link to this heading">¶</a></h3>
 <section id="rxpdu-introduction-to-rxpdu-receiving-function">
-<h4>RxPdu接收功能介绍 (Introduction to RxPdu receiving function)<a class="headerlink" href="#rxpdu-introduction-to-rxpdu-receiving-function" title="链接到此标题。">¶</a></h4>
+<h4>RxPdu接收功能介绍 (Introduction to RxPdu receiving function)<a class="headerlink" href="#rxpdu-introduction-to-rxpdu-receiving-function" title="Link to this heading">¶</a></h4>
 <p>当模块初始化成功，Controller模式及其Pdu模式，Trcv模式均处于允许接收状态时，将从驱动层接收到的报文，传递到上层模块。</p>
 <p>When the module is initialized successfully and the Controller mode, its Pdu mode, and the Trcv mode are all in the reception-allowed state, the message received from the driver layer will be passed to the upper module.</p>
 </section>
 <section id="rxpdu-rxpdu-receiving-function-implementation">
-<h4>RxPdu接收功能实现 (RxPdu receiving function implementation)<a class="headerlink" href="#rxpdu-rxpdu-receiving-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>RxPdu接收功能实现 (RxPdu receiving function implementation)<a class="headerlink" href="#rxpdu-rxpdu-receiving-function-implementation" title="Link to this heading">¶</a></h4>
 <p>当驱动层邮箱收到报文后，调用CanIf_RxIndication将接收数据传递到CanIf模块，CanIf通过接收的HRH以及CanId，查询匹配到接收RxPdu，调用关联上层模块的&lt;User_RxIndication&gt;将接收RxPdu数据传递给上层模块。</p>
 <p>When the driver layer mailbox receives the message, it calls CanIf_RxIndication to pass the received data to the CanIf module. CanIf uses the received HRH and CanId to query and match the received RxPdu, and calls &lt;User_RxIndication&gt; of the associated upper-layer module to pass the received RxPdu data to the upper-layer module.</p>
 <p>RxPdu上层模块由配置项CanIfRxPduUserRxIndicationUL决定，&lt;User_RxIndication&gt;由配置项CanIfRxPduUserRxIndicationName决定。</p>
@@ -316,21 +315,21 @@
 </section>
 </section>
 <section id="sleep-wake-function">
-<h3>睡眠唤醒功能 (sleep wake function)<a class="headerlink" href="#sleep-wake-function" title="链接到此标题。">¶</a></h3>
+<h3>睡眠唤醒功能 (sleep wake function)<a class="headerlink" href="#sleep-wake-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-sleep-wake-function">
-<h4>睡眠唤醒功能介绍 (Introduction to sleep wake function)<a class="headerlink" href="#introduction-to-sleep-wake-function" title="链接到此标题。">¶</a></h4>
+<h4>睡眠唤醒功能介绍 (Introduction to sleep wake function)<a class="headerlink" href="#introduction-to-sleep-wake-function" title="Link to this heading">¶</a></h4>
 <p>上层模块可以通过CanIf来将Controller/Trcv设置为SLEEP模式，支持Controller/Trcv唤醒源检测，Controller/Trcv唤醒确认，Trcv唤醒原因获取，Trcv唤醒标志位检测/清除，Trcv唤醒模式设置。</p>
 <p>The upper module can set Controller/Trcv to SLEEP mode through CanIf, and supports Controller/Trcv wake-up source detection, Controller/Trcv wake-up confirmation, Trcv wake-up cause acquisition, Trcv wake-up flag bit detection/clearing, and Trcv wake-up mode setting.</p>
 </section>
 <section id="sleep-wake-up-function-implementation">
-<h4>睡眠唤醒功能实现 (Sleep wake-up function implementation)<a class="headerlink" href="#sleep-wake-up-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>睡眠唤醒功能实现 (Sleep wake-up function implementation)<a class="headerlink" href="#sleep-wake-up-function-implementation" title="Link to this heading">¶</a></h4>
 <p>CanIf提供CanIf_SetControllerMode/CanIf_SetTrcvMode来设置Controller/Trcv的模式（包含SLEEP模式），当发生唤醒事件后可通过调用CanIf_CheckWakeup来检测是否由Controller/Trcv导致的唤醒事件，可通过CanIf_CheckValidation来检测唤醒成功确认（唤醒确认条件为接收到任意Pdu/NM Pdu，参见配置项CanIfPublicWakeupCheckValidByNM是否勾选）。</p>
 <p>CanIf provides CanIf_SetControllerMode/CanIf_SetTrcvMode to set the mode of Controller/Trcv (including SLEEP mode). When a wake-up event occurs, CanIf_CheckWakeup can be called to detect whether the wake-up event is caused by Controller/Trcv. CanIf_CheckValidation can be used to detect wake-up success confirmation (the wake-up confirmation condition is the receipt of any Pdu/NMPdu, see whether the configuration item CanIfPublicWakeupCheckValidByNM is checked).</p>
 </section>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CanIf组件文件描述 (Table CanIf component file description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -389,11 +388,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="canif-configtype-canif-configtype-type-definition">
-<h4>CanIf_ConfigType类型定义 (CanIf_ConfigType type definition)<a class="headerlink" href="#canif-configtype-canif-configtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ConfigType类型定义 (CanIf_ConfigType type definition)<a class="headerlink" href="#canif-configtype-canif-configtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -418,7 +417,7 @@
 </table>
 </section>
 <section id="canif-controllermodetype-canif-controllermodetype-type-definition">
-<h4>CanIf_ControllerModeType类型定义 (CanIf_ControllerModeType type definition)<a class="headerlink" href="#canif-controllermodetype-canif-controllermodetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ControllerModeType类型定义 (CanIf_ControllerModeType type definition)<a class="headerlink" href="#canif-controllermodetype-canif-controllermodetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -443,7 +442,7 @@
 </table>
 </section>
 <section id="canif-pdumodetype-canif-pdumodetype-type-definition">
-<h4>CanIf_PduModeType类型定义 (CanIf_PduModeType type definition)<a class="headerlink" href="#canif-pdumodetype-canif-pdumodetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_PduModeType类型定义 (CanIf_PduModeType type definition)<a class="headerlink" href="#canif-pdumodetype-canif-pdumodetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -468,7 +467,7 @@
 </table>
 </section>
 <section id="canif-notifstatustype-canif-notifstatustype-type-definition">
-<h4>CanIf_NotifStatusType类型定义 (CanIf_NotifStatusType type definition)<a class="headerlink" href="#canif-notifstatustype-canif-notifstatustype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_NotifStatusType类型定义 (CanIf_NotifStatusType type definition)<a class="headerlink" href="#canif-notifstatustype-canif-notifstatustype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -494,7 +493,7 @@
 </section>
 </section>
 <section id="enter-function-description">
-<h3>输入函数描述 (Enter function description)<a class="headerlink" href="#enter-function-description" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Enter function description)<a class="headerlink" href="#enter-function-description" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -588,9 +587,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="canif-init-canif-init-function-definition">
-<h4>CanIf_Init函数定义 (CanIf_Init function definition)<a class="headerlink" href="#canif-init-canif-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_Init函数定义 (CanIf_Init function definition)<a class="headerlink" href="#canif-init-canif-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -655,7 +654,7 @@
 </table>
 </section>
 <section id="canif-deinit-canif-deinit-function-definition">
-<h4>CanIf_DeInit函数定义 (CanIf_DeInit function definition)<a class="headerlink" href="#canif-deinit-canif-deinit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_DeInit函数定义 (CanIf_DeInit function definition)<a class="headerlink" href="#canif-deinit-canif-deinit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -698,7 +697,7 @@
 </table>
 </section>
 <section id="canif-setcontrollermode-canif-setcontrollermode-function-definition">
-<h4>CanIf_SetControllerMode函数定义 (CanIf_SetControllerMode function definition)<a class="headerlink" href="#canif-setcontrollermode-canif-setcontrollermode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetControllerMode函数定义 (CanIf_SetControllerMode function definition)<a class="headerlink" href="#canif-setcontrollermode-canif-setcontrollermode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -778,7 +777,7 @@
 </table>
 </section>
 <section id="canif-getcontrollermode-canif-getcontrollermode-function-definition">
-<h4>CanIf_GetControllerMode函数定义 (CanIf_GetControllerMode function definition)<a class="headerlink" href="#canif-getcontrollermode-canif-getcontrollermode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_GetControllerMode函数定义 (CanIf_GetControllerMode function definition)<a class="headerlink" href="#canif-getcontrollermode-canif-getcontrollermode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -853,7 +852,7 @@
 </table>
 </section>
 <section id="canif-transmit-canif-transmit-function-definition">
-<h4>CanIf_Transmit函数定义 (CanIf_Transmit function definition)<a class="headerlink" href="#canif-transmit-canif-transmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_Transmit函数定义 (CanIf_Transmit function definition)<a class="headerlink" href="#canif-transmit-canif-transmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -933,7 +932,7 @@
 </table>
 </section>
 <section id="canif-readrxpdudata-canif-readrxpdudata-function-definition">
-<h4>CanIf_ReadRxPduData函数定义 (CanIf_ReadRxPduData function definition)<a class="headerlink" href="#canif-readrxpdudata-canif-readrxpdudata-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ReadRxPduData函数定义 (CanIf_ReadRxPduData function definition)<a class="headerlink" href="#canif-readrxpdudata-canif-readrxpdudata-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1008,7 +1007,7 @@
 </table>
 </section>
 <section id="canif-readtxnotifstatus-canif-readtxnotifstatus-function-definition">
-<h4>CanIf_ReadTxNotifStatus函数定义 (CanIf_ReadTxNotifStatus function definition)<a class="headerlink" href="#canif-readtxnotifstatus-canif-readtxnotifstatus-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ReadTxNotifStatus函数定义 (CanIf_ReadTxNotifStatus function definition)<a class="headerlink" href="#canif-readtxnotifstatus-canif-readtxnotifstatus-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1078,7 +1077,7 @@
 </table>
 </section>
 <section id="canif-readrxnotifstatus-canif-readrxnotifstatus-function-definition">
-<h4>CanIf_ReadRxNotifStatus函数定义 (CanIf_ReadRxNotifStatus function definition)<a class="headerlink" href="#canif-readrxnotifstatus-canif-readrxnotifstatus-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ReadRxNotifStatus函数定义 (CanIf_ReadRxNotifStatus function definition)<a class="headerlink" href="#canif-readrxnotifstatus-canif-readrxnotifstatus-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1148,7 +1147,7 @@
 </table>
 </section>
 <section id="canif-setpdumode-canif-setpdumode-function-definition">
-<h4>CanIf_SetPduMode函数定义 (CanIf_SetPduMode function definition)<a class="headerlink" href="#canif-setpdumode-canif-setpdumode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetPduMode函数定义 (CanIf_SetPduMode function definition)<a class="headerlink" href="#canif-setpdumode-canif-setpdumode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1228,7 +1227,7 @@
 </table>
 </section>
 <section id="canif-getpdumode-canif-getpdumode-function-definition">
-<h4>CanIf_GetPduMode函数定义 (CanIf_GetPduMode function definition)<a class="headerlink" href="#canif-getpdumode-canif-getpdumode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_GetPduMode函数定义 (CanIf_GetPduMode function definition)<a class="headerlink" href="#canif-getpdumode-canif-getpdumode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1303,7 +1302,7 @@
 </table>
 </section>
 <section id="canif-getversioninfo-canif-getversioninfo-function-definition">
-<h4>CanIf_GetVersionInfo函数定义 (CanIf_GetVersionInfo function definition)<a class="headerlink" href="#canif-getversioninfo-canif-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_GetVersionInfo函数定义 (CanIf_GetVersionInfo function definition)<a class="headerlink" href="#canif-getversioninfo-canif-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1373,7 +1372,7 @@
 </table>
 </section>
 <section id="canif-setdynamictxid-canif-setdynamictxid-function-definition">
-<h4>CanIf_SetDynamicTxId函数定义 (CanIf_SetDynamicTxId function definition)<a class="headerlink" href="#canif-setdynamictxid-canif-setdynamictxid-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetDynamicTxId函数定义 (CanIf_SetDynamicTxId function definition)<a class="headerlink" href="#canif-setdynamictxid-canif-setdynamictxid-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1453,7 +1452,7 @@
 </table>
 </section>
 <section id="canif-settrcvmode-canif-settrcvmode-function-definition">
-<h4>CanIf_SetTrcvMode函数定义 (CanIf_SetTrcvMode function definition)<a class="headerlink" href="#canif-settrcvmode-canif-settrcvmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetTrcvMode函数定义 (CanIf_SetTrcvMode function definition)<a class="headerlink" href="#canif-settrcvmode-canif-settrcvmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1533,7 +1532,7 @@
 </table>
 </section>
 <section id="canif-gettrcvmode-canif-gettrcvmode-function-definition">
-<h4>CanIf_GetTrcvMode函数定义 (CanIf_GetTrcvMode function definition)<a class="headerlink" href="#canif-gettrcvmode-canif-gettrcvmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_GetTrcvMode函数定义 (CanIf_GetTrcvMode function definition)<a class="headerlink" href="#canif-gettrcvmode-canif-gettrcvmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1608,7 +1607,7 @@
 </table>
 </section>
 <section id="canif-gettrcvwakeupreason-canif-gettrcvwakeupreason-function-definition">
-<h4>CanIf_GetTrcvWakeupReason函数定义 (CanIf_GetTrcvWakeupReason function definition)<a class="headerlink" href="#canif-gettrcvwakeupreason-canif-gettrcvwakeupreason-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_GetTrcvWakeupReason函数定义 (CanIf_GetTrcvWakeupReason function definition)<a class="headerlink" href="#canif-gettrcvwakeupreason-canif-gettrcvwakeupreason-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1683,7 +1682,7 @@
 </table>
 </section>
 <section id="canif-settrcvwakeupmode-canif-settrcvwakeupmode-function-definition">
-<h4>CanIf_SetTrcvWakeupMode函数定义 (CanIf_SetTrcvWakeupMode function definition)<a class="headerlink" href="#canif-settrcvwakeupmode-canif-settrcvwakeupmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetTrcvWakeupMode函数定义 (CanIf_SetTrcvWakeupMode function definition)<a class="headerlink" href="#canif-settrcvwakeupmode-canif-settrcvwakeupmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1763,7 +1762,7 @@
 </table>
 </section>
 <section id="canif-checkwakeup-canif-checkwakeup-function-definition">
-<h4>CanIf_CheckWakeup函数定义 (CanIf_CheckWakeup function definition)<a class="headerlink" href="#canif-checkwakeup-canif-checkwakeup-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_CheckWakeup函数定义 (CanIf_CheckWakeup function definition)<a class="headerlink" href="#canif-checkwakeup-canif-checkwakeup-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1833,7 +1832,7 @@
 </table>
 </section>
 <section id="canif-checkvalidation-canif-checkvalidation-function-definition">
-<h4>CanIf_CheckValidation函数定义 (CanIf_CheckValidation function definition)<a class="headerlink" href="#canif-checkvalidation-canif-checkvalidation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_CheckValidation函数定义 (CanIf_CheckValidation function definition)<a class="headerlink" href="#canif-checkvalidation-canif-checkvalidation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1903,7 +1902,7 @@
 </table>
 </section>
 <section id="canif-gettxconfirmationstate-canif-gettxconfirmationstate-function-definition">
-<h4>CanIf_GetTxConfirmationState函数定义 (CanIf_GetTxConfirmationState function definition)<a class="headerlink" href="#canif-gettxconfirmationstate-canif-gettxconfirmationstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_GetTxConfirmationState函数定义 (CanIf_GetTxConfirmationState function definition)<a class="headerlink" href="#canif-gettxconfirmationstate-canif-gettxconfirmationstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1973,7 +1972,7 @@
 </table>
 </section>
 <section id="canif-cleartrcvwufflag-canif-cleartrcvwufflag-function-definition">
-<h4>CanIf_ClearTrcvWufFlag函数定义 (CanIf_ClearTrcvWufFlag function definition)<a class="headerlink" href="#canif-cleartrcvwufflag-canif-cleartrcvwufflag-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ClearTrcvWufFlag函数定义 (CanIf_ClearTrcvWufFlag function definition)<a class="headerlink" href="#canif-cleartrcvwufflag-canif-cleartrcvwufflag-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2043,7 +2042,7 @@
 </table>
 </section>
 <section id="canif-checktrcvwakeflag-canif-checktrcvwakeflag-function-definition">
-<h4>CanIf_CheckTrcvWakeFlag函数定义 (CanIf_CheckTrcvWakeFlag function definition)<a class="headerlink" href="#canif-checktrcvwakeflag-canif-checktrcvwakeflag-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_CheckTrcvWakeFlag函数定义 (CanIf_CheckTrcvWakeFlag function definition)<a class="headerlink" href="#canif-checktrcvwakeflag-canif-checktrcvwakeflag-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2113,7 +2112,7 @@
 </table>
 </section>
 <section id="canif-setbaudrate-canif-setbaudrate-function-definition">
-<h4>CanIf_SetBaudrate函数定义 (CanIf_SetBaudrate function definition)<a class="headerlink" href="#canif-setbaudrate-canif-setbaudrate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetBaudrate函数定义 (CanIf_SetBaudrate function definition)<a class="headerlink" href="#canif-setbaudrate-canif-setbaudrate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2193,7 +2192,7 @@
 </table>
 </section>
 <section id="canif-seticomconfiguration-canif-seticomconfiguration-function-definition">
-<h4>CanIf_SetIcomConfiguration函数定义 (CanIf_SetIcomConfiguration function definition)<a class="headerlink" href="#canif-seticomconfiguration-canif-seticomconfiguration-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_SetIcomConfiguration函数定义 (CanIf_SetIcomConfiguration function definition)<a class="headerlink" href="#canif-seticomconfiguration-canif-seticomconfiguration-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2273,7 +2272,7 @@
 </table>
 </section>
 <section id="canif-triggertransmit-canif-triggertransmit-function-definition">
-<h4>CanIf_TriggerTransmit函数定义 (CanIf_TriggerTransmit function definition)<a class="headerlink" href="#canif-triggertransmit-canif-triggertransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_TriggerTransmit函数定义 (CanIf_TriggerTransmit function definition)<a class="headerlink" href="#canif-triggertransmit-canif-triggertransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2348,7 +2347,7 @@
 </table>
 </section>
 <section id="canif-txconfirmation-canif-txconfirmation-function-definition">
-<h4>CanIf_TxConfirmation函数定义 (CanIf_TxConfirmation function definition)<a class="headerlink" href="#canif-txconfirmation-canif-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_TxConfirmation函数定义 (CanIf_TxConfirmation function definition)<a class="headerlink" href="#canif-txconfirmation-canif-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2418,7 +2417,7 @@
 </table>
 </section>
 <section id="canif-rxindication-canif-rxindication-function-definition">
-<h4>CanIf_RxIndication函数定义 (CanIf_RxIndication function definition)<a class="headerlink" href="#canif-rxindication-canif-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_RxIndication函数定义 (CanIf_RxIndication function definition)<a class="headerlink" href="#canif-rxindication-canif-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2498,7 +2497,7 @@
 </table>
 </section>
 <section id="canif-controllerbusoff-canif-controllerbusoff-function-definition">
-<h4>CanIf_ControllerBusOff函数定义 (CanIf_ControllerBusOff function definition)<a class="headerlink" href="#canif-controllerbusoff-canif-controllerbusoff-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ControllerBusOff函数定义 (CanIf_ControllerBusOff function definition)<a class="headerlink" href="#canif-controllerbusoff-canif-controllerbusoff-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2568,7 +2567,7 @@
 </table>
 </section>
 <section id="canif-confirmpnavailability-canif-confirmpnavailability-function-definition">
-<h4>CanIf_ConfirmPnAvailability函数定义 (CanIf_ConfirmPnAvailability function definition)<a class="headerlink" href="#canif-confirmpnavailability-canif-confirmpnavailability-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ConfirmPnAvailability函数定义 (CanIf_ConfirmPnAvailability function definition)<a class="headerlink" href="#canif-confirmpnavailability-canif-confirmpnavailability-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2638,7 +2637,7 @@
 </table>
 </section>
 <section id="canif-cleartrcvwufflagindication-canif-cleartrcvwufflagindication-function-definition">
-<h4>CanIf_ClearTrcvWufFlagIndication函数定义 (CanIf_ClearTrcvWufFlagIndication function definition)<a class="headerlink" href="#canif-cleartrcvwufflagindication-canif-cleartrcvwufflagindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ClearTrcvWufFlagIndication函数定义 (CanIf_ClearTrcvWufFlagIndication function definition)<a class="headerlink" href="#canif-cleartrcvwufflagindication-canif-cleartrcvwufflagindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2708,7 +2707,7 @@
 </table>
 </section>
 <section id="canif-checktrcvwakeflagindication-canif-checktrcvwakeflagindication-function-definition">
-<h4>CanIf_CheckTrcvWakeFlagIndication函数定义 (CanIf_CheckTrcvWakeFlagIndication function definition)<a class="headerlink" href="#canif-checktrcvwakeflagindication-canif-checktrcvwakeflagindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_CheckTrcvWakeFlagIndication函数定义 (CanIf_CheckTrcvWakeFlagIndication function definition)<a class="headerlink" href="#canif-checktrcvwakeflagindication-canif-checktrcvwakeflagindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2778,7 +2777,7 @@
 </table>
 </section>
 <section id="canif-controllermodeindication-canif-controllermodeindication-function-definition">
-<h4>CanIf_ControllerModeIndication函数定义 (CanIf_ControllerModeIndication function definition)<a class="headerlink" href="#canif-controllermodeindication-canif-controllermodeindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_ControllerModeIndication函数定义 (CanIf_ControllerModeIndication function definition)<a class="headerlink" href="#canif-controllermodeindication-canif-controllermodeindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2858,7 +2857,7 @@
 </table>
 </section>
 <section id="canif-trcvmodeindication-canif-trcvmodeindication-function-definition">
-<h4>CanIf_TrcvModeIndication函数定义 (CanIf_TrcvModeIndication function definition)<a class="headerlink" href="#canif-trcvmodeindication-canif-trcvmodeindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_TrcvModeIndication函数定义 (CanIf_TrcvModeIndication function definition)<a class="headerlink" href="#canif-trcvmodeindication-canif-trcvmodeindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2938,7 +2937,7 @@
 </table>
 </section>
 <section id="canif-currenticomconfiguration-canif-currenticomconfiguration-function-definition">
-<h4>CanIf_CurrentIcomConfiguration函数定义 (CanIf_CurrentIcomConfiguration function definition)<a class="headerlink" href="#canif-currenticomconfiguration-canif-currenticomconfiguration-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanIf_CurrentIcomConfiguration函数定义 (CanIf_CurrentIcomConfiguration function definition)<a class="headerlink" href="#canif-currenticomconfiguration-canif-currenticomconfiguration-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3029,15 +3028,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>none.</p>
 </section>
 </section>
 <section id="configuration">
-<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="canifpubliccfg">
-<h3>CanIfPublicCfg<a class="headerlink" href="#canifpubliccfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfPublicCfg<a class="headerlink" href="#canifpubliccfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="CanIfPublicCfg" src="../../_images/image36.png" />
 </figure>
@@ -3501,7 +3500,7 @@
 </table>
 </section>
 <section id="canifprivatecfg">
-<h3>CanIfPrivateCfg<a class="headerlink" href="#canifprivatecfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfPrivateCfg<a class="headerlink" href="#canifprivatecfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="CanIfPrivateCfg" src="../../_images/image42.png" />
 </figure>
@@ -3617,7 +3616,7 @@
 </table>
 </section>
 <section id="canifdispatchcfg">
-<h3>CanIfDispatchCfg<a class="headerlink" href="#canifdispatchcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfDispatchCfg<a class="headerlink" href="#canifdispatchcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id3">
 <img alt="CanIfDispatchCfg" src="../../_images/image52.png" />
 </figure>
@@ -4063,7 +4062,7 @@
 </table>
 </section>
 <section id="canifctrldrvcfg">
-<h3>CanIfCtrlDrvCfg<a class="headerlink" href="#canifctrldrvcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfCtrlDrvCfg<a class="headerlink" href="#canifctrldrvcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id4">
 <img alt="CanIfCtrlDrvCfg" src="../../_images/image62.png" />
 </figure>
@@ -4125,7 +4124,7 @@
 </table>
 </section>
 <section id="canifctrlcfg">
-<h3>CanIfCtrlCfg<a class="headerlink" href="#canifctrlcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfCtrlCfg<a class="headerlink" href="#canifctrlcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id5">
 <img alt="CanIfCtrlCfg" src="../../_images/image72.png" />
 </figure>
@@ -4241,7 +4240,7 @@
 </table>
 </section>
 <section id="caniftrcvcfg">
-<h3>CanIfTrcvCfg<a class="headerlink" href="#caniftrcvcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfTrcvCfg<a class="headerlink" href="#caniftrcvcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="CanIfTrcvCfg" src="../../_images/image82.png" />
 </figure>
@@ -4339,7 +4338,7 @@
 </table>
 </section>
 <section id="caniftxpducfg">
-<h3>CanIfTxPduCfg<a class="headerlink" href="#caniftxpducfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfTxPduCfg<a class="headerlink" href="#caniftxpducfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id7">
 <img alt="CanIfTxPduCfg" src="../../_images/image92.png" />
 </figure>
@@ -4683,7 +4682,7 @@
 </table>
 </section>
 <section id="canifbuffercfg">
-<h3>CanIfBufferCfg<a class="headerlink" href="#canifbuffercfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfBufferCfg<a class="headerlink" href="#canifbuffercfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id8">
 <img alt="CanIfBufferCfg" src="../../_images/image102.png" />
 </figure>
@@ -4745,7 +4744,7 @@
 </table>
 </section>
 <section id="canifhthcfg">
-<h3>CanIfHthCfg<a class="headerlink" href="#canifhthcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfHthCfg<a class="headerlink" href="#canifhthcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id9">
 <img alt="CanIfHthCfg" src="../../_images/image114.png" />
 </figure>
@@ -4807,7 +4806,7 @@
 </table>
 </section>
 <section id="canifrxpducfg">
-<h3>CanIfRxPduCfg<a class="headerlink" href="#canifrxpducfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfRxPduCfg<a class="headerlink" href="#canifrxpducfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id10">
 <img alt="CanIfRxPduCfg" src="../../_images/image122.png" />
 </figure>
@@ -5133,7 +5132,7 @@
 </table>
 </section>
 <section id="canifrxpducanidrange">
-<h3>CanIfRxPduCanIdRange<a class="headerlink" href="#canifrxpducanidrange" title="链接到此标题。">¶</a></h3>
+<h3>CanIfRxPduCanIdRange<a class="headerlink" href="#canifrxpducanidrange" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id11">
 <img alt="CanIfRxPduCanIdRange" src="../../_images/image132.png" />
 </figure>
@@ -5195,7 +5194,7 @@
 </table>
 </section>
 <section id="canifhrhcfg">
-<h3>CanIfHrhCfg<a class="headerlink" href="#canifhrhcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfHrhCfg<a class="headerlink" href="#canifhrhcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id12">
 <img alt="CanIfHrhCfg" src="../../_images/image142.png" />
 </figure>
@@ -5275,7 +5274,7 @@
 </table>
 </section>
 <section id="canifhrhrangecfg">
-<h3>CanIfHrhRangeCfg<a class="headerlink" href="#canifhrhrangecfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfHrhRangeCfg<a class="headerlink" href="#canifhrhrangecfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id13">
 <img alt="CanIfHrhRangeCfg" src="../../_images/image151.png" />
 </figure>
@@ -5403,7 +5402,7 @@
 </table>
 </section>
 <section id="canifinitcfg">
-<h3>CanIfInitCfg<a class="headerlink" href="#canifinitcfg" title="链接到此标题。">¶</a></h3>
+<h3>CanIfInitCfg<a class="headerlink" href="#canifinitcfg" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id14">
 <img alt="CanIfInitCfg" src="../../_images/image161.png" />
 </figure>
@@ -5638,7 +5637,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -5647,11 +5646,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

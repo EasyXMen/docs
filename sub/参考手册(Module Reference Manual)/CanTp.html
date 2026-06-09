@@ -9,7 +9,6 @@
         <title>CanTp &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="cantp">
-<h1>CanTp<a class="headerlink" href="#cantp" title="链接到此标题。">¶</a></h1>
+<h1>CanTp<a class="headerlink" href="#cantp" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -260,7 +259,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="cantp-cantp-module-hierarchy-diagram">
 <img alt="CanTp模块层次图(CanTp Module Hierarchy Diagram)" src="../../_images/image120.png" />
 </figure>
@@ -288,7 +287,7 @@
 <img alt="CanTp与其他模块交互图 (Diagram showing interaction between CanTp and other modules)" src="../../_images/image46.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] ISO15765-2，2016</p>
 <p>[2] AUTOSAR_SWS_CANTransportLayer, 4.2.2</p>
 <p>[3] AUTOSAR_SWS_CANTransportLayer, R19-11</p>
@@ -298,42 +297,42 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="sf-sf-receive-function">
-<h3>SF接收功能 (SF Receive Function)<a class="headerlink" href="#sf-sf-receive-function" title="链接到此标题。">¶</a></h3>
+<h3>SF接收功能 (SF Receive Function)<a class="headerlink" href="#sf-sf-receive-function" title="Link to this heading">¶</a></h3>
 <section id="sf-introduction-to-sf-reception-function">
-<h4>SF接收功能介绍 (Introduction to SF Reception Function)<a class="headerlink" href="#sf-introduction-to-sf-reception-function" title="链接到此标题。">¶</a></h4>
+<h4>SF接收功能介绍 (Introduction to SF Reception Function)<a class="headerlink" href="#sf-introduction-to-sf-reception-function" title="Link to this heading">¶</a></h4>
 <p>当接收到一个单帧报文时，CanTp模块会解析单帧报文的控制信息，并根据相关配置判断是否进行接收，如果通过检查则通知上层，并根据上层的状态信息将接收的数据传递给上层模块。</p>
 <p>When a single-frame message is received, the CanTp module parses the control information of the single-frame message and determines whether to receive it based on relevant configuration. If the check passes, it notifies the upper layer and transfers the received data to the upper layer module according to the status information from the upper layer.</p>
 </section>
 <section id="sf-the-sf-reception-function-implementation">
-<h4>SF接收功能实现 (The SF reception function implementation)<a class="headerlink" href="#sf-the-sf-reception-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>SF接收功能实现 (The SF reception function implementation)<a class="headerlink" href="#sf-the-sf-reception-function-implementation" title="Link to this heading">¶</a></h4>
 <p>当底层接收到一个SF时，CanIf通过CanTp_RxIndication回调通知CanTp。CanTp执行PDU ID转换并从N-PDU有效载荷中提取有用的数据长度。然后，CanTp使用PduR_&lt;LoTp&gt;StartOfReception回调为这个传入数据请求上层提供一个缓冲区。将TpSduLength设置为SF_DL(从N-PCI字段提取)。它表示要接收的总字节数。如果上层没有任何缓冲区可用，返回BUFREQ_E_NOT_OK。CanTp在不复制任何数据的情况下结束CanTp_RxIndication。如果上层分配并锁定所需的Rx缓冲区，然后返回BUFREQ_E_OK。然后CanTp调用PduR_&lt;LoTp&gt;CopyRxData让上层将接收到的N-PDU有效载荷复制到缓冲区中。当复制完成时，CanTp接着调用PduR_&lt;User：LoTp&gt;RxIndication结果设置为E_OK，告知上层数据传递完成。CanTp结束CanTp_RxIndication函数。</p>
 <p>When the lower layer receives an SF, CanIf notifies CanTp through the CanTp_RxIndication callback. CanTp performs PDU ID conversion and extracts useful data length from the N-PDU payload. Then, CanTp uses the PduR_&lt;LoTp&gt;StartOfReception callback to provide an upper layer with a buffer for this incoming data request. It sets TpSduLength as SF_DL (extracted from the N-PCI field), indicating the total number of bytes to receive. If the upper layer has no available buffer, it returns BUFREQ_E_NOT_OK. CanTp ends CanTp_RxIndication without copying any data. If the upper layer allocates and locks the required Rx buffer, it returns BUFREQ_E_OK. Then CanTp calls PduR_&lt;LoTp&gt;CopyRxData to allow the upper layer to copy the received N-PDU payload into the buffer. Once the copy is complete, CanTp subsequently calls PduR_&lt;User:LoTp&gt;RxIndication with a result set as E_OK, informing the upper layer that data transfer is completed. CanTp ends the CanTp_RxIndication function.</p>
 </section>
 </section>
 <section id="sf-sf-sending-function">
-<h3>SF发送功能 (SF Sending Function)<a class="headerlink" href="#sf-sf-sending-function" title="链接到此标题。">¶</a></h3>
+<h3>SF发送功能 (SF Sending Function)<a class="headerlink" href="#sf-sf-sending-function" title="Link to this heading">¶</a></h3>
 <section id="sf-introduction-to-sf-sending-function">
-<h4>SF发送功能介绍 (Introduction to SF Sending Function)<a class="headerlink" href="#sf-introduction-to-sf-sending-function" title="链接到此标题。">¶</a></h4>
+<h4>SF发送功能介绍 (Introduction to SF Sending Function)<a class="headerlink" href="#sf-introduction-to-sf-sending-function" title="Link to this heading">¶</a></h4>
 <p>当需要发送一个单帧报文时，CanTp模块会根据请求信息添加单帧报文的控制信息，然后请求CanIf模块进行SF发送。</p>
 <p>When a single-frame message needs to be sent, the CanTp module adds the control information for the single-frame message based on the request information and then requests the CanIf module to perform SF transmission.</p>
 </section>
 <section id="sf-sf-sending-function-implementation">
-<h4>SF发送功能实现 (SF Sending Function Implementation)<a class="headerlink" href="#sf-sf-sending-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>SF发送功能实现 (SF Sending Function Implementation)<a class="headerlink" href="#sf-sf-sending-function-implementation" title="Link to this heading">¶</a></h4>
 <p>当PDUR需要传输一个SF时，PDUR调用CanTp_Transmit传入相关数据，CanTp模块检查输入数据，如果检查通过，则返回E_OK，以指示接受传输请求。上层锁定所需的Tx缓冲区。接下来CanTp会调用PduR_&lt;LoTp&gt;CopyTxData来复制段数据。上层复制数据，然后返回BUFREQ_E_OK。CanTp在拷贝的数据基础上添加控制信息，然后调用CanIf_Transmit请求CanIf模块执行发送。CanIf模块处理发送请求，成功发送后CanIf调用CanTp_TxConfirmation通知CanTp发送成功。然后CanTp调用PduR_&lt;User：LoTp&gt;TxConfirmation通知PDUR已经成功传输。</p>
 <p>When PDUR needs to transmit an SF, PDUR calls CanTp_Transmit with relevant data. The CanTp module checks the input data; if the check passes, it returns E_OK to indicate acceptance of the transmission request. The upper layer locks the required Tx buffer. Next, CanTp calls PduR_&lt;LoTp&gt;CopyTxData to copy segment data. The upper layer copies the data and then returns BUFREQ_E_OK. CanTp adds control information based on the copied data and requests the CanIf module to execute transmission via CanIf_Transmit. After handling the transmission request, the CanIf module calls CanTp_TxConfirmation to notify CanTp of successful sending. Then, CanTp calls PduR_&lt;User:LoTp&gt;TxConfirmation to inform PDUR that the transmission has been successfully completed.</p>
 </section>
 </section>
 <section id="multi-frame-reception-functionality">
-<h3>多帧接收功能 (Multi-frame reception functionality)<a class="headerlink" href="#multi-frame-reception-functionality" title="链接到此标题。">¶</a></h3>
+<h3>多帧接收功能 (Multi-frame reception functionality)<a class="headerlink" href="#multi-frame-reception-functionality" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-multi-frame-reception-function">
-<h4>多帧接收功能介绍 (Introduction to Multi-frame Reception Function)<a class="headerlink" href="#introduction-to-multi-frame-reception-function" title="链接到此标题。">¶</a></h4>
+<h4>多帧接收功能介绍 (Introduction to Multi-frame Reception Function)<a class="headerlink" href="#introduction-to-multi-frame-reception-function" title="Link to this heading">¶</a></h4>
 <p>当接收到一个多帧报文时，CanTp模块会解析首帧报文的控制信息，并根据相关配置判断是否进行接收，如果通过检查则通知上层，并根据上层的状态信息将接收的数据传递给上层模块。首帧处理完成之后，接收方会在规定时间内响应一个流控帧，若流控状态为ContinueToSend，CanTp会继续接收连续帧并向上层传递。当接收完成时通知上层接收完成。</p>
 <p>When receiving a multi-frame message, the CanTp module parses the control information of the first frame and determines whether to receive it based on relevant configurations. If the check passes, it notifies the upper layer, and according to the state information from the upper layer, it forwards the received data to the upper layer module. After processing the first frame, the receiver responds with a flow control frame within a specified time. If the flow control status is ContinueToSend, CanTp continues to receive consecutive frames and passes them on to the upper layer. When reception is complete, it notifies the upper layer that reception has completed.</p>
 </section>
 <section id="multi-frame-reception-function-implementation">
-<h4>多帧接收功能实现 (Multi-frame reception function implementation)<a class="headerlink" href="#multi-frame-reception-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>多帧接收功能实现 (Multi-frame reception function implementation)<a class="headerlink" href="#multi-frame-reception-function-implementation" title="Link to this heading">¶</a></h4>
 <p>当接收到一个FF时，CanIf通过CanTp_RxIndication回调通知CanTp。CanTp解析FF的控制信息后，CanTp使用PduR_&lt;LoTp&gt;StartOfReception回调请求PDUR为传入的数据提供一个缓冲区。检查连接验收并准备FC参数。CanTp激活一个FC发送任务，发送一个流状态设置为ContinueToSend的FC（这里FC的状态需要根据上层的返回信息进行相应的FC状态设置）。该FC通过请求CanIf_Transmit进行发送，同时CanTp会调用PduR_&lt;LoTp&gt;CopyRxData将FF数据传递给上层，然后等待CF的接收。</p>
 <p>When an FF is received, CanIf notifies CanTp through the CanTp_RxIndication callback. After parsing the control information of FF, CanTp requests PDUR to provide a buffer for incoming data using the PduR_&lt;LoTp&gt;StartOfReception callback. It checks the connection acceptance and prepares FC parameters. CanTp activates an FC sending task, sending an FC with the flow status set to ContinueToSend (the state of FC needs to be adjusted according to the information returned from the upper layer). This FC is sent through a request to CanIf_Transmit while CanTp calls PduR_&lt;LoTp&gt;CopyRxData to pass the FF data to the upper layer, and then waits for CF reception.</p>
 <p>当接收到一个CF时，CanIf通过CanTp_RxIndication回调通知CanTp。CanTp将验证序列号，若正确，则要求PduR复制数据，并可能会发生以下情况：</p>
@@ -347,14 +346,14 @@
 </section>
 </section>
 <section id="multi-frame-transmission-function">
-<h3>多帧发送功能 (Multi-frame transmission function)<a class="headerlink" href="#multi-frame-transmission-function" title="链接到此标题。">¶</a></h3>
+<h3>多帧发送功能 (Multi-frame transmission function)<a class="headerlink" href="#multi-frame-transmission-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-multi-frame-transmission-function">
-<h4>多帧发送功能介绍 (Introduction to Multi-frame Transmission Function)<a class="headerlink" href="#introduction-to-multi-frame-transmission-function" title="链接到此标题。">¶</a></h4>
+<h4>多帧发送功能介绍 (Introduction to Multi-frame Transmission Function)<a class="headerlink" href="#introduction-to-multi-frame-transmission-function" title="Link to this heading">¶</a></h4>
 <p>当需要发送一个多帧报文时，CanTp模块会添加首帧报文的控制信息，并在FF发送成功后等待接收一个FC。当接收到的FC所带状态信息为CTS时，将接下来的数据进行发送，并填充成CF，如果发送的CF个数达到FC所带的BS，则需要等待下一个FC，直到数据发送完成。</p>
 <p>When multiple frames need to be sent as a message, the CanTp module adds control information to the first frame and waits for an FC after successful FF transmission. Upon receiving an FC with a status of CTS, the subsequent data is sent and filled into CF. If the number of sent CFs reaches the BS carried by the FC, it waits for the next FC until all data is transmitted.</p>
 </section>
 <section id="multi-frame-transmission-functionality-implementation">
-<h4>多帧发送功能实现 (Multi-frame transmission functionality implementation)<a class="headerlink" href="#multi-frame-transmission-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>多帧发送功能实现 (Multi-frame transmission functionality implementation)<a class="headerlink" href="#multi-frame-transmission-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>PDUR需要传输一个多帧数据时，会调用CanTp的CanTp_Transmit。CanTp会验证输入参数和资源的可用性，并根据发送请求的有用信息(例如SF/FF/CF N-PDU标识符、FC N-PDU标识符、N_TA值等)启动带有参数的内部传输任务。</p>
 <p>When PDUR needs to transmit multi-frame data, it calls CanTp's CanTp_Transmit. CanTp verifies the input parameters and availability of resources and initiates an internal transmission task with parameters based on useful information from the send request (e.g., SF/FF/CF N-PDU identifiers, FC N-PDU identifier, N_TA value, etc.).</p>
 <p>CanTp在接下来调用PduR_&lt;LoTp&gt;CopyTxData。上层将数据复制到目标缓冲区。在发送任务中，CanTp通过CanIf_Transmit通知CanIf，CanTp等待来自CanIf的确认(CanTp_TxConfirmation)，然后等待接收一个状态为CTS的FC。接收FC成功后，CanTp 要求PDUR提供要发送的新数据用于发送CF，或发生错误时，CanTp使用PduR_&lt;User：LoTp&gt;TxConfirmation通知PDUR。整个过程中根据BS可能需要接收多次FC。</p>
@@ -363,7 +362,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CanTp组件文件描述 (Description of CanTp Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -416,11 +415,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="cantp-configtype-cantp-configtype-configuration-type-definition">
-<h4>CanTp_ConfigType类型定义 (CanTp_ConfigType Configuration Type Definition)<a class="headerlink" href="#cantp-configtype-cantp-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_ConfigType类型定义 (CanTp_ConfigType Configuration Type Definition)<a class="headerlink" href="#cantp-configtype-cantp-configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -446,7 +445,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -501,9 +500,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="cantp-init-the-cantp-init-function-defines">
-<h4>CanTp_Init函数定义 (The CanTp_Init function defines)<a class="headerlink" href="#cantp-init-the-cantp-init-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_Init函数定义 (The CanTp_Init function defines)<a class="headerlink" href="#cantp-init-the-cantp-init-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -568,7 +567,7 @@
 </table>
 </section>
 <section id="cantp-getversioninfo-the-cantp-getversioninfo-function-definition">
-<h4>CanTp_GetVersionInfo函数定义 (The CanTp_GetVersionInfo function definition)<a class="headerlink" href="#cantp-getversioninfo-the-cantp-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_GetVersionInfo函数定义 (The CanTp_GetVersionInfo function definition)<a class="headerlink" href="#cantp-getversioninfo-the-cantp-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -633,7 +632,7 @@
 </table>
 </section>
 <section id="cantp-shutdown-the-cantp-shutdown-function-definition">
-<h4>CanTp_Shutdown函数定义 (The CanTp_Shutdown function definition)<a class="headerlink" href="#cantp-shutdown-the-cantp-shutdown-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_Shutdown函数定义 (The CanTp_Shutdown function definition)<a class="headerlink" href="#cantp-shutdown-the-cantp-shutdown-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -698,7 +697,7 @@
 </table>
 </section>
 <section id="cantp-transmit-the-cantp-transmit-function-definition">
-<h4>CanTp_Transmit函数定义 (The CanTp_Transmit function definition)<a class="headerlink" href="#cantp-transmit-the-cantp-transmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_Transmit函数定义 (The CanTp_Transmit function definition)<a class="headerlink" href="#cantp-transmit-the-cantp-transmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -778,7 +777,7 @@
 </table>
 </section>
 <section id="cantp-canceltransmit-the-cantp-canceltransmit-function-definition">
-<h4>CanTp_CancelTransmit函数定义 (The CanTp_CancelTransmit function definition)<a class="headerlink" href="#cantp-canceltransmit-the-cantp-canceltransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_CancelTransmit函数定义 (The CanTp_CancelTransmit function definition)<a class="headerlink" href="#cantp-canceltransmit-the-cantp-canceltransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -843,7 +842,7 @@
 </table>
 </section>
 <section id="cantp-cancelreceive-function-cantp-cancelreceive-defined">
-<h4>CanTp_CancelReceive函数定义 (Function CanTp_CancelReceive Defined)<a class="headerlink" href="#cantp-cancelreceive-function-cantp-cancelreceive-defined" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_CancelReceive函数定义 (Function CanTp_CancelReceive Defined)<a class="headerlink" href="#cantp-cancelreceive-function-cantp-cancelreceive-defined" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -908,7 +907,7 @@
 </table>
 </section>
 <section id="cantp-changeparameter-the-cantp-changeparameter-function-definition">
-<h4>CanTp_ChangeParameter函数定义 (The CanTp_ChangeParameter function definition)<a class="headerlink" href="#cantp-changeparameter-the-cantp-changeparameter-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_ChangeParameter函数定义 (The CanTp_ChangeParameter function definition)<a class="headerlink" href="#cantp-changeparameter-the-cantp-changeparameter-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -988,7 +987,7 @@
 </table>
 </section>
 <section id="cantp-readparameter-the-function-definition-for-cantp-readparameter">
-<h4>CanTp_ReadParameter函数定义 (The function definition for CanTp_ReadParameter)<a class="headerlink" href="#cantp-readparameter-the-function-definition-for-cantp-readparameter" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_ReadParameter函数定义 (The function definition for CanTp_ReadParameter)<a class="headerlink" href="#cantp-readparameter-the-function-definition-for-cantp-readparameter" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1063,7 +1062,7 @@
 </table>
 </section>
 <section id="cantp-mainfunction-cantp-mainfunction-function-definition">
-<h4>CanTp_MainFunction函数定义 (CanTp_MainFunction function definition)<a class="headerlink" href="#cantp-mainfunction-cantp-mainfunction-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_MainFunction函数定义 (CanTp_MainFunction function definition)<a class="headerlink" href="#cantp-mainfunction-cantp-mainfunction-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1128,7 +1127,7 @@
 </table>
 </section>
 <section id="cantp-rxindication-the-cantp-rxindication-function-definition">
-<h4>CanTp_RxIndication函数定义 (The CanTp_RxIndication function definition)<a class="headerlink" href="#cantp-rxindication-the-cantp-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_RxIndication函数定义 (The CanTp_RxIndication function definition)<a class="headerlink" href="#cantp-rxindication-the-cantp-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1198,7 +1197,7 @@
 </table>
 </section>
 <section id="cantp-txconfirmation-the-cantp-txconfirmation-function-definition">
-<h4>CanTp_TxConfirmation函数定义 (The CanTp_TxConfirmation function definition)<a class="headerlink" href="#cantp-txconfirmation-the-cantp-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>CanTp_TxConfirmation函数定义 (The CanTp_TxConfirmation function definition)<a class="headerlink" href="#cantp-txconfirmation-the-cantp-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1264,15 +1263,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="cantpgeneral">
-<h3>CanTpGeneral<a class="headerlink" href="#cantpgeneral" title="链接到此标题。">¶</a></h3>
+<h3>CanTpGeneral<a class="headerlink" href="#cantpgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpgeneral-cantpgeneral-container-configuration-diagram">
 <img alt="CanTpGeneral容器配置图(CanTpGeneral Container Configuration Diagram)" src="../../_images/image66.png" />
 </figure>
@@ -1568,7 +1567,7 @@
 </table>
 </section>
 <section id="cantpconfig">
-<h3>CanTpConfig<a class="headerlink" href="#cantpconfig" title="链接到此标题。">¶</a></h3>
+<h3>CanTpConfig<a class="headerlink" href="#cantpconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpconfig-cantpconfig-container-configuration-diagram">
 <img alt="CanTpConfig容器配置图(CanTpConfig Container Configuration Diagram)" src="../../_images/image76.png" />
 </figure>
@@ -1636,7 +1635,7 @@
 </table>
 </section>
 <section id="cantpchannel">
-<h3>CanTpChannel<a class="headerlink" href="#cantpchannel" title="链接到此标题。">¶</a></h3>
+<h3>CanTpChannel<a class="headerlink" href="#cantpchannel" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpchannel-cantpchannel-container-configuration-diagram">
 <img alt="CanTpChannel容器配置图(CanTpChannel Container Configuration Diagram)" src="../../_images/image86.png" />
 </figure>
@@ -1752,7 +1751,7 @@
 </table>
 </section>
 <section id="cantprxnsdu">
-<h3>CanTpRxNSdu<a class="headerlink" href="#cantprxnsdu" title="链接到此标题。">¶</a></h3>
+<h3>CanTpRxNSdu<a class="headerlink" href="#cantprxnsdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantprxnsdu-cantprxnsdu-container-configuration-diagram">
 <img alt="CanTpRxNSdu容器配置图(CanTpRxNSdu Container Configuration Diagram)" src="../../_images/image96.png" />
 </figure>
@@ -1985,7 +1984,7 @@
 </table>
 </section>
 <section id="cantprxnpdu">
-<h3>CanTpRxNPdu<a class="headerlink" href="#cantprxnpdu" title="链接到此标题。">¶</a></h3>
+<h3>CanTpRxNPdu<a class="headerlink" href="#cantprxnpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantprxnpdu-cantprxnpdu-container-configuration-diagram">
 <img alt="CanTpRxNPdu容器配置图(CanTpRxNPdu Container Configuration Diagram)" src="../../_images/image106.png" />
 </figure>
@@ -2047,7 +2046,7 @@
 </table>
 </section>
 <section id="cantptxfcnpdu">
-<h3>CanTpTxFcNPdu<a class="headerlink" href="#cantptxfcnpdu" title="链接到此标题。">¶</a></h3>
+<h3>CanTpTxFcNPdu<a class="headerlink" href="#cantptxfcnpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantptxfcnpdu-cantptxfcnpdu-container-configuration-diagram">
 <img alt="CanTpTxFcNPdu容器配置图(CanTpTxFcNPdu Container Configuration Diagram)" src="../../_images/image1111.png" />
 </figure>
@@ -2109,7 +2108,7 @@
 </table>
 </section>
 <section id="cantpnta">
-<h3>CanTpNTa<a class="headerlink" href="#cantpnta" title="链接到此标题。">¶</a></h3>
+<h3>CanTpNTa<a class="headerlink" href="#cantpnta" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpnta-cantpnta-container-configuration-diagram">
 <img alt="CanTpNTa容器配置图(CanTpNTa Container Configuration Diagram)" src="../../_images/image126.png" />
 </figure>
@@ -2159,7 +2158,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 </table>
 </section>
 <section id="cantpnsa">
-<h3>CanTpNSa<a class="headerlink" href="#cantpnsa" title="链接到此标题。">¶</a></h3>
+<h3>CanTpNSa<a class="headerlink" href="#cantpnsa" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpnsa-cantpnsa-container-configuration-diagram">
 <img alt="CanTpNSa容器配置图(CanTpNSa Container Configuration Diagram)" src="../../_images/image134.png" />
 </figure>
@@ -2209,7 +2208,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 </table>
 </section>
 <section id="cantpnae">
-<h3>CanTpNAe<a class="headerlink" href="#cantpnae" title="链接到此标题。">¶</a></h3>
+<h3>CanTpNAe<a class="headerlink" href="#cantpnae" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpnae-cantpnae-container-configuration-diagram">
 <img alt="CanTpNAe容器配置图(CanTpNAe Container Configuration Diagram)" src="../../_images/image144.png" />
 </figure>
@@ -2253,7 +2252,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 </table>
 </section>
 <section id="cantptxnsdu">
-<h3>CanTpTxNSdu<a class="headerlink" href="#cantptxnsdu" title="链接到此标题。">¶</a></h3>
+<h3>CanTpTxNSdu<a class="headerlink" href="#cantptxnsdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantptxnsdu-cantptxnsdu-container-configuration-diagram">
 <img alt="CanTpTxNSdu容器配置图(CanTpTxNSdu Container Configuration Diagram)" src="../../_images/image153.png" />
 </figure>
@@ -2444,7 +2443,7 @@ DcmGeneral/PreemptionProtocolCancelSupport同步勾选；否则可自行配置�
 </table>
 </section>
 <section id="cantptxnpdu">
-<h3>CanTpTxNPdu<a class="headerlink" href="#cantptxnpdu" title="链接到此标题。">¶</a></h3>
+<h3>CanTpTxNPdu<a class="headerlink" href="#cantptxnpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantptxnpdu-cantptxnpdu-container-configuration-diagram">
 <img alt="CanTpTxNPdu容器配置图(CanTpTxNPdu Container Configuration Diagram)" src="../../_images/image163.png" />
 </figure>
@@ -2506,7 +2505,7 @@ DcmGeneral/PreemptionProtocolCancelSupport同步勾选；否则可自行配置�
 </table>
 </section>
 <section id="cantprxfcnpdu">
-<h3>CanTpRxFcNPdu<a class="headerlink" href="#cantprxfcnpdu" title="链接到此标题。">¶</a></h3>
+<h3>CanTpRxFcNPdu<a class="headerlink" href="#cantprxfcnpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantprxfcnpdu-cantprxfcnpdu-container-configuration-diagram">
 <img alt="CanTpRxFcNPdu容器配置图(CanTpRxFcNPdu Container Configuration Diagram)" src="../../_images/image172.png" />
 </figure>
@@ -2568,7 +2567,7 @@ DcmGeneral/PreemptionProtocolCancelSupport同步勾选；否则可自行配置�
 </table>
 </section>
 <section id="id1">
-<h3>CanTpNTa<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h3>
+<h3>CanTpNTa<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpnta1-cantpnta-container-configuration-diagram">
 <img alt="CanTpNTa容器配置图1(CanTpNTa Container Configuration Diagram)" src="../../_images/image126.png" />
 </figure>
@@ -2618,7 +2617,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 </table>
 </section>
 <section id="id2">
-<h3>CanTpNSa<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h3>
+<h3>CanTpNSa<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpnsa1-cantpnsa-container-configuration-diagram">
 <img alt="CanTpNSa容器配置图1(CanTpNSa Container Configuration Diagram)" src="../../_images/image134.png" />
 </figure>
@@ -2668,7 +2667,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 </table>
 </section>
 <section id="id3">
-<h3>CanTpNAe<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h3>
+<h3>CanTpNAe<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cantpnae1-cantpnae-container-configuration-diagram">
 <img alt="CanTpNAe容器配置图1(CanTpNAe Container Configuration Diagram)" src="../../_images/image144.png" />
 </figure>
@@ -2713,7 +2712,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 </section>
 </section>
 <section id="appendix-1">
-<h2>附录1 (Appendix 1)<a class="headerlink" href="#appendix-1" title="链接到此标题。">¶</a></h2>
+<h2>附录1 (Appendix 1)<a class="headerlink" href="#appendix-1" title="Link to this heading">¶</a></h2>
 <p>[1]通过CanTpTimerType配置项可以选择四种计时方法。分别为TM、OS、Mainfunction、Callout。TM:使用TM模块内部标准接口。OS：使用Os system counter。Mainfunction：依赖周期调度，由CanTp内部计时。不同计时方法的对应接口由配置工具生成在CanTp_Callout.c中，其中Callout是由客户自定义的计时类型，可以参照生成示例中TM/OS/Mainfunction的实现，结合项目工程情况修改接口自行实现计时功能。</p>
 <p>The configuration item CanTpTimerType allows selection of four timing methods: TM, OS, Mainfunction, and Callout.TM: Uses the standard interface within the TM module.OS: Uses the Os system counter.Mainfunction: Depends on periodic scheduling managed internally by CanTp.The corresponding interfaces for different timing methods are generated by the configuration tool in CanTp_Callout.c. Among these, Callout is a customer-defined timing type that can be implemented by referring to the examples of TM/OS/Mainfunction and modifying the interface according to project engineering requirements.</p>
 <p>[2] 根据整个通信栈架构，CanTp_TxConfirmation 接口目前按照422版本实现。</p>
@@ -2722,7 +2721,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
 <p>After enabling the CanTpSynchronousTransmission configuration item, CanTp will activate the synchronous transmission mechanism for SF/FF frames in the CanTp_Transmit interface. Note: If the upper-layer application relies on the return value of the CanTp_Transmit function for subsequent processing, then this synchronous transmission feature is unavailable. This feature is only applicable to scenarios where the upper-layer application does not depend on the return value of the CanTp_Transmit function.</p>
 </section>
 <section id="appendix-2">
-<h2>附录2 (Appendix 2)<a class="headerlink" href="#appendix-2" title="链接到此标题。">¶</a></h2>
+<h2>附录2 (Appendix 2)<a class="headerlink" href="#appendix-2" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 工程预编译宏定义表(Table Engineering Precompiled Macro Definition Table)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -2866,7 +2865,7 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -2875,11 +2874,11 @@ If DynIdSupport is enabled and GenericConnectionSupport is not disabled, and the
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,7 +9,6 @@
         <title>CSM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="csm">
-<h1>CSM<a class="headerlink" href="#csm" title="链接到此标题。">¶</a></h1>
+<h1>CSM<a class="headerlink" href="#csm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -220,26 +219,26 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>CSM应提供同步或异步服务，以支持对所有软件模块的基本密码功能的唯一访问。CSM应该提供一个抽象层，它为更高的软件层提供一个标准化的接口来访问这些功能。软件模块所需的功能可能与其他软件模块所需的功能不同。因此，应该可以为每个软件模块单独配置和初始化CSM提供的服务。此配置还包括对CSM服务的同步或异步处理的选择。CSM模块的构建遵循通用方法。如果结构和接口的详细规范限制了CSM的可用性范围，则以通用方式定义接口和结构。这为将来的扩展提供了机会。</p>
 <p>CSM should provide both synchronous and asynchronous services to support unique access to fundamental cryptographic functions across all software modules. CSM should offer an abstract layer that provides a standardized interface for higher software layers to access these functionalities. The functions required by each software module may differ from those required by other software modules. Therefore, it should be possible to configure and initialize the services provided by CSM for each software module separately. This configuration also includes the choice of synchronous or asynchronous processing for CSM services. The construction of the CSM module follows a generic approach. If the detailed specifications for structure and interface limit the range of CSM availability, then interfaces and structures are defined in a generic manner. This provides opportunities for future expansion.</p>
 <figure class="align-center" id="crypto-crypto-architecture-diagram">
 <img alt="Crypto架构图 (Crypto Architecture Diagram)" src="../../_images/image111.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_CryptoServiceManager.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="basic-features">
-<h3>基本功能 (Basic features)<a class="headerlink" href="#basic-features" title="链接到此标题。">¶</a></h3>
+<h3>基本功能 (Basic features)<a class="headerlink" href="#basic-features" title="Link to this heading">¶</a></h3>
 <p>CSM是一种提供加密功能的服务，它基于一个依赖于软件库或硬件模块的加密驱动程序。此外，混合设置与多个密码驱动程序是可能的。CSM通过CRYIF访问不同的加密驱动程序。</p>
 <p>CSM is a service that provides encryption functionality, based on an encryption driver depending on a software library or hardware module. Additionally, a mixed setup with multiple password drivers is possible. CSM accesses different encryption drivers through CRYIF.</p>
 </section>
 <section id="general-functions">
-<h3>一般功能 (General Functions)<a class="headerlink" href="#general-functions" title="链接到此标题。">¶</a></h3>
+<h3>一般功能 (General Functions)<a class="headerlink" href="#general-functions" title="Link to this heading">¶</a></h3>
 <p>CSM通过引入Job的概念来处理加密工作。</p>
 <p>CSM processes encryption tasks through the introduction of the Job concept.</p>
 <p>Job是已配置的密码原语的实例，对于每个Job，CSM每次只能处理一个实例，但允许不同Job的并行处理，如果一个服务请求正被相应的Job处理，此时来了另一个相同Job的要求，CSM应当返回CRYPTO_E_BUSY。</p>
@@ -247,7 +246,7 @@
 <p>注意：Job正在被处理意味着相应的加密驱动程序对象正在积极地处理这个Job。当一个Job没有完成，但是加密驱动程序对象没有被激活，这并不意味着这个Job正在被处理。如果配置了异步接口，则CSM模块应提供一个主函数Csm_MainFunction()，该主函数被循环调用，以通过状态机控制Job的处理。</p>
 <p>Note: Job is being processed means that the corresponding encryption driver object is actively handling this Job. When a Job is not completed but the encryption driver object is not activated, it does not mean that the Job is being processed. If asynchronous interfaces are configured, the CSM module should provide a main function Csm_MainFunction(), which is called in a loop to control Job processing through a state machine.</p>
 <section id="job-job-status">
-<h4>Job状态 (Job Status)<a class="headerlink" href="#job-job-status" title="链接到此标题。">¶</a></h4>
+<h4>Job状态 (Job Status)<a class="headerlink" href="#job-job-status" title="Link to this heading">¶</a></h4>
 <p>将单一的调用函数与加密Job的流方式相结合，需要模式参数，它决定了加密Job的运行模式。此服务操作是一个标志字段，指示操作模式启动、更新或完成，它显式地声明应该执行什么操作。这些操作模式可以混合使用，并同时执行。状态的实际事务是在与这些状态一起工作的层中进行的，即在加密驱动程序中。</p>
 <p>Combining the stream way of calling functions with the encryption Job requires a mode parameter, which determines the运行模式 of the encryption Job. This service operation is a flag field that indicates whether the operation mode starts, updates, or completes, explicitly declaring what action should be performed. These operation modes can be mixed and executed simultaneously. The actual transaction of the status is conducted at the layer where these statuses are worked with, i.e., in the encryption driver.</p>
 <figure class="align-center" id="job-job-status-diagram">
@@ -257,7 +256,7 @@
 <p>Monotonic calls do not require multiple explicit API calls; a single call is sufficient. Since the overhead of monotonic calls is small, they can improve performance and are often used in scenarios requiring fast processing of small data inputs. When using stream methods (start, update, finish) operations, a dedicated encryption driver object waits for further input (update) until reaching the finished state. Additionally, other jobs cannot be processed on this encryption driver instance.</p>
 </section>
 <section id="job-synchronize-job">
-<h4>同步Job (Synchronize Job)<a class="headerlink" href="#job-synchronize-job" title="链接到此标题。">¶</a></h4>
+<h4>同步Job (Synchronize Job)<a class="headerlink" href="#job-synchronize-job" title="Link to this heading">¶</a></h4>
 <p>如果使用同步接口，则接口函数将必要的信息传递给底层加密堆栈模块并等待返回结果。</p>
 <p>If using a synchronous interface, the interface function passes necessary information to the underlying encryption stack module and waits for the return result.</p>
 <figure class="align-center" id="synchronized-task-execution-flowchart">
@@ -265,7 +264,7 @@
 </figure>
 </section>
 <section id="job-async-job">
-<h4>异步Job (Async Job)<a class="headerlink" href="#job-async-job" title="链接到此标题。">¶</a></h4>
+<h4>异步Job (Async Job)<a class="headerlink" href="#job-async-job" title="Link to this heading">¶</a></h4>
 <p>如果使用异步接口，则接口函数只能将必要的信息传递给底层加密堆栈模块，然后等待底层处理完成调用回调函数通知CSM。</p>
 <p>If asynchronous interfaces are used, then interface functions can only pass the necessary information to the underlying encryption stack module and then wait for the latter to complete processing and call the callback function to notify CSM.</p>
 <figure class="align-center" id="asynchronous-task-execution-flow-chart">
@@ -273,7 +272,7 @@
 </figure>
 </section>
 <section id="queue-queue-related">
-<h4>Queue相关 (Queue-related)<a class="headerlink" href="#queue-queue-related" title="链接到此标题。">¶</a></h4>
+<h4>Queue相关 (Queue-related)<a class="headerlink" href="#queue-queue-related" title="Link to this heading">¶</a></h4>
 <p>Quene，即队列，为CSM内部针对Job设置的一个功能，CSM应在内部完成对其的操作。</p>
 <p>A queue, which refers to the message queue, is a function provided internally by the CSM for jobs, and all corresponding operations shall be handled internally within the CSM.</p>
 <p>CSM可能有多个队列，其中的Job根据其优先级排列，以处理多个加密请求。从CSM队列通过CryIf到加密驱动程序对象的路径称为通道。CSM的每个队列都映射到一个通道，以访问crypto驱动程序对象的crypto原语。队列的大小是可配置的。为了优化加密驱动程序对象的硬件使用，加密驱动程序中还有一个可选的队列。加密驱动程序对象表示独立加密设备(硬件或软件，如AES加速器)的实例。对于具有高优先级的Job，HSM上可以有一个用于快速AES和CMAC计算的通道，该通道在加密驱动程序中的本地AES计算服务上结束。但同时，加密驱动程序对象也可能是软件，例如用于RSA计算，用户能够加密、解密、签名或验证数据。</p>
@@ -282,7 +281,7 @@
 <p>In synchronous Job processing, the queue will not work. Therefore, if synchronous Job processing is selected, the queue size should be 0. However, channels (including queues) can also be used with both synchronous and asynchronous Jobs. Queued Jobs can be passed to CRYIF in Csm_MainFunction(). If the Job's status is active, CSM should assume that the mapped encryption driver instance is currently processing the Job. The caller must perform a trust check within the encryption driver instance if they wish to continue operations (e.g., using update to provide more data).</p>
 </section>
 <section id="key-key-management-function">
-<h4>Key管理功能 (Key Management Function)<a class="headerlink" href="#key-key-management-function" title="链接到此标题。">¶</a></h4>
+<h4>Key管理功能 (Key Management Function)<a class="headerlink" href="#key-key-management-function" title="Link to this heading">¶</a></h4>
 <p>Key，即对应的keyid具有配置给出的符号名称。Crypto堆栈API使用来自CSM模块的以下关键元素索引定义：</p>
 <p>Key, which corresponds to the keyid with the symbol name provided by the configuration. The Crypto stack API uses the following key elements index defined from the CSM module:</p>
 <figure class="align-center" id="keyelement-keyelement-diagram">
@@ -299,7 +298,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CSM组件文件描述 (Table CSM Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -337,11 +336,11 @@
 </table>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义  (Type Definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义  (Type Definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="csm-configtype-csm-configtype-configuration-type-definition">
-<h4>Csm_ConfigType类型定义 (Csm_ConfigType Configuration Type Definition)<a class="headerlink" href="#csm-configtype-csm-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_ConfigType类型定义 (Csm_ConfigType Configuration Type Definition)<a class="headerlink" href="#csm-configtype-csm-configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -366,7 +365,7 @@
 </table>
 </section>
 <section id="crypto-inputoutputredirectionconfigtype-crypto-inputoutputredirectionconfigtype-type-definition">
-<h4>Crypto_InputOutputRedirectionConfigType类型定义 (Crypto_InputOutputRedirectionConfigType type definition)<a class="headerlink" href="#crypto-inputoutputredirectionconfigtype-crypto-inputoutputredirectionconfigtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_InputOutputRedirectionConfigType类型定义 (Crypto_InputOutputRedirectionConfigType type definition)<a class="headerlink" href="#crypto-inputoutputredirectionconfigtype-crypto-inputoutputredirectionconfigtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -412,7 +411,7 @@
 </table>
 </section>
 <section id="crypto-jobtype-crypto-jobtype-type-definition">
-<h4>Crypto_JobType类型定义 (Crypto_JobType Type Definition)<a class="headerlink" href="#crypto-jobtype-crypto-jobtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_JobType类型定义 (Crypto_JobType Type Definition)<a class="headerlink" href="#crypto-jobtype-crypto-jobtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -437,7 +436,7 @@
 </table>
 </section>
 <section id="crypto-jobstatetype-crypto-jobstatetype-type-definition">
-<h4>Crypto_JobStateType类型定义 (Crypto_JobStateType type definition)<a class="headerlink" href="#crypto-jobstatetype-crypto-jobstatetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_JobStateType类型定义 (Crypto_JobStateType type definition)<a class="headerlink" href="#crypto-jobstatetype-crypto-jobstatetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -462,7 +461,7 @@
 </table>
 </section>
 <section id="crypto-jobprimitiveinputoutputtype-crypto-jobprimitiveinputoutputtype-type-definition">
-<h4>Crypto_JobPrimitiveInputOutputType类型定义 (Crypto_JobPrimitiveInputOutputType Type Definition)<a class="headerlink" href="#crypto-jobprimitiveinputoutputtype-crypto-jobprimitiveinputoutputtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_JobPrimitiveInputOutputType类型定义 (Crypto_JobPrimitiveInputOutputType Type Definition)<a class="headerlink" href="#crypto-jobprimitiveinputoutputtype-crypto-jobprimitiveinputoutputtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -487,7 +486,7 @@
 </table>
 </section>
 <section id="crypto-jobinfotype-crypto-jobinfotype-type-definition">
-<h4>Crypto_JobInfoType类型定义 (Crypto_JobInfoType type definition)<a class="headerlink" href="#crypto-jobinfotype-crypto-jobinfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_JobInfoType类型定义 (Crypto_JobInfoType type definition)<a class="headerlink" href="#crypto-jobinfotype-crypto-jobinfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -512,7 +511,7 @@
 </table>
 </section>
 <section id="crypto-jobprimitiveinfotype-crypto-jobprimitiveinfotype-type-definition">
-<h4>Crypto_JobPrimitiveInfoType类型定义 (Crypto_JobPrimitiveInfoType type definition)<a class="headerlink" href="#crypto-jobprimitiveinfotype-crypto-jobprimitiveinfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_JobPrimitiveInfoType类型定义 (Crypto_JobPrimitiveInfoType type definition)<a class="headerlink" href="#crypto-jobprimitiveinfotype-crypto-jobprimitiveinfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -537,7 +536,7 @@
 </table>
 </section>
 <section id="crypto-jobredirectioninfotype-crypto-jobredirectioninfotype-type-definition">
-<h4>Crypto_JobRedirectionInfoType类型定义 (Crypto_JobRedirectionInfoType type definition)<a class="headerlink" href="#crypto-jobredirectioninfotype-crypto-jobredirectioninfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_JobRedirectionInfoType类型定义 (Crypto_JobRedirectionInfoType type definition)<a class="headerlink" href="#crypto-jobredirectioninfotype-crypto-jobredirectioninfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -562,7 +561,7 @@
 </table>
 </section>
 <section id="crypto-algorithminfotype-crypto-algorithminfotype-type-definition">
-<h4>Crypto_AlgorithmInfoType类型定义 (Crypto_AlgorithmInfoType type definition)<a class="headerlink" href="#crypto-algorithminfotype-crypto-algorithminfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_AlgorithmInfoType类型定义 (Crypto_AlgorithmInfoType type definition)<a class="headerlink" href="#crypto-algorithminfotype-crypto-algorithminfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -587,7 +586,7 @@
 </table>
 </section>
 <section id="crypto-processingtype-crypto-processingtype-type-definition">
-<h4>Crypto_ProcessingType类型定义 (Crypto_ProcessingType type definition)<a class="headerlink" href="#crypto-processingtype-crypto-processingtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_ProcessingType类型定义 (Crypto_ProcessingType type definition)<a class="headerlink" href="#crypto-processingtype-crypto-processingtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -612,7 +611,7 @@
 </table>
 </section>
 <section id="crypto-primitiveinfotype-crypto-primitiveinfotype-type-definition">
-<h4>Crypto_PrimitiveInfoType类型定义 (Crypto_PrimitiveInfoType type definition)<a class="headerlink" href="#crypto-primitiveinfotype-crypto-primitiveinfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crypto_PrimitiveInfoType类型定义 (Crypto_PrimitiveInfoType type definition)<a class="headerlink" href="#crypto-primitiveinfotype-crypto-primitiveinfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -637,7 +636,7 @@
 </table>
 </section>
 <section id="csm-configidtype-csm-configidtype-type-definition">
-<h4>Csm_ConfigIdType类型定义 (Csm_ConfigIdType Type Definition)<a class="headerlink" href="#csm-configidtype-csm-configidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_ConfigIdType类型定义 (Csm_ConfigIdType Type Definition)<a class="headerlink" href="#csm-configidtype-csm-configidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -669,7 +668,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -724,9 +723,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="csm-init-the-csm-init-function-definition">
-<h4>Csm_Init函数定义 (The Csm_Init function definition)<a class="headerlink" href="#csm-init-the-csm-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_Init函数定义 (The Csm_Init function definition)<a class="headerlink" href="#csm-init-the-csm-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -806,7 +805,7 @@
 </table>
 </section>
 <section id="csm-getversioninfo-the-csm-getversioninfo-function-definition">
-<h4>Csm_GetVersionInfo函数定义 (The Csm_GetVersionInfo function definition)<a class="headerlink" href="#csm-getversioninfo-the-csm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_GetVersionInfo函数定义 (The Csm_GetVersionInfo function definition)<a class="headerlink" href="#csm-getversioninfo-the-csm-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -886,7 +885,7 @@
 </table>
 </section>
 <section id="csm-hash-definition-of-csm-hash-function">
-<h4>Csm_Hash函数定义 (Definition of Csm_Hash function)<a class="headerlink" href="#csm-hash-definition-of-csm-hash-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_Hash函数定义 (Definition of Csm_Hash function)<a class="headerlink" href="#csm-hash-definition-of-csm-hash-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1006,7 +1005,7 @@
 </table>
 </section>
 <section id="csm-macgenerate-the-definition-of-csm-macgenerate-function">
-<h4>Csm_MacGenerate函数定义 (The definition of Csm_MacGenerate function)<a class="headerlink" href="#csm-macgenerate-the-definition-of-csm-macgenerate-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_MacGenerate函数定义 (The definition of Csm_MacGenerate function)<a class="headerlink" href="#csm-macgenerate-the-definition-of-csm-macgenerate-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1126,7 +1125,7 @@
 </table>
 </section>
 <section id="csm-macverify-the-definition-of-csm-macverify-function">
-<h4>Csm_MacVerify函数定义 (The definition of Csm_MacVerify function)<a class="headerlink" href="#csm-macverify-the-definition-of-csm-macverify-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_MacVerify函数定义 (The definition of Csm_MacVerify function)<a class="headerlink" href="#csm-macverify-the-definition-of-csm-macverify-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1261,7 +1260,7 @@
 </table>
 </section>
 <section id="csm-encrypt-csm-encrypt-function-definition">
-<h4>Csm_Encrypt函数定义 (Csm_Encrypt function definition)<a class="headerlink" href="#csm-encrypt-csm-encrypt-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_Encrypt函数定义 (Csm_Encrypt function definition)<a class="headerlink" href="#csm-encrypt-csm-encrypt-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1381,7 +1380,7 @@
 </table>
 </section>
 <section id="csm-decrypt-definition-of-csm-decrypt-function">
-<h4>Csm_Decrypt函数定义 (Definition of Csm_Decrypt function)<a class="headerlink" href="#csm-decrypt-definition-of-csm-decrypt-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_Decrypt函数定义 (Definition of Csm_Decrypt function)<a class="headerlink" href="#csm-decrypt-definition-of-csm-decrypt-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1501,7 +1500,7 @@
 </table>
 </section>
 <section id="csm-aeadencrypt-definition-of-csm-aeadencrypt-function">
-<h4>Csm_AEADEncrypt函数定义 (Definition of Csm_AEADEncrypt function)<a class="headerlink" href="#csm-aeadencrypt-definition-of-csm-aeadencrypt-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_AEADEncrypt函数定义 (Definition of Csm_AEADEncrypt function)<a class="headerlink" href="#csm-aeadencrypt-definition-of-csm-aeadencrypt-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1661,7 +1660,7 @@
 </table>
 </section>
 <section id="csm-aeaddecrypt-csm-aeaddecrypt-function-definition">
-<h4>Csm_AEADDecrypt函数定义 (Csm_AEADDecrypt function definition)<a class="headerlink" href="#csm-aeaddecrypt-csm-aeaddecrypt-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_AEADDecrypt函数定义 (Csm_AEADDecrypt function definition)<a class="headerlink" href="#csm-aeaddecrypt-csm-aeaddecrypt-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1831,7 +1830,7 @@
 </table>
 </section>
 <section id="csm-signaturegenerate-csm-signaturegenerate-function-definition">
-<h4>Csm_SignatureGenerate函数定义 (CSm_SignatureGenerate function definition)<a class="headerlink" href="#csm-signaturegenerate-csm-signaturegenerate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_SignatureGenerate函数定义 (CSm_SignatureGenerate function definition)<a class="headerlink" href="#csm-signaturegenerate-csm-signaturegenerate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1951,7 +1950,7 @@
 </table>
 </section>
 <section id="csm-signatureverify-definition-of-csm-signatureverify-function">
-<h4>Csm_ SignatureVerify函数定义 (Definition of Csm_SignatureVerify Function)<a class="headerlink" href="#csm-signatureverify-definition-of-csm-signatureverify-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_ SignatureVerify函数定义 (Definition of Csm_SignatureVerify Function)<a class="headerlink" href="#csm-signatureverify-definition-of-csm-signatureverify-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2086,7 +2085,7 @@
 </table>
 </section>
 <section id="csm-randomgenerate-csm-randomgenerate-function-definition">
-<h4>Csm_RandomGenerate函数定义 (Csm_RandomGenerate function definition)<a class="headerlink" href="#csm-randomgenerate-csm-randomgenerate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_RandomGenerate函数定义 (Csm_RandomGenerate function definition)<a class="headerlink" href="#csm-randomgenerate-csm-randomgenerate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2186,7 +2185,7 @@
 </table>
 </section>
 <section id="csm-keyelementset-the-csm-keyelementset-function-definition">
-<h4>Csm_KeyElementSet函数定义 (The Csm_KeyElementSet function definition)<a class="headerlink" href="#csm-keyelementset-the-csm-keyelementset-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyElementSet函数定义 (The Csm_KeyElementSet function definition)<a class="headerlink" href="#csm-keyelementset-the-csm-keyelementset-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2296,7 +2295,7 @@
 </table>
 </section>
 <section id="csm-keysetvalid-the-function-definition-for-csm-keysetvalid">
-<h4>Csm_KeySetValid函数定义 (The function definition for Csm_KeySetValid)<a class="headerlink" href="#csm-keysetvalid-the-function-definition-for-csm-keysetvalid" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeySetValid函数定义 (The function definition for Csm_KeySetValid)<a class="headerlink" href="#csm-keysetvalid-the-function-definition-for-csm-keysetvalid" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2376,7 +2375,7 @@
 </table>
 </section>
 <section id="csm-keyelementget-function-definition-for-csm-keyelementget">
-<h4>Csm_KeyElementGet函数定义 (Function definition for Csm_KeyElementGet)<a class="headerlink" href="#csm-keyelementget-function-definition-for-csm-keyelementget" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyElementGet函数定义 (Function definition for Csm_KeyElementGet)<a class="headerlink" href="#csm-keyelementget-function-definition-for-csm-keyelementget" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2476,7 +2475,7 @@
 </table>
 </section>
 <section id="csm-keyelementcopy-function-definition-for-csm-keyelementcopy">
-<h4>Csm_KeyElementCopy函数定义 (Function definition for Csm_KeyElementCopy)<a class="headerlink" href="#csm-keyelementcopy-function-definition-for-csm-keyelementcopy" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyElementCopy函数定义 (Function definition for Csm_KeyElementCopy)<a class="headerlink" href="#csm-keyelementcopy-function-definition-for-csm-keyelementcopy" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2586,7 +2585,7 @@
 </table>
 </section>
 <section id="csm-keycopy-the-definition-of-csm-keycopy-function">
-<h4>Csm_KeyCopy函数定义 (The definition of Csm_KeyCopy function)<a class="headerlink" href="#csm-keycopy-the-definition-of-csm-keycopy-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyCopy函数定义 (The definition of Csm_KeyCopy function)<a class="headerlink" href="#csm-keycopy-the-definition-of-csm-keycopy-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2676,7 +2675,7 @@
 </table>
 </section>
 <section id="csm-keyelementcopypartial-the-function-definition-for-csm-keyelementcopypartial">
-<h4>Csm_KeyElementCopyPartial函数定义 (The function definition for Csm_KeyElementCopyPartial)<a class="headerlink" href="#csm-keyelementcopypartial-the-function-definition-for-csm-keyelementcopypartial" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyElementCopyPartial函数定义 (The function definition for Csm_KeyElementCopyPartial)<a class="headerlink" href="#csm-keyelementcopypartial-the-function-definition-for-csm-keyelementcopypartial" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2816,7 +2815,7 @@
 </table>
 </section>
 <section id="csm-randomseed-csm-randomseed-function-definition">
-<h4>Csm_RandomSeed函数定义 (Csm_RandomSeed function definition)<a class="headerlink" href="#csm-randomseed-csm-randomseed-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_RandomSeed函数定义 (Csm_RandomSeed function definition)<a class="headerlink" href="#csm-randomseed-csm-randomseed-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2916,7 +2915,7 @@
 </table>
 </section>
 <section id="cryif-keygenerate-define-cryif-keygenerate-function">
-<h4>CryIf_KeyGenerate函数定义 (Define CryIf_KeyGenerate_function)<a class="headerlink" href="#cryif-keygenerate-define-cryif-keygenerate-function" title="链接到此标题。">¶</a></h4>
+<h4>CryIf_KeyGenerate函数定义 (Define CryIf_KeyGenerate_function)<a class="headerlink" href="#cryif-keygenerate-define-cryif-keygenerate-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2996,7 +2995,7 @@
 </table>
 </section>
 <section id="csm-keyderive-the-definition-of-csm-keyderive-function">
-<h4>Csm_KeyDerive函数定义 (The definition of Csm_KeyDerive function)<a class="headerlink" href="#csm-keyderive-the-definition-of-csm-keyderive-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyDerive函数定义 (The definition of Csm_KeyDerive function)<a class="headerlink" href="#csm-keyderive-the-definition-of-csm-keyderive-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3086,7 +3085,7 @@
 </table>
 </section>
 <section id="csm-keyexchangecalcpubval-the-csm-keyexchangecalcpubval-function-definition">
-<h4>Csm_KeyExchangeCalcPubVal函数定义 (The Csm_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#csm-keyexchangecalcpubval-the-csm-keyexchangecalcpubval-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyExchangeCalcPubVal函数定义 (The Csm_KeyExchangeCalcPubVal function definition)<a class="headerlink" href="#csm-keyexchangecalcpubval-the-csm-keyexchangecalcpubval-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3176,7 +3175,7 @@
 </table>
 </section>
 <section id="csm-keyexchangecalcsecret-the-csm-keyexchangecalcsecret-function-defines">
-<h4>Csm_KeyExchangeCalcSecret函数定义 (The Csm_KeyExchangeCalcSecret function defines)<a class="headerlink" href="#csm-keyexchangecalcsecret-the-csm-keyexchangecalcsecret-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>Csm_KeyExchangeCalcSecret函数定义 (The Csm_KeyExchangeCalcSecret function defines)<a class="headerlink" href="#csm-keyexchangecalcsecret-the-csm-keyexchangecalcsecret-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3276,7 +3275,7 @@
 </table>
 </section>
 <section id="csm-jobkeysetvalid-csm-jobkeysetvalid-function-definition">
-<h4>Csm_JobKeySetValid函数定义 (CSm_JobKeySetValid function definition)<a class="headerlink" href="#csm-jobkeysetvalid-csm-jobkeysetvalid-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_JobKeySetValid函数定义 (CSm_JobKeySetValid function definition)<a class="headerlink" href="#csm-jobkeysetvalid-csm-jobkeysetvalid-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3366,7 +3365,7 @@
 </table>
 </section>
 <section id="csm-jobrandomseed-the-csm-jobrandomseed-function-definition">
-<h4>Csm_JobRandomSeed函数定义 (The Csm_JobRandomSeed function definition)<a class="headerlink" href="#csm-jobrandomseed-the-csm-jobrandomseed-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_JobRandomSeed函数定义 (The Csm_JobRandomSeed function definition)<a class="headerlink" href="#csm-jobrandomseed-the-csm-jobrandomseed-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3456,7 +3455,7 @@
 </table>
 </section>
 <section id="csm-jobkeygenerate-the-function-definition-for-csm-jobkeygenerate">
-<h4>Csm_JobKeyGenerate函数定义 (The function definition for Csm_JobKeyGenerate)<a class="headerlink" href="#csm-jobkeygenerate-the-function-definition-for-csm-jobkeygenerate" title="链接到此标题。">¶</a></h4>
+<h4>Csm_JobKeyGenerate函数定义 (The function definition for Csm_JobKeyGenerate)<a class="headerlink" href="#csm-jobkeygenerate-the-function-definition-for-csm-jobkeygenerate" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3546,7 +3545,7 @@
 </table>
 </section>
 <section id="csm-jobkeyderive-csm-jobkeyderive-function-definition">
-<h4>Csm_JobKeyDerive函数定义 (Csm_JobKeyDerive function definition)<a class="headerlink" href="#csm-jobkeyderive-csm-jobkeyderive-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_JobKeyDerive函数定义 (Csm_JobKeyDerive function definition)<a class="headerlink" href="#csm-jobkeyderive-csm-jobkeyderive-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3646,7 +3645,7 @@
 </table>
 </section>
 <section id="csm-jobkeyexchangecalcpubval-the-function-definition-for-csm-jobkeyexchangecalcpubval">
-<h4>Csm_JobKeyExchangeCalcPubVal函数定义 (The function definition for Csm_JobKeyExchangeCalcPubVal)<a class="headerlink" href="#csm-jobkeyexchangecalcpubval-the-function-definition-for-csm-jobkeyexchangecalcpubval" title="链接到此标题。">¶</a></h4>
+<h4>Csm_JobKeyExchangeCalcPubVal函数定义 (The function definition for Csm_JobKeyExchangeCalcPubVal)<a class="headerlink" href="#csm-jobkeyexchangecalcpubval-the-function-definition-for-csm-jobkeyexchangecalcpubval" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3741,7 +3740,7 @@
 </table>
 </section>
 <section id="csm-jobkeyexchangecalcsecret-the-csm-jobkeyexchangecalcsecret-function-definition">
-<h4>Csm_JobKeyExchangeCalcSecret函数定义 (The Csm_JobKeyExchangeCalcSecret function definition)<a class="headerlink" href="#csm-jobkeyexchangecalcsecret-the-csm-jobkeyexchangecalcsecret-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_JobKeyExchangeCalcSecret函数定义 (The Csm_JobKeyExchangeCalcSecret function definition)<a class="headerlink" href="#csm-jobkeyexchangecalcsecret-the-csm-jobkeyexchangecalcsecret-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3836,7 +3835,7 @@
 </table>
 </section>
 <section id="csm-canceljob-the-definition-of-csm-canceljob-function">
-<h4>Csm_CancelJob函数定义 (The definition of Csm_CancelJob function)<a class="headerlink" href="#csm-canceljob-the-definition-of-csm-canceljob-function" title="链接到此标题。">¶</a></h4>
+<h4>Csm_CancelJob函数定义 (The definition of Csm_CancelJob function)<a class="headerlink" href="#csm-canceljob-the-definition-of-csm-canceljob-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3921,7 +3920,7 @@
 </table>
 </section>
 <section id="csm-callbacknotification-the-csm-callbacknotification-function-definition">
-<h4>Csm_CallbackNotification函数定义 (The Csm_CallbackNotification function definition)<a class="headerlink" href="#csm-callbacknotification-the-csm-callbacknotification-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_CallbackNotification函数定义 (The Csm_CallbackNotification function definition)<a class="headerlink" href="#csm-callbacknotification-the-csm-callbacknotification-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3991,7 +3990,7 @@
 </table>
 </section>
 <section id="csm-mainfunction-csm-mainfunction-function-definition">
-<h4>Csm_MainFunction函数定义 (CSm_MainFunction function definition)<a class="headerlink" href="#csm-mainfunction-csm-mainfunction-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Csm_MainFunction函数定义 (CSm_MainFunction function definition)<a class="headerlink" href="#csm-mainfunction-csm-mainfunction-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4072,15 +4071,15 @@
 </section>
 </section>
 <section id="configurable-function">
-<h3>可配置函数 (Configurable Function)<a class="headerlink" href="#configurable-function" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数 (Configurable Function)<a class="headerlink" href="#configurable-function" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="csmgeneral">
-<h3>CsmGeneral<a class="headerlink" href="#csmgeneral" title="链接到此标题。">¶</a></h3>
+<h3>CsmGeneral<a class="headerlink" href="#csmgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csmgeneral-container-configuration-diagram-for-csmgeneral">
 <img alt="CsmGeneral容器配置图 (Container Configuration Diagram for CsmGeneral)" src="../../_images/image71.png" />
 </figure>
@@ -4250,7 +4249,7 @@
 </table>
 </section>
 <section id="csminclude">
-<h3>CsmInclude<a class="headerlink" href="#csminclude" title="链接到此标题。">¶</a></h3>
+<h3>CsmInclude<a class="headerlink" href="#csminclude" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csminclude-csminclude-container-configuration-diagram">
 <img alt="CsmInclude容器配置图 (CsmInclude Container Configuration Diagram)" src="../../_images/image81.png" />
 </figure>
@@ -4294,7 +4293,7 @@
 </table>
 </section>
 <section id="csmjob">
-<h3>CsmJob<a class="headerlink" href="#csmjob" title="链接到此标题。">¶</a></h3>
+<h3>CsmJob<a class="headerlink" href="#csmjob" title="Link to this heading">¶</a></h3>
 <figure class="align-center">
 <img alt="" src="../../_images/image91.png" />
 </figure>
@@ -4539,7 +4538,7 @@
 </table>
 </section>
 <section id="csmkey">
-<h3>CsmKey<a class="headerlink" href="#csmkey" title="链接到此标题。">¶</a></h3>
+<h3>CsmKey<a class="headerlink" href="#csmkey" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csmkey-container-configuration-diagram-for-csmkey">
 <img alt="CsmKey容器配置图 (Container Configuration Diagram for CsmKey)" src="../../_images/image101.png" />
 </figure>
@@ -4619,7 +4618,7 @@
 </table>
 </section>
 <section id="csmqueue">
-<h3>CsmQueue<a class="headerlink" href="#csmqueue" title="链接到此标题。">¶</a></h3>
+<h3>CsmQueue<a class="headerlink" href="#csmqueue" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csmqueue-csmqueue-container-configuration-diagram">
 <img alt="CsmQueue容器配置图 (CsmQueue Container Configuration Diagram)" src="../../_images/image112.png" />
 </figure>
@@ -4687,7 +4686,7 @@
 </table>
 </section>
 <section id="csminoutredirection">
-<h3>CsmInOutRedirection<a class="headerlink" href="#csminoutredirection" title="链接到此标题。">¶</a></h3>
+<h3>CsmInOutRedirection<a class="headerlink" href="#csminoutredirection" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csminoutredirection-container-configuration-for-csminoutredirection">
 <img alt="CsmInOutRedirection容器配置图 (Container Configuration for CsmInOutRedirection)" src="../../_images/image121.png" />
 </figure>
@@ -4875,7 +4874,7 @@
 </table>
 </section>
 <section id="csmprimitives">
-<h3>CsmPrimitives<a class="headerlink" href="#csmprimitives" title="链接到此标题。">¶</a></h3>
+<h3>CsmPrimitives<a class="headerlink" href="#csmprimitives" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csmprimitives-container-configuration-diagram-for-csmprimitives">
 <img alt="CsmPrimitives容器配置图 (Container Configuration Diagram for CsmPrimitives)" src="../../_images/image131.png" />
 </figure>
@@ -5026,7 +5025,7 @@
 </tbody>
 </table>
 <section id="csmhashconfig">
-<h4>CsmHashConfig<a class="headerlink" href="#csmhashconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmHashConfig<a class="headerlink" href="#csmhashconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -5342,7 +5341,7 @@
 </table>
 </section>
 <section id="csmmacgenerateconfig">
-<h4>CsmMacGenerateConfig<a class="headerlink" href="#csmmacgenerateconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmMacGenerateConfig<a class="headerlink" href="#csmmacgenerateconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -5748,7 +5747,7 @@
 </table>
 </section>
 <section id="csmmacverifyconfig">
-<h4>CsmMacVerifyConfig<a class="headerlink" href="#csmmacverifyconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmMacVerifyConfig<a class="headerlink" href="#csmmacverifyconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -6148,7 +6147,7 @@
 </table>
 </section>
 <section id="csmencryptconfig">
-<h4>CsmEncryptConfig<a class="headerlink" href="#csmencryptconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmEncryptConfig<a class="headerlink" href="#csmencryptconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 15.0%" />
@@ -6526,7 +6525,7 @@
 </table>
 </section>
 <section id="csmdecryptconfig">
-<h4>CsmDecryptConfig<a class="headerlink" href="#csmdecryptconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmDecryptConfig<a class="headerlink" href="#csmdecryptconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -6830,7 +6829,7 @@
 </table>
 </section>
 <section id="csmaeadencryptconfig">
-<h4>CsmAEADEncryptConfig<a class="headerlink" href="#csmaeadencryptconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmAEADEncryptConfig<a class="headerlink" href="#csmaeadencryptconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 15.0%" />
@@ -7128,7 +7127,7 @@
 </table>
 </section>
 <section id="csmaeaddecryptconfig">
-<h4>CsmAEADDecryptConfig<a class="headerlink" href="#csmaeaddecryptconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmAEADDecryptConfig<a class="headerlink" href="#csmaeaddecryptconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -7342,7 +7341,7 @@
 </table>
 </section>
 <section id="csmsignaturegenerateconfig">
-<h4>CsmSignatureGenerateConfig<a class="headerlink" href="#csmsignaturegenerateconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmSignatureGenerateConfig<a class="headerlink" href="#csmsignaturegenerateconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -7718,7 +7717,7 @@
 </table>
 </section>
 <section id="csmsignatureverifyconfig">
-<h4>CsmSignatureVerifyConfig<a class="headerlink" href="#csmsignatureverifyconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmSignatureVerifyConfig<a class="headerlink" href="#csmsignatureverifyconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -8094,7 +8093,7 @@
 </table>
 </section>
 <section id="csmrandomgenerateconfig">
-<h4>CsmRandomGenerateConfig<a class="headerlink" href="#csmrandomgenerateconfig" title="链接到此标题。">¶</a></h4>
+<h4>CsmRandomGenerateConfig<a class="headerlink" href="#csmrandomgenerateconfig" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -8464,7 +8463,7 @@
 </table>
 </section>
 <section id="csmjobkeysetvalid">
-<h4>CsmJobKeySetValid<a class="headerlink" href="#csmjobkeysetvalid" title="链接到此标题。">¶</a></h4>
+<h4>CsmJobKeySetValid<a class="headerlink" href="#csmjobkeysetvalid" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -8505,7 +8504,7 @@
 </section>
 </section>
 <section id="csmcallback">
-<h3>CsmCallback<a class="headerlink" href="#csmcallback" title="链接到此标题。">¶</a></h3>
+<h3>CsmCallback<a class="headerlink" href="#csmcallback" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="csmpcallback-csmpcallback-container-configuration-diagram">
 <img alt="CsmPCallback容器配置图 (CsmPCallback Container Configuration Diagram)" src="../../_images/image141.png" />
 </figure>
@@ -8713,7 +8712,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -8722,11 +8721,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

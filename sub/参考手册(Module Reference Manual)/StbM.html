@@ -9,7 +9,6 @@
         <title>StbM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="stbm">
-<h1>StbM<a class="headerlink" href="#stbm" title="链接到此标题。">¶</a></h1>
+<h1>StbM<a class="headerlink" href="#stbm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -220,7 +219,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>StbM在AutoSAR中软件层级架构如下图，其属于时间同步栈。</p>
 <p>StbM in AutoSAR has the following software hierarchical architecture as shown in the diagram, and it belongs to the timesync stack.</p>
 <figure class="align-center" id="stbmautosar-stbm-in-autosar-software-architecture-diagram">
@@ -229,7 +228,7 @@
 <p>本文中描述StbM，StbM负责管理时基，给CanTSyn,EthTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。</p>
 <p>This article describes StbM, which is responsible for managing the timebase and providing interfaces to CanTSyn and EthTSyn for updating synchronization time. It also provides interfaces to other users for getting/noting the synchronization time.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_TimeSyncOverCAN.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_SynchronizedTimeBaseManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
@@ -237,13 +236,13 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="stbm-stbm-function">
-<h3>StbM功能 (StbM Function)<a class="headerlink" href="#stbm-stbm-function" title="链接到此标题。">¶</a></h3>
+<h3>StbM功能 (StbM Function)<a class="headerlink" href="#stbm-stbm-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="stbm-stbm-feature-introduction">
-<h2>StbM功能介绍 (StbM Feature Introduction)<a class="headerlink" href="#stbm-stbm-feature-introduction" title="链接到此标题。">¶</a></h2>
+<h2>StbM功能介绍 (StbM Feature Introduction)<a class="headerlink" href="#stbm-stbm-feature-introduction" title="Link to this heading">¶</a></h2>
 <p>StbM的主要功能包括两个方面，一是使上层应用间的时间可以同步，二是提供绝对时间值。</p>
 <p>The main functions of StbM include two aspects:一是使上层应用间的时间可以同步 is to synchronize time among upper-layer applications, 二是提供绝对时间值 provides absolute time values.</p>
 <p>由于不同的硬件时钟，速率可能会有偏差，这将会导致使用不同硬件时钟的应用，各自的时间会有偏差，为了消除这种偏差，StbM会将一个主节点的时间基作为全局的时间基，并将所有其他节点的时间同步到这一节点，以达成时间同步的目的。</p>
@@ -252,7 +251,7 @@
 <p>Additionally, StbM includes timer functions and time recording features. The timer function can notify users when the predefined time value is reached. Time recording keeps a log of each time update for user reference.</p>
 </section>
 <section id="stbm-stbm-function-implementation">
-<h2>StbM功能实现 (StbM Function Implementation)<a class="headerlink" href="#stbm-stbm-function-implementation" title="链接到此标题。">¶</a></h2>
+<h2>StbM功能实现 (StbM Function Implementation)<a class="headerlink" href="#stbm-stbm-function-implementation" title="Link to this heading">¶</a></h2>
 <p>StbM管理一个主时间组，这个主时基组用来作为其他从节点时间同步的基准，主时间组由TG和TV组成，TG是全局时间，TV是虚拟本地时间，TG的来源为总线同步模块设置的时间和当前的TV通过时间校正计算而得出的时间，TV的来源是本地的硬件时钟，包括GPT,OS和EthTSyn三种。</p>
 <p>StbM manages a master time group, which serves as the reference for time synchronization of other slave nodes. The master time group consists of TG and TV, where TG is the global time and TV is the virtual local time. TG's source is the time set by the bus synchronization module and the time calculated through time correction from the current TV. TV's source is the local hardware clock, which includes GPT, OS, and EthTSyn.</p>
 <p>时间校正计算包括偏移校正和速率校正，偏移校正包括跳跃校正和速率适应。</p>
@@ -267,7 +266,7 @@
 <p>Absolute time value is the sum of the synchronization base time and the offset base time.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 StbM组件文件描述 (Table StbM Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -311,13 +310,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="stbm-configtype-stbm-configtype-configuration-type-definition">
-<h2>StbM_ConfigType类型定义 (StbM_ConfigType Configuration Type Definition)<a class="headerlink" href="#stbm-configtype-stbm-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_ConfigType类型定义 (StbM_ConfigType Configuration Type Definition)<a class="headerlink" href="#stbm-configtype-stbm-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -342,7 +341,7 @@
 </table>
 </section>
 <section id="stbm-synchronizedtimebasetype-synchronizationtimebasetype-type-definition">
-<h2>StbM_SynchronizedTimeBaseType类型定义 (SynchronizationTimeBaseType Type Definition)<a class="headerlink" href="#stbm-synchronizedtimebasetype-synchronizationtimebasetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SynchronizedTimeBaseType类型定义 (SynchronizationTimeBaseType Type Definition)<a class="headerlink" href="#stbm-synchronizedtimebasetype-synchronizationtimebasetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -367,7 +366,7 @@
 </table>
 </section>
 <section id="stbm-timebasestatustype-stbm-timebasestatustype-type-definition">
-<h2>StbM_TimeBaseStatusType类型定义 (StbM_TimeBaseStatusType Type Definition)<a class="headerlink" href="#stbm-timebasestatustype-stbm-timebasestatustype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_TimeBaseStatusType类型定义 (StbM_TimeBaseStatusType Type Definition)<a class="headerlink" href="#stbm-timebasestatustype-stbm-timebasestatustype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -404,7 +403,7 @@
 </table>
 </section>
 <section id="stbm-timestamptype-stbm-timestamptype-type-definition">
-<h2>StbM_TimeStampType类型定义 (STbM_TimeStampType Type Definition)<a class="headerlink" href="#stbm-timestamptype-stbm-timestamptype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_TimeStampType类型定义 (STbM_TimeStampType Type Definition)<a class="headerlink" href="#stbm-timestamptype-stbm-timestamptype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -446,7 +445,7 @@
 </table>
 </section>
 <section id="stbm-timedifftype-stbm-timedifftype-type-definition">
-<h2>StbM_TimeDiffType类型定义 (StbM_TimeDiffType Type Definition)<a class="headerlink" href="#stbm-timedifftype-stbm-timedifftype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_TimeDiffType类型定义 (StbM_TimeDiffType Type Definition)<a class="headerlink" href="#stbm-timedifftype-stbm-timedifftype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -471,7 +470,7 @@
 </table>
 </section>
 <section id="stbm-ratedeviationtype-stbm-ratedeviationtype-type-definition">
-<h2>StbM_RateDeviationType类型定义 (StbM_RateDeviationType Type Definition)<a class="headerlink" href="#stbm-ratedeviationtype-stbm-ratedeviationtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_RateDeviationType类型定义 (StbM_RateDeviationType Type Definition)<a class="headerlink" href="#stbm-ratedeviationtype-stbm-ratedeviationtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -496,7 +495,7 @@
 </table>
 </section>
 <section id="stbm-userdatatype-type-definition-for-stbm-userdatatype">
-<h2>StbM_UserDataType类型定义 (Type definition for StbM_UserDataType)<a class="headerlink" href="#stbm-userdatatype-type-definition-for-stbm-userdatatype" title="链接到此标题。">¶</a></h2>
+<h2>StbM_UserDataType类型定义 (Type definition for StbM_UserDataType)<a class="headerlink" href="#stbm-userdatatype-type-definition-for-stbm-userdatatype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -538,7 +537,7 @@
 </table>
 </section>
 <section id="stbm-customeridtype-stbm-customeridtype-type-definition">
-<h2>StbM_CustomerIdType类型定义 (StbM_CustomerIdType Type Definition)<a class="headerlink" href="#stbm-customeridtype-stbm-customeridtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_CustomerIdType类型定义 (StbM_CustomerIdType Type Definition)<a class="headerlink" href="#stbm-customeridtype-stbm-customeridtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -563,7 +562,7 @@
 </table>
 </section>
 <section id="stbm-timebasenotificationtype-stbm-timebasenotificationtype-type-definition">
-<h2>StbM_TimeBaseNotificationType类型定义 (StbM_TimeBaseNotificationType Type Definition)<a class="headerlink" href="#stbm-timebasenotificationtype-stbm-timebasenotificationtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_TimeBaseNotificationType类型定义 (StbM_TimeBaseNotificationType Type Definition)<a class="headerlink" href="#stbm-timebasenotificationtype-stbm-timebasenotificationtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -618,7 +617,7 @@
 </table>
 </section>
 <section id="stbm-syncrecordtableheadtype-stbm-syncrecordtableheadtype-type-definition">
-<h2>StbM_SyncRecordTableHeadType类型定义 (StbM_SyncRecordTableHeadType Type Definition)<a class="headerlink" href="#stbm-syncrecordtableheadtype-stbm-syncrecordtableheadtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SyncRecordTableHeadType类型定义 (StbM_SyncRecordTableHeadType Type Definition)<a class="headerlink" href="#stbm-syncrecordtableheadtype-stbm-syncrecordtableheadtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -656,7 +655,7 @@
 </table>
 </section>
 <section id="stbm-syncrecordtableblocktype-stbm-syncrecordtableblocktype-type-definition">
-<h2>StbM_SyncRecordTableBlockType类型定义 (StbM_SyncRecordTableBlockType type definition)<a class="headerlink" href="#stbm-syncrecordtableblocktype-stbm-syncrecordtableblocktype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SyncRecordTableBlockType类型定义 (StbM_SyncRecordTableBlockType type definition)<a class="headerlink" href="#stbm-syncrecordtableblocktype-stbm-syncrecordtableblocktype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -714,7 +713,7 @@
 </table>
 </section>
 <section id="stbm-offsetrecordtableheadtype-stbm-offsetrecordtableheadtype-type-definition">
-<h2>StbM_OffsetRecordTableHeadType类型定义 (StbM_OffsetRecordTableHeadType Type Definition)<a class="headerlink" href="#stbm-offsetrecordtableheadtype-stbm-offsetrecordtableheadtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_OffsetRecordTableHeadType类型定义 (StbM_OffsetRecordTableHeadType Type Definition)<a class="headerlink" href="#stbm-offsetrecordtableheadtype-stbm-offsetrecordtableheadtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -744,7 +743,7 @@
 </table>
 </section>
 <section id="stbm-offsetrecordtableblocktype-stbm-offsetrecordtableblocktype-type-definition">
-<h2>StbM_OffsetRecordTableBlockType类型定义 (StbM_OffsetRecordTableBlockType Type Definition)<a class="headerlink" href="#stbm-offsetrecordtableblocktype-stbm-offsetrecordtableblocktype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_OffsetRecordTableBlockType类型定义 (StbM_OffsetRecordTableBlockType Type Definition)<a class="headerlink" href="#stbm-offsetrecordtableblocktype-stbm-offsetrecordtableblocktype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -782,7 +781,7 @@
 </table>
 </section>
 <section id="stbm-masterconfigtype-stbm-masterconfigtype-type-definition">
-<h2>StbM_MasterConfigType类型定义 (StbM_MasterConfigType Type Definition)<a class="headerlink" href="#stbm-masterconfigtype-stbm-masterconfigtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_MasterConfigType类型定义 (StbM_MasterConfigType Type Definition)<a class="headerlink" href="#stbm-masterconfigtype-stbm-masterconfigtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -809,7 +808,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -846,11 +845,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="stbm-init-the-stbm-init-function-definition">
-<h2>StbM_Init函数定义 (The StbM_Init function definition)<a class="headerlink" href="#stbm-init-the-stbm-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_Init函数定义 (The StbM_Init function definition)<a class="headerlink" href="#stbm-init-the-stbm-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -920,7 +919,7 @@
 </table>
 </section>
 <section id="stbm-getversioninfo-the-stbm-getversioninfo-function-definition">
-<h2>StbM_GetVersionInfo函数定义 (The StbM_GetVersionInfo function definition)<a class="headerlink" href="#stbm-getversioninfo-the-stbm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetVersionInfo函数定义 (The StbM_GetVersionInfo function definition)<a class="headerlink" href="#stbm-getversioninfo-the-stbm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -978,7 +977,7 @@
 </table>
 </section>
 <section id="stbm-getcurrenttime-the-stbm-getcurrenttime-function-definition">
-<h2>StbM_GetCurrentTime函数定义 (The StbM_GetCurrentTime function definition)<a class="headerlink" href="#stbm-getcurrenttime-the-stbm-getcurrenttime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetCurrentTime函数定义 (The StbM_GetCurrentTime function definition)<a class="headerlink" href="#stbm-getcurrenttime-the-stbm-getcurrenttime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1078,7 +1077,7 @@
 </table>
 </section>
 <section id="stbm-getcurrentvirtuallocaltime-the-stbm-getcurrentvirtuallocaltime-function-definition">
-<h2>StbM_GetCurrentVirtualLocalTime函数定义 (The StbM_GetCurrentVirtualLocalTime function definition)<a class="headerlink" href="#stbm-getcurrentvirtuallocaltime-the-stbm-getcurrentvirtuallocaltime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetCurrentVirtualLocalTime函数定义 (The StbM_GetCurrentVirtualLocalTime function definition)<a class="headerlink" href="#stbm-getcurrentvirtuallocaltime-the-stbm-getcurrentvirtuallocaltime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1152,7 +1151,7 @@
 </table>
 </section>
 <section id="stbm-setglobaltime-the-stbm-setglobaltime-function-definition">
-<h2>StbM_SetGlobalTime函数定义 (The StbM_SetGlobalTime Function Definition)<a class="headerlink" href="#stbm-setglobaltime-the-stbm-setglobaltime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SetGlobalTime函数定义 (The StbM_SetGlobalTime Function Definition)<a class="headerlink" href="#stbm-setglobaltime-the-stbm-setglobaltime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1257,7 +1256,7 @@
 </table>
 </section>
 <section id="stbm-updateglobaltime-the-stbm-updateglobaltime-function-definition">
-<h2>StbM_UpdateGlobalTime函数定义 (The StbM_UpdateGlobalTime function definition)<a class="headerlink" href="#stbm-updateglobaltime-the-stbm-updateglobaltime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_UpdateGlobalTime函数定义 (The StbM_UpdateGlobalTime function definition)<a class="headerlink" href="#stbm-updateglobaltime-the-stbm-updateglobaltime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1362,7 +1361,7 @@
 </table>
 </section>
 <section id="stbm-setuserdata-the-stbm-setuserdata-function-definition">
-<h2>StbM_SetUserData函数定义 (The StbM_SetUserData function definition)<a class="headerlink" href="#stbm-setuserdata-the-stbm-setuserdata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SetUserData函数定义 (The StbM_SetUserData function definition)<a class="headerlink" href="#stbm-setuserdata-the-stbm-setuserdata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1457,7 +1456,7 @@
 </table>
 </section>
 <section id="stbm-setoffset-the-stbm-setoffset-function-definition">
-<h2>StbM_SetOffset函数定义 (The StbM_SetOffset function definition)<a class="headerlink" href="#stbm-setoffset-the-stbm-setoffset-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SetOffset函数定义 (The StbM_SetOffset function definition)<a class="headerlink" href="#stbm-setoffset-the-stbm-setoffset-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1557,7 +1556,7 @@
 </table>
 </section>
 <section id="stbm-getoffset-the-stbm-getoffset-function-definition">
-<h2>StbM_GetOffset函数定义 (The StbM_GetOffset function definition)<a class="headerlink" href="#stbm-getoffset-the-stbm-getoffset-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetOffset函数定义 (The StbM_GetOffset function definition)<a class="headerlink" href="#stbm-getoffset-the-stbm-getoffset-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1639,7 +1638,7 @@
 </table>
 </section>
 <section id="stbm-busgetcurrenttime-the-stbm-busgetcurrenttime-function-definition">
-<h2>StbM_BusGetCurrentTime函数定义 (The StbM_BusGetCurrentTime function definition)<a class="headerlink" href="#stbm-busgetcurrenttime-the-stbm-busgetcurrenttime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_BusGetCurrentTime函数定义 (The StbM_BusGetCurrentTime function definition)<a class="headerlink" href="#stbm-busgetcurrenttime-the-stbm-busgetcurrenttime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1729,7 +1728,7 @@
 </table>
 </section>
 <section id="stbm-bussetglobaltime-the-stbm-bussetglobaltime-function-definition">
-<h2>StbM_BusSetGlobalTime函数定义 (The StbM_BusSetGlobalTime function definition)<a class="headerlink" href="#stbm-bussetglobaltime-the-stbm-bussetglobaltime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_BusSetGlobalTime函数定义 (The StbM_BusSetGlobalTime function definition)<a class="headerlink" href="#stbm-bussetglobaltime-the-stbm-bussetglobaltime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1854,7 +1853,7 @@
 </table>
 </section>
 <section id="stbm-getratedeviation-the-stbm-getratedeviation-function-definition">
-<h2>StbM_GetRateDeviation函数定义 (The StbM_GetRateDeviation function definition)<a class="headerlink" href="#stbm-getratedeviation-the-stbm-getratedeviation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetRateDeviation函数定义 (The StbM_GetRateDeviation function definition)<a class="headerlink" href="#stbm-getratedeviation-the-stbm-getratedeviation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1920,7 +1919,7 @@
 </table>
 </section>
 <section id="stbm-setratecorrection-the-stbm-setratecorrection-function-definition">
-<h2>StbM_SetRateCorrection函数定义 (The StbM_SetRateCorrection function definition)<a class="headerlink" href="#stbm-setratecorrection-the-stbm-setratecorrection-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_SetRateCorrection函数定义 (The StbM_SetRateCorrection function definition)<a class="headerlink" href="#stbm-setratecorrection-the-stbm-setratecorrection-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2005,7 +2004,7 @@
 </table>
 </section>
 <section id="stbm-gettimeleap-the-stbm-gettimeleap-function-definition">
-<h2>StbM_GetTimeLeap函数定义 (The StbM_GetTimeLeap function definition)<a class="headerlink" href="#stbm-gettimeleap-the-stbm-gettimeleap-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetTimeLeap函数定义 (The StbM_GetTimeLeap function definition)<a class="headerlink" href="#stbm-gettimeleap-the-stbm-gettimeleap-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2071,7 +2070,7 @@
 </table>
 </section>
 <section id="stbm-gettimebasestatus-the-stbm-gettimebasestatus-function-definition">
-<h2>StbM_GetTimeBaseStatus函数定义 (The StbM_GetTimeBaseStatus function definition)<a class="headerlink" href="#stbm-gettimebasestatus-the-stbm-gettimebasestatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetTimeBaseStatus函数定义 (The StbM_GetTimeBaseStatus function definition)<a class="headerlink" href="#stbm-gettimebasestatus-the-stbm-gettimebasestatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2145,7 +2144,7 @@
 </table>
 </section>
 <section id="stbm-starttimer-the-stbm-starttimer-function-definition">
-<h2>StbM_StartTimer函数定义 (The StbM_StartTimer function definition)<a class="headerlink" href="#stbm-starttimer-the-stbm-starttimer-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_StartTimer函数定义 (The StbM_StartTimer function definition)<a class="headerlink" href="#stbm-starttimer-the-stbm-starttimer-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2240,7 +2239,7 @@
 </table>
 </section>
 <section id="stbm-getsynctimerecordhead-the-stbm-getsynctimerecordhead-function-definition">
-<h2>StbM_GetSyncTimeRecordHead函数定义 (The StbM_GetSyncTimeRecordHead function definition)<a class="headerlink" href="#stbm-getsynctimerecordhead-the-stbm-getsynctimerecordhead-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetSyncTimeRecordHead函数定义 (The StbM_GetSyncTimeRecordHead function definition)<a class="headerlink" href="#stbm-getsynctimerecordhead-the-stbm-getsynctimerecordhead-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2306,7 +2305,7 @@
 </table>
 </section>
 <section id="stbm-getoffsettimerecordhead-the-stbm-getoffsettimerecordhead-function-definition">
-<h2>StbM_GetOffsetTimeRecordHead函数定义 (The StbM_GetOffsetTimeRecordHead function definition)<a class="headerlink" href="#stbm-getoffsettimerecordhead-the-stbm-getoffsettimerecordhead-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetOffsetTimeRecordHead函数定义 (The StbM_GetOffsetTimeRecordHead function definition)<a class="headerlink" href="#stbm-getoffsettimerecordhead-the-stbm-getoffsettimerecordhead-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2372,7 +2371,7 @@
 </table>
 </section>
 <section id="stbm-triggertimetransmission-the-stbm-triggertimetransmission-function-defines">
-<h2>StbM_TriggerTimeTransmission函数定义 (The StbM_TriggerTimeTransmission function defines)<a class="headerlink" href="#stbm-triggertimetransmission-the-stbm-triggertimetransmission-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>StbM_TriggerTimeTransmission函数定义 (The StbM_TriggerTimeTransmission function defines)<a class="headerlink" href="#stbm-triggertimetransmission-the-stbm-triggertimetransmission-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2447,7 +2446,7 @@
 </table>
 </section>
 <section id="stbm-gettimebaseupdatecounter-the-function-definition-for-stbm-gettimebaseupdatecounter">
-<h2>StbM_GetTimeBaseUpdateCounter函数定义 (The function definition for StbM_GetTimeBaseUpdateCounter)<a class="headerlink" href="#stbm-gettimebaseupdatecounter-the-function-definition-for-stbm-gettimebaseupdatecounter" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetTimeBaseUpdateCounter函数定义 (The function definition for StbM_GetTimeBaseUpdateCounter)<a class="headerlink" href="#stbm-gettimebaseupdatecounter-the-function-definition-for-stbm-gettimebaseupdatecounter" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2517,7 +2516,7 @@
 </table>
 </section>
 <section id="stbm-getmasterconfig-the-stbm-getmasterconfig-function-definition">
-<h2>StbM_GetMasterConfig函数定义 (The StbM_GetMasterConfig function definition)<a class="headerlink" href="#stbm-getmasterconfig-the-stbm-getmasterconfig-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_GetMasterConfig函数定义 (The StbM_GetMasterConfig function definition)<a class="headerlink" href="#stbm-getmasterconfig-the-stbm-getmasterconfig-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2583,7 +2582,7 @@
 </table>
 </section>
 <section id="stbm-mainfunction-definition-of-stbm-mainfunction-function">
-<h2>StbM_MainFunction函数定义 (Definition of StbM_MainFunction function)<a class="headerlink" href="#stbm-mainfunction-definition-of-stbm-mainfunction-function" title="链接到此标题。">¶</a></h2>
+<h2>StbM_MainFunction函数定义 (Definition of StbM_MainFunction function)<a class="headerlink" href="#stbm-mainfunction-definition-of-stbm-mainfunction-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2608,7 +2607,7 @@
 </table>
 </section>
 <section id="stbm-timercallback-the-stbm-timercallback-function-definition">
-<h2>StbM_TimerCallback函数定义 (The StbM_TimerCallback function definition)<a class="headerlink" href="#stbm-timercallback-the-stbm-timercallback-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>StbM_TimerCallback函数定义 (The StbM_TimerCallback function definition)<a class="headerlink" href="#stbm-timercallback-the-stbm-timercallback-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2632,11 +2631,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="statusnotificationcallback-the-definition-of-statusnotificationcallback-function">
-<h2>StatusNotificationCallback函数定义 (The definition of StatusNotificationCallback function)<a class="headerlink" href="#statusnotificationcallback-the-definition-of-statusnotificationcallback-function" title="链接到此标题。">¶</a></h2>
+<h2>StatusNotificationCallback函数定义 (The definition of StatusNotificationCallback function)<a class="headerlink" href="#statusnotificationcallback-the-definition-of-statusnotificationcallback-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -2694,7 +2693,7 @@
 </table>
 </section>
 <section id="customer-timenotificationcallback-customer-timenotificationcallback-function-definition">
-<h2>&lt;Customer&gt;_TimeNotificationCallback函数定义 (Customer_TimeNotificationCallback function definition)<a class="headerlink" href="#customer-timenotificationcallback-customer-timenotificationcallback-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Customer&gt;_TimeNotificationCallback函数定义 (Customer_TimeNotificationCallback function definition)<a class="headerlink" href="#customer-timenotificationcallback-customer-timenotificationcallback-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2759,7 +2758,7 @@
 </table>
 </section>
 <section id="offsettimerecordblockcallback-the-definition-of-offsettimerecordblockcallback-function">
-<h2>OffsetTimeRecordBlockCallback函数定义 (The definition of OffsetTimeRecordBlockCallback function)<a class="headerlink" href="#offsettimerecordblockcallback-the-definition-of-offsettimerecordblockcallback-function" title="链接到此标题。">¶</a></h2>
+<h2>OffsetTimeRecordBlockCallback函数定义 (The definition of OffsetTimeRecordBlockCallback function)<a class="headerlink" href="#offsettimerecordblockcallback-the-definition-of-offsettimerecordblockcallback-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2824,7 +2823,7 @@
 </table>
 </section>
 <section id="synctimerecordblockcallback-the-definition-of-synctimerecordblockcallback-function">
-<h2>SyncTimeRecordBlockCallback函数定义 (The definition of SyncTimeRecordBlockCallback function)<a class="headerlink" href="#synctimerecordblockcallback-the-definition-of-synctimerecordblockcallback-function" title="链接到此标题。">¶</a></h2>
+<h2>SyncTimeRecordBlockCallback函数定义 (The definition of SyncTimeRecordBlockCallback function)<a class="headerlink" href="#synctimerecordblockcallback-the-definition-of-synctimerecordblockcallback-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2888,17 +2887,17 @@
 </tbody>
 </table>
 <section id="swc-swc-service-component-packaging">
-<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="链接到此标题。">¶</a></h3>
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
 <p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接，没有列出的部分StbM底层暂时不支持。</p>
 <p>The following types and interfaces can be encapsulated to generate complete service components with SWC, which can be connected to the application via ports. The StbM底层 temporarily does not support the unlisted parts.</p>
 </section>
 </section>
 <section id="cs-cs-interface-packaging">
-<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="链接到此标题。">¶</a></h2>
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
 <p>注：下面提到的&lt;UserModule&gt;和&lt;UserPort&gt;分别为用户SWC的名字和对应端口名，在与StbM服务组件端口连接后适用。</p>
 <p>Note: The &lt;UserModule&gt; and &lt;UserPort&gt; mentioned below are the names of the user SWC and its corresponding port, respectively, applicable after connecting to the StbM service component port.</p>
 <section id="rte-call-usermodule-userport-getmasterconfig">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetMasterConfig<a class="headerlink" href="#rte-call-usermodule-userport-getmasterconfig" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetMasterConfig<a class="headerlink" href="#rte-call-usermodule-userport-getmasterconfig" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2941,7 +2940,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-setglobaltime">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetGlobalTime<a class="headerlink" href="#rte-call-usermodule-userport-setglobaltime" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetGlobalTime<a class="headerlink" href="#rte-call-usermodule-userport-setglobaltime" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2990,7 +2989,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-setoffset">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetOffset<a class="headerlink" href="#rte-call-usermodule-userport-setoffset" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetOffset<a class="headerlink" href="#rte-call-usermodule-userport-setoffset" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3039,7 +3038,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-setratecorrection">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetRateCorrection<a class="headerlink" href="#rte-call-usermodule-userport-setratecorrection" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetRateCorrection<a class="headerlink" href="#rte-call-usermodule-userport-setratecorrection" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3088,7 +3087,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-setuserdata">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetUserData<a class="headerlink" href="#rte-call-usermodule-userport-setuserdata" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_SetUserData<a class="headerlink" href="#rte-call-usermodule-userport-setuserdata" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3137,7 +3136,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-triggertimetransmission">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_TriggerTimeTransmission<a class="headerlink" href="#rte-call-usermodule-userport-triggertimetransmission" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_TriggerTimeTransmission<a class="headerlink" href="#rte-call-usermodule-userport-triggertimetransmission" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3186,7 +3185,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-updateglobaltime">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_UpdateGlobalTime<a class="headerlink" href="#rte-call-usermodule-userport-updateglobaltime" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_UpdateGlobalTime<a class="headerlink" href="#rte-call-usermodule-userport-updateglobaltime" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3232,7 +3231,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-getcurrenttime">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetCurrentTime<a class="headerlink" href="#rte-call-usermodule-userport-getcurrenttime" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetCurrentTime<a class="headerlink" href="#rte-call-usermodule-userport-getcurrenttime" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3263,7 +3262,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-getoffsettimerecordhead">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetOffsetTimeRecordHead<a class="headerlink" href="#rte-call-usermodule-userport-getoffsettimerecordhead" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetOffsetTimeRecordHead<a class="headerlink" href="#rte-call-usermodule-userport-getoffsettimerecordhead" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3315,7 +3314,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-getratedeviation">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetRateDeviation<a class="headerlink" href="#rte-call-usermodule-userport-getratedeviation" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetRateDeviation<a class="headerlink" href="#rte-call-usermodule-userport-getratedeviation" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3346,7 +3345,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-getsynctimerecordhead">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetSyncTimeRecordHead<a class="headerlink" href="#rte-call-usermodule-userport-getsynctimerecordhead" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetSyncTimeRecordHead<a class="headerlink" href="#rte-call-usermodule-userport-getsynctimerecordhead" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3398,7 +3397,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-gettimebasestatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeBaseStatus<a class="headerlink" href="#rte-call-usermodule-userport-gettimebasestatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeBaseStatus<a class="headerlink" href="#rte-call-usermodule-userport-gettimebasestatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3429,7 +3428,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-gettimeleap">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeLeap<a class="headerlink" href="#rte-call-usermodule-userport-gettimeleap" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_GetTimeLeap<a class="headerlink" href="#rte-call-usermodule-userport-gettimeleap" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3460,7 +3459,7 @@
 </table>
 </section>
 <section id="rte-call-usermodule-userport-starttimer">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_StartTimer<a class="headerlink" href="#rte-call-usermodule-userport-starttimer" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPort&gt;_StartTimer<a class="headerlink" href="#rte-call-usermodule-userport-starttimer" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3498,9 +3497,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="configuration-list">
-<h3>配置列表 (Configuration List)<a class="headerlink" href="#configuration-list" title="链接到此标题。">¶</a></h3>
+<h3>配置列表 (Configuration List)<a class="headerlink" href="#configuration-list" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表 属性描述 (Table Properties Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -3529,7 +3528,7 @@
 </table>
 </section>
 <section id="stbmgeneral">
-<h3>StbMGeneral<a class="headerlink" href="#stbmgeneral" title="链接到此标题。">¶</a></h3>
+<h3>StbMGeneral<a class="headerlink" href="#stbmgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="stbmgeneral-stb-general-tool-configuration">
 <img alt="StbMGeneral工具配置 (STB General Tool Configuration)" src="../../_images/image369.png" />
 </figure>
@@ -3723,7 +3722,7 @@
 </table>
 </section>
 <section id="stbmsynchronizedtimebase">
-<h3>StbMSynchronizedTimeBase<a class="headerlink" href="#stbmsynchronizedtimebase" title="链接到此标题。">¶</a></h3>
+<h3>StbMSynchronizedTimeBase<a class="headerlink" href="#stbmsynchronizedtimebase" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="stbmsynchronizedtimebase-synchronized-time-base-tool-configuration">
 <img alt="StbMSynchronizedTimeBase工具配置 (Synchronized Time Base tool configuration)" src="../../_images/image459.png" />
 </figure>
@@ -3960,7 +3959,7 @@
 </section>
 </section>
 <section id="stbmtimecorrection">
-<h2>StbMTimeCorrection<a class="headerlink" href="#stbmtimecorrection" title="链接到此标题。">¶</a></h2>
+<h2>StbMTimeCorrection<a class="headerlink" href="#stbmtimecorrection" title="Link to this heading">¶</a></h2>
 <p><em>注</em>：如果打开TimeCorrection相关功能，则需要硬件支持double/float的数据类型，因为相关计算会使用。</p>
 <p><em>Note</em>: If the TimeCorrection related feature is enabled, hardware support for double/float data types is required, as they will be used in the relevant calculations.</p>
 <figure class="align-center" id="stbmtimecorrection-stbmtimecorrection-tool-configuration">
@@ -4096,7 +4095,7 @@
 </table>
 </section>
 <section id="stbmlocaltimeclock">
-<h2>StbMLocalTimeClock<a class="headerlink" href="#stbmlocaltimeclock" title="链接到此标题。">¶</a></h2>
+<h2>StbMLocalTimeClock<a class="headerlink" href="#stbmlocaltimeclock" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="stbmlocaltimeclock-stbmlocaltimeclock-tool-configuration">
 <img alt="StbMLocalTimeClock工具配置 (StbMLocalTimeClock Tool Configuration)" src="../../_images/image652.png" />
 </figure>
@@ -4182,7 +4181,7 @@
 </table>
 </section>
 <section id="stbmtimerecording">
-<h2>StbMTimeRecording<a class="headerlink" href="#stbmtimerecording" title="链接到此标题。">¶</a></h2>
+<h2>StbMTimeRecording<a class="headerlink" href="#stbmtimerecording" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="stbmtimerecording-stbmtimerecording-tool-configuration">
 <img alt="StbMTimeRecording工具配置 (StbMTimeRecording Tool Configuration)" src="../../_images/image742.png" />
 </figure>
@@ -4280,7 +4279,7 @@
 </table>
 </section>
 <section id="stbmnotificationcustomer">
-<h2>StbMNotificationCustomer<a class="headerlink" href="#stbmnotificationcustomer" title="链接到此标题。">¶</a></h2>
+<h2>StbMNotificationCustomer<a class="headerlink" href="#stbmnotificationcustomer" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="stbmnotificationcustomer-stbmnotificationcustomer-tool-configuration">
 <img alt="StbMNotificationCustomer工具配置 (StbMNotificationCustomer Tool Configuration)" src="../../_images/image837.png" />
 </figure>
@@ -4341,7 +4340,7 @@
 </tbody>
 </table>
 <section id="stbmtriggeredcustomer">
-<h3>StbMTriggeredCustomer<a class="headerlink" href="#stbmtriggeredcustomer" title="链接到此标题。">¶</a></h3>
+<h3>StbMTriggeredCustomer<a class="headerlink" href="#stbmtriggeredcustomer" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="stbmtriggeredcustomer-stbmtriggeredcustomer-tool-configuration">
 <img alt="StbMTriggeredCustomer工具配置 (StbMTriggeredCustomer Tool Configuration)" src="../../_images/image936.png" />
 </figure>
@@ -4561,7 +4560,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -4570,11 +4569,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

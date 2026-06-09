@@ -9,7 +9,6 @@
         <title>SoAd &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="soad">
-<h1>SoAd<a class="headerlink" href="#soad" title="链接到此标题。">¶</a></h1>
+<h1>SoAd<a class="headerlink" href="#soad" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -228,7 +227,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>SoAd作为“通信桥梁”将上层基于I-PDU的通信，与下层基于Socket的TCP/UDP通信连接起来。同时实现基于Socket Connection的连接控制，以及I-PDU与Socket Connection的路由控制，并为上层提供相应接口。</p>
 <p>SoAd acts as a &quot;communication bridge&quot; to connect upper-layer communication based on I-PDU with lower-layer TCP/UDP communication based on Socket. At the same time, it realizes connection control based on Socket Connection and routing control between I-PDU and Socket Connection, while providing corresponding interfaces for the upper layer.</p>
 <figure class="align-center" id="soad-soad-module-hierarchy-diagram">
@@ -239,17 +238,17 @@
 <p>SoAd与上层模块的交互：SoAd为上层模块提供基于Socket Connection的开启、关闭、Id获取、模式获取、远端地址设置/获取操作，提供基于Routing Group的路由使能控制，以及IF/TP PDU的发送接口，TP PDU的发送/接收取消接口；SoAd通过调用上层模块回调接口，实现IP地址分配状态改变通知，Socket Connection模式改变通知，以及IF/TP PDU发送或者接收流程所必须的Tx PDU数据获取、Rx PDU数据传递、发送确认、接收指示。</p>
 <p>SoAd interaction with upper-layer modules: SoAd provides socket connection-based operations for enabling, disabling, ID acquisition, mode acquisition, remote address setting/retrieval to the upper-layer modules. It offers routing enablement control based on Routing Groups and interfaces for sending IF/TP PDUs, as well as interfaces for canceling send or receive of TP PDUs. SoAd achieves notifications for IP address allocation state changes and socket connection mode changes by calling callbacks from upper-layer modules. Additionally, it provides data retrieval for Tx PDU in the IF/TP PDU sending/receiving process and data transmission for Rx PDU, along with send confirmation and receive indication.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_SocketAdaptor.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_TcpIp.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="socket-connections-socket-connections-functionality">
-<h3>Socket Connections功能 (Socket Connections functionality)<a class="headerlink" href="#socket-connections-socket-connections-functionality" title="链接到此标题。">¶</a></h3>
+<h3>Socket Connections功能 (Socket Connections functionality)<a class="headerlink" href="#socket-connections-socket-connections-functionality" title="Link to this heading">¶</a></h3>
 <section id="socket-connections-socket-connections-function-introduction">
-<h4>Socket Connections功能介绍 (Socket Connections Function Introduction)<a class="headerlink" href="#socket-connections-socket-connections-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>Socket Connections功能介绍 (Socket Connections Function Introduction)<a class="headerlink" href="#socket-connections-socket-connections-function-introduction" title="Link to this heading">¶</a></h4>
 <p>为了实现上层PDUs与下层Sockets之前的通信映射，SoAd模块定义了Socket Connection的概念。一个Socket Connection表示一个本端socket（本端IP和本端Port）与远端socket（远端IP和远端Port）的链接，以及该链接基于的传输协议（UDP/TCP），是否使用PDU Header，是否需求buffer，传输协议相关参数等。</p>
 <p>To achieve the communication mapping between upper-layer PDUs and lower-layer Sockets, the SoAd module defines the concept of Socket Connection. A Socket Connection represents a link between a local socket (local IP and local Port) and a remote socket (remote IP and remote Port), as well as the underlying transport protocol based on which the link operates (UDP/TCP), whether PDU Header is used, whether buffer is needed, and related parameters of the transport protocol.</p>
 <p>每个Socket Connection的模式根据SoAd_SoConModeType定义分为三种：SOAD_SOCON_ONLINE、SOAD_SOCON_RECONNECT、SOAD_SOCON_OFFLINE。</p>
@@ -270,7 +269,7 @@
 <p>When the state of the associated IP address (local end) for Socket Connection changes, the _LocalIpAddrAssignmentChg() function can be called to notify the upper layer.</p>
 </section>
 <section id="socket-connections-socket-connections-functionality-implementation">
-<h4>Socket Connections功能实现 (Socket Connections functionality implementation)<a class="headerlink" href="#socket-connections-socket-connections-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Socket Connections功能实现 (Socket Connections functionality implementation)<a class="headerlink" href="#socket-connections-socket-connections-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>通过每个SoAdSocketConnectionGroup的配置参数SoAdSocketAutomaticSoConSetup可以选择相应的Socket Connections的开启方式是手动方式还是自动方式。</p>
 <p>Through the configuration parameters of each SoAdSocketConnectionGroup, SoAdSocketAutomaticSoConSetup, the way to enable corresponding Socket Connections can be chosen as either manual or automatic.</p>
 <p>只有在配置成手动方式的情况下，才能通过调用SoAd_OpenSoCon或者SoAd_CloseSoCon函数来主动请求Socket Connection的开启或者关闭。</p>
@@ -282,9 +281,9 @@
 </section>
 </section>
 <section id="pdu-transmission-pdu-transmission-function">
-<h3>PDU Transmission功能 (PDU Transmission Function)<a class="headerlink" href="#pdu-transmission-pdu-transmission-function" title="链接到此标题。">¶</a></h3>
+<h3>PDU Transmission功能 (PDU Transmission Function)<a class="headerlink" href="#pdu-transmission-pdu-transmission-function" title="Link to this heading">¶</a></h3>
 <section id="pdu-transmission-pdu-transmission-function-introduction">
-<h4>PDU Transmission功能介绍 (PDU Transmission Function Introduction)<a class="headerlink" href="#pdu-transmission-pdu-transmission-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>PDU Transmission功能介绍 (PDU Transmission Function Introduction)<a class="headerlink" href="#pdu-transmission-pdu-transmission-function-introduction" title="Link to this heading">¶</a></h4>
 <p>SoAd通过PDU route(SoAdPduRoute, SoAdPduRouteDest)将PDU映射到socket connection，进而通过其关联的UDP/TCP Socket进行发送。SoAd提供IF、TP两种PDU发送方式。</p>
 <p>SoAd maps PDU to a socket connection through PDU route (SoAdPduRoute, SoAdPduRouteDest) and subsequently sends it via the associated UDP/TCP Socket. SoAd provides two PDU sending methods: IF and TP.</p>
 <p>1.PDU Transmission via IF-API：</p>
@@ -307,7 +306,7 @@
 <p>For PDU with larger data lengths in upper module, it is typically sent via TP method. TP sending does not support PDU's 1:n routing.</p>
 </section>
 <section id="pdu-transmission-pdu-transmission-functionality-implementation">
-<h4>PDU Transmission功能实现 (PDU Transmission functionality implementation)<a class="headerlink" href="#pdu-transmission-pdu-transmission-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>PDU Transmission功能实现 (PDU Transmission functionality implementation)<a class="headerlink" href="#pdu-transmission-pdu-transmission-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>1.PDU Transmission via IF-API：</p>
 <p>通过配置参数SoAdTxUpperLayerType可以选择PDU通过IF或者TP方式进行发送。</p>
 <p>By configuring the parameter SoAdTxUpperLayerType, PDU can be selected to be sent via IF or TP methods.</p>
@@ -341,14 +340,14 @@
 </section>
 </section>
 <section id="pdu-header-option-pdu-header-option-functionality">
-<h3>PDU Header option功能 (PDU Header option functionality)<a class="headerlink" href="#pdu-header-option-pdu-header-option-functionality" title="链接到此标题。">¶</a></h3>
+<h3>PDU Header option功能 (PDU Header option functionality)<a class="headerlink" href="#pdu-header-option-pdu-header-option-functionality" title="Link to this heading">¶</a></h3>
 <section id="pdu-header-option-function-introduction-of-pdu-header-option">
-<h4>PDU Header option功能介绍 (Function Introduction of PDU Header Option)<a class="headerlink" href="#pdu-header-option-function-introduction-of-pdu-header-option" title="链接到此标题。">¶</a></h4>
+<h4>PDU Header option功能介绍 (Function Introduction of PDU Header Option)<a class="headerlink" href="#pdu-header-option-function-introduction-of-pdu-header-option" title="Link to this heading">¶</a></h4>
 <p>SoAd支持PDU Header功能，PDU Header由4字节的Header ID,4字节的PDU数据长度组成（大端字节序）。当Socket Connection关联到多个接收PDU，以及需要用到nPduUdpTxBuffer机制等情况时，都需要PDU Header功能的支持。</p>
 <p>SoAd supports the PDU Header function, which consists of a 4-byte Header ID and a 4-byte PDU data length (in big-endian byte order). The PDU Header function is required when Socket Connection is associated with multiple received PDUs and when the nPduUdpTxBuffer mechanism is used.</p>
 </section>
 <section id="pdu-header-option-pdu-header-option-functionality-implementation">
-<h4>PDU Header option功能实现 (PDU Header option functionality implementation)<a class="headerlink" href="#pdu-header-option-pdu-header-option-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>PDU Header option功能实现 (PDU Header option functionality implementation)<a class="headerlink" href="#pdu-header-option-pdu-header-option-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>当配置参数SoAdPduHeaderEnable配置为TRUE时，对应的Socket Connection则使能PDU Header功能，其关联的PDUs需要相应配置各自的SoAdTxPduHeaderId/SoAdRxPduHeaderId。</p>
 <p>When the configuration parameter SoAdPduHeaderEnable is set to TRUE, the corresponding Socket Connection enables the PDU Header function, and its associated PDUs need to be configured with their respective SoAdTxPduHeaderId/SoAdRxPduHeaderId.</p>
 <p>在PDU发送过程中，SoAd层根据配置的HeaderId及PDU数据长度整合成8字节的PDU Header，添加到上层PDU数据前面，PDU数据长度+8，调用下层API统一进行发送。</p>
@@ -360,16 +359,16 @@
 </section>
 </section>
 <section id="pdu-reception-pdu-reception-function">
-<h3>PDU Reception功能 (PDU Reception Function)<a class="headerlink" href="#pdu-reception-pdu-reception-function" title="链接到此标题。">¶</a></h3>
+<h3>PDU Reception功能 (PDU Reception Function)<a class="headerlink" href="#pdu-reception-pdu-reception-function" title="Link to this heading">¶</a></h3>
 <section id="pdu-reception-function-introduction-for-pdu-reception">
-<h4>PDU Reception功能介绍 (Function Introduction for PDU Reception)<a class="headerlink" href="#pdu-reception-function-introduction-for-pdu-reception" title="链接到此标题。">¶</a></h4>
+<h4>PDU Reception功能介绍 (Function Introduction for PDU Reception)<a class="headerlink" href="#pdu-reception-function-introduction-for-pdu-reception" title="Link to this heading">¶</a></h4>
 <p>PDU的接收，在SoAd中通过Socket Route (SoAdSocketRoute,SoAdSocketRouteDest)来实现，将通过UDP/TCP Socket获取的报文映射到PDUs。当前Socket Route仅支持1：1路由（即一个SoAdSocketRoute只能包含一个SoAdSocketRouteDest），但需注意的是一个Socket Connection可以关联多个SoAdSocketRoute。</p>
 <p>The reception of PDU in SoAd is achieved through Socket Route (SoAdSocketRoute, SoAdSocketRouteDest), mapping the packets obtained via UDP/TCP Socket to PDUs. Currently, Socket Route only supports 1:1 routing (i.e., one SoAdSocketRoute can only contain one SoAdSocketRouteDest), but it should be noted that a Socket Connection can be associated with multiple SoAdSocketRoutes.</p>
 <p>SoAd与上层模块PDU接收同样有两种方式：IF接收、TP接收。</p>
 <p>SoAd has two ways of receiving PDU similar to the upper layer modules: IF reception and TP reception.</p>
 </section>
 <section id="pdu-reception-pdu-reception-functionality-implementation">
-<h4>PDU Reception功能实现 (PDU Reception functionality implementation)<a class="headerlink" href="#pdu-reception-pdu-reception-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>PDU Reception功能实现 (PDU Reception functionality implementation)<a class="headerlink" href="#pdu-reception-pdu-reception-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>1.PDU Reception via IF-API：</p>
 <p>SoAd解析出完整的IF PDU数据，通过调用&lt;Up&gt;_[SoAd][If]RxIndication()函数将接收到的IF PDU数据传递给上层模块。</p>
 <p>SoAd parses the complete IF PDU data and passes it to the upper layer module through calling the &lt;Up&gt;_[SoAd][If]RxIndication() function.</p>
@@ -382,14 +381,14 @@
 </section>
 </section>
 <section id="best-match-algorithm-best-match-algorithm-function">
-<h3>Best Match Algorithm功能 (Best Match Algorithm Function)<a class="headerlink" href="#best-match-algorithm-best-match-algorithm-function" title="链接到此标题。">¶</a></h3>
+<h3>Best Match Algorithm功能 (Best Match Algorithm Function)<a class="headerlink" href="#best-match-algorithm-best-match-algorithm-function" title="Link to this heading">¶</a></h3>
 <section id="best-match-algorithm-function-introduction-of-best-match-algorithm">
-<h4>Best Match Algorithm功能介绍 (Function Introduction of Best Match Algorithm)<a class="headerlink" href="#best-match-algorithm-function-introduction-of-best-match-algorithm" title="链接到此标题。">¶</a></h4>
+<h4>Best Match Algorithm功能介绍 (Function Introduction of Best Match Algorithm)<a class="headerlink" href="#best-match-algorithm-function-introduction-of-best-match-algorithm" title="Link to this heading">¶</a></h4>
 <p>该最佳匹配算法是根据提供的remote address（IP和Port）从Socket Connection Group中选择出最佳匹配的Socket Connection。</p>
 <p>The best match algorithm selects the optimal Socket Connection from the Socket Connection Group based on the provided remote address (IP and Port).</p>
 </section>
 <section id="best-match-algorithm-best-match-algorithm-function-implementation">
-<h4>Best Match Algorithm功能实现 (Best Match Algorithm Function Implementation)<a class="headerlink" href="#best-match-algorithm-best-match-algorithm-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Best Match Algorithm功能实现 (Best Match Algorithm Function Implementation)<a class="headerlink" href="#best-match-algorithm-best-match-algorithm-function-implementation" title="Link to this heading">¶</a></h4>
 <p>根据提供的remote address（IP和Port），从相应的Socket Connection Group中选择最佳匹配Socket Connection的方式如下：</p>
 <p>Based on the provided remote address (IP and Port), the best matching Socket Connection is selected from the corresponding Socket Connection Group as follows:</p>
 <p>1.首先该Socket Connection的remote address必须设置成功。</p>
@@ -409,42 +408,42 @@
 </section>
 </section>
 <section id="message-acceptance-policy-message-acceptance-policy-function">
-<h3>Message Acceptance Policy功能 (Message Acceptance Policy Function)<a class="headerlink" href="#message-acceptance-policy-message-acceptance-policy-function" title="链接到此标题。">¶</a></h3>
+<h3>Message Acceptance Policy功能 (Message Acceptance Policy Function)<a class="headerlink" href="#message-acceptance-policy-message-acceptance-policy-function" title="Link to this heading">¶</a></h3>
 <section id="message-acceptance-policy-function-introduction-for-message-acceptance-policy">
-<h4>Message Acceptance Policy功能介绍 (Function Introduction for Message Acceptance Policy)<a class="headerlink" href="#message-acceptance-policy-function-introduction-for-message-acceptance-policy" title="链接到此标题。">¶</a></h4>
+<h4>Message Acceptance Policy功能介绍 (Function Introduction for Message Acceptance Policy)<a class="headerlink" href="#message-acceptance-policy-function-introduction-for-message-acceptance-policy" title="Link to this heading">¶</a></h4>
 <p>该功能用于接收远端节点（remote nodes）发送报文的过滤。当该功能使能时，Socket Connection只能接收指定的某个/某些远端节点发送来的报文。当该功能不使能时，Socket Connection将接收所有远端节点发送来的报文。</p>
 <p>This feature is used for filtering incoming messages from remote nodes. When this function is enabled, the Socket Connection can only receive messages from a specified remote node or nodes. When this function is not enabled, the Socket Connection will receive messages from all remote nodes.</p>
 </section>
 <section id="message-acceptance-policy-message-acceptance-policy-feature-implementation">
-<h4>Message Acceptance Policy功能实现 (Message Acceptance Policy Feature Implementation)<a class="headerlink" href="#message-acceptance-policy-message-acceptance-policy-feature-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Message Acceptance Policy功能实现 (Message Acceptance Policy Feature Implementation)<a class="headerlink" href="#message-acceptance-policy-message-acceptance-policy-feature-implementation" title="Link to this heading">¶</a></h4>
 <p>通过配置项SoAdSocketMsgAcceptanceFilterEnabled可以选择是否接收滤波功能（通常是使能的）。滤波机制是将远端节点的地址（远端节点的source address）与Socket Connection的remote address进行匹配比较，若匹配则接收，不匹配则舍弃。除了IP和Port相等外，当Socket Connection的remote address中存在通配符，也认为是匹配的。</p>
 <p>By configuring the item SoAdSocketMsgAcceptanceFilterEnabled, you can choose whether to enable the filtering function (it is usually enabled). The filtering mechanism matches the remote address of the distant node (the source address of the distant node) with the remote address of the Socket Connection. If it matches, it will be received; if not, it will be discarded. Besides IP and Port being equal, the presence of a wildcard in the remote address of the Socket Connection is also considered a match.</p>
 </section>
 </section>
 <section id="tp-pdu-cancelation-tp-pdu-cancellation-function">
-<h3>TP PDU Cancelation功能 (TP PDU Cancellation function)<a class="headerlink" href="#tp-pdu-cancelation-tp-pdu-cancellation-function" title="链接到此标题。">¶</a></h3>
+<h3>TP PDU Cancelation功能 (TP PDU Cancellation function)<a class="headerlink" href="#tp-pdu-cancelation-tp-pdu-cancellation-function" title="Link to this heading">¶</a></h3>
 <section id="tp-pdu-cancelation-tp-pdu-cancellation-feature-introduction">
-<h4>TP PDU Cancelation功能介绍 (TP PDU Cancellation Feature Introduction)<a class="headerlink" href="#tp-pdu-cancelation-tp-pdu-cancellation-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>TP PDU Cancelation功能介绍 (TP PDU Cancellation Feature Introduction)<a class="headerlink" href="#tp-pdu-cancelation-tp-pdu-cancellation-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>TP PDU的传输支持中途取消，分为接收取消和发送取消。</p>
 <p>The transmission of TP PDU supports mid-transmission cancellation, divided into reception cancellation and sending cancellation.</p>
 </section>
 <section id="tp-pdu-cancelation-tp-pdu-cancellation-feature-implementation">
-<h4>TP PDU Cancelation功能实现 (TP PDU Cancellation feature implementation)<a class="headerlink" href="#tp-pdu-cancelation-tp-pdu-cancellation-feature-implementation" title="链接到此标题。">¶</a></h4>
+<h4>TP PDU Cancelation功能实现 (TP PDU Cancellation feature implementation)<a class="headerlink" href="#tp-pdu-cancelation-tp-pdu-cancellation-feature-implementation" title="Link to this heading">¶</a></h4>
 <p>SoAd_TpCancelReceive()用于请求TP PDU的接收取消， 当该TP PDU没有在接收过程中，将返回E_NOT_OK;SoAd_TpCancelTransmit()用于请求TP PDU的发送取消，若该TP PDU没有在发送过程中，将返回E_NOT_OK。当TP PDU成功取消后，在SoAd_MainFunction()中将关闭该Socket Connection（状态切换到RECONNECT，而非OFFLINE）。</p>
 <p>SoAd_TpCancelReceive() is used to request the cancellation of TP PDU reception; it will return E_NOT_OK if the TP PDU is not in the reception process. SoAd_TpCancelTransmit() is used to request the cancellation of TP PDU transmission; it will return E_NOT_OK if the TP PDU is not in the transmission process. After a successful cancellation of the TP PDU, the Socket Connection will be closed in SoAd_MainFunction() (the state will switch to RECONNECT instead of OFFLINE).</p>
 </section>
 </section>
 <section id="disconnection-and-recovery-disconnection-and-recovery-functionality">
-<h3>Disconnection and recovery功能 (Disconnection and Recovery functionality)<a class="headerlink" href="#disconnection-and-recovery-disconnection-and-recovery-functionality" title="链接到此标题。">¶</a></h3>
+<h3>Disconnection and recovery功能 (Disconnection and Recovery functionality)<a class="headerlink" href="#disconnection-and-recovery-disconnection-and-recovery-functionality" title="Link to this heading">¶</a></h3>
 <section id="disconnection-and-recovery-introduction-to-disconnection-and-recovery">
-<h4>Disconnection and recovery功能介绍 (Introduction to Disconnection and Recovery)<a class="headerlink" href="#disconnection-and-recovery-introduction-to-disconnection-and-recovery" title="链接到此标题。">¶</a></h4>
+<h4>Disconnection and recovery功能介绍 (Introduction to Disconnection and Recovery)<a class="headerlink" href="#disconnection-and-recovery-introduction-to-disconnection-and-recovery" title="Link to this heading">¶</a></h4>
 <p>在SoAd_MainFunction中，将会对需要断开连接的Socket Connection进行连接关闭，其关闭后Socket Connection状态分为两种情况：SOAD_SOCON_OFFLINE和SOAD_SOCON_RECONNECT，具体可参考2.1章节描述。</p>
 <p>In SoAd_MainFunction, Socket Connections that need to disconnect will be closed. After closure, the Socket Connection status will fall into two situations: SOAD_SOCON_OFFLINE and SOAD_SOCON_RECONNECT. For specific details, refer to Chapter 2.1.</p>
 <p>对于处于SOAD_SOCON_RECONNECT状态的Socket Connection，SoAd将会自动尝试恢复连接。</p>
 <p>For Socket Connections in SOAD_SOCON_RECONNECT state, SoAd will automatically attempt to reconnect.</p>
 </section>
 <section id="disconnection-and-recovery-disconnection-and-recovery-functionality-implementation">
-<h4>Disconnection and recovery功能实现 (Disconnection and recovery functionality implementation)<a class="headerlink" href="#disconnection-and-recovery-disconnection-and-recovery-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Disconnection and recovery功能实现 (Disconnection and recovery functionality implementation)<a class="headerlink" href="#disconnection-and-recovery-disconnection-and-recovery-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>对于Socket Connection连接的断开分为主动请求关闭、异常关闭：</p>
 <p>For Socket Connection disconnection, it can be categorized into主动请求关闭 (active request closure) and 异常关闭 (exceptional closure).</p>
 <p>主动请求关闭：Socket Connection状态将切换到SOAD_SOCON_OFFLINE，该状态下SoAd不会自动尝试去重新连接，只有通过调用SoAd_OpenSoCon主动请求开启才能重新连接。</p>
@@ -454,14 +453,14 @@
 </section>
 </section>
 <section id="routing-groups-routing-groups-feature">
-<h3>Routing Groups功能 (Routing Groups feature)<a class="headerlink" href="#routing-groups-routing-groups-feature" title="链接到此标题。">¶</a></h3>
+<h3>Routing Groups功能 (Routing Groups feature)<a class="headerlink" href="#routing-groups-routing-groups-feature" title="Link to this heading">¶</a></h3>
 <section id="routing-groups-routing-groups-feature-introduction">
-<h4>Routing Groups功能介绍 (Routing Groups Feature Introduction)<a class="headerlink" href="#routing-groups-routing-groups-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>Routing Groups功能介绍 (Routing Groups Feature Introduction)<a class="headerlink" href="#routing-groups-routing-groups-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>SoAd支持对每个Routing Group的使能状态进行控制，进而控制各Routing Group关联的SoAdPduRouteDest或者SoAdSocketRouteDest。只有当RouteDest处于使能状态时，才能执行新PDU的收发。</p>
 <p>SoAd supports controlling the enabled status of each Routing Group, thereby controlling the associated SoAdPduRouteDest or SoAdSocketRouteDest. Only when the RouteDest is in an enabled state can new PDU reception and transmission be executed.</p>
 </section>
 <section id="routing-groups-routing-groups-functionality-implementation">
-<h4>Routing Groups功能实现 (Routing Groups functionality implementation)<a class="headerlink" href="#routing-groups-routing-groups-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Routing Groups功能实现 (Routing Groups functionality implementation)<a class="headerlink" href="#routing-groups-routing-groups-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>当SoAdPduRouteDest/SoAdSocketRouteDest不属于任何Routing Group时（参考配置参数SoAdRxRoutingGroupRef/SoAdTxRoutingGroupRef），其RouteDest一直处于Enable状态，不能被改变。</p>
 <p>When SoAdPduRouteDest/SoAdSocketRouteDest does not belong to any Routing Group (refer to configuration parameters SoAdRxRoutingGroupRef/SoAdTxRoutingGroupRef), its RouteDest remains in the Enable state and cannot be changed.</p>
 <p>当SoAdPduRouteDest/SoAdSocketRouteDest从属于N个Routing Group时（参考配置参数SoAdRxRoutingGroupRef/SoAdTxRoutingGroupRef），其RouteDest使能状态根据其所属的Routing Group状态而定（只要其从属的任一Routing Group为Enable状态，则该RouteDest状态即为Enable状态）。</p>
@@ -471,14 +470,14 @@
 </section>
 </section>
 <section id="pdu-fan-out-pdu-fan-out-functionality">
-<h3>PDU fan-out功能 (PDU Fan-out functionality)<a class="headerlink" href="#pdu-fan-out-pdu-fan-out-functionality" title="链接到此标题。">¶</a></h3>
+<h3>PDU fan-out功能 (PDU Fan-out functionality)<a class="headerlink" href="#pdu-fan-out-pdu-fan-out-functionality" title="Link to this heading">¶</a></h3>
 <section id="pdu-fan-out-pdu-fan-out-functionality-introduction">
-<h4>PDU fan-out功能介绍 (PDU Fan-Out functionality introduction)<a class="headerlink" href="#pdu-fan-out-pdu-fan-out-functionality-introduction" title="链接到此标题。">¶</a></h4>
+<h4>PDU fan-out功能介绍 (PDU Fan-Out functionality introduction)<a class="headerlink" href="#pdu-fan-out-pdu-fan-out-functionality-introduction" title="Link to this heading">¶</a></h4>
 <p>SoAd支持PDU的一对多路由功能，但前提是仅支持IF PDU的一对多发送。</p>
 <p>SoAd supports one-to-many routing for PDU, but this is contingent on supporting one-to-many sending for IF PDU only.</p>
 </section>
 <section id="pdu-fan-out-pdu-fan-out-functionality-implementation">
-<h4>PDU fan-out功能实现 (PDU fan-out functionality implementation)<a class="headerlink" href="#pdu-fan-out-pdu-fan-out-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>PDU fan-out功能实现 (PDU fan-out functionality implementation)<a class="headerlink" href="#pdu-fan-out-pdu-fan-out-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>IF PDU的一对多发送，可以通过为SoAdPduRoute配置多个SoAdPduRouteDest实现，即一个IF PDU通过多个Socket Connections发送。</p>
 <p>IF PDU multicast sending can be achieved by configuring multiple SoAdPduRouteDest for the SoAdPduRoute, i.e., one IF PDU is sent through multiple Socket Connections.</p>
 <p>只有当所有Socket Connections上的发送请求都返回E_OK时，SoAd_IfTransmit才返回E_OK；也只有当所有Socket Connections上的发送都成功，才会调用&lt;Up&gt;_[SoAd][If]TxConfirmation&gt;通知上层发送成功。</p>
@@ -486,21 +485,21 @@
 </section>
 </section>
 <section id="buffer-handling-buffer-handling-functionality">
-<h3>Buffer handling功能 (Buffer Handling functionality)<a class="headerlink" href="#buffer-handling-buffer-handling-functionality" title="链接到此标题。">¶</a></h3>
+<h3>Buffer handling功能 (Buffer Handling functionality)<a class="headerlink" href="#buffer-handling-buffer-handling-functionality" title="Link to this heading">¶</a></h3>
 <section id="buffer-handling-buffer-handling-function-introduction">
-<h4>Buffer handling功能介绍 (Buffer Handling Function Introduction)<a class="headerlink" href="#buffer-handling-buffer-handling-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>Buffer handling功能介绍 (Buffer Handling Function Introduction)<a class="headerlink" href="#buffer-handling-buffer-handling-function-introduction" title="Link to this heading">¶</a></h4>
 <p>在SoAd的报文收发过程中，有些情况下需要用到合适的buffer来缓存需要发送的数据及接收到的数据。</p>
 <p>In the message reception and transmission process of SoAd, appropriate buffers are sometimes needed to cache the data to be sent and the received data.</p>
 </section>
 <section id="buffer-handling-buffer-handling-functionality-implementation">
-<h4>Buffer handling功能实现 (Buffer handling functionality implementation)<a class="headerlink" href="#buffer-handling-buffer-handling-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Buffer handling功能实现 (Buffer handling functionality implementation)<a class="headerlink" href="#buffer-handling-buffer-handling-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>IF PDU发送时，TP PDU通过UDP进行发送时，IF PDU（带PDU Header）通过TCP接收时，TP PDU接收时都需要使用到相应的发送/接收Buffer。Buffer的生成根据配置情况由配置工具生成，Buffer的使用根据具体的报文收发机制决定，与SoAd上下层模块无关。</p>
 <p>IF PDU is sent when TP PDU is sent via UDP, and IF PDU (with PDU Header) is received via TCP, corresponding send/receive Buffers are required for both TP PDU sending and receiving. Buffer generation is based on configuration and performed by the configuration tool, while Buffer usage is determined by specific message exchange mechanisms, independent of the SoAd lower-layer modules.</p>
 </section>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 SoAd组件文件描述 (Table Describes SoAd Component Files)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -547,11 +546,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="soad-soconidtype-soad-soconidtype-type-definition">
-<h4>SoAd_SoConIdType类型定义 (SoAd_SoConIdType Type Definition)<a class="headerlink" href="#soad-soconidtype-soad-soconidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_SoConIdType类型定义 (SoAd_SoConIdType Type Definition)<a class="headerlink" href="#soad-soconidtype-soad-soconidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -576,7 +575,7 @@
 </table>
 </section>
 <section id="soad-routinggroupidtype-soad-routinggroupidtype-type-definition">
-<h4>SoAd_RoutingGroupIdType类型定义 (SoAd_RoutingGroupIdType Type Definition)<a class="headerlink" href="#soad-routinggroupidtype-soad-routinggroupidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_RoutingGroupIdType类型定义 (SoAd_RoutingGroupIdType Type Definition)<a class="headerlink" href="#soad-routinggroupidtype-soad-routinggroupidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -601,7 +600,7 @@
 </table>
 </section>
 <section id="soad-soconmodetype-soad-soconmodetype-type-definition">
-<h4>SoAd_SoConModeType类型定义 (SoAd_SoConModeType Type Definition)<a class="headerlink" href="#soad-soconmodetype-soad-soconmodetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_SoConModeType类型定义 (SoAd_SoConModeType Type Definition)<a class="headerlink" href="#soad-soconmodetype-soad-soconmodetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -632,7 +631,7 @@
 </table>
 </section>
 <section id="soad-configtype-soad-configtype-configuration-type-definition">
-<h4>SoAd_ConfigType类型定义 (SoAd_ConfigType Configuration Type Definition)<a class="headerlink" href="#soad-configtype-soad-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_ConfigType类型定义 (SoAd_ConfigType Configuration Type Definition)<a class="headerlink" href="#soad-configtype-soad-configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -658,7 +657,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -761,9 +760,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="soad-init-the-soad-init-function-defines">
-<h4>SoAd_Init函数定义 (The SoAd_Init function defines)<a class="headerlink" href="#soad-init-the-soad-init-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_Init函数定义 (The SoAd_Init function defines)<a class="headerlink" href="#soad-init-the-soad-init-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -833,7 +832,7 @@
 </table>
 </section>
 <section id="soad-getversioninfo-soad-getversioninfo-function-definition">
-<h4>SoAd_GetVersionInfo函数定义 (SoAd_GetVersionInfo function definition)<a class="headerlink" href="#soad-getversioninfo-soad-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_GetVersionInfo函数定义 (SoAd_GetVersionInfo function definition)<a class="headerlink" href="#soad-getversioninfo-soad-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -903,7 +902,7 @@
 </table>
 </section>
 <section id="soad-iftransmit-soad-iftransmit-function-definition">
-<h4>SoAd_IfTransmit函数定义 (SoAd_IfTransmit_function_definition)<a class="headerlink" href="#soad-iftransmit-soad-iftransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_IfTransmit函数定义 (SoAd_IfTransmit_function_definition)<a class="headerlink" href="#soad-iftransmit-soad-iftransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -983,7 +982,7 @@
 </table>
 </section>
 <section id="soad-ifroutinggrouptransmit-the-soad-ifroutinggrouptransmit-function-definition">
-<h4>SoAd_IfRoutingGroupTransmit函数定义 (The SoAd_IfRoutingGroupTransmit function definition)<a class="headerlink" href="#soad-ifroutinggrouptransmit-the-soad-ifroutinggrouptransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_IfRoutingGroupTransmit函数定义 (The SoAd_IfRoutingGroupTransmit function definition)<a class="headerlink" href="#soad-ifroutinggrouptransmit-the-soad-ifroutinggrouptransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1053,7 +1052,7 @@
 </table>
 </section>
 <section id="soad-ifspecificroutinggrouptransmit-the-soad-ifspecificroutinggrouptransmit-function-definition">
-<h4>SoAd_IfSpecificRoutingGroupTransmit函数定义 (The SoAd_IfSpecificRoutingGroupTransmit function definition)<a class="headerlink" href="#soad-ifspecificroutinggrouptransmit-the-soad-ifspecificroutinggrouptransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_IfSpecificRoutingGroupTransmit函数定义 (The SoAd_IfSpecificRoutingGroupTransmit function definition)<a class="headerlink" href="#soad-ifspecificroutinggrouptransmit-the-soad-ifspecificroutinggrouptransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1133,7 +1132,7 @@
 </table>
 </section>
 <section id="soad-tptransmit-soad-tptransmit-function-definition">
-<h4>SoAd_TpTransmit函数定义 (SoAd_TpTransmit function definition)<a class="headerlink" href="#soad-tptransmit-soad-tptransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TpTransmit函数定义 (SoAd_TpTransmit function definition)<a class="headerlink" href="#soad-tptransmit-soad-tptransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1213,7 +1212,7 @@
 </table>
 </section>
 <section id="soad-tpcanceltransmit-the-soad-tpcanceltransmit-function-definition">
-<h4>SoAd_TpCancelTransmit函数定义 (The SoAd_TpCancelTransmit function definition)<a class="headerlink" href="#soad-tpcanceltransmit-the-soad-tpcanceltransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TpCancelTransmit函数定义 (The SoAd_TpCancelTransmit function definition)<a class="headerlink" href="#soad-tpcanceltransmit-the-soad-tpcanceltransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1283,7 +1282,7 @@
 </table>
 </section>
 <section id="soad-tpcancelreceive-soad-tpcancelreceive-function-definition">
-<h4>SoAd_TpCancelReceive函数定义 (SoAd_TpCancelReceive function definition)<a class="headerlink" href="#soad-tpcancelreceive-soad-tpcancelreceive-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TpCancelReceive函数定义 (SoAd_TpCancelReceive function definition)<a class="headerlink" href="#soad-tpcancelreceive-soad-tpcancelreceive-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1353,7 +1352,7 @@
 </table>
 </section>
 <section id="soad-getsoconid-the-soad-getsoconid-function-definition">
-<h4>SoAd_GetSoConId函数定义 (The SoAd_GetSoConId function definition)<a class="headerlink" href="#soad-getsoconid-the-soad-getsoconid-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_GetSoConId函数定义 (The SoAd_GetSoConId function definition)<a class="headerlink" href="#soad-getsoconid-the-soad-getsoconid-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1428,7 +1427,7 @@
 </table>
 </section>
 <section id="soad-opensocon-the-soad-opensocon-function-definition">
-<h4>SoAd_OpenSoCon函数定义 (The SoAd_OpenSoCon function definition)<a class="headerlink" href="#soad-opensocon-the-soad-opensocon-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_OpenSoCon函数定义 (The SoAd_OpenSoCon function definition)<a class="headerlink" href="#soad-opensocon-the-soad-opensocon-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1498,7 +1497,7 @@
 </table>
 </section>
 <section id="soad-closesocon-soad-closesocon-function-definition">
-<h4>SoAd_CloseSoCon函数定义 (SoAd_CloseSoCon Function Definition)<a class="headerlink" href="#soad-closesocon-soad-closesocon-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_CloseSoCon函数定义 (SoAd_CloseSoCon Function Definition)<a class="headerlink" href="#soad-closesocon-soad-closesocon-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1578,7 +1577,7 @@
 </table>
 </section>
 <section id="soad-getsoconmode-the-soad-getsoconmode-function-definition">
-<h4>SoAd_GetSoConMode函数定义 (The SoAd_GetSoConMode function definition)<a class="headerlink" href="#soad-getsoconmode-the-soad-getsoconmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_GetSoConMode函数定义 (The SoAd_GetSoConMode function definition)<a class="headerlink" href="#soad-getsoconmode-the-soad-getsoconmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1653,7 +1652,7 @@
 </table>
 </section>
 <section id="soad-requestipaddrassignment-soad-requestipaddrassignment-function-definition">
-<h4>SoAd_RequestIpAddrAssignment函数定义 (SoAd_RequestIpAddrAssignment function definition)<a class="headerlink" href="#soad-requestipaddrassignment-soad-requestipaddrassignment-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_RequestIpAddrAssignment函数定义 (SoAd_RequestIpAddrAssignment function definition)<a class="headerlink" href="#soad-requestipaddrassignment-soad-requestipaddrassignment-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1768,7 +1767,7 @@
 </table>
 </section>
 <section id="soad-releaseipaddrassignment-the-soad-releaseipaddrassignment-function-defines">
-<h4>SoAd_ReleaseIpAddrAssignment函数定义 (The SoAd_ReleaseIpAddrAssignment function defines)<a class="headerlink" href="#soad-releaseipaddrassignment-the-soad-releaseipaddrassignment-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_ReleaseIpAddrAssignment函数定义 (The SoAd_ReleaseIpAddrAssignment function defines)<a class="headerlink" href="#soad-releaseipaddrassignment-the-soad-releaseipaddrassignment-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1838,7 +1837,7 @@
 </table>
 </section>
 <section id="soad-getlocaladdr-the-soad-getlocaladdr-function-definition">
-<h4>SoAd_GetLocalAddr函数定义 (The SoAd_GetLocalAddr function definition)<a class="headerlink" href="#soad-getlocaladdr-the-soad-getlocaladdr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_GetLocalAddr函数定义 (The SoAd_GetLocalAddr function definition)<a class="headerlink" href="#soad-getlocaladdr-the-soad-getlocaladdr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1928,7 +1927,7 @@
 </table>
 </section>
 <section id="soad-getphysaddr-the-soad-getphysaddr-function-definition">
-<h4>SoAd_GetPhysAddr函数定义 (The SoAd_GetPhysAddr function definition)<a class="headerlink" href="#soad-getphysaddr-the-soad-getphysaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_GetPhysAddr函数定义 (The SoAd_GetPhysAddr function definition)<a class="headerlink" href="#soad-getphysaddr-the-soad-getphysaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2003,7 +2002,7 @@
 </table>
 </section>
 <section id="soad-getremoteaddr-soad-getremoteaddr-function-definition">
-<h4>SoAd_GetRemoteAddr函数定义 (SoAd_GetRemoteAddr function definition)<a class="headerlink" href="#soad-getremoteaddr-soad-getremoteaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_GetRemoteAddr函数定义 (SoAd_GetRemoteAddr function definition)<a class="headerlink" href="#soad-getremoteaddr-soad-getremoteaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2078,7 +2077,7 @@
 </table>
 </section>
 <section id="soad-enablerouting-soad-enableroutingfunctiondefinition">
-<h4>SoAd_EnableRouting函数定义 (SoAd_EnableRoutingFunctionDefinition)<a class="headerlink" href="#soad-enablerouting-soad-enableroutingfunctiondefinition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_EnableRouting函数定义 (SoAd_EnableRoutingFunctionDefinition)<a class="headerlink" href="#soad-enablerouting-soad-enableroutingfunctiondefinition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2148,7 +2147,7 @@
 </table>
 </section>
 <section id="soad-enablespecificrouting-the-soad-enablespecificrouting-function-definition">
-<h4>SoAd_EnableSpecificRouting函数定义 (The SoAd_EnableSpecificRouting function definition)<a class="headerlink" href="#soad-enablespecificrouting-the-soad-enablespecificrouting-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_EnableSpecificRouting函数定义 (The SoAd_EnableSpecificRouting function definition)<a class="headerlink" href="#soad-enablespecificrouting-the-soad-enablespecificrouting-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2228,7 +2227,7 @@
 </table>
 </section>
 <section id="soad-disablerouting-the-soad-disablerouting-function-definition">
-<h4>SoAd_DisableRouting函数定义 (The SoAd_DisableRouting function definition)<a class="headerlink" href="#soad-disablerouting-the-soad-disablerouting-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_DisableRouting函数定义 (The SoAd_DisableRouting function definition)<a class="headerlink" href="#soad-disablerouting-the-soad-disablerouting-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2298,7 +2297,7 @@
 </table>
 </section>
 <section id="soad-disablespecificrouting-the-soad-disablespecificrouting-function-definition">
-<h4>SoAd_DisableSpecificRouting函数定义 (The SoAd_DisableSpecificRouting function definition)<a class="headerlink" href="#soad-disablespecificrouting-the-soad-disablespecificrouting-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_DisableSpecificRouting函数定义 (The SoAd_DisableSpecificRouting function definition)<a class="headerlink" href="#soad-disablespecificrouting-the-soad-disablespecificrouting-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2378,7 +2377,7 @@
 </table>
 </section>
 <section id="soad-setremoteaddr-the-soad-setremoteaddr-function-definition">
-<h4>SoAd_SetRemoteAddr函数定义 (The SoAd_SetRemoteAddr function definition)<a class="headerlink" href="#soad-setremoteaddr-the-soad-setremoteaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_SetRemoteAddr函数定义 (The SoAd_SetRemoteAddr function definition)<a class="headerlink" href="#soad-setremoteaddr-the-soad-setremoteaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2458,7 +2457,7 @@
 </table>
 </section>
 <section id="soad-setuniqueremoteaddr-the-soad-setuniqueremoteaddr-function-definition">
-<h4>SoAd_SetUniqueRemoteAddr函数定义 (The SoAd_SetUniqueRemoteAddr Function Definition)<a class="headerlink" href="#soad-setuniqueremoteaddr-the-soad-setuniqueremoteaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_SetUniqueRemoteAddr函数定义 (The SoAd_SetUniqueRemoteAddr Function Definition)<a class="headerlink" href="#soad-setuniqueremoteaddr-the-soad-setuniqueremoteaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2543,7 +2542,7 @@
 </table>
 </section>
 <section id="soad-releaseremoteaddr-soad-releaseremoteaddr-function-definition">
-<h4>SoAd_ReleaseRemoteAddr函数定义 (SoAd_ReleaseRemoteAddr function definition)<a class="headerlink" href="#soad-releaseremoteaddr-soad-releaseremoteaddr-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_ReleaseRemoteAddr函数定义 (SoAd_ReleaseRemoteAddr function definition)<a class="headerlink" href="#soad-releaseremoteaddr-soad-releaseremoteaddr-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2613,7 +2612,7 @@
 </table>
 </section>
 <section id="soad-tpchangeparameter-the-soad-tpchangeparameter-function-definition">
-<h4>SoAd_TpChangeParameter函数定义 (The SoAd_TpChangeParameter function definition)<a class="headerlink" href="#soad-tpchangeparameter-the-soad-tpchangeparameter-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TpChangeParameter函数定义 (The SoAd_TpChangeParameter function definition)<a class="headerlink" href="#soad-tpchangeparameter-the-soad-tpchangeparameter-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2703,7 +2702,7 @@
 </table>
 </section>
 <section id="soad-readdhcphostnameoption-the-soad-readdhcphostnameoption-function-definition">
-<h4>SoAd_ReadDhcpHostNameOption函数定义 (The SoAd_ReadDhcpHostNameOption function definition)<a class="headerlink" href="#soad-readdhcphostnameoption-the-soad-readdhcphostnameoption-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_ReadDhcpHostNameOption函数定义 (The SoAd_ReadDhcpHostNameOption function definition)<a class="headerlink" href="#soad-readdhcphostnameoption-the-soad-readdhcphostnameoption-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2783,7 +2782,7 @@
 </table>
 </section>
 <section id="soad-writedhcphostnameoption-the-soad-writedhcphostnameoption-function-definition">
-<h4>SoAd_WriteDhcpHostNameOption函数定义 (The SoAd_WriteDhcpHostNameOption function definition)<a class="headerlink" href="#soad-writedhcphostnameoption-the-soad-writedhcphostnameoption-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_WriteDhcpHostNameOption函数定义 (The SoAd_WriteDhcpHostNameOption function definition)<a class="headerlink" href="#soad-writedhcphostnameoption-the-soad-writedhcphostnameoption-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2873,7 +2872,7 @@
 </table>
 </section>
 <section id="soad-rxindication-soad-rxindication-function-definition">
-<h4>SoAd_RxIndication函数定义 (SoAd_RxIndication function definition)<a class="headerlink" href="#soad-rxindication-soad-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_RxIndication函数定义 (SoAd_RxIndication function definition)<a class="headerlink" href="#soad-rxindication-soad-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2973,7 +2972,7 @@
 </table>
 </section>
 <section id="soad-copytxdata-the-soad-copytxdata-function-definition">
-<h4>SoAd_CopyTxData函数定义 (The SoAd_CopyTxData function definition)<a class="headerlink" href="#soad-copytxdata-the-soad-copytxdata-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_CopyTxData函数定义 (The SoAd_CopyTxData function definition)<a class="headerlink" href="#soad-copytxdata-the-soad-copytxdata-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3058,7 +3057,7 @@
 </table>
 </section>
 <section id="soad-txconfirmation-the-soad-txconfirmation-function-definition">
-<h4>SoAd_TxConfirmation函数定义 (The SoAd_TxConfirmation function definition)<a class="headerlink" href="#soad-txconfirmation-the-soad-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TxConfirmation函数定义 (The SoAd_TxConfirmation function definition)<a class="headerlink" href="#soad-txconfirmation-the-soad-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3138,7 +3137,7 @@
 </table>
 </section>
 <section id="soad-tcpaccepted-soad-tcpacceptedfunctiondefinition">
-<h4>SoAd_TcpAccepted函数定义 (SoAd_TcpAcceptedFunctionDefinition)<a class="headerlink" href="#soad-tcpaccepted-soad-tcpacceptedfunctiondefinition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TcpAccepted函数定义 (SoAd_TcpAcceptedFunctionDefinition)<a class="headerlink" href="#soad-tcpaccepted-soad-tcpacceptedfunctiondefinition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3228,7 +3227,7 @@
 </table>
 </section>
 <section id="soad-tcpconnected-soad-tcpconnectedfunctiondefinition">
-<h4>SoAd_TcpConnected函数定义 (SoAd_TcpConnectedFunctionDefinition)<a class="headerlink" href="#soad-tcpconnected-soad-tcpconnectedfunctiondefinition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TcpConnected函数定义 (SoAd_TcpConnectedFunctionDefinition)<a class="headerlink" href="#soad-tcpconnected-soad-tcpconnectedfunctiondefinition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3298,7 +3297,7 @@
 </table>
 </section>
 <section id="soad-tcpipevent-the-soad-tcpipevent-function-definition">
-<h4>SoAd_TcpIpEvent函数定义 (The SoAd_TcpIpEvent function definition)<a class="headerlink" href="#soad-tcpipevent-the-soad-tcpipevent-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_TcpIpEvent函数定义 (The SoAd_TcpIpEvent function definition)<a class="headerlink" href="#soad-tcpipevent-the-soad-tcpipevent-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3378,7 +3377,7 @@
 </table>
 </section>
 <section id="soad-localipaddrassignmentchg-soad-localipaddrassignmentchg-function-definition">
-<h4>SoAd_LocalIpAddrAssignmentChg函数定义 (SoAd_LocalIpAddrAssignmentChg Function Definition)<a class="headerlink" href="#soad-localipaddrassignmentchg-soad-localipaddrassignmentchg-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_LocalIpAddrAssignmentChg函数定义 (SoAd_LocalIpAddrAssignmentChg Function Definition)<a class="headerlink" href="#soad-localipaddrassignmentchg-soad-localipaddrassignmentchg-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3458,7 +3457,7 @@
 </table>
 </section>
 <section id="soad-mainfunction-soad-mainfunction-function-definition">
-<h4>SoAd_MainFunction函数定义 (SoAd_MainFunction function definition)<a class="headerlink" href="#soad-mainfunction-soad-mainfunction-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>SoAd_MainFunction函数定义 (SoAd_MainFunction function definition)<a class="headerlink" href="#soad-mainfunction-soad-mainfunction-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3502,15 +3501,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="soadgeneral">
-<h3>SoAdGeneral<a class="headerlink" href="#soadgeneral" title="链接到此标题。">¶</a></h3>
+<h3>SoAdGeneral<a class="headerlink" href="#soadgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="SoAdGeneral" src="../../_images/image366.png" />
 </figure>
@@ -3644,7 +3643,7 @@
 </table>
 </section>
 <section id="soadbswmodules">
-<h3>SoAdBswModules<a class="headerlink" href="#soadbswmodules" title="链接到此标题。">¶</a></h3>
+<h3>SoAdBswModules<a class="headerlink" href="#soadbswmodules" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="SoAdBswModules" src="../../_images/image456.png" />
 </figure>
@@ -3832,7 +3831,7 @@
 </table>
 </section>
 <section id="soadsocketconnectiongroup">
-<h3>SoAdSocketConnectionGroup<a class="headerlink" href="#soadsocketconnectiongroup" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketConnectionGroup<a class="headerlink" href="#soadsocketconnectiongroup" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id3">
 <img alt="SoAdSocketConnectionGroup" src="../../_images/image550.png" />
 </figure>
@@ -4134,7 +4133,7 @@
 </table>
 </section>
 <section id="soadsocketconnection">
-<h3>SoAdSocketConnection<a class="headerlink" href="#soadsocketconnection" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketConnection<a class="headerlink" href="#soadsocketconnection" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id4">
 <img alt="SoAdSocketConnection" src="../../_images/image648.png" />
 </figure>
@@ -4178,7 +4177,7 @@
 </table>
 </section>
 <section id="soadsocketremoteaddress">
-<h3>SoAdSocketRemoteAddress<a class="headerlink" href="#soadsocketremoteaddress" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketRemoteAddress<a class="headerlink" href="#soadsocketremoteaddress" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id5">
 <img alt="SoAdSocketRemoteAddress" src="../../_images/image738.png" />
 </figure>
@@ -4240,7 +4239,7 @@
 </table>
 </section>
 <section id="soadsockettcp">
-<h3>SoAdSocketTcp<a class="headerlink" href="#soadsockettcp" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketTcp<a class="headerlink" href="#soadsockettcp" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="SoAdSocketTcp" src="../../_images/image834.png" />
 </figure>
@@ -4446,7 +4445,7 @@
 </table>
 </section>
 <section id="soadsocketudp">
-<h3>SoAdSocketUdp<a class="headerlink" href="#soadsocketudp" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketUdp<a class="headerlink" href="#soadsocketudp" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id7">
 <img alt="SoAdSocketUdp" src="../../_images/image933.png" />
 </figure>
@@ -4580,7 +4579,7 @@
 </table>
 </section>
 <section id="soadroutinggroup">
-<h3>SoAdRoutingGroup<a class="headerlink" href="#soadroutinggroup" title="链接到此标题。">¶</a></h3>
+<h3>SoAdRoutingGroup<a class="headerlink" href="#soadroutinggroup" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id8">
 <img alt="SoAdRoutingGroup" src="../../_images/image1031.png" />
 </figure>
@@ -4666,7 +4665,7 @@
 </table>
 </section>
 <section id="soadpduroute">
-<h3>SoAdPduRoute<a class="headerlink" href="#soadpduroute" title="链接到此标题。">¶</a></h3>
+<h3>SoAdPduRoute<a class="headerlink" href="#soadpduroute" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id9">
 <img alt="SoAdPduRoute" src="../../_images/image1141.png" />
 </figure>
@@ -4764,7 +4763,7 @@
 </table>
 </section>
 <section id="soadpduroutedest">
-<h3>SoAdPduRouteDest<a class="headerlink" href="#soadpduroutedest" title="链接到此标题。">¶</a></h3>
+<h3>SoAdPduRouteDest<a class="headerlink" href="#soadpduroutedest" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id10">
 <img alt="SoAdPduRouteDest" src="../../_images/image1229.png" />
 </figure>
@@ -4880,7 +4879,7 @@
 </table>
 </section>
 <section id="soadsocketroute">
-<h3>SoAdSocketRoute<a class="headerlink" href="#soadsocketroute" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketRoute<a class="headerlink" href="#soadsocketroute" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id11">
 <img alt="SoAdSocketRoute" src="../../_images/image1325.png" />
 </figure>
@@ -4942,7 +4941,7 @@
 </table>
 </section>
 <section id="soadsocketroutedest">
-<h3>SoAdSocketRouteDest<a class="headerlink" href="#soadsocketroutedest" title="链接到此标题。">¶</a></h3>
+<h3>SoAdSocketRouteDest<a class="headerlink" href="#soadsocketroutedest" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id12">
 <img alt="SoAdSocketRouteDest" src="../../_images/image1423.png" />
 </figure>
@@ -5212,7 +5211,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -5221,11 +5220,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

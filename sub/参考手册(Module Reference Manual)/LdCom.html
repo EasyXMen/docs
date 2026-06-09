@@ -9,7 +9,6 @@
         <title>LdCom &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ldcom">
-<h1>LdCom<a class="headerlink" href="#ldcom" title="链接到此标题。">¶</a></h1>
+<h1>LdCom<a class="headerlink" href="#ldcom" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -208,7 +207,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>LdCom模块主要实现RTE（或者应用层）与PduR之间I-PDU的传递作用，实现IF PDU与TP PDU的发送与接收传递。所谓的“Large Data”指的是每个Pdu即为一个信号，而非大数据的PDU，LdCom只执行简单的Pdu收发，不涉及信号解析。</p>
 <p>The LdCom module primarily实现RTE (or application layer) and PduR interaction for I-PDU transmission, achieving the sending and receiving transfer of IF PDU and TP PDU. So-called &quot;Large Data&quot; refers to each Pdu being a signal rather than big data PDUs; LdCom only executes simple Pdu reception and transmission without involving signal parsing.</p>
 <figure class="align-center" id="ldcom-ldcom-module-hierarchy-diagram">
@@ -219,23 +218,23 @@
 <p>LdCom实现了与上下层模块间基于I-PDU传输的接口传递，包括IF Pdu的发送（Direct发送/TriggerTransmit发送），IF Pdu的接收，TP Pdu的发送，TP Pdu的接收，以及DET检测报错。</p>
 <p>LdCom实现了一种基于I-PDU传输的接口传递，用于上下层模块间通信，包括IF Pdu的直接发送/触发发送、IF Pdu的接收、TP Pdu的发送、TP Pdu的接收以及DET检测错误。</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SRS_COM.pdf, R19-11 and 4.2.2</p>
 <p>[2] AUTOSAR_SWS_LargeDataCOM.pdf, R19-11 and 4.2.2</p>
 <p>[3] AUTOSAR_SWS_PDURouter.pdf, R19-11 and 4.2.2</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="if-pdu-if-pdu-sending-function">
-<h3>IF PDU发送功能 (If PDU Sending Function)<a class="headerlink" href="#if-pdu-if-pdu-sending-function" title="链接到此标题。">¶</a></h3>
+<h3>IF PDU发送功能 (If PDU Sending Function)<a class="headerlink" href="#if-pdu-if-pdu-sending-function" title="Link to this heading">¶</a></h3>
 <section id="if-pdu-introduction-of-pdu-sending-function">
-<h4>IF PDU发送功能介绍 (Introduction of PDU Sending Function)<a class="headerlink" href="#if-pdu-introduction-of-pdu-sending-function" title="链接到此标题。">¶</a></h4>
+<h4>IF PDU发送功能介绍 (Introduction of PDU Sending Function)<a class="headerlink" href="#if-pdu-introduction-of-pdu-sending-function" title="Link to this heading">¶</a></h4>
 <p>LdCom支持Pdu以IF方式进行发送，IF方式发送存在两种形式：1、直接调用LdCom_Transmit进行发送；2、下层调用LdCom_TriggerTransmit获取发送Pdu数据进行发送。</p>
 <p>LdCom supports Pdu transmission via IF method. There are two forms of IF method transmission: 1、directly calling LdCom_Transmit for sending; 2、calling LdCom_TriggerTransmit at the lower layer to obtain and send the Pdu data.</p>
 </section>
 <section id="if-pdu-if-pdu-sending-function-implementation">
-<h4>IF PDU发送功能实现 (IF PDU Sending Function Implementation)<a class="headerlink" href="#if-pdu-if-pdu-sending-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>IF PDU发送功能实现 (IF PDU Sending Function Implementation)<a class="headerlink" href="#if-pdu-if-pdu-sending-function-implementation" title="Link to this heading">¶</a></h4>
 <p>若Pdu以IF方式进行发送，需配置LdComIPdu的LdComApiType为LDCOM_IF，LdComIPduDirection为LDCOM_SEND，若该Pdu上层模块支持发送确认需配置LdComTxConfirmation，若支持TriggerTransmit方式发送，还需配置LdComTxTriggerTransmit。</p>
 <p>If Pdu is sent via IF means, LdComIPdu's LdComApiType should be configured as LDCOM_IF and LdComIPduDirection as LDCOM_SEND. If the upper-layer module of this Pdu supports send confirmation, configure LdComTxConfirmation accordingly. If TriggerTransmit support is available for sending, additionally configure LdComTxTriggerTransmit.</p>
 <p>需要直接发送该Pdu时，直接调用LdCom_Transmit进行发送，LdCom通过调用下层发送接口进行发送；若下层调用LdCom_TriggerTransmit获取发送数据时，LdCom调用配置的Rte_LdComCbkTriggerTransmit进行接口传递。</p>
@@ -245,14 +244,14 @@
 </section>
 </section>
 <section id="if-pdu-if-pdu-reception-function">
-<h3>IF PDU接收功能 (IF PDU Reception Function)<a class="headerlink" href="#if-pdu-if-pdu-reception-function" title="链接到此标题。">¶</a></h3>
+<h3>IF PDU接收功能 (IF PDU Reception Function)<a class="headerlink" href="#if-pdu-if-pdu-reception-function" title="Link to this heading">¶</a></h3>
 <section id="if-pdu-if-pdu-reception-function-introduction">
-<h4>IF PDU接收功能介绍 (If PDU Reception Function Introduction)<a class="headerlink" href="#if-pdu-if-pdu-reception-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>IF PDU接收功能介绍 (If PDU Reception Function Introduction)<a class="headerlink" href="#if-pdu-if-pdu-reception-function-introduction" title="Link to this heading">¶</a></h4>
 <p>LdCom支持Pdu以IF方式进行接收，下层接收到Pdu数据时直接调用LdCom_RxIndication传递给LdCom。</p>
 <p>LdCom supports Pdu reception via IF, with the lower layer directly calling LdCom_RxIndication to pass Pdu data to LdCom.</p>
 </section>
 <section id="if-pdu-if-pdu-reception-function-implementation">
-<h4>IF PDU接收功能实现 (IF PDU Reception Function Implementation)<a class="headerlink" href="#if-pdu-if-pdu-reception-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>IF PDU接收功能实现 (IF PDU Reception Function Implementation)<a class="headerlink" href="#if-pdu-if-pdu-reception-function-implementation" title="Link to this heading">¶</a></h4>
 <p>若Pdu以IF方式进行接收，需配置LdComIPdu的LdComApiType为LDCOM_IF，LdComIPduDirection为LDCOM_RECEIVE，配置LdComRxIndication。</p>
 <p>If Pdu is received via IF method, LdComIPdu's LdComApiType should be configured as LDCOM_IF, LdComIPduDirection as LDCOM_RECEIVE, and LdComRxIndication should be configured.</p>
 <p>当下层调用LdCom_RxIndication时，LdCom调用配置的Rte_LdComCbkRxIndication进行传递。</p>
@@ -260,14 +259,14 @@
 </section>
 </section>
 <section id="tp-pdu-tp-pdu-sending-function">
-<h3>TP PDU发送功能 (TP PDU Sending Function)<a class="headerlink" href="#tp-pdu-tp-pdu-sending-function" title="链接到此标题。">¶</a></h3>
+<h3>TP PDU发送功能 (TP PDU Sending Function)<a class="headerlink" href="#tp-pdu-tp-pdu-sending-function" title="Link to this heading">¶</a></h3>
 <section id="tp-pdu-function-introduction-for-tp-pdu-sending">
-<h4>TP PDU发送功能介绍 (Function Introduction for TP PDU Sending)<a class="headerlink" href="#tp-pdu-function-introduction-for-tp-pdu-sending" title="链接到此标题。">¶</a></h4>
+<h4>TP PDU发送功能介绍 (Function Introduction for TP PDU Sending)<a class="headerlink" href="#tp-pdu-function-introduction-for-tp-pdu-sending" title="Link to this heading">¶</a></h4>
 <p>LdCom支持Pdu以TP方式进行发送，按TP发送流程Transmit→N次CopyTxData→TpTxConfirmation进行Pdu的发送。</p>
 <p>LdCom supports Pdu transmission via TP, following the Transmit → N times CopyTxData → TpTxConfirmation process for Pdu sending.</p>
 </section>
 <section id="tp-pdu-tp-pdu-sending-function-implementation">
-<h4>TP PDU发送功能实现 (TP PDU Sending Function Implementation)<a class="headerlink" href="#tp-pdu-tp-pdu-sending-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>TP PDU发送功能实现 (TP PDU Sending Function Implementation)<a class="headerlink" href="#tp-pdu-tp-pdu-sending-function-implementation" title="Link to this heading">¶</a></h4>
 <p>若Pdu以TP方式进行发送，需配置LdComIPdu的LdComApiType为LDCOM_TP，LdComIPduDirection为LDCOM_SEND，配置LdComTpTxConfirmation和LdComTxCopyTxData。</p>
 <p>If Pdu is sent via TP, LdComIPdu's LdComApiType should be configured as LDCOM_TP, LdComIPduDirection as LDCOM_SEND, and configurations for LdComTpTxConfirmation and LdComTxCopyTxData are required.</p>
 <p>上层模块调用LdCom_Transmit请求TxPdu的发送，下层模块回调LdCom_CopyTxData请求TxPdu数据段的拷贝，LdCom通过配置的Rte_LdComCbkCopyTxData进行传递，当整个TxPdu发送结束，下层调用LdCom_TpTxConfirmation，LdCom通过配置的Rte_LdComCbkTpTxConfirmation进行传递。</p>
@@ -275,14 +274,14 @@
 </section>
 </section>
 <section id="tp-pdu-tp-pdu-reception-function">
-<h3>TP PDU接收功能 (TP PDU Reception Function)<a class="headerlink" href="#tp-pdu-tp-pdu-reception-function" title="链接到此标题。">¶</a></h3>
+<h3>TP PDU接收功能 (TP PDU Reception Function)<a class="headerlink" href="#tp-pdu-tp-pdu-reception-function" title="Link to this heading">¶</a></h3>
 <section id="tp-pdu-introduction-to-tp-pdu-reception-function">
-<h4>TP PDU接收功能介绍 (Introduction to TP PDU Reception Function)<a class="headerlink" href="#tp-pdu-introduction-to-tp-pdu-reception-function" title="链接到此标题。">¶</a></h4>
+<h4>TP PDU接收功能介绍 (Introduction to TP PDU Reception Function)<a class="headerlink" href="#tp-pdu-introduction-to-tp-pdu-reception-function" title="Link to this heading">¶</a></h4>
 <p>LdCom支持Pdu以TP方式进行接收，按TP接收流程StartOfReception→N次CopyRxData→TpRxIndication进行Pdu的接收。</p>
 <p>LdCom supports Pdu reception via TP, following the TP reception process: StartOfReception → N times CopyRxData → TpRxIndication for Pdu reception.</p>
 </section>
 <section id="tp-pdu-implementation-of-tp-pdu-reception-function">
-<h4>TP PDU接收功能实现 (Implementation of TP PDU Reception Function)<a class="headerlink" href="#tp-pdu-implementation-of-tp-pdu-reception-function" title="链接到此标题。">¶</a></h4>
+<h4>TP PDU接收功能实现 (Implementation of TP PDU Reception Function)<a class="headerlink" href="#tp-pdu-implementation-of-tp-pdu-reception-function" title="Link to this heading">¶</a></h4>
 <p>若Pdu以TP方式进行接收，需配置LdComIPdu的LdComApiType为LDCOM_TP，LdComIPduDirection为LDCOM_RECEIVE，配置LdComRxStartOfReception、LdComRxCopyRxData和LdComTpRxIndication。</p>
 <p>If Pdu is received via TP, configure LdComIPdu's LdComApiType as LDCOM_TP, LdComIPduDirection as LDCOM_RECEIVE, and set LdComRxStartOfReception, LdComRxCopyRxData, and LdComTpRxIndication.</p>
 <p>下层模块调用LdCom_StartOfReception，LdCom_CopyRxData，LdCom_TpRxIndication时，LdCom依次调用配置的Rte_LdComCbkStartOfReception，Rte_LdComCbkCopyRxData，Rte_LdComCbkTpRxIndication进行传递。</p>
@@ -291,7 +290,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 LdCom组件文件描述 (Table LdCom Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -332,11 +331,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="ldcom-configtype-ldcom-configtype-configuration-type-definition">
-<h4>LdCom_ConfigType类型定义 (LdCom_ConfigType Configuration Type Definition)<a class="headerlink" href="#ldcom-configtype-ldcom-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_ConfigType类型定义 (LdCom_ConfigType Configuration Type Definition)<a class="headerlink" href="#ldcom-configtype-ldcom-configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -362,7 +361,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -408,9 +407,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="ldcom-init-the-ldcom-init-function-definition">
-<h4>LdCom_Init函数定义 (The LdCom_Init function definition)<a class="headerlink" href="#ldcom-init-the-ldcom-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_Init函数定义 (The LdCom_Init function definition)<a class="headerlink" href="#ldcom-init-the-ldcom-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -480,7 +479,7 @@
 </table>
 </section>
 <section id="ldcom-deinit-the-function-definition-for-ldcom-deinit">
-<h4>LdCom_DeInit函数定义 (The function definition for LdCom_DeInit)<a class="headerlink" href="#ldcom-deinit-the-function-definition-for-ldcom-deinit" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_DeInit函数定义 (The function definition for LdCom_DeInit)<a class="headerlink" href="#ldcom-deinit-the-function-definition-for-ldcom-deinit" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -523,7 +522,7 @@
 </table>
 </section>
 <section id="ldcom-getversioninfo-the-ldcom-getversioninfo-function-definition">
-<h4>LdCom_GetVersionInfo函数定义 (The LdCom_GetVersionInfo function definition)<a class="headerlink" href="#ldcom-getversioninfo-the-ldcom-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_GetVersionInfo函数定义 (The LdCom_GetVersionInfo function definition)<a class="headerlink" href="#ldcom-getversioninfo-the-ldcom-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -593,7 +592,7 @@
 </table>
 </section>
 <section id="ldcom-transmit-ldcom-transmit-function-definition">
-<h4>LdCom_Transmit函数定义 (LdCom_Transmit function definition)<a class="headerlink" href="#ldcom-transmit-ldcom-transmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_Transmit函数定义 (LdCom_Transmit function definition)<a class="headerlink" href="#ldcom-transmit-ldcom-transmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -673,7 +672,7 @@
 </table>
 </section>
 <section id="ldcom-copytxdata-the-ldcom-copytxdata-function-definition">
-<h4>LdCom_CopyTxData函数定义 (The LdCom_CopyTxData function definition)<a class="headerlink" href="#ldcom-copytxdata-the-ldcom-copytxdata-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_CopyTxData函数定义 (The LdCom_CopyTxData function definition)<a class="headerlink" href="#ldcom-copytxdata-the-ldcom-copytxdata-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -773,7 +772,7 @@
 </table>
 </section>
 <section id="ldcom-tptxconfirmation-the-ldcom-tptxconfirmation-function-definition">
-<h4>LdCom_TpTxConfirmation函数定义 (The LdCom_TpTxConfirmation function definition)<a class="headerlink" href="#ldcom-tptxconfirmation-the-ldcom-tptxconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_TpTxConfirmation函数定义 (The LdCom_TpTxConfirmation function definition)<a class="headerlink" href="#ldcom-tptxconfirmation-the-ldcom-tptxconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -858,7 +857,7 @@
 </table>
 </section>
 <section id="ldcom-startofreception-ldcom-startofreception-function-definition">
-<h4>LdCom_StartOfReception函数定义 (LdCom_StartOfReception function definition)<a class="headerlink" href="#ldcom-startofreception-ldcom-startofreception-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_StartOfReception函数定义 (LdCom_StartOfReception function definition)<a class="headerlink" href="#ldcom-startofreception-ldcom-startofreception-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -958,7 +957,7 @@
 </table>
 </section>
 <section id="ldcom-copyrxdata-function-ldcom-copyrxdata-defined">
-<h4>LdCom_CopyRxData函数定义 (Function LdCom_CopyRxData defined)<a class="headerlink" href="#ldcom-copyrxdata-function-ldcom-copyrxdata-defined" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_CopyRxData函数定义 (Function LdCom_CopyRxData defined)<a class="headerlink" href="#ldcom-copyrxdata-function-ldcom-copyrxdata-defined" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1048,7 +1047,7 @@
 </table>
 </section>
 <section id="ldcom-tprxindication-the-ldcom-tprxindication-function-definition">
-<h4>LdCom_TpRxIndication函数定义 (The LdCom_TpRxIndication function definition)<a class="headerlink" href="#ldcom-tprxindication-the-ldcom-tprxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_TpRxIndication函数定义 (The LdCom_TpRxIndication function definition)<a class="headerlink" href="#ldcom-tprxindication-the-ldcom-tprxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1133,7 +1132,7 @@
 </table>
 </section>
 <section id="ldcom-rxindication-the-ldcom-rxindication-function-definition">
-<h4>LdCom_RxIndication函数定义 (The LdCom_RxIndication function definition)<a class="headerlink" href="#ldcom-rxindication-the-ldcom-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_RxIndication函数定义 (The LdCom_RxIndication function definition)<a class="headerlink" href="#ldcom-rxindication-the-ldcom-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1218,7 +1217,7 @@
 </table>
 </section>
 <section id="ldcom-txconfirmation-the-ldcom-txconfirmation-function-definition">
-<h4>LdCom_TxConfirmation函数定义 (The LdCom_TxConfirmation function definition)<a class="headerlink" href="#ldcom-txconfirmation-the-ldcom-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_TxConfirmation函数定义 (The LdCom_TxConfirmation function definition)<a class="headerlink" href="#ldcom-txconfirmation-the-ldcom-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1293,7 +1292,7 @@
 </table>
 </section>
 <section id="ldcom-triggertransmit-the-ldcom-triggertransmit-function-definition">
-<h4>LdCom_TriggerTransmit函数定义 (The LdCom_TriggerTransmit function definition)<a class="headerlink" href="#ldcom-triggertransmit-the-ldcom-triggertransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>LdCom_TriggerTransmit函数定义 (The LdCom_TriggerTransmit function definition)<a class="headerlink" href="#ldcom-triggertransmit-the-ldcom-triggertransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1374,15 +1373,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="ldcomgeneral">
-<h3>LdComGeneral<a class="headerlink" href="#ldcomgeneral" title="链接到此标题。">¶</a></h3>
+<h3>LdComGeneral<a class="headerlink" href="#ldcomgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="LdComGeneral" src="../../_images/image348.png" />
 </figure>
@@ -1462,7 +1461,7 @@
 </table>
 </section>
 <section id="ldcomipdu">
-<h3>LdComIPdu<a class="headerlink" href="#ldcomipdu" title="链接到此标题。">¶</a></h3>
+<h3>LdComIPdu<a class="headerlink" href="#ldcomipdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="LdComIPdu" src="../../_images/image440.png" />
 </figure>
@@ -1823,7 +1822,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -1832,11 +1831,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
