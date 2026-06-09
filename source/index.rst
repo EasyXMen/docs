@@ -1,4 +1,4 @@
-开源小满EasyXMen技术文档 EasyXMen Technical Documentation
+开源小满EasyXMen技术文档(EasyXMen Technical Documentation)
 ==================================================================================================================
 
 本页面包含快速上手指南、参考手册、集成手册和示例工程说明。版本发布说明请参考链接：https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
@@ -10,7 +10,7 @@ This page contains the Quick Start Guide, Module Reference Manual, Integration I
    页面右上角可选择对应版本的文档，左侧导航栏为所选版本的目录。
    (You can select the corresponding version of the documentation in the top-right corner of the page. The left-side navigation will then show the table of contents for that version.)
 
-开源许可 License
+开源许可(License)
 ========================================================
 
 文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见开源小满EasyXMen技术文档仓库的LICENSE.txt
