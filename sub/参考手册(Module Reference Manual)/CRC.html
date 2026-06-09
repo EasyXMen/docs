@@ -9,7 +9,6 @@
         <title>CRC &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="crc">
-<h1>CRC<a class="headerlink" href="#crc" title="链接到此标题。">¶</a></h1>
+<h1>CRC<a class="headerlink" href="#crc" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -216,7 +215,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>CRCL模块提供如下的算法，用于对输入数据进行循环冗余校验，用于核对数据传输过程中是否被更改或者传输错误：</p>
 <p>The CRCL module provides algorithms for performing cyclic redundancy check on input data to verify whether the data has been altered or transmitted incorrectly during the data transfer process:</p>
 <ul class="simple">
@@ -234,16 +233,16 @@
 <p>运行时计算法：速度慢，占用较少的ROM。</p>
 <p>Runtime calculation method: slower, occupies less ROM.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_CRCLibrary.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="crc-crc-function">
-<h3>CRC功能 (CRC Function)<a class="headerlink" href="#crc-crc-function" title="链接到此标题。">¶</a></h3>
+<h3>CRC功能 (CRC Function)<a class="headerlink" href="#crc-crc-function" title="Link to this heading">¶</a></h3>
 <section id="crc-introduction-to-crc-function">
-<h4>CRC功能介绍 (Introduction to CRC Function)<a class="headerlink" href="#crc-introduction-to-crc-function" title="链接到此标题。">¶</a></h4>
+<h4>CRC功能介绍 (Introduction to CRC Function)<a class="headerlink" href="#crc-introduction-to-crc-function" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>CRC基本概念 (Basic concepts of CRC)</p></li>
 <li><p>Basic concepts of CRC</p></li>
@@ -345,14 +344,14 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </table>
 </section>
 <section id="crc-crc-function-implementation">
-<h4>CRC功能实现 (CRC Function Implementation)<a class="headerlink" href="#crc-crc-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>CRC功能实现 (CRC Function Implementation)<a class="headerlink" href="#crc-crc-function-implementation" title="Link to this heading">¶</a></h4>
 <p>CRC功能实现分为三种方式：直接计算法、查表法、硬件实现法，分别对应配置项CrcxMode中的取值CRC_RUNTIME、CRC_TABLE和CRC_HARDWARE ，x代表CRC位宽，可为8、8H2F、16、32、32P4、64。</p>
 <p>CRC functionality implementation is divided into three methods: direct calculation method, table lookup method, and hardware realization method, which correspond to the configuration item CrcxMode with values CRC_RUNTIME, CRC_TABLE, and CRC_HARDWARE respectively. Here, x represents the width of the CRC, whitch can be8, 8H2F, 16, 32, 32P4, 64.</p>
 </section>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CRC组件文件描述 (Describe CRC Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -384,21 +383,21 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="crc-calculatecrc8-crc-calculatecrc8-function-definition">
-<h4>Crc_CalculateCRC8函数定义 (CRC_CalculateCRC8 function definition)<a class="headerlink" href="#crc-calculatecrc8-crc-calculatecrc8-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crc_CalculateCRC8函数定义 (CRC_CalculateCRC8 function definition)<a class="headerlink" href="#crc-calculatecrc8-crc-calculatecrc8-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -483,7 +482,7 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </table>
 </section>
 <section id="crc-calculatecrc82f-crc-calculatecrc82f-function-definition">
-<h4>Crc_CalculateCRC82F函数定义 (Crc_CalculateCRC82F Function definition)<a class="headerlink" href="#crc-calculatecrc82f-crc-calculatecrc82f-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crc_CalculateCRC82F函数定义 (Crc_CalculateCRC82F Function definition)<a class="headerlink" href="#crc-calculatecrc82f-crc-calculatecrc82f-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -568,7 +567,7 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </table>
 </section>
 <section id="crc-calculatecrc16-crc-calculatecrc16-function-definition">
-<h4>Crc_CalculateCRC16函数定义 (Crc_CalculateCRC16 Function Definition)<a class="headerlink" href="#crc-calculatecrc16-crc-calculatecrc16-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crc_CalculateCRC16函数定义 (Crc_CalculateCRC16 Function Definition)<a class="headerlink" href="#crc-calculatecrc16-crc-calculatecrc16-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -653,7 +652,7 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </table>
 </section>
 <section id="crc-calculatecrc32-crc-calculatecrc32-function-definition">
-<h4>Crc_CalculateCRC32函数定义 (Crc_CalculateCRC32 Function Definition)<a class="headerlink" href="#crc-calculatecrc32-crc-calculatecrc32-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crc_CalculateCRC32函数定义 (Crc_CalculateCRC32 Function Definition)<a class="headerlink" href="#crc-calculatecrc32-crc-calculatecrc32-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -738,7 +737,7 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </table>
 </section>
 <section id="crc-calculatecrc32p4-crc-calculatecrc32p4-function-definition">
-<h4>Crc_CalculateCRC32P4函数定义 (Crc_CalculateCRC32P4 Function definition)<a class="headerlink" href="#crc-calculatecrc32p4-crc-calculatecrc32p4-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crc_CalculateCRC32P4函数定义 (Crc_CalculateCRC32P4 Function definition)<a class="headerlink" href="#crc-calculatecrc32p4-crc-calculatecrc32p4-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -823,7 +822,7 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </table>
 </section>
 <section id="crc-calculatecrc64-crc-calculatecrc64-function-definition">
-<h4>Crc_CalculateCRC64函数定义 (CRC_CalculateCRC64 function definition)<a class="headerlink" href="#crc-calculatecrc64-crc-calculatecrc64-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Crc_CalculateCRC64函数定义 (CRC_CalculateCRC64 function definition)<a class="headerlink" href="#crc-calculatecrc64-crc-calculatecrc64-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -909,13 +908,13 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>CRC配置列表 (CRC Configuration List)</strong></strong></p><figure class="align-center" id="crc-crc-container-configuration-diagram">
 <img alt="CRC容器配置图 (CRC Container Configuration Diagram)" src="../../_images/image210.png" />
@@ -1302,7 +1301,7 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -1311,12 +1310,12 @@ G(x) = &amp;x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{40
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

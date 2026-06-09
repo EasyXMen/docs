@@ -9,7 +9,6 @@
         <title>Dcm &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="dcm">
-<h1>Dcm<a class="headerlink" href="#dcm" title="链接到此标题。">¶</a></h1>
+<h1>Dcm<a class="headerlink" href="#dcm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -264,7 +263,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="dcm-dcm-module-hierarchy-diagram">
 <img alt="Dcm模块层次图 (DCM Module Hierarchy Diagram)" src="../../_images/image140.png" />
 </figure>
@@ -334,7 +333,7 @@
 </ol>
 <p>SID identification and sub-service negative response suppression processing (with sub-services), format check of sub-services, check of service addressing methods, etc. Process the corresponding service after verification is correct; send the corresponding NRC if the verification fails.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] ISO 14229-1 2013</p>
 <p>[2] ISO 15031-5 2016</p>
 <p>[3] AUTOSAR_SWS_DiagnosticCommunicationManager.PDF，4.2.2</p>
@@ -344,57 +343,57 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="enable-function-according-to-agreement">
-<h3>协议启动功能 (Enable Function According to Agreement)<a class="headerlink" href="#enable-function-according-to-agreement" title="链接到此标题。">¶</a></h3>
+<h3>协议启动功能 (Enable Function According to Agreement)<a class="headerlink" href="#enable-function-according-to-agreement" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-protocol-launch-functionality">
-<h4>协议启动功能介绍 (Introduction to Protocol Launch Functionality)<a class="headerlink" href="#introduction-to-protocol-launch-functionality" title="链接到此标题。">¶</a></h4>
+<h4>协议启动功能介绍 (Introduction to Protocol Launch Functionality)<a class="headerlink" href="#introduction-to-protocol-launch-functionality" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块接收到一个正确的服务请求之后，需要在处理服务之前将协议启动起来，启动协议需要判断当前是否被运行启动，根据协议启动情况执行后续操作。</p>
 <p>When the Dcm module receives a valid service request, it needs to start the protocol before processing the service. Starting the protocol requires determining whether it is already running and executing subsequent operations based on the protocol's startup status.</p>
 <p>当Protocol开启Queue队列支持(DcmDslProtocolRequestQueued)时，整体处理流程不变，但如在处理请求过程中收到第二条请求，支持最多一个额外请求的接收，会置入额外缓存区中，待上一条请求完成后会接着处理缓存区中的请求。如缓存区也已满，则返回对应的Buffer状态，无视收到的请求。</p>
 <p>When Protocol enables Queue support (DcmDslProtocolRequestQueued), the overall processing flow remains unchanged. However, during request processing, it supports receiving at most one additional request, which is placed in an extra buffer area. Once the previous request is completed, the next request in the buffer area will be processed. If the buffer area is already full, it returns the corresponding Buffer state and ignores any received requests.</p>
 </section>
 <section id="implementation-of-protocol-startup-function">
-<h4>协议启动功能实现 (Implementation of Protocol Startup Function)<a class="headerlink" href="#implementation-of-protocol-startup-function" title="链接到此标题。">¶</a></h4>
+<h4>协议启动功能实现 (Implementation of Protocol Startup Function)<a class="headerlink" href="#implementation-of-protocol-startup-function" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块的Dcm_TpRxIndication被调用来接收一个正确的服务请求之后，调用StartProtocol接口来通知用户，让用户判断当前情况下是否允许启动协议，如果允许启动则启动协议并根据配置情况，调用相对应配置的Indication函数通知外部协议启动成功，并执行后续服务；如果协议启动失败则退出处理并发送NRC0x22。</p>
 <p>When the Dcm_TpRxIndication of the Dcm module is called to receive a valid service request, call the StartProtocol interface to notify the user to determine whether to start the protocol in the current situation. If allowed, start the protocol and invoke the corresponding configuration Indication function to notify external protocols of successful startup and proceed with subsequent services; if the protocol startup fails, exit processing and send NRC0x22.</p>
 </section>
 </section>
 <section id="service-processing-response-function">
-<h3>服务处理响应功能 (Service Processing Response Function)<a class="headerlink" href="#service-processing-response-function" title="链接到此标题。">¶</a></h3>
+<h3>服务处理响应功能 (Service Processing Response Function)<a class="headerlink" href="#service-processing-response-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-service-processing-response-functionality">
-<h4>服务处理响应功能介绍 (Introduction to Service Processing Response Functionality)<a class="headerlink" href="#introduction-to-service-processing-response-functionality" title="链接到此标题。">¶</a></h4>
+<h4>服务处理响应功能介绍 (Introduction to Service Processing Response Functionality)<a class="headerlink" href="#introduction-to-service-processing-response-functionality" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块接收到一个正确的服务请求之后，在服务正确执行过程中，可能会需要定时发送NRC 0x78来表示服务正在处理过程中，避免请求设备超时，一直到服务处理完成发送出最终响应。</p>
 <p>When the Dcm module receives a valid service request and the service is being correctly executed, it may need to periodically send NRC 0x78 to indicate that the service is still processing, in order to avoid timeout on the requesting device, and send the final response only after the service has been processed.</p>
 </section>
 <section id="service-processing-response-functionality-implementation">
-<h4>服务处理响应功能实现 (Service processing response functionality implementation)<a class="headerlink" href="#service-processing-response-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>服务处理响应功能实现 (Service processing response functionality implementation)<a class="headerlink" href="#service-processing-response-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块的Dcm_TpRxIndication被调用来接收一个正确的服务请求之后，执行相应的服务，如果在P2ServerMax时间内服务没有处理完成，需要调用PduR_DcmTransmit发送一个NRC 0x78来进行响应，防止请求设备超时。如果在接下来的时间，服务仍未处理完成，则需要在P2*ServerMax到达时调用PduR_DcmTransmit发送一个NRC 0x78来进行响应，如果服务仍未完成则需要在每个P2*ServerMax到达时调用PduR_DcmTransmit发送一个NRC 0x78来进行响应，直到服务处理完成，然后调用PduR_DcmTransmit来发送一个最终响应。</p>
 <p>When the Dcm_TpRxIndication of the Dcm module is called to receive a correct service request and the corresponding service is executed, if the service is not processed within P2ServerMax time, PduR_DcmTransmit should be called to send an NRC 0x78 response to prevent the requesting device from timing out. If the service is still not completed in the following period, PduR_DcmTransmit should be called to send an NRC 0x78 at the arrival of P2*ServerMax and then at each subsequent P2*ServerMax until the service is processed, after which PduR_DcmTransmit should be used to send a final response.</p>
 </section>
 </section>
 <section id="update-session-control-time-function">
-<h3>更新会话控制时间功能 (Update session control time function)<a class="headerlink" href="#update-session-control-time-function" title="链接到此标题。">¶</a></h3>
+<h3>更新会话控制时间功能 (Update session control time function)<a class="headerlink" href="#update-session-control-time-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-update-session-control-timing-function">
-<h4>更新会话控制时间功能介绍 (Introduction to Update Session Control Timing Function)<a class="headerlink" href="#introduction-to-update-session-control-timing-function" title="链接到此标题。">¶</a></h4>
+<h4>更新会话控制时间功能介绍 (Introduction to Update Session Control Timing Function)<a class="headerlink" href="#introduction-to-update-session-control-timing-function" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块接收到一个正确的服务请求之后，在服务正确执行完成，响应正确发出之后，对会话时间进行更新。</p>
 <p>When the Dcm module receives a correct service request, it updates the session time after the service is correctly executed and the correct response is issued.</p>
 </section>
 <section id="implement-the-updated-session-control-timing-feature">
-<h4>更新会话控制时间功能实现 (Implement the updated session control timing feature)<a class="headerlink" href="#implement-the-updated-session-control-timing-feature" title="链接到此标题。">¶</a></h4>
+<h4>更新会话控制时间功能实现 (Implement the updated session control timing feature)<a class="headerlink" href="#implement-the-updated-session-control-timing-feature" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块的Dcm_TpRxIndication被调用来接收一个正确的服务请求，并在正确处理完服务请求并发出正确响应之后，在调用Dcm_TpTxConfirmation时，对会话时间进行更新，重启会话计时。</p>
 <p>When the Dcm_TpRxIndication of the Dcm module is called to receive a valid service request, and after correctly processing the service request and sending a correct response, update the session timer by calling Dcm_TpTxConfirmation and restart the session timer.</p>
 </section>
 </section>
 <section id="communication-interaction-function">
-<h3>通信交互功能 (Communication Interaction Function)<a class="headerlink" href="#communication-interaction-function" title="链接到此标题。">¶</a></h3>
+<h3>通信交互功能 (Communication Interaction Function)<a class="headerlink" href="#communication-interaction-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-communication-interaction-function">
-<h4>通信交互功能介绍 (Introduction to Communication Interaction Function)<a class="headerlink" href="#introduction-to-communication-interaction-function" title="链接到此标题。">¶</a></h4>
+<h4>通信交互功能介绍 (Introduction to Communication Interaction Function)<a class="headerlink" href="#introduction-to-communication-interaction-function" title="Link to this heading">¶</a></h4>
 <p>在默认会话模式下，在收到一个请求时，通知ComM模块启动通信，在请求处理完成，响应发送确认时，通知ComM模块关闭通信。在非默认会话模式下，在收到一个请求时，不会通知ComM模块启动通信，在请求处理完成，响应发送确认时，不会通知ComM模块关闭通信。当默认会话切换到非默认会话的时候，会通知ComM模块启动通信，当非默认会话切换到默认会话的时候，会通知ComM模块关闭通信。ComM模块会在通信状态改变之后，调用Dcm相关接口通知Dcm模块通信状态的改变。</p>
 <p>In the default session mode, when a request is received, notify the ComM module to start communication. When the request processing is completed and the response confirmation is sent, notify the ComM module to close communication. In the non-default session mode, when a request is received, do not notify the ComM module to start communication. Upon completion of request processing and sending response confirmation, do not notify the ComM module to close communication. When switching from the default session to the non-default session, notify the ComM module to start communication. When switching from the non-default session to the default session, notify the ComM module to close communication. The ComM module will then call relevant Dcm interfaces to inform the Dcm module of the communication state change after the communication status changes.</p>
 </section>
 <section id="implementation-of-communication-interaction-function">
-<h4>通信交互功能实现 (Implementation of Communication Interaction Function)<a class="headerlink" href="#implementation-of-communication-interaction-function" title="链接到此标题。">¶</a></h4>
+<h4>通信交互功能实现 (Implementation of Communication Interaction Function)<a class="headerlink" href="#implementation-of-communication-interaction-function" title="Link to this heading">¶</a></h4>
 <p>当Dcm模块在默认会话模式下被调用Dcm_TpRxIndication，则Dcm模块会先调用ComM_DCM_ActiveDiagnostic通知ComM模块启动通信，然后继续处理服务。当Dcm模块在默认会话模式下被调用Dcm_TpTxConfirmation，则Dcm模块会先调用ComM_DCM_InactiveDiagnostic通知COMM模块关闭通信。</p>
 <p>When the Dcm module is called with Dcm_TpRxIndication in the default session mode, the Dcm module first calls ComM_DCM_ActiveDiagnostic to notify the ComM module to start communication, and then continues to process services. When the Dcm module is called with Dcm_TpTxConfirmation in the default session mode, the Dcm module first calls ComM_DCM_InactiveDiagnostic to notify the Comm module to close communication.</p>
 <p>当Dcm模块在非默认会话模式下被调用Dcm_TpRxIndication，则Dcm模块不会调用ComM_DCM_ActiveDiagnostic通知ComM模块启动通信，直接继续处理服务。当Dcm模块在非默认会话模式下被调用Dcm_TpTxConfirmation，则Dcm模块不会调用ComM_DCM_InactiveDiagnostic通知ComM模块关闭通信。</p>
@@ -406,9 +405,9 @@
 </section>
 </section>
 <section id="page-send-functionality">
-<h3>分页发送功能 (Page send functionality)<a class="headerlink" href="#page-send-functionality" title="链接到此标题。">¶</a></h3>
+<h3>分页发送功能 (Page send functionality)<a class="headerlink" href="#page-send-functionality" title="Link to this heading">¶</a></h3>
 <section id="page-sending-function-introduction">
-<h4>分页发送功能介绍 (Page Sending Function Introduction)<a class="headerlink" href="#page-sending-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>分页发送功能介绍 (Page Sending Function Introduction)<a class="headerlink" href="#page-sending-function-introduction" title="Link to this heading">¶</a></h4>
 <p>在诊断协议中，有些服务允许交换大量数据，如UDS Service 0x19、0x22等。</p>
 <p>In diagnostic protocols, some services allow for the exchange of large amounts of data, such as UDS Services 0x19, 0x22, etc.</p>
 <p>在传统的方法中，ECU的内部缓冲区必须足够大，以保存将要交换的最长数据消息(最坏情况)，并且在传输开始之前完整的缓冲区被填满。ECU中的RAM内存通常是一种关键资源，特别是在较小的微处理器中。在更节省内存的方法中，缓冲区只被部分填充，部分传输，然后部分填充——以此类推。这种分页机制可以显著减少内存量，但是需要定义良好的反应时间来填充缓冲区。用户可以决定是使用“线性缓冲区”还是分页缓冲区进行诊断。</p>
@@ -417,7 +416,7 @@
 <p>Pagination sending is using a limited send buffer to segment and send data exceeding the buffer length in multiple iterations, in order to achieve complete transmission.</p>
 </section>
 <section id="pagination-send-function-implementation">
-<h4>分页发送功能实现 (Pagination send function implementation)<a class="headerlink" href="#pagination-send-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>分页发送功能实现 (Pagination send function implementation)<a class="headerlink" href="#pagination-send-function-implementation" title="Link to this heading">¶</a></h4>
 <p>在Dcm模块接收到一个服务请求，处理完成之后，发现需要发送的数据长度大于发送缓冲区时且pagedbuffer使能则会按照如下步骤进行处理：</p>
 <p>When a service request is received by the Dcm module and processed, if the length of the data to be sent is greater than the send buffer size and pagedbuffer is enabled, the following steps will be taken:</p>
 <ol class="arabic simple">
@@ -446,7 +445,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 Dcm组件文件描述 (Table Dcm Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -634,11 +633,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="dcm-statustype-definition-of-dcm-statustype-type">
-<h4>Dcm_StatusType类型定义 (Definition of Dcm_StatusType Type)<a class="headerlink" href="#dcm-statustype-definition-of-dcm-statustype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_StatusType类型定义 (Definition of Dcm_StatusType Type)<a class="headerlink" href="#dcm-statustype-definition-of-dcm-statustype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -668,7 +667,7 @@
 </table>
 </section>
 <section id="dcm-communicationmodetype-type-definition-for-dcm-communicationmodetype">
-<h4>Dcm_CommunicationModeType类型定义 (Type definition for Dcm_CommunicationModeType)<a class="headerlink" href="#dcm-communicationmodetype-type-definition-for-dcm-communicationmodetype" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_CommunicationModeType类型定义 (Type definition for Dcm_CommunicationModeType)<a class="headerlink" href="#dcm-communicationmodetype-type-definition-for-dcm-communicationmodetype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -707,7 +706,7 @@
 </table>
 </section>
 <section id="dcm-configtype-definition-of-dcm-configtype-type">
-<h4>Dcm_ConfigType类型定义 (Definition of Dcm_ConfigType Type)<a class="headerlink" href="#dcm-configtype-definition-of-dcm-configtype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_ConfigType类型定义 (Definition of Dcm_ConfigType Type)<a class="headerlink" href="#dcm-configtype-definition-of-dcm-configtype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -732,7 +731,7 @@
 </table>
 </section>
 <section id="dcm-returnreadmemorytype-dcm-returnreadmemorytype-type-definition">
-<h4>Dcm_ReturnReadMemoryType类型定义 (Dcm_ReturnReadMemoryType type definition)<a class="headerlink" href="#dcm-returnreadmemorytype-dcm-returnreadmemorytype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_ReturnReadMemoryType类型定义 (Dcm_ReturnReadMemoryType type definition)<a class="headerlink" href="#dcm-returnreadmemorytype-dcm-returnreadmemorytype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -763,7 +762,7 @@
 </table>
 </section>
 <section id="dcm-returnwritememorytype-type-definition-for-dcm-returnwritememorytype">
-<h4>Dcm_ReturnWriteMemoryType类型定义 (Type definition for Dcm_ReturnWriteMemoryType)<a class="headerlink" href="#dcm-returnwritememorytype-type-definition-for-dcm-returnwritememorytype" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_ReturnWriteMemoryType类型定义 (Type definition for Dcm_ReturnWriteMemoryType)<a class="headerlink" href="#dcm-returnwritememorytype-type-definition-for-dcm-returnwritememorytype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -794,7 +793,7 @@
 </table>
 </section>
 <section id="dcm-ecustartmodetype-dcm-ecustartmodetype-type-definition">
-<h4>Dcm_EcuStartModeType类型定义 (Dcm_EcuStartModeType Type Definition)<a class="headerlink" href="#dcm-ecustartmodetype-dcm-ecustartmodetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_EcuStartModeType类型定义 (Dcm_EcuStartModeType Type Definition)<a class="headerlink" href="#dcm-ecustartmodetype-dcm-ecustartmodetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -823,7 +822,7 @@
 </table>
 </section>
 <section id="dcm-progconditionstype-type-definition-for-dcm-progconditionstype">
-<h4>Dcm_ProgConditionsType类型定义 (Type definition for Dcm_ProgConditionsType)<a class="headerlink" href="#dcm-progconditionstype-type-definition-for-dcm-progconditionstype" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_ProgConditionsType类型定义 (Type definition for Dcm_ProgConditionsType)<a class="headerlink" href="#dcm-progconditionstype-type-definition-for-dcm-progconditionstype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -857,7 +856,7 @@
 </table>
 </section>
 <section id="dcm-msgitemtype-type-definition-for-dcm-msgitemtype">
-<h4>Dcm_MsgItemType类型定义 (Type definition for Dcm_MsgItemType)<a class="headerlink" href="#dcm-msgitemtype-type-definition-for-dcm-msgitemtype" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_MsgItemType类型定义 (Type definition for Dcm_MsgItemType)<a class="headerlink" href="#dcm-msgitemtype-type-definition-for-dcm-msgitemtype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -882,7 +881,7 @@
 </table>
 </section>
 <section id="dcm-msgtype-definition-of-dcm-msgtype-type">
-<h4>Dcm_MsgType类型定义 (Definition of Dcm_MsgType Type)<a class="headerlink" href="#dcm-msgtype-definition-of-dcm-msgtype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_MsgType类型定义 (Definition of Dcm_MsgType Type)<a class="headerlink" href="#dcm-msgtype-definition-of-dcm-msgtype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -907,7 +906,7 @@
 </table>
 </section>
 <section id="dcm-msglentype-definition-of-dcm-msglentype-type">
-<h4>Dcm_MsgLenType类型定义 (Definition of Dcm_MsgLenType Type)<a class="headerlink" href="#dcm-msglentype-definition-of-dcm-msglentype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_MsgLenType类型定义 (Definition of Dcm_MsgLenType Type)<a class="headerlink" href="#dcm-msglentype-definition-of-dcm-msglentype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -932,7 +931,7 @@
 </table>
 </section>
 <section id="dcm-msgaddinfotype-dcm-msgaddinfotype-type-definition">
-<h4>Dcm_MsgAddInfoType类型定义 (Dcm_MsgAddInfoType Type Definition)<a class="headerlink" href="#dcm-msgaddinfotype-dcm-msgaddinfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_MsgAddInfoType类型定义 (Dcm_MsgAddInfoType Type Definition)<a class="headerlink" href="#dcm-msgaddinfotype-dcm-msgaddinfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -962,7 +961,7 @@
 </table>
 </section>
 <section id="dcm-idcontexttype-dcm-idcontexttype-type-definition">
-<h4>Dcm_IdContextType类型定义 (Dcm_IdContextType Type Definition)<a class="headerlink" href="#dcm-idcontexttype-dcm-idcontexttype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_IdContextType类型定义 (Dcm_IdContextType Type Definition)<a class="headerlink" href="#dcm-idcontexttype-dcm-idcontexttype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -987,7 +986,7 @@
 </table>
 </section>
 <section id="dcm-msgcontexttype-definition-of-dcm-msgcontexttype-type">
-<h4>Dcm_MsgContextType类型定义 (Definition of Dcm_MsgContextType Type)<a class="headerlink" href="#dcm-msgcontexttype-definition-of-dcm-msgcontexttype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_MsgContextType类型定义 (Definition of Dcm_MsgContextType Type)<a class="headerlink" href="#dcm-msgcontexttype-definition-of-dcm-msgcontexttype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1022,7 +1021,7 @@
 </table>
 </section>
 <section id="dcm-opstatustype-definition-of-dcm-opstatustype-type">
-<h4>Dcm_OpStatusType类型定义 (Definition of Dcm_OpStatusType type)<a class="headerlink" href="#dcm-opstatustype-definition-of-dcm-opstatustype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_OpStatusType类型定义 (Definition of Dcm_OpStatusType type)<a class="headerlink" href="#dcm-opstatustype-definition-of-dcm-opstatustype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1053,7 +1052,7 @@
 </table>
 </section>
 <section id="dcm-secleveltype-definition-of-dcm-secleveltype-type">
-<h4>Dcm_SecLevelType类型定义 (Definition of Dcm_SecLevelType type)<a class="headerlink" href="#dcm-secleveltype-definition-of-dcm-secleveltype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_SecLevelType类型定义 (Definition of Dcm_SecLevelType type)<a class="headerlink" href="#dcm-secleveltype-definition-of-dcm-secleveltype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1083,7 +1082,7 @@
 </table>
 </section>
 <section id="dcm-sesctrltype-definition-of-dcm-sesctrltype-type">
-<h4>Dcm_SesCtrlType类型定义 (Definition of Dcm_SesCtrlType type)<a class="headerlink" href="#dcm-sesctrltype-definition-of-dcm-sesctrltype-type" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_SesCtrlType类型定义 (Definition of Dcm_SesCtrlType type)<a class="headerlink" href="#dcm-sesctrltype-definition-of-dcm-sesctrltype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1115,7 +1114,7 @@
 </table>
 </section>
 <section id="dcm-protocoltype-dcm-protocoltype-type-definition">
-<h4>Dcm_ProtocolType类型定义 (Dcm_ProtocolType Type Definition)<a class="headerlink" href="#dcm-protocoltype-dcm-protocoltype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_ProtocolType类型定义 (Dcm_ProtocolType Type Definition)<a class="headerlink" href="#dcm-protocoltype-dcm-protocoltype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1171,7 +1170,7 @@
 </table>
 </section>
 <section id="dcm-negativeresponsecodetype-dcm-negativeresponsecodetype-type-definition">
-<h4>Dcm_NegativeResponseCodeType类型定义 (Dcm_NegativeResponseCodeType Type Definition)<a class="headerlink" href="#dcm-negativeresponsecodetype-dcm-negativeresponsecodetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_NegativeResponseCodeType类型定义 (Dcm_NegativeResponseCodeType Type Definition)<a class="headerlink" href="#dcm-negativeresponsecodetype-dcm-negativeresponsecodetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1266,7 +1265,7 @@
 </table>
 </section>
 <section id="dcm-confirmationstatustype-type-definition-for-dcm-confirmationstatustype">
-<h4>Dcm_ConfirmationStatusType类型定义 (Type definition for Dcm_ConfirmationStatusType)<a class="headerlink" href="#dcm-confirmationstatustype-type-definition-for-dcm-confirmationstatustype" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_ConfirmationStatusType类型定义 (Type definition for Dcm_ConfirmationStatusType)<a class="headerlink" href="#dcm-confirmationstatustype-type-definition-for-dcm-confirmationstatustype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1297,7 +1296,7 @@
 </table>
 </section>
 <section id="dcm-didsupportedtype-type-definition-for-dcm-didsupportedtype">
-<h4>Dcm_DidSupportedType类型定义 (Type definition for Dcm_DidSupportedType)<a class="headerlink" href="#dcm-didsupportedtype-type-definition-for-dcm-didsupportedtype" title="链接到此标题。">¶</a></h4>
+<h4>Dcm_DidSupportedType类型定义 (Type definition for Dcm_DidSupportedType)<a class="headerlink" href="#dcm-didsupportedtype-type-definition-for-dcm-didsupportedtype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1327,7 +1326,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1478,11 +1477,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dcm-init-the-dcm-init-function-definition">
-<h2>Dcm_Init函数定义 (The Dcm_Init function definition)<a class="headerlink" href="#dcm-init-the-dcm-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_Init函数定义 (The Dcm_Init function definition)<a class="headerlink" href="#dcm-init-the-dcm-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1547,7 +1546,7 @@
 </table>
 </section>
 <section id="dcm-getversioninfo-the-dcm-getversioninfo-function-definition">
-<h2>Dcm_GetVersionInfo函数定义 (The Dcm_GetVersionInfo function definition)<a class="headerlink" href="#dcm-getversioninfo-the-dcm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_GetVersionInfo函数定义 (The Dcm_GetVersionInfo function definition)<a class="headerlink" href="#dcm-getversioninfo-the-dcm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1612,7 +1611,7 @@
 </table>
 </section>
 <section id="dcm-demtriggerondtcstatus-the-dcm-demtriggerondtcstatus-function-definition">
-<h2>Dcm_DemTriggerOnDTCStatus函数定义 (The Dcm_DemTriggerOnDTCStatus function definition)<a class="headerlink" href="#dcm-demtriggerondtcstatus-the-dcm-demtriggerondtcstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_DemTriggerOnDTCStatus函数定义 (The Dcm_DemTriggerOnDTCStatus function definition)<a class="headerlink" href="#dcm-demtriggerondtcstatus-the-dcm-demtriggerondtcstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1687,7 +1686,7 @@
 </table>
 </section>
 <section id="dcm-getvin-the-dcm-getvin-function-definition">
-<h2>Dcm_GetVin函数定义 (The Dcm_GetVin function definition)<a class="headerlink" href="#dcm-getvin-the-dcm-getvin-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_GetVin函数定义 (The Dcm_GetVin function definition)<a class="headerlink" href="#dcm-getvin-the-dcm-getvin-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1762,7 +1761,7 @@
 </table>
 </section>
 <section id="dcm-getsecuritylevel-the-dcm-getsecuritylevel-function-definition">
-<h2>Dcm_GetSecurityLevel函数定义 (The Dcm_GetSecurityLevel function definition)<a class="headerlink" href="#dcm-getsecuritylevel-the-dcm-getsecuritylevel-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_GetSecurityLevel函数定义 (The Dcm_GetSecurityLevel function definition)<a class="headerlink" href="#dcm-getsecuritylevel-the-dcm-getsecuritylevel-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1827,7 +1826,7 @@
 </table>
 </section>
 <section id="dcm-getsesctrltype-the-dcm-getsesctrltype-function-definition">
-<h2>Dcm_GetSesCtrlType函数定义 (The Dcm_GetSesCtrlType function definition)<a class="headerlink" href="#dcm-getsesctrltype-the-dcm-getsesctrltype-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_GetSesCtrlType函数定义 (The Dcm_GetSesCtrlType function definition)<a class="headerlink" href="#dcm-getsesctrltype-the-dcm-getsesctrltype-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1892,7 +1891,7 @@
 </table>
 </section>
 <section id="dcm-getactiveprotocol-the-dcm-getactiveprotocol-function-definition">
-<h2>Dcm_GetActiveProtocol函数定义 (The Dcm_GetActiveProtocol function definition)<a class="headerlink" href="#dcm-getactiveprotocol-the-dcm-getactiveprotocol-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_GetActiveProtocol函数定义 (The Dcm_GetActiveProtocol function definition)<a class="headerlink" href="#dcm-getactiveprotocol-the-dcm-getactiveprotocol-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1957,7 +1956,7 @@
 </table>
 </section>
 <section id="dcm-resettodefaultsession-the-dcm-resettodefaultsession-function-definition">
-<h2>Dcm_ResetToDefaultSession函数定义 (The Dcm_ResetToDefaultSession function definition)<a class="headerlink" href="#dcm-resettodefaultsession-the-dcm-resettodefaultsession-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ResetToDefaultSession函数定义 (The Dcm_ResetToDefaultSession function definition)<a class="headerlink" href="#dcm-resettodefaultsession-the-dcm-resettodefaultsession-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2027,7 +2026,7 @@
 </table>
 </section>
 <section id="dcm-triggeronevent-the-dcm-triggeronevent-function-definition">
-<h2>Dcm_TriggerOnEvent函数定义 (The Dcm_TriggerOnEvent function definition)<a class="headerlink" href="#dcm-triggeronevent-the-dcm-triggeronevent-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_TriggerOnEvent函数定义 (The Dcm_TriggerOnEvent function definition)<a class="headerlink" href="#dcm-triggeronevent-the-dcm-triggeronevent-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2097,7 +2096,7 @@
 </table>
 </section>
 <section id="dcm-setactivediagnostic-define-dcm-setactivediagnostic-function">
-<h2>Dcm_ SetActiveDiagnostic函数定义 (Define Dcm_SetActiveDiagnostic Function)<a class="headerlink" href="#dcm-setactivediagnostic-define-dcm-setactivediagnostic-function" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ SetActiveDiagnostic函数定义 (Define Dcm_SetActiveDiagnostic Function)<a class="headerlink" href="#dcm-setactivediagnostic-define-dcm-setactivediagnostic-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2172,7 +2171,7 @@
 </table>
 </section>
 <section id="dcm-startofreception-the-dcm-startofreception-function-definition">
-<h2>Dcm_StartOfReception函数定义 (The Dcm_StartOfReception function definition)<a class="headerlink" href="#dcm-startofreception-the-dcm-startofreception-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_StartOfReception函数定义 (The Dcm_StartOfReception function definition)<a class="headerlink" href="#dcm-startofreception-the-dcm-startofreception-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2252,7 +2251,7 @@
 </table>
 </section>
 <section id="dcm-copyrxdata-function-definition-for-dcm-copyrxdata">
-<h2>Dcm_CopyRxData函数定义 (Function definition for Dcm_CopyRxData)<a class="headerlink" href="#dcm-copyrxdata-function-definition-for-dcm-copyrxdata" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_CopyRxData函数定义 (Function definition for Dcm_CopyRxData)<a class="headerlink" href="#dcm-copyrxdata-function-definition-for-dcm-copyrxdata" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2326,7 +2325,7 @@
 </table>
 </section>
 <section id="dcm-tprxindication-the-dcm-tprxindication-function-definition">
-<h2>Dcm_TpRxIndication函数定义 (The Dcm_TpRxIndication function definition)<a class="headerlink" href="#dcm-tprxindication-the-dcm-tprxindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_TpRxIndication函数定义 (The Dcm_TpRxIndication function definition)<a class="headerlink" href="#dcm-tprxindication-the-dcm-tprxindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2396,7 +2395,7 @@
 </table>
 </section>
 <section id="dcm-copytxdata-the-dcm-copytxdata-function-definition">
-<h2>Dcm_CopyTxData函数定义 (The Dcm_CopyTxData function definition)<a class="headerlink" href="#dcm-copytxdata-the-dcm-copytxdata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_CopyTxData函数定义 (The Dcm_CopyTxData function definition)<a class="headerlink" href="#dcm-copytxdata-the-dcm-copytxdata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2476,7 +2475,7 @@
 </table>
 </section>
 <section id="dcm-tptxconfirmation-the-dcm-tptxconfirmation-function-definition">
-<h2>Dcm_TpTxConfirmation函数定义 (The Dcm_TpTxConfirmation function definition)<a class="headerlink" href="#dcm-tptxconfirmation-the-dcm-tptxconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_TpTxConfirmation函数定义 (The Dcm_TpTxConfirmation function definition)<a class="headerlink" href="#dcm-tptxconfirmation-the-dcm-tptxconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2546,7 +2545,7 @@
 </table>
 </section>
 <section id="dcm-txconfirmation-the-dcm-txconfirmation-function-definition">
-<h2>Dcm_TxConfirmation函数定义 (The Dcm_TxConfirmation function definition)<a class="headerlink" href="#dcm-txconfirmation-the-dcm-txconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_TxConfirmation函数定义 (The Dcm_TxConfirmation function definition)<a class="headerlink" href="#dcm-txconfirmation-the-dcm-txconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2611,7 +2610,7 @@
 </table>
 </section>
 <section id="dcm-comm-nocommodeentered-the-dcm-comm-nocommodeentered-function-definition">
-<h2>Dcm_ComM_NoComModeEntered函数定义 (The Dcm_ComM_NoComModeEntered function definition)<a class="headerlink" href="#dcm-comm-nocommodeentered-the-dcm-comm-nocommodeentered-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ComM_NoComModeEntered函数定义 (The Dcm_ComM_NoComModeEntered function definition)<a class="headerlink" href="#dcm-comm-nocommodeentered-the-dcm-comm-nocommodeentered-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2676,7 +2675,7 @@
 </table>
 </section>
 <section id="dcm-comm-silentcommodeentered-the-dcm-comm-silentcommodeentered-function-definition">
-<h2>Dcm_ComM_SilentComModeEntered函数定义 (The Dcm_ComM_SilentComModeEntered function definition)<a class="headerlink" href="#dcm-comm-silentcommodeentered-the-dcm-comm-silentcommodeentered-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ComM_SilentComModeEntered函数定义 (The Dcm_ComM_SilentComModeEntered function definition)<a class="headerlink" href="#dcm-comm-silentcommodeentered-the-dcm-comm-silentcommodeentered-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2741,7 +2740,7 @@
 </table>
 </section>
 <section id="dcm-comm-fullcommodeentered-function-dcm-comm-fullcommodeentered-defined">
-<h2>Dcm_ComM_FullComModeEntered函数定义 (Function Dcm_ComM_FullComModeEntered defined)<a class="headerlink" href="#dcm-comm-fullcommodeentered-function-dcm-comm-fullcommodeentered-defined" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ComM_FullComModeEntered函数定义 (Function Dcm_ComM_FullComModeEntered defined)<a class="headerlink" href="#dcm-comm-fullcommodeentered-function-dcm-comm-fullcommodeentered-defined" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2806,7 +2805,7 @@
 </table>
 </section>
 <section id="dcm-readmemory-the-dcm-readmemory-function-definition">
-<h2>Dcm_ReadMemory函数定义 (The Dcm_ReadMemory function definition)<a class="headerlink" href="#dcm-readmemory-the-dcm-readmemory-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ReadMemory函数定义 (The Dcm_ReadMemory function definition)<a class="headerlink" href="#dcm-readmemory-the-dcm-readmemory-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -2912,7 +2911,7 @@
 </table>
 </section>
 <section id="dcm-writememory-the-dcm-writememory-function-definition">
-<h2>Dcm_WriteMemory函数定义 (The Dcm_WriteMemory function definition)<a class="headerlink" href="#dcm-writememory-the-dcm-writememory-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_WriteMemory函数定义 (The Dcm_WriteMemory function definition)<a class="headerlink" href="#dcm-writememory-the-dcm-writememory-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -3018,7 +3017,7 @@
 </table>
 </section>
 <section id="dcm-setprogconditions-the-dcm-setprogconditions-function-defines">
-<h2>Dcm_SetProgConditions函数定义 (The Dcm_SetProgConditions function defines)<a class="headerlink" href="#dcm-setprogconditions-the-dcm-setprogconditions-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_SetProgConditions函数定义 (The Dcm_SetProgConditions function defines)<a class="headerlink" href="#dcm-setprogconditions-the-dcm-setprogconditions-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3094,7 +3093,7 @@
 </table>
 </section>
 <section id="dcm-getprogconditions-the-dcm-getprogconditions-function-definition">
-<h2>Dcm_GetProgConditions函数定义 (The Dcm_GetProgConditions function definition)<a class="headerlink" href="#dcm-getprogconditions-the-dcm-getprogconditions-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_GetProgConditions函数定义 (The Dcm_GetProgConditions function definition)<a class="headerlink" href="#dcm-getprogconditions-the-dcm-getprogconditions-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3159,7 +3158,7 @@
 </table>
 </section>
 <section id="dcm-processrequesttransferexit-the-dcm-processrequesttransferexit-function-definition">
-<h2>Dcm_ProcessRequestTransferExit函数定义 (The Dcm_ProcessRequestTransferExit function definition)<a class="headerlink" href="#dcm-processrequesttransferexit-the-dcm-processrequesttransferexit-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ProcessRequestTransferExit函数定义 (The Dcm_ProcessRequestTransferExit function definition)<a class="headerlink" href="#dcm-processrequesttransferexit-the-dcm-processrequesttransferexit-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3243,7 +3242,7 @@
 </table>
 </section>
 <section id="dcm-processrequestupload-the-dcm-processrequestupload-function-definition">
-<h2>Dcm_ProcessRequestUpload函数定义 (The Dcm_ProcessRequestUpload function definition)<a class="headerlink" href="#dcm-processrequestupload-the-dcm-processrequestupload-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ProcessRequestUpload函数定义 (The Dcm_ProcessRequestUpload function definition)<a class="headerlink" href="#dcm-processrequestupload-the-dcm-processrequestupload-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3332,7 +3331,7 @@
 </table>
 </section>
 <section id="dcm-processrequestdownload-the-dcm-processrequestdownload-function-definition">
-<h2>Dcm_ProcessRequestDownload函数定义 (The Dcm_ProcessRequestDownload function definition)<a class="headerlink" href="#dcm-processrequestdownload-the-dcm-processrequestdownload-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ProcessRequestDownload函数定义 (The Dcm_ProcessRequestDownload function definition)<a class="headerlink" href="#dcm-processrequestdownload-the-dcm-processrequestdownload-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3421,7 +3420,7 @@
 </table>
 </section>
 <section id="dcm-processrequestfiletransfer-the-dcm-processrequestfiletransfer-function-definition">
-<h2>Dcm_ProcessRequestFileTransfer函数定义 (The Dcm_ProcessRequestFileTransfer function definition)<a class="headerlink" href="#dcm-processrequestfiletransfer-the-dcm-processrequestfiletransfer-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_ProcessRequestFileTransfer函数定义 (The Dcm_ProcessRequestFileTransfer function definition)<a class="headerlink" href="#dcm-processrequestfiletransfer-the-dcm-processrequestfiletransfer-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3519,7 +3518,7 @@
 </table>
 </section>
 <section id="dcm-mainfunction-definition-of-dcm-mainfunction-function">
-<h2>Dcm_MainFunction函数定义 (Definition of Dcm_MainFunction function)<a class="headerlink" href="#dcm-mainfunction-definition-of-dcm-mainfunction-function" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_MainFunction函数定义 (Definition of Dcm_MainFunction function)<a class="headerlink" href="#dcm-mainfunction-definition-of-dcm-mainfunction-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3584,7 +3583,7 @@
 </table>
 </section>
 <section id="dcm-keymasynccertificateverifyfinished">
-<h2>Dcm_KeyMAsyncCertificateVerifyFinished<a class="headerlink" href="#dcm-keymasynccertificateverifyfinished" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_KeyMAsyncCertificateVerifyFinished<a class="headerlink" href="#dcm-keymasynccertificateverifyfinished" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3654,7 +3653,7 @@
 </table>
 </section>
 <section id="dcm-csmasyncjobfinished">
-<h2>Dcm_CsmAsyncJobFinished<a class="headerlink" href="#dcm-csmasyncjobfinished" title="链接到此标题。">¶</a></h2>
+<h2>Dcm_CsmAsyncJobFinished<a class="headerlink" href="#dcm-csmasyncjobfinished" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3723,11 +3722,11 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="xxx-getseed-xxx-getseedfunctiondefinition">
-<h2>Xxx_GetSeed函数定义 (Xxx_GetSeedFunctionDefinition)<a class="headerlink" href="#xxx-getseed-xxx-getseedfunctiondefinition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_GetSeed函数定义 (Xxx_GetSeedFunctionDefinition)<a class="headerlink" href="#xxx-getseed-xxx-getseedfunctiondefinition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3806,7 +3805,7 @@
 </table>
 </section>
 <section id="xxx-comparekey-xxx-comparekey-function-definition">
-<h2>Xxx_CompareKey函数定义 (Xxx_CompareKey Function Definition)<a class="headerlink" href="#xxx-comparekey-xxx-comparekey-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_CompareKey函数定义 (Xxx_CompareKey Function Definition)<a class="headerlink" href="#xxx-comparekey-xxx-comparekey-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3882,7 +3881,7 @@
 </table>
 </section>
 <section id="xxx-getsecurityattemptcounter-xxx-getsecurityattemptcounter-function-definition">
-<h2>Xxx_GetSecurityAttemptCounter函数定义 (Xxx_GetSecurityAttemptCounter Function Definition)<a class="headerlink" href="#xxx-getsecurityattemptcounter-xxx-getsecurityattemptcounter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_GetSecurityAttemptCounter函数定义 (Xxx_GetSecurityAttemptCounter Function Definition)<a class="headerlink" href="#xxx-getsecurityattemptcounter-xxx-getsecurityattemptcounter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3952,7 +3951,7 @@
 </table>
 </section>
 <section id="xxx-readdata-xxx-readdata-function-definition">
-<h2>Xxx_ReadData函数定义 (Xxx_ReadData function definition)<a class="headerlink" href="#xxx-readdata-xxx-readdata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ReadData函数定义 (Xxx_ReadData function definition)<a class="headerlink" href="#xxx-readdata-xxx-readdata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4026,7 +4025,7 @@
 </table>
 </section>
 <section id="xxx-writedata-writedata-function-definition">
-<h2>Xxx_WriteData函数定义 (WriteData function definition)<a class="headerlink" href="#xxx-writedata-writedata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_WriteData函数定义 (WriteData function definition)<a class="headerlink" href="#xxx-writedata-writedata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4106,7 +4105,7 @@
 </table>
 </section>
 <section id="xxx-readdatalength-xxx-readdatalength-function-definition">
-<h2>Xxx_ReadDataLength函数定义 (Xxx_ReadDataLength Function Definition)<a class="headerlink" href="#xxx-readdatalength-xxx-readdatalength-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ReadDataLength函数定义 (Xxx_ReadDataLength Function Definition)<a class="headerlink" href="#xxx-readdatalength-xxx-readdatalength-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4176,7 +4175,7 @@
 </table>
 </section>
 <section id="xxx-conditioncheckread-xxx-conditioncheckread-function-definition">
-<h2>Xxx_ConditionCheckRead函数定义 (Xxx_ConditionCheckRead function definition)<a class="headerlink" href="#xxx-conditioncheckread-xxx-conditioncheckread-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ConditionCheckRead函数定义 (Xxx_ConditionCheckRead function definition)<a class="headerlink" href="#xxx-conditioncheckread-xxx-conditioncheckread-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4246,7 +4245,7 @@
 </table>
 </section>
 <section id="xxx-getscalinginformation-xxx-getscalinginformation-function-definition">
-<h2>Xxx_GetScalingInformation函数定义 (Xxx_GetScalingInformation function definition)<a class="headerlink" href="#xxx-getscalinginformation-xxx-getscalinginformation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_GetScalingInformation函数定义 (Xxx_GetScalingInformation function definition)<a class="headerlink" href="#xxx-getscalinginformation-xxx-getscalinginformation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4319,7 +4318,7 @@
 </table>
 </section>
 <section id="xxx-setsecurityattemptcounter-xxx-setsecurityattemptcounter-function-definition">
-<h2>Xxx_SetSecurityAttemptCounter函数定义 (Xxx_SetSecurityAttemptCounter function definition)<a class="headerlink" href="#xxx-setsecurityattemptcounter-xxx-setsecurityattemptcounter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_SetSecurityAttemptCounter函数定义 (Xxx_SetSecurityAttemptCounter function definition)<a class="headerlink" href="#xxx-setsecurityattemptcounter-xxx-setsecurityattemptcounter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4393,7 +4392,7 @@
 </table>
 </section>
 <section id="xxx-returncontroltoecu-xxx-returncontroltoecu-function-definition">
-<h2>Xxx_ReturnControlToECU函数定义 (Xxx_ReturnControlToECU function definition)<a class="headerlink" href="#xxx-returncontroltoecu-xxx-returncontroltoecu-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ReturnControlToECU函数定义 (Xxx_ReturnControlToECU function definition)<a class="headerlink" href="#xxx-returncontroltoecu-xxx-returncontroltoecu-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4462,7 +4461,7 @@
 </table>
 </section>
 <section id="xxx-resettodefault-xxx-resettodefault-function-definition">
-<h2>Xxx_ResetToDefault函数定义 (Xxx_ResetToDefault function definition)<a class="headerlink" href="#xxx-resettodefault-xxx-resettodefault-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ResetToDefault函数定义 (Xxx_ResetToDefault function definition)<a class="headerlink" href="#xxx-resettodefault-xxx-resettodefault-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4531,7 +4530,7 @@
 </table>
 </section>
 <section id="xxx-freezecurrentstate-xxx-freezecurrentstate-function-definition">
-<h2>Xxx_FreezeCurrentState函数定义 (Xxx_FreezeCurrentState function definition)<a class="headerlink" href="#xxx-freezecurrentstate-xxx-freezecurrentstate-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_FreezeCurrentState函数定义 (Xxx_FreezeCurrentState function definition)<a class="headerlink" href="#xxx-freezecurrentstate-xxx-freezecurrentstate-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4600,7 +4599,7 @@
 </table>
 </section>
 <section id="xxx-shorttermadjustment-xxx-shorttermadjustment-function-definition">
-<h2>Xxx_ShortTermAdjustment函数定义 (Xxx_ShortTermAdjustment Function Definition)<a class="headerlink" href="#xxx-shorttermadjustment-xxx-shorttermadjustment-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ShortTermAdjustment函数定义 (Xxx_ShortTermAdjustment Function Definition)<a class="headerlink" href="#xxx-shorttermadjustment-xxx-shorttermadjustment-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4679,7 +4678,7 @@
 </table>
 </section>
 <section id="xxx-isdidavailable-xxx-isdidavailable-function-definition">
-<h2>Xxx_IsDidAvailable函数定义 (Xxx_IsDidAvailable function definition)<a class="headerlink" href="#xxx-isdidavailable-xxx-isdidavailable-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_IsDidAvailable函数定义 (Xxx_IsDidAvailable function definition)<a class="headerlink" href="#xxx-isdidavailable-xxx-isdidavailable-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4754,7 +4753,7 @@
 </table>
 </section>
 <section id="xxx-readdiddata-xxx-readdiddata-function-definition">
-<h2>Xxx_ReadDidData函数定义 (Xxx_ReadDidData function definition)<a class="headerlink" href="#xxx-readdiddata-xxx-readdiddata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ReadDidData函数定义 (Xxx_ReadDidData function definition)<a class="headerlink" href="#xxx-readdiddata-xxx-readdiddata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4834,7 +4833,7 @@
 </table>
 </section>
 <section id="xxx-writediddata-xxx-writediddata-function-definition">
-<h2>Xxx_WriteDidData函数定义 (Xxx_WriteDidData function definition)<a class="headerlink" href="#xxx-writediddata-xxx-writediddata-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_WriteDidData函数定义 (Xxx_WriteDidData function definition)<a class="headerlink" href="#xxx-writediddata-xxx-writediddata-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4919,7 +4918,7 @@
 </table>
 </section>
 <section id="xxx-readdidrangedatalength-xxx-readdidrangedatalength-function-definition">
-<h2>Xxx_ReadDidRangeDataLength函数定义 (Xxx_ReadDidRangeDataLength function definition)<a class="headerlink" href="#xxx-readdidrangedatalength-xxx-readdidrangedatalength-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ReadDidRangeDataLength函数定义 (Xxx_ReadDidRangeDataLength function definition)<a class="headerlink" href="#xxx-readdidrangedatalength-xxx-readdidrangedatalength-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4994,7 +4993,7 @@
 </table>
 </section>
 <section id="xxx-start-xxx-start-function-definition">
-<h2>Xxx_Start函数定义 (Xxx_Start function definition)<a class="headerlink" href="#xxx-start-xxx-start-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_Start函数定义 (Xxx_Start function definition)<a class="headerlink" href="#xxx-start-xxx-start-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5095,7 +5094,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="xxx-stop-xxx-stop-function-definition">
-<h2>Xxx_Stop函数定义 (Xxx_Stop function definition)<a class="headerlink" href="#xxx-stop-xxx-stop-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_Stop函数定义 (Xxx_Stop function definition)<a class="headerlink" href="#xxx-stop-xxx-stop-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5192,7 +5191,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="xxx-requestresults-the-xxx-requestresults-function-definition">
-<h2>Xxx_RequestResults函数定义 (The Xxx_RequestResults function definition)<a class="headerlink" href="#xxx-requestresults-the-xxx-requestresults-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_RequestResults函数定义 (The Xxx_RequestResults function definition)<a class="headerlink" href="#xxx-requestresults-the-xxx-requestresults-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5269,7 +5268,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="xxx-cleardtccheckfnc-xxx-cleardtccheckfnc-function-definition">
-<h2>Xxx_ClearDTCCheckFnc函数定义 (Xxx_ClearDTCCheckFnc function definition)<a class="headerlink" href="#xxx-cleardtccheckfnc-xxx-cleardtccheckfnc-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Xxx_ClearDTCCheckFnc函数定义 (Xxx_ClearDTCCheckFnc function definition)<a class="headerlink" href="#xxx-cleardtccheckfnc-xxx-cleardtccheckfnc-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5337,13 +5336,13 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="swc-swc-service-component-packaging">
-<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="链接到此标题。">¶</a></h3>
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
 <p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接，没有列出的部分dcm底层暂时不支持。</p>
 <p>The following types and interfaces can be encapsulated to generate complete service components via SWC, which can be connected to the application through ports. The underlying dcm temporarily does not support the unlisted parts.</p>
 </section>
 </section>
 <section id="implement-data-type-encapsulation">
-<h2>实现数据类型封装 (Implement data type encapsulation)<a class="headerlink" href="#implement-data-type-encapsulation" title="链接到此标题。">¶</a></h2>
+<h2>实现数据类型封装 (Implement data type encapsulation)<a class="headerlink" href="#implement-data-type-encapsulation" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5377,11 +5376,11 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="cs-cs-interface-packaging">
-<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="链接到此标题。">¶</a></h2>
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
 <p>注：下面提到的&lt;UserModule&gt;和&lt;UserPortName&gt;分别为用户SWC的名字和对应端口名，在与Dcm服务组件端口连接后适用。</p>
 <p>Note: The &lt;UserModule&gt; and &lt;UserPortName&gt; mentioned below are respectively the name of the user SWC and the corresponding port name, applicable after connecting to the Dcm service component port.</p>
 <section id="rte-call-dcm-callbackdcmrequestservices-name-startprotocol">
-<h3>Rte_Call_Dcm_CallbackDCMRequestServices_{Name}_StartProtocol<a class="headerlink" href="#rte-call-dcm-callbackdcmrequestservices-name-startprotocol" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_CallbackDCMRequestServices_{Name}_StartProtocol<a class="headerlink" href="#rte-call-dcm-callbackdcmrequestservices-name-startprotocol" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5491,7 +5490,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-callbackdcmrequestservices-name-stopprotocol">
-<h3>Rte_Call_Dcm_CallbackDCMRequestServices_{Name}_StopProtocol<a class="headerlink" href="#rte-call-dcm-callbackdcmrequestservices-name-stopprotocol" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_CallbackDCMRequestServices_{Name}_StopProtocol<a class="headerlink" href="#rte-call-dcm-callbackdcmrequestservices-name-stopprotocol" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5601,7 +5600,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-didrange-range-isdidavailable">
-<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_IsDidAvailable<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-isdidavailable" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_IsDidAvailable<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-isdidavailable" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5647,7 +5646,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-didrange-range-readdiddata">
-<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_ReadDidData<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-readdiddata" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_ReadDidData<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-readdiddata" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5693,7 +5692,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-didrange-range-readdidrangedatalength">
-<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_ReadDidRangeDataLength<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-readdidrangedatalength" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_ReadDidRangeDataLength<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-readdidrangedatalength" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5739,7 +5738,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-didrange-range-writediddata">
-<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_WriteDidData<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-writediddata" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_DIDRange_{Range}_WriteDidData<a class="headerlink" href="#rte-call-dcm-dataservices-didrange-range-writediddata" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5785,7 +5784,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-conditioncheckread">
-<h3>Rte_Call_Dcm_DataServices_{Data}_ConditionCheckRead<a class="headerlink" href="#rte-call-dcm-dataservices-data-conditioncheckread" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_ConditionCheckRead<a class="headerlink" href="#rte-call-dcm-dataservices-data-conditioncheckread" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5837,7 +5836,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-freezecurrentstate">
-<h3>Rte_Call_Dcm_DataServices_{Data}_FreezeCurrentState<a class="headerlink" href="#rte-call-dcm-dataservices-data-freezecurrentstate" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_FreezeCurrentState<a class="headerlink" href="#rte-call-dcm-dataservices-data-freezecurrentstate" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5880,7 +5879,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-getscalinginformation">
-<h3>Rte_Call_Dcm_DataServices_{Data}_GetScalingInformation<a class="headerlink" href="#rte-call-dcm-dataservices-data-getscalinginformation" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_GetScalingInformation<a class="headerlink" href="#rte-call-dcm-dataservices-data-getscalinginformation" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5923,7 +5922,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-readdata">
-<h3>Rte_Call_Dcm_DataServices_{Data}_ReadData<a class="headerlink" href="#rte-call-dcm-dataservices-data-readdata" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_ReadData<a class="headerlink" href="#rte-call-dcm-dataservices-data-readdata" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -5999,7 +5998,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-readdatalength">
-<h3>Rte_Call_Dcm_DataServices_{Data}_ReadDataLength<a class="headerlink" href="#rte-call-dcm-dataservices-data-readdatalength" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_ReadDataLength<a class="headerlink" href="#rte-call-dcm-dataservices-data-readdatalength" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6051,7 +6050,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-resettodefault">
-<h3>Rte_Call_Dcm_DataServices_{Data}_ResetToDefault<a class="headerlink" href="#rte-call-dcm-dataservices-data-resettodefault" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_ResetToDefault<a class="headerlink" href="#rte-call-dcm-dataservices-data-resettodefault" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6094,7 +6093,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-returncontroltoecu">
-<h3>Rte_Call_Dcm_DataServices_{Data}_ReturnControlToECU<a class="headerlink" href="#rte-call-dcm-dataservices-data-returncontroltoecu" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_ReturnControlToECU<a class="headerlink" href="#rte-call-dcm-dataservices-data-returncontroltoecu" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6167,7 +6166,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-dataservices-data-shorttermadjustment">
-<h3>Rte_Call_Dcm_DataServices_{Data}_ShortTermAdjustment<a class="headerlink" href="#rte-call-dcm-dataservices-data-shorttermadjustment" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_DataServices_{Data}_ShortTermAdjustment<a class="headerlink" href="#rte-call-dcm-dataservices-data-shorttermadjustment" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6213,7 +6212,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-infotypeservices-vehinfodata-getinfotypevaluedata">
-<h3>Rte_Call_Dcm_InfotypeServices_{VehInfoData}_GetInfotypeValueData<a class="headerlink" href="#rte-call-dcm-infotypeservices-vehinfodata-getinfotypevaluedata" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_InfotypeServices_{VehInfoData}_GetInfotypeValueData<a class="headerlink" href="#rte-call-dcm-infotypeservices-vehinfodata-getinfotypevaluedata" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6323,7 +6322,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-routineservices-routinename-requestresults">
-<h3>Rte_Call_Dcm_RoutineServices_{RoutineName}_RequestResults<a class="headerlink" href="#rte-call-dcm-routineservices-routinename-requestresults" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_RoutineServices_{RoutineName}_RequestResults<a class="headerlink" href="#rte-call-dcm-routineservices-routinename-requestresults" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6366,7 +6365,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-routineservices-routinename-start">
-<h3>Rte_Call_Dcm_RoutineServices_{RoutineName}_Start<a class="headerlink" href="#rte-call-dcm-routineservices-routinename-start" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_RoutineServices_{RoutineName}_Start<a class="headerlink" href="#rte-call-dcm-routineservices-routinename-start" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6412,7 +6411,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-routineservices-routinename-stop">
-<h3>Rte_Call_Dcm_RoutineServices_{RoutineName}_Stop<a class="headerlink" href="#rte-call-dcm-routineservices-routinename-stop" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_RoutineServices_{RoutineName}_Stop<a class="headerlink" href="#rte-call-dcm-routineservices-routinename-stop" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6455,7 +6454,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-requestcontrolservices-tid-requestcontrol">
-<h3>Rte_Call_Dcm_RequestControlServices_{Tid}_RequestControl<a class="headerlink" href="#rte-call-dcm-requestcontrolservices-tid-requestcontrol" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_RequestControlServices_{Tid}_RequestControl<a class="headerlink" href="#rte-call-dcm-requestcontrolservices-tid-requestcontrol" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6580,7 +6579,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-securityaccess-securitylevel-comparekey">
-<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_CompareKey<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-comparekey" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_CompareKey<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-comparekey" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6614,7 +6613,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-securityaccess-securitylevel-getsecurityattemptcounter">
-<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_GetSecurityAttemptCounter<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-getsecurityattemptcounter" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_GetSecurityAttemptCounter<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-getsecurityattemptcounter" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6663,7 +6662,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-securityaccess-securitylevel-getseed">
-<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_GetSeed<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-getseed" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_GetSeed<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-getseed" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6694,7 +6693,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-securityaccess-securitylevel-setsecurityattemptcounter">
-<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_SetSecurityAttemptCounter<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-setsecurityattemptcounter" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_SecurityAccess_{SecurityLevel}_SetSecurityAttemptCounter<a class="headerlink" href="#rte-call-dcm-securityaccess-securitylevel-setsecurityattemptcounter" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6737,7 +6736,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-dcm-servicerequestnotification-confirmation">
-<h3>Rte_Call_Dcm_ServiceRequestNotification_Confirmation<a class="headerlink" href="#rte-call-dcm-servicerequestnotification-confirmation" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dcm_ServiceRequestNotification_Confirmation<a class="headerlink" href="#rte-call-dcm-servicerequestnotification-confirmation" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6888,7 +6887,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-triggeronevent">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_TriggerOnEvent<a class="headerlink" href="#rte-call-usermodule-userportname-triggeronevent" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_TriggerOnEvent<a class="headerlink" href="#rte-call-usermodule-userportname-triggeronevent" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6922,7 +6921,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getactiveprotocol">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetActiveProtocol<a class="headerlink" href="#rte-call-usermodule-userportname-getactiveprotocol" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetActiveProtocol<a class="headerlink" href="#rte-call-usermodule-userportname-getactiveprotocol" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6953,7 +6952,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getsecuritylevel">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetSecurityLevel<a class="headerlink" href="#rte-call-usermodule-userportname-getsecuritylevel" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetSecurityLevel<a class="headerlink" href="#rte-call-usermodule-userportname-getsecuritylevel" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -6984,7 +6983,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getsesctrltype">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetSesCtrlType<a class="headerlink" href="#rte-call-usermodule-userportname-getsesctrltype" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetSesCtrlType<a class="headerlink" href="#rte-call-usermodule-userportname-getsesctrltype" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -7015,7 +7014,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-resettodefaultsession">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ResetToDefaultSession<a class="headerlink" href="#rte-call-usermodule-userportname-resettodefaultsession" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ResetToDefaultSession<a class="headerlink" href="#rte-call-usermodule-userportname-resettodefaultsession" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -7046,7 +7045,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setactivediagnostic">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetActiveDiagnostic<a class="headerlink" href="#rte-call-usermodule-userportname-setactivediagnostic" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetActiveDiagnostic<a class="headerlink" href="#rte-call-usermodule-userportname-setactivediagnostic" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -7078,9 +7077,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="interface-encapsulation-for-mode-conversion">
-<h2>模式转换接口封装 (Interface Encapsulation for Mode Conversion)<a class="headerlink" href="#interface-encapsulation-for-mode-conversion" title="链接到此标题。">¶</a></h2>
+<h2>模式转换接口封装 (Interface Encapsulation for Mode Conversion)<a class="headerlink" href="#interface-encapsulation-for-mode-conversion" title="Link to this heading">¶</a></h2>
 <section id="dcmdiagnosticsessioncontrol">
-<h3>DcmDiagnosticSessionControl<a class="headerlink" href="#dcmdiagnosticsessioncontrol" title="链接到此标题。">¶</a></h3>
+<h3>DcmDiagnosticSessionControl<a class="headerlink" href="#dcmdiagnosticsessioncontrol" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -7111,7 +7110,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmecureset">
-<h3>DcmEcuReset<a class="headerlink" href="#dcmecureset" title="链接到此标题。">¶</a></h3>
+<h3>DcmEcuReset<a class="headerlink" href="#dcmecureset" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -7143,9 +7142,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="dcmgeneral">
-<h3>DcmGeneral<a class="headerlink" href="#dcmgeneral" title="链接到此标题。">¶</a></h3>
+<h3>DcmGeneral<a class="headerlink" href="#dcmgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dcmgeneral-dcmgeneral-container-configuration-diagram">
 <img alt="DcmGeneral容器配置图 (DcmGeneral Container Configuration Diagram)" src="../../_images/image413.png" />
 </figure>
@@ -7369,9 +7368,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmconfigset">
-<h3>DcmConfigSet<a class="headerlink" href="#dcmconfigset" title="链接到此标题。">¶</a></h3>
+<h3>DcmConfigSet<a class="headerlink" href="#dcmconfigset" title="Link to this heading">¶</a></h3>
 <section id="dcmdsd">
-<h4>DcmDsd<a class="headerlink" href="#dcmdsd" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsd<a class="headerlink" href="#dcmdsd" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsd-container-configuration-diagram-for-dcmdsd">
 <img alt="DcmDsd容器配置图 (Container Configuration Diagram for DcmDsd)" src="../../_images/image512.png" />
 </figure>
@@ -7433,7 +7432,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsdservicerequestmanufacturernotification">
-<h4>DcmDsdServiceRequestManufacturerNotification<a class="headerlink" href="#dcmdsdservicerequestmanufacturernotification" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsdServiceRequestManufacturerNotification<a class="headerlink" href="#dcmdsdservicerequestmanufacturernotification" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsdservicerequestmanufacturernotification-dcmdsdservicerequestmanufacturernotification-container-configuration-diagram">
 <img alt="DcmDsdServiceRequestManufacturerNotification容器配置图 (DcmDsdServiceRequestManufacturerNotification Container Configuration Diagram)" src="../../_images/image612.png" />
 </figure>
@@ -7477,7 +7476,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsdservicerequestsuppliernotification">
-<h4>DcmDsdServiceRequestSupplierNotification<a class="headerlink" href="#dcmdsdservicerequestsuppliernotification" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsdServiceRequestSupplierNotification<a class="headerlink" href="#dcmdsdservicerequestsuppliernotification" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsdservicerequestsuppliernotification-dcmdsdservicerequestsuppliernotification-container-configuration-diagram">
 <img alt="DcmDsdServiceRequestSupplierNotification容器配置图 (DcmDsdServiceRequestSupplierNotification Container Configuration Diagram)" src="../../_images/image710.png" />
 </figure>
@@ -7521,7 +7520,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsdservicetable">
-<h4>DcmDsdServiceTable<a class="headerlink" href="#dcmdsdservicetable" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsdServiceTable<a class="headerlink" href="#dcmdsdservicetable" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsdservicetable-dcmdsdservicetable-container-configuration-diagram">
 <img alt="DcmDsdServiceTable容器配置图 (DcmDsdServiceTable Container Configuration Diagram)" src="../../_images/image810.png" />
 </figure>
@@ -7565,7 +7564,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsdservice">
-<h4>DcmDsdService<a class="headerlink" href="#dcmdsdservice" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsdService<a class="headerlink" href="#dcmdsdservice" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsdservice-diagram-of-dcmdsdservice-container-configuration">
 <img alt="DcmDsdService容器配置图(Diagram of DcmDsdService Container Configuration)" src="../../_images/image910.png" />
 </figure>
@@ -7774,7 +7773,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsdsubservice">
-<h4>DcmDsdSubService<a class="headerlink" href="#dcmdsdsubservice" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsdSubService<a class="headerlink" href="#dcmdsdsubservice" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsdsubservice-container-configuration-diagram-for-dcmdsdsubservice">
 <img alt="DcmDsdSubService容器配置图 (Container Configuration Diagram for DcmDsdSubService)" src="../../_images/image1114.png" />
 </figure>
@@ -7947,10 +7946,10 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsl">
-<h4>DcmDsl<a class="headerlink" href="#dcmdsl" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsl<a class="headerlink" href="#dcmdsl" title="Link to this heading">¶</a></h4>
 </section>
 <section id="dcmdslbuffer">
-<h4>DcmDslBuffer<a class="headerlink" href="#dcmdslbuffer" title="链接到此标题。">¶</a></h4>
+<h4>DcmDslBuffer<a class="headerlink" href="#dcmdslbuffer" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdslbuffer-dcmdslbuffer-container-configuration-diagram">
 <img alt="DcmDslBuffer容器配置图 (DcmDslBuffer Container Configuration Diagram)" src="../../_images/image1310.png" />
 </figure>
@@ -7994,7 +7993,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdslcallbackdcmrequestservice">
-<h4>DcmDslCallbackDCMRequestService<a class="headerlink" href="#dcmdslcallbackdcmrequestservice" title="链接到此标题。">¶</a></h4>
+<h4>DcmDslCallbackDCMRequestService<a class="headerlink" href="#dcmdslcallbackdcmrequestservice" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdslcallbackdcmrequestservice-container-configuration-diagram-for-dcmdslcallbackdcmrequestservice">
 <img alt="DcmDslCallbackDCMRequestService容器配置图 (Container Configuration Diagram for DcmDslCallbackDCMRequestService)" src="../../_images/image147.png" />
 </figure>
@@ -8038,7 +8037,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsldiagresp">
-<h4>DcmDslDiagResp<a class="headerlink" href="#dcmdsldiagresp" title="链接到此标题。">¶</a></h4>
+<h4>DcmDslDiagResp<a class="headerlink" href="#dcmdsldiagresp" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsldiagresp-dcmdsldiagresp-container-configuration-diagram">
 <img alt="DcmDslDiagResp容器配置图 (DcmDslDiagResp Container Configuration Diagram)" src="../../_images/image156.png" />
 </figure>
@@ -8100,9 +8099,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdslprotocol">
-<h4>DcmDslProtocol<a class="headerlink" href="#dcmdslprotocol" title="链接到此标题。">¶</a></h4>
+<h4>DcmDslProtocol<a class="headerlink" href="#dcmdslprotocol" title="Link to this heading">¶</a></h4>
 <section id="dcmdslprotocolrow">
-<h5>DcmDslProtocolRow<a class="headerlink" href="#dcmdslprotocolrow" title="链接到此标题。">¶</a></h5>
+<h5>DcmDslProtocolRow<a class="headerlink" href="#dcmdslprotocolrow" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdslprotocolrow-dcmdslprotocolrow-container-configuration-diagram">
 <img alt="DcmDslProtocolRow容器配置图 (DcmDslProtocolRow Container Configuration Diagram)" src="../../_images/image166.png" />
 </figure>
@@ -8381,9 +8380,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdslconnection">
-<h4>DcmDslConnection<a class="headerlink" href="#dcmdslconnection" title="链接到此标题。">¶</a></h4>
+<h4>DcmDslConnection<a class="headerlink" href="#dcmdslconnection" title="Link to this heading">¶</a></h4>
 <section id="dcmdslmainconnection">
-<h5>DcmDslMainConnection<a class="headerlink" href="#dcmdslmainconnection" title="链接到此标题。">¶</a></h5>
+<h5>DcmDslMainConnection<a class="headerlink" href="#dcmdslmainconnection" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdslmainconnection-dcmdslmainconnection-container-configuration-diagram">
 <img alt="DcmDslMainConnection容器配置图 (DcmDslMainConnection Container Configuration Diagram)" src="../../_images/image174.png" />
 </figure>
@@ -8498,7 +8497,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdslprotocolrx">
-<h6>DcmDslProtocolRx<a class="headerlink" href="#dcmdslprotocolrx" title="链接到此标题。">¶</a></h6>
+<h6>DcmDslProtocolRx<a class="headerlink" href="#dcmdslprotocolrx" title="Link to this heading">¶</a></h6>
 <figure class="align-center" id="dcmdslprotocolrx-dcmdslprotocolrx-container-configuration-diagram">
 <img alt="DcmDslProtocolRx容器配置图 (DcmDslProtocolRx Container Configuration Diagram)" src="../../_images/image182.png" />
 </figure>
@@ -8578,7 +8577,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdslprotocoltx">
-<h6>DcmDslProtocolTx<a class="headerlink" href="#dcmdslprotocoltx" title="链接到此标题。">¶</a></h6>
+<h6>DcmDslProtocolTx<a class="headerlink" href="#dcmdslprotocoltx" title="Link to this heading">¶</a></h6>
 <figure class="align-center" id="dcmdslprotocoltx-dcmdslprotocoltx-container-configuration-diagram">
 <img alt="DcmDslProtocolTx容器配置图 (DcmDslProtocolTx Container Configuration Diagram)" src="../../_images/image192.png" />
 </figure>
@@ -8641,9 +8640,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdslperiodictransmission">
-<h5>DcmDslPeriodicTransmission<a class="headerlink" href="#dcmdslperiodictransmission" title="链接到此标题。">¶</a></h5>
+<h5>DcmDslPeriodicTransmission<a class="headerlink" href="#dcmdslperiodictransmission" title="Link to this heading">¶</a></h5>
 <section id="dcmdslperiodicconnection">
-<h6>DcmDslPeriodicConnection<a class="headerlink" href="#dcmdslperiodicconnection" title="链接到此标题。">¶</a></h6>
+<h6>DcmDslPeriodicConnection<a class="headerlink" href="#dcmdslperiodicconnection" title="Link to this heading">¶</a></h6>
 <figure class="align-center" id="dcmdslperiodicconnection-diagram-for-dcmdslperiodicconnection-container-configuration">
 <img alt="DcmDslPeriodicConnection容器配置图 (Diagram for DcmDslPeriodicConnection Container Configuration)" src="../../_images/image202.png" />
 </figure>
@@ -8706,7 +8705,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdslresponseonevent">
-<h5>DcmDslResponseOnEvent<a class="headerlink" href="#dcmdslresponseonevent" title="链接到此标题。">¶</a></h5>
+<h5>DcmDslResponseOnEvent<a class="headerlink" href="#dcmdslresponseonevent" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdslresponseonevent-container-configuration-diagram-for-dcmdslresponseonevent">
 <img alt="DcmDslResponseOnEvent容器配置图 (Container Configuration Diagram for DcmDslResponseOnEvent)" src="../../_images/image2110.png" />
 </figure>
@@ -8769,7 +8768,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsp">
-<h4>DcmDsp<a class="headerlink" href="#dcmdsp" title="链接到此标题。">¶</a></h4>
+<h4>DcmDsp<a class="headerlink" href="#dcmdsp" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsp-dcmdsp-container-configuration-diagram">
 <img alt="DcmDsp容器配置图 (DcmDsp Container Configuration Diagram)" src="../../_images/image226.png" />
 </figure>
@@ -8927,7 +8926,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspauthentication">
-<h4>DcmDspAuthentication<a class="headerlink" href="#dcmdspauthentication" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspAuthentication<a class="headerlink" href="#dcmdspauthentication" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspauthentication-property-description-for-dcmdspauthentication-attribute">
 <img alt="DcmDspAuthentication属性描述 (Property Description for DcmDspAuthentication Attribute)" src="../../_images/image231.png" />
 </figure>
@@ -9196,7 +9195,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdspauthenticationconnection">
-<h5>DcmDspAuthenticationConnection<a class="headerlink" href="#dcmdspauthenticationconnection" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspAuthenticationConnection<a class="headerlink" href="#dcmdspauthenticationconnection" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspauthenticationconnection-container-configuration-diagram-for-dcmdspauthenticationconnection">
 <img alt="DcmDspAuthenticationConnection容器配置图 (Container Configuration Diagram for DcmDspAuthenticationConnection)" src="../../_images/image241.png" />
 </figure>
@@ -9510,7 +9509,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspauthenticationrow">
-<h5>DcmDspAuthenticationRow<a class="headerlink" href="#dcmdspauthenticationrow" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspAuthenticationRow<a class="headerlink" href="#dcmdspauthenticationrow" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspauthenticationrow-container-configuration-diagram-for-dcmdspauthenticationrow">
 <img alt="DcmDspAuthenticationRow容器配置图 (Container Configuration Diagram for DcmDspAuthenticationRow)" src="../../_images/image251.png" />
 </figure>
@@ -9555,7 +9554,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspcleardtc">
-<h4>DcmDspClearDTC<a class="headerlink" href="#dcmdspcleardtc" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspClearDTC<a class="headerlink" href="#dcmdspcleardtc" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspcleardtc-dcmdspcleardtc-container-configuration-diagram">
 <img alt="DcmDspClearDTC容器配置图 (DcmDspClearDTC Container Configuration Diagram)" src="../../_images/image261.png" />
 </figure>
@@ -9623,9 +9622,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspcomcontrol">
-<h4>DcmDspComControl<a class="headerlink" href="#dcmdspcomcontrol" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspComControl<a class="headerlink" href="#dcmdspcomcontrol" title="Link to this heading">¶</a></h4>
 <section id="dcmdspcomcontrolallchannel">
-<h5>DcmDspComControlAllChannel<a class="headerlink" href="#dcmdspcomcontrolallchannel" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspComControlAllChannel<a class="headerlink" href="#dcmdspcomcontrolallchannel" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspcomcontrolallchannel-container-configuration-diagram-for-dcmdspcomcontrolallchannel">
 <img alt="DcmDspComControlAllChannel容器配置图 (Container Configuration Diagram for DcmDspComControlAllChannel)" src="../../_images/image271.png" />
 </figure>
@@ -9687,7 +9686,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspcomcontrolspecificchannel">
-<h5>DcmDspComControlSpecificChannel<a class="headerlink" href="#dcmdspcomcontrolspecificchannel" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspComControlSpecificChannel<a class="headerlink" href="#dcmdspcomcontrolspecificchannel" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspcomcontrolspecificchannel-container-configuration-diagram-for-dcmdspcomcontrolspecificchannel">
 <img alt="DcmDspComControlSpecificChannel容器配置图 (Container Configuration Diagram for DcmDspComControlSpecificChannel)" src="../../_images/image281.png" />
 </figure>
@@ -9767,7 +9766,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspcomcontrolsubnode">
-<h5>DcmDspComControlSubNode<a class="headerlink" href="#dcmdspcomcontrolsubnode" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspComControlSubNode<a class="headerlink" href="#dcmdspcomcontrolsubnode" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspcomcontrolsubnode-dcmdspcomcontrolsubnode-container-configuration-diagram">
 <img alt="DcmDspComControlSubNode容器配置图 (DcmDspComControlSubNode Container Configuration Diagram)" src="../../_images/image291.png" />
 </figure>
@@ -9848,7 +9847,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspcommonauthorization">
-<h4>DcmDspCommonAuthorization<a class="headerlink" href="#dcmdspcommonauthorization" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspCommonAuthorization<a class="headerlink" href="#dcmdspcommonauthorization" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspcommonauthorization-dcmdspcommonauthorization-container-configuration-diagram">
 <img alt="DcmDspCommonAuthorization 容器配置图 (DcmDspCommonAuthorization Container Configuration Diagram)" src="../../_images/image301.png" />
 </figure>
@@ -9928,7 +9927,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspcontroldtcsetting">
-<h4>DcmDspControlDTCSetting<a class="headerlink" href="#dcmdspcontroldtcsetting" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspControlDTCSetting<a class="headerlink" href="#dcmdspcontroldtcsetting" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspcontroldtcsetting-container-configuration-diagram-for-dcmdspcontroldtcsetting">
 <img alt="DcmDspControlDTCSetting容器配置图 (Container Configuration Diagram for DcmDspControlDTCSetting)" src="../../_images/image318.png" />
 </figure>
@@ -9990,7 +9989,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspdata">
-<h4>DcmDspData<a class="headerlink" href="#dcmdspdata" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspData<a class="headerlink" href="#dcmdspdata" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspdata-container-configuration-diagram-for-dcmdspdata">
 <img alt="DcmDspData容器配置图 (Container Configuration Diagram for DcmDspData)" src="../../_images/image321.png" />
 </figure>
@@ -10358,7 +10357,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspdatainfo">
-<h4>DcmDspDataInfo<a class="headerlink" href="#dcmdspdatainfo" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspDataInfo<a class="headerlink" href="#dcmdspdatainfo" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspdatainfo-container-configuration-diagram-for-dcmdspdatainfo">
 <img alt="DcmDspDataInfo容器配置图 (Container Configuration Diagram for DcmDspDataInfo)" src="../../_images/image331.png" />
 </figure>
@@ -10402,7 +10401,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspdid">
-<h4>DcmDspDid<a class="headerlink" href="#dcmdspdid" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspDid<a class="headerlink" href="#dcmdspdid" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspdid-container-configuration-diagram-for-dcmdspdid">
 <img alt="DcmDspDid容器配置图 (Container Configuration Diagram for DcmDspDid)" src="../../_images/image341.png" />
 </figure>
@@ -10595,7 +10594,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdspdidsignal">
-<h5>DcmDspDidSignal<a class="headerlink" href="#dcmdspdidsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspDidSignal<a class="headerlink" href="#dcmdspdidsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspdidsignal-container-configuration-diagram-for-dcmdspdidsignal">
 <img alt="DcmDspDidSignal容器配置图 (Container Configuration Diagram for DcmDspDidSignal)" src="../../_images/image351.png" />
 </figure>
@@ -10658,7 +10657,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspdidinfo">
-<h4>DcmDspDidInfo<a class="headerlink" href="#dcmdspdidinfo" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspDidInfo<a class="headerlink" href="#dcmdspdidinfo" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspdidinfo-container-configuration-diagram-for-dcmdspdidinfo">
 <img alt="DcmDspDidInfo容器配置图 (Container Configuration Diagram for DcmDspDidInfo)" src="../../_images/image361.png" />
 </figure>
@@ -10719,7 +10718,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdspdidcontrol">
-<h5>DcmDspDidControl<a class="headerlink" href="#dcmdspdidcontrol" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspDidControl<a class="headerlink" href="#dcmdspdidcontrol" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspdidcontrol-container-configuration-diagram-for-dcmdspdidcontrol">
 <img alt="DcmDspDidControl容器配置图 (Container Configuration Diagram for DcmDspDidControl)" src="../../_images/image371.png" />
 </figure>
@@ -10926,7 +10925,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspdidcontrolenablemask">
-<h4>DcmDspDidControlEnableMask<a class="headerlink" href="#dcmdspdidcontrolenablemask" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspDidControlEnableMask<a class="headerlink" href="#dcmdspdidcontrolenablemask" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspdidcontrolenablemask-container-configuration-diagram-for-dcmdspdidcontrolenablemask">
 <img alt="DcmDspDidControlEnableMask容器配置图 (Container Configuration Diagram for DcmDspDidControlEnableMask)" src="../../_images/image381.png" />
 </figure>
@@ -10969,7 +10968,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdspdidread">
-<h5>DcmDspDidRead<a class="headerlink" href="#dcmdspdidread" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspDidRead<a class="headerlink" href="#dcmdspdidread" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspdidread-container-configuration-diagram-for-dcmdspdidread">
 <img alt="DcmDspDidRead容器配置图 (Container Configuration Diagram for DcmDspDidRead)" src="../../_images/image391.png" />
 </figure>
@@ -11085,7 +11084,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspdidwrite">
-<h5>DcmDspDidWrite<a class="headerlink" href="#dcmdspdidwrite" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspDidWrite<a class="headerlink" href="#dcmdspdidwrite" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspdidwrite-container-configuration-diagram-for-dcmdspdidwrite">
 <img alt="DcmDspDidWrite容器配置图 (Container Configuration Diagram for DcmDspDidWrite)" src="../../_images/image40.png" />
 </figure>
@@ -11202,7 +11201,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspdidrange">
-<h4>DcmDspDidRange<a class="headerlink" href="#dcmdspdidrange" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspDidRange<a class="headerlink" href="#dcmdspdidrange" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspdidrange-container-configuration-for-dcmdspdidrange">
 <img alt="DcmDspDidRange容器配置图 (Container Configuration for DcmDspDidRange)" src="../../_images/image414.png" />
 </figure>
@@ -11408,9 +11407,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspmemory">
-<h4>DcmDspMemory<a class="headerlink" href="#dcmdspmemory" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspMemory<a class="headerlink" href="#dcmdspmemory" title="Link to this heading">¶</a></h4>
 <section id="dcmdspaddressandlengthformatidentifier">
-<h5>DcmDspAddressAndLengthFormatIdentifier<a class="headerlink" href="#dcmdspaddressandlengthformatidentifier" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspAddressAndLengthFormatIdentifier<a class="headerlink" href="#dcmdspaddressandlengthformatidentifier" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspaddressandlengthformatidentifier-container-configuration-for-dcmdspaddressandlengthformatidentifier-format-identifier-container-configuration-diagram">
 <img alt="DcmDspAddressAndLengthFormatIdentifier容器配置图 (Container Configuration for DcmDspAddressAndLengthFormatIdentifier Format Identifier Container Configuration Diagram)" src="../../_images/image421.png" />
 </figure>
@@ -11454,7 +11453,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspmemoryidinfo">
-<h5>DcmDspMemoryIdInfo<a class="headerlink" href="#dcmdspmemoryidinfo" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspMemoryIdInfo<a class="headerlink" href="#dcmdspmemoryidinfo" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspmemoryidinfo-container-configuration-diagram-for-dcmdspmemoryidinfo">
 <img alt="DcmDspMemoryIdInfo容器配置图 (Container Configuration Diagram for DcmDspMemoryIdInfo)" src="../../_images/image431.png" />
 </figure>
@@ -11498,7 +11497,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspreadmemoryrangeinfo">
-<h5>DcmDspReadMemoryRangeInfo<a class="headerlink" href="#dcmdspreadmemoryrangeinfo" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspReadMemoryRangeInfo<a class="headerlink" href="#dcmdspreadmemoryrangeinfo" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspreadmemoryrangeinfo-container-configuration-diagram-for-dcmdspreadmemoryrangeinfo">
 <img alt="DcmDspReadMemoryRangeInfo容器配置图 (Container Configuration Diagram for DcmDspReadMemoryRangeInfo)" src="../../_images/image441.png" />
 </figure>
@@ -11614,7 +11613,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspwritememoryrangeinfo">
-<h5>DcmDspWriteMemoryRangeInfo<a class="headerlink" href="#dcmdspwritememoryrangeinfo" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspWriteMemoryRangeInfo<a class="headerlink" href="#dcmdspwritememoryrangeinfo" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspwritememoryrangeinfo-container-configuration-diagram-for-dcmdspwritememoryrangeinfo">
 <img alt="DcmDspWriteMemoryRangeInfo容器配置图 (Container Configuration Diagram for DcmDspWriteMemoryRangeInfo)" src="../../_images/image451.png" />
 </figure>
@@ -11731,7 +11730,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspperiodictransmission">
-<h4>DcmDspPeriodicTransmission<a class="headerlink" href="#dcmdspperiodictransmission" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspPeriodicTransmission<a class="headerlink" href="#dcmdspperiodictransmission" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspperiodictransmission-dcmdspperiodictransmission-container-configuration-diagram">
 <img alt="DcmDspPeriodicTransmission容器配置图 (DcmDspPeriodicTransmission Container Configuration Diagram)" src="../../_images/image461.png" />
 </figure>
@@ -11901,7 +11900,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsppid">
-<h4>DcmDspPid<a class="headerlink" href="#dcmdsppid" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspPid<a class="headerlink" href="#dcmdsppid" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsppid-container-configuration-diagram-for-dcmdsppid">
 <img alt="DcmDspPid容器配置图 (Container Configuration Diagram for DcmDspPid)" src="../../_images/image471.png" />
 </figure>
@@ -11998,7 +11997,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdsppiddata">
-<h5>DcmDspPidData<a class="headerlink" href="#dcmdsppiddata" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspPidData<a class="headerlink" href="#dcmdsppiddata" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsppiddata-container-configuration-diagram-for-dcmdsppiddata">
 <img alt="DcmDspPidData容器配置图 (Container Configuration Diagram for DcmDspPidData)" src="../../_images/image481.png" />
 </figure>
@@ -12061,7 +12060,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsppiddatasupportinfo">
-<h4>DcmDspPidDataSupportInfo<a class="headerlink" href="#dcmdsppiddatasupportinfo" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspPidDataSupportInfo<a class="headerlink" href="#dcmdsppiddatasupportinfo" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsppiddatasupportinfo-container-configuration-diagram-for-dcmdsppiddatasupportinfo">
 <img alt="DcmDspPidDataSupportInfo容器配置图 (Container Configuration Diagram for DcmDspPidDataSupportInfo)" src="../../_images/image491.png" />
 </figure>
@@ -12123,7 +12122,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsppidservice01">
-<h4>DcmDspPidService01<a class="headerlink" href="#dcmdsppidservice01" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspPidService01<a class="headerlink" href="#dcmdsppidservice01" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsppidservice01-container-configuration-diagram-for-dcmdsppidservice01">
 <img alt="DcmDspPidService01容器配置图 (Container Configuration Diagram for DcmDspPidService01)" src="../../_images/image50.png" />
 </figure>
@@ -12221,7 +12220,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsppidservice02">
-<h4>DcmDspPidService02<a class="headerlink" href="#dcmdsppidservice02" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspPidService02<a class="headerlink" href="#dcmdsppidservice02" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsppidservice02-dcmdsppidservice02-container-configuration-diagram">
 <img alt="DcmDspPidService02容器配置图 (DcmDspPidService02 Container Configuration Diagram)" src="../../_images/image513.png" />
 </figure>
@@ -12264,7 +12263,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdsppidsupportinfo">
-<h5>DcmDspPidSupportInfo<a class="headerlink" href="#dcmdsppidsupportinfo" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspPidSupportInfo<a class="headerlink" href="#dcmdsppidsupportinfo" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsppidsupportinfo-container-configuration-diagram-for-dcmdsppidsupportinfo">
 <img alt="DcmDspPidSupportInfo容器配置图 (Container Configuration Diagram for DcmDspPidSupportInfo)" src="../../_images/image521.png" />
 </figure>
@@ -12327,7 +12326,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsprequestcontrol">
-<h4>DcmDspRequestControl<a class="headerlink" href="#dcmdsprequestcontrol" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRequestControl<a class="headerlink" href="#dcmdsprequestcontrol" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsprequestcontrol-container-configuration-diagram-for-dcmdsprequestcontrol">
 <img alt="DcmDspRequestControl容器配置图 (Container Configuration Diagram for DcmDspRequestControl)" src="../../_images/image531.png" />
 </figure>
@@ -12425,7 +12424,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsprequestfiletransfer">
-<h4>DcmDspRequestFileTransfer<a class="headerlink" href="#dcmdsprequestfiletransfer" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRequestFileTransfer<a class="headerlink" href="#dcmdsprequestfiletransfer" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsprequestfiletransfer-container-configuration-diagram-for-dcmdsprequestfiletransfer">
 <img alt="DcmDspRequestFileTransfer容器配置图 (Container Configuration Diagram for DcmDspRequestFileTransfer)" src="../../_images/image541.png" />
 </figure>
@@ -12523,7 +12522,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsproe">
-<h4>DcmDspRoe<a class="headerlink" href="#dcmdsproe" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRoe<a class="headerlink" href="#dcmdsproe" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsproe-dcmdsproe-container-configuration-diagram">
 <img alt="DcmDspRoe容器配置图 (DcmDspRoe Container Configuration Diagram)" src="../../_images/image551.png" />
 </figure>
@@ -12586,7 +12585,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdsproeevent">
-<h5>DcmDspRoeEvent<a class="headerlink" href="#dcmdsproeevent" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRoeEvent<a class="headerlink" href="#dcmdsproeevent" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsproeevent-container-configuration-diagram-for-dcmdsproeevent">
 <img alt="DcmDspRoeEvent容器配置图 (Container Configuration Diagram for DcmDspRoeEvent)" src="../../_images/image561.png" />
 </figure>
@@ -12649,9 +12648,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsproeeventproperties">
-<h4>DcmDspRoeEventProperties<a class="headerlink" href="#dcmdsproeeventproperties" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRoeEventProperties<a class="headerlink" href="#dcmdsproeeventproperties" title="Link to this heading">¶</a></h4>
 <section id="dcmdsproeonchangeofdataidentifier">
-<h5>DcmDspRoeOnChangeOfDataIdentifier<a class="headerlink" href="#dcmdsproeonchangeofdataidentifier" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRoeOnChangeOfDataIdentifier<a class="headerlink" href="#dcmdsproeonchangeofdataidentifier" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsproeonchangeofdataidentifier-dcmdsproeonchangeofdataidentifier-container-configuration-diagram">
 <img alt="DcmDspRoeOnChangeOfDataIdentifier容器配置图 (DcmDspRoeOnChangeOfDataIdentifier Container Configuration Diagram)" src="../../_images/image571.png" />
 </figure>
@@ -12695,7 +12694,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsproeondtcstatuschange">
-<h5>DcmDspRoeOnDTCStatusChange<a class="headerlink" href="#dcmdsproeondtcstatuschange" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRoeOnDTCStatusChange<a class="headerlink" href="#dcmdsproeondtcstatuschange" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsproeondtcstatuschange-container-configuration-for-dcmdsproeondtcstatuschange">
 <img alt="DcmDspRoeOnDTCStatusChange容器配置图 (Container Configuration for DcmDspRoeOnDtcStatusChange)" src="../../_images/image581.png" />
 </figure>
@@ -12739,7 +12738,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdsproeeventwindowtime">
-<h5>DcmDspRoeEventWindowTime<a class="headerlink" href="#dcmdsproeeventwindowtime" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRoeEventWindowTime<a class="headerlink" href="#dcmdsproeeventwindowtime" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsproeeventwindowtime-container-configuration-diagram-for-dcmdsproeeventwindowtime">
 <img alt="DcmDspRoeEventWindowTime容器配置图 (Container Configuration Diagram for DcmDspRoeEventWindowTime)" src="../../_images/image591.png" />
 </figure>
@@ -12784,7 +12783,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsproutine">
-<h4>DcmDspRoutine<a class="headerlink" href="#dcmdsproutine" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRoutine<a class="headerlink" href="#dcmdsproutine" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdsproutine-dcmdsproutine-container-configuration-diagram">
 <img alt="DcmDspRoutine容器配置图 (DcmDspRoutine Container Configuration Diagram)" src="../../_images/image60.png" />
 </figure>
@@ -12899,7 +12898,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdsprequestroutineresults">
-<h5>DcmDspRequestRoutineResults<a class="headerlink" href="#dcmdsprequestroutineresults" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRequestRoutineResults<a class="headerlink" href="#dcmdsprequestroutineresults" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsprequestroutineresults-container-configuration-diagram-for-dcmdsprequestroutineresults">
 <img alt="DcmDspRequestRoutineResults容器配置图 (Container Configuration Diagram for DcmDspRequestRoutineResults)" src="../../_images/image613.png" />
 </figure>
@@ -13052,9 +13051,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsprequestroutineresultsin">
-<h4>DcmDspRequestRoutineResultsIn<a class="headerlink" href="#dcmdsprequestroutineresultsin" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRequestRoutineResultsIn<a class="headerlink" href="#dcmdsprequestroutineresultsin" title="Link to this heading">¶</a></h4>
 <section id="dcmdsprequestroutineresultsinsignal">
-<h5>DcmDspRequestRoutineResultsInSignal<a class="headerlink" href="#dcmdsprequestroutineresultsinsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRequestRoutineResultsInSignal<a class="headerlink" href="#dcmdsprequestroutineresultsinsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsprequestroutineresultsinsignal-container-configuration-diagram-for-dcmdsprequestroutineresultsinsignal">
 <img alt="DcmDspRequestRoutineResultsInSignal容器配置图 (Container Configuration Diagram for DcmDspRequestRoutineResultsInSignal)" src="../../_images/image621.png" />
 </figure>
@@ -13153,9 +13152,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdsprequestroutineresultsouts">
-<h4>DcmDspRequestRoutineResultsOuts<a class="headerlink" href="#dcmdsprequestroutineresultsouts" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspRequestRoutineResultsOuts<a class="headerlink" href="#dcmdsprequestroutineresultsouts" title="Link to this heading">¶</a></h4>
 <section id="dcmdsprequestroutineresultsoutsignal">
-<h5>DcmDspRequestRoutineResultsOutSignal<a class="headerlink" href="#dcmdsprequestroutineresultsoutsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspRequestRoutineResultsOutSignal<a class="headerlink" href="#dcmdsprequestroutineresultsoutsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdsprequestroutineresultsoutsignal-container-configuration-diagram-for-dcmdsprequestroutineresultsoutsignal">
 <img alt="DcmDspRequestRoutineResultsOutSignal容器配置图 (Container Configuration Diagram for DcmDspRequestRoutineResultsOutSignal)" src="../../_images/image631.png" />
 </figure>
@@ -13253,7 +13252,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspstartroutine">
-<h5>DcmDspStartRoutine<a class="headerlink" href="#dcmdspstartroutine" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspStartRoutine<a class="headerlink" href="#dcmdspstartroutine" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspstartroutine-dcmdspstartroutine-container-configuration-diagram">
 <img alt="DcmDspStartRoutine容器配置图 (DcmDspStartRoutine Container Configuration Diagram)" src="../../_images/image641.png" />
 </figure>
@@ -13406,9 +13405,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspstartroutinein">
-<h4>DcmDspStartRoutineIn<a class="headerlink" href="#dcmdspstartroutinein" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspStartRoutineIn<a class="headerlink" href="#dcmdspstartroutinein" title="Link to this heading">¶</a></h4>
 <section id="dcmdspstartroutineinsignal">
-<h5>DcmDspStartRoutineInSignal<a class="headerlink" href="#dcmdspstartroutineinsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspStartRoutineInSignal<a class="headerlink" href="#dcmdspstartroutineinsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspstartroutineinsignal-container-configuration-diagram-for-dcmdspstartroutineinsignal">
 <img alt="DcmDspStartRoutineInSignal容器配置图 (Container Configuration Diagram for DcmDspStartRoutineInSignal)" src="../../_images/image651.png" />
 </figure>
@@ -13507,9 +13506,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspstartroutineout">
-<h4>DcmDspStartRoutineOut<a class="headerlink" href="#dcmdspstartroutineout" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspStartRoutineOut<a class="headerlink" href="#dcmdspstartroutineout" title="Link to this heading">¶</a></h4>
 <section id="dcmdspstartroutineoutsignal">
-<h5>DcmDspStartRoutineOutSignal<a class="headerlink" href="#dcmdspstartroutineoutsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspStartRoutineOutSignal<a class="headerlink" href="#dcmdspstartroutineoutsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspstartroutineoutsignal-container-configuration-diagram-for-dcmdspstartroutineoutsignal">
 <img alt="DcmDspStartRoutineOutSignal容器配置图 (Container Configuration Diagram for DcmDspStartRoutineOutSignal)" src="../../_images/image661.png" />
 </figure>
@@ -13607,7 +13606,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="dcmdspstoproutine">
-<h5>DcmDspStopRoutine<a class="headerlink" href="#dcmdspstoproutine" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspStopRoutine<a class="headerlink" href="#dcmdspstoproutine" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspstoproutine-container-configuration-diagram-for-dcmdspstoproutine">
 <img alt="DcmDspStopRoutine容器配置图 (Container Configuration Diagram for DcmDspStopRoutine)" src="../../_images/image671.png" />
 </figure>
@@ -13760,9 +13759,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspstoproutinein">
-<h4>DcmDspStopRoutineIn<a class="headerlink" href="#dcmdspstoproutinein" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspStopRoutineIn<a class="headerlink" href="#dcmdspstoproutinein" title="Link to this heading">¶</a></h4>
 <section id="dcmdspstoproutineinsignal">
-<h5>DcmDspStopRoutineInSignal<a class="headerlink" href="#dcmdspstoproutineinsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspStopRoutineInSignal<a class="headerlink" href="#dcmdspstoproutineinsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspstoproutineinsignal-container-configuration-diagram-for-dcmdspstoproutineinsignal">
 <img alt="DcmDspStopRoutineInSignal容器配置图 (Container Configuration Diagram for DcmDspStopRoutineInSignal)" src="../../_images/image681.png" />
 </figure>
@@ -13861,9 +13860,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspstoproutineout">
-<h4>DcmDspStopRoutineOut<a class="headerlink" href="#dcmdspstoproutineout" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspStopRoutineOut<a class="headerlink" href="#dcmdspstoproutineout" title="Link to this heading">¶</a></h4>
 <section id="dcmdspstoproutineoutsignal">
-<h5>DcmDspStopRoutineOutSignal<a class="headerlink" href="#dcmdspstoproutineoutsignal" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspStopRoutineOutSignal<a class="headerlink" href="#dcmdspstoproutineoutsignal" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspstoproutineoutsignal-dcmdspstoproutineoutsignal-container-configuration-diagram">
 <img alt="DcmDspStopRoutineOutSignal容器配置图 (DcmDspStopRoutineOutSignal Container Configuration Diagram)" src="../../_images/image691.png" />
 </figure>
@@ -13962,7 +13961,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspsecurity">
-<h4>DcmDspSecurity<a class="headerlink" href="#dcmdspsecurity" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspSecurity<a class="headerlink" href="#dcmdspsecurity" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspsecurity-dcmdspsecurity-container-configuration-diagram">
 <img alt="DcmDspSecurity容器配置图 (DcmDspSecurity Container Configuration Diagram)" src="../../_images/image70.png" />
 </figure>
@@ -14005,7 +14004,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdspsecurityrow">
-<h5>DcmDspSecurityRow<a class="headerlink" href="#dcmdspsecurityrow" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspSecurityRow<a class="headerlink" href="#dcmdspsecurityrow" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspsecurityrow-container-configuration-diagram-for-dcmdspsecurityrow">
 <img alt="DcmDspSecurityRow容器配置图 (Container Configuration Diagram for DcmDspSecurityRow)" src="../../_images/image711.png" />
 </figure>
@@ -14272,9 +14271,9 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspsession">
-<h4>DcmDspSession<a class="headerlink" href="#dcmdspsession" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspSession<a class="headerlink" href="#dcmdspsession" title="Link to this heading">¶</a></h4>
 <section id="dcmdspsessionrow">
-<h5>DcmDspSessionRow<a class="headerlink" href="#dcmdspsessionrow" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspSessionRow<a class="headerlink" href="#dcmdspsessionrow" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspsessionrow-container-configuration-diagram-for-dcmdspsessionrow">
 <img alt="DcmDspSessionRow容器配置图 (Container Configuration Diagram for DcmDspSessionRow)" src="../../_images/image721.png" />
 </figure>
@@ -14373,7 +14372,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmdspvehinfo">
-<h4>DcmDspVehInfo<a class="headerlink" href="#dcmdspvehinfo" title="链接到此标题。">¶</a></h4>
+<h4>DcmDspVehInfo<a class="headerlink" href="#dcmdspvehinfo" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="dcmdspvehinfo-container-configuration-diagram-for-dcmdspvehinfo">
 <img alt="DcmDspVehInfo容器配置图 (Container Configuration Diagram for DcmDspVehInfo)" src="../../_images/image731.png" />
 </figure>
@@ -14440,7 +14439,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </tbody>
 </table>
 <section id="dcmdspvehinfodata">
-<h5>DcmDspVehInfoData<a class="headerlink" href="#dcmdspvehinfodata" title="链接到此标题。">¶</a></h5>
+<h5>DcmDspVehInfoData<a class="headerlink" href="#dcmdspvehinfodata" title="Link to this heading">¶</a></h5>
 <figure class="align-center" id="dcmdspvehinfodata-container-configuration-diagram-for-dcmdspvehinfodata">
 <img alt="DcmDspVehInfoData容器配置图 (Container Configuration Diagram for DcmDspVehInfoData)" src="../../_images/image741.png" />
 </figure>
@@ -14541,7 +14540,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </section>
 </section>
 <section id="dcmpagebuffercfg">
-<h2>DcmPageBufferCfg<a class="headerlink" href="#dcmpagebuffercfg" title="链接到此标题。">¶</a></h2>
+<h2>DcmPageBufferCfg<a class="headerlink" href="#dcmpagebuffercfg" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="dcmpagebuffercfg-dcmpagebuffercfg-container-configuration-diagram">
 <img alt="DcmPageBufferCfg容器配置图 (DcmPageBufferCfg Container Configuration Diagram)" src="../../_images/image751.png" />
 </figure>
@@ -14603,12 +14602,12 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
 </table>
 </section>
 <section id="appendix-1">
-<h2>附录1 (Appendix 1)<a class="headerlink" href="#appendix-1" title="链接到此标题。">¶</a></h2>
+<h2>附录1 (Appendix 1)<a class="headerlink" href="#appendix-1" title="Link to this heading">¶</a></h2>
 <p>[1]通过DcmTimerType配置项可以选择四种计时方法。分别为TM、OS、Mainfunction、Callout。TM:使用 TM模块内部标准接口。OS：使用Os system counter。Mainfunction：依赖周期调度，由Dcm内部计时。不同计时方法的对应接口由配置工具生成在Dcm_Callout.c 中，其中Callout是由客户自定义的计时类型，可以参照生成示例中TM/OS/Mainfunction的实现，结合项目工程情况修改接口自行实现计时功能。</p>
 <p>Four timing methods, namely TM, OS, Mainfunction, and Callout, can be selected via the DcmTimerType configuration item: TM uses the standard internal interface of the TM module, OS uses the OS system counter, Mainfunction relies on periodic scheduling with timing handled internally by DCM, the corresponding interfaces for different timing methods are generated by the configuration tool in Dcm_Callout.c, and Callout is a customer-defined timing type for which you can refer to the implementation of TM/OS/Mainfunction in the generated example, modify the interfaces according to project engineering conditions, and implement the timing function independently.</p>
 </section>
 <section id="appendix-2">
-<h2>附录2 (Appendix 2)<a class="headerlink" href="#appendix-2" title="链接到此标题。">¶</a></h2>
+<h2>附录2 (Appendix 2)<a class="headerlink" href="#appendix-2" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 工程预编译宏定义表(Table 1 Engineering Precompiled Macro Definition Table)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -14974,7 +14973,7 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -14983,11 +14982,11 @@ Dcm_NegativeResponseCodeType* ErrorCode)</p>
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

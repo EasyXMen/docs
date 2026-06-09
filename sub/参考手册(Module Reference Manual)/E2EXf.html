@@ -9,7 +9,6 @@
         <title>E2EXf &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="e2exf">
-<h1>E2EXf<a class="headerlink" href="#e2exf" title="链接到此标题。">¶</a></h1>
+<h1>E2EXf<a class="headerlink" href="#e2exf" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -204,23 +203,23 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>E2EXf模块的责任在于保护安全性相关的数据，在发送端，E2EXf保护数据，在接收端，E2EXf检查受保护的数据。所有的算法由E2EL提供，E2EXf调用E2EL相应的接口，传入配置和状态来实现保护的功能。</p>
 <p>The E2EXf module is responsible for protecting security-related data. At the sender end, E2EXf protects the data, and at the receiver end, E2EXf checks the protected data. All algorithms are provided by E2EL, with E2EXf calling the corresponding interfaces from E2EL, passing in configuration and status to implement the protection function.</p>
 <figure class="align-center" id="e2exfautosar-the-position-of-e2exf-in-autosar">
 <img alt="E2EXf在AUTOSAR中的位置 (The position of E2EXf in AUTOSAR)" src="../../_images/image170.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1]AUTOSAR_SWS_E2ETransformer.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_E2ELibrary.pdf，R19-11</p>
 <p>[3] AUTOSAR_TPS_SystemTemplate.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="function-naming-and-data-structure-generation">
-<h3>函数命名及数据结构生成 (Function Naming and Data Structure Generation)<a class="headerlink" href="#function-naming-and-data-structure-generation" title="链接到此标题。">¶</a></h3>
+<h3>函数命名及数据结构生成 (Function Naming and Data Structure Generation)<a class="headerlink" href="#function-naming-and-data-structure-generation" title="Link to this heading">¶</a></h3>
 <p>E2EXf的函数及结构体会以&lt;transformerId&gt;后缀命名，针对每个transformer函数，都会有一个唯一的ID。这种命名方式用于E2EXf的C函数。</p>
 <p>The functions and structures of E2EXf will be named with a suffix &lt;transformerId&gt;, and each transformer function will have a unique ID. This naming convention is used for the C functions of E2EXf.</p>
 <p>E2EXf应生成数据结构E2EXf_ConfigStruct_&lt;v&gt;，存储E2EXf模块的配置。</p>
@@ -231,14 +230,14 @@
 <p>E2EXf will refer to E2E_PXXConfigType and E2E_SMConfigType based on the &lt;transformerId&gt; and various types of profile of data protected by E2E, and execute E2E protection within the E2EXf module.</p>
 </section>
 <section id="static-initialization-configuration-and-state">
-<h3>静态初始化配置和状态 (Static initialization configuration and state)<a class="headerlink" href="#static-initialization-configuration-and-state" title="链接到此标题。">¶</a></h3>
+<h3>静态初始化配置和状态 (Static initialization configuration and state)<a class="headerlink" href="#static-initialization-configuration-and-state" title="Link to this heading">¶</a></h3>
 <p>根据EndToEndTransformationDescription，EndToEndTransformationISignalProps和EndToEndTransformationComSpecProps三种元模型对配置进行静态初始化。其中，EndToEndTransformationDescription定义E2E变量，EndToEndTransformationISignalProps对给定的ISignal定义一个特殊的保护，EndToEndTransformationComSpecProps覆盖一些已定义的变量。</p>
 <p>According to EndToEndTransformationDescription, EndToEndTransformationISignalProps, and EndToEndTransformationComSpecProps three metamodels, configurations are statically initialized. Among them, EndToEndTransformationDescription defines E2E variables, EndToEndTransformationISignalProps defines a special protection for given ISignals, and EndToEndTransformationComSpecProps overrides some defined variables.</p>
 <p>跟配置结构体相反，状态结构体不依赖于编译选项，生成的状态可以保持不进行初始化。</p>
 <p>Opposite to configuration structs, state structs do not depend on compile options and the generated state can be kept uninitialized.</p>
 </section>
 <section id="in-placeout-of-place-in-place-and-out-of-place-processing">
-<h3>In-place和Out-of-place处理 (In-place and Out-of-place Processing)<a class="headerlink" href="#in-placeout-of-place-in-place-and-out-of-place-processing" title="链接到此标题。">¶</a></h3>
+<h3>In-place和Out-of-place处理 (In-place and Out-of-place Processing)<a class="headerlink" href="#in-placeout-of-place-in-place-and-out-of-place-processing" title="Link to this heading">¶</a></h3>
 <p>E2EXf函数的处理会有In-place和Out-of-place两种方式，选择哪种buffer处理方式，可通过buffer属性配置项进行配置。</p>
 <p>The processing of the E2EXf function has both In-place and Out-of-place methods, and which buffer handling method to choose can be configured through the buffer attribute configuration item.</p>
 <p>In-place是指Transformer用的buffer既作为输入又作为输出，所以，In-place的处理有性能上的优势，空间占用少，拷贝次数少。Out-of-place是指有独立的输入输出buffer。</p>
@@ -256,7 +255,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 E2EXf组件文件描述 (Table E2EXf Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -303,13 +302,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="e2exf-configtype-e2exf-configtype-configuration-type-definition">
-<h2>E2EXf_ConfigType类型定义 (E2EXf_ConfigType Configuration Type Definition)<a class="headerlink" href="#e2exf-configtype-e2exf-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>E2EXf_ConfigType类型定义 (E2EXf_ConfigType Configuration Type Definition)<a class="headerlink" href="#e2exf-configtype-e2exf-configtype-configuration-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -333,7 +332,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -475,11 +474,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="e2exf-init-the-e2exf-init-function-definition">
-<h2>E2EXf_Init函数定义 (The E2EXf_Init function definition)<a class="headerlink" href="#e2exf-init-the-e2exf-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>E2EXf_Init函数定义 (The E2EXf_Init function definition)<a class="headerlink" href="#e2exf-init-the-e2exf-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -549,7 +548,7 @@
 </table>
 </section>
 <section id="e2exf-deinit-function-definition-for-e2exf-deinit">
-<h2>E2EXf_DeInit函数定义 (Function definition for E2EXf_DeInit)<a class="headerlink" href="#e2exf-deinit-function-definition-for-e2exf-deinit" title="链接到此标题。">¶</a></h2>
+<h2>E2EXf_DeInit函数定义 (Function definition for E2EXf_DeInit)<a class="headerlink" href="#e2exf-deinit-function-definition-for-e2exf-deinit" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -619,7 +618,7 @@
 </table>
 </section>
 <section id="e2exf-getversioninfo-e2exf-getversioninfo-function-definition">
-<h2>E2EXf_GetVersionInfo函数定义 (E2EXf_GetVersionInfo function definition)<a class="headerlink" href="#e2exf-getversioninfo-e2exf-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>E2EXf_GetVersionInfo函数定义 (E2EXf_GetVersionInfo function definition)<a class="headerlink" href="#e2exf-getversioninfo-e2exf-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -694,7 +693,7 @@
 </table>
 </section>
 <section id="e2exf-transformerid-e2exf-transformerid-function-definition">
-<h2>E2EXf_&lt;transformerId&gt;函数定义 (E2EXf&lt;transformerId&gt; Function Definition)<a class="headerlink" href="#e2exf-transformerid-e2exf-transformerid-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>E2EXf_&lt;transformerId&gt;函数定义 (E2EXf&lt;transformerId&gt; Function Definition)<a class="headerlink" href="#e2exf-transformerid-e2exf-transformerid-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -789,7 +788,7 @@
 </table>
 </section>
 <section id="e2exf-inv-transformerid-e2exf-inv-transformerid-function-definition">
-<h2>E2EXf_Inv_&lt;transformerId&gt;函数定义 (E2EXf_Inv&lt;transformerId&gt; Function Definition)<a class="headerlink" href="#e2exf-inv-transformerid-e2exf-inv-transformerid-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>E2EXf_Inv_&lt;transformerId&gt;函数定义 (E2EXf_Inv&lt;transformerId&gt; Function Definition)<a class="headerlink" href="#e2exf-inv-transformerid-e2exf-inv-transformerid-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -988,15 +987,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="e2exfrmgeneral">
-<h3>E2EXfrmGeneral<a class="headerlink" href="#e2exfrmgeneral" title="链接到此标题。">¶</a></h3>
+<h3>E2EXfrmGeneral<a class="headerlink" href="#e2exfrmgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="e2exfrmgeneral-e2exfrmgeneral-container-configuration-diagram">
 <img alt="E2EXfrmGeneral容器配置图 (E2EXfrmGeneral Container Configuration Diagram)" src="../../_images/image519.png" />
 </figure>
@@ -1059,7 +1058,7 @@
 </section>
 </section>
 <section id="e2etransformer">
-<h2>E2ETransformer<a class="headerlink" href="#e2etransformer" title="链接到此标题。">¶</a></h2>
+<h2>E2ETransformer<a class="headerlink" href="#e2etransformer" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="e2etransformer-e2etransformer-container-configuration-diagram">
 <img alt="E2ETransformer容器配置图 (E2ETransformer Container Configuration Diagram)" src="../../_images/image619.png" />
 </figure>
@@ -1121,7 +1120,7 @@
 </table>
 </section>
 <section id="endtoendtransformationisignalprops">
-<h2>EndToEndTransformationISignalProps<a class="headerlink" href="#endtoendtransformationisignalprops" title="链接到此标题。">¶</a></h2>
+<h2>EndToEndTransformationISignalProps<a class="headerlink" href="#endtoendtransformationisignalprops" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="endtoendtransformationisignalprops-endtoendtransformationisignalprops-container-configuration-diagram">
 <img alt="EndToEndTransformationISignalProps容器配置图 (EndToEndTransformationISignalProps Container Configuration Diagram)" src="../../_images/image716.png" />
 </figure>
@@ -1995,7 +1994,7 @@
 </table>
 </section>
 <section id="endtoendtransformationcomspecprops">
-<h2>EndToEndTransformationComSpecProps<a class="headerlink" href="#endtoendtransformationcomspecprops" title="链接到此标题。">¶</a></h2>
+<h2>EndToEndTransformationComSpecProps<a class="headerlink" href="#endtoendtransformationcomspecprops" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="endtoendtransformationcomspecprops-endtoendtransformationcomspecprops-container-configuration-diagram">
 <img alt="EndToEndTransformationComSpecProps容器配置图 (EndToEndTransformationComSpecProps Container Configuration Diagram)" src="../../_images/image815.png" />
 </figure>
@@ -2350,11 +2349,11 @@
 </tbody>
 </table>
 <section id="transformationset">
-<h3>TransformationSet<a class="headerlink" href="#transformationset" title="链接到此标题。">¶</a></h3>
+<h3>TransformationSet<a class="headerlink" href="#transformationset" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="transformation">
-<h2>Transformation<a class="headerlink" href="#transformation" title="链接到此标题。">¶</a></h2>
+<h2>Transformation<a class="headerlink" href="#transformation" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="transformation-transformation-container-configuration-diagram">
 <img alt="Transformation容器配置图 (Transformation Container Configuration Diagram)" src="../../_images/image915.png" />
 </figure>
@@ -2416,7 +2415,7 @@
 </table>
 </section>
 <section id="transformationtechnology">
-<h2>TransformationTechnology<a class="headerlink" href="#transformationtechnology" title="链接到此标题。">¶</a></h2>
+<h2>TransformationTechnology<a class="headerlink" href="#transformationtechnology" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="transformationtechnology-transformationtechnology-container-configuration-diagram">
 <img alt="TransformationTechnology容器配置图 (TransformationTechnology Container Configuration Diagram)" src="../../_images/image1014.png" />
 </figure>
@@ -2513,7 +2512,7 @@
 </tbody>
 </table>
 <section id="endtoendtransformationdescription">
-<h3>EndToEndTransformationDescription<a class="headerlink" href="#endtoendtransformationdescription" title="链接到此标题。">¶</a></h3>
+<h3>EndToEndTransformationDescription<a class="headerlink" href="#endtoendtransformationdescription" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="endtoendtransformationdescription-endtoendtransformationdescription-container-configuration-diagram">
 <img alt="EndToEndTransformationDescription容器配置图 (EndToEndTransformationDescription Container Configuration Diagram)" src="../../_images/image1118.png" />
 </figure>
@@ -4224,7 +4223,7 @@
 </section>
 </section>
 <section id="bufferproperty">
-<h2>BufferProperty<a class="headerlink" href="#bufferproperty" title="链接到此标题。">¶</a></h2>
+<h2>BufferProperty<a class="headerlink" href="#bufferproperty" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="bufferproperty-bufferproperty-container-configuration-diagram">
 <img alt="BufferProperty容器配置图 (BufferProperty Container Configuration Diagram)" src="../../_images/image1215.png" />
 </figure>
@@ -4451,7 +4450,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -4460,11 +4459,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

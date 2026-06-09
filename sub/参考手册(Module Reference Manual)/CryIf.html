@@ -9,7 +9,6 @@
         <title>CryIf &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="cryif">
-<h1>CryIf<a class="headerlink" href="#cryif" title="链接到此标题。">¶</a></h1>
+<h1>CryIf<a class="headerlink" href="#cryif" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -224,7 +223,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>CryIf 模块位于底层密码解决方案(Crypto Driver 和基于 sw 的 CDD)和上层服务层(CSM)之间。它表示到上层服务层的密码驱动程序服务的接口。CryIf 模块 提供了一个独特的接口来管理不同的密码 HW 和 SW 解决方案，如HSM、SHE 或基于 SW 的 CDD。因此，基于 Crypto 接口维护的映射方案，Crypto 服务管理模块可以利用多种底层的内部和外部加密 HW 以及 SW 解决方案。
 The CryIf module resides between the low-level cryptography solutions (Crypto Driver and SW-based CDD) and the upper service layer (CSM). It represents the interface for cryptography driver services toward the upper service layer.The CryIf module provides a unified interface to manage various cryptographic hardware and software solutions such as HSM, SHE, or software-based CDD. Therefore, based on the mapping scheme maintained by the Crypto Interface, the Crypto Service Manager module can utilize multiple underlying internal and external cryptographic hardware as well as software solutions.</p>
 <figure class="align-center" id="autosar-autosar-encryption-stack">
@@ -235,14 +234,14 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 <p>1、接收 CSM 传输的数据并传输给 Crypto Driver。 2、接收 Crypto Driver返回的信息并返回给 CSM。</p>
 <p>Receive data transmitted by CSM and transmit it to the Crypto Driver. 2、Receive information returned by the Crypto Driver and return it to CSM.</p>
 <section id="references">
-<h3>参考资料 (References)<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_CryptoInterface.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="basic-functions">
-<h3>基本功能 (Basic Functions)<a class="headerlink" href="#basic-functions" title="链接到此标题。">¶</a></h3>
+<h3>基本功能 (Basic Functions)<a class="headerlink" href="#basic-functions" title="Link to this heading">¶</a></h3>
 <p>CryIf 位于 CSM 和 Crypto Driver 之间，是访问所有上层(BSW)密码操作的唯一接口。密码接口也是密码驱动程序的唯一用户，并提供了一个独特的接口来管理不同的密码硬件和软件解决方案。抽象层封装了不同的硬件和软件访问机制，因此加密接口的实现独立于底层的加密驱动程序，可以在硬件或软件中实现。它还保证了对加密服务的并发访问，使同时处理多个加密任务成为可能。</p>
 <p>CryIf is located between CSM and Crypto Driver, serving as the unique interface for all upper-layer (BSW) cryptographic operations and the only user of the crypto drivers, providing a unified interface to manage diverse cryptographic hardware and software solutions; this abstraction layer encapsulates different hardware and software access mechanisms, making the Crypto Interface implementation independent of underlying crypto drivers and realizable in hardware or software, while also guaranteeing concurrent access to cryptographic services to enable simultaneous processing of multiple cryptographic tasks.</p>
 <p>除此之外，CryIf 支持多驱动，当需要支持多驱动时，打开CryIfMulDriverSupport 开关，并填写不同驱动接口的前缀，即可根据接口名使 用不同的驱动。</p>
@@ -250,7 +249,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source File Description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source File Description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 CryIf 文件描述 (Table CryIf File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -285,13 +284,13 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </figure>
 </section>
 <section id="api-api-interfaces">
-<h2>API 接口 (API Interfaces)<a class="headerlink" href="#api-api-interfaces" title="链接到此标题。">¶</a></h2>
+<h2>API 接口 (API Interfaces)<a class="headerlink" href="#api-api-interfaces" title="Link to this heading">¶</a></h2>
 <section id="type-definitions">
-<h3>类型定义 (Type Definitions)<a class="headerlink" href="#type-definitions" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type Definitions)<a class="headerlink" href="#type-definitions" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="cryif-configtype-cryif-configtype-type-definition">
-<h2>CryIf_ConfigType 类型定义 (CryIf_ConfigType Type Definition)<a class="headerlink" href="#cryif-configtype-cryif-configtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_ConfigType 类型定义 (CryIf_ConfigType Type Definition)<a class="headerlink" href="#cryif-configtype-cryif-configtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -315,7 +314,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </tbody>
 </table>
 <section id="input-function-description">
-<h3>输入函数描述 (Input Function Description)<a class="headerlink" href="#input-function-description" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Input Function Description)<a class="headerlink" href="#input-function-description" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -343,11 +342,11 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 <p>Multiple drives:&lt;vi&gt;_&lt;ai&gt; Corresponds to each drive, single drive: no &lt;vi&gt;_&lt;ai&gt;_</p>
 </section>
 <section id="static-interface-function-definitions">
-<h3>静态接口函数定义 (Static Interface Function Definitions)<a class="headerlink" href="#static-interface-function-definitions" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static Interface Function Definitions)<a class="headerlink" href="#static-interface-function-definitions" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="cryif-init">
-<h2>CryIf_Init<a class="headerlink" href="#cryif-init" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_Init<a class="headerlink" href="#cryif-init" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -437,7 +436,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-getversioninfo">
-<h2>CryIf_GetVersionInfo<a class="headerlink" href="#cryif-getversioninfo" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_GetVersionInfo<a class="headerlink" href="#cryif-getversioninfo" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -502,7 +501,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-processjob">
-<h2>CryIf_ProcessJob<a class="headerlink" href="#cryif-processjob" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_ProcessJob<a class="headerlink" href="#cryif-processjob" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -607,7 +606,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-canceljob">
-<h2>CryIf_CancelJob<a class="headerlink" href="#cryif-canceljob" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_CancelJob<a class="headerlink" href="#cryif-canceljob" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -697,7 +696,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyelementset">
-<h2>CryIf_KeyElementSet<a class="headerlink" href="#cryif-keyelementset" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyElementSet<a class="headerlink" href="#cryif-keyelementset" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -807,7 +806,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keysetvalid">
-<h2>CryIf_KeySetValid<a class="headerlink" href="#cryif-keysetvalid" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeySetValid<a class="headerlink" href="#cryif-keysetvalid" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -887,7 +886,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyelementget">
-<h2>CryIf_KeyElementGet<a class="headerlink" href="#cryif-keyelementget" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyElementGet<a class="headerlink" href="#cryif-keyelementget" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -987,7 +986,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyelementcopy">
-<h2>CryIf_KeyElementCopy<a class="headerlink" href="#cryif-keyelementcopy" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyElementCopy<a class="headerlink" href="#cryif-keyelementcopy" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1102,7 +1101,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyelementcopypartial">
-<h2>CryIf_KeyElementCopyPartial<a class="headerlink" href="#cryif-keyelementcopypartial" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyElementCopyPartial<a class="headerlink" href="#cryif-keyelementcopypartial" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1242,7 +1241,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keycopy">
-<h2>CryIf_KeyCopy<a class="headerlink" href="#cryif-keycopy" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyCopy<a class="headerlink" href="#cryif-keycopy" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1337,7 +1336,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-randomseed">
-<h2>CryIf_RandomSeed<a class="headerlink" href="#cryif-randomseed" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_RandomSeed<a class="headerlink" href="#cryif-randomseed" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1417,7 +1416,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keygenerate">
-<h2>CryIf_KeyGenerate<a class="headerlink" href="#cryif-keygenerate" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyGenerate<a class="headerlink" href="#cryif-keygenerate" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1497,7 +1496,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyderive">
-<h2>CryIf_KeyDerive<a class="headerlink" href="#cryif-keyderive" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyDerive<a class="headerlink" href="#cryif-keyderive" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1587,7 +1586,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyexchangecalcpubval">
-<h2>CryIf_KeyExchangeCalcPubVal<a class="headerlink" href="#cryif-keyexchangecalcpubval" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyExchangeCalcPubVal<a class="headerlink" href="#cryif-keyexchangecalcpubval" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1692,7 +1691,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-keyexchangecalcsecret">
-<h2>CryIf_KeyExchangeCalcSecret<a class="headerlink" href="#cryif-keyexchangecalcsecret" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_KeyExchangeCalcSecret<a class="headerlink" href="#cryif-keyexchangecalcsecret" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1802,7 +1801,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryif-callbacknotification">
-<h2>CryIf_CallbackNotification<a class="headerlink" href="#cryif-callbacknotification" title="链接到此标题。">¶</a></h2>
+<h2>CryIf_CallbackNotification<a class="headerlink" href="#cryif-callbacknotification" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1886,15 +1885,15 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </tbody>
 </table>
 <section id="configurable-function-definitions">
-<h3>可配置函数定义 (Configurable Function Definitions)<a class="headerlink" href="#configurable-function-definitions" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definitions)<a class="headerlink" href="#configurable-function-definitions" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configuration">
-<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="cryifgeneralconfig">
-<h3>CryIfGeneralConfig<a class="headerlink" href="#cryifgeneralconfig" title="链接到此标题。">¶</a></h3>
+<h3>CryIfGeneralConfig<a class="headerlink" href="#cryifgeneralconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cryifgeneralconfig-cryifgeneralconfig-container-configuration-diagram">
 <img alt="CryIfGeneralConfig 容器配置图 (CryIfGeneralConfig Container Configuration Diagram)" src="../../_images/image315.png" />
 </figure>
@@ -1974,7 +1973,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryifchannelconfig">
-<h3>CryIfChannelConfig<a class="headerlink" href="#cryifchannelconfig" title="链接到此标题。">¶</a></h3>
+<h3>CryIfChannelConfig<a class="headerlink" href="#cryifchannelconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cryifchannelconfig-cryifchannelconfig-container-configuration-diagram">
 <img alt="CryIfChannelConfig 容器配置图 (CryIfChannelConfig Container Configuration Diagram)" src="../../_images/image411.png" />
 </figure>
@@ -2042,7 +2041,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryifkeyconfig">
-<h3>CryIfKeyConfig<a class="headerlink" href="#cryifkeyconfig" title="链接到此标题。">¶</a></h3>
+<h3>CryIfKeyConfig<a class="headerlink" href="#cryifkeyconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cryifkeyconfig-cryifkeyconfig-container-configuration-diagram">
 <img alt="CryIfKeyConfig 容器配置图 (CryIfKeyConfig Container Configuration Diagram)" src="../../_images/image510.png" />
 </figure>
@@ -2116,7 +2115,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
 </table>
 </section>
 <section id="cryifincludesconfig">
-<h3>CryifIncludesConfig<a class="headerlink" href="#cryifincludesconfig" title="链接到此标题。">¶</a></h3>
+<h3>CryifIncludesConfig<a class="headerlink" href="#cryifincludesconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="cryifincludeconfig-cryifincludeconfig-configuration-diagram">
 <img alt="CryifIncludeConfig配置图 (CryifIncludeConfig Configuration Diagram)" src="../../_images/image610.png" />
 </figure>
@@ -2248,7 +2247,7 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -2257,11 +2256,11 @@ The CryIf module resides between the low-level cryptography solutions (Crypto Dr
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

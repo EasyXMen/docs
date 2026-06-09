@@ -9,7 +9,6 @@
         <title>Dem &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="dem">
-<h1>Dem<a class="headerlink" href="#dem" title="链接到此标题。">¶</a></h1>
+<h1>Dem<a class="headerlink" href="#dem" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -224,7 +223,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Dem模块按照ISO-14229-1、ISO-15031-5和SAE-J1939-73等规范实现UDS、OBD和J1939的诊断事件管理及存储功能。具体实现为：DTC状态管理、冻结帧与扩展数据存储、去抖、恢复与老化、替换等功能。</p>
 <p>The Dem module implements UDS, OBD, and J1939 diagnostic event management and storage functions according to standards such as ISO-14229-1, ISO-15031-5, and SAE-J1939-73. Specifically, it implements DTC state management, frozen frame and extended data storage, debouncing, recovery and aging, replacement, and other functions.</p>
 <p>用户可以通过Dcm或J1939Dcm（J1939事件）中的服务读取或清除事件及其相关数据。此外，Dem中所有事件及其相关数据的非易失性存储都依赖于NvM。</p>
@@ -233,7 +232,7 @@
 <img alt="Dem模块层次关系图 (Dem Module Hierarchical Relationship Diagram)" src="../../_images/image148.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_DiagnosticEventManager.pdf，4.2.2</p>
 <p>[2] AUTOSAR_SWS_DiagnosticEventManager.pdf，R19-11</p>
 <p>[3] Road_vehicles_UDS_ISO14229-1_Part1-2013.pdf</p>
@@ -243,16 +242,16 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="diagnostic-event-report-function">
-<h3>诊断事件报告功能 (Diagnostic Event Report Function)<a class="headerlink" href="#diagnostic-event-report-function" title="链接到此标题。">¶</a></h3>
+<h3>诊断事件报告功能 (Diagnostic Event Report Function)<a class="headerlink" href="#diagnostic-event-report-function" title="Link to this heading">¶</a></h3>
 <section id="diagnostic-event-report-feature-introduction">
-<h4>诊断事件报告功能介绍 (Diagnostic Event Report Feature Introduction)<a class="headerlink" href="#diagnostic-event-report-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>诊断事件报告功能介绍 (Diagnostic Event Report Feature Introduction)<a class="headerlink" href="#diagnostic-event-report-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>诊断监视器监控诊断事件时，通过Dem_SetOperationStatus来控制操作循环的开启与关闭，打开操作循环时使Dem进入事件处理状态，并且可以向Dem报告事件，而关闭操作循环后，不能向Dem报告事件，只能读取事件相关数据。</p>
 <p>Diagnostic monitor controls the activation and deactivation of operation loops when monitoring diagnostic events by using Dem_SetOperationStatus. Activating the operation loop causes the Dem to enter event handling state and report events to Dem. Once the operation loop is deactivated, events can only be read, not reported to Dem.</p>
 </section>
 <section id="diagnostic-event-report-feature-implementation">
-<h4>诊断事件报告功能实现 (Diagnostic event report feature implementation)<a class="headerlink" href="#diagnostic-event-report-feature-implementation" title="链接到此标题。">¶</a></h4>
+<h4>诊断事件报告功能实现 (Diagnostic event report feature implementation)<a class="headerlink" href="#diagnostic-event-report-feature-implementation" title="Link to this heading">¶</a></h4>
 <p>SWC与BSW分别通过Dem_SetEventStatus和Dem_ReportErrorStatus向Dem报告事件及其状态并存入Dem内部队列中。在下一个Dem_MainFunction中处理队列中的事件，包括处理内部Memory Entry空间分配以及事件DTC状态切换等，并且将事件及其相关状态和数据放入对应的Memory Entry中。报告的事件状态类型定义如表 所示。</p>
 <p>SWC and BSW report events and their statuses to Dem by calling Dem_SetEventStatus and Dem_ReportErrorStatus, respectively, and store them in Dem's internal queue. In the next Dem_MainFunction, the queue's events are processed, which includes handling memory entry space allocation as well as event DTC status switching, among other tasks. The reported event status types are defined as shown in the table.</p>
 <p class="centered">
@@ -287,14 +286,14 @@
 </section>
 </section>
 <section id="debouncing-function">
-<h3>去抖功能 (Debouncing function)<a class="headerlink" href="#debouncing-function" title="链接到此标题。">¶</a></h3>
+<h3>去抖功能 (Debouncing function)<a class="headerlink" href="#debouncing-function" title="Link to this heading">¶</a></h3>
 <section id="shake-reduction-function-introduction">
-<h4>去抖功能介绍 (Shake Reduction Function Introduction)<a class="headerlink" href="#shake-reduction-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>去抖功能介绍 (Shake Reduction Function Introduction)<a class="headerlink" href="#shake-reduction-function-introduction" title="Link to this heading">¶</a></h4>
 <p>诊断事件的去抖功能根据ISO-14229-1和AutoSAR规范实现。当报告事件状态为PREPASSED（或PREFAILED）时，需要进行去抖处理来确认事件的状态为PASSED或FAILED。去抖可分为基于计数去抖和基于时间去抖。</p>
 <p>The debouncing function for diagnosing events is implemented according to the ISO-14229-1 and AutoSAR specifications. When the reported event status is PREPASSED (or PREFAILED), debouncing processing needs to be performed to confirm that the event status is PASSED or FAILED. Debouncing can be either count-based or time-based.</p>
 </section>
 <section id="anti-jitter-functionality-implementation">
-<h4>去抖功能实现 (Anti-jitter functionality implementation)<a class="headerlink" href="#anti-jitter-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>去抖功能实现 (Anti-jitter functionality implementation)<a class="headerlink" href="#anti-jitter-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>基于计数去抖：事件配置为基于计数去抖，并且分别配置FAILED与PASSED的计数阈值。SWC或BSW报告事件时，由内部函数Dem_ProcessEventStatus根据事件状态分别进行处理。当报告的事件状态为PREFAILED或PREPASSED时，在Dem_MainFunction中的内部函数Dem_DebounceProcess里开始根据配置中的StepSize计数，当报告PREFAILED或PREPASSED状态的事件的计数值达到FAILED或PASSED阈值时，事件状态将被确认为FAILED或PASSED。图 为ISO-14229-1中基于计数去抖相关的原理。</p>
 <p>Based on Count Debouncing: The event is configured for count-based debouncing, with separate threshold values configured for FAILED and PASSED. When the SWC or BSW reports an event, it is processed by the internal function Dem_ProcessEventStatus based on the event status. If the reported event status is PREFAILED or PREPASSED, counting begins in the internal function Dem_DebounceProcess within Dem_MainFunction according to the StepSize configured. When the count value of the reported PREFAILED or PREPASSED event reaches the FAILED or PASSED threshold, the event status will be confirmed as FAILED or PASSED. The principle related to count-based debouncing is illustrated in Figure , which is from ISO-14229-1.</p>
 <p>基于时间去抖：事件配置为基于时间去抖，并且分别配置FAILED与PASSED的超时阈值。SWC或BSW报告事件时，由内部函数Dem_ProcessEventStatus根据事件状态分别进行处理。当报告的事件状态为PREFAILED或PREPASSED时，在Dem_MainFunction中的内部函数Dem_DebounceTimerMain里根据配置中的DemMainFunctionPeriodicTime进行超时计数，若计数时间超过配置的超时阈值前仍未报告其他状态，则事件状态将被确认为FAILED或PASSED。</p>
@@ -305,9 +304,9 @@
 </section>
 </section>
 <section id="dtc-dtc-status-management-function">
-<h3>DTC状态管理功能 (DTC Status Management Function)<a class="headerlink" href="#dtc-dtc-status-management-function" title="链接到此标题。">¶</a></h3>
+<h3>DTC状态管理功能 (DTC Status Management Function)<a class="headerlink" href="#dtc-dtc-status-management-function" title="Link to this heading">¶</a></h3>
 <section id="dtc-description-of-the-dtc-status-management-function">
-<h4>DTC状态管理功能介绍 (Description of the DTC Status Management Function)<a class="headerlink" href="#dtc-description-of-the-dtc-status-management-function" title="链接到此标题。">¶</a></h4>
+<h4>DTC状态管理功能介绍 (Description of the DTC Status Management Function)<a class="headerlink" href="#dtc-description-of-the-dtc-status-management-function" title="Link to this heading">¶</a></h4>
 <p>诊断事件的DTC状态管理根据ISO-14229-1和AutoSAR规范实现。DTC状态分为8个Bit位，并且分别根据报告事件的状态或内部相关的处理进行转换。以下为DTC状态位介绍：</p>
 <p>The management of DTC status for diagnosing events is implemented according to ISO-14229-1 and AutoSAR specifications. The DTC status is divided into 8 bits, and each bit is converted based on the state of reported events or internal related processing. Below are the introductions to the DTC status bits:</p>
 <p class="centered">
@@ -360,7 +359,7 @@
 </table>
 </section>
 <section id="dtc-dtc-status-management-feature-implementation">
-<h4>DTC状态管理功能实现 (DTC Status Management Feature Implementation)<a class="headerlink" href="#dtc-dtc-status-management-feature-implementation" title="链接到此标题。">¶</a></h4>
+<h4>DTC状态管理功能实现 (DTC Status Management Feature Implementation)<a class="headerlink" href="#dtc-dtc-status-management-feature-implementation" title="Link to this heading">¶</a></h4>
 <p>Dem初始化时，会将每个配置的事件的DTC状态进行初始化，将Bit6置位为1，（Bit4在初始化时不进行置位，需要清除一次后置位）。SWC或BSW报告事件时，由内部函数Dem_ProcessEventStatus根据事件状态分别进行处理。</p>
 <p>During Dem initialization, the DTC state for each configured event is initialized by setting Bit6 to 1 (Bit4 is not set during initialization and needs to be reset before being set). When SWC or BSW reports an event, it is processed according to its status by the internal function Dem_ProcessEventStatus.</p>
 <p>若报告的事件状态为FAILED时，同步置位DTC状态位的Bit0、Bit1、Bit2、Bit5，同步清除Bit4、Bit6。并且在函数Dem_MainFunction中，根据用户配置DemEventFailureCycleCounterThreshold的值决定何时置位Bit3，根据用户配置DemIndicatorAttribute-&gt; DemIndicatorFailureCycleCounterThreshold的值决定何时置位Bit7。</p>
@@ -376,29 +375,29 @@
 </section>
 </section>
 <section id="freeze-frame-and-extended-data-storage-functionalities">
-<h3>冻结帧与扩展数据存储功能 (Freeze Frame and Extended Data Storage functionalities)<a class="headerlink" href="#freeze-frame-and-extended-data-storage-functionalities" title="链接到此标题。">¶</a></h3>
+<h3>冻结帧与扩展数据存储功能 (Freeze Frame and Extended Data Storage functionalities)<a class="headerlink" href="#freeze-frame-and-extended-data-storage-functionalities" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-freeze-frame-and-extended-data-storage-functionalities">
-<h4>冻结帧与扩展数据存储功能介绍 (Introduction to Freeze Frame and Extended Data Storage functionalities)<a class="headerlink" href="#introduction-to-freeze-frame-and-extended-data-storage-functionalities" title="链接到此标题。">¶</a></h4>
+<h4>冻结帧与扩展数据存储功能介绍 (Introduction to Freeze Frame and Extended Data Storage functionalities)<a class="headerlink" href="#introduction-to-freeze-frame-and-extended-data-storage-functionalities" title="Link to this heading">¶</a></h4>
 <p>ISO-14229-1规定了两种类型的诊断事件相关数据：冻结帧与扩展数据。存储的数量和组合是由OEM指定的，因此是可配的。此数据可以由SWC或BSW提供。冻结帧由配置中DID关联的外部回调接口中获取，扩展数据一般为内部数据，在Dem内部产生并且计算。</p>
 <p>ISO-14229-1 defines two types of diagnostic event-related data: freeze frames and extended data. The number and combination stored are specified by the OEM, hence configurable. This data can be provided by SWCs or BSWs. Freeze frames are obtained from external callback interfaces associated with DID in the configuration, while extended data is generally internal data generated and computed within Dem.</p>
 </section>
 <section id="freeze-frame-and-extended-data-storage-functionality-implementation">
-<h4>冻结帧与扩展数据存储功能实现 (Freeze frame and extended data storage functionality implementation)<a class="headerlink" href="#freeze-frame-and-extended-data-storage-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>冻结帧与扩展数据存储功能实现 (Freeze frame and extended data storage functionality implementation)<a class="headerlink" href="#freeze-frame-and-extended-data-storage-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>在配置中将事件关联对应的冻结帧与扩展数据，SWC与BSW报告事件时，Dem根据配置DemExtendedDataRecordTrigger与DemFreezeFrameRecordTrigger决定在哪种条件下获取实时扩展数据与冻结帧，并且与事件一同存入buffer中。接着在Dem_MainFunction中等待事件的Memory Entry分配完成后，将数据存储到其中。</p>
 <p>Associate events with corresponding frozen frames and extended data in the configuration. When SWC and BSW report events, Dem decides based on DemExtendedDataRecordTrigger and DemFreezeFrameRecordTrigger to acquire real-time extended data and frozen frames under certain conditions, storing them together into a buffer. Then, in Dem_MainFunction, wait for the Memory Entry allocation of the event to complete before storing the data therein.</p>
 </section>
 </section>
 <section id="regeneration-and-aging-functions">
-<h3>恢复与老化功能 (Regeneration and Aging Functions)<a class="headerlink" href="#regeneration-and-aging-functions" title="链接到此标题。">¶</a></h3>
+<h3>恢复与老化功能 (Regeneration and Aging Functions)<a class="headerlink" href="#regeneration-and-aging-functions" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-regeneration-and-aging-functions">
-<h4>恢复与老化功能介绍 (Introduction to Regeneration and Aging Functions)<a class="headerlink" href="#introduction-to-regeneration-and-aging-functions" title="链接到此标题。">¶</a></h4>
+<h4>恢复与老化功能介绍 (Introduction to Regeneration and Aging Functions)<a class="headerlink" href="#introduction-to-regeneration-and-aging-functions" title="Link to this heading">¶</a></h4>
 <p>诊断事件的恢复是指某事件已经报告了故障，在经过后续操作循环监测下没有继续报告故障，满足恢复条件，则认为事件已经恢复。</p>
 <p>The recovery of diagnosing events refers to a situation where an event has reported a fault, and after subsequent operation cycles monitoring, it no longer reports the fault and meets the recovery conditions, then it is considered that the event has recovered.</p>
 <p>诊断事件的老化是指在当前事件满足恢复条件并且在经过后续操作循环监测下没有继续报告故障，满足老化条件，则开始老化处理。</p>
 <p>Aging of diagnostic events refers to the process where, after the current event meets the recovery conditions and subsequent operations do not continue to report faults during monitoring in subsequent operation cycles, if aging conditions are met, the aging processing begins.</p>
 </section>
 <section id="recovery-and-aging-functions-implemented">
-<h4>恢复与老化功能实现 (Recovery and aging functions implemented)<a class="headerlink" href="#recovery-and-aging-functions-implemented" title="链接到此标题。">¶</a></h4>
+<h4>恢复与老化功能实现 (Recovery and aging functions implemented)<a class="headerlink" href="#recovery-and-aging-functions-implemented" title="Link to this heading">¶</a></h4>
 <p>恢复：指事件在当前操作循环报告状态为FAILED并且置位了DTC状态位Bit7，后续的操作循环中此事件仅报告了PASSED状态，并在Dem_OperationCycleStart中开始执行恢复处理，若在某一个操作循环开启时满足恢复条件则将DTC状态位Bit7清除。恢复条件由配置中DemIndicatorHealingCycleCounterThreshold的值决定。</p>
 <p>Recovery: Refers to an event where, in the current operation cycle, the status is reported as FAILED and DTC status bit Bit7 is set. In subsequent operation cycles, the event only reports a PASSED state, and recovery processing begins during Dem_OperationCycleStart. If at any point during an operation cycle the recovery conditions are met, DTC status bit Bit7 is cleared. The recovery conditions are determined by the value of DemIndicatorHealingCycleCounterThreshold in configuration.</p>
 <p>老化：指事件满足恢复条件并且后续的操作循环中事件继续仅报告PASSED状态，在内部函数Dem_OperationCycleEnd中进行老化处理，若在某一个操作循环关闭时满足老化条件则将清除DTC状态位Bit3、Bit5，并且删除此事件所有相关的数据，老化条件由配置中DemAgingCycleCounterThreshold的值决定。若配置DemStatusBitHandlingTestFailedSinceLastClear允许清除Bit5，清除时机由配置中DemAgingCycleCounterThresholdForTFSLC的值决定。</p>
@@ -406,9 +405,9 @@
 </section>
 </section>
 <section id="replace-function">
-<h3>替换功能 (Replace Function)<a class="headerlink" href="#replace-function" title="链接到此标题。">¶</a></h3>
+<h3>替换功能 (Replace Function)<a class="headerlink" href="#replace-function" title="Link to this heading">¶</a></h3>
 <section id="replace-feature-introduction">
-<h4>替换功能介绍 (Replace Feature Introduction)<a class="headerlink" href="#replace-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>替换功能介绍 (Replace Feature Introduction)<a class="headerlink" href="#replace-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>诊断事件的替换功能是指若在配置中配置的事件数量大于配置的存储数量，</p>
 <p>The replacement function for diagnosing events refers to the situation where the number of events configured in the configuration exceeds the storage quantity configured.</p>
 <p>则最不重要的、已经存在的事件的Memory Entry被需要存储的新事件的Memory Entry取代。以下是事件替换的三种策略介绍。</p>
@@ -438,7 +437,7 @@
 </table>
 </section>
 <section id="implementing-the-replacement-functionality">
-<h4>替换功能实现 (Implementing the Replacement Functionality)<a class="headerlink" href="#implementing-the-replacement-functionality" title="链接到此标题。">¶</a></h4>
+<h4>替换功能实现 (Implementing the Replacement Functionality)<a class="headerlink" href="#implementing-the-replacement-functionality" title="Link to this heading">¶</a></h4>
 <p>若SWC或BSW向Dem报告了尚未存储新的事件，且此时Dem内部分配的Memory Entry已经达到了配置中DemMaxNumberEventEntryPrimary的值（排放相关事件的存储数量由配置DemMaxNumberEventEntryPermanent的值决定），则在内部函数Dem_EventDisplacementProcess中进行替换处理。事件的替换策略依据配置中Dem_General-&gt;DemEventDisplacementStrategy的值进行处理：</p>
 <p>If SWC or BSW reports that new events are not stored to Dem, and at this time the Memory Entry allocated within Dem has reached the value of DemMaxNumberEventEntryPrimary in the configuration (the number of storage for emission-related events is decided by the value of DemMaxNumberEventEntryPermanent in the configuration), then replacement processing is performed internally in the function Dem_EventDisplacementProcess. The event replacement strategy is handled based on the value of Dem_General-&gt;DemEventDisplacementStrategy in the configuration:</p>
 <p>1）替换策略配置为DEM_DISPLACEMENT_NONE：不执行事件替换。</p>
@@ -452,16 +451,16 @@
 </section>
 </section>
 <section id="sync-function">
-<h3>同步功能 (Sync Function)<a class="headerlink" href="#sync-function" title="链接到此标题。">¶</a></h3>
+<h3>同步功能 (Sync Function)<a class="headerlink" href="#sync-function" title="Link to this heading">¶</a></h3>
 <section id="sync-feature-introduction">
-<h4>同步功能介绍 (Sync feature introduction)<a class="headerlink" href="#sync-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>同步功能介绍 (Sync feature introduction)<a class="headerlink" href="#sync-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>当Dem需要永久存储event状态信息、内部数据时，需要与NvM进行交互。诊断事件的同步功能指的是Dem一键在DemNvRamBlockId下创建reference关系，同时在NvM模块生成相应的NvMBlock。</p>
 <p>When Dem needs to permanently store event status information and internal data, it needs to interact with NvM. The synchronous function for diagnosing events refers to Dem creating a reference relationship under the DemNvRamBlockId in one click, while the NvM module generates the corresponding NvMBlock.</p>
 <p>为了确保存储Dem模块相关数据的正确性，建议在Nvm模块中使能Crc机制以及ID动态检测等相关数据有效性检查功能。若未使能，则需要在每次更新NvM配置后，对存储空间进行一次擦除，以保护数据的有效性。</p>
 <p>To ensure the correctness of the data stored in the Dem module, it is recommended to enable the Crc mechanism and related data validity check functions in the Nvm module, including ID dynamic detection. If these features are not enabled, a space erase should be performed every time the NvM configuration is updated to protect data integrity.</p>
 </section>
 <section id="sync-function-implementation">
-<h4>同步功能实现 (Sync function implementation)<a class="headerlink" href="#sync-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>同步功能实现 (Sync function implementation)<a class="headerlink" href="#sync-function-implementation" title="Link to this heading">¶</a></h4>
 <p>同步功能会根据Dem的配置自动计算Dem所需Block的长度与个数。如图 所示，右键配置项DemNvRamBlockId选择同步功能会自动在NvM模块创建相应的NvMBlock。</p>
 <p>The synchronization function automatically calculates the length and number of blocks required for Dem based on Dem's configuration. As shown in the figure, right-clicking on configuration item DemNvRamBlockId to choose synchronization will automatically create a corresponding NvMBlock in the NvM module.</p>
 <p>若Dem支持UDS、OBD诊断，则同步功能创建的NvMBlock包括DemNvRamBlockId_UDS_InternalData、DemNvRamBlockId_OBD_InternalData，用来存储与UDS/OBD相关event的内部数据。</p>
@@ -476,7 +475,7 @@
 </section>
 </section>
 <section id="diagnostic-information-frame-function">
-<h3>诊断信息帧功能 (Diagnostic Information Frame Function)<a class="headerlink" href="#diagnostic-information-frame-function" title="链接到此标题。">¶</a></h3>
+<h3>诊断信息帧功能 (Diagnostic Information Frame Function)<a class="headerlink" href="#diagnostic-information-frame-function" title="Link to this heading">¶</a></h3>
 <p>诊断故障代码信息帧的触发与诊断故障代码的状态有关。如果“本次操作循环测试失败”位由“0”变为“1”，ECU应触发诊断故障代码信息帧。</p>
 <p>The triggering of the fault code diagnostic information frame is related to the state of the fault code. If the &quot;current operation loop test failed&quot; bit changes from &quot;0&quot; to &quot;1&quot;, the ECU should trigger the fault code diagnostic information frame.</p>
 <p>如果某一时刻由于总线系统初始化或存在故障（例如：Busoff）无法实现诊断故障代码信息帧的触发，则应等初始化完成或故障现象消除后触发。</p>
@@ -488,7 +487,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 Dem组件文件描述 (Table Dem Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -553,13 +552,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dem-componentidtype-definition-of-dem-componentidtype-type">
-<h2>Dem_ComponentIdType类型定义 (Definition of Dem_ComponentIdType Type)<a class="headerlink" href="#dem-componentidtype-definition-of-dem-componentidtype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ComponentIdType类型定义 (Definition of Dem_ComponentIdType Type)<a class="headerlink" href="#dem-componentidtype-definition-of-dem-componentidtype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -584,7 +583,7 @@
 </table>
 </section>
 <section id="dem-configtype-dem-configtype-type-definition">
-<h2>Dem_ConfigType类型定义 (Dem_ConfigType Type Definition)<a class="headerlink" href="#dem-configtype-dem-configtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ConfigType类型定义 (Dem_ConfigType Type Definition)<a class="headerlink" href="#dem-configtype-dem-configtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -609,7 +608,7 @@
 </table>
 </section>
 <section id="dem-eventidtype-definition-of-dem-eventidtype-type">
-<h2>Dem_EventIdType类型定义 (Definition of Dem_EventIdType Type)<a class="headerlink" href="#dem-eventidtype-definition-of-dem-eventidtype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dem_EventIdType类型定义 (Definition of Dem_EventIdType Type)<a class="headerlink" href="#dem-eventidtype-definition-of-dem-eventidtype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -634,7 +633,7 @@
 </table>
 </section>
 <section id="dem-eventstatustype-eventstatustype-type-definition">
-<h2>Dem_EventStatusType类型定义 (EventStatusType type definition)<a class="headerlink" href="#dem-eventstatustype-eventstatustype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_EventStatusType类型定义 (EventStatusType type definition)<a class="headerlink" href="#dem-eventstatustype-eventstatustype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -684,7 +683,7 @@
 </table>
 </section>
 <section id="dem-debouncingstatetype-type-definition-for-dem-debouncingstatetype">
-<h2>Dem_DebouncingStateType类型定义 (Type definition for Dem_DebouncingStateType)<a class="headerlink" href="#dem-debouncingstatetype-type-definition-for-dem-debouncingstatetype" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DebouncingStateType类型定义 (Type definition for Dem_DebouncingStateType)<a class="headerlink" href="#dem-debouncingstatetype-type-definition-for-dem-debouncingstatetype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -730,7 +729,7 @@
 </table>
 </section>
 <section id="dem-debounceresetstatustype-type-definition-for-dem-debounceresetstatustype">
-<h2>Dem_DebounceResetStatusType类型定义 (Type definition for Dem_DebounceResetStatusType)<a class="headerlink" href="#dem-debounceresetstatustype-type-definition-for-dem-debounceresetstatustype" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DebounceResetStatusType类型定义 (Type definition for Dem_DebounceResetStatusType)<a class="headerlink" href="#dem-debounceresetstatustype-type-definition-for-dem-debounceresetstatustype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -768,7 +767,7 @@
 </table>
 </section>
 <section id="dem-udsstatusbytetype-dem-udsstatusbytetype-type-definition">
-<h2>Dem_UdsStatusByteType类型定义 (Dem_UdsStatusByteType type definition)<a class="headerlink" href="#dem-udsstatusbytetype-dem-udsstatusbytetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_UdsStatusByteType类型定义 (Dem_UdsStatusByteType type definition)<a class="headerlink" href="#dem-udsstatusbytetype-dem-udsstatusbytetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -826,7 +825,7 @@
 </table>
 </section>
 <section id="dem-operationcyclestatetype-operationcyclestatetype-type-definition">
-<h2>Dem_OperationCycleStateType类型定义 (OperationCycleStateType Type Definition)<a class="headerlink" href="#dem-operationcyclestatetype-operationcyclestatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_OperationCycleStateType类型定义 (OperationCycleStateType Type Definition)<a class="headerlink" href="#dem-operationcyclestatetype-operationcyclestatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -860,7 +859,7 @@
 </table>
 </section>
 <section id="dem-indicatorstatustype-dem-indicatorstatustype-type-definition">
-<h2>Dem_IndicatorStatusType类型定义 (Dem_IndicatorStatusType type definition)<a class="headerlink" href="#dem-indicatorstatustype-dem-indicatorstatustype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_IndicatorStatusType类型定义 (Dem_IndicatorStatusType type definition)<a class="headerlink" href="#dem-indicatorstatustype-dem-indicatorstatustype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -918,7 +917,7 @@
 </table>
 </section>
 <section id="dem-dtckindtype-definition-of-dem-dtckindtype-type">
-<h2>Dem_DTCKindType类型定义 (Definition of Dem_DTCKindType Type)<a class="headerlink" href="#dem-dtckindtype-definition-of-dem-dtckindtype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTCKindType类型定义 (Definition of Dem_DTCKindType Type)<a class="headerlink" href="#dem-dtckindtype-definition-of-dem-dtckindtype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -952,7 +951,7 @@
 </table>
 </section>
 <section id="dem-dtcformattype-dem-dtcformattype-type-definition">
-<h2>Dem_DTCFormatType类型定义 (Dem_DTCFormatType type definition)<a class="headerlink" href="#dem-dtcformattype-dem-dtcformattype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTCFormatType类型定义 (Dem_DTCFormatType type definition)<a class="headerlink" href="#dem-dtcformattype-dem-dtcformattype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -990,7 +989,7 @@
 </table>
 </section>
 <section id="dem-dtcorigintype-dem-dtcorigintype-type-definition">
-<h2>Dem_DTCOriginType类型定义 (Dem_DTCOriginType type definition)<a class="headerlink" href="#dem-dtcorigintype-dem-dtcorigintype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTCOriginType类型定义 (Dem_DTCOriginType type definition)<a class="headerlink" href="#dem-dtcorigintype-dem-dtcorigintype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1032,7 +1031,7 @@
 </table>
 </section>
 <section id="dem-dtcrequesttype-dem-dtcrequesttype-type-definition">
-<h2>Dem_DTCRequestType类型定义 (Dem_DTCRequestType type definition)<a class="headerlink" href="#dem-dtcrequesttype-dem-dtcrequesttype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTCRequestType类型定义 (Dem_DTCRequestType type definition)<a class="headerlink" href="#dem-dtcrequesttype-dem-dtcrequesttype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1074,7 +1073,7 @@
 </table>
 </section>
 <section id="dem-dtctranslationformattype-translationtype-typedefinition">
-<h2>Dem_DTCTranslationFormatType类型定义 (TranslationType typeDefinition)<a class="headerlink" href="#dem-dtctranslationformattype-translationtype-typedefinition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTCTranslationFormatType类型定义 (TranslationType typeDefinition)<a class="headerlink" href="#dem-dtctranslationformattype-translationtype-typedefinition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1120,7 +1119,7 @@
 </table>
 </section>
 <section id="dem-dtcseveritytype-dem-dtcseveritytype-type-definition">
-<h2>Dem_DTCSeverityType类型定义 (Dem_DTCSeverityType type definition)<a class="headerlink" href="#dem-dtcseveritytype-dem-dtcseveritytype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTCSeverityType类型定义 (Dem_DTCSeverityType type definition)<a class="headerlink" href="#dem-dtcseveritytype-dem-dtcseveritytype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1186,7 +1185,7 @@
 </table>
 </section>
 <section id="dem-ratioidtype-definition-of-dem-ratioidtype-type">
-<h2>Dem_RatioIdType类型定义 (Definition of Dem_RatioIdType Type)<a class="headerlink" href="#dem-ratioidtype-definition-of-dem-ratioidtype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dem_RatioIdType类型定义 (Definition of Dem_RatioIdType Type)<a class="headerlink" href="#dem-ratioidtype-definition-of-dem-ratioidtype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1211,7 +1210,7 @@
 </table>
 </section>
 <section id="dem-dtrcontroltype-type-definition-for-dem-dtrcontroltype">
-<h2>Dem_DTRControlType类型定义 (Type definition for Dem_DTRControlType)<a class="headerlink" href="#dem-dtrcontroltype-type-definition-for-dem-dtrcontroltype" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DTRControlType类型定义 (Type definition for Dem_DTRControlType)<a class="headerlink" href="#dem-dtrcontroltype-type-definition-for-dem-dtrcontroltype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1257,7 +1256,7 @@
 </table>
 </section>
 <section id="dem-initmonitorreasontype-preserve-initmonitorreasontype-type-definition">
-<h2>Dem_InitMonitorReasonType类型定义 (Preserve_InitMonitorReasonType type definition)<a class="headerlink" href="#dem-initmonitorreasontype-preserve-initmonitorreasontype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_InitMonitorReasonType类型定义 (Preserve_InitMonitorReasonType type definition)<a class="headerlink" href="#dem-initmonitorreasontype-preserve-initmonitorreasontype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1299,7 +1298,7 @@
 </table>
 </section>
 <section id="dem-iumprdenomcondidtype-definition-of-dem-iumprdenomcondidtype-type">
-<h2>Dem_IumprDenomCondIdType类型定义 (Definition of Dem_IumprDenomCondIdType Type)<a class="headerlink" href="#dem-iumprdenomcondidtype-definition-of-dem-iumprdenomcondidtype-type" title="链接到此标题。">¶</a></h2>
+<h2>Dem_IumprDenomCondIdType类型定义 (Definition of Dem_IumprDenomCondIdType Type)<a class="headerlink" href="#dem-iumprdenomcondidtype-definition-of-dem-iumprdenomcondidtype-type" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1341,7 +1340,7 @@
 </table>
 </section>
 <section id="dem-iumprdenomcondstatustype-type-definition-for-dem-iumprdenomcondstatus">
-<h2>Dem_IumprDenomCondStatusType类型定义 (Type Definition for Dem_IumprDenomCondStatus)<a class="headerlink" href="#dem-iumprdenomcondstatustype-type-definition-for-dem-iumprdenomcondstatus" title="链接到此标题。">¶</a></h2>
+<h2>Dem_IumprDenomCondStatusType类型定义 (Type Definition for Dem_IumprDenomCondStatus)<a class="headerlink" href="#dem-iumprdenomcondstatustype-type-definition-for-dem-iumprdenomcondstatus" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1383,7 +1382,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmdtcstatusfiltertype-type-definition-for-dem-j1939dcmdtcstatusfiltertype">
-<h2>Dem_J1939DcmDTCStatusFilterType类型定义 (Type definition for Dem_J1939DcmDtcStatusFilterType)<a class="headerlink" href="#dem-j1939dcmdtcstatusfiltertype-type-definition-for-dem-j1939dcmdtcstatusfiltertype" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmDTCStatusFilterType类型定义 (Type definition for Dem_J1939DcmDtcStatusFilterType)<a class="headerlink" href="#dem-j1939dcmdtcstatusfiltertype-type-definition-for-dem-j1939dcmdtcstatusfiltertype" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1429,7 +1428,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmsetclearfiltertype-dem-j1939dcmsetclearfiltertype-type-definition">
-<h2>Dem_J1939DcmSetClearFilterType类型定义 (Dem_J1939DcmSetClearFilterType type definition)<a class="headerlink" href="#dem-j1939dcmsetclearfiltertype-dem-j1939dcmsetclearfiltertype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmSetClearFilterType类型定义 (Dem_J1939DcmSetClearFilterType type definition)<a class="headerlink" href="#dem-j1939dcmsetclearfiltertype-dem-j1939dcmsetclearfiltertype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1463,7 +1462,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmsetfreezeframefiltertype-dem-j1939dcmsetfreezeframefiltertype-type-definition">
-<h2>Dem_J1939DcmSetFreezeFrameFilterType类型定义 (Dem_J1939DcmSetFreezeFrameFilterType type definition)<a class="headerlink" href="#dem-j1939dcmsetfreezeframefiltertype-dem-j1939dcmsetfreezeframefiltertype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmSetFreezeFrameFilterType类型定义 (Dem_J1939DcmSetFreezeFrameFilterType type definition)<a class="headerlink" href="#dem-j1939dcmsetfreezeframefiltertype-dem-j1939dcmsetfreezeframefiltertype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -1501,7 +1500,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmlampstatustype-dem-j1939dcmlampstatustype-type-definition">
-<h2>Dem_J1939DcmLampStatusType类型定义 (Dem_J1939DcmLampStatusType type definition)<a class="headerlink" href="#dem-j1939dcmlampstatustype-dem-j1939dcmlampstatustype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmLampStatusType类型定义 (Dem_J1939DcmLampStatusType type definition)<a class="headerlink" href="#dem-j1939dcmlampstatustype-dem-j1939dcmlampstatustype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1536,7 +1535,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness1type-dem-j1939dcmdiagnosticreadiness1type-type-definition">
-<h2>Dem_J1939DcmDiagnosticReadiness1Type类型定义 (Dem_J1939DcmDiagnosticReadiness1Type type definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness1type-dem-j1939dcmdiagnosticreadiness1type-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmDiagnosticReadiness1Type类型定义 (Dem_J1939DcmDiagnosticReadiness1Type type definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness1type-dem-j1939dcmdiagnosticreadiness1type-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1585,7 +1584,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness2type-dem-j1939dcmdiagnosticreadiness2type-type-definition">
-<h2>Dem_J1939DcmDiagnosticReadiness2Type类型定义 (Dem_J1939DcmDiagnosticReadiness2Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness2type-dem-j1939dcmdiagnosticreadiness2type-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmDiagnosticReadiness2Type类型定义 (Dem_J1939DcmDiagnosticReadiness2Type Type Definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness2type-dem-j1939dcmdiagnosticreadiness2type-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1628,7 +1627,7 @@
 </table>
 </section>
 <section id="dem-j1939dcmdiagnosticreadiness3type-dem-j1939-dcmdiagnosticreadiness3-type-definition">
-<h2>Dem_J1939DcmDiagnosticReadiness3Type类型定义 (Dem_J1939_DcmDiagnosticReadiness3_Type definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness3type-dem-j1939-dcmdiagnosticreadiness3-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmDiagnosticReadiness3Type类型定义 (Dem_J1939_DcmDiagnosticReadiness3_Type definition)<a class="headerlink" href="#dem-j1939dcmdiagnosticreadiness3type-dem-j1939-dcmdiagnosticreadiness3-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1673,7 +1672,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1704,11 +1703,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="dem-getversioninfo-the-dem-getversioninfo-function-definition">
-<h2>Dem_GetVersionInfo函数定义 (The Dem_GetVersionInfo function definition)<a class="headerlink" href="#dem-getversioninfo-the-dem-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetVersionInfo函数定义 (The Dem_GetVersionInfo function definition)<a class="headerlink" href="#dem-getversioninfo-the-dem-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1773,7 +1772,7 @@
 </table>
 </section>
 <section id="dem-preinit-the-dem-preinit-function-definition">
-<h2>Dem_PreInit函数定义 (The Dem_PreInit function definition)<a class="headerlink" href="#dem-preinit-the-dem-preinit-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_PreInit函数定义 (The Dem_PreInit function definition)<a class="headerlink" href="#dem-preinit-the-dem-preinit-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1816,7 +1815,7 @@
 </table>
 </section>
 <section id="dem-init-the-dem-init-function-defines">
-<h2>Dem_Init函数定义 (The Dem_Init function defines)<a class="headerlink" href="#dem-init-the-dem-init-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_Init函数定义 (The Dem_Init function defines)<a class="headerlink" href="#dem-init-the-dem-init-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1881,7 +1880,7 @@
 </table>
 </section>
 <section id="dem-shutdown-definition-of-dem-shutdown-function">
-<h2>Dem_Shutdown函数定义 (Definition of Dem_Shutdown Function)<a class="headerlink" href="#dem-shutdown-definition-of-dem-shutdown-function" title="链接到此标题。">¶</a></h2>
+<h2>Dem_Shutdown函数定义 (Definition of Dem_Shutdown Function)<a class="headerlink" href="#dem-shutdown-definition-of-dem-shutdown-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1946,7 +1945,7 @@
 </table>
 </section>
 <section id="dem-reporterrorstatus-the-dem-reporterrorstatus-function-definition">
-<h2>Dem_ReportErrorStatus函数定义 (The Dem_ReportErrorStatus function definition)<a class="headerlink" href="#dem-reporterrorstatus-the-dem-reporterrorstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ReportErrorStatus函数定义 (The Dem_ReportErrorStatus function definition)<a class="headerlink" href="#dem-reporterrorstatus-the-dem-reporterrorstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2016,7 +2015,7 @@
 </table>
 </section>
 <section id="dem-seteventavailable-the-dem-seteventavailable-function-definition">
-<h2>Dem_SetEventAvailable函数定义 (The Dem_SetEventAvailable function definition)<a class="headerlink" href="#dem-seteventavailable-the-dem-seteventavailable-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetEventAvailable函数定义 (The Dem_SetEventAvailable function definition)<a class="headerlink" href="#dem-seteventavailable-the-dem-seteventavailable-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2091,7 +2090,7 @@
 </table>
 </section>
 <section id="dem-seteventstatus-the-dem-seteventstatus-function-definition">
-<h2>Dem_SetEventStatus函数定义 (The Dem_SetEventStatus function definition)<a class="headerlink" href="#dem-seteventstatus-the-dem-seteventstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetEventStatus函数定义 (The Dem_SetEventStatus function definition)<a class="headerlink" href="#dem-seteventstatus-the-dem-seteventstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2166,7 +2165,7 @@
 </table>
 </section>
 <section id="dem-reseteventdebouncestatus-the-dem-reseteventdebouncestatus-function-defines">
-<h2>Dem_ResetEventDebounceStatus函数定义 (The Dem_ResetEventDebounceStatus function defines)<a class="headerlink" href="#dem-reseteventdebouncestatus-the-dem-reseteventdebouncestatus-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ResetEventDebounceStatus函数定义 (The Dem_ResetEventDebounceStatus function defines)<a class="headerlink" href="#dem-reseteventdebouncestatus-the-dem-reseteventdebouncestatus-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2241,7 +2240,7 @@
 </table>
 </section>
 <section id="dem-reseteventstatus-the-dem-reseteventstatus-function-defines">
-<h2>Dem_ResetEventStatus函数定义 (The Dem_ResetEventStatus function defines)<a class="headerlink" href="#dem-reseteventstatus-the-dem-reseteventstatus-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ResetEventStatus函数定义 (The Dem_ResetEventStatus function defines)<a class="headerlink" href="#dem-reseteventstatus-the-dem-reseteventstatus-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2311,7 +2310,7 @@
 </table>
 </section>
 <section id="dem-prestorefreezeframe-the-dem-prestorefreezeframe-function-definition">
-<h2>Dem_PrestoreFreezeFrame函数定义 (The Dem_PrestoreFreezeFrame function definition)<a class="headerlink" href="#dem-prestorefreezeframe-the-dem-prestorefreezeframe-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_PrestoreFreezeFrame函数定义 (The Dem_PrestoreFreezeFrame function definition)<a class="headerlink" href="#dem-prestorefreezeframe-the-dem-prestorefreezeframe-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2381,7 +2380,7 @@
 </table>
 </section>
 <section id="dem-clearprestoredfreezeframe-the-dem-clearprestoredfreezeframe-function-definition">
-<h2>Dem_ClearPrestoredFreezeFrame函数定义 (The Dem_ClearPrestoredFreezeFrame function definition)<a class="headerlink" href="#dem-clearprestoredfreezeframe-the-dem-clearprestoredfreezeframe-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ClearPrestoredFreezeFrame函数定义 (The Dem_ClearPrestoredFreezeFrame function definition)<a class="headerlink" href="#dem-clearprestoredfreezeframe-the-dem-clearprestoredfreezeframe-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2456,7 +2455,7 @@
 </table>
 </section>
 <section id="dem-setoperationcyclestate-the-dem-setoperationcyclestate-function-defines">
-<h2>Dem_SetOperationCycleState函数定义 (The Dem_SetOperationCycleState function defines)<a class="headerlink" href="#dem-setoperationcyclestate-the-dem-setoperationcyclestate-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetOperationCycleState函数定义 (The Dem_SetOperationCycleState function defines)<a class="headerlink" href="#dem-setoperationcyclestate-the-dem-setoperationcyclestate-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2541,7 +2540,7 @@
 </table>
 </section>
 <section id="dem-getoperationcyclestate-the-dem-getoperationcyclestate-function-defines">
-<h2>Dem_GetOperationCycleState函数定义 (The Dem_GetOperationCycleState function defines)<a class="headerlink" href="#dem-getoperationcyclestate-the-dem-getoperationcyclestate-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetOperationCycleState函数定义 (The Dem_GetOperationCycleState function defines)<a class="headerlink" href="#dem-getoperationcyclestate-the-dem-getoperationcyclestate-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2616,7 +2615,7 @@
 </table>
 </section>
 <section id="dem-setagingcyclestate-the-dem-setagingcyclestate-function-defines">
-<h2>Dem_SetAgingCycleState函数定义 (The Dem_SetAgingCycleState function defines)<a class="headerlink" href="#dem-setagingcyclestate-the-dem-setagingcyclestate-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetAgingCycleState函数定义 (The Dem_SetAgingCycleState function defines)<a class="headerlink" href="#dem-setagingcyclestate-the-dem-setagingcyclestate-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2691,7 +2690,7 @@
 </table>
 </section>
 <section id="dem-setwirstatus-the-dem-setwirstatus-function-definition">
-<h2>Dem_SetWIRStatus函数定义 (The Dem_SetWIRStatus function definition)<a class="headerlink" href="#dem-setwirstatus-the-dem-setwirstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetWIRStatus函数定义 (The Dem_SetWIRStatus function definition)<a class="headerlink" href="#dem-setwirstatus-the-dem-setwirstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2771,7 +2770,7 @@
 </table>
 </section>
 <section id="dem-getcomponentfailed-the-dem-getcomponentfailed-function-definition">
-<h2>Dem_GetComponentFailed函数定义 (The Dem_GetComponentFailed function definition)<a class="headerlink" href="#dem-getcomponentfailed-the-dem-getcomponentfailed-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetComponentFailed函数定义 (The Dem_GetComponentFailed function definition)<a class="headerlink" href="#dem-getcomponentfailed-the-dem-getcomponentfailed-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2856,7 +2855,7 @@
 </table>
 </section>
 <section id="dem-geteventstatus-the-dem-geteventstatus-function-definition">
-<h2>Dem_GetEventStatus函数定义 (The Dem_GetEventStatus function definition)<a class="headerlink" href="#dem-geteventstatus-the-dem-geteventstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetEventStatus函数定义 (The Dem_GetEventStatus function definition)<a class="headerlink" href="#dem-geteventstatus-the-dem-geteventstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2931,7 +2930,7 @@
 </table>
 </section>
 <section id="dem-geteventfailed-the-function-definition-for-dem-geteventfailed">
-<h2>Dem_GetEventFailed函数定义 (The function definition for Dem_GetEventFailed)<a class="headerlink" href="#dem-geteventfailed-the-function-definition-for-dem-geteventfailed" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetEventFailed函数定义 (The function definition for Dem_GetEventFailed)<a class="headerlink" href="#dem-geteventfailed-the-function-definition-for-dem-geteventfailed" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3006,7 +3005,7 @@
 </table>
 </section>
 <section id="dem-geteventtested-the-dem-geteventtested-function-definition">
-<h2>Dem_GetEventTested函数定义 (The Dem_GetEventTested function definition)<a class="headerlink" href="#dem-geteventtested-the-dem-geteventtested-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetEventTested函数定义 (The Dem_GetEventTested function definition)<a class="headerlink" href="#dem-geteventtested-the-dem-geteventtested-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3081,7 +3080,7 @@
 </table>
 </section>
 <section id="dem-getdebouncingofevent-the-dem-getdebouncingofevent-function-definition">
-<h2>Dem_GetDebouncingOfEvent函数定义 (The Dem_GetDebouncingOfEvent function definition)<a class="headerlink" href="#dem-getdebouncingofevent-the-dem-getdebouncingofevent-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetDebouncingOfEvent函数定义 (The Dem_GetDebouncingOfEvent function definition)<a class="headerlink" href="#dem-getdebouncingofevent-the-dem-getdebouncingofevent-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3181,7 +3180,7 @@
 </table>
 </section>
 <section id="dem-getdtcofevent-the-dem-getdtcofevent-function-definition">
-<h2>Dem_GetDTCOfEvent函数定义 (The Dem_GetDTCOfEvent function definition)<a class="headerlink" href="#dem-getdtcofevent-the-dem-getdtcofevent-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetDTCOfEvent函数定义 (The Dem_GetDTCOfEvent function definition)<a class="headerlink" href="#dem-getdtcofevent-the-dem-getdtcofevent-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3266,7 +3265,7 @@
 </table>
 </section>
 <section id="dem-setenablecondition-the-dem-setenablecondition-function-definition">
-<h2>Dem_SetEnableCondition函数定义 (The Dem_SetEnableCondition function definition)<a class="headerlink" href="#dem-setenablecondition-the-dem-setenablecondition-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetEnableCondition函数定义 (The Dem_SetEnableCondition function definition)<a class="headerlink" href="#dem-setenablecondition-the-dem-setenablecondition-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3341,7 +3340,7 @@
 </table>
 </section>
 <section id="dem-setstoragecondition-the-dem-setstoragecondition-function-definition">
-<h2>Dem_SetStorageCondition函数定义 (The Dem_SetStorageCondition function definition)<a class="headerlink" href="#dem-setstoragecondition-the-dem-setstoragecondition-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetStorageCondition函数定义 (The Dem_SetStorageCondition function definition)<a class="headerlink" href="#dem-setstoragecondition-the-dem-setstoragecondition-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3416,7 +3415,7 @@
 </table>
 </section>
 <section id="dem-getfaultdetectioncounter-the-function-definition-for-dem-getfaultdetectioncounter">
-<h2>Dem_GetFaultDetectionCounter函数定义 (The function definition for Dem_GetFaultDetectionCounter)<a class="headerlink" href="#dem-getfaultdetectioncounter-the-function-definition-for-dem-getfaultdetectioncounter" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetFaultDetectionCounter函数定义 (The function definition for Dem_GetFaultDetectionCounter)<a class="headerlink" href="#dem-getfaultdetectioncounter-the-function-definition-for-dem-getfaultdetectioncounter" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3496,7 +3495,7 @@
 </table>
 </section>
 <section id="dem-getindicatorstatus-the-dem-getindicatorstatus-function-definition">
-<h2>Dem_GetIndicatorStatus函数定义 (The Dem_GetIndicatorStatus function definition)<a class="headerlink" href="#dem-getindicatorstatus-the-dem-getindicatorstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetIndicatorStatus函数定义 (The Dem_GetIndicatorStatus function definition)<a class="headerlink" href="#dem-getindicatorstatus-the-dem-getindicatorstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3566,7 +3565,7 @@
 </table>
 </section>
 <section id="dem-geteventfreezeframedataex-the-function-definition-for-dem-geteventfreezeframedataex">
-<h2>Dem_GetEventFreezeFrameDataEx函数定义 (The function definition for Dem_GetEventFreezeFrameDataEx)<a class="headerlink" href="#dem-geteventfreezeframedataex-the-function-definition-for-dem-geteventfreezeframedataex" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetEventFreezeFrameDataEx函数定义 (The function definition for Dem_GetEventFreezeFrameDataEx)<a class="headerlink" href="#dem-geteventfreezeframedataex-the-function-definition-for-dem-geteventfreezeframedataex" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3671,7 +3670,7 @@
 </table>
 </section>
 <section id="dem-geteventextendeddatarecordex-the-dem-geteventextendeddatarecordex-function-definition">
-<h2>Dem_GetEventExtendedDataRecordEx函数定义 (The Dem_GetEventExtendedDataRecordEx function definition)<a class="headerlink" href="#dem-geteventextendeddatarecordex-the-dem-geteventextendeddatarecordex-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetEventExtendedDataRecordEx函数定义 (The Dem_GetEventExtendedDataRecordEx function definition)<a class="headerlink" href="#dem-geteventextendeddatarecordex-the-dem-geteventextendeddatarecordex-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3761,7 +3760,7 @@
 </table>
 </section>
 <section id="dem-geteventmemoryoverflow-the-dem-geteventmemoryoverflow-function-definition">
-<h2>Dem_GetEventMemoryOverflow函数定义 (The Dem_GetEventMemoryOverflow function definition)<a class="headerlink" href="#dem-geteventmemoryoverflow-the-dem-geteventmemoryoverflow-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetEventMemoryOverflow函数定义 (The Dem_GetEventMemoryOverflow function definition)<a class="headerlink" href="#dem-geteventmemoryoverflow-the-dem-geteventmemoryoverflow-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3831,7 +3830,7 @@
 </table>
 </section>
 <section id="dem-getnumberofeventmemoryentries-the-function-definition-for-dem-getnumberofeventmemoryentries">
-<h2>Dem_GetNumberOfEventMemoryEntries函数定义 (The function definition for Dem_GetNumberOfEventMemoryEntries)<a class="headerlink" href="#dem-getnumberofeventmemoryentries-the-function-definition-for-dem-getnumberofeventmemoryentries" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetNumberOfEventMemoryEntries函数定义 (The function definition for Dem_GetNumberOfEventMemoryEntries)<a class="headerlink" href="#dem-getnumberofeventmemoryentries-the-function-definition-for-dem-getnumberofeventmemoryentries" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3901,7 +3900,7 @@
 </table>
 </section>
 <section id="dem-setcomponentavailable-the-dem-setcomponentavailable-function-definition">
-<h2>Dem_SetComponentAvailable函数定义 (The Dem_SetComponentAvailable function definition)<a class="headerlink" href="#dem-setcomponentavailable-the-dem-setcomponentavailable-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetComponentAvailable函数定义 (The Dem_SetComponentAvailable function definition)<a class="headerlink" href="#dem-setcomponentavailable-the-dem-setcomponentavailable-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3971,7 +3970,7 @@
 </table>
 </section>
 <section id="dem-setdtcsuppression-the-dem-setdtcsuppression-function-defines">
-<h2>Dem_SetDTCSuppression函数定义 (The Dem_SetDTCSuppression function defines)<a class="headerlink" href="#dem-setdtcsuppression-the-dem-setdtcsuppression-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetDTCSuppression函数定义 (The Dem_SetDTCSuppression function defines)<a class="headerlink" href="#dem-setdtcsuppression-the-dem-setdtcsuppression-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4051,7 +4050,7 @@
 </table>
 </section>
 <section id="dem-cleardtc-dem-cleardtc-function-definition">
-<h2>Dem_ClearDTC函数定义 (Dem_ClearDTC Function Definition)<a class="headerlink" href="#dem-cleardtc-dem-cleardtc-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ClearDTC函数定义 (Dem_ClearDTC Function Definition)<a class="headerlink" href="#dem-cleardtc-dem-cleardtc-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4126,7 +4125,7 @@
 </table>
 </section>
 <section id="dem-dcmgettranslationtype-the-dem-dcmgettranslationtype-function-defines">
-<h2>Dem_DcmGetTranslationType函数定义 (The Dem_DcmGetTranslationType function defines)<a class="headerlink" href="#dem-dcmgettranslationtype-the-dem-dcmgettranslationtype-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetTranslationType函数定义 (The Dem_DcmGetTranslationType function defines)<a class="headerlink" href="#dem-dcmgettranslationtype-the-dem-dcmgettranslationtype-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4191,7 +4190,7 @@
 </table>
 </section>
 <section id="dem-dcmgetdtcstatusavailabilitymask-the-dem-dcmgetdtcstatusavailabilitymask-function-definition">
-<h2>Dem_DcmGetDTCStatusAvailabilityMask函数定义 (The Dem_DcmGetDTCStatusAvailabilityMask function definition)<a class="headerlink" href="#dem-dcmgetdtcstatusavailabilitymask-the-dem-dcmgetdtcstatusavailabilitymask-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetDTCStatusAvailabilityMask函数定义 (The Dem_DcmGetDTCStatusAvailabilityMask function definition)<a class="headerlink" href="#dem-dcmgetdtcstatusavailabilitymask-the-dem-dcmgetdtcstatusavailabilitymask-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4261,7 +4260,7 @@
 </table>
 </section>
 <section id="dem-dcmgetstatusofdtc-the-function-definition-for-dem-dcmgetstatusofdtc">
-<h2>Dem_DcmGetStatusOfDTC函数定义 (The function definition for Dem_DcmGetStatusOfDTC)<a class="headerlink" href="#dem-dcmgetstatusofdtc-the-function-definition-for-dem-dcmgetstatusofdtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetStatusOfDTC函数定义 (The function definition for Dem_DcmGetStatusOfDTC)<a class="headerlink" href="#dem-dcmgetstatusofdtc-the-function-definition-for-dem-dcmgetstatusofdtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4331,7 +4330,7 @@
 </table>
 </section>
 <section id="dem-dcmgetseverityofdtc-the-dem-dcmgetseverityofdtc-function-definition">
-<h2>Dem_DcmGetSeverityOfDTC函数定义 (The Dem_DcmGetSeverityOfDTC function definition)<a class="headerlink" href="#dem-dcmgetseverityofdtc-the-dem-dcmgetseverityofdtc-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetSeverityOfDTC函数定义 (The Dem_DcmGetSeverityOfDTC function definition)<a class="headerlink" href="#dem-dcmgetseverityofdtc-the-dem-dcmgetseverityofdtc-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4396,7 +4395,7 @@
 </table>
 </section>
 <section id="dem-dcmgetfunctionalunitofdtc-the-definition-of-dem-dcmgetfunctionalunitofdtc-function">
-<h2>Dem_DcmGetFunctionalUnitOfDTC函数定义 (The definition of Dem_DcmGetFunctionalUnitOfDTC function)<a class="headerlink" href="#dem-dcmgetfunctionalunitofdtc-the-definition-of-dem-dcmgetfunctionalunitofdtc-function" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetFunctionalUnitOfDTC函数定义 (The definition of Dem_DcmGetFunctionalUnitOfDTC function)<a class="headerlink" href="#dem-dcmgetfunctionalunitofdtc-the-definition-of-dem-dcmgetfunctionalunitofdtc-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4461,7 +4460,7 @@
 </table>
 </section>
 <section id="dem-dcmsetdtcfilter-the-dem-dcmsetdtcfilter-function-definition">
-<h2>Dem_DcmSetDTCFilter函数定义 (The Dem_DcmSetDTCFilter function definition)<a class="headerlink" href="#dem-dcmsetdtcfilter-the-dem-dcmsetdtcfilter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmSetDTCFilter函数定义 (The Dem_DcmSetDTCFilter function definition)<a class="headerlink" href="#dem-dcmsetdtcfilter-the-dem-dcmsetdtcfilter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4557,7 +4556,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetnumberoffiltereddtc-function-definition-for-dem-dcmgetnumberoffiltereddtc">
-<h2>Dem_DcmGetNumberOfFilteredDTC函数定义 (Function definition for Dem_DcmGetNumberOfFilteredDTC)<a class="headerlink" href="#dem-dcmgetnumberoffiltereddtc-function-definition-for-dem-dcmgetnumberoffiltereddtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetNumberOfFilteredDTC函数定义 (Function definition for Dem_DcmGetNumberOfFilteredDTC)<a class="headerlink" href="#dem-dcmgetnumberoffiltereddtc-function-definition-for-dem-dcmgetnumberoffiltereddtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4622,7 +4621,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetnextfiltereddtc-the-function-definition-for-dem-dcmgetnextfiltereddtc">
-<h2>Dem_DcmGetNextFilteredDTC函数定义 (The function definition for Dem_DcmGetNextFilteredDTC)<a class="headerlink" href="#dem-dcmgetnextfiltereddtc-the-function-definition-for-dem-dcmgetnextfiltereddtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetNextFilteredDTC函数定义 (The function definition for Dem_DcmGetNextFilteredDTC)<a class="headerlink" href="#dem-dcmgetnextfiltereddtc-the-function-definition-for-dem-dcmgetnextfiltereddtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4692,7 +4691,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetnextfiltereddtcandfdc-function-definition-for-dem-dcmgetnextfiltereddtcandfdc">
-<h2>Dem_DcmGetNextFilteredDTCAndFDC函数定义 (Function definition for Dem_DcmGetNextFilteredDTCAndFDC)<a class="headerlink" href="#dem-dcmgetnextfiltereddtcandfdc-function-definition-for-dem-dcmgetnextfiltereddtcandfdc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetNextFilteredDTCAndFDC函数定义 (Function definition for Dem_DcmGetNextFilteredDTCAndFDC)<a class="headerlink" href="#dem-dcmgetnextfiltereddtcandfdc-function-definition-for-dem-dcmgetnextfiltereddtcandfdc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4762,7 +4761,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetnextfiltereddtcandseverity-the-dem-dcmgetnextfiltereddtcandseverity-function-definition">
-<h2>Dem_DcmGetNextFilteredDTCAndSeverity函数定义 (The Dem_DcmGetNextFilteredDTCAndSeverity function definition)<a class="headerlink" href="#dem-dcmgetnextfiltereddtcandseverity-the-dem-dcmgetnextfiltereddtcandseverity-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetNextFilteredDTCAndSeverity函数定义 (The Dem_DcmGetNextFilteredDTCAndSeverity function definition)<a class="headerlink" href="#dem-dcmgetnextfiltereddtcandseverity-the-dem-dcmgetnextfiltereddtcandseverity-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4842,7 +4841,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmsetfreezeframerecordfilter-the-function-definition-for-dem-dcmsetfreezeframerecordfilter">
-<h2>Dem_DcmSetFreezeFrameRecordFilter函数定义 (The function definition for Dem_DcmSetFreezeFrameRecordFilter)<a class="headerlink" href="#dem-dcmsetfreezeframerecordfilter-the-function-definition-for-dem-dcmsetfreezeframerecordfilter" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmSetFreezeFrameRecordFilter函数定义 (The function definition for Dem_DcmSetFreezeFrameRecordFilter)<a class="headerlink" href="#dem-dcmsetfreezeframerecordfilter-the-function-definition-for-dem-dcmsetfreezeframerecordfilter" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4907,7 +4906,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetnextfilteredrecord-the-function-definition-for-dem-dcmgetnextfilteredrecord">
-<h2>Dem_DcmGetNextFilteredRecord函数定义 (The function definition for Dem_DcmGetNextFilteredRecord)<a class="headerlink" href="#dem-dcmgetnextfilteredrecord-the-function-definition-for-dem-dcmgetnextfilteredrecord" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetNextFilteredRecord函数定义 (The function definition for Dem_DcmGetNextFilteredRecord)<a class="headerlink" href="#dem-dcmgetnextfilteredrecord-the-function-definition-for-dem-dcmgetnextfilteredrecord" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -4977,7 +4976,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetdtcbyoccurrencetime-the-dem-dcmgetdtcbyoccurrencetime-function-definition">
-<h2>Dem_DcmGetDTCByOccurrenceTime函数定义 (The Dem_DcmGetDTCByOccurrenceTime function definition)<a class="headerlink" href="#dem-dcmgetdtcbyoccurrencetime-the-dem-dcmgetdtcbyoccurrencetime-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetDTCByOccurrenceTime函数定义 (The Dem_DcmGetDTCByOccurrenceTime function definition)<a class="headerlink" href="#dem-dcmgetdtcbyoccurrencetime-the-dem-dcmgetdtcbyoccurrencetime-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5042,7 +5041,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmcontroldtcstatuschangednotification-the-dem-dcmcontroldtcstatuschangednotification-function-definition">
-<h2>Dem_DcmControlDTCStatusChangedNotification函数定义 (The Dem_DcmControlDTCStatusChangedNotification function definition)<a class="headerlink" href="#dem-dcmcontroldtcstatuschangednotification-the-dem-dcmcontroldtcstatuschangednotification-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmControlDTCStatusChangedNotification函数定义 (The Dem_DcmControlDTCStatusChangedNotification function definition)<a class="headerlink" href="#dem-dcmcontroldtcstatuschangednotification-the-dem-dcmcontroldtcstatuschangednotification-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5107,7 +5106,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmdisabledtcrecordupdate-the-function-definition-for-dem-dcmdisabledtcrecordupdate">
-<h2>Dem_DcmDisableDTCRecordUpdate函数定义 (The function definition for Dem_DcmDisableDTCRecordUpdate)<a class="headerlink" href="#dem-dcmdisabledtcrecordupdate-the-function-definition-for-dem-dcmdisabledtcrecordupdate" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmDisableDTCRecordUpdate函数定义 (The function definition for Dem_DcmDisableDTCRecordUpdate)<a class="headerlink" href="#dem-dcmdisabledtcrecordupdate-the-function-definition-for-dem-dcmdisabledtcrecordupdate" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5177,7 +5176,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmenabledtcrecordupdate-the-function-definition-for-dem-dcmenabledtcrecordupdate">
-<h2>Dem_DcmEnableDTCRecordUpdate函数定义 (The function definition for Dem_DcmEnableDTCRecordUpdate)<a class="headerlink" href="#dem-dcmenabledtcrecordupdate-the-function-definition-for-dem-dcmenabledtcrecordupdate" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmEnableDTCRecordUpdate函数定义 (The function definition for Dem_DcmEnableDTCRecordUpdate)<a class="headerlink" href="#dem-dcmenabledtcrecordupdate-the-function-definition-for-dem-dcmenabledtcrecordupdate" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5242,7 +5241,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetfreezeframedatabydtc-the-function-definition-for-dem-dcmgetfreezeframedatabydtc">
-<h2>Dem_DcmGetFreezeFrameDataByDTC函数定义 (The function definition for Dem_DcmGetFreezeFrameDataByDTC)<a class="headerlink" href="#dem-dcmgetfreezeframedatabydtc-the-function-definition-for-dem-dcmgetfreezeframedatabydtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetFreezeFrameDataByDTC函数定义 (The function definition for Dem_DcmGetFreezeFrameDataByDTC)<a class="headerlink" href="#dem-dcmgetfreezeframedatabydtc-the-function-definition-for-dem-dcmgetfreezeframedatabydtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5317,7 +5316,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetsizeoffreezeframebydtc-the-dem-dcmgetsizeoffreezeframebydtc-function-definition">
-<h2>Dem_DcmGetSizeOfFreezeFrameByDTC函数定义 (The Dem_DcmGetSizeOfFreezeFrameByDTC function definition)<a class="headerlink" href="#dem-dcmgetsizeoffreezeframebydtc-the-dem-dcmgetsizeoffreezeframebydtc-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetSizeOfFreezeFrameByDTC函数定义 (The Dem_DcmGetSizeOfFreezeFrameByDTC function definition)<a class="headerlink" href="#dem-dcmgetsizeoffreezeframebydtc-the-dem-dcmgetsizeoffreezeframebydtc-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5397,7 +5396,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetextendeddatarecordbydtc-the-function-definition-for-dem-dcmgetextendeddatarecordbydtc">
-<h2>Dem_DcmGetExtendedDataRecordByDTC函数定义 (The function definition for Dem_DcmGetExtendedDataRecordByDTC)<a class="headerlink" href="#dem-dcmgetextendeddatarecordbydtc-the-function-definition-for-dem-dcmgetextendeddatarecordbydtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetExtendedDataRecordByDTC函数定义 (The function definition for Dem_DcmGetExtendedDataRecordByDTC)<a class="headerlink" href="#dem-dcmgetextendeddatarecordbydtc-the-function-definition-for-dem-dcmgetextendeddatarecordbydtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5472,7 +5471,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetsizeofextendeddatarecordbydtc-the-function-definition-for-dem-dcmgetsizeofextendeddatarecordbydtc">
-<h2>Dem_DcmGetSizeOfExtendedDataRecordByDTC函数定义 (The function definition for Dem_DcmGetSizeOfExtendedDataRecordByDTC)<a class="headerlink" href="#dem-dcmgetsizeofextendeddatarecordbydtc-the-function-definition-for-dem-dcmgetsizeofextendeddatarecordbydtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetSizeOfExtendedDataRecordByDTC函数定义 (The function definition for Dem_DcmGetSizeOfExtendedDataRecordByDTC)<a class="headerlink" href="#dem-dcmgetsizeofextendeddatarecordbydtc-the-function-definition-for-dem-dcmgetsizeofextendeddatarecordbydtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5547,7 +5546,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmcheckclearparameter-the-dem-dcmcheckclearparameter-function-definition">
-<h2>Dem_DcmCheckClearParameter函数定义 (The Dem_DcmCheckClearParameter function definition)<a class="headerlink" href="#dem-dcmcheckclearparameter-the-dem-dcmcheckclearparameter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmCheckClearParameter函数定义 (The Dem_DcmCheckClearParameter function definition)<a class="headerlink" href="#dem-dcmcheckclearparameter-the-dem-dcmcheckclearparameter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5642,7 +5641,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmcleardtc-function-definition-for-dem-dcmcleardtc">
-<h2>Dem_DcmClearDTC函数定义 (Function Definition for Dem_DcmClearDTC)<a class="headerlink" href="#dem-dcmcleardtc-function-definition-for-dem-dcmcleardtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmClearDTC函数定义 (Function Definition for Dem_DcmClearDTC)<a class="headerlink" href="#dem-dcmcleardtc-function-definition-for-dem-dcmcleardtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5717,7 +5716,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmdisabledtcsetting-the-dem-dcmdisabledtcsetting-function-definition">
-<h2>Dem_DcmDisableDTCSetting函数定义 (The Dem_DcmDisableDTCSetting function definition)<a class="headerlink" href="#dem-dcmdisabledtcsetting-the-dem-dcmdisabledtcsetting-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmDisableDTCSetting函数定义 (The Dem_DcmDisableDTCSetting function definition)<a class="headerlink" href="#dem-dcmdisabledtcsetting-the-dem-dcmdisabledtcsetting-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5787,7 +5786,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmenabledtcsetting-the-dem-dcmenabledtcsetting-function-definition">
-<h2>Dem_DcmEnableDTCSetting函数定义 (The Dem_DcmEnableDTCSetting function definition)<a class="headerlink" href="#dem-dcmenabledtcsetting-the-dem-dcmenabledtcsetting-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmEnableDTCSetting函数定义 (The Dem_DcmEnableDTCSetting function definition)<a class="headerlink" href="#dem-dcmenabledtcsetting-the-dem-dcmenabledtcsetting-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5857,7 +5856,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetinfotypevalue08-the-definition-of-dem-dcmgetinfotypevalue08-function">
-<h2>Dem_DcmGetInfoTypeValue08函数定义 (The definition of Dem_DcmGetInfoTypeValue08 function)<a class="headerlink" href="#dem-dcmgetinfotypevalue08-the-definition-of-dem-dcmgetinfotypevalue08-function" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetInfoTypeValue08函数定义 (The definition of Dem_DcmGetInfoTypeValue08 function)<a class="headerlink" href="#dem-dcmgetinfotypevalue08-the-definition-of-dem-dcmgetinfotypevalue08-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5922,7 +5921,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetinfotypevalue0b-function-definition-for-dem-dcmgetinfotypevalue0b">
-<h2>Dem_DcmGetInfoTypeValue0B函数定义 (Function Definition for Dem_DcmGetInfoTypeValue0B)<a class="headerlink" href="#dem-dcmgetinfotypevalue0b-function-definition-for-dem-dcmgetinfotypevalue0b" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetInfoTypeValue0B函数定义 (Function Definition for Dem_DcmGetInfoTypeValue0B)<a class="headerlink" href="#dem-dcmgetinfotypevalue0b-function-definition-for-dem-dcmgetinfotypevalue0b" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -5987,7 +5986,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid01-function-definition-for-dem-dcmreaddataofpid01">
-<h2>Dem_DcmReadDataOfPID01函数定义 (Function definition for Dem_DcmReadDataOfPID01)<a class="headerlink" href="#dem-dcmreaddataofpid01-function-definition-for-dem-dcmreaddataofpid01" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID01函数定义 (Function definition for Dem_DcmReadDataOfPID01)<a class="headerlink" href="#dem-dcmreaddataofpid01-function-definition-for-dem-dcmreaddataofpid01" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6052,7 +6051,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid1c-the-function-definition-for-dem-dcmreaddataofpid1c">
-<h2>Dem_DcmReadDataOfPID1C函数定义 (The function definition for Dem_DcmReadDataOfPID1C)<a class="headerlink" href="#dem-dcmreaddataofpid1c-the-function-definition-for-dem-dcmreaddataofpid1c" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID1C函数定义 (The function definition for Dem_DcmReadDataOfPID1C)<a class="headerlink" href="#dem-dcmreaddataofpid1c-the-function-definition-for-dem-dcmreaddataofpid1c" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6117,7 +6116,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid21-the-function-definition-for-dem-dcmreaddataofpid21">
-<h2>Dem_DcmReadDataOfPID21函数定义 (The function definition for Dem_DcmReadDataOfPID21)<a class="headerlink" href="#dem-dcmreaddataofpid21-the-function-definition-for-dem-dcmreaddataofpid21" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID21函数定义 (The function definition for Dem_DcmReadDataOfPID21)<a class="headerlink" href="#dem-dcmreaddataofpid21-the-function-definition-for-dem-dcmreaddataofpid21" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6182,7 +6181,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid30-the-function-definition-for-dem-dcmreaddataofpid30">
-<h2>Dem_DcmReadDataOfPID30函数定义 (The function definition for Dem_DcmReadDataOfPID30)<a class="headerlink" href="#dem-dcmreaddataofpid30-the-function-definition-for-dem-dcmreaddataofpid30" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID30函数定义 (The function definition for Dem_DcmReadDataOfPID30)<a class="headerlink" href="#dem-dcmreaddataofpid30-the-function-definition-for-dem-dcmreaddataofpid30" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6247,7 +6246,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid31-function-definition-for-dem-dcmreaddataofpid31">
-<h2>Dem_DcmReadDataOfPID31函数定义 (Function definition for Dem_DcmReadDataOfPID31)<a class="headerlink" href="#dem-dcmreaddataofpid31-function-definition-for-dem-dcmreaddataofpid31" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID31函数定义 (Function definition for Dem_DcmReadDataOfPID31)<a class="headerlink" href="#dem-dcmreaddataofpid31-function-definition-for-dem-dcmreaddataofpid31" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6312,7 +6311,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid41-the-dem-dcmreaddataofpid41-function-definition">
-<h2>Dem_DcmReadDataOfPID41函数定义 (The Dem_DcmReadDataOfPID41 function definition)<a class="headerlink" href="#dem-dcmreaddataofpid41-the-dem-dcmreaddataofpid41-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID41函数定义 (The Dem_DcmReadDataOfPID41 function definition)<a class="headerlink" href="#dem-dcmreaddataofpid41-the-dem-dcmreaddataofpid41-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6377,7 +6376,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid4d-the-dem-dcmreaddataofpid4d-function-definition">
-<h2>Dem_DcmReadDataOfPID4D函数定义 (The Dem_DcmReadDataOfPID4D function definition)<a class="headerlink" href="#dem-dcmreaddataofpid4d-the-dem-dcmreaddataofpid4d-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID4D函数定义 (The Dem_DcmReadDataOfPID4D function definition)<a class="headerlink" href="#dem-dcmreaddataofpid4d-the-dem-dcmreaddataofpid4d-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6442,7 +6441,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid4e-the-dem-dcmreaddataofpid4e-function-definition">
-<h2>Dem_DcmReadDataOfPID4E函数定义 (The Dem_DcmReadDataOfPID4E function definition)<a class="headerlink" href="#dem-dcmreaddataofpid4e-the-dem-dcmreaddataofpid4e-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID4E函数定义 (The Dem_DcmReadDataOfPID4E function definition)<a class="headerlink" href="#dem-dcmreaddataofpid4e-the-dem-dcmreaddataofpid4e-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6507,7 +6506,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofpid91-the-function-definition-for-dem-dcmreaddataofpid91">
-<h2>Dem_DcmReadDataOfPID91函数定义 (The function definition for Dem_DcmReadDataOfPID91)<a class="headerlink" href="#dem-dcmreaddataofpid91-the-function-definition-for-dem-dcmreaddataofpid91" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfPID91函数定义 (The function definition for Dem_DcmReadDataOfPID91)<a class="headerlink" href="#dem-dcmreaddataofpid91-the-function-definition-for-dem-dcmreaddataofpid91" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6572,7 +6571,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmreaddataofobdfreezeframe-function-definition-for-dem-dcmreaddataofobdfreezeframe">
-<h2>Dem_DcmReadDataOfOBDFreezeFrame函数定义 (Function definition for Dem_DcmReadDataOfOBDFreezeFrame)<a class="headerlink" href="#dem-dcmreaddataofobdfreezeframe-function-definition-for-dem-dcmreaddataofobdfreezeframe" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmReadDataOfOBDFreezeFrame函数定义 (Function definition for Dem_DcmReadDataOfOBDFreezeFrame)<a class="headerlink" href="#dem-dcmreaddataofobdfreezeframe-function-definition-for-dem-dcmreaddataofobdfreezeframe" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6652,7 +6651,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetdtcofobdfreezeframe-the-function-definition-for-dem-dcmgetdtcofobdfreezeframe">
-<h2>Dem_DcmGetDTCOfOBDFreezeFrame函数定义 (The function definition for Dem_DcmGetDTCOfOBDFreezeFrame)<a class="headerlink" href="#dem-dcmgetdtcofobdfreezeframe-the-function-definition-for-dem-dcmgetdtcofobdfreezeframe" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetDTCOfOBDFreezeFrame函数定义 (The function definition for Dem_DcmGetDTCOfOBDFreezeFrame)<a class="headerlink" href="#dem-dcmgetdtcofobdfreezeframe-the-function-definition-for-dem-dcmgetdtcofobdfreezeframe" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6727,7 +6726,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetavailableobdmids-the-dem-dcmgetavailableobdmids-function-definition">
-<h2>Dem_DcmGetAvailableOBDMIDs函数定义 (The Dem_DcmGetAvailableOBDMIDs function definition)<a class="headerlink" href="#dem-dcmgetavailableobdmids-the-dem-dcmgetavailableobdmids-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetAvailableOBDMIDs函数定义 (The Dem_DcmGetAvailableOBDMIDs function definition)<a class="headerlink" href="#dem-dcmgetavailableobdmids-the-dem-dcmgetavailableobdmids-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6797,7 +6796,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetnumtidsofobdmid-the-function-definition-for-dem-dcmgetnumtidsofobdmid">
-<h2>Dem_DcmGetNumTIDsOfOBDMID函数定义 (The function definition for Dem_DcmGetNumTIDsOfOBDMID)<a class="headerlink" href="#dem-dcmgetnumtidsofobdmid-the-function-definition-for-dem-dcmgetnumtidsofobdmid" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetNumTIDsOfOBDMID函数定义 (The function definition for Dem_DcmGetNumTIDsOfOBDMID)<a class="headerlink" href="#dem-dcmgetnumtidsofobdmid-the-function-definition-for-dem-dcmgetnumtidsofobdmid" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6867,7 +6866,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetdtrdata-function-definition-for-dem-dcmgetdtrdata">
-<h2>Dem_DcmGetDTRData函数定义 (Function definition for Dem_DcmGetDTRData)<a class="headerlink" href="#dem-dcmgetdtrdata-function-definition-for-dem-dcmgetdtrdata" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetDTRData函数定义 (Function definition for Dem_DcmGetDTRData)<a class="headerlink" href="#dem-dcmgetdtrdata-function-definition-for-dem-dcmgetdtrdata" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -6962,7 +6961,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmsetdtcfilter-the-dem-j1939dcmsetdtcfilter-function-definition">
-<h2>Dem_J1939DcmSetDTCFilter函数定义 (The Dem_J1939DcmSetDTCFilter function definition)<a class="headerlink" href="#dem-j1939dcmsetdtcfilter-the-dem-j1939dcmsetdtcfilter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmSetDTCFilter函数定义 (The Dem_J1939DcmSetDTCFilter function definition)<a class="headerlink" href="#dem-j1939dcmsetdtcfilter-the-dem-j1939dcmsetdtcfilter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7052,7 +7051,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmgetnumberoffiltereddtc-function-definition-for-dem-j1939dcmgetnumberoffiltereddtc">
-<h2>Dem_J1939DcmGetNumberOfFilteredDTC函数定义 (Function definition for Dem_J1939DcmGetNumberOfFilteredDTC)<a class="headerlink" href="#dem-j1939dcmgetnumberoffiltereddtc-function-definition-for-dem-j1939dcmgetnumberoffiltereddtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmGetNumberOfFilteredDTC函数定义 (Function definition for Dem_J1939DcmGetNumberOfFilteredDTC)<a class="headerlink" href="#dem-j1939dcmgetnumberoffiltereddtc-function-definition-for-dem-j1939dcmgetnumberoffiltereddtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7117,7 +7116,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmgetnextfiltereddtc-the-definition-of-dem-j1939dcmgetnextfiltereddtc-function">
-<h2>Dem_J1939DcmGetNextFilteredDTC函数定义 (The definition of Dem_J1939DcmGetNextFilteredDTC function)<a class="headerlink" href="#dem-j1939dcmgetnextfiltereddtc-the-definition-of-dem-j1939dcmgetnextfiltereddtc-function" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmGetNextFilteredDTC函数定义 (The definition of Dem_J1939DcmGetNextFilteredDTC function)<a class="headerlink" href="#dem-j1939dcmgetnextfiltereddtc-the-definition-of-dem-j1939dcmgetnextfiltereddtc-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7187,7 +7186,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmfirstdtcwithlampstatus-dem-j1939dcmfirstdtcwithlampstatus-function-definition">
-<h2>Dem_J1939DcmFirstDTCwithLampStatus函数定义 (Dem_J1939DcmFirstDTCwithLampStatus function definition)<a class="headerlink" href="#dem-j1939dcmfirstdtcwithlampstatus-dem-j1939dcmfirstdtcwithlampstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmFirstDTCwithLampStatus函数定义 (Dem_J1939DcmFirstDTCwithLampStatus function definition)<a class="headerlink" href="#dem-j1939dcmfirstdtcwithlampstatus-dem-j1939dcmfirstdtcwithlampstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7252,7 +7251,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmgetnextdtcwithlampstatus-function-definition-for-dem-j1939dcmgetnextdtcwithlampstatus">
-<h2>Dem_J1939DcmGetNextDTCwithLampStatus函数定义 (Function definition for Dem_J1939DcmGetNextDTCwithLampStatus)<a class="headerlink" href="#dem-j1939dcmgetnextdtcwithlampstatus-function-definition-for-dem-j1939dcmgetnextdtcwithlampstatus" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmGetNextDTCwithLampStatus函数定义 (Function definition for Dem_J1939DcmGetNextDTCwithLampStatus)<a class="headerlink" href="#dem-j1939dcmgetnextdtcwithlampstatus-function-definition-for-dem-j1939dcmgetnextdtcwithlampstatus" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7327,7 +7326,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmcleardtc-function-definition-for-dem-j1939dcmcleardtc">
-<h2>Dem_J1939DcmClearDTC函数定义 (Function definition for Dem_J1939DcmClearDTC)<a class="headerlink" href="#dem-j1939dcmcleardtc-function-definition-for-dem-j1939dcmcleardtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmClearDTC函数定义 (Function definition for Dem_J1939DcmClearDTC)<a class="headerlink" href="#dem-j1939dcmcleardtc-function-definition-for-dem-j1939dcmcleardtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7397,7 +7396,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmsetfreezeframefilter-the-dem-j1939dcmsetfreezeframefilter-function-definition">
-<h2>Dem_J1939DcmSetFreezeFrameFilter函数定义 (The Dem_J1939DcmSetFreezeFrameFilter function definition)<a class="headerlink" href="#dem-j1939dcmsetfreezeframefilter-the-dem-j1939dcmsetfreezeframefilter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmSetFreezeFrameFilter函数定义 (The Dem_J1939DcmSetFreezeFrameFilter function definition)<a class="headerlink" href="#dem-j1939dcmsetfreezeframefilter-the-dem-j1939dcmsetfreezeframefilter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7472,7 +7471,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmgetnextfreezeframe-the-definition-of-dem-j1939dcmgetnextfreezeframe-function">
-<h2>Dem_J1939DcmGetNextFreezeFrame函数定义 (The definition of Dem_J1939DcmGetNextFreezeFrame function)<a class="headerlink" href="#dem-j1939dcmgetnextfreezeframe-the-definition-of-dem-j1939dcmgetnextfreezeframe-function" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmGetNextFreezeFrame函数定义 (The definition of Dem_J1939DcmGetNextFreezeFrame function)<a class="headerlink" href="#dem-j1939dcmgetnextfreezeframe-the-definition-of-dem-j1939dcmgetnextfreezeframe-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7547,7 +7546,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmgetnextspninfreezeframe-the-function-definition-for-dem-j1939dcmgetnextspninfreezeframe">
-<h2>Dem_J1939DcmGetNextSPNInFreezeFrame函数定义 (The function definition for Dem_J1939DcmGetNextSPNInFreezeFrame)<a class="headerlink" href="#dem-j1939dcmgetnextspninfreezeframe-the-function-definition-for-dem-j1939dcmgetnextspninfreezeframe" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmGetNextSPNInFreezeFrame函数定义 (The function definition for Dem_J1939DcmGetNextSPNInFreezeFrame)<a class="headerlink" href="#dem-j1939dcmgetnextspninfreezeframe-the-function-definition-for-dem-j1939dcmgetnextspninfreezeframe" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7617,7 +7616,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmsetratiofilter-the-dem-j1939dcmsetratiofilter-function-definition">
-<h2>Dem_J1939DcmSetRatioFilter函数定义 (The Dem_J1939DcmSetRatioFilter function definition)<a class="headerlink" href="#dem-j1939dcmsetratiofilter-the-dem-j1939dcmsetratiofilter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmSetRatioFilter函数定义 (The Dem_J1939DcmSetRatioFilter function definition)<a class="headerlink" href="#dem-j1939dcmsetratiofilter-the-dem-j1939dcmsetratiofilter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7692,7 +7691,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmgetnextfilteredratio-the-function-definition-for-dem-j1939dcmgetnextfilteredratio">
-<h2>Dem_J1939DcmGetNextFilteredRatio函数定义 (The function definition for Dem_J1939DcmGetNextFilteredRatio)<a class="headerlink" href="#dem-j1939dcmgetnextfilteredratio-the-function-definition-for-dem-j1939dcmgetnextfilteredratio" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmGetNextFilteredRatio函数定义 (The function definition for Dem_J1939DcmGetNextFilteredRatio)<a class="headerlink" href="#dem-j1939dcmgetnextfilteredratio-the-function-definition-for-dem-j1939dcmgetnextfilteredratio" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7772,7 +7771,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmreaddiagnosticreadiness1-function-definition-for-dem-j1939dcmreaddiagnosticreadiness1">
-<h2>Dem_J1939DcmReadDiagnosticReadiness1函数定义 (Function Definition for Dem_J1939DcmReadDiagnosticReadiness1)<a class="headerlink" href="#dem-j1939dcmreaddiagnosticreadiness1-function-definition-for-dem-j1939dcmreaddiagnosticreadiness1" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmReadDiagnosticReadiness1函数定义 (Function Definition for Dem_J1939DcmReadDiagnosticReadiness1)<a class="headerlink" href="#dem-j1939dcmreaddiagnosticreadiness1-function-definition-for-dem-j1939dcmreaddiagnosticreadiness1" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7842,7 +7841,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmreaddiagnosticreadiness2-function-definition-for-dem-j1939dcmreaddiagnosticreadiness2">
-<h2>Dem_J1939DcmReadDiagnosticReadiness2函数定义 (Function definition for Dem_J1939DcmReadDiagnosticReadiness2)<a class="headerlink" href="#dem-j1939dcmreaddiagnosticreadiness2-function-definition-for-dem-j1939dcmreaddiagnosticreadiness2" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmReadDiagnosticReadiness2函数定义 (Function definition for Dem_J1939DcmReadDiagnosticReadiness2)<a class="headerlink" href="#dem-j1939dcmreaddiagnosticreadiness2-function-definition-for-dem-j1939dcmreaddiagnosticreadiness2" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7912,7 +7911,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-j1939dcmreaddiagnosticreadiness3-the-definition-of-dem-j1939dcmreaddiagnosticreadiness3-function">
-<h2>Dem_J1939DcmReadDiagnosticReadiness3函数定义 (The definition of Dem_J1939DcmReadDiagnosticReadiness3 function)<a class="headerlink" href="#dem-j1939dcmreaddiagnosticreadiness3-the-definition-of-dem-j1939dcmreaddiagnosticreadiness3-function" title="链接到此标题。">¶</a></h2>
+<h2>Dem_J1939DcmReadDiagnosticReadiness3函数定义 (The definition of Dem_J1939DcmReadDiagnosticReadiness3 function)<a class="headerlink" href="#dem-j1939dcmreaddiagnosticreadiness3-the-definition-of-dem-j1939dcmreaddiagnosticreadiness3-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -7982,7 +7981,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-seteventdisabled-the-dem-seteventdisabled-function-defines">
-<h2>Dem_SetEventDisabled函数定义 (The Dem_SetEventDisabled function defines)<a class="headerlink" href="#dem-seteventdisabled-the-dem-seteventdisabled-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetEventDisabled函数定义 (The Dem_SetEventDisabled function defines)<a class="headerlink" href="#dem-seteventdisabled-the-dem-seteventdisabled-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8052,7 +8051,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-repiumprfaultdetect-dem-repiumprfaultdetect-function-definition">
-<h2>Dem_RepIUMPRFaultDetect函数定义 (Dem_RepIUMPRFaultDetect function definition)<a class="headerlink" href="#dem-repiumprfaultdetect-dem-repiumprfaultdetect-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_RepIUMPRFaultDetect函数定义 (Dem_RepIUMPRFaultDetect function definition)<a class="headerlink" href="#dem-repiumprfaultdetect-dem-repiumprfaultdetect-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8117,7 +8116,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setiumprdencondition-the-dem-setiumprdencondition-function-defines">
-<h2>Dem_SetIUMPRDenCondition函数定义 (The Dem_SetIUMPRDenCondition function defines)<a class="headerlink" href="#dem-setiumprdencondition-the-dem-setiumprdencondition-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetIUMPRDenCondition函数定义 (The Dem_SetIUMPRDenCondition function defines)<a class="headerlink" href="#dem-setiumprdencondition-the-dem-setiumprdencondition-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8192,7 +8191,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-getiumprdencondition-the-function-defines-dem-getiumprdencondition">
-<h2>Dem_GetIUMPRDenCondition函数定义 (The function defines Dem_GetIUMPRDenCondition.)<a class="headerlink" href="#dem-getiumprdencondition-the-function-defines-dem-getiumprdencondition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetIUMPRDenCondition函数定义 (The function defines Dem_GetIUMPRDenCondition.)<a class="headerlink" href="#dem-getiumprdencondition-the-function-defines-dem-getiumprdencondition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8262,7 +8261,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-repiumprdenlock-dem-repiumprdenlock-function-definition">
-<h2>Dem_RepIUMPRDenLock函数定义 (Dem_RepIUMPRDenLock function definition)<a class="headerlink" href="#dem-repiumprdenlock-dem-repiumprdenlock-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_RepIUMPRDenLock函数定义 (Dem_RepIUMPRDenLock function definition)<a class="headerlink" href="#dem-repiumprdenlock-dem-repiumprdenlock-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8332,7 +8331,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-repiumprdenrelease-the-dem-repiumprdenrelease-function-definition">
-<h2>Dem_RepIUMPRDenRelease函数定义 (The Dem_RepIUMPRDenRelease function definition)<a class="headerlink" href="#dem-repiumprdenrelease-the-dem-repiumprdenrelease-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_RepIUMPRDenRelease函数定义 (The Dem_RepIUMPRDenRelease function definition)<a class="headerlink" href="#dem-repiumprdenrelease-the-dem-repiumprdenrelease-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8402,7 +8401,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setptostatus-the-dem-setptostatus-function-defines">
-<h2>Dem_SetPtoStatus函数定义 (The Dem_SetPtoStatus function defines)<a class="headerlink" href="#dem-setptostatus-the-dem-setptostatus-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetPtoStatus函数定义 (The Dem_SetPtoStatus function defines)<a class="headerlink" href="#dem-setptostatus-the-dem-setptostatus-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8467,7 +8466,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-readdataofpid01-function-definition-for-dem-readdataofpid01">
-<h2>Dem_ReadDataOfPID01函数定义 (Function definition for Dem_ReadDataOfPID01)<a class="headerlink" href="#dem-readdataofpid01-function-definition-for-dem-readdataofpid01" title="链接到此标题。">¶</a></h2>
+<h2>Dem_ReadDataOfPID01函数定义 (Function definition for Dem_ReadDataOfPID01)<a class="headerlink" href="#dem-readdataofpid01-function-definition-for-dem-readdataofpid01" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8532,7 +8531,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-getdataofpid21-the-function-definition-for-dem-getdataofpid21">
-<h2>Dem_GetDataOfPID21函数定义 (The function definition for Dem_GetDataOfPID21)<a class="headerlink" href="#dem-getdataofpid21-the-function-definition-for-dem-getdataofpid21" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetDataOfPID21函数定义 (The function definition for Dem_GetDataOfPID21)<a class="headerlink" href="#dem-getdataofpid21-the-function-definition-for-dem-getdataofpid21" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8597,7 +8596,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setdataofpid21-function-definition-for-dem-setdataofpid21">
-<h2>Dem_SetDataOfPID21函数定义 (Function Definition for Dem_SetDataOfPID21)<a class="headerlink" href="#dem-setdataofpid21-function-definition-for-dem-setdataofpid21" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetDataOfPID21函数定义 (Function Definition for Dem_SetDataOfPID21)<a class="headerlink" href="#dem-setdataofpid21-function-definition-for-dem-setdataofpid21" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8662,7 +8661,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setdataofpid31-the-function-definition-for-dem-setdataofpid31">
-<h2>Dem_SetDataOfPID31函数定义 (The function definition for Dem_SetDataOfPID31)<a class="headerlink" href="#dem-setdataofpid31-the-function-definition-for-dem-setdataofpid31" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetDataOfPID31函数定义 (The function definition for Dem_SetDataOfPID31)<a class="headerlink" href="#dem-setdataofpid31-the-function-definition-for-dem-setdataofpid31" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8727,7 +8726,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setdataofpid4d-function-definition-for-dem-setdataofpid4d">
-<h2>Dem_SetDataOfPID4D函数定义 (Function Definition for Dem_SetDataOfPID4D)<a class="headerlink" href="#dem-setdataofpid4d-function-definition-for-dem-setdataofpid4d" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetDataOfPID4D函数定义 (Function Definition for Dem_SetDataOfPID4D)<a class="headerlink" href="#dem-setdataofpid4d-function-definition-for-dem-setdataofpid4d" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8792,7 +8791,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setdataofpid4e-function-definition-for-dem-setdataofpid4e">
-<h2>Dem_SetDataOfPID4E函数定义 (Function definition for Dem_SetDataOfPID4E)<a class="headerlink" href="#dem-setdataofpid4e-function-definition-for-dem-setdataofpid4e" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetDataOfPID4E函数定义 (Function definition for Dem_SetDataOfPID4E)<a class="headerlink" href="#dem-setdataofpid4e-function-definition-for-dem-setdataofpid4e" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8857,7 +8856,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setpfccyclequalified-the-dem-setpfccyclequalified-function-definition">
-<h2>Dem_SetPfcCycleQualified函数定义 (The Dem_SetPfcCycleQualified function definition)<a class="headerlink" href="#dem-setpfccyclequalified-the-dem-setpfccyclequalified-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetPfcCycleQualified函数定义 (The Dem_SetPfcCycleQualified function definition)<a class="headerlink" href="#dem-setpfccyclequalified-the-dem-setpfccyclequalified-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8922,7 +8921,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-getpfccyclequalified-the-dem-getpfccyclequalified-function-definition">
-<h2>Dem_GetPfcCycleQualified函数定义 (The Dem_GetPfcCycleQualified function definition)<a class="headerlink" href="#dem-getpfccyclequalified-the-dem-getpfccyclequalified-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetPfcCycleQualified函数定义 (The Dem_GetPfcCycleQualified function definition)<a class="headerlink" href="#dem-getpfccyclequalified-the-dem-getpfccyclequalified-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -8992,7 +8991,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setcleardtc-function-definition-for-dem-setcleardtc">
-<h2>Dem_SetClearDTC函数定义 (Function Definition for Dem_SetClearDTC)<a class="headerlink" href="#dem-setcleardtc-function-definition-for-dem-setcleardtc" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetClearDTC函数定义 (Function Definition for Dem_SetClearDTC)<a class="headerlink" href="#dem-setcleardtc-function-definition-for-dem-setcleardtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9072,7 +9071,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-dcmgetdtcseverityavailabilitymask-the-dem-dcmgetdtcseverityavailabilitymask-function-definition">
-<h2>Dem_DcmGetDTCSeverityAvailabilityMask函数定义 (The Dem_DcmGetDTCSeverityAvailabilityMask function definition)<a class="headerlink" href="#dem-dcmgetdtcseverityavailabilitymask-the-dem-dcmgetdtcseverityavailabilitymask-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_DcmGetDTCSeverityAvailabilityMask函数定义 (The Dem_DcmGetDTCSeverityAvailabilityMask function definition)<a class="headerlink" href="#dem-dcmgetdtcseverityavailabilitymask-the-dem-dcmgetdtcseverityavailabilitymask-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9142,7 +9141,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-getb1counter-the-dem-getb1counter-function-definition">
-<h2>Dem_GetB1Counter函数定义 (The Dem_GetB1Counter function definition)<a class="headerlink" href="#dem-getb1counter-the-dem-getb1counter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_GetB1Counter函数定义 (The Dem_GetB1Counter function definition)<a class="headerlink" href="#dem-getb1counter-the-dem-getb1counter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9207,7 +9206,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dem-setdtr-the-dem-setdtr-function-definition">
-<h2>Dem_SetDTR函数定义 (The Dem_SetDTR function definition)<a class="headerlink" href="#dem-setdtr-the-dem-setdtr-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Dem_SetDTR函数定义 (The Dem_SetDTR function definition)<a class="headerlink" href="#dem-setdtr-the-dem-setdtr-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9296,11 +9295,11 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="module-demtriggerondtcstatus">
-<h2>&lt;Module&gt;_DemTriggerOnDTCStatus<a class="headerlink" href="#module-demtriggerondtcstatus" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_DemTriggerOnDTCStatus<a class="headerlink" href="#module-demtriggerondtcstatus" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9375,7 +9374,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-setcleardtc">
-<h2>&lt;Module&gt;_SetClearDTC<a class="headerlink" href="#module-setcleardtc" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_SetClearDTC<a class="headerlink" href="#module-setcleardtc" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9450,7 +9449,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-eventdatachanged">
-<h2>&lt;Module&gt;_EventDataChanged<a class="headerlink" href="#module-eventdatachanged" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_EventDataChanged<a class="headerlink" href="#module-eventdatachanged" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9515,7 +9514,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-demcleareventallowed-forcondition">
-<h2>&lt;Module&gt;_DemClearEventAllowed&lt;ForCondition&gt;<a class="headerlink" href="#module-demcleareventallowed-forcondition" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_DemClearEventAllowed&lt;ForCondition&gt;<a class="headerlink" href="#module-demcleareventallowed-forcondition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9590,7 +9589,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-readdataelement">
-<h2>&lt;Module&gt;_ReadDataElement<a class="headerlink" href="#module-readdataelement" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_ReadDataElement<a class="headerlink" href="#module-readdataelement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9660,7 +9659,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-dtcstatuschanged">
-<h2>&lt;Module&gt;_DTCStatusChanged<a class="headerlink" href="#module-dtcstatuschanged" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_DTCStatusChanged<a class="headerlink" href="#module-dtcstatuschanged" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9735,7 +9734,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-eventstatuschanged">
-<h2>&lt;Module&gt;_EventStatusChanged<a class="headerlink" href="#module-eventstatuschanged" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_EventStatusChanged<a class="headerlink" href="#module-eventstatuschanged" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9810,7 +9809,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-initmonitorforevent">
-<h2>&lt;Module&gt;_InitMonitorForEvent<a class="headerlink" href="#module-initmonitorforevent" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_InitMonitorForEvent<a class="headerlink" href="#module-initmonitorforevent" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9875,7 +9874,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="module-componentstatuschanged">
-<h2>&lt;Module&gt;_ComponentStatusChanged<a class="headerlink" href="#module-componentstatuschanged" title="链接到此标题。">¶</a></h2>
+<h2>&lt;Module&gt;_ComponentStatusChanged<a class="headerlink" href="#module-componentstatuschanged" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -9939,17 +9938,17 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </tbody>
 </table>
 <section id="swc-swc-service-component-packaging">
-<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="链接到此标题。">¶</a></h3>
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
 <p>以下类型和接口可以封装至 SWC 生成完整的服务组件，可以与应用通过端口连接，没有列出的部分Dem底层暂时不支持。</p>
 <p>The following types and interfaces can be encapsulated to generate complete service components with SWC, which can be connected to the application via ports. Parts not listed are temporarily unsupported in Dem.</p>
 </section>
 </section>
 <section id="cs-cs-interface-packaging">
-<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="链接到此标题。">¶</a></h2>
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
 <p>注：下面提到的&lt;UserModule&gt;和&lt;UserPortName&gt;分别为用户SWC的名字和对应端口名，在与Dem服务组件端口连接后适用。</p>
 <p>Note: The &lt;UserModule&gt; and &lt;UserPortName&gt; mentioned below refer to the name of the user SWC and the corresponding port name, applicable after connecting to the Dem service component ports.</p>
 <section id="rte-call-usermodule-userportname-setagingcyclestate">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetAgingCycleState<a class="headerlink" href="#rte-call-usermodule-userportname-setagingcyclestate" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetAgingCycleState<a class="headerlink" href="#rte-call-usermodule-userportname-setagingcyclestate" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -9980,7 +9979,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-cbdataevt-name-eventdatachanged">
-<h3>Rte_Call_Dem_CBDataEvt_{Name}_EventDataChanged<a class="headerlink" href="#rte-call-dem-cbdataevt-name-eventdatachanged" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_CBDataEvt_{Name}_EventDataChanged<a class="headerlink" href="#rte-call-dem-cbdataevt-name-eventdatachanged" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10014,7 +10013,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-cbinitevt-name-initmonitorforevent">
-<h3>Rte_Call_Dem_CBInitEvt_{Name}_InitMonitorForEvent<a class="headerlink" href="#rte-call-dem-cbinitevt-name-initmonitorforevent" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_CBInitEvt_{Name}_InitMonitorForEvent<a class="headerlink" href="#rte-call-dem-cbinitevt-name-initmonitorforevent" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10057,7 +10056,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-cbstatusdtc-name-dtcstatuschanged">
-<h3>Rte_Call_Dem_CBStatusDTC_{Name}_DTCStatusChanged<a class="headerlink" href="#rte-call-dem-cbstatusdtc-name-dtcstatuschanged" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_CBStatusDTC_{Name}_DTCStatusChanged<a class="headerlink" href="#rte-call-dem-cbstatusdtc-name-dtcstatuschanged" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10091,7 +10090,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-cbstatusevt-eventname-callbackname-eventstatuschanged">
-<h3>Rte_Call_Dem_CBStatusEvt_{EventName}_{CallbackName}_EventStatusChanged<a class="headerlink" href="#rte-call-dem-cbstatusevt-eventname-callbackname-eventstatuschanged" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_CBStatusEvt_{EventName}_{CallbackName}_EventStatusChanged<a class="headerlink" href="#rte-call-dem-cbstatusevt-eventname-callbackname-eventstatuschanged" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10140,7 +10139,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-cbstatuscomp-componentname-componentstatuschanged">
-<h3>Rte_Call_Dem_CBStatusComp_{ComponentName}_ComponentStatusChanged<a class="headerlink" href="#rte-call-dem-cbstatuscomp-componentname-componentstatuschanged" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_CBStatusComp_{ComponentName}_ComponentStatusChanged<a class="headerlink" href="#rte-call-dem-cbstatuscomp-componentname-componentstatuschanged" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10171,7 +10170,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-cleardtc">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-cleardtc" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-cleardtc" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10202,7 +10201,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setdtcsuppression">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDTCSuppression<a class="headerlink" href="#rte-call-usermodule-userportname-setdtcsuppression" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDTCSuppression<a class="headerlink" href="#rte-call-usermodule-userportname-setdtcsuppression" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10236,7 +10235,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-seteventavailable">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEventAvailable<a class="headerlink" href="#rte-call-usermodule-userportname-seteventavailable" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEventAvailable<a class="headerlink" href="#rte-call-usermodule-userportname-seteventavailable" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10270,7 +10269,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-dataservices-data-readdata">
-<h3>Rte_Call_Dem_DataServices_{Data}_ReadData<a class="headerlink" href="#rte-call-dem-dataservices-data-readdata" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_DataServices_{Data}_ReadData<a class="headerlink" href="#rte-call-dem-dataservices-data-readdata" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10313,7 +10312,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-dcmcleardtc">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_DcmClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-dcmcleardtc" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_DcmClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-dcmcleardtc" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10344,7 +10343,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-dcmenabledtcsetting">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_DcmEnableDTCSetting<a class="headerlink" href="#rte-call-usermodule-userportname-dcmenabledtcsetting" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_DcmEnableDTCSetting<a class="headerlink" href="#rte-call-usermodule-userportname-dcmenabledtcsetting" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10375,7 +10374,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setdtr">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDTR<a class="headerlink" href="#rte-call-usermodule-userportname-setdtr" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDTR<a class="headerlink" href="#rte-call-usermodule-userportname-setdtr" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10406,7 +10405,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setenablecondition">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEnableCondition<a class="headerlink" href="#rte-call-usermodule-userportname-setenablecondition" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEnableCondition<a class="headerlink" href="#rte-call-usermodule-userportname-setenablecondition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10437,7 +10436,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-clearprestoredfreezeframe">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ClearPrestoredFreezeFrame<a class="headerlink" href="#rte-call-usermodule-userportname-clearprestoredfreezeframe" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ClearPrestoredFreezeFrame<a class="headerlink" href="#rte-call-usermodule-userportname-clearprestoredfreezeframe" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10480,7 +10479,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-prestorefreezeframe">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_PrestoreFreezeFrame<a class="headerlink" href="#rte-call-usermodule-userportname-prestorefreezeframe" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_PrestoreFreezeFrame<a class="headerlink" href="#rte-call-usermodule-userportname-prestorefreezeframe" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10523,7 +10522,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-reseteventdebouncestatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ResetEventDebounceStatus<a class="headerlink" href="#rte-call-usermodule-userportname-reseteventdebouncestatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ResetEventDebounceStatus<a class="headerlink" href="#rte-call-usermodule-userportname-reseteventdebouncestatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10557,7 +10556,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-reseteventstatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ResetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-reseteventstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_ResetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-reseteventstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10588,7 +10587,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-seteventdisabled">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEventDisabled<a class="headerlink" href="#rte-call-usermodule-userportname-seteventdisabled" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEventDisabled<a class="headerlink" href="#rte-call-usermodule-userportname-seteventdisabled" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10634,7 +10633,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-seteventstatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-seteventstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-seteventstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10665,7 +10664,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setwirstatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetWIRStatus<a class="headerlink" href="#rte-call-usermodule-userportname-setwirstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetWIRStatus<a class="headerlink" href="#rte-call-usermodule-userportname-setwirstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10696,7 +10695,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getdtcofevent">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDTCOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdtcofevent" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDTCOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdtcofevent" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10727,7 +10726,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getdebouncingofevent">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDebouncingOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdebouncingofevent" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDebouncingOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdebouncingofevent" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10773,7 +10772,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventextendeddatarecordex">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventExtendedDataRecordEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventextendeddatarecordex" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventExtendedDataRecordEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventextendeddatarecordex" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10804,7 +10803,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventfailed">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFailed<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfailed" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFailed<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfailed" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10835,7 +10834,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventfreezeframedataex">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFreezeFrameDataEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfreezeframedataex" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFreezeFrameDataEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfreezeframedataex" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10866,7 +10865,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventstatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-geteventstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-geteventstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10897,7 +10896,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventtested">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventTested<a class="headerlink" href="#rte-call-usermodule-userportname-geteventtested" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventTested<a class="headerlink" href="#rte-call-usermodule-userportname-geteventtested" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10928,7 +10927,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getfaultdetectioncounter">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetFaultDetectionCounter<a class="headerlink" href="#rte-call-usermodule-userportname-getfaultdetectioncounter" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetFaultDetectionCounter<a class="headerlink" href="#rte-call-usermodule-userportname-getfaultdetectioncounter" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10959,7 +10958,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-generalcbdataevt-eventdatachanged">
-<h3>Rte_Call_Dem_GeneralCBDataEvt_EventDataChanged<a class="headerlink" href="#rte-call-dem-generalcbdataevt-eventdatachanged" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_GeneralCBDataEvt_EventDataChanged<a class="headerlink" href="#rte-call-dem-generalcbdataevt-eventdatachanged" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -10990,7 +10989,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-generalcbstatusevt-eventstatuschanged">
-<h3>Rte_Call_Dem_GeneralCBStatusEvt_EventStatusChanged<a class="headerlink" href="#rte-call-dem-generalcbstatusevt-eventstatuschanged" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_GeneralCBStatusEvt_EventStatusChanged<a class="headerlink" href="#rte-call-dem-generalcbstatusevt-eventstatuschanged" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11021,7 +11020,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getdtcofevent-1">
-<span id="id1"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDTCOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdtcofevent-1" title="链接到此标题。">¶</a></h3>
+<span id="id1"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDTCOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdtcofevent-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11052,7 +11051,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getdebouncingofevent-1">
-<span id="id2"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDebouncingOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdebouncingofevent-1" title="链接到此标题。">¶</a></h3>
+<span id="id2"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDebouncingOfEvent<a class="headerlink" href="#rte-call-usermodule-userportname-getdebouncingofevent-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11089,7 +11088,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventextendeddatarecordex-1">
-<span id="id3"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventExtendedDataRecordEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventextendeddatarecordex-1" title="链接到此标题。">¶</a></h3>
+<span id="id3"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventExtendedDataRecordEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventextendeddatarecordex-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11120,7 +11119,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventfailed-1">
-<span id="id4"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFailed<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfailed-1" title="链接到此标题。">¶</a></h3>
+<span id="id4"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFailed<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfailed-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11151,7 +11150,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventfreezeframedataex-1">
-<span id="id5"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFreezeFrameDataEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfreezeframedataex-1" title="链接到此标题。">¶</a></h3>
+<span id="id5"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventFreezeFrameDataEx<a class="headerlink" href="#rte-call-usermodule-userportname-geteventfreezeframedataex-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11182,7 +11181,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventstatus-1">
-<span id="id6"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-geteventstatus-1" title="链接到此标题。">¶</a></h3>
+<span id="id6"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventStatus<a class="headerlink" href="#rte-call-usermodule-userportname-geteventstatus-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11213,7 +11212,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventtested-1">
-<span id="id7"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventTested<a class="headerlink" href="#rte-call-usermodule-userportname-geteventtested-1" title="链接到此标题。">¶</a></h3>
+<span id="id7"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventTested<a class="headerlink" href="#rte-call-usermodule-userportname-geteventtested-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11244,7 +11243,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getfaultdetectioncounter-1">
-<span id="id8"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetFaultDetectionCounter<a class="headerlink" href="#rte-call-usermodule-userportname-getfaultdetectioncounter-1" title="链接到此标题。">¶</a></h3>
+<span id="id8"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetFaultDetectionCounter<a class="headerlink" href="#rte-call-usermodule-userportname-getfaultdetectioncounter-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11275,7 +11274,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getindicatorstatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetIndicatorStatus<a class="headerlink" href="#rte-call-usermodule-userportname-getindicatorstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetIndicatorStatus<a class="headerlink" href="#rte-call-usermodule-userportname-getindicatorstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11306,7 +11305,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-repiumprdenlock">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_RepIUMPRDenLock<a class="headerlink" href="#rte-call-usermodule-userportname-repiumprdenlock" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_RepIUMPRDenLock<a class="headerlink" href="#rte-call-usermodule-userportname-repiumprdenlock" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11337,7 +11336,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getiumprdencondition">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetIUMPRDenCondition<a class="headerlink" href="#rte-call-usermodule-userportname-getiumprdencondition" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetIUMPRDenCondition<a class="headerlink" href="#rte-call-usermodule-userportname-getiumprdencondition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11386,7 +11385,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-repiumprfaultdetect">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_RepIUMPRFaultDetect<a class="headerlink" href="#rte-call-usermodule-userportname-repiumprfaultdetect" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_RepIUMPRFaultDetect<a class="headerlink" href="#rte-call-usermodule-userportname-repiumprfaultdetect" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11432,7 +11431,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getoperationcyclestate">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetOperationCycleState<a class="headerlink" href="#rte-call-usermodule-userportname-getoperationcyclestate" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetOperationCycleState<a class="headerlink" href="#rte-call-usermodule-userportname-getoperationcyclestate" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11463,7 +11462,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setoperationcyclestate">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetOperationCycleState<a class="headerlink" href="#rte-call-usermodule-userportname-setoperationcyclestate" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetOperationCycleState<a class="headerlink" href="#rte-call-usermodule-userportname-setoperationcyclestate" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11494,7 +11493,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventmemoryoverflow">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11525,7 +11524,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getnumberofeventmemoryentries">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11556,7 +11555,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventmemoryoverflow-1">
-<span id="id9"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow-1" title="链接到此标题。">¶</a></h3>
+<span id="id9"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11587,7 +11586,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getnumberofeventmemoryentries-1">
-<span id="id10"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries-1" title="链接到此标题。">¶</a></h3>
+<span id="id10"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11618,7 +11617,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventmemoryoverflow-2">
-<span id="id11"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow-2" title="链接到此标题。">¶</a></h3>
+<span id="id11"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow-2" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11649,7 +11648,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getnumberofeventmemoryentries-2">
-<span id="id12"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries-2" title="链接到此标题。">¶</a></h3>
+<span id="id12"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries-2" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11680,7 +11679,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-geteventmemoryoverflow-3">
-<span id="id13"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow-3" title="链接到此标题。">¶</a></h3>
+<span id="id13"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetEventMemoryOverflow<a class="headerlink" href="#rte-call-usermodule-userportname-geteventmemoryoverflow-3" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11711,7 +11710,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getnumberofeventmemoryentries-3">
-<span id="id14"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries-3" title="链接到此标题。">¶</a></h3>
+<span id="id14"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetNumberOfEventMemoryEntries<a class="headerlink" href="#rte-call-usermodule-userportname-getnumberofeventmemoryentries-3" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11742,7 +11741,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getpfccyclequalified">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetPfcCycleQualified<a class="headerlink" href="#rte-call-usermodule-userportname-getpfccyclequalified" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetPfcCycleQualified<a class="headerlink" href="#rte-call-usermodule-userportname-getpfccyclequalified" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11788,7 +11787,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setpfccyclequalified">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetPfcCycleQualified<a class="headerlink" href="#rte-call-usermodule-userportname-setpfccyclequalified" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetPfcCycleQualified<a class="headerlink" href="#rte-call-usermodule-userportname-setpfccyclequalified" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11834,7 +11833,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setptostatus">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetPtoStatus<a class="headerlink" href="#rte-call-usermodule-userportname-setptostatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetPtoStatus<a class="headerlink" href="#rte-call-usermodule-userportname-setptostatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11865,7 +11864,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setcleardtc">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-setcleardtc" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-setcleardtc" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11896,7 +11895,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setcleardtc-1">
-<span id="id15"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-setcleardtc-1" title="链接到此标题。">¶</a></h3>
+<span id="id15"></span><h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetClearDTC<a class="headerlink" href="#rte-call-usermodule-userportname-setcleardtc-1" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11927,7 +11926,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-dem-setcleardtc-master-setcleardtc">
-<h3>Rte_Call_Dem_SetClearDTC_master_SetClearDTC<a class="headerlink" href="#rte-call-dem-setcleardtc-master-setcleardtc" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_Dem_SetClearDTC_master_SetClearDTC<a class="headerlink" href="#rte-call-dem-setcleardtc-master-setcleardtc" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11958,7 +11957,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-getdataofpid21">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDataOfPID21<a class="headerlink" href="#rte-call-usermodule-userportname-getdataofpid21" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_GetDataOfPID21<a class="headerlink" href="#rte-call-usermodule-userportname-getdataofpid21" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -11992,7 +11991,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setdataofpid21">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDataOfPID21<a class="headerlink" href="#rte-call-usermodule-userportname-setdataofpid21" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDataOfPID21<a class="headerlink" href="#rte-call-usermodule-userportname-setdataofpid21" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -12026,7 +12025,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setdataofpid31">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDataOfPID31<a class="headerlink" href="#rte-call-usermodule-userportname-setdataofpid31" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetDataOfPID31<a class="headerlink" href="#rte-call-usermodule-userportname-setdataofpid31" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -12060,7 +12059,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="rte-call-usermodule-userportname-setstoragecondition">
-<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetStorageCondition<a class="headerlink" href="#rte-call-usermodule-userportname-setstoragecondition" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_&lt;UserModule&gt;_&lt;UserPortName&gt;_SetStorageCondition<a class="headerlink" href="#rte-call-usermodule-userportname-setstoragecondition" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -12092,9 +12091,9 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="demgeneral">
-<h3>DemGeneral<a class="headerlink" href="#demgeneral" title="链接到此标题。">¶</a></h3>
+<h3>DemGeneral<a class="headerlink" href="#demgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demgeneral-demgeneral-container-configuration-diagram">
 <img alt="DemGeneral容器配置图 (DemGeneral Container Configuration Diagram)" src="../../_images/image514.png" />
 </figure>
@@ -12832,7 +12831,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </section>
 </section>
 <section id="demclient">
-<h2>DemClient<a class="headerlink" href="#demclient" title="链接到此标题。">¶</a></h2>
+<h2>DemClient<a class="headerlink" href="#demclient" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demclient-graph-of-demclient-container-configuration">
 <img alt="DemClient容器配置图(Graph of DemClient Container Configuration)" src="../../_images/image712.png" />
 </figure>
@@ -12945,7 +12944,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdataelementclass">
-<h2>DemDataElementClass<a class="headerlink" href="#demdataelementclass" title="链接到此标题。">¶</a></h2>
+<h2>DemDataElementClass<a class="headerlink" href="#demdataelementclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demdataelementclass-container-configuration-diagram-for-demdataelementclass">
 <img alt="DemDataElementClass容器配置图 (Container Configuration Diagram for DemDataElementClass)" src="../../_images/image911.png" />
 </figure>
@@ -13158,7 +13157,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdidclass">
-<h2>DemDidClass<a class="headerlink" href="#demdidclass" title="链接到此标题。">¶</a></h2>
+<h2>DemDidClass<a class="headerlink" href="#demdidclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demdidclass-container-configuration-diagram-for-demdidclass">
 <img alt="DemDidCLass容器配置图 (Container Configuration Diagram for DemDidCLass)" src="../../_images/image1311.png" />
 </figure>
@@ -13220,7 +13219,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demeablecondition">
-<h2>DemEableCondition<a class="headerlink" href="#demeablecondition" title="链接到此标题。">¶</a></h2>
+<h2>DemEableCondition<a class="headerlink" href="#demeablecondition" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demenablecondition-demenablecondition-container-configuration-diagram">
 <img alt="DemEnableCondition 容器配置图 (DemEnableCondition Container Configuration Diagram)" src="../../_images/image14.png" />
 </figure>
@@ -13282,7 +13281,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demeableconditiongroup">
-<h2>DemEableConditionGroup<a class="headerlink" href="#demeableconditiongroup" title="链接到此标题。">¶</a></h2>
+<h2>DemEableConditionGroup<a class="headerlink" href="#demeableconditiongroup" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demenableconditiongroupref-demenableconditiongroupref-container-configuration-diagram">
 <img alt="DemEnableConditionGroupRef容器配置图 (DemEnableConditionGroupRef Container Configuration Diagram)" src="../../_images/image157.png" />
 </figure>
@@ -13326,7 +13325,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demeventmemoryset">
-<h2>DemEventMemorySet<a class="headerlink" href="#demeventmemoryset" title="链接到此标题。">¶</a></h2>
+<h2>DemEventMemorySet<a class="headerlink" href="#demeventmemoryset" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demeventmemoryset-container-configuration-diagram-for-demeventmemoryset">
 <img alt="DemEventMemorySet容器配置图 (Container Configuration Diagram for DemEventMemorySet)" src="../../_images/image167.png" />
 </figure>
@@ -13483,7 +13482,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </tbody>
 </table>
 <section id="demindicatorid">
-<h3>DemIndicatorID<a class="headerlink" href="#demindicatorid" title="链接到此标题。">¶</a></h3>
+<h3>DemIndicatorID<a class="headerlink" href="#demindicatorid" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demindicatorid-demindicatorid-container-configuration-diagram">
 <img alt="DemIndicatorID容器配置图 (DemIndicatorID Container Configuration Diagram)" src="../../_images/image175.png" />
 </figure>
@@ -13527,7 +13526,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demmirrormemory">
-<h3>DemMirrorMemory<a class="headerlink" href="#demmirrormemory" title="链接到此标题。">¶</a></h3>
+<h3>DemMirrorMemory<a class="headerlink" href="#demmirrormemory" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demmirrormemory-demmirrormemory-container-configuration-diagram">
 <img alt="DemMirrorMemory容器配置图 (DemMirrorMemory Container Configuration Diagram)" src="../../_images/image183.png" />
 </figure>
@@ -13571,13 +13570,13 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dempermanentmemory">
-<h3>DemPermanentMemory<a class="headerlink" href="#dempermanentmemory" title="链接到此标题。">¶</a></h3>
+<h3>DemPermanentMemory<a class="headerlink" href="#dempermanentmemory" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="dempermanentmemory-dem-permanentmemory-container-configuration-diagram">
 <img alt="DemPermanentMemory容器配置图 (Dem PermanentMemory Container Configuration Diagram)" src="../../_images/image19.png" />
 </figure>
 </section>
 <section id="demprimarymemory">
-<h3>DemPrimaryMemory<a class="headerlink" href="#demprimarymemory" title="链接到此标题。">¶</a></h3>
+<h3>DemPrimaryMemory<a class="headerlink" href="#demprimarymemory" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demprimarymemory-diagram-for-primary-memory-container-configuration">
 <img alt="DemPrimaryMemory容器配置图(Diagram for Primary Memory Container Configuration)" src="../../_images/image20.png" />
 </figure>
@@ -13846,7 +13845,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demuserdefinedmemory">
-<h3>DemUserDefinedMemory<a class="headerlink" href="#demuserdefinedmemory" title="链接到此标题。">¶</a></h3>
+<h3>DemUserDefinedMemory<a class="headerlink" href="#demuserdefinedmemory" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demuserdefinedmemory-demuserdefinedmemory-container-configuration-diagram">
 <img alt="DemUserDefinedMemory容器配置图 (DemUserDefinedMemory Container Configuration Diagram)" src="../../_images/image228.png" />
 </figure>
@@ -14094,7 +14093,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demglobalfreezeframe">
-<h3>DemGlobalFreezeFrame<a class="headerlink" href="#demglobalfreezeframe" title="链接到此标题。">¶</a></h3>
+<h3>DemGlobalFreezeFrame<a class="headerlink" href="#demglobalfreezeframe" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demglobalfreezeframe-demglobalfreezeframe-container-configuration-diagram">
 <img alt="DemGlobalFreezeFrame容器配置图 (DemGlobalFreezeFrame Container Configuration Diagram)" src="../../_images/image232.png" />
 </figure>
@@ -14217,7 +14216,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </section>
 </section>
 <section id="demextendeddataclass">
-<h2>DemExtendedDataClass<a class="headerlink" href="#demextendeddataclass" title="链接到此标题。">¶</a></h2>
+<h2>DemExtendedDataClass<a class="headerlink" href="#demextendeddataclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demextendeddataclass-container-configuration-diagram-for-demextendeddataclass">
 <img alt="DemExtendedDataClass容器配置图 (Container Configuration Diagram for DemExtendedDataClass)" src="../../_images/image242.png" />
 </figure>
@@ -14261,7 +14260,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demextendeddatarecordclass">
-<h2>DemExtendedDataRecordClass<a class="headerlink" href="#demextendeddatarecordclass" title="链接到此标题。">¶</a></h2>
+<h2>DemExtendedDataRecordClass<a class="headerlink" href="#demextendeddatarecordclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demextendeddatarecordclass-container-configuration-diagram-for-demextendeddatarecordclass">
 <img alt="DemExtendedDataRecordClass容器配置图 (Container Configuration Diagram for DemExtendedDataRecordClass)" src="../../_images/image252.png" />
 </figure>
@@ -14407,7 +14406,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demfreezeframeclass">
-<h2>DemFreezeFrameClass<a class="headerlink" href="#demfreezeframeclass" title="链接到此标题。">¶</a></h2>
+<h2>DemFreezeFrameClass<a class="headerlink" href="#demfreezeframeclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demfreezeframeclass-container-configuration-diagram-for-demfreezeframeclass">
 <img alt="DemFreezeFrameClass容器配置图 (Container Configuration Diagram for DemFreezeFrameClass)" src="../../_images/image262.png" />
 </figure>
@@ -14451,7 +14450,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demfreezeframerecnumclass">
-<h2>DemFreezeFrameRecNumClass<a class="headerlink" href="#demfreezeframerecnumclass" title="链接到此标题。">¶</a></h2>
+<h2>DemFreezeFrameRecNumClass<a class="headerlink" href="#demfreezeframerecnumclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demfreezeframerecnumclass-container-configuration-for-demfreezeframerecnumclass">
 <img alt="DemFreezeFrameRecNumClass容器配置图 (Container Configuration for DemFreezeFrameRecNumClass)" src="../../_images/image272.png" />
 </figure>
@@ -14495,7 +14494,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demfreezeframerecordclass">
-<h2>DemFreezeFrameRecordClass<a class="headerlink" href="#demfreezeframerecordclass" title="链接到此标题。">¶</a></h2>
+<h2>DemFreezeFrameRecordClass<a class="headerlink" href="#demfreezeframerecordclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demfreezeframerecordclass-container-configuration-diagram-for-demfreezeframerecordclass">
 <img alt="DemFreezeFrameRecordClass容器配置图 (Container Configuration Diagram for DemFreezeFrameRecordClass)" src="../../_images/image282.png" />
 </figure>
@@ -14593,7 +14592,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demgeneralj1939">
-<h2>DemGeneralJ1939<a class="headerlink" href="#demgeneralj1939" title="链接到此标题。">¶</a></h2>
+<h2>DemGeneralJ1939<a class="headerlink" href="#demgeneralj1939" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demgeneralj1939-graph-preset-j1939-container-configuration">
 <img alt="DemGeneralJ1939容器配置图(Graph Preset J1939 Container Configuration)" src="../../_images/image292.png" />
 </figure>
@@ -14862,7 +14861,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demgeneralobd">
-<h2>DemGeneralOBD<a class="headerlink" href="#demgeneralobd" title="链接到此标题。">¶</a></h2>
+<h2>DemGeneralOBD<a class="headerlink" href="#demgeneralobd" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demgeneralobd-demgeneralobd-container-configuration-diagram">
 <img alt="DemGeneralOBD容器配置图 (DemGeneralOBD Container Configuration Diagram)" src="../../_images/image332.png" />
 </figure>
@@ -15203,7 +15202,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demnvramblockid">
-<h2>DemNvRamBlockId<a class="headerlink" href="#demnvramblockid" title="链接到此标题。">¶</a></h2>
+<h2>DemNvRamBlockId<a class="headerlink" href="#demnvramblockid" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demnvramblockid-demnvramblockid-container-configuration-diagram">
 <img alt="DemNvRamBlockId容器配置图 (DemNvRamBlockId Container Configuration Diagram)" src="../../_images/image352.png" />
 </figure>
@@ -15301,7 +15300,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demoperationcycle">
-<h2>DemOperationCycle<a class="headerlink" href="#demoperationcycle" title="链接到此标题。">¶</a></h2>
+<h2>DemOperationCycle<a class="headerlink" href="#demoperationcycle" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demoperationcycle-demoperationcycle-container-configuration-diagram">
 <img alt="DemOperationCycle容器配置图 (DemOperationCycle Container Configuration Diagram)" src="../../_images/image362.png" />
 </figure>
@@ -15387,7 +15386,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demratio">
-<h2>DemRatio<a class="headerlink" href="#demratio" title="链接到此标题。">¶</a></h2>
+<h2>DemRatio<a class="headerlink" href="#demratio" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demratio-demratio-container-configuration-diagram">
 <img alt="DemRatio容器配置图 (DemRatio Container Configuration Diagram)" src="../../_images/image372.png" />
 </figure>
@@ -15591,7 +15590,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demstoragecondition">
-<h2>DemStorageCondition<a class="headerlink" href="#demstoragecondition" title="链接到此标题。">¶</a></h2>
+<h2>DemStorageCondition<a class="headerlink" href="#demstoragecondition" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demstoragecondition-demstoragecondition-container-configuration-diagram">
 <img alt="DemStorageCondition容器配置图 (DemStorageCondition Container Configuration Diagram)" src="../../_images/image416.png" />
 </figure>
@@ -15695,7 +15694,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demstorageconditiongroup">
-<h2>DemStorageConditionGroup<a class="headerlink" href="#demstorageconditiongroup" title="链接到此标题。">¶</a></h2>
+<h2>DemStorageConditionGroup<a class="headerlink" href="#demstorageconditiongroup" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demstorageconditiongroup-demstorageconditiongroup-container-configuration-diagram">
 <img alt="DemStorageConditionGroup容器配置图 (DemStorageConditionGroup Container Configuration Diagram)" src="../../_images/image422.png" />
 </figure>
@@ -15738,14 +15737,14 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </tbody>
 </table>
 <section id="demconfigsets">
-<h3>DemConfigSets<a class="headerlink" href="#demconfigsets" title="链接到此标题。">¶</a></h3>
+<h3>DemConfigSets<a class="headerlink" href="#demconfigsets" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="demconfigsets-demconfigsets-container-configuration-diagram">
 <img alt="DemConfigSets容器配置图 (DemConfigSets Container Configuration Diagram)" src="../../_images/image432.png" />
 </figure>
 </section>
 </section>
 <section id="demcomponent">
-<h2>DemComponent<a class="headerlink" href="#demcomponent" title="链接到此标题。">¶</a></h2>
+<h2>DemComponent<a class="headerlink" href="#demcomponent" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demcomponent-demcomponent-container-configuration-diagram">
 <img alt="DemComponent容器配置图 (DemComponent Container Configuration Diagram)" src="../../_images/image442.png" />
 </figure>
@@ -15849,7 +15848,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdtc">
-<h2>DemDTC<a class="headerlink" href="#demdtc" title="链接到此标题。">¶</a></h2>
+<h2>DemDTC<a class="headerlink" href="#demdtc" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demdtc-demdtc-container-configuration-diagram">
 <img alt="DemDTC容器配置图 (DemDTC Container Configuration Diagram)" src="../../_images/image452.png" />
 </figure>
@@ -16049,7 +16048,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdtcattribute">
-<h2>DemDTCAttribute<a class="headerlink" href="#demdtcattribute" title="链接到此标题。">¶</a></h2>
+<h2>DemDTCAttribute<a class="headerlink" href="#demdtcattribute" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demdtcattribute-demdtcattribute-container-configuration-diagram">
 <img alt="DemDTCAttribute容器配置图 (DemDTCAttribute Container Configuration Diagram)" src="../../_images/image462.png" />
 </figure>
@@ -16393,7 +16392,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdebouncecounterbasedclass">
-<h2>DemDebounceCounterBasedClass<a class="headerlink" href="#demdebouncecounterbasedclass" title="链接到此标题。">¶</a></h2>
+<h2>DemDebounceCounterBasedClass<a class="headerlink" href="#demdebouncecounterbasedclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demdouncecounterbasedclass-container-configuration-diagram-for-demdouncecounterbasedclass">
 <img alt="DemDounceCounterBasedClass容器配置图 (Container Configuration Diagram for DemDounceCounterBasedClass)" src="../../_images/image472.png" />
 </figure>
@@ -16629,7 +16628,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdebouncetimebaseclass">
-<h2>DemDebounceTimeBaseClass<a class="headerlink" href="#demdebouncetimebaseclass" title="链接到此标题。">¶</a></h2>
+<h2>DemDebounceTimeBaseClass<a class="headerlink" href="#demdebouncetimebaseclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demdouncetimebasedclass-demdouncetimebasedclass-container-configuration-diagram">
 <img alt="DemDounceTimeBasedClass容器配置图 (DemDounceTimeBasedClass Container Configuration Diagram)" src="../../_images/image482.png" />
 </figure>
@@ -16727,7 +16726,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demdtrss">
-<h2>DemDtrss<a class="headerlink" href="#demdtrss" title="链接到此标题。">¶</a></h2>
+<h2>DemDtrss<a class="headerlink" href="#demdtrss" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demeventparameter-container-configuration-diagram-for-demeventparameter">
 <img alt="DemEventParameter容器配置图 (Container Configuration Diagram for DemEventParameter)" src="../../_images/image492.png" />
 </figure>
@@ -16921,7 +16920,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demeventparameter">
-<h2>DemEventParameter<a class="headerlink" href="#demeventparameter" title="链接到此标题。">¶</a></h2>
+<h2>DemEventParameter<a class="headerlink" href="#demeventparameter" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demeventparameter11-container-configuration-diagram-for-demeventparameter">
 <img alt="DemEventParameter容器配置图11 (Container Configuration Diagram for DemEventParameter)" src="../../_images/image501.png" />
 </figure>
@@ -17139,7 +17138,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demobddtc">
-<h2>DemObdDTC<a class="headerlink" href="#demobddtc" title="链接到此标题。">¶</a></h2>
+<h2>DemObdDTC<a class="headerlink" href="#demobddtc" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demobddtc-demobddtc-container-configuration-diagram">
 <img alt="DemObdDTC容器配置图 (DemObdDTC Container Configuration Diagram)" src="../../_images/image601.png" />
 </figure>
@@ -17267,7 +17266,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="dempidclass">
-<h2>DemPidClass<a class="headerlink" href="#dempidclass" title="链接到此标题。">¶</a></h2>
+<h2>DemPidClass<a class="headerlink" href="#dempidclass" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="dempidclass-container-configuration-diagram-for-dempidclass">
 <img alt="DemPidClass容器配置图 (Container Configuration Diagram for DemPidClass)" src="../../_images/image622.png" />
 </figure>
@@ -17332,7 +17331,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
 </table>
 </section>
 <section id="demj1939node">
-<h2>DemJ1939Node<a class="headerlink" href="#demj1939node" title="链接到此标题。">¶</a></h2>
+<h2>DemJ1939Node<a class="headerlink" href="#demj1939node" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="demj1939node-demj1939node-container-configuration-diagram">
 <img alt="DemJ1939Node容器配置图 (DemJ1939Node Container Configuration Diagram)" src="../../_images/image642.png" />
 </figure>
@@ -17727,7 +17726,7 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -17736,11 +17735,11 @@ Dem_DTCFormatType DTCFormat,Dem_DTCOriginType DTCOrigin,boolean FilterWithSeveri
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

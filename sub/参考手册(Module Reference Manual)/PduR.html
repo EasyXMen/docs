@@ -9,7 +9,6 @@
         <title>PduR &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="pdur">
-<h1>PduR<a class="headerlink" href="#pdur" title="链接到此标题。">¶</a></h1>
+<h1>PduR<a class="headerlink" href="#pdur" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -236,7 +235,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>PduR模块主要为通信接口模块（如CanIf），传输协议模块（如CanTp），诊断服务模块（如Dcm），通信服务模块（如Com,LdCom），以及IpduM，SecOc等模块提供基于PDU的路由服务。PduR模块主要实现基于PDU的接收路由（PDU从CanIf→PduR→Com），发送路由(Com→PduR→CanIf)，网关路由功能（CanIf→PduR→CanIf）。</p>
 <p>The PduR module mainly provides PDU-based routing services for communication interface modules (such as CanIf), transmission protocol modules (such as CanTp), diagnostic service modules (such as Dcm), communication service modules (such as Com, LdCom), and modules like IpduM and SecOc. The PduR module primarily implements PDU-based reception routing (PDU from CanIf→PduR→Com), transmission routing (Com→PduR→CanIf), and gateway routing functions (CanIf→PduR→CanIf).</p>
 <figure class="align-center" id="pdur-pdur-module-hierarchy-diagram">
@@ -247,22 +246,22 @@
 <p>PduR与所有交互模块间实现IF Pdu和TP Pdu的接收与发送功能。</p>
 <p>PduR implements the reception and sending functions of IF Pdu and TP Pdu between all interaction modules.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_COM.pdf, R19-11 and 4.2.2</p>
 <p>[2] AUTOSAR_SWS_PDURouter.pdf，R19-11 and 4.2.2</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="send-route-function">
-<h3>发送路由功能 (Send Route Function)<a class="headerlink" href="#send-route-function" title="链接到此标题。">¶</a></h3>
+<h3>发送路由功能 (Send Route Function)<a class="headerlink" href="#send-route-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-sending-route-function">
-<h4>发送路由功能介绍 (Introduction to Sending Route Function)<a class="headerlink" href="#introduction-to-sending-route-function" title="链接到此标题。">¶</a></h4>
+<h4>发送路由功能介绍 (Introduction to Sending Route Function)<a class="headerlink" href="#introduction-to-sending-route-function" title="Link to this heading">¶</a></h4>
 <p>TxPdu的发送分为两种方式（IF和TP），在PduR模块实现TP PDU的1：1发送路由，IF PDU的1：N发送路由。通过PduR模块的路由配置可以为上层屏蔽网络细节，上层模块专注于TxPdu报文数据的封装。</p>
 <p>The sending of TxPdu is divided into two methods (IF and TP). The PduR module implements a 1:1 sending routing for TP PDUs and a 1:N sending routing for IF PDUs. Through the routing configuration of the PduR module, network details can be shielded for the upper layer, allowing the upper-layer modules to focus on the encapsulation of TxPdu message data.</p>
 </section>
 <section id="routing-functionality-implementation">
-<h4>发送路由功能实现 (Routing functionality implementation)<a class="headerlink" href="#routing-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>发送路由功能实现 (Routing functionality implementation)<a class="headerlink" href="#routing-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>IF PDU的发送：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（IF PDU 1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层IF模块关联。上层模块通过调用PduR_&lt;User：Up&gt;Transmit或者下层模块通过调用PduR_&lt;User：Lo&gt;TriggerTransmit（传递到上层）请求PDU的发送，发送成功后调用上层PduR_&lt;User：Lo&gt;TxConfirmation进行发送成功确认。</p>
 <p>IF PDU Transmission: In PduR, add configuration for route PduRRoutingPath, configuring one PduRRoutingPath for each PduRDestPdu (for an IF PDU 1:N routing scenario, there will be N PduRRoutingPaths, all with the same PduRSrcPduRRef). The PduRRouteType is configured as IF; the configuration item PduRSrcPduRRef is associated with a PduRSrcPdu, which is linked to an upper-layer module's TxPdu via the PduRSrcPduRef of a Pdu (EcuC). Meanwhile, the configuration item PduRDestPduRRef is associated with a PduRDestPdu, which is linked to a lower-level IF module through the PduRDestPduRef of a Pdu. The upper-layer module requests PDU transmission by calling PduR_&lt;User:Up&gt;Transmit, while the lower layer module triggers the transmission via PduR_&lt;User:Lo&gt;TriggerTransmit and subsequently confirms the successful transmission by calling PduR_&lt;User:Lo&gt;TxConfirmation.</p>
 <p>TP PDU的发送：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与上层模块发送TxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层TP模块关联。上层模块通过调用PduR_&lt;User：Up&gt;Transmit请求PDU的发送，下层模块通过调用PduR_&lt;User：LoTp&gt;CopyTxData（传递到上层）来获取PDU发送数据段，下层模块通过调用PduR_&lt;User：LoTp&gt;TxConfirmation（传递到上层）通知上层发送结束（成功/失败）。</p>
@@ -270,14 +269,14 @@
 </section>
 </section>
 <section id="receive-route-function">
-<h3>接收路由功能 (Receive Route Function)<a class="headerlink" href="#receive-route-function" title="链接到此标题。">¶</a></h3>
+<h3>接收路由功能 (Receive Route Function)<a class="headerlink" href="#receive-route-function" title="Link to this heading">¶</a></h3>
 <section id="routing-reception-function-introduction">
-<h4>接收路由功能介绍 (Routing reception function introduction)<a class="headerlink" href="#routing-reception-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>接收路由功能介绍 (Routing reception function introduction)<a class="headerlink" href="#routing-reception-function-introduction" title="Link to this heading">¶</a></h4>
 <p>RxPdu的接收分为两种方式（IF和TP），在PduR模块实现TP PDU的1：N发送路由，IF PDU的1：N路由。当PDU从下层模块接收到，根据PduR配置的路由路径传递到上层模块。上层模块不必关注网络细节，专注于接收PDU的解析。</p>
 <p>RxPdu reception is divided into two methods (IF and TP). In the PduR module, 1:N sending routing for TP PDUs and IF PDUs are implemented. When PDUs are received from lower-layer modules, they are passed to upper-layer modules according to the configured routing path in PduR. Upper-layer modules do not need to concern themselves with network details; they focus on parsing the PDUs.</p>
 </section>
 <section id="route-reception-function-implementation">
-<h4>接收路由功能实现 (Route reception function implementation)<a class="headerlink" href="#route-reception-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>接收路由功能实现 (Route reception function implementation)<a class="headerlink" href="#route-reception-function-implementation" title="Link to this heading">¶</a></h4>
 <p>IF PDU的接收：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与上层模块关联。下层模块通过调用PduR_&lt;User：Lo&gt;RxIndication将接收报文传递给上层。</p>
 <p>IF PDU Reception: In PduR, add configuration for routing PduRRoutingPath, configuring one PduRRoutingPath for each PduRDestPdu (in a 1:N routing scenario, there exist N PduRRoutingPaths, and these N PduRRoutingPaths share the same PduRSrcPduRRef). Among them, PduRRouteType is configured as IF. The configuration item PduRSrcPduRRef associates with one PduRSrcPdu, which through PduRSrcPduRef is associated with the Pdu (EcuC) receiving RxPdu from the lower-layer IF module. The configuration item PduRDestPduRRef associates with one PduRDestPdu, which through PduRDestPduRef is associated with the Pdu for upper-layer modules. The lower-layer module passes the received message to the upper layer by calling PduR_&lt;User:Lo&gt;RxIndication.</p>
 <p>TP PDU的接收：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为TP，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层TP模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与上层模块关联。调用PduR_&lt;User：LoTp&gt;StartOfReception，PduR_&lt;User：LoTp&gt;CopyRxData，PduR_&lt;User：LoTp&gt;RxIndication完成TP PDU接收流程。</p>
@@ -285,16 +284,16 @@
 </section>
 </section>
 <section id="gateway-routing-functionality">
-<h3>网关路由功能 (Gateway routing functionality)<a class="headerlink" href="#gateway-routing-functionality" title="链接到此标题。">¶</a></h3>
+<h3>网关路由功能 (Gateway routing functionality)<a class="headerlink" href="#gateway-routing-functionality" title="Link to this heading">¶</a></h3>
 <section id="gateway-routing-feature-introduction">
-<h4>网关路由功能介绍 (Gateway routing feature introduction)<a class="headerlink" href="#gateway-routing-feature-introduction" title="链接到此标题。">¶</a></h4>
+<h4>网关路由功能介绍 (Gateway routing feature introduction)<a class="headerlink" href="#gateway-routing-feature-introduction" title="Link to this heading">¶</a></h4>
 <p>PDU的网关同样分为IF/TP两种方式，IF网关支持1：N，TP网关支持1：N，不涉及任何报文数据的变化，收发报文速率保持一致。</p>
 <p>The gateway for PDU is similarly divided into IF/TP methods. IF gateways support 1:N, and TP gateways also support 1:N. There are no changes in any message data; the rate of receiving and sending messages remains consistent.</p>
 <p>需注意PDU的网关不能IF、TP混淆，即接收IF PDU只能通过发送IF PDU进行转发，接收TP PDU只能通过TP PDU进行转发。</p>
 <p>Note that the gateway for PDU cannot mix IF and TP, i.e., IF PDU can only be forwarded via IF PDU transmission, and TP PDU can only be forwarded via TP PDU.</p>
 </section>
 <section id="gateway-routing-functionality-implementation">
-<h4>网关路由功能实现 (Gateway routing functionality implementation)<a class="headerlink" href="#gateway-routing-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>网关路由功能实现 (Gateway routing functionality implementation)<a class="headerlink" href="#gateway-routing-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>IF PDU的网关：在PduR添加配置路由PduRRoutingPath，为每一个PduRDestPdu配置一个PduRRoutingPath（1：N路由场景就存在N个PduRRoutingPath，这N个PduRRoutingPath的PduRSrcPduRRef相同）。其中PduRRouteType配置为IF，配置项PduRSrcPduRRef关联一个PduRSrcPdu，该PduRSrcPdu通过PduRSrcPduRef关联的Pdu（EcuC）与下层IF模块接收RxPdu关联，配置项PduRDestPduRRef关联一个PduRDestPdu，该PduRDestPdu通过PduRDestPduRef关联的Pdu与下层IF模块发送TxPdu关联，若PduRDestPduRRef通过PduRDestPduRef关联的TxPdu发送方式为TriggerTransmit,则相应PduRDestPdu的PduRDestPduDataProvision需配置为PDUR_TRIGGERTRANSMIT，反之配置为PDUR_DIRECT。若配置为PDUR_TRIGGERTRANSMIT则必须为该PduRRoutingPath配置queue，以及配置PduRDefaultValueElement来设置Pdu初始默认值。配置为PDUR_DIRECT时也可以选择配置queue，以降低丢帧概率。</p>
 <p>IF PDU Gateway: In PduR, add configuration for routing PduRRoutingPath, configuring one PduRRoutingPath for each PduRDestPdu (in a 1:N routing scenario, there are N PduRRoutingPaths, and these N PduRRoutingPaths share the same PduRSrcPduRRef). Among them, configure PduRRouteType as IF. The configuration item PduRSrcPduRRef associates with a PduRSrcPdu, which through PduRSrcPduRef is linked to a Pdu (EcuC) for receiving RxPdu at the lower layer IF module. The configuration item PduRDestPduRRef associates with a PduRDestPdu, which through PduRDestPduRef is linked to a Pdu for sending TxPdu at the lower layer IF module. If PduRDestPduRRef through PduRDestPduRef is associated with a TxPdu transmission method as TriggerTransmit, then the corresponding PduRDestPdu's PduRDestPduDataProvision must be configured as PDUR_TRIGGERTRANSMIT; otherwise, it should be configured as PDUR_DIRECT. When configured as PDUR_TRIGGERTRANSMIT, a queue must also be configured for this PduRRoutingPath, and PduRDefaultValueElement should be set to define the initial default value of Pdu. When configured as PDUR_DIRECT, a queue can also be optionally configured to reduce frame loss probabilities.</p>
 <p>注意：queue的配置，①需要在相应的PduRRoutingPath中配置非0的PduRQueueDepth值；②添加PduRTxBuffer配置，没有被任何PduRRoutingPath关联的PduRTxBuffer属于Global buffer，存在资源抢占。被某一个PduRRoutingPath关联的PduRTxBuffer属于该PduRRoutingPath的Dedicated buffer，该PduRTxBuffer仅可以被该PduRRoutingPath申请；③PduRDestTxBufferRef可以关联最多PduRQueueDepth个PduRTxBuffer，也可以不关联任何PduRTxBuffer。</p>
@@ -306,14 +305,14 @@
 </section>
 </section>
 <section id="routing-control-functionality">
-<h3>路由控制功能 (Routing control functionality)<a class="headerlink" href="#routing-control-functionality" title="链接到此标题。">¶</a></h3>
+<h3>路由控制功能 (Routing control functionality)<a class="headerlink" href="#routing-control-functionality" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-routing-control-function">
-<h4>路由控制功能介绍 (Introduction to Routing Control Function)<a class="headerlink" href="#introduction-to-routing-control-function" title="链接到此标题。">¶</a></h4>
+<h4>路由控制功能介绍 (Introduction to Routing Control Function)<a class="headerlink" href="#introduction-to-routing-control-function" title="Link to this heading">¶</a></h4>
 <p>PduR的路由控制以RoutingPathGroup为单位进行Enable/Disable控制，而RoutingPathGroup可以被N个PduRRoutingPath关联，进而控制PduRDestPdu使能状态。</p>
 <p>PduR routing control is performed in units of RoutingPathGroup for Enable/Disable control, and a RoutingPathGroup can be associated with N PduRRoutingPath to control the enable state of PduRDestPdu.</p>
 </section>
 <section id="routing-control-functionality-implementation">
-<h4>路由控制功能实现 (Routing control functionality implementation)<a class="headerlink" href="#routing-control-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>路由控制功能实现 (Routing control functionality implementation)<a class="headerlink" href="#routing-control-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>RoutingPathGroup通过配置项PduRIsEnabledAtInit决定初始化之后其关联的所有PduRDestPdu为Enable或者Disable状态。运行时，通过调用PduR_EnableRouting/PduR_DisableRouting来控制RoutingPathGroup及其包含的PduRDestPdu使能状态。</p>
 <p>RoutingPathGroup determines the initial enable or disable state of all associated PduRDestPdu through the configuration item PduRIsEnabledAtInit. At runtime, the enable status of RoutingPathGroup and its contained PduRDestPdu can be controlled by calling PduR_EnableRouting/PduR_DisableRouting.</p>
 <p>未被RoutingPathGroup关联的PduRDestPdu初始化之后其状态一直为Enable，不可改变。</p>
@@ -322,7 +321,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 PduR组件文件描述 (Table PduR Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -387,11 +386,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="pdur-pbconfigtype-pdur-pbconfigtype-type-definition">
-<h4>PduR_PBConfigType类型定义 (PduR_PBConfigType Type Definition)<a class="headerlink" href="#pdur-pbconfigtype-pdur-pbconfigtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_PBConfigType类型定义 (PduR_PBConfigType Type Definition)<a class="headerlink" href="#pdur-pbconfigtype-pdur-pbconfigtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -416,7 +415,7 @@
 </table>
 </section>
 <section id="pdur-pbconfigidtype-pdur-pbconfigidtype-type-definition">
-<h4>PduR_PBConfigIdType类型定义 (PduR_PBConfigIdType Type Definition)<a class="headerlink" href="#pdur-pbconfigidtype-pdur-pbconfigidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_PBConfigIdType类型定义 (PduR_PBConfigIdType Type Definition)<a class="headerlink" href="#pdur-pbconfigidtype-pdur-pbconfigidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -441,7 +440,7 @@
 </table>
 </section>
 <section id="pdur-routingpathgroupidtype-pdur-routingpathgroupidtype-type-definition">
-<h4>PduR_RoutingPathGroupIdType类型定义 (PduR_RoutingPathGroupIdType Type Definition)<a class="headerlink" href="#pdur-routingpathgroupidtype-pdur-routingpathgroupidtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_RoutingPathGroupIdType类型定义 (PduR_RoutingPathGroupIdType Type Definition)<a class="headerlink" href="#pdur-routingpathgroupidtype-pdur-routingpathgroupidtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -466,7 +465,7 @@
 </table>
 </section>
 <section id="pdur-statetype-pdur-statetype-type-definition">
-<h4>PduR_StateType类型定义 (PduR_StateType Type Definition)<a class="headerlink" href="#pdur-statetype-pdur-statetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_StateType类型定义 (PduR_StateType Type Definition)<a class="headerlink" href="#pdur-statetype-pdur-statetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -492,7 +491,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -556,9 +555,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="pdur-init-the-pdur-init-function-definition">
-<h4>PduR_Init函数定义 (The PduR_Init function definition)<a class="headerlink" href="#pdur-init-the-pdur-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_Init函数定义 (The PduR_Init function definition)<a class="headerlink" href="#pdur-init-the-pdur-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -623,7 +622,7 @@
 </table>
 </section>
 <section id="pdur-getversioninfo-the-pdur-getversioninfo-function-definition">
-<h4>PduR_GetVersionInfo函数定义 (The PduR_GetVersionInfo function definition)<a class="headerlink" href="#pdur-getversioninfo-the-pdur-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_GetVersionInfo函数定义 (The PduR_GetVersionInfo function definition)<a class="headerlink" href="#pdur-getversioninfo-the-pdur-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -688,7 +687,7 @@
 </table>
 </section>
 <section id="pdur-getconfigurationid-the-pdur-getconfigurationid-function-defines">
-<h4>PduR_GetConfigurationId函数定义 (The PduR_GetConfigurationId function defines)<a class="headerlink" href="#pdur-getconfigurationid-the-pdur-getconfigurationid-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>PduR_GetConfigurationId函数定义 (The PduR_GetConfigurationId function defines)<a class="headerlink" href="#pdur-getconfigurationid-the-pdur-getconfigurationid-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -753,7 +752,7 @@
 </table>
 </section>
 <section id="pdur-enablerouting-the-pdur-enablerouting-function-definition">
-<h4>PduR_EnableRouting函数定义 (The PduR_EnableRouting function definition)<a class="headerlink" href="#pdur-enablerouting-the-pdur-enablerouting-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_EnableRouting函数定义 (The PduR_EnableRouting function definition)<a class="headerlink" href="#pdur-enablerouting-the-pdur-enablerouting-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -818,7 +817,7 @@
 </table>
 </section>
 <section id="pdur-disablerouting-the-pdur-disablerouting-function-definition">
-<h4>PduR_DisableRouting函数定义 (The PduR_DisableRouting function definition)<a class="headerlink" href="#pdur-disablerouting-the-pdur-disablerouting-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_DisableRouting函数定义 (The PduR_DisableRouting function definition)<a class="headerlink" href="#pdur-disablerouting-the-pdur-disablerouting-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -904,9 +903,9 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <section id="pdur-user-up-transmit-pdur-user-up-transmit-function-definition">
-<h4>PduR_&lt;User：Up&gt;Transmit函数定义 (_pduR_User_Up_Transmit function definition)<a class="headerlink" href="#pdur-user-up-transmit-pdur-user-up-transmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：Up&gt;Transmit函数定义 (_pduR_User_Up_Transmit function definition)<a class="headerlink" href="#pdur-user-up-transmit-pdur-user-up-transmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -991,7 +990,7 @@
 </table>
 </section>
 <section id="pdur-user-up-canceltransmit-pdur-user-up-canceltransmit-function-definition">
-<h4>PduR_&lt;User：Up&gt;CancelTransmit函数定义 (PduR_&lt;User: Up&gt;CancelTransmit function definition)<a class="headerlink" href="#pdur-user-up-canceltransmit-pdur-user-up-canceltransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：Up&gt;CancelTransmit函数定义 (PduR_&lt;User: Up&gt;CancelTransmit function definition)<a class="headerlink" href="#pdur-user-up-canceltransmit-pdur-user-up-canceltransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1056,7 +1055,7 @@
 </table>
 </section>
 <section id="pdur-user-up-cancelreceive-pdur-user-up-cancelreceive-function-definition">
-<h4>PduR_&lt;User：Up&gt;CancelReceive函数定义 (PduR&lt;User: Up&gt;CancelReceive Function Definition)<a class="headerlink" href="#pdur-user-up-cancelreceive-pdur-user-up-cancelreceive-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：Up&gt;CancelReceive函数定义 (PduR&lt;User: Up&gt;CancelReceive Function Definition)<a class="headerlink" href="#pdur-user-up-cancelreceive-pdur-user-up-cancelreceive-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1121,7 +1120,7 @@
 </table>
 </section>
 <section id="pdur-user-lo-rxindication-pdur-user-lo-rxindication-function-definition">
-<h4>PduR_&lt;User：Lo&gt;RxIndication函数定义 (PduR&lt;User:Lo&gt;RxIndication Function Definition)<a class="headerlink" href="#pdur-user-lo-rxindication-pdur-user-lo-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：Lo&gt;RxIndication函数定义 (PduR&lt;User:Lo&gt;RxIndication Function Definition)<a class="headerlink" href="#pdur-user-lo-rxindication-pdur-user-lo-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1206,7 +1205,7 @@
 </table>
 </section>
 <section id="pdur-user-lo-txconfirmation-pdur-user-lo-txconfirmation-function-definition">
-<h4>PduR_&lt;User：Lo&gt;TxConfirmation函数定义 (PduR&lt;User:Lo&gt; TxConfirmation Function Definition)<a class="headerlink" href="#pdur-user-lo-txconfirmation-pdur-user-lo-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：Lo&gt;TxConfirmation函数定义 (PduR&lt;User:Lo&gt; TxConfirmation Function Definition)<a class="headerlink" href="#pdur-user-lo-txconfirmation-pdur-user-lo-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1271,7 +1270,7 @@
 </table>
 </section>
 <section id="pdur-user-lo-triggertransmit-pdur-user-lo-triggertransmit-function-definition">
-<h4>PduR_&lt;User：Lo&gt;TriggerTransmit函数定义 (PduR_&lt;User:Lo&gt;TriggerTransmit Function Definition)<a class="headerlink" href="#pdur-user-lo-triggertransmit-pdur-user-lo-triggertransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：Lo&gt;TriggerTransmit函数定义 (PduR_&lt;User:Lo&gt;TriggerTransmit Function Definition)<a class="headerlink" href="#pdur-user-lo-triggertransmit-pdur-user-lo-triggertransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1351,7 +1350,7 @@
 </table>
 </section>
 <section id="pdur-user-lotp-copyrxdata-pdur-user-lotp-copyrxdata-function-definition">
-<h4>PduR_&lt;User：LoTp&gt;CopyRxData函数定义 (PduR_&lt;User:LoTp&gt;CopyRxData function definition)<a class="headerlink" href="#pdur-user-lotp-copyrxdata-pdur-user-lotp-copyrxdata-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：LoTp&gt;CopyRxData函数定义 (PduR_&lt;User:LoTp&gt;CopyRxData function definition)<a class="headerlink" href="#pdur-user-lotp-copyrxdata-pdur-user-lotp-copyrxdata-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1441,7 +1440,7 @@
 </table>
 </section>
 <section id="pdur-user-lotp-rxindication-pdur-user-lotp-rxindication-function-definition">
-<h4>PduR_&lt;User：LoTp&gt;RxIndication函数定义 (PduR&lt;User:LoTp&gt;RxIndication Function Definition)<a class="headerlink" href="#pdur-user-lotp-rxindication-pdur-user-lotp-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：LoTp&gt;RxIndication函数定义 (PduR&lt;User:LoTp&gt;RxIndication Function Definition)<a class="headerlink" href="#pdur-user-lotp-rxindication-pdur-user-lotp-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1526,7 +1525,7 @@
 </table>
 </section>
 <section id="pdur-user-lotp-startofreception-pdur-user-lotp-startofreception-function-definition">
-<h4>PduR_&lt;User：LoTp&gt;StartOfReception函数定义 (PduR_&lt;User:LoTp&gt;StartOfReception function definition)<a class="headerlink" href="#pdur-user-lotp-startofreception-pdur-user-lotp-startofreception-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：LoTp&gt;StartOfReception函数定义 (PduR_&lt;User:LoTp&gt;StartOfReception function definition)<a class="headerlink" href="#pdur-user-lotp-startofreception-pdur-user-lotp-startofreception-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1626,7 +1625,7 @@
 </table>
 </section>
 <section id="pdur-user-lotp-copytxdata-pdur-user-lotp-copytxdata-function-definition">
-<h4>PduR_&lt;User：LoTp&gt;CopyTxData函数定义 (PduR_&lt;User:LoTp&gt;CopyTxData function definition)<a class="headerlink" href="#pdur-user-lotp-copytxdata-pdur-user-lotp-copytxdata-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：LoTp&gt;CopyTxData函数定义 (PduR_&lt;User:LoTp&gt;CopyTxData function definition)<a class="headerlink" href="#pdur-user-lotp-copytxdata-pdur-user-lotp-copytxdata-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1726,7 +1725,7 @@
 </table>
 </section>
 <section id="pdur-user-lotp-txconfirmation-pdur-user-lotp-txconfirmation-function-definition">
-<h4>PduR_&lt;User：LoTp&gt;TxConfirmation函数定义 (PduR_&lt;User:LoTp&gt;TxConfirmation Function Definition)<a class="headerlink" href="#pdur-user-lotp-txconfirmation-pdur-user-lotp-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>PduR_&lt;User：LoTp&gt;TxConfirmation函数定义 (PduR_&lt;User:LoTp&gt;TxConfirmation Function Definition)<a class="headerlink" href="#pdur-user-lotp-txconfirmation-pdur-user-lotp-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1813,9 +1812,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="pdurgeneral">
-<h3>PduRGeneral<a class="headerlink" href="#pdurgeneral" title="链接到此标题。">¶</a></h3>
+<h3>PduRGeneral<a class="headerlink" href="#pdurgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="PduRGeneral" src="../../_images/image358.png" />
 </figure>
@@ -1931,7 +1930,7 @@
 </table>
 </section>
 <section id="pdurbswmoduleref">
-<h3>PduRBswModuleRef<a class="headerlink" href="#pdurbswmoduleref" title="链接到此标题。">¶</a></h3>
+<h3>PduRBswModuleRef<a class="headerlink" href="#pdurbswmoduleref" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="PduRBswModuleRef" src="../../_images/image449.png" />
 </figure>
@@ -2301,7 +2300,7 @@
 <p>Note: PduRBswModules must have at least one module configured.</p>
 </section>
 <section id="pdurroutingpaths">
-<h3>PduRRoutingPaths<a class="headerlink" href="#pdurroutingpaths" title="链接到此标题。">¶</a></h3>
+<h3>PduRRoutingPaths<a class="headerlink" href="#pdurroutingpaths" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id3">
 <img alt="PduRRoutingPaths" src="../../_images/image546.png" />
 </figure>
@@ -2399,7 +2398,7 @@
 </table>
 </section>
 <section id="pdurroutingpathgroup">
-<h3>PduRRoutingPathGroup<a class="headerlink" href="#pdurroutingpathgroup" title="链接到此标题。">¶</a></h3>
+<h3>PduRRoutingPathGroup<a class="headerlink" href="#pdurroutingpathgroup" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id4">
 <img alt="PduRRoutingPathGroup" src="../../_images/image644.png" />
 </figure>
@@ -2461,7 +2460,7 @@
 </table>
 </section>
 <section id="pdurroutingpath">
-<h3>PduRRoutingPath<a class="headerlink" href="#pdurroutingpath" title="链接到此标题。">¶</a></h3>
+<h3>PduRRoutingPath<a class="headerlink" href="#pdurroutingpath" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id5">
 <img alt="PduRRoutingPath" src="../../_images/image734.png" />
 </figure>
@@ -2613,7 +2612,7 @@
 </table>
 </section>
 <section id="pdurdefaultvalueelement">
-<h3>PduRDefaultValueElement<a class="headerlink" href="#pdurdefaultvalueelement" title="链接到此标题。">¶</a></h3>
+<h3>PduRDefaultValueElement<a class="headerlink" href="#pdurdefaultvalueelement" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="PduRDefaultValueElement" src="../../_images/image830.png" />
 </figure>
@@ -2675,7 +2674,7 @@
 </table>
 </section>
 <section id="pdursrcpdu">
-<h3>PduRSrcPdu<a class="headerlink" href="#pdursrcpdu" title="链接到此标题。">¶</a></h3>
+<h3>PduRSrcPdu<a class="headerlink" href="#pdursrcpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id7">
 <img alt="PduRSrcPdu" src="../../_images/image929.png" />
 </figure>
@@ -2773,7 +2772,7 @@
 </table>
 </section>
 <section id="pdurdestpdu">
-<h3>PduRDestPdu<a class="headerlink" href="#pdurdestpdu" title="链接到此标题。">¶</a></h3>
+<h3>PduRDestPdu<a class="headerlink" href="#pdurdestpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id8">
 <img alt="PduRDestPdu" src="../../_images/image1027.png" />
 </figure>
@@ -2871,7 +2870,7 @@
 </table>
 </section>
 <section id="pdurtxbuffer">
-<h3>PduRTxBuffer<a class="headerlink" href="#pdurtxbuffer" title="链接到此标题。">¶</a></h3>
+<h3>PduRTxBuffer<a class="headerlink" href="#pdurtxbuffer" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id9">
 <img alt="PduRTxBuffer" src="../../_images/image1133.png" />
 </figure>
@@ -3032,7 +3031,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -3041,11 +3040,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

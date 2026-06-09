@@ -9,7 +9,6 @@
         <title>EcuM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,9 +177,9 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ecum">
-<h1>EcuM<a class="headerlink" href="#ecum" title="链接到此标题。">¶</a></h1>
+<h1>EcuM<a class="headerlink" href="#ecum" title="Link to this heading">¶</a></h1>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>模式管理属于系统服务栈，在AutoSar R19-11软件层级架构如下图</p>
 <p>Model Management belongs to the system service stack. In the AutoSar R19-11 software hierarchical architecture, it is as follows:</p>
 <figure class="align-center" id="introduction-to-pattern-management">
@@ -189,14 +188,14 @@
 <p>模式管理由BswM与EcuM组成，这两个模块对于Bsw中不同协议栈的串联与Ecu的整体把控紧密相关，其中BswM可以通过配置高度自由实现Bsw中模块的串联工作，EcuM则对Mcu的睡眠唤醒提供支持。</p>
 <p>Mode management is composed of BswM and EcuM, two modules closely related to the concatenation of different protocol stacks in Bsw and the overall control of Ecu. Among them, BswM can freely configure the concatenation work of modules in Bsw, while EcuM supports the sleep and wake-up of Mcu.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_ECUStateManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_BSWModeManager.pdf，R19-11</p>
 <p>[4] AUTOSAR_EXP_ModeManagementGuide.pdf，R19-11</p>
 </section>
 <section id="abbreviation-notes">
-<h3>缩写词注解 (Abbreviation Notes)<a class="headerlink" href="#abbreviation-notes" title="链接到此标题。">¶</a></h3>
+<h3>缩写词注解 (Abbreviation Notes)<a class="headerlink" href="#abbreviation-notes" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -227,16 +226,16 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="module-initialization-function">
-<h3>模块初始化功能 (Module initialization function)<a class="headerlink" href="#module-initialization-function" title="链接到此标题。">¶</a></h3>
+<h3>模块初始化功能 (Module initialization function)<a class="headerlink" href="#module-initialization-function" title="Link to this heading">¶</a></h3>
 <section id="module-initialization-functionality-introduction">
-<h4>模块初始化功能介绍 (Module initialization functionality introduction)<a class="headerlink" href="#module-initialization-functionality-introduction" title="链接到此标题。">¶</a></h4>
+<h4>模块初始化功能介绍 (Module initialization functionality introduction)<a class="headerlink" href="#module-initialization-functionality-introduction" title="Link to this heading">¶</a></h4>
 <p>上电时，EcuM负责基础软件模块的初始化（结合BswM），然后启动Os。</p>
 <p>During power-on, EcuM is responsible for initializing basic software modules (in conjunction with BswM), and then starting the Os.</p>
 </section>
 <section id="module-initialization-functionality-implementation">
-<h4>模块初始化功能实现 (Module initialization functionality implementation)<a class="headerlink" href="#module-initialization-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>模块初始化功能实现 (Module initialization functionality implementation)<a class="headerlink" href="#module-initialization-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>针对模块初始化工作需要通过EcuM配置实现，初始化列表中的项限定于Autosar中的模块注1初始化列表分为EcuMDriverInitListZero、EcuMDriverInitListOne、EcuMDriverRestartList；其中EcuMDriverInitListZero与EcuMDriverInitListOne两者都在Os启动前进行初始化，意味这这些模块的初始化不能使用Os的任何接口，其中EcuMDriverInitListZero不能使用Post-build为配置参数的模块初始化；两者的初始化列表示例如下图</p>
 <p>Module initialization requires configuration through ECUm. Items in the initialization list are limited to module initializations within Autosar, with notes that the initialization lists分为EcuMDriverInitListZero、EcuMDriverInitListOne、EcuMDriverRestartList; where both EcuMDriverInitListZero and EcuMDriverInitListOne are initialized before Os startup, meaning these modules' initialization cannot use any Os interfaces. Among them, EcuMDriverInitListZero cannot initialize modules configured with post-build parameters. The initialization list examples for both are shown in the following figure.</p>
 <figure class="align-center" id="initialization-list">
@@ -249,9 +248,9 @@
 </section>
 </section>
 <section id="sleep-wake-up-function">
-<h3>睡眠唤醒功能 (Sleep Wake-Up Function)<a class="headerlink" href="#sleep-wake-up-function" title="链接到此标题。">¶</a></h3>
+<h3>睡眠唤醒功能 (Sleep Wake-Up Function)<a class="headerlink" href="#sleep-wake-up-function" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-sleep-wake-up-function">
-<h4>睡眠唤醒功能介绍 (Introduction to Sleep Wake-Up Function)<a class="headerlink" href="#introduction-to-sleep-wake-up-function" title="链接到此标题。">¶</a></h4>
+<h4>睡眠唤醒功能介绍 (Introduction to Sleep Wake-Up Function)<a class="headerlink" href="#introduction-to-sleep-wake-up-function" title="Link to this heading">¶</a></h4>
 <p>睡眠唤醒是常用的Bsw功能之一，此部分功能的处理核心部分在EcuM是实现；对于睡眠唤醒的几种方式描述如下：</p>
 <p>Sleep and wake-up are commonly used Bsw functions, with the core implementation of this functionality realized in EcuM; descriptions of the several ways to achieve sleep and wake-up are as follows:</p>
 <p>方式一：Mcu休眠，由中断唤醒</p>
@@ -369,15 +368,15 @@
 <p>EcuMValidationTimeout: Checks the duration for validating the Wakeup Source from Pending.</p>
 </section>
 <section id="sleep-wake-up-function-implementation">
-<h4>睡眠唤醒功能实现 (Sleep Wake-up Function Implementation)<a class="headerlink" href="#sleep-wake-up-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>睡眠唤醒功能实现 (Sleep Wake-up Function Implementation)<a class="headerlink" href="#sleep-wake-up-function-implementation" title="Link to this heading">¶</a></h4>
 <p>针对唤醒主要涉及EcuM_CheckWakeup、EcuM_SetWakeupEvent以及EcuM_ValidateWakeupEvent等函数。</p>
 <p>The wake-up involves functions such as EcuM_CheckWakeup, EcuM_SetWakeupEvent, and EcuM_ValidateWakeupEvent.</p>
 </section>
 </section>
 <section id="pb-pb-configuration-selection-function">
-<h3>PB配置选择功能 (PB Configuration Selection Function)<a class="headerlink" href="#pb-pb-configuration-selection-function" title="链接到此标题。">¶</a></h3>
+<h3>PB配置选择功能 (PB Configuration Selection Function)<a class="headerlink" href="#pb-pb-configuration-selection-function" title="Link to this heading">¶</a></h3>
 <section id="pb-introduction-to-pb-configuration-selection">
-<h4>PB配置选择介绍 (Introduction to PB Configuration Selection)<a class="headerlink" href="#pb-introduction-to-pb-configuration-selection" title="链接到此标题。">¶</a></h4>
+<h4>PB配置选择介绍 (Introduction to PB Configuration Selection)<a class="headerlink" href="#pb-introduction-to-pb-configuration-selection" title="Link to this heading">¶</a></h4>
 <p>AUTOSAR支持PB配置数据刷写，有两种方式：</p>
 <p>AUTOSAR supports PB configuration data flashing, with two ways:</p>
 <ol class="arabic simple">
@@ -392,14 +391,14 @@
 <p>The ECUM supports the Selectable configuration selection function for PB.</p>
 </section>
 <section id="pb-pb-configuration-selection-implementation">
-<h4>PB配置选择实现 (PB Configuration Selection Implementation)<a class="headerlink" href="#pb-pb-configuration-selection-implementation" title="链接到此标题。">¶</a></h4>
+<h4>PB配置选择实现 (PB Configuration Selection Implementation)<a class="headerlink" href="#pb-pb-configuration-selection-implementation" title="Link to this heading">¶</a></h4>
 <p>ECUM在EcuM_DeterminePbConfiguration函数中去确定使用那一套配置数据。实现选择多套PB配置的前提是，ECUM中事先存在多套配置。</p>
 <p>ECUM determines which set of configuration data to use in the EcuM_DeterminePbConfiguration function. The implementation of selecting multiple sets of PB configurations前提 is that ECUM preexists with multiple sets of configurations.</p>
 </section>
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 ECUM文件描述 (Table ECUM File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -461,11 +460,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="ecum-configtype-definition-of-ecum-configtype-type">
-<h4>EcuM_ConfigType类型定义 (Definition of EcuM_ConfigType Type)<a class="headerlink" href="#ecum-configtype-definition-of-ecum-configtype-type" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ConfigType类型定义 (Definition of EcuM_ConfigType Type)<a class="headerlink" href="#ecum-configtype-definition-of-ecum-configtype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -490,7 +489,7 @@
 </table>
 </section>
 <section id="ecum-runstatustype-ecum-runstatustype-type-definition">
-<h4>EcuM_RunStatusType类型定义 (EcuM_RunStatusType Type Definition)<a class="headerlink" href="#ecum-runstatustype-ecum-runstatustype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_RunStatusType类型定义 (EcuM_RunStatusType Type Definition)<a class="headerlink" href="#ecum-runstatustype-ecum-runstatustype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -521,7 +520,7 @@
 </table>
 </section>
 <section id="ecum-usertype-definition-of-ecum-usertype-type">
-<h4>EcuM_UserType类型定义 (Definition of EcuM_UserType Type)<a class="headerlink" href="#ecum-usertype-definition-of-ecum-usertype-type" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_UserType类型定义 (Definition of EcuM_UserType Type)<a class="headerlink" href="#ecum-usertype-definition-of-ecum-usertype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -546,7 +545,7 @@
 </table>
 </section>
 <section id="ecum-wakeupsourcetype-type-definition-for-ecum-wakeupsourcetype">
-<h4>EcuM_WakeupSourceType类型定义 (Type definition for EcuM_WakeupSourceType)<a class="headerlink" href="#ecum-wakeupsourcetype-type-definition-for-ecum-wakeupsourcetype" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_WakeupSourceType类型定义 (Type definition for EcuM_WakeupSourceType)<a class="headerlink" href="#ecum-wakeupsourcetype-type-definition-for-ecum-wakeupsourcetype" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -571,7 +570,7 @@
 </table>
 </section>
 <section id="ecum-wakeupstatustype-ecum-wakeupstatustype-type-definition">
-<h4>EcuM_WakeupStatusType类型定义 (EcuM_WakeupStatusType Type Definition)<a class="headerlink" href="#ecum-wakeupstatustype-ecum-wakeupstatustype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_WakeupStatusType类型定义 (EcuM_WakeupStatusType Type Definition)<a class="headerlink" href="#ecum-wakeupstatustype-ecum-wakeupstatustype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -605,7 +604,7 @@
 </table>
 </section>
 <section id="ecum-boottargettype-ecum-boottargettype-type-definition">
-<h4>EcuM_ BootTargetType类型定义 (<a class="reference internal" href="#ecum">EcuM</a> BootTargetType Type Definition)<a class="headerlink" href="#ecum-boottargettype-ecum-boottargettype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ BootTargetType类型定义 (<a class="reference internal" href="#ecum">EcuM</a> BootTargetType Type Definition)<a class="headerlink" href="#ecum-boottargettype-ecum-boottargettype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -636,7 +635,7 @@
 </table>
 </section>
 <section id="ecum-resettype-definition-of-ecum-resettype-type">
-<h4>EcuM_ ResetType类型定义 (Definition of EcuM_ResetType Type)<a class="headerlink" href="#ecum-resettype-definition-of-ecum-resettype-type" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ ResetType类型定义 (Definition of EcuM_ResetType Type)<a class="headerlink" href="#ecum-resettype-definition-of-ecum-resettype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -667,7 +666,7 @@
 </table>
 </section>
 <section id="ecum-shutdowncausetype-ecum-shutdowncausetype-type-definition">
-<h4>EcuM_ ShutdownCauseType类型定义 (EcuM_ShutdownCauseType Type Definition)<a class="headerlink" href="#ecum-shutdowncausetype-ecum-shutdowncausetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ ShutdownCauseType类型定义 (EcuM_ShutdownCauseType Type Definition)<a class="headerlink" href="#ecum-shutdowncausetype-ecum-shutdowncausetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -701,7 +700,7 @@
 </table>
 </section>
 <section id="ecum-shutdownmodetype-shutdownmodetype-type-definition">
-<h4>EcuM_ ShutdownModeType类型定义 (ShutdownModeType type definition)<a class="headerlink" href="#ecum-shutdownmodetype-shutdownmodetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ ShutdownModeType类型定义 (ShutdownModeType type definition)<a class="headerlink" href="#ecum-shutdownmodetype-shutdownmodetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -726,7 +725,7 @@
 </table>
 </section>
 <section id="ecum-timetype-definition-of-timetype-type">
-<h4>EcuM_ TimeType类型定义 (Definition of TimeType Type)<a class="headerlink" href="#ecum-timetype-definition-of-timetype-type" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ TimeType类型定义 (Definition of TimeType Type)<a class="headerlink" href="#ecum-timetype-definition-of-timetype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -751,7 +750,7 @@
 </table>
 </section>
 <section id="ecum-shutdowntargettype-ecum-shutdowntargettype-type-definition">
-<h4>EcuM_ ShutdownTargetType类型定义 (EcuM_ShutdownTargetType Type Definition)<a class="headerlink" href="#ecum-shutdowntargettype-ecum-shutdowntargettype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ ShutdownTargetType类型定义 (EcuM_ShutdownTargetType Type Definition)<a class="headerlink" href="#ecum-shutdowntargettype-ecum-shutdowntargettype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -783,7 +782,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -859,9 +858,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="ecum-getversioninfo">
-<h4>EcuM_GetVersionInfo<a class="headerlink" href="#ecum-getversioninfo" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetVersionInfo<a class="headerlink" href="#ecum-getversioninfo" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -936,7 +935,7 @@
 </table>
 </section>
 <section id="ecum-godownhaltpoll">
-<h4>EcuM_GoDownHaltPoll<a class="headerlink" href="#ecum-godownhaltpoll" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GoDownHaltPoll<a class="headerlink" href="#ecum-godownhaltpoll" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1026,7 +1025,7 @@
 </table>
 </section>
 <section id="ecum-init">
-<h4>EcuM_Init<a class="headerlink" href="#ecum-init" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_Init<a class="headerlink" href="#ecum-init" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1101,7 +1100,7 @@
 </table>
 </section>
 <section id="ecum-startuptwo">
-<h4>EcuM_StartupTwo<a class="headerlink" href="#ecum-startuptwo" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_StartupTwo<a class="headerlink" href="#ecum-startuptwo" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1176,7 +1175,7 @@
 </table>
 </section>
 <section id="ecum-shutdown">
-<h4>EcuM_Shutdown<a class="headerlink" href="#ecum-shutdown" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_Shutdown<a class="headerlink" href="#ecum-shutdown" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1251,7 +1250,7 @@
 </table>
 </section>
 <section id="ecum-setstate">
-<h4>EcuM_SetState<a class="headerlink" href="#ecum-setstate" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SetState<a class="headerlink" href="#ecum-setstate" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1326,7 +1325,7 @@
 </table>
 </section>
 <section id="ecum-requestrun">
-<h4>EcuM_RequestRUN<a class="headerlink" href="#ecum-requestrun" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_RequestRUN<a class="headerlink" href="#ecum-requestrun" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1411,7 +1410,7 @@
 </table>
 </section>
 <section id="ecum-releaserun">
-<h4>EcuM_ReleaseRUN<a class="headerlink" href="#ecum-releaserun" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ReleaseRUN<a class="headerlink" href="#ecum-releaserun" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1496,7 +1495,7 @@
 </table>
 </section>
 <section id="ecum-requestpost-run">
-<h4>EcuM_RequestPOST_RUN<a class="headerlink" href="#ecum-requestpost-run" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_RequestPOST_RUN<a class="headerlink" href="#ecum-requestpost-run" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1581,7 +1580,7 @@
 </table>
 </section>
 <section id="ecum-releasepost-run">
-<h4>EcuM_ReleasePOST_RUN<a class="headerlink" href="#ecum-releasepost-run" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ReleasePOST_RUN<a class="headerlink" href="#ecum-releasepost-run" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1666,7 +1665,7 @@
 </table>
 </section>
 <section id="ecum-selectshutdowntarget">
-<h4>EcuM_SelectShutdownTarget<a class="headerlink" href="#ecum-selectshutdowntarget" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SelectShutdownTarget<a class="headerlink" href="#ecum-selectshutdowntarget" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1761,7 +1760,7 @@
 </table>
 </section>
 <section id="ecum-getshutdowntarget">
-<h4>EcuM_GetShutdownTarget<a class="headerlink" href="#ecum-getshutdowntarget" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetShutdownTarget<a class="headerlink" href="#ecum-getshutdowntarget" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1856,7 +1855,7 @@
 </table>
 </section>
 <section id="ecum-getlastshutdowntarget">
-<h4>EcuM_GetLastShutdownTarget<a class="headerlink" href="#ecum-getlastshutdowntarget" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetLastShutdownTarget<a class="headerlink" href="#ecum-getlastshutdowntarget" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1951,7 +1950,7 @@
 </table>
 </section>
 <section id="ecum-selectshutdowncause">
-<h4>EcuM_SelectShutdownCause<a class="headerlink" href="#ecum-selectshutdowncause" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SelectShutdownCause<a class="headerlink" href="#ecum-selectshutdowncause" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2031,7 +2030,7 @@
 </table>
 </section>
 <section id="ecum-getshutdowncause">
-<h4>EcuM_GetShutdownCause<a class="headerlink" href="#ecum-getshutdowncause" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetShutdownCause<a class="headerlink" href="#ecum-getshutdowncause" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2111,7 +2110,7 @@
 </table>
 </section>
 <section id="ecum-getpendingwakeupevents">
-<h4>EcuM_GetPendingWakeupEvents<a class="headerlink" href="#ecum-getpendingwakeupevents" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetPendingWakeupEvents<a class="headerlink" href="#ecum-getpendingwakeupevents" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2186,7 +2185,7 @@
 </table>
 </section>
 <section id="ecum-clearwakeupevent">
-<h4>EcuM_ClearWakeupEvent<a class="headerlink" href="#ecum-clearwakeupevent" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ClearWakeupEvent<a class="headerlink" href="#ecum-clearwakeupevent" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2261,7 +2260,7 @@
 </table>
 </section>
 <section id="ecum-getvalidatedwakeupevents">
-<h4>EcuM_GetValidatedWakeupEvents<a class="headerlink" href="#ecum-getvalidatedwakeupevents" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetValidatedWakeupEvents<a class="headerlink" href="#ecum-getvalidatedwakeupevents" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2336,7 +2335,7 @@
 </table>
 </section>
 <section id="ecum-getexpiredwakeupevents">
-<h4>EcuM_GetExpiredWakeupEvents<a class="headerlink" href="#ecum-getexpiredwakeupevents" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetExpiredWakeupEvents<a class="headerlink" href="#ecum-getexpiredwakeupevents" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2411,7 +2410,7 @@
 </table>
 </section>
 <section id="ecum-setrelwakeupalarm">
-<h4>EcuM_SetRelWakeupAlarm<a class="headerlink" href="#ecum-setrelwakeupalarm" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SetRelWakeupAlarm<a class="headerlink" href="#ecum-setrelwakeupalarm" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2506,7 +2505,7 @@
 </table>
 </section>
 <section id="ecum-setabswakeupalarm">
-<h4>EcuM_SetAbsWakeupAlarm<a class="headerlink" href="#ecum-setabswakeupalarm" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SetAbsWakeupAlarm<a class="headerlink" href="#ecum-setabswakeupalarm" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2606,7 +2605,7 @@
 </table>
 </section>
 <section id="ecum-abortwakeupalarm">
-<h4>EcuM_AbortWakeupAlarm<a class="headerlink" href="#ecum-abortwakeupalarm" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_AbortWakeupAlarm<a class="headerlink" href="#ecum-abortwakeupalarm" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2691,7 +2690,7 @@
 </table>
 </section>
 <section id="ecum-getcurrenttime">
-<h4>EcuM_GetCurrentTime<a class="headerlink" href="#ecum-getcurrenttime" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetCurrentTime<a class="headerlink" href="#ecum-getcurrenttime" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2776,7 +2775,7 @@
 </table>
 </section>
 <section id="ecum-getwakeuptime">
-<h4>EcuM_GetWakeupTime<a class="headerlink" href="#ecum-getwakeuptime" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetWakeupTime<a class="headerlink" href="#ecum-getwakeuptime" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2856,7 +2855,7 @@
 </table>
 </section>
 <section id="ecum-setclock">
-<h4>EcuM_SetClock<a class="headerlink" href="#ecum-setclock" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SetClock<a class="headerlink" href="#ecum-setclock" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2946,7 +2945,7 @@
 </table>
 </section>
 <section id="ecum-selectboottarget">
-<h4>EcuM_SelectBootTarget<a class="headerlink" href="#ecum-selectboottarget" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SelectBootTarget<a class="headerlink" href="#ecum-selectboottarget" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3031,7 +3030,7 @@
 </table>
 </section>
 <section id="ecum-getboottarget">
-<h4>EcuM_GetBootTarget<a class="headerlink" href="#ecum-getboottarget" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_GetBootTarget<a class="headerlink" href="#ecum-getboottarget" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3106,7 +3105,7 @@
 </table>
 </section>
 <section id="ecum-mainfunction">
-<h4>EcuM_MainFunction<a class="headerlink" href="#ecum-mainfunction" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_MainFunction<a class="headerlink" href="#ecum-mainfunction" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3205,7 +3204,7 @@
 </table>
 </section>
 <section id="ecum-setwakeupevent">
-<h4>EcuM_SetWakeupEvent<a class="headerlink" href="#ecum-setwakeupevent" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_SetWakeupEvent<a class="headerlink" href="#ecum-setwakeupevent" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3280,7 +3279,7 @@
 </table>
 </section>
 <section id="ecum-validatewakeupevent">
-<h4>EcuM_ValidateWakeupEvent<a class="headerlink" href="#ecum-validatewakeupevent" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_ValidateWakeupEvent<a class="headerlink" href="#ecum-validatewakeupevent" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3355,7 +3354,7 @@
 </table>
 </section>
 <section id="ecum-checkwakeup">
-<h4>EcuM_CheckWakeup<a class="headerlink" href="#ecum-checkwakeup" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_CheckWakeup<a class="headerlink" href="#ecum-checkwakeup" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3431,9 +3430,9 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <section id="ecum-al-driverinitbswm-x">
-<h4>EcuM_AL_DriverInitBswM_&lt;x&gt;<a class="headerlink" href="#ecum-al-driverinitbswm-x" title="链接到此标题。">¶</a></h4>
+<h4>EcuM_AL_DriverInitBswM_&lt;x&gt;<a class="headerlink" href="#ecum-al-driverinitbswm-x" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3510,9 +3509,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="ecumgeneral">
-<h3>EcuMGeneral<a class="headerlink" href="#ecumgeneral" title="链接到此标题。">¶</a></h3>
+<h3>EcuMGeneral<a class="headerlink" href="#ecumgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumgeneral-ecumgeneral-container-configuration-diagram">
 <img alt="EcuMGeneral容器配置图 (EcuMGeneral Container Configuration Diagram)" src="../../_images/image1016.png" />
 </figure>
@@ -3592,7 +3591,7 @@
 </table>
 </section>
 <section id="ecumcommonconfigration">
-<h3>EcuMCommonConfigration<a class="headerlink" href="#ecumcommonconfigration" title="链接到此标题。">¶</a></h3>
+<h3>EcuMCommonConfigration<a class="headerlink" href="#ecumcommonconfigration" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumcommonconfigration-container-configuration-diagram-for-ecumcommonconfigration">
 <img alt="EcuMCommonConfigration容器配置图 (Container Configuration Diagram for EcuMCommonConfigration)" src="../../_images/image1120.png" />
 </figure>
@@ -3672,7 +3671,7 @@
 </table>
 </section>
 <section id="ecumdefaultshutdowntarget">
-<h3>EcuMDefaultShutdownTarget<a class="headerlink" href="#ecumdefaultshutdowntarget" title="链接到此标题。">¶</a></h3>
+<h3>EcuMDefaultShutdownTarget<a class="headerlink" href="#ecumdefaultshutdowntarget" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumdefaultshutdowntarget-ecumdefaultshutdowntarget-container-configuration-diagram">
 <img alt="EcuMDefaultShutdownTarget容器配置图 (EcuMDefaultShutdownTarget Container Configuration Diagram)" src="../../_images/image1217.png" />
 </figure>
@@ -3802,7 +3801,7 @@
 </table>
 </section>
 <section id="ecumdriverinititem">
-<h3>EcuMDriverInitItem<a class="headerlink" href="#ecumdriverinititem" title="链接到此标题。">¶</a></h3>
+<h3>EcuMDriverInitItem<a class="headerlink" href="#ecumdriverinititem" title="Link to this heading">¶</a></h3>
 <p>此配置项用于：</p>
 <p>This configuration item is used for:</p>
 <ul class="simple">
@@ -4178,7 +4177,7 @@
 </table>
 </section>
 <section id="ecumsleepmode">
-<h3>EcuMSleepMode<a class="headerlink" href="#ecumsleepmode" title="链接到此标题。">¶</a></h3>
+<h3>EcuMSleepMode<a class="headerlink" href="#ecumsleepmode" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumsleepmode-ecumsleepmode-container-configuration-diagram">
 <img alt="EcuMSleepMode容器配置图 (EcuMSleepMode Container Configuration Diagram)" src="../../_images/image187.png" />
 </figure>
@@ -4283,7 +4282,7 @@
 </table>
 </section>
 <section id="ecumwakeupsource">
-<h3>EcuMWakeupSource<a class="headerlink" href="#ecumwakeupsource" title="链接到此标题。">¶</a></h3>
+<h3>EcuMWakeupSource<a class="headerlink" href="#ecumwakeupsource" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumwakeupsource-ecumwakeupsource-container-configuration-diagram">
 <img alt="EcuMWakeupSource容器配置图 (EcuMWakeupSource Container Configuration Diagram)" src="../../_images/image195.png" />
 </figure>
@@ -4417,7 +4416,7 @@
 </table>
 </section>
 <section id="ecumflexconfiguration">
-<h3>EcuMFlexConfiguration<a class="headerlink" href="#ecumflexconfiguration" title="链接到此标题。">¶</a></h3>
+<h3>EcuMFlexConfiguration<a class="headerlink" href="#ecumflexconfiguration" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumflexconfiguration-ecumflexconfiguration-container-configuration-diagram">
 <img alt="EcuMFlexConfiguration容器配置图 (EcuMFlexConfiguration Container Configuration Diagram)" src="../../_images/image205.png" />
 </figure>
@@ -4497,7 +4496,7 @@
 </table>
 </section>
 <section id="ecumalarmclock">
-<h3>EcuMAlarmClock<a class="headerlink" href="#ecumalarmclock" title="链接到此标题。">¶</a></h3>
+<h3>EcuMAlarmClock<a class="headerlink" href="#ecumalarmclock" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumalarmclock-ecumalarmclock-container-configuration-diagram">
 <img alt="EcuMAlarmClock容器配置图 (EcuMAlarmClock Container Configuration Diagram)" src="../../_images/image2113.png" />
 </figure>
@@ -4599,7 +4598,7 @@
 </table>
 </section>
 <section id="ecumflexuserconfig">
-<h3>EcuMFlexUserConfig<a class="headerlink" href="#ecumflexuserconfig" title="链接到此标题。">¶</a></h3>
+<h3>EcuMFlexUserConfig<a class="headerlink" href="#ecumflexuserconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumflexuserconfig-ecumflexuserconfig-container-configuration-diagram">
 <img alt="EcuMFlexUserConfig容器配置图 (EcuMFlexUserConfig Container Configuration Diagram)" src="../../_images/image2212.png" />
 </figure>
@@ -4661,7 +4660,7 @@
 </table>
 </section>
 <section id="ecumgodownallowedusers">
-<h3>EcuMGoDownAllowedUsers<a class="headerlink" href="#ecumgodownallowedusers" title="链接到此标题。">¶</a></h3>
+<h3>EcuMGoDownAllowedUsers<a class="headerlink" href="#ecumgodownallowedusers" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumgodownallowedusers-ecumgodownallowedusers-container-configuration-diagram">
 <img alt="EcuMGoDownAllowedUsers容器配置图 (EcuMGoDownAllowedUsers Container Configuration Diagram)" src="../../_images/image2310.png" />
 </figure>
@@ -4705,7 +4704,7 @@
 </table>
 </section>
 <section id="ecumresetmode">
-<h3>EcuMResetMode<a class="headerlink" href="#ecumresetmode" title="链接到此标题。">¶</a></h3>
+<h3>EcuMResetMode<a class="headerlink" href="#ecumresetmode" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumresetmode-ecumresetmode-container-configuration-diagram">
 <img alt="EcuMResetMode容器配置图 (EcuMResetMode Container Configuration Diagram)" src="../../_images/image245.png" />
 </figure>
@@ -4749,7 +4748,7 @@
 </table>
 </section>
 <section id="ecumsetclockallowedusers">
-<h3>EcuMSetClockAllowedUsers<a class="headerlink" href="#ecumsetclockallowedusers" title="链接到此标题。">¶</a></h3>
+<h3>EcuMSetClockAllowedUsers<a class="headerlink" href="#ecumsetclockallowedusers" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumsetclockallowedusers-ecumsetclockallowedusers-container-configuration-diagram">
 <img alt="EcuMSetClockAllowedUsers容器配置图 (EcuMSetClockAllowedUsers Container Configuration Diagram)" src="../../_images/image255.png" />
 </figure>
@@ -4793,7 +4792,7 @@
 </table>
 </section>
 <section id="ecumshutdowncause">
-<h3>EcuMShutdownCause<a class="headerlink" href="#ecumshutdowncause" title="链接到此标题。">¶</a></h3>
+<h3>EcuMShutdownCause<a class="headerlink" href="#ecumshutdowncause" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumshutdowncause-ecumshutdowncause-container-configuration-diagram">
 <img alt="EcuMShutdownCause容器配置图 (EcuMShutdownCause Container Configuration Diagram)" src="../../_images/image265.png" />
 </figure>
@@ -4837,7 +4836,7 @@
 </table>
 </section>
 <section id="ecumflexgeneral">
-<h3>EcuMFlexGeneral<a class="headerlink" href="#ecumflexgeneral" title="链接到此标题。">¶</a></h3>
+<h3>EcuMFlexGeneral<a class="headerlink" href="#ecumflexgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="ecumflexgeneral-ecumflexgeneral-container-configuration-diagram">
 <img alt="EcuMFlexGeneral容器配置图 (EcuMFlexGeneral Container Configuration Diagram)" src="../../_images/image275.png" />
 </figure>
@@ -5136,7 +5135,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -5145,11 +5144,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

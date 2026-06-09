@@ -9,7 +9,6 @@
         <title>LinSM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="linsm">
-<h1>LinSM<a class="headerlink" href="#linsm" title="链接到此标题。">¶</a></h1>
+<h1>LinSM<a class="headerlink" href="#linsm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -208,7 +207,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>本文档是AUTOSAR R19-11的LIN State Manager模块参考手册。旨在指导使用LinSM模块的用户能够清晰地了解如何去使用LinSM模块。</p>
 <p>This document is the AUTOSAR R19-11 LIN State Manager module reference manual. It aims to guide users of the LinSM module to clearly understand how to use the LinSM module.</p>
 <p>LinSM模块的下层是Lin Interface，上层是ComM，BswM等。其主要职责是控制Lin总线的控制流。主要功能包括以下三点：</p>
@@ -229,7 +228,7 @@
 <img alt="LinSM模块在AUTOSAR架构中的位置 (The LinSM module's position in the AUTOSAR architecture)" src="../../_images/image1108.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_LINInterface.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_LINStateManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_LINTransceiverDriver.pdf，R19-11</p>
@@ -238,15 +237,15 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="lin-the-status-management-function-of-lin-network">
-<h3>LIN网络的状态管理功能 (The status management function of LIN network)<a class="headerlink" href="#lin-the-status-management-function-of-lin-network" title="链接到此标题。">¶</a></h3>
+<h3>LIN网络的状态管理功能 (The status management function of LIN network)<a class="headerlink" href="#lin-the-status-management-function-of-lin-network" title="Link to this heading">¶</a></h3>
 <p>控制LIN网络的通信状态（NO COMMUNICATION和FULL COMMUNICATION），处理调度表切换请求（仅主节点），处理通信模式请求，将通信状态变更通知给上层。</p>
 <p>Control the communication status of the LIN network (NO COMMUNICATION and FULL COMMUNICATION), handle scheduling table switch requests (only on the master node), handle communication mode requests, and notify the upper layer of communication status changes.</p>
 </section>
 </section>
 <section id="function-implementation">
-<h2>功能实现 (Function implementation)<a class="headerlink" href="#function-implementation" title="链接到此标题。">¶</a></h2>
+<h2>功能实现 (Function implementation)<a class="headerlink" href="#function-implementation" title="Link to this heading">¶</a></h2>
 <p>对于Master节点在LINSM_FULL_COM状态，ComM调用LinSM_RequestComMode()请求将网络状态切换到NO_COM时，调用LinIf_GotoSleep()，并阻塞其他请求。当睡眠执行成功后，LinIf调用LinSM_GotoSleepConfirmation()，收到该通知后，将状态切换到LINSM_NO_COM，退出GotoSleep进程，接受其他请求。然后LinSM调用ComM和BswM通知接口，报告当前状态切换到NO_COM。</p>
 <p>For Master nodes in the LINSM_FULL_COM state, ComM calls LinSM_RequestComMode() to request switching the network status to NO_COM. It then calls LinIf_GotoSleep() and blocks other requests. Upon successful sleep execution, LinIf calls LinSM_GotoSleepConfirmation(). After receiving this notification, the state switches to LINSM_NO_COM, exiting the GotoSleep process and accepting other requests. Then LinSM calls ComM and BswM notification interfaces to report that the current status has switched to NO_COM.</p>
 <p>对于Slave节点在LINSM_FULL_COM状态，ComM调用LinSM_RequestComMode()请求将网络状态切换到NO_COM时，LinSM保存该请求。当LinIf检测到总线睡眠时，调用LinSM_GotoSleepIndication()，调用LinIf_GotoSleep()，并阻塞其他请求。如果之前请求NO_COM，并且LinIf_GotoSleep()返回E_OK，LinSM调用ComM_BusSM_BusSleepMode通知ComM进入BusSleep状态。当LinIf调用LinSM_GotoSleepConfirmation()时，将状态切换到LINSM_NO_COM，退出GotoSleep进程，接受其他请求。然后LinSM调用ComM和BswM通知接口，报告当前状态切换到NO_COM。</p>
@@ -261,7 +260,7 @@
 <p>After the scheduling table switch is successful, LinIf calls LinSM_ScheduleRequestConfirmation() to notify LinSM. LinSM cancels the timeout timer and notifies BswM of the scheduling table switch result.</p>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 LinSM源文件 (Table LinSM Source File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -299,13 +298,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="linsm-modetype-linsm-modetype-type-definition">
-<h2>LinSM_ModeType类型定义 (LinSM_ModeType Type Definition)<a class="headerlink" href="#linsm-modetype-linsm-modetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_ModeType类型定义 (LinSM_ModeType Type Definition)<a class="headerlink" href="#linsm-modetype-linsm-modetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -332,7 +331,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -366,11 +365,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="linsm-init-the-linsm-init-function-definition">
-<h2>LinSM_Init函数定义 (The LinSM_Init function definition)<a class="headerlink" href="#linsm-init-the-linsm-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_Init函数定义 (The LinSM_Init function definition)<a class="headerlink" href="#linsm-init-the-linsm-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -435,7 +434,7 @@
 </table>
 </section>
 <section id="linsm-getversioninfo-the-linsm-getversioninfo-function-definition">
-<h2>LinSM_GetVersionInfo函数定义 (The LinSM_GetVersionInfo function definition)<a class="headerlink" href="#linsm-getversioninfo-the-linsm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_GetVersionInfo函数定义 (The LinSM_GetVersionInfo function definition)<a class="headerlink" href="#linsm-getversioninfo-the-linsm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -500,7 +499,7 @@
 </table>
 </section>
 <section id="linsm-schedulerequest-the-linsm-schedulerequest-function-definition">
-<h2>LinSM_ScheduleRequest函数定义 (The LinSM_ScheduleRequest function definition)<a class="headerlink" href="#linsm-schedulerequest-the-linsm-schedulerequest-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_ScheduleRequest函数定义 (The LinSM_ScheduleRequest function definition)<a class="headerlink" href="#linsm-schedulerequest-the-linsm-schedulerequest-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -600,7 +599,7 @@
 </table>
 </section>
 <section id="linsm-getcurrentcommode-the-linsm-getcurrentcommode-function-definition">
-<h2>LinSM_GetCurrentComMode函数定义 (The LinSM_GetCurrentComMode function definition)<a class="headerlink" href="#linsm-getcurrentcommode-the-linsm-getcurrentcommode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_GetCurrentComMode函数定义 (The LinSM_GetCurrentComMode function definition)<a class="headerlink" href="#linsm-getcurrentcommode-the-linsm-getcurrentcommode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -700,7 +699,7 @@
 </table>
 </section>
 <section id="linsm-requestcommode-the-linsm-requestcommode-function-definition">
-<h2>LinSM_RequestComMode函数定义 (The LinSM_RequestComMode function definition)<a class="headerlink" href="#linsm-requestcommode-the-linsm-requestcommode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_RequestComMode函数定义 (The LinSM_RequestComMode function definition)<a class="headerlink" href="#linsm-requestcommode-the-linsm-requestcommode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -814,7 +813,7 @@
 </table>
 </section>
 <section id="linsm-mainfunction-linsm-mainfunction-function-definition">
-<h2>LinSM_MainFunction函数定义 (LinSM_MainFunction function definition)<a class="headerlink" href="#linsm-mainfunction-linsm-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_MainFunction函数定义 (LinSM_MainFunction function definition)<a class="headerlink" href="#linsm-mainfunction-linsm-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -857,7 +856,7 @@
 </table>
 </section>
 <section id="linsm-schedulerequestconfirmation-the-linsm-schedulerequestconfirmation-function-definition">
-<h2>LinSM_ScheduleRequestConfirmation函数定义 (The LinSM_ScheduleRequestConfirmation function definition)<a class="headerlink" href="#linsm-schedulerequestconfirmation-the-linsm-schedulerequestconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_ScheduleRequestConfirmation函数定义 (The LinSM_ScheduleRequestConfirmation function definition)<a class="headerlink" href="#linsm-schedulerequestconfirmation-the-linsm-schedulerequestconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -942,7 +941,7 @@
 </table>
 </section>
 <section id="linsm-wakeupconfirmation-linsm-wakeupconfirmation-function-definition">
-<h2>LinSM_WakeupConfirmation函数定义 (LinSM_WakeupConfirmation function definition)<a class="headerlink" href="#linsm-wakeupconfirmation-linsm-wakeupconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_WakeupConfirmation函数定义 (LinSM_WakeupConfirmation function definition)<a class="headerlink" href="#linsm-wakeupconfirmation-linsm-wakeupconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1027,7 +1026,7 @@
 </table>
 </section>
 <section id="linsm-gotosleepconfirmation-linsm-gotosleepconfirmation-function-definition">
-<h2>LinSM_GotoSleepConfirmation函数定义 (LinSM_GotoSleepConfirmation function definition)<a class="headerlink" href="#linsm-gotosleepconfirmation-linsm-gotosleepconfirmation-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_GotoSleepConfirmation函数定义 (LinSM_GotoSleepConfirmation function definition)<a class="headerlink" href="#linsm-gotosleepconfirmation-linsm-gotosleepconfirmation-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1112,7 +1111,7 @@
 </table>
 </section>
 <section id="linsm-gotosleepindication-the-linsm-gotosleepindication-function-definition">
-<h2>LinSM_GotoSleepIndication函数定义 (The LinSM_GotoSleepIndication function definition)<a class="headerlink" href="#linsm-gotosleepindication-the-linsm-gotosleepindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>LinSM_GotoSleepIndication函数定义 (The LinSM_GotoSleepIndication function definition)<a class="headerlink" href="#linsm-gotosleepindication-the-linsm-gotosleepindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1186,15 +1185,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="linsm-general">
-<h3>LinSM General<a class="headerlink" href="#linsm-general" title="链接到此标题。">¶</a></h3>
+<h3>LinSM General<a class="headerlink" href="#linsm-general" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="linsm-general-linsm-general-container-configuration-diagram">
 <img alt="LinSM General容器配置图 (LinSM General Container Configuration Diagram)" src="../../_images/image350.png" />
 </figure>
@@ -1274,7 +1273,7 @@
 </table>
 </section>
 <section id="linsmconfigset">
-<h3>LinSMConfigSet<a class="headerlink" href="#linsmconfigset" title="链接到此标题。">¶</a></h3>
+<h3>LinSMConfigSet<a class="headerlink" href="#linsmconfigset" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="linsmconfigset-linsmconfigset-container-configuration-diagram">
 <img alt="LinSMConfigSet容器配置图 (LinSMConfigSet Container Configuration Diagram)" src="../../_images/image445.png" />
 </figure>
@@ -1319,7 +1318,7 @@
 </section>
 </section>
 <section id="linsm-channel">
-<h2>LinSM Channel<a class="headerlink" href="#linsm-channel" title="链接到此标题。">¶</a></h2>
+<h2>LinSM Channel<a class="headerlink" href="#linsm-channel" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="linsm-channel-linsm-channel-container-configuration-diagram">
 <img alt="LinSM Channel容器配置图 (LinSM Channel Container Configuration Diagram)" src="../../_images/image539.png" />
 </figure>
@@ -1434,7 +1433,7 @@
 </tbody>
 </table>
 <section id="linsmschedule">
-<h3>LinSMSchedule<a class="headerlink" href="#linsmschedule" title="链接到此标题。">¶</a></h3>
+<h3>LinSMSchedule<a class="headerlink" href="#linsmschedule" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="linsmschedule-linsmschedule-container-configuration-diagram">
 <img alt="LinSMSchedule容器配置图 (LinSMSchedule Container Configuration Diagram)" src="../../_images/image638.png" />
 </figure>
@@ -1601,7 +1600,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -1610,11 +1609,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

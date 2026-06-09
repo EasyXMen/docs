@@ -9,7 +9,6 @@
         <title>IpduM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ipdum">
-<h1>IpduM<a class="headerlink" href="#ipdum" title="链接到此标题。">¶</a></h1>
+<h1>IpduM<a class="headerlink" href="#ipdum" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -224,7 +223,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>IpduM实现I-PDU的复用功能。发送时，将Com层需要发送的多帧I-PDU进行重新封装，将重新封装得到的新I-PDU按照触发条件进行发送。接收时将接收到的I-PDU解析成Com层的多帧I-PDU，分别传递给Com模块（通过PduR传递）。IpduM层I-PDU的封装存在两种方式：（1）Multiplexing方式：将两个I-PDU(一个对应静态部分，另外一个对应动态部分)中的某些bit段取出来，组合在一起形成一个Multiplexed I-PDU。对于一个Multiplexed I-PDU来讲它由动态部分与静态部分组成，其静态部分对应一个固定的I-PDU（以下称StaticPart PDU），而动态部分可以由不同的I-PDU（以下称DynamicPart PDU）来代表；（2）Container方式：将与Com层Ref的多个Contained I-PDU (及其Header)，封装到同一个IpduM层I-PDU中进行统一发送。IpduM层I-PDU的解析，与封装相反。</p>
 <p>IpduM implements the multiplexing function of I-PDU. When sending, it re-packages multiple Com-layer I-PDUs that need to be sent into a new I-PDU and sends it according to the triggering condition. Upon receiving, it parses the received I-PDU into multiple Com-layer I-PDUs and passes them separately to the Com module (via PduR). The packaging of IpduM-level I-PDU exists in two ways: (1) Multiplexing method: Taking out certain bit segments from two I-PDUs (one corresponding to the static part, another to the dynamic part), combining them to form a multiplexed I-PDU. For a multiplexed I-PDU, it consists of a dynamic part and a static part; the static part corresponds to a fixed I-PDU (referred to as StaticPart PDU), while the dynamic part can be represented by different I-PDUs (referred to as DynamicPart PDU); (2) Container method: Packaging multiple Contained Com-layer I-PDUs (and their headers) into a single IpduM-level I-PDU for unified sending. The parsing of IpduM-level I-PDU is the opposite of its packaging.</p>
 <figure class="align-center" id="ipdum-ipdum-module-hierarchy-diagram">
@@ -233,22 +232,22 @@
 <p>IpduM模块处于通信服务层，既属于PduR模块的上层，又属于PduR模块的下层，与PduR模块实现IF PDU的收发。发送时，将Com层I-PDU通过PduR路由到IpduM，IpduM将其重新组装，组装完毕调用PduR模块发送接口进行发送。接收时，从PduR接收来自底层的I-PDU报文，将其进行解析，并调用PduR模块的接收接口进行接收传递。</p>
 <p>The IpduM module is in the communication service layer, both above and below the PduR module. It realizes the reception and transmission of IF PDU with the PduR module. During transmission, Com layer I-PDUs are routed to IpduM via the PduR module, which reassembles them before calling the sending interface in the PduR module for transmission. During reception, I-PDU messages received from the lower layer through the PduR module are parsed, and the receiving interface in the PduR module is called to handle the reception and forwarding.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_IPDUMultiplexer.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_PDURouter.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="i-pdu-multiplexing-i-pdu-multiplexing-function">
-<h3>I-PDU Multiplexing功能 (I-PDU Multiplexing Function)<a class="headerlink" href="#i-pdu-multiplexing-i-pdu-multiplexing-function" title="链接到此标题。">¶</a></h3>
+<h3>I-PDU Multiplexing功能 (I-PDU Multiplexing Function)<a class="headerlink" href="#i-pdu-multiplexing-i-pdu-multiplexing-function" title="Link to this heading">¶</a></h3>
 <section id="i-pdu-multiplexing-introduction-to-i-pdu-multiplexing-function">
-<h4>I-PDU Multiplexing功能介绍 (Introduction to I-PDU Multiplexing Function)<a class="headerlink" href="#i-pdu-multiplexing-introduction-to-i-pdu-multiplexing-function" title="链接到此标题。">¶</a></h4>
+<h4>I-PDU Multiplexing功能介绍 (Introduction to I-PDU Multiplexing Function)<a class="headerlink" href="#i-pdu-multiplexing-introduction-to-i-pdu-multiplexing-function" title="Link to this heading">¶</a></h4>
 <p>IpduM模块中Multiplexed I-PDU关联0-1个StaticPart PDU（关联Com层PDU），1-N个DynamicPart PDU（关联Com层PDU）。发送时，IpduM将Com层PDUs的某些Segment段(配置的bit段)更新到Multiplexed I-PDU中，调用下层模块的发送函数发送该Multiplexed I-PDU；接收时，IpduM将接收到的Multiplexed I-PDU进行解析并分别传递给Com层关联的StaticPart PDU和DynamicPart PDU。</p>
 <p>The IpduM module associates 0-1 StaticPart PDU (linked to Com layer PDUs) and 1-N DynamicPart PDUs (linked to Com layer PDUs) with Multiplexed I-PDU. When sending, IpduM updates certain segments (configured bit segments) of the Com layer PDUs into the Multiplexed I-PDU and calls the send function of the lower layer module to send this Multiplexed I-PDU; when receiving, IpduM parses the received Multiplexed I-PDU and separately forwards it to the StaticPart PDU and DynamicPart PDU associated with the Com layer.</p>
 </section>
 <section id="i-pdu-multiplexing-i-pdu-multiplexing-functionality-implementation">
-<h4>I-PDU Multiplexing功能实现 (I-PDU Multiplexing functionality implementation)<a class="headerlink" href="#i-pdu-multiplexing-i-pdu-multiplexing-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>I-PDU Multiplexing功能实现 (I-PDU Multiplexing functionality implementation)<a class="headerlink" href="#i-pdu-multiplexing-i-pdu-multiplexing-functionality-implementation" title="Link to this heading">¶</a></h4>
 <p>1.Multiplexed I-PDU发送：</p>
 <p>Multiplexed I-PDU Sending:</p>
 <p>上层模块调用IpduM_Transmit请求StaticPart PDU/DynamicPart PDU进行发送，IpduM将更新Multiplexed I-PDU中相应Segement段数据，以及SF（更新DynamicPart时）。IpduM模块将在Multiplexed I-PDU的触发发送条件满足时，调用PduR_IpduMTransmit进行发送，当Multiplexed I-PDU发送成功后调用上层模块对应的TxConfirmation函数通知当前StaticPart PDU/DynamicPart PDU发送成功。</p>
@@ -260,14 +259,14 @@
 </section>
 </section>
 <section id="multiple-pdu-to-container-handling-multiple-pdu-to-container-handling-functionality">
-<h3>Multiple-PDU-to-Container handling功能 (Multiple-PDU-to-Container Handling functionality)<a class="headerlink" href="#multiple-pdu-to-container-handling-multiple-pdu-to-container-handling-functionality" title="链接到此标题。">¶</a></h3>
+<h3>Multiple-PDU-to-Container handling功能 (Multiple-PDU-to-Container Handling functionality)<a class="headerlink" href="#multiple-pdu-to-container-handling-multiple-pdu-to-container-handling-functionality" title="Link to this heading">¶</a></h3>
 <section id="multiple-pdu-to-container-handling-function-introduction-for-multiple-pdu-to-container-handling">
-<h4>Multiple-PDU-to-Container handling功能介绍 (Function Introduction for Multiple-PDU-to-Container Handling)<a class="headerlink" href="#multiple-pdu-to-container-handling-function-introduction-for-multiple-pdu-to-container-handling" title="链接到此标题。">¶</a></h4>
+<h4>Multiple-PDU-to-Container handling功能介绍 (Function Introduction for Multiple-PDU-to-Container Handling)<a class="headerlink" href="#multiple-pdu-to-container-handling-function-introduction-for-multiple-pdu-to-container-handling" title="Link to this heading">¶</a></h4>
 <p>IpduM中Container PDU，包含N个Contained PDUs（与Com层PDU关联）。发送时，IpduM将Com层1-N个PDU封装到同一个Container PDU中，通过下层的发送接口进行整体发送；接收时，IpduM将接收到的Container PDU解析成各个Contained PDUs，分别调用上层的RxIndication函数传递给上层。</p>
 <p>In IpduM, the Container PDU contains N Contained PDUs (associated with Com layer PDUs). When sent, IpduM encapsulates Com layer PDUs from 1 to N into the same Container PDU and sends them as a whole via the lower layer's send interface; when received, IpduM parses the received Container PDU into individual Contained PDUs and separately invokes the upper layer's RxIndication function to pass them up.</p>
 </section>
 <section id="multiple-pdu-to-container-handling-multiple-pdu-to-container-handling-functionality-implementation">
-<h4>Multiple-PDU-to-Container handling功能实现 (Multiple-PDU-to-Container Handling functionality implementation)<a class="headerlink" href="#multiple-pdu-to-container-handling-multiple-pdu-to-container-handling-functionality-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Multiple-PDU-to-Container handling功能实现 (Multiple-PDU-to-Container Handling functionality implementation)<a class="headerlink" href="#multiple-pdu-to-container-handling-multiple-pdu-to-container-handling-functionality-implementation" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Container PDU发送：</p></li>
 </ol>
@@ -284,7 +283,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 IpduM组件文件描述 (Table IPDU Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -325,11 +324,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="ipdum-configtype-ipdum-configtype-configuration-type-definition">
-<h4>IpduM_ConfigType类型定义 (IpduM_ConfigType Configuration Type Definition)<a class="headerlink" href="#ipdum-configtype-ipdum-configtype-configuration-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_ConfigType类型定义 (IpduM_ConfigType Configuration Type Definition)<a class="headerlink" href="#ipdum-configtype-ipdum-configtype-configuration-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -355,7 +354,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -389,9 +388,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="ipdum-init-the-ipdum-init-function-definition">
-<h4>IpduM_Init函数定义 (The IpduM_Init function definition)<a class="headerlink" href="#ipdum-init-the-ipdum-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_Init函数定义 (The IpduM_Init function definition)<a class="headerlink" href="#ipdum-init-the-ipdum-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -456,7 +455,7 @@
 </table>
 </section>
 <section id="ipdum-getversioninfo-the-function-definition-for-ipdum-getversioninfo">
-<h4>IpduM_GetVersionInfo函数定义 (The function definition for IpduM_GetVersionInfo)<a class="headerlink" href="#ipdum-getversioninfo-the-function-definition-for-ipdum-getversioninfo" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_GetVersionInfo函数定义 (The function definition for IpduM_GetVersionInfo)<a class="headerlink" href="#ipdum-getversioninfo-the-function-definition-for-ipdum-getversioninfo" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -526,7 +525,7 @@
 </table>
 </section>
 <section id="ipdum-transmit-the-definition-of-ipdum-transmit-function">
-<h4>IpduM_Transmit函数定义 (The definition of IpduM_Transmit function)<a class="headerlink" href="#ipdum-transmit-the-definition-of-ipdum-transmit-function" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_Transmit函数定义 (The definition of IpduM_Transmit function)<a class="headerlink" href="#ipdum-transmit-the-definition-of-ipdum-transmit-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -606,7 +605,7 @@
 </table>
 </section>
 <section id="ipdum-rxindication-ipdum-rxindication-function-definition">
-<h4>IpduM_RxIndication函数定义 (IpduM_RxIndication Function Definition)<a class="headerlink" href="#ipdum-rxindication-ipdum-rxindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_RxIndication函数定义 (IpduM_RxIndication Function Definition)<a class="headerlink" href="#ipdum-rxindication-ipdum-rxindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -686,7 +685,7 @@
 </table>
 </section>
 <section id="ipdum-txconfirmation-the-ipdum-txconfirmation-function-definition">
-<h4>IpduM_TxConfirmation函数定义 (The IpduM_TxConfirmation function definition)<a class="headerlink" href="#ipdum-txconfirmation-the-ipdum-txconfirmation-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_TxConfirmation函数定义 (The IpduM_TxConfirmation function definition)<a class="headerlink" href="#ipdum-txconfirmation-the-ipdum-txconfirmation-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -756,7 +755,7 @@
 </table>
 </section>
 <section id="ipdum-triggertransmit-ipdum-triggertransmit-function-definition">
-<h4>IpduM_TriggerTransmit函数定义 (IpduM_TriggerTransmit function definition)<a class="headerlink" href="#ipdum-triggertransmit-ipdum-triggertransmit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_TriggerTransmit函数定义 (IpduM_TriggerTransmit function definition)<a class="headerlink" href="#ipdum-triggertransmit-ipdum-triggertransmit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -831,7 +830,7 @@
 </table>
 </section>
 <section id="ipdum-mainfunctiontx-ipdum-mainfunctiontx-function-definition">
-<h4>IpduM_MainFunctionTx函数定义 (IpduM_MainFunctionTx function definition)<a class="headerlink" href="#ipdum-mainfunctiontx-ipdum-mainfunctiontx-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_MainFunctionTx函数定义 (IpduM_MainFunctionTx function definition)<a class="headerlink" href="#ipdum-mainfunctiontx-ipdum-mainfunctiontx-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -874,7 +873,7 @@
 </table>
 </section>
 <section id="ipdum-mainfunctionrx-ipdum-mainfunctionrx-function-definition">
-<h4>IpduM_MainFunctionRx函数定义 (IpduM_MainFunctionRx function definition)<a class="headerlink" href="#ipdum-mainfunctionrx-ipdum-mainfunctionrx-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>IpduM_MainFunctionRx函数定义 (IpduM_MainFunctionRx function definition)<a class="headerlink" href="#ipdum-mainfunctionrx-ipdum-mainfunctionrx-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -918,15 +917,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="ipdumgeneral">
-<h3>IpduMGeneral<a class="headerlink" href="#ipdumgeneral" title="链接到此标题。">¶</a></h3>
+<h3>IpduMGeneral<a class="headerlink" href="#ipdumgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="IpduMGeneral" src="../../_images/image346.png" />
 </figure>
@@ -1060,7 +1059,7 @@
 </table>
 </section>
 <section id="ipdumpublishedinformation">
-<h3>IpduMPublishedInformation<a class="headerlink" href="#ipdumpublishedinformation" title="链接到此标题。">¶</a></h3>
+<h3>IpduMPublishedInformation<a class="headerlink" href="#ipdumpublishedinformation" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="IpduMPublishedInformation" src="../../_images/image438.png" />
 </figure>
@@ -1104,7 +1103,7 @@
 </table>
 </section>
 <section id="ipdumcontainedrxpdu">
-<h3>IpduMContainedRxPdu<a class="headerlink" href="#ipdumcontainedrxpdu" title="链接到此标题。">¶</a></h3>
+<h3>IpduMContainedRxPdu<a class="headerlink" href="#ipdumcontainedrxpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id3">
 <img alt="IpduMContainedRxPdu" src="../../_images/image536.png" />
 </figure>
@@ -1274,7 +1273,7 @@
 </table>
 </section>
 <section id="ipdumcontainerrxpdu">
-<h3>IpduMContainerRxPdu<a class="headerlink" href="#ipdumcontainerrxpdu" title="链接到此标题。">¶</a></h3>
+<h3>IpduMContainerRxPdu<a class="headerlink" href="#ipdumcontainerrxpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id4">
 <img alt="IpduMContainerRxPdu" src="../../_images/image635.png" />
 </figure>
@@ -1426,7 +1425,7 @@
 </table>
 </section>
 <section id="ipdumcontainedtxpdu">
-<h3>IpduMContainedTxPdu<a class="headerlink" href="#ipdumcontainedtxpdu" title="链接到此标题。">¶</a></h3>
+<h3>IpduMContainedTxPdu<a class="headerlink" href="#ipdumcontainedtxpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id5">
 <img alt="IpduMContainedTxPdu" src="../../_images/image728.png" />
 </figure>
@@ -1662,7 +1661,7 @@
 </table>
 </section>
 <section id="ipdumcontainertxpdu">
-<h3>IpduMContainerTxPdu<a class="headerlink" href="#ipdumcontainertxpdu" title="链接到此标题。">¶</a></h3>
+<h3>IpduMContainerTxPdu<a class="headerlink" href="#ipdumcontainertxpdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id6">
 <img alt="IpduMContainerTxPdu" src="../../_images/image825.png" />
 </figure>
@@ -1886,7 +1885,7 @@
 </table>
 </section>
 <section id="ipdumrxindication">
-<h3>IpduMRxIndication<a class="headerlink" href="#ipdumrxindication" title="链接到此标题。">¶</a></h3>
+<h3>IpduMRxIndication<a class="headerlink" href="#ipdumrxindication" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id7">
 <img alt="IpduMRxIndication" src="../../_images/image924.png" />
 </figure>
@@ -1966,7 +1965,7 @@
 </table>
 </section>
 <section id="ipdumrxdynamicpart">
-<h3>IpduMRxDynamicPart<a class="headerlink" href="#ipdumrxdynamicpart" title="链接到此标题。">¶</a></h3>
+<h3>IpduMRxDynamicPart<a class="headerlink" href="#ipdumrxdynamicpart" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id8">
 <img alt="IpduMRxDynamicPart" src="../../_images/image1022.png" />
 </figure>
@@ -2028,7 +2027,7 @@
 </table>
 </section>
 <section id="ipdumrxdynamicsegment">
-<h3>IpduMRxDynamicSegment<a class="headerlink" href="#ipdumrxdynamicsegment" title="链接到此标题。">¶</a></h3>
+<h3>IpduMRxDynamicSegment<a class="headerlink" href="#ipdumrxdynamicsegment" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id9">
 <img alt="IpduMRxDynamicSegment" src="../../_images/image1126.png" />
 </figure>
@@ -2090,7 +2089,7 @@
 </table>
 </section>
 <section id="ipdumrxstaticpart">
-<h3>IpduMRxStaticPart<a class="headerlink" href="#ipdumrxstaticpart" title="链接到此标题。">¶</a></h3>
+<h3>IpduMRxStaticPart<a class="headerlink" href="#ipdumrxstaticpart" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id10">
 <img alt="IpduMRxStaticPart" src="../../_images/image1223.png" />
 </figure>
@@ -2134,7 +2133,7 @@
 </table>
 </section>
 <section id="ipdumrxstaticsegment">
-<h3>IpduMRxStaticSegment<a class="headerlink" href="#ipdumrxstaticsegment" title="链接到此标题。">¶</a></h3>
+<h3>IpduMRxStaticSegment<a class="headerlink" href="#ipdumrxstaticsegment" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id11">
 <img alt="IpduMRxStaticSegment" src="../../_images/image1320.png" />
 </figure>
@@ -2196,7 +2195,7 @@
 </table>
 </section>
 <section id="ipdumselectorfield">
-<h3>IpduMSelectorField<a class="headerlink" href="#ipdumselectorfield" title="链接到此标题。">¶</a></h3>
+<h3>IpduMSelectorField<a class="headerlink" href="#ipdumselectorfield" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id12">
 <img alt="IpduMSelectorField" src="../../_images/image1418.png" />
 </figure>
@@ -2258,7 +2257,7 @@
 </table>
 </section>
 <section id="ipdumtxrequest">
-<h3>IpduMTxRequest<a class="headerlink" href="#ipdumtxrequest" title="链接到此标题。">¶</a></h3>
+<h3>IpduMTxRequest<a class="headerlink" href="#ipdumtxrequest" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id13">
 <img alt="IpduMTxRequest" src="../../_images/image1518.png" />
 </figure>
@@ -2428,7 +2427,7 @@
 </table>
 </section>
 <section id="ipdumtxdynamicpart">
-<h3>IpduMTxDynamicPart<a class="headerlink" href="#ipdumtxdynamicpart" title="链接到此标题。">¶</a></h3>
+<h3>IpduMTxDynamicPart<a class="headerlink" href="#ipdumtxdynamicpart" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id14">
 <img alt="IpduMTxDynamicPart" src="../../_images/image1615.png" />
 </figure>
@@ -2526,7 +2525,7 @@
 </table>
 </section>
 <section id="ipdumtxdynamicsegment">
-<h3>IpduMTxDynamicSegment<a class="headerlink" href="#ipdumtxdynamicsegment" title="链接到此标题。">¶</a></h3>
+<h3>IpduMTxDynamicSegment<a class="headerlink" href="#ipdumtxdynamicsegment" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id15">
 <img alt="IpduMTxDynamicSegment" src="../../_images/image1713.png" />
 </figure>
@@ -2588,7 +2587,7 @@
 </table>
 </section>
 <section id="ipdumtxstaticpart">
-<h3>IpduMTxStaticPart<a class="headerlink" href="#ipdumtxstaticpart" title="链接到此标题。">¶</a></h3>
+<h3>IpduMTxStaticPart<a class="headerlink" href="#ipdumtxstaticpart" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id16">
 <img alt="IpduMTxStaticPart" src="../../_images/image1813.png" />
 </figure>
@@ -2686,7 +2685,7 @@
 </table>
 </section>
 <section id="ipdumtxstaticsegment">
-<h3>IpduMTxStaticSegment<a class="headerlink" href="#ipdumtxstaticsegment" title="链接到此标题。">¶</a></h3>
+<h3>IpduMTxStaticSegment<a class="headerlink" href="#ipdumtxstaticsegment" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id17">
 <img alt="IpduMTxStaticSegment" src="../../_images/image1911.png" />
 </figure>
@@ -2748,7 +2747,7 @@
 </table>
 </section>
 <section id="ipdumconfig">
-<h3>IpduMConfig<a class="headerlink" href="#ipdumconfig" title="链接到此标题。">¶</a></h3>
+<h3>IpduMConfig<a class="headerlink" href="#ipdumconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id18">
 <img alt="IpduMConfig" src="../../_images/image207.png" />
 </figure>
@@ -2913,7 +2912,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -2922,11 +2921,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

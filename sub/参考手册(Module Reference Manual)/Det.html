@@ -9,7 +9,6 @@
         <title>DET &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="det">
-<h1>DET<a class="headerlink" href="#det" title="链接到此标题。">¶</a></h1>
+<h1>DET<a class="headerlink" href="#det" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -208,7 +207,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Det模块虽然表面上看起来不复杂，但是有一点毋庸置疑，它的使用率非常的高，几乎所有模块都会使用它，不光包含基础软件模块（BSW），应用软件组件（SWC）依然会使用它。Det模块可以理解为一个错误检测/追踪/管理模块，或者理解为探测断言（Assert）。</p>
 <p>The Det module, although seemingly not complex on the surface, is indisputably heavily utilized. Almost all modules use it, including both basic software modules (BSW) and application software components (SWC). The Det module can be understood as an error detection/tracking/management module or as a probe assert.</p>
 <p>在4.2版本以前，DET（Development Error Tracer）开发错误追踪器。显然，其名字已经非常明确了它的定位，就是开发阶段的开发错误追踪器，再直白点，简单来说对应代码，一般就是对各个模块的函数参数进行检查或者上下文环境检测等，看看是否合法，比如，函数的输入参数是一个指针类型，看看是否为空指针；或者函数的输入参数的取值是否超过取值范围等。</p>
@@ -222,17 +221,17 @@
 <p>虽然协议没有规定每个函数体具体需要实现什么，但是其规定了一些基本信息/规则/机制。对于某个发生的错误，你需要告诉DET模块这个错误是哪个模块发生的？哪个函数发生的？错误类型是什么？这几个信息是通过API参数规定好的。</p>
 <p>Although the protocol does not specify exactly what each function body needs to implement, it does stipulate some basic information/rules/mechanisms. For an error that occurs, you need to inform the DET module which module the error occurred in? Which function? What type of error? These pieces of information are specified through API parameters.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_DefaultErrorTracer.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_DiagnosticLogAndTrace.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="det-det-function">
-<h3>DET功能 (DET function)<a class="headerlink" href="#det-det-function" title="链接到此标题。">¶</a></h3>
+<h3>DET功能 (DET function)<a class="headerlink" href="#det-det-function" title="Link to this heading">¶</a></h3>
 <section id="det-det-function-introduction">
-<h4>DET功能介绍 (DET Function Introduction)<a class="headerlink" href="#det-det-function-introduction" title="链接到此标题。">¶</a></h4>
+<h4>DET功能介绍 (DET Function Introduction)<a class="headerlink" href="#det-det-function-introduction" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="detautosar-the-position-of-the-det-module-in-the-autosar-architecture">
 <img alt="Det模块在AUTOSAR架构中的位置 (The position of the Det module in the AUTOSAR architecture)" src="../../_images/image149.png" />
 </figure>
@@ -245,7 +244,7 @@
 <p>The AUTOSAR error detection diagnostic protocol stack resides in the BSW (Basic Software) layer, primarily implemented by the DET module. As shown, the pink-highlighted modules belong to the management scope of the AUTOSAR software architecture's error detection and diagnostic protocol stack. The basic software layer also provides system services, network communication services, I/O services, and complex device drivers.</p>
 </section>
 <section id="det-det-function-implementation">
-<h4>DET功能实现 (DET Function Implementation)<a class="headerlink" href="#det-det-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>DET功能实现 (DET Function Implementation)<a class="headerlink" href="#det-det-function-implementation" title="Link to this heading">¶</a></h4>
 <figure class="align-center" id="det-det-module-functional-topology-diagram">
 <img alt="Det模块的功能拓扑图 (Det module functional topology diagram)" src="../../_images/image320.png" />
 </figure>
@@ -266,7 +265,7 @@
 </section>
 </section>
 <section id="the-interaction-relationships-between-modules">
-<h3>模块之间的交互关系 (The interaction relationships between modules)<a class="headerlink" href="#the-interaction-relationships-between-modules" title="链接到此标题。">¶</a></h3>
+<h3>模块之间的交互关系 (The interaction relationships between modules)<a class="headerlink" href="#the-interaction-relationships-between-modules" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="interactions-between-modules">
 <img alt="模块间交互关系 (Interactions between modules)" src="../../_images/image417.png" />
 </figure>
@@ -306,7 +305,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 Det组件文件描述 (Table Description of Det Component File)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -350,11 +349,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="std-versioninfotype-std-versioninfotype-type-definition">
-<h4>Std_VersionInfoType类型定义 (Std_VersionInfoType type definition)<a class="headerlink" href="#std-versioninfotype-std-versioninfotype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Std_VersionInfoType类型定义 (Std_VersionInfoType type definition)<a class="headerlink" href="#std-versioninfotype-std-versioninfotype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -406,7 +405,7 @@
 </table>
 </section>
 <section id="det-calloutfnctptrtype-det-calloutfnctptrtype-type-definition">
-<h4>Det_CalloutFnctPtrType类型定义 (Det_CalloutFnctPtrType type definition)<a class="headerlink" href="#det-calloutfnctptrtype-det-calloutfnctptrtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Det_CalloutFnctPtrType类型定义 (Det_CalloutFnctPtrType type definition)<a class="headerlink" href="#det-calloutfnctptrtype-det-calloutfnctptrtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -452,7 +451,7 @@
 </table>
 </section>
 <section id="det-infotype-typeinfodefinition">
-<h4>Det_InfoType类型定义 (TypeInfoDefinition)<a class="headerlink" href="#det-infotype-typeinfodefinition" title="链接到此标题。">¶</a></h4>
+<h4>Det_InfoType类型定义 (TypeInfoDefinition)<a class="headerlink" href="#det-infotype-typeinfodefinition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -498,7 +497,7 @@
 </table>
 </section>
 <section id="det-statustype-definition-of-det-statustype-type">
-<h4>Det_StatusType类型定义 (Definition of Det_StatusType Type)<a class="headerlink" href="#det-statustype-definition-of-det-statustype-type" title="链接到此标题。">¶</a></h4>
+<h4>Det_StatusType类型定义 (Definition of Det_StatusType Type)<a class="headerlink" href="#det-statustype-definition-of-det-statustype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -550,7 +549,7 @@
 </table>
 </section>
 <section id="det-configtype-det-configtype-type-definition">
-<h4>Det_ConfigType类型定义 (Det_ConfigType Type Definition)<a class="headerlink" href="#det-configtype-det-configtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Det_ConfigType类型定义 (Det_ConfigType Type Definition)<a class="headerlink" href="#det-configtype-det-configtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -575,7 +574,7 @@
 </table>
 </section>
 <section id="det-modulestatetype-det-modulestatetype-type-definition">
-<h4>Det_ModuleStateType类型定义 (Det_ModuleStateType type definition)<a class="headerlink" href="#det-modulestatetype-det-modulestatetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>Det_ModuleStateType类型定义 (Det_ModuleStateType type definition)<a class="headerlink" href="#det-modulestatetype-det-modulestatetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -603,7 +602,7 @@
 </table>
 </section>
 <section id="det-returntype-definition-of-det-returntype-type">
-<h4>Det_ReturnType类型定义 (Definition of Det_ReturnType type)<a class="headerlink" href="#det-returntype-definition-of-det-returntype-type" title="链接到此标题。">¶</a></h4>
+<h4>Det_ReturnType类型定义 (Definition of Det_ReturnType type)<a class="headerlink" href="#det-returntype-definition-of-det-returntype-type" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -632,7 +631,7 @@
 </section>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -651,9 +650,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="det-init-the-det-init-function-definition">
-<h4>Det_Init函数定义 (The Det_Init function definition)<a class="headerlink" href="#det-init-the-det-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Det_Init函数定义 (The Det_Init function definition)<a class="headerlink" href="#det-init-the-det-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -718,7 +717,7 @@
 </table>
 </section>
 <section id="det-reporterror-the-definition-of-det-reporterror-function">
-<h4>Det_ReportError函数定义 (The definition of Det_ReportError function)<a class="headerlink" href="#det-reporterror-the-definition-of-det-reporterror-function" title="链接到此标题。">¶</a></h4>
+<h4>Det_ReportError函数定义 (The definition of Det_ReportError function)<a class="headerlink" href="#det-reporterror-the-definition-of-det-reporterror-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -798,7 +797,7 @@
 </table>
 </section>
 <section id="det-start-the-det-start-function-defines">
-<h4>Det_Start函数定义 (The Det_Start function defines)<a class="headerlink" href="#det-start-the-det-start-function-defines" title="链接到此标题。">¶</a></h4>
+<h4>Det_Start函数定义 (The Det_Start function defines)<a class="headerlink" href="#det-start-the-det-start-function-defines" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -841,7 +840,7 @@
 </table>
 </section>
 <section id="det-reportruntimeerror-the-definition-of-det-reportruntimeerror-function">
-<h4>Det_ReportRuntimeError函数定义 (The definition of Det_ReportRuntimeError function)<a class="headerlink" href="#det-reportruntimeerror-the-definition-of-det-reportruntimeerror-function" title="链接到此标题。">¶</a></h4>
+<h4>Det_ReportRuntimeError函数定义 (The definition of Det_ReportRuntimeError function)<a class="headerlink" href="#det-reportruntimeerror-the-definition-of-det-reportruntimeerror-function" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -926,7 +925,7 @@
 </table>
 </section>
 <section id="det-reporttransientfault-the-det-reporttransientfault-function-definition">
-<h4>Det_ReportTransientFault函数定义 (The Det_ReportTransientFault function definition)<a class="headerlink" href="#det-reporttransientfault-the-det-reporttransientfault-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Det_ReportTransientFault函数定义 (The Det_ReportTransientFault function definition)<a class="headerlink" href="#det-reporttransientfault-the-det-reporttransientfault-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1011,7 +1010,7 @@
 </table>
 </section>
 <section id="det-getversioninfo-the-det-getversioninfo-function-definition">
-<h4>Det_GetVersionInfo函数定义 (The Det_GetVersionInfo function definition)<a class="headerlink" href="#det-getversioninfo-the-det-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>Det_GetVersionInfo函数定义 (The Det_GetVersionInfo function definition)<a class="headerlink" href="#det-getversioninfo-the-det-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1077,9 +1076,9 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <section id="user-error-hooks-user-error-hooks-function-definition">
-<h4>User_Error_Hooks函数定义 (User_Error_Hooks Function Definition)<a class="headerlink" href="#user-error-hooks-user-error-hooks-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>User_Error_Hooks函数定义 (User_Error_Hooks Function Definition)<a class="headerlink" href="#user-error-hooks-user-error-hooks-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1159,7 +1158,7 @@
 </table>
 </section>
 <section id="detreportruntimeerrorcallout-the-detreportruntimeerrorcallout-function-definition">
-<h4>DetReportRuntimeErrorCallout函数定义 (The DetReportRuntimeErrorCallout function definition)<a class="headerlink" href="#detreportruntimeerrorcallout-the-detreportruntimeerrorcallout-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>DetReportRuntimeErrorCallout函数定义 (The DetReportRuntimeErrorCallout function definition)<a class="headerlink" href="#detreportruntimeerrorcallout-the-detreportruntimeerrorcallout-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1239,7 +1238,7 @@
 </table>
 </section>
 <section id="detreporttransientfaultcallout-the-detreporttransientfaultcallout-function-definition">
-<h4>DetReportTransientFaultCallout函数定义 (The DetReportTransientFaultCallout function definition)<a class="headerlink" href="#detreporttransientfaultcallout-the-detreporttransientfaultcallout-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>DetReportTransientFaultCallout函数定义 (The DetReportTransientFaultCallout function definition)<a class="headerlink" href="#detreporttransientfaultcallout-the-detreporttransientfaultcallout-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1321,9 +1320,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="detgeneral">
-<h3>DetGeneral<a class="headerlink" href="#detgeneral" title="链接到此标题。">¶</a></h3>
+<h3>DetGeneral<a class="headerlink" href="#detgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="detgeneral-detgeneral-configuration">
 <img alt="DetGeneral配置 (DetGeneral Configuration)" src="../../_images/image616.png" />
 </figure>
@@ -1643,7 +1642,7 @@
 </table>
 </section>
 <section id="detnotification">
-<h3>DetNotification<a class="headerlink" href="#detnotification" title="链接到此标题。">¶</a></h3>
+<h3>DetNotification<a class="headerlink" href="#detnotification" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="detnotification-configuration-of-detnotification">
 <img alt="DetNotification配置 (Configuration of DetNotification)" src="../../_images/image713.png" />
 </figure>
@@ -1723,7 +1722,7 @@
 </table>
 </section>
 <section id="detmodule">
-<h3>DetModule<a class="headerlink" href="#detmodule" title="链接到此标题。">¶</a></h3>
+<h3>DetModule<a class="headerlink" href="#detmodule" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="detmodule-detmodule-configuration">
 <img alt="DetModule配置 (DetModule Configuration)" src="../../_images/image812.png" />
 </figure>
@@ -1761,7 +1760,7 @@
 </table>
 </section>
 <section id="detmodule-1">
-<span id="id1"></span><h3>DetModule<a class="headerlink" href="#detmodule-1" title="链接到此标题。">¶</a></h3>
+<span id="id1"></span><h3>DetModule<a class="headerlink" href="#detmodule-1" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="detinstanceid-detinstanceid-configuration">
 <img alt="DetInstanceId配置 (DetInstanceId Configuration)" src="../../_images/image912.png" />
 </figure>
@@ -1893,7 +1892,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -1902,11 +1901,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

@@ -9,7 +9,6 @@
         <title>EcuC &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="ecuc">
-<h1>EcuC<a class="headerlink" href="#ecuc" title="链接到此标题。">¶</a></h1>
+<h1>EcuC<a class="headerlink" href="#ecuc" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -212,23 +211,23 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>EcuC模块用于对Ecu属性进行配置。</p>
 <p>The EcuC module is used for configuring Ecu properties.</p>
 <p>当前EcuC模块只实现Pdu的配置，除配置Pdu的基本属性（Pdu长度，MetaDataType）外，主要用于确定通信栈、诊断栈、网络管理功能栈等通过PduRef来实现Pdu在各个模块间的传递关系，实现ComStack_Cfg.h文件生成。</p>
 <p>Current EcuC module only implements Pdu configuration. Besides configuring basic Pdu properties (Pdu length, MetaDataType), it mainly determines the communication stack, diagnostic stack, network management function stack, etc., through PduRef to achieve the transmission relationship of Pdu among various modules and realize the generation of ComStack_Cfg.h file.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_TPS_ECUConfiguration.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_CommunicationStackTypes.pdf，R19_11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="pdu-pdu-basic-property-configuration-function">
-<h3>Pdu基本属性配置功能 (PDU Basic Property Configuration Function)<a class="headerlink" href="#pdu-pdu-basic-property-configuration-function" title="链接到此标题。">¶</a></h3>
+<h3>Pdu基本属性配置功能 (PDU Basic Property Configuration Function)<a class="headerlink" href="#pdu-pdu-basic-property-configuration-function" title="Link to this heading">¶</a></h3>
 <section id="pdu-introduction-to-pdu-basic-attribute-configuration-function">
-<h4>Pdu基本属性配置功能介绍 (Introduction to PDU Basic Attribute Configuration Function)<a class="headerlink" href="#pdu-introduction-to-pdu-basic-attribute-configuration-function" title="链接到此标题。">¶</a></h4>
+<h4>Pdu基本属性配置功能介绍 (Introduction to PDU Basic Attribute Configuration Function)<a class="headerlink" href="#pdu-introduction-to-pdu-basic-attribute-configuration-function" title="Link to this heading">¶</a></h4>
 <p>在EcuC中对工程所需的所有Pdu进行配置，每个Pdu的配置属性为：MetaDataTypeRef、PduLength。</p>
 <p>Configure all Pdus required for the project in ECUC. The configuration attributes of each Pdu are: MetaDataTypeRef, PduLength.</p>
 <p>MetaDataType中涉及1-N个MetaDataItem的配置，每个MetaDataItem中配置参数为MetaDataItemLength和MetaDataItemType。</p>
@@ -237,15 +236,15 @@
 <p>And the configuration for Pdu association data types: PduIdTypeEnum and PduLengthTypeEnum. These configuration items determine the generation of ComStack_Cfg.h.</p>
 </section>
 <section id="pdu-pdu-basic-attribute-configuration-function-implementation">
-<h4>Pdu基本属性配置功能实现 (PDU Basic Attribute Configuration Function Implementation)<a class="headerlink" href="#pdu-pdu-basic-attribute-configuration-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Pdu基本属性配置功能实现 (PDU Basic Attribute Configuration Function Implementation)<a class="headerlink" href="#pdu-pdu-basic-attribute-configuration-function-implementation" title="Link to this heading">¶</a></h4>
 <p>配置说明详见第5章节。</p>
 <p>Configuration instructions are detailed in Chapter 5.</p>
 </section>
 </section>
 <section id="pdu-pdus-delivery-path-determination-function">
-<h3>Pdu传递路径确定功能 (PDUs Delivery Path Determination Function)<a class="headerlink" href="#pdu-pdus-delivery-path-determination-function" title="链接到此标题。">¶</a></h3>
+<h3>Pdu传递路径确定功能 (PDUs Delivery Path Determination Function)<a class="headerlink" href="#pdu-pdus-delivery-path-determination-function" title="Link to this heading">¶</a></h3>
 <section id="pdu-description-of-the-pdu-transfer-path-determination-function">
-<h4>Pdu传递路径确定功能介绍 (Description of the PDU Transfer Path Determination Function)<a class="headerlink" href="#pdu-description-of-the-pdu-transfer-path-determination-function" title="链接到此标题。">¶</a></h4>
+<h4>Pdu传递路径确定功能介绍 (Description of the PDU Transfer Path Determination Function)<a class="headerlink" href="#pdu-description-of-the-pdu-transfer-path-determination-function" title="Link to this heading">¶</a></h4>
 <p>两个模块间通过Pdu配置项PduRef关联到EcuC中配置的同一个Pdu，从而确定Pdu在这两个模块间的传递关系。</p>
 <p>Two modules associate with the same PDU configured in ECU-C through the Pdu configuration item PduRef, thereby determining the PDU's transfer relationship between these two modules.</p>
 <p>这里以Com中TxPdu经过PduR路由到CanIf模块进行发送为例，参照下图 所示：</p>
@@ -255,7 +254,7 @@
 </figure>
 </section>
 <section id="pdu-pdu-transfer-path-determination-function-implementation">
-<h4>Pdu传递路径确定功能实现 (PDU transfer path determination function implementation)<a class="headerlink" href="#pdu-pdu-transfer-path-determination-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>Pdu传递路径确定功能实现 (PDU transfer path determination function implementation)<a class="headerlink" href="#pdu-pdu-transfer-path-determination-function-implementation" title="Link to this heading">¶</a></h4>
 <p>配置时在Com中添加ComIPdu，其PduIdRef关联到EcuC中Pdu0；在PduR中添加一个路由路径，其PduRSrcPdu本地PduId为23，其SrcPduRef关联到EcuC中Pdu0，其PduRDestPdu通过配置项DestPduRef关联到EcuC中Pdu1；在CanIf中添加CanIfTxPdu，其本地PduId为6，其PduIdRef关联到EcuC中Pdu1。</p>
 <p>Configure by adding ComIPdu in Com, where PduIdRef associates with Pdu0 in EcuC; add a routing path in PduR, where the local PduId is 23 and SrcPduRef associates with Pdu0 in EcuC, and PduRDestPdu is associated through configuration item DestPduRef to Pdu1 in EcuC; add CanIfTxPdu in CanIf, where the local PduId is 6 and PduIdRef associates with Pdu1 in EcuC.</p>
 <p>当Com模块调用PduR_ComTransmit进行Pdu发送时，PduId参数为23，PduR经过路由调用CanIf_Transmit进行Pdu发送，PduId为6。</p>
@@ -264,37 +263,37 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="ecucpducollection">
-<h3>EcucPduCollection<a class="headerlink" href="#ecucpducollection" title="链接到此标题。">¶</a></h3>
+<h3>EcucPduCollection<a class="headerlink" href="#ecucpducollection" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id1">
 <img alt="EcucPduCollection" src="../../_images/image239.png" />
 </figure>
@@ -356,7 +355,7 @@
 </table>
 </section>
 <section id="pdu">
-<h3>Pdu<a class="headerlink" href="#pdu" title="链接到此标题。">¶</a></h3>
+<h3>Pdu<a class="headerlink" href="#pdu" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id2">
 <img alt="Pdu" src="../../_images/image328.png" />
 </figure>
@@ -418,7 +417,7 @@
 </table>
 </section>
 <section id="metadataitem">
-<h3>MetaDataItem<a class="headerlink" href="#metadataitem" title="链接到此标题。">¶</a></h3>
+<h3>MetaDataItem<a class="headerlink" href="#metadataitem" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="id3">
 <img alt="MetaDataItem" src="../../_images/image424.png" />
 </figure>
@@ -591,7 +590,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -600,11 +599,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

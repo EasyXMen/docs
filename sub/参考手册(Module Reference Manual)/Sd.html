@@ -9,7 +9,6 @@
         <title>Sd &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="sd">
-<h1>Sd<a class="headerlink" href="#sd" title="链接到此标题。">¶</a></h1>
+<h1>Sd<a class="headerlink" href="#sd" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -212,7 +211,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Service Discovery模块，即服务发现模块，主要用于：</p>
 <p>The Service Discovery module, also known as the service discovery module, is mainly used for:</p>
 <ol class="lowerroman simple">
@@ -233,19 +232,19 @@
 <img alt="Sd模块位置 (SD module position)" src="../../_images/image1136.png" />
 </figure>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_ServiceDiscovery.pdf，R19-11</p>
 <p>[2] AUTOSAR_PRS_SOMEIPServiceDiscoveryProtocol.pdf，R19-11</p>
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="offerservice-offerservice-function">
-<h3>OfferService功能 (OfferService Function)<a class="headerlink" href="#offerservice-offerservice-function" title="链接到此标题。">¶</a></h3>
+<h3>OfferService功能 (OfferService Function)<a class="headerlink" href="#offerservice-offerservice-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="offerservice-function-introduction-of-offerservice">
-<h2>OfferService功能介绍 (Function Introduction of OfferService)<a class="headerlink" href="#offerservice-function-introduction-of-offerservice" title="链接到此标题。">¶</a></h2>
+<h2>OfferService功能介绍 (Function Introduction of OfferService)<a class="headerlink" href="#offerservice-function-introduction-of-offerservice" title="Link to this heading">¶</a></h2>
 <p>OfferService功能用于向外部声明可以提供某种服务。当本地ECU作为服务器端提供某种服务时：</p>
 <p>The OfferService function is used to declare externally that a certain service can be provided. When the local ECU acts as the server to provide a specific service:</p>
 <p>i）该服务就绪时，Sd模块会主动发送包含OfferService Entry的报文向其他ECU表明当前有可用的某种服务。这种情况报文多播发送。</p>
@@ -254,7 +253,7 @@
 <p>When other ECU sends a FindService Entry proactively to look for a certain service, the local ECU acts as the service provider and unicast sends an OfferService Entry to the client seeking the service. In this case, the message is sent unicast.</p>
 </section>
 <section id="offerservice-implementation-of-offerservice-functionality">
-<h2>OfferService功能实现 (Implementation of OfferService Functionality)<a class="headerlink" href="#offerservice-implementation-of-offerservice-functionality" title="链接到此标题。">¶</a></h2>
+<h2>OfferService功能实现 (Implementation of OfferService Functionality)<a class="headerlink" href="#offerservice-implementation-of-offerservice-functionality" title="Link to this heading">¶</a></h2>
 <p>当服务可用或者不可用时，SWC需要调用BswM的接口通知BswM某个服务可用/不可用，BswM会调用Sd_ServerServiceSetState(SdServerServiceHandleId，ServerServiceState)接口，向Sd模块表明该服务的状态。其中SdServerServiceHandleId参数用于标识服务，ServerServiceState用于标识服务状态。</p>
 <p>When the SWC service becomes available or unavailable, it needs to call the interface provided by BswM to notify BswM of the availability/unavailability of the service. BswM will then invoke the Sd_ServerServiceSetState(SdServerServiceHandleId, ServerServiceState) interface to indicate the state of the service to the Sd module. Here, the SdServerServiceHandleId parameter is used to identify the service, while the ServerServiceState identifies the status of the service.</p>
 <p>Sd模块会根据当前的状态向外发送OfferService或者StopOfferService报文。报文中会携带SdServerServiceHandleId代表的服务的信息（IP地址，端口号等）。其他节点可以利用这些信息定位到该服务，以使用这些服务。</p>
@@ -262,16 +261,16 @@
 <p>Server可以提供的服务在配置工具SdInstance🡪SdServerService中配置。</p>
 <p>The services that Server can provide are configured in the configuration tool SdInstance🡪SdServerService.</p>
 <section id="findservice-findservice-function">
-<h3>FindService 功能 (FindService Function)<a class="headerlink" href="#findservice-findservice-function" title="链接到此标题。">¶</a></h3>
+<h3>FindService 功能 (FindService Function)<a class="headerlink" href="#findservice-findservice-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="findservice-function-introduction-for-findservice">
-<h2>FindService功能介绍 (Function Introduction for FindService)<a class="headerlink" href="#findservice-function-introduction-for-findservice" title="链接到此标题。">¶</a></h2>
+<h2>FindService功能介绍 (Function Introduction for FindService)<a class="headerlink" href="#findservice-function-introduction-for-findservice" title="Link to this heading">¶</a></h2>
 <p>FindService功能用于寻找外部是否有可用的某种服务。当ECU需要使用某种服务时，Sd模块会发送包含FindService Entry的报文，用于寻找某种服务。</p>
 <p>The FindService function is used to find if there is an available service externally for a certain type of service. When the ECU needs to use a specific service, the Sd module sends a message containing FindService Entry to search for that service.</p>
 </section>
 <section id="findservice-findservice-functionality-implementation">
-<h2>FindService功能实现 (FindService functionality implementation)<a class="headerlink" href="#findservice-findservice-functionality-implementation" title="链接到此标题。">¶</a></h2>
+<h2>FindService功能实现 (FindService functionality implementation)<a class="headerlink" href="#findservice-findservice-functionality-implementation" title="Link to this heading">¶</a></h2>
 <p>当SWC作为客户端需要使用某种服务时，SWC会调用BswM的接口通知BswM需要某个服务，BswM调用Sd_ClientServiceSetState(ClientServiceHandleId,ClientServiceState)接口，向Sd模块表明需要某个服务。</p>
 <p>When SWC acts as a client and needs to use a certain service, SWC invokes the interface of BswM to notify BswM that it requires a specific service. BswM then calls the Sd_ClientServiceSetState(ClientServiceHandleId, ClientServiceState) interface to inform the Sd module about the required service.</p>
 <p>Sd模块会向外发送FindService报文。报文中会携带SdServerServiceHandleId代表的服务的具体信息（Service ID，版本号等）。其他节点根据这些信息判断自己是否可以提供这个服务，可以提供时会发送OfferService通知寻找服务的客户端。</p>
@@ -279,31 +278,31 @@
 <p>Client需要的服务（即需要寻找的服务）在配置工具SdInstance🡪SdClientService中配置。</p>
 <p>The services (i.e., the services that Client needs) are configured in the configuration tool SdInstance🡪SdClientService.</p>
 <section id="eventgroup-eventgroup-subscription-function">
-<h3>Eventgroup订阅功能 (Eventgroup Subscription Function)<a class="headerlink" href="#eventgroup-eventgroup-subscription-function" title="链接到此标题。">¶</a></h3>
+<h3>Eventgroup订阅功能 (Eventgroup Subscription Function)<a class="headerlink" href="#eventgroup-eventgroup-subscription-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="eventgroup-introduction-to-eventgroup-subscription-function">
-<h2>Eventgroup订阅功能简介 (Introduction to Eventgroup Subscription Function)<a class="headerlink" href="#eventgroup-introduction-to-eventgroup-subscription-function" title="链接到此标题。">¶</a></h2>
+<h2>Eventgroup订阅功能简介 (Introduction to Eventgroup Subscription Function)<a class="headerlink" href="#eventgroup-introduction-to-eventgroup-subscription-function" title="Link to this heading">¶</a></h2>
 <p>Eventgroup订阅功能用于订阅需要接收的Eventgroup。</p>
 <p>The Eventgroup subscription feature is used for subscribing to the Eventgroups that need to be received.</p>
 </section>
 <section id="eventgroup-the-implementation-of-the-eventgroup-subscription-feature">
-<h2>Eventgroup订阅功能的实现 (The implementation of the Eventgroup Subscription feature)<a class="headerlink" href="#eventgroup-the-implementation-of-the-eventgroup-subscription-feature" title="链接到此标题。">¶</a></h2>
+<h2>Eventgroup订阅功能的实现 (The implementation of the Eventgroup Subscription feature)<a class="headerlink" href="#eventgroup-the-implementation-of-the-eventgroup-subscription-feature" title="Link to this heading">¶</a></h2>
 <p>当SWC（作为客户端）需要订阅某个Eventgroup时，SWC会调用BswM的接口通知BswM，BswM会调用Sd_ConsumedEventGroupSetState(SdConsumedEventGroupHandleId，ConsumedEventGroupState)接口通知Sd模块。当Sd模块收到提供该Eventgroup的对应服务发送的OfferService报文时，Sd模块会发送包含SubscribeEventgroup Entry的报文订阅Eventgroup。</p>
 <p>When SWC (as the client) needs to subscribe to a specific Eventgroup, SWC invokes BswM's interface to notify BswM. BswM then calls the Sd_ConsumedEventGroupSetState(SdConsumedEventGroupHandleId, ConsumedEventGroupState) interface to inform the Sd module. Upon receiving an OfferService message from the corresponding service providing that Eventgroup, the Sd module sends a message containing a SubscribeEventgroup Entry to subscribe to the Eventgroup.</p>
 <p>Client需要订阅的Eventgroup在配置工具SdInstance🡪SdClientService🡪SdConsumedEventGroup中配置。</p>
 <p>The Eventgroup that Client needs to subscribe is configured in the configuration tool SdInstance🡪SdClientService🡪SdConsumedEventGroup.</p>
 <section id="eventgroup-eventgroup-management-function">
-<h3>Eventgroup管理功能 (Eventgroup Management Function)<a class="headerlink" href="#eventgroup-eventgroup-management-function" title="链接到此标题。">¶</a></h3>
+<h3>Eventgroup管理功能 (Eventgroup Management Function)<a class="headerlink" href="#eventgroup-eventgroup-management-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="eventgroup-introduction-to-eventgroup-management-function">
-<h2>Eventgroup管理功能简介 (Introduction to Eventgroup Management Function)<a class="headerlink" href="#eventgroup-introduction-to-eventgroup-management-function" title="链接到此标题。">¶</a></h2>
+<h2>Eventgroup管理功能简介 (Introduction to Eventgroup Management Function)<a class="headerlink" href="#eventgroup-introduction-to-eventgroup-management-function" title="Link to this heading">¶</a></h2>
 <p>当Client向Server订阅Eventgroup时，Server需要管理订阅该Eventgroup的客户端。</p>
 <p>When a Client subscribes to an Eventgroup, the Server needs to manage the clients subscribed to that Eventgroup.</p>
 </section>
 <section id="eventgroup-the-implementation-of-eventgroup-management-functionality">
-<h2>Eventgroup管理功能的实现 (The implementation of Eventgroup Management functionality)<a class="headerlink" href="#eventgroup-the-implementation-of-eventgroup-management-functionality" title="链接到此标题。">¶</a></h2>
+<h2>Eventgroup管理功能的实现 (The implementation of Eventgroup Management functionality)<a class="headerlink" href="#eventgroup-the-implementation-of-eventgroup-management-functionality" title="Link to this heading">¶</a></h2>
 <p>当收到Client的SubscribeEventgroup报文后，Server需要将SubscribeEventgroup报文中的信息（Eventgroup ID，版本号，Service ID等）和配置中保存的信息作比较，如果一致的情况下，并且该Client之前不在订阅列表中，则将该Client添加到订阅列表中，向该Client应答SubscribeEventgroupAck报文。如果该Client之前已经在订阅列表中，则用SubscribeEventgroup Entry中的TTL时间更新订阅列表中的TTL值。信息不一致的情况下，应答SubscribeEventgroupNAck报文。</p>
 <p>Upon receiving the SubscribeEventgroup message from the Client, the Server needs to compare the information in the SubscribeEventgroup message (Eventgroup ID, version number, Service ID, etc.) with the information saved in the configuration. If they are consistent and the Client is not already in the subscription list, add the Client to the subscription list and respond with a SubscribeEventgroupAck message to the Client. If the Client is already in the subscription list, update the TTL value in the subscription list using the TTL time from the SubscribeEventgroup Entry. If the information is inconsistent, respond with a SubscribeEventgroupNAck message.</p>
 <p>当订阅时间到（SubscribeEventgroup中携带的TTL计时时间到）或者收到Client发送的StopSubscribeEventgroup Entry，Server需要将该Client从订阅列表中删除。</p>
@@ -311,23 +310,23 @@
 <p>Server提供的Eventgroup（需要管理的Eventgroup）在配置工具SdInstance🡪SdServerService🡪SdEventHandler中配置。</p>
 <p>The Eventgroup provided by Server (the Eventgroup to be managed) is configured in the configuration tool SdInstance🡪SdServerService🡪SdEventHandler.</p>
 <section id="routingpath-routingpath-control-function">
-<h3>RoutingPath控制功能 (RoutingPath Control Function)<a class="headerlink" href="#routingpath-routingpath-control-function" title="链接到此标题。">¶</a></h3>
+<h3>RoutingPath控制功能 (RoutingPath Control Function)<a class="headerlink" href="#routingpath-routingpath-control-function" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="routingpath-introduction-to-the-routingpath-control-function">
-<h2>RoutingPath控制功能简介 (Introduction to the RoutingPath Control Function)<a class="headerlink" href="#routingpath-introduction-to-the-routingpath-control-function" title="链接到此标题。">¶</a></h2>
+<h2>RoutingPath控制功能简介 (Introduction to the RoutingPath Control Function)<a class="headerlink" href="#routingpath-introduction-to-the-routingpath-control-function" title="Link to this heading">¶</a></h2>
 <p>Sd模块通过控制SoAd里面SoAdRoutingGroup的状态（Enable/Disable），从而达到控制Event的接收和发送的路径的通断，控制Event的接收和发送。其中对Event发送路径的控制叫Fan out控制，对Event接收路径的控制叫Fan in控制。</p>
 <p>The Sd module achieves the on-off control of the Event reception and transmission paths by controlling the state (Enable/Disable) of SoAd's SoAdRoutingGroup. The control over the Event transmission path is called Fan out control, while the control over the Event reception path is called Fan in control.</p>
 </section>
 <section id="routingpath-the-implementation-of-routingpath-control-function">
-<h2>RoutingPath控制功能的实现 (The implementation of RoutingPath Control Function)<a class="headerlink" href="#routingpath-the-implementation-of-routingpath-control-function" title="链接到此标题。">¶</a></h2>
+<h2>RoutingPath控制功能的实现 (The implementation of RoutingPath Control Function)<a class="headerlink" href="#routingpath-the-implementation-of-routingpath-control-function" title="Link to this heading">¶</a></h2>
 <section id="fan-out-fanout-control">
-<h3>Fan out控制 (Fanout Control)<a class="headerlink" href="#fan-out-fanout-control" title="链接到此标题。">¶</a></h3>
+<h3>Fan out控制 (Fanout Control)<a class="headerlink" href="#fan-out-fanout-control" title="Link to this heading">¶</a></h3>
 <p>当Client订阅Eventgroup时，Server根据Client发送的SubscribeEventgroup Entry中携带的信息在配置中找到与之匹配的SdEventHandler，根据SdEventHandler中的SdEventHandlerTcp/SdEventHandlerUdp找到对应的SoAdRoutingGroup（取得RoutingGroup ID）。根据SubscribeEventgroup Entry中携带的Endpoint option信息以及配置中的SdServerServiceUdpRef/SdServerServiceTcpRef参数推导出该Event发送对应的SocketConnection（取得SoConId），然后调用SoAd_EnableSpecificRouting()或SoAd_DisableSpecificRouting()，来控制对应的RoutingGroup。</p>
 <p>When the Client subscribes to an Eventgroup, the Server finds a matching SdEventHandler in the configuration based on the information carried in the SubscribeEventgroup Entry sent by the Client. The Server then locates the corresponding SoAdRoutingGroup (obtaining the RoutingGroup ID) according to the SdEventHandlerTcp/SdEventHandlerUdp within the SdEventHandler. Based on the Endpoint option information carried in the SubscribeEventgroup Entry and the configuration parameters SdServerServiceUdpRef/SdServerServiceTcpRef, the Server infers the corresponding SocketConnection for event sending (obtaining SoConId), and then calls SoAd_EnableSpecificRouting() or SoAd_DisableSpecificRouting() to control the corresponding RoutingGroup.</p>
 </section>
 <section id="fan-in-fan-in-control">
-<h3>Fan in控制 (Fan In control)<a class="headerlink" href="#fan-in-fan-in-control" title="链接到此标题。">¶</a></h3>
+<h3>Fan in控制 (Fan In control)<a class="headerlink" href="#fan-in-fan-in-control" title="Link to this heading">¶</a></h3>
 <p>当Client向Server发送SubscribeEventgroup Entry向Server订阅某个Eventgroup时，Client通过配置中的SdConsumedEventGroupTcpActivationRef/SdConsumedEventGroupUdpActivationRef参数找到对应的SoAdRoutingGroup（取得RoutingGroup ID）。根据OfferService Entry中携带的Endpoint option信息以及配置中的SdClientServiceUdpRef/SdClientServiceTcpRef参数推导出该Event发送对应的SocketConnection（取得SoConId），然后调用SoAd_EnableSpecificRouting()或SoAd_DisableSpecificRouting()，来控制对应的RoutingGroup。</p>
 <p>When a Client sends a SubscribeEventgroup Entry to the Server to subscribe to a certain Eventgroup, the Client finds the corresponding SoAdRoutingGroup (obtaining the RoutingGroup ID) through the parameters SdConsumedEventGroupTcpActivationRef/SdConsumedEventGroupUdpActivationRef in the configuration. Based on the Endpoint option information carried by the OfferService Entry and the parameters SdClientServiceUdpRef/SdClientServiceTcpRef in the configuration, it deduces the corresponding SocketConnection for Event transmission (obtaining SoConId), then calls SoAd_EnableSpecificRouting() or SoAd_DisableSpecificRouting() to control the corresponding RoutingGroup.</p>
 <p>注意：以上描述的所有功能能实现的前提是本端ECU的IP地址已指定，即Sd模块的Sd_LocalIpAddrAssignmentChg()被调用过，并且State为TCPIP_IPADDR_STATE_ASSIGNED。</p>
@@ -335,7 +334,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 Sd组件文件描述 (Table SD Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -364,13 +363,13 @@
 </table>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="sd-serverservicesetstatetype-sd-serverservicesetstatetype-type-definition">
-<h2>Sd_ServerServiceSetStateType类型定义 (Sd_ServerServiceSetStateType type definition)<a class="headerlink" href="#sd-serverservicesetstatetype-sd-serverservicesetstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ServerServiceSetStateType类型定义 (Sd_ServerServiceSetStateType type definition)<a class="headerlink" href="#sd-serverservicesetstatetype-sd-serverservicesetstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -404,7 +403,7 @@
 </table>
 </section>
 <section id="sd-clientservicesetstatetype-sd-clientservicesetstatetype-type-definition">
-<h2>Sd_ClientServiceSetStateType类型定义 (Sd_ClientServiceSetStateType Type Definition)<a class="headerlink" href="#sd-clientservicesetstatetype-sd-clientservicesetstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ClientServiceSetStateType类型定义 (Sd_ClientServiceSetStateType Type Definition)<a class="headerlink" href="#sd-clientservicesetstatetype-sd-clientservicesetstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -438,7 +437,7 @@
 </table>
 </section>
 <section id="sd-consumedeventgroupsetstatetype-sd-consumedeventgroupsetstatetype-type-definition">
-<h2>Sd_ConsumedEventGroupSetStateType类型定义 (Sd_ConsumedEventGroupSetStateType type definition)<a class="headerlink" href="#sd-consumedeventgroupsetstatetype-sd-consumedeventgroupsetstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ConsumedEventGroupSetStateType类型定义 (Sd_ConsumedEventGroupSetStateType type definition)<a class="headerlink" href="#sd-consumedeventgroupsetstatetype-sd-consumedeventgroupsetstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -472,7 +471,7 @@
 </table>
 </section>
 <section id="sd-clientservicecurrentstatetype-sd-clientservicecurrentstatetype-type-definition">
-<h2>Sd_ClientServiceCurrentStateType类型定义 (Sd_ClientServiceCurrentStateType type definition)<a class="headerlink" href="#sd-clientservicecurrentstatetype-sd-clientservicecurrentstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ClientServiceCurrentStateType类型定义 (Sd_ClientServiceCurrentStateType type definition)<a class="headerlink" href="#sd-clientservicecurrentstatetype-sd-clientservicecurrentstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -506,7 +505,7 @@
 </table>
 </section>
 <section id="sd-consumedeventgroupcurrentstatetype-sd-consumedeventgroupcurrentstatetype-type-definition">
-<h2>Sd_ConsumedEventGroupCurrentStateType类型定义 (Sd_ConsumedEventGroupCurrentStateType type definition)<a class="headerlink" href="#sd-consumedeventgroupcurrentstatetype-sd-consumedeventgroupcurrentstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ConsumedEventGroupCurrentStateType类型定义 (Sd_ConsumedEventGroupCurrentStateType type definition)<a class="headerlink" href="#sd-consumedeventgroupcurrentstatetype-sd-consumedeventgroupcurrentstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -540,7 +539,7 @@
 </table>
 </section>
 <section id="sd-eventhandlercurrentstatetype-sd-eventhandlercurrentstatetype-type-definition">
-<h2>Sd_EventHandlerCurrentStateType类型定义 (Sd_EventHandlerCurrentStateType Type Definition)<a class="headerlink" href="#sd-eventhandlercurrentstatetype-sd-eventhandlercurrentstatetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_EventHandlerCurrentStateType类型定义 (Sd_EventHandlerCurrentStateType Type Definition)<a class="headerlink" href="#sd-eventhandlercurrentstatetype-sd-eventhandlercurrentstatetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 34.0%" />
@@ -573,7 +572,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -655,11 +654,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="sd-init-the-sd-init-function-definition">
-<h2>Sd_Init函数定义 (The Sd_Init function definition)<a class="headerlink" href="#sd-init-the-sd-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_Init函数定义 (The Sd_Init function definition)<a class="headerlink" href="#sd-init-the-sd-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -724,7 +723,7 @@
 </table>
 </section>
 <section id="sd-getversioninfo-the-sd-getversioninfo-function-definition">
-<h2>Sd_GetVersionInfo函数定义 (The Sd_GetVersionInfo function definition)<a class="headerlink" href="#sd-getversioninfo-the-sd-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_GetVersionInfo函数定义 (The Sd_GetVersionInfo function definition)<a class="headerlink" href="#sd-getversioninfo-the-sd-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -789,7 +788,7 @@
 </table>
 </section>
 <section id="sd-serverservicesetstate-the-sd-serverservicesetstate-function-definition">
-<h2>Sd_ServerServiceSetState函数定义 (The Sd_ServerServiceSetState function definition)<a class="headerlink" href="#sd-serverservicesetstate-the-sd-serverservicesetstate-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ServerServiceSetState函数定义 (The Sd_ServerServiceSetState function definition)<a class="headerlink" href="#sd-serverservicesetstate-the-sd-serverservicesetstate-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -879,7 +878,7 @@
 </table>
 </section>
 <section id="sd-clientservicesetstate-function-definition-for-sd-clientservicesetstate">
-<h2>Sd_ClientServiceSetState函数定义 (Function definition for Sd_ClientServiceSetState)<a class="headerlink" href="#sd-clientservicesetstate-function-definition-for-sd-clientservicesetstate" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ClientServiceSetState函数定义 (Function definition for Sd_ClientServiceSetState)<a class="headerlink" href="#sd-clientservicesetstate-function-definition-for-sd-clientservicesetstate" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -964,7 +963,7 @@
 </table>
 </section>
 <section id="sd-consumedeventgroupsetstate-the-sd-consumedeventgroupsetstate-function-definition">
-<h2>Sd_ConsumedEventGroupSetState函数定义 (The Sd_ConsumedEventGroupSetState function definition)<a class="headerlink" href="#sd-consumedeventgroupsetstate-the-sd-consumedeventgroupsetstate-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_ConsumedEventGroupSetState函数定义 (The Sd_ConsumedEventGroupSetState function definition)<a class="headerlink" href="#sd-consumedeventgroupsetstate-the-sd-consumedeventgroupsetstate-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1054,7 +1053,7 @@
 </table>
 </section>
 <section id="sd-localipaddrassignmentchg-the-sd-localipaddrassignmentchg-function-definition">
-<h2>Sd_LocalIpAddrAssignmentChg函数定义 (The Sd_LocalIpAddrAssignmentChg function definition)<a class="headerlink" href="#sd-localipaddrassignmentchg-the-sd-localipaddrassignmentchg-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_LocalIpAddrAssignmentChg函数定义 (The Sd_LocalIpAddrAssignmentChg function definition)<a class="headerlink" href="#sd-localipaddrassignmentchg-the-sd-localipaddrassignmentchg-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1139,7 +1138,7 @@
 </table>
 </section>
 <section id="sd-soconmodechg-the-sd-soconmodechg-function-definition">
-<h2>Sd_SoConModeChg函数定义 (The Sd_SoConModeChg function definition)<a class="headerlink" href="#sd-soconmodechg-the-sd-soconmodechg-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_SoConModeChg函数定义 (The Sd_SoConModeChg function definition)<a class="headerlink" href="#sd-soconmodechg-the-sd-soconmodechg-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1224,7 +1223,7 @@
 </table>
 </section>
 <section id="sd-rxindication-sd-rxindication-function-definition">
-<h2>Sd_RxIndication函数定义 (Sd_RxIndication function definition)<a class="headerlink" href="#sd-rxindication-sd-rxindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_RxIndication函数定义 (Sd_RxIndication function definition)<a class="headerlink" href="#sd-rxindication-sd-rxindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1309,7 +1308,7 @@
 </table>
 </section>
 <section id="sd-mainfunction-sd-mainfunction-function-definition">
-<h2>Sd_MainFunction函数定义 (Sd_MainFunction function definition)<a class="headerlink" href="#sd-mainfunction-sd-mainfunction-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>Sd_MainFunction函数定义 (Sd_MainFunction function definition)<a class="headerlink" href="#sd-mainfunction-sd-mainfunction-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1351,15 +1350,15 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="sdgeneral">
-<h3>SdGeneral<a class="headerlink" href="#sdgeneral" title="链接到此标题。">¶</a></h3>
+<h3>SdGeneral<a class="headerlink" href="#sdgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdgeneral-container-configuration-diagram-for-sdgeneral">
 <img alt="SdGeneral容器配置图 (Container Configuration Diagram for SdGeneral)" src="../../_images/image286.png" />
 </figure>
@@ -1572,7 +1571,7 @@
 </table>
 </section>
 <section id="sdconfig">
-<h3>SdConfig<a class="headerlink" href="#sdconfig" title="链接到此标题。">¶</a></h3>
+<h3>SdConfig<a class="headerlink" href="#sdconfig" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdconfig-sdconfig-container-configuration-diagram">
 <img alt="SdConfig容器配置图 (SdConfig Container Configuration Diagram)" src="../../_images/image360.png" />
 </figure>
@@ -1634,7 +1633,7 @@
 </table>
 </section>
 <section id="sdinstance">
-<h3>SdInstance<a class="headerlink" href="#sdinstance" title="链接到此标题。">¶</a></h3>
+<h3>SdInstance<a class="headerlink" href="#sdinstance" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdinstance-sdinstance-container-configuration-diagram">
 <img alt="SdInstance容器配置图 (SdInstance Container Configuration Diagram)" src="../../_images/image454.png" />
 </figure>
@@ -1876,7 +1875,7 @@
 </table>
 </section>
 <section id="sdclientservice">
-<h3>SdClientService<a class="headerlink" href="#sdclientservice" title="链接到此标题。">¶</a></h3>
+<h3>SdClientService<a class="headerlink" href="#sdclientservice" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdclientservice-container-configuration-diagram-for-sdclientservice">
 <img alt="SdClientService容器配置图 (Container Configuration Diagram for SdClientService)" src="../../_images/image548.png" />
 </figure>
@@ -2161,7 +2160,7 @@
 </section>
 </section>
 <section id="sdclientcapabilityrecord">
-<h2>SdClientCapabilityRecord<a class="headerlink" href="#sdclientcapabilityrecord" title="链接到此标题。">¶</a></h2>
+<h2>SdClientCapabilityRecord<a class="headerlink" href="#sdclientcapabilityrecord" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="sdclientcapabilityrecord-container-configuration-diagram-for-sdclientcapabilityrecord">
 <img alt="SdClientCapabilityRecord容器配置图 (Container Configuration Diagram for SdClientCapabilityRecord)" src="../../_images/image646.png" />
 </figure>
@@ -2223,7 +2222,7 @@
 </table>
 </section>
 <section id="sdconsumedeventgroup">
-<h2>SdConsumedEventGroup<a class="headerlink" href="#sdconsumedeventgroup" title="链接到此标题。">¶</a></h2>
+<h2>SdConsumedEventGroup<a class="headerlink" href="#sdconsumedeventgroup" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="sdconsumedeventgroup-sdconsumedeventgroup-container-configuration-diagram">
 <img alt="SdConsumedEventGroup容器配置图 (SdConsumedEventGroup Container Configuration Diagram)" src="../../_images/image736.png" />
 </figure>
@@ -2411,7 +2410,7 @@
 </table>
 </section>
 <section id="sdconsumedmethods">
-<h2>SdConsumedMethods<a class="headerlink" href="#sdconsumedmethods" title="链接到此标题。">¶</a></h2>
+<h2>SdConsumedMethods<a class="headerlink" href="#sdconsumedmethods" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="sdconsumedmethods-sdconsumedmethods-container-configuration-diagram">
 <img alt="SdConsumedMethods容器配置图 (SdConsumedMethods Container Configuration Diagram)" src="../../_images/image832.png" />
 </figure>
@@ -2454,7 +2453,7 @@
 </tbody>
 </table>
 <section id="sdclienttimer">
-<h3>SdClientTimer<a class="headerlink" href="#sdclienttimer" title="链接到此标题。">¶</a></h3>
+<h3>SdClientTimer<a class="headerlink" href="#sdclienttimer" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdclienttimer-sdclienttimer-container-configuration-diagram">
 <img alt="SdClientTimer容器配置图 (SDClientTimer Container Configuration Diagram)" src="../../_images/image931.png" />
 </figure>
@@ -2648,7 +2647,7 @@
 </table>
 </section>
 <section id="sdserverservice">
-<h3>SdServerService<a class="headerlink" href="#sdserverservice" title="链接到此标题。">¶</a></h3>
+<h3>SdServerService<a class="headerlink" href="#sdserverservice" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdserverservice-container-configuration-diagram-for-sdserverservice">
 <img alt="SdServerService容器配置图 (Container Configuration Diagram for SdServerService)" src="../../_images/image1029.png" />
 </figure>
@@ -2951,7 +2950,7 @@
 </section>
 </section>
 <section id="sdeventhandler">
-<h2>SdEventHandler<a class="headerlink" href="#sdeventhandler" title="链接到此标题。">¶</a></h2>
+<h2>SdEventHandler<a class="headerlink" href="#sdeventhandler" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="sdeventhandler-sdeventhandler-container-configuration-diagram">
 <img alt="SdEventHandler容器配置图 (SDEventHandler Container Configuration Diagram)" src="../../_images/image1137.png" />
 </figure>
@@ -3102,7 +3101,7 @@
 </tbody>
 </table>
 <section id="sdeventhandlermulticast">
-<h3>SdEventHandlerMulticast<a class="headerlink" href="#sdeventhandlermulticast" title="链接到此标题。">¶</a></h3>
+<h3>SdEventHandlerMulticast<a class="headerlink" href="#sdeventhandlermulticast" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdeventhandlermulticast-sdeventhandlermulticast-container-configuration-diagram">
 <img alt="SdEventHandlerMulticast容器配置图 (SdEventHandlerMulticast Container Configuration Diagram)" src="../../_images/image1227.png" />
 </figure>
@@ -3164,7 +3163,7 @@
 </table>
 </section>
 <section id="sdeventhandlertcp">
-<h3>SdEventHandlerTcp<a class="headerlink" href="#sdeventhandlertcp" title="链接到此标题。">¶</a></h3>
+<h3>SdEventHandlerTcp<a class="headerlink" href="#sdeventhandlertcp" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdeventhandlertcp-container-configuration-diagram-for-sdeventhandlertcp">
 <img alt="SdEventHandlerTcp容器配置图 (Container Configuration Diagram for SdEventHandlerTcp)" src="../../_images/image1323.png" />
 </figure>
@@ -3226,7 +3225,7 @@
 </table>
 </section>
 <section id="sdeventhandlerudp">
-<h3>SdEventHandlerUdp<a class="headerlink" href="#sdeventhandlerudp" title="链接到此标题。">¶</a></h3>
+<h3>SdEventHandlerUdp<a class="headerlink" href="#sdeventhandlerudp" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdeventhandlerudp-sdeventhandlerudp-container-configuration-diagram">
 <img alt="SdEventHandlerUdp容器配置图 (SdEventHandlerUdp Container Configuration Diagram)" src="../../_images/image1421.png" />
 </figure>
@@ -3289,7 +3288,7 @@
 </section>
 </section>
 <section id="sdprovidedmethods">
-<h2>SdProvidedMethods<a class="headerlink" href="#sdprovidedmethods" title="链接到此标题。">¶</a></h2>
+<h2>SdProvidedMethods<a class="headerlink" href="#sdprovidedmethods" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="sdprovidedmethods-sdprovidedmethods-container-configuration-diagram">
 <img alt="SdProvidedMethods容器配置图 (SdProvidedMethods Container Configuration Diagram)" src="../../_images/image1521.png" />
 </figure>
@@ -3333,7 +3332,7 @@
 </table>
 </section>
 <section id="sdservercapabilityrecord">
-<h2>SdServerCapabilityRecord<a class="headerlink" href="#sdservercapabilityrecord" title="链接到此标题。">¶</a></h2>
+<h2>SdServerCapabilityRecord<a class="headerlink" href="#sdservercapabilityrecord" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="sdservercapabilityrecord-sdservercapabilityrecord-container-configuration-diagram">
 <img alt="SdServerCapabilityRecord容器配置图 (SdServerCapabilityRecord Container Configuration Diagram)" src="../../_images/image1618.png" />
 </figure>
@@ -3394,7 +3393,7 @@
 </tbody>
 </table>
 <section id="sdservertimer">
-<h3>SdServerTimer<a class="headerlink" href="#sdservertimer" title="链接到此标题。">¶</a></h3>
+<h3>SdServerTimer<a class="headerlink" href="#sdservertimer" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdservertimer-container-configuration-diagram-for-sdservertimer">
 <img alt="SdServerTimer容器配置图 (Container Configuration Diagram for SdServerTimer)" src="../../_images/image1715.png" />
 </figure>
@@ -3564,7 +3563,7 @@
 </table>
 </section>
 <section id="sdinstancedemeventparameterrefs">
-<h3>SdInstanceDemEventParameterRefs<a class="headerlink" href="#sdinstancedemeventparameterrefs" title="链接到此标题。">¶</a></h3>
+<h3>SdInstanceDemEventParameterRefs<a class="headerlink" href="#sdinstancedemeventparameterrefs" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdinstancedemeventparameterrefs-container-configuration-diagram-for-sdinstancedemeventparameterrefs">
 <img alt="SdInstanceDemEventParameterRefs容器配置图 (Container Configuration Diagram for SdInstanceDemEventParameterRefs)" src="../../_images/image1815.png" />
 </figure>
@@ -3644,7 +3643,7 @@
 </table>
 </section>
 <section id="sdinstancemulticastrxpdus">
-<h3>SdInstanceMulticastRxPdus<a class="headerlink" href="#sdinstancemulticastrxpdus" title="链接到此标题。">¶</a></h3>
+<h3>SdInstanceMulticastRxPdus<a class="headerlink" href="#sdinstancemulticastrxpdus" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdinstancemulticastrxpdus-container-configuration-diagram-for-sdinstancemulticastrxpdus">
 <img alt="SdInstanceMulticastRxPdus容器配置图 (Container Configuration Diagram for SdInstanceMulticastRxPdus)" src="../../_images/image1913.png" />
 </figure>
@@ -3706,7 +3705,7 @@
 </table>
 </section>
 <section id="sdinstancetxpdus">
-<h3>SdInstanceTxPdus<a class="headerlink" href="#sdinstancetxpdus" title="链接到此标题。">¶</a></h3>
+<h3>SdInstanceTxPdus<a class="headerlink" href="#sdinstancetxpdus" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdinstancetxpdus-container-configuration-diagram-for-sdinstancetxpdus">
 <img alt="SdInstanceTxPdus容器配置图 (Container Configuration Diagram for SdInstanceTxPdus)" src="../../_images/image209.png" />
 </figure>
@@ -3768,7 +3767,7 @@
 </table>
 </section>
 <section id="sdinstanceunicastrxpdus">
-<h3>SdInstanceUnicastRxPdus<a class="headerlink" href="#sdinstanceunicastrxpdus" title="链接到此标题。">¶</a></h3>
+<h3>SdInstanceUnicastRxPdus<a class="headerlink" href="#sdinstanceunicastrxpdus" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdinstanceunicastrxpdus-container-configuration-diagram-for-sdinstanceunicastrxpdus">
 <img alt="SdInstanceUnicastRxPdus容器配置图 (Container Configuration Diagram for SdInstanceUnicastRxPdus)" src="../../_images/image2116.png" />
 </figure>
@@ -3830,7 +3829,7 @@
 </table>
 </section>
 <section id="sdcapabilityrecordmatchcallouts">
-<h3>SdCapabilityRecordMatchCallouts<a class="headerlink" href="#sdcapabilityrecordmatchcallouts" title="链接到此标题。">¶</a></h3>
+<h3>SdCapabilityRecordMatchCallouts<a class="headerlink" href="#sdcapabilityrecordmatchcallouts" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="sdcapabilityrecordmatchcallouts-sdcapabilityrecordmatchcallouts-container-configuration-diagram">
 <img alt="SdCapabilityRecordMatchCallouts容器配置图 (SdCapabilityRecordMatchCallouts Container Configuration Diagram)" src="../../_images/image2215.png" />
 </figure>
@@ -4009,7 +4008,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -4018,11 +4017,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

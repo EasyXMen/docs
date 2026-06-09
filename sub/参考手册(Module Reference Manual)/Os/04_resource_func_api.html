@@ -9,7 +9,6 @@
         <title>Resource(Functions) &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../../_static/version-switcher.css?v=5a6714a8" />
@@ -58,7 +57,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -176,7 +175,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="resource-functions">
-<h1>Resource(Functions)<a class="headerlink" href="#resource-functions" title="链接到此标题。">¶</a></h1>
+<h1>Resource(Functions)<a class="headerlink" href="#resource-functions" title="Link to this heading">¶</a></h1>
 <p>资源管理用于协调具有不同优先级的多个任务对共享资源的并发访问，例如：管理的实体(调度器)，程序，内存或硬件区域。</p>
 <p>Resource management is used to coordinate concurrent access by multiple tasks with different priorities to shared resources, such as managed entities (schedulers), programs, memory areas, or hardware regions.</p>
 <p>在系统生成时，会为每个资源静态分配其自己的最高优先级。用户可以通过在任务/中断中调用GetResource / ReleaseResource来获取/释放标准资源。运行任务/中断的优先级暂时设置为资源的优先级，直到释放资源为止。</p>
@@ -184,7 +183,7 @@
 <figure class="align-center" id="id1">
 <img alt="可抢占任务间优先级天花板的资源分配 Resource Allocation with Priority Ceiling Among Preemptive Tasks" src="../../../_images/%E8%B5%84%E6%BA%90%E5%A4%A9%E8%8A%B1%E6%9D%BF%E6%9C%BA%E5%88%B6.png" />
 <figcaption>
-<p><span class="caption-text">可抢占任务间优先级天花板的资源分配 (Resource Allocation with Priority Ceiling Among Preemptive Tasks)</span><a class="headerlink" href="#id1" title="链接到此图片">¶</a></p>
+<p><span class="caption-text">可抢占任务间优先级天花板的资源分配 (Resource Allocation with Priority Ceiling Among Preemptive Tasks)</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>内部资源是用户不可见的资源，因此系统功能GetResource和ReleaseResource无法操作内部资源。它们在一组明确定义的系统功能内部严格管理。除此之外，内部资源的行为与标准资源完全相同。</p>
@@ -192,7 +191,7 @@
 <p>占用标准资源时，不得调用TerminateTask，ChainTask，Schedule，WaitEvent。中断服务程序不应在占据资源的情况下结束。</p>
 <p>When holding standard resources, TerminateTask, ChainTask, Schedule, and WaitEvent must not be called. Interrupt Service Routines (ISRs) should not terminate while holding resources.</p>
 <section id="getresource">
-<h2>GetResource<a class="headerlink" href="#getresource" title="链接到此标题。">¶</a></h2>
+<h2>GetResource<a class="headerlink" href="#getresource" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">GetResource</span><span class="p">(</span><span class="n">ResourceType</span> <span class="n">ResID</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -302,7 +301,7 @@ TASK(TaskInit)
 </div>
 </section>
 <section id="releaseresource">
-<h2>ReleaseResource<a class="headerlink" href="#releaseresource" title="链接到此标题。">¶</a></h2>
+<h2>ReleaseResource<a class="headerlink" href="#releaseresource" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StatusType</span> <span class="n">ReleaseResource</span><span class="p">(</span><span class="n">ResourceType</span> <span class="n">ResID</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -420,7 +419,7 @@ TASK(TaskInit)
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -429,11 +428,11 @@ TASK(TaskInit)
         </div>
     </footer>
         <script src="../../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../../_static/translations.js?v=beaddf03"></script>
         <script src="../../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>

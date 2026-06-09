@@ -9,7 +9,6 @@
         <title>ComM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,7 +177,7 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="comm">
-<h1>ComM<a class="headerlink" href="#comm" title="链接到此标题。">¶</a></h1>
+<h1>ComM<a class="headerlink" href="#comm" title="Link to this heading">¶</a></h1>
 <p><strong>缩写词注解 (Abbreviation Notes):</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -256,7 +255,7 @@
 </tbody>
 </table>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>ComM（COM Manage，通信管理）模块是一个资源管理器，它封装了对基础通信服务的控制。ComM模块控制与通信相关的基础软件模块，它收集来自通信请求者的总线通信访问请求，并进行协调。</p>
 <p>ComM (COM Manage, Communication Management) module is a resource manager that encapsulates the control of fundamental communication services. The ComM module controls basic software modules related to communication; it collects bus communication access requests from communication requestors and coordinates them.</p>
 <figure class="align-center" id="commautosar-the-position-of-comm-in-autosar">
@@ -277,7 +276,7 @@
 <p>通过分配请求的通信模式所需的所有资源来简化资源管理。</p>
 <p>Simplify resource management by allocating all resources required for the communication mode requested.</p>
 <section id="reference-materials">
-<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (Reference materials)<a class="headerlink" href="#reference-materials" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_SWS_COMManager.pdf</p>
 <p>[2] AUTOSAR_SWS_NetworkManagementInterface.pdf</p>
 <p>[3] AUTOSAR_SWS_BSWModeManager.pdf</p>
@@ -287,9 +286,9 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function Description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <section id="channelpnc-channel-and-pnc-status-management-function">
-<h3>Channel与PNC状态管理功能 (Channel and PNC Status Management Function)<a class="headerlink" href="#channelpnc-channel-and-pnc-status-management-function" title="链接到此标题。">¶</a></h3>
+<h3>Channel与PNC状态管理功能 (Channel and PNC Status Management Function)<a class="headerlink" href="#channelpnc-channel-and-pnc-status-management-function" title="Link to this heading">¶</a></h3>
 <p>AUTOSAR中，通过ComM系统服务实现对通信状态的管理。用户上电唤醒时通过主动请求通信FULL_COMMUNICATION或被动唤醒通知，用户休眠时请求NO_COMMUNICATION释放通信，ComM接收到请求后通过相应总线的SM模块和NM模块实现对总线通信状态的切换。用户无需再与各个通信总线的状态管理模块和网络管理模块进行交互。一个用户可以对应多个通道和多个PNC。当用户请求FULL_COMMUNICATION来请求通信时，该用户对应的所有channel和PNC都需要切换为FULL_COMMUNICATION的状态。在发生被动唤醒时，例如由ECUM发出的唤醒请求或者由网络管理模块发出的重启通信请求，对应的channel和PNC需要切换为FULL_COMMUNICATION的状态。ComM为每个channel和每个PNC都提供一个独立的状态机。</p>
 <p>In AUTOSAR, the ComM system services are used to manage communication status. When users are powered on and awakened, they can request FULL_COMMUNICATION actively or receive passive wake-up notifications. During user dormancy, they request NO_COMMUNICATION to release communication. Upon receiving these requests, ComM switches the bus communication state through corresponding SM and NM modules. Users no longer need to interact with individual communication bus status management modules and network management modules. A single user can correspond to multiple channels and PNCs. When a user requests FULL_COMMUNICATION, all associated channels and PNCs must switch to this state. In passive wake-up scenarios, such as when woken up by ECUM or when a restart communication request is issued by the network management module, corresponding channels and PNCs need to change to the FULL_COMMUNICATION state. ComM provides an independent state machine for each channel and each PNC.</p>
 <p>ComM模块实现了PNC(局域网络集群)管理功能，在ComM中可配置PNC，并且该PNC可以被通道和用户所引用，每个PNC在总线上使用NM用户数据中位向量中的专用位位置。如果节点上的本地ComM用户请求了PNC，则该节点会将NM用户数据中的相应位设置为1。如果不再请求PNC，节点将NM用户数据中的相应位设置为0。BusNm收集并聚集PNC的NM用户数据，并通过以下方式提供状态：通过COM信号向ComM发送COM位向量。ComM通过信号的内容，更新PNC状态机的状态。</p>
@@ -299,7 +298,7 @@
 </section>
 </section>
 <section id="channel-channel-state-machine">
-<h2>Channel状态机 (Channel State Machine)<a class="headerlink" href="#channel-channel-state-machine" title="链接到此标题。">¶</a></h2>
+<h2>Channel状态机 (Channel State Machine)<a class="headerlink" href="#channel-channel-state-machine" title="Link to this heading">¶</a></h2>
 <p>ComM为每个通道都实现了一个状态机，ComM通道有三个主要状态，分别为COMM_NO_COMMUNICATION、COMM_SILENT_COMMUNICATION、COMM_FULL_COMMUNICATION，其中COMM_SILENT_COMMUNICATION状态用于网络管理内部状态同步，用户不可请求。COMM_NO_COMMUNICATI-</p>
 <p>CommM implements a state machine for each channel. CommM channels have three main states: COMM_NO_COMMUNICATION, COMM_SILENT_COMMUNICATION, and COMM_FULL_COMMUNICATION.其中COMM_SILENT_COMMUNICATION state is used for internal state synchronization in network management and is not requestable by users. COMM_NO CommunICATI-</p>
 <p>ON内部包含COMM_NO_COM_NO_PENDING_REQUEST和COMM_NO_CO-</p>
@@ -313,7 +312,7 @@
 </figure>
 </section>
 <section id="pnc-pnc-state-machine">
-<h2>PNC状态机 (PNC State Machine)<a class="headerlink" href="#pnc-pnc-state-machine" title="链接到此标题。">¶</a></h2>
+<h2>PNC状态机 (PNC State Machine)<a class="headerlink" href="#pnc-pnc-state-machine" title="Link to this heading">¶</a></h2>
 <p>ComM为每个PNC（局域网集群）实现一个状态机，每个PNC都有其自己的状态，通过配置映射，PNC的状态与channel的状态有关。ComM用户可以请求和释放PNC，系统通道节点上所有PNC的状态通过网络管理报文进行交换。每个PNC在总线上使用网络管理报文用户数据中位向量中的专用位位置。如果该节点上的本地ComM用户请求了PNC，则该节点会将网络管理用户数据中的相应位设置为1。如果该PNC不再被请求，节点将网络管理用户数据中的相应位设置为0。BusNm收集并聚合PNC的网络管理用户数据，并通过COM位向量通过COM信号将状态提供给ComM。</p>
 <p>ComM implements a state machine for each PNC (Local Area Network Cluster), and each PNC has its own state. Through configuration mapping, the state of a PNC is related to the channel's state. ComM users can request and release PNCs; the states of all PNCs on the system channel nodes are exchanged via network management messages. Each PNC uses a dedicated bit position in the user data field of network management messages for its presence on the bus. If a local ComM user requests a PNC at that node, the node sets the corresponding bit in the network management user data to 1. If the PNC is no longer requested, the node sets the corresponding bit in the network management user data to 0. BusNm collects and aggregates the network management user data of PNCs and provides the state via the COM bit vector through COM signals to ComM.</p>
 <p>在每个系统通道上，每个PNC在网络管理用户数据中使用相同的位位置。ComM使用两种类型的位向量EIRA和ERA进行PNC状态信息交换。EIRA体现了当前节点与网络上其他节点对某一个PNC的请求与释放情况；EIRA不区分物理通道，只针对不同的PN，ERA则是在网关节点才使用，用于表示不同的通道对Pn的外部请求。ComM PNC有两个主要状态，分别为COMM_PNC_NO_C-</p>
@@ -329,7 +328,7 @@
 <p>注：当前版本使用 Nm_UpdateIRA 接口替代 Com_SendSignal 进行 IRA 的更新。</p>
 <p>Note: The current version uses the Nm_UpdateIRA interface to replace Com_SendSignal for updating IRA.</p>
 <section id="function-inhibition">
-<h3>功能抑制 (Function inhibition)<a class="headerlink" href="#function-inhibition" title="链接到此标题。">¶</a></h3>
+<h3>功能抑制 (Function inhibition)<a class="headerlink" href="#function-inhibition" title="Link to this heading">¶</a></h3>
 <p>功能抑制是ComM中的扩展功能，ComM释放了功能抑制的接口与配置，功能抑制以通道为单位，各通道内的功能抑制相互独立。功能抑制分为唤醒抑制与无通信抑制。</p>
 <p>Functional inhibition is an extended feature of ComM, which releases the interfaces and configurations for functional inhibition. Functional inhibition operates on a channel basis, with each channel's functional inhibition being independent from others. It is divided into wake-up inhibition and no-communication inhibition.</p>
 <p>唤醒抑制：表现为通道处于COMM_NO_COMMUNICATION或COMM_SILENT_COMMUNICATION状态时忽略User对通道的FULL_COMMUNICATION请求，但通道的被动唤醒功能不受影响，当全局配置项打开的情况下，唤醒抑制可以通过API来控制。</p>
@@ -338,14 +337,14 @@
 <p>NoCom Inhibition: Manifests as restricting channel switching to COMM_FULL_COMMUNICATION and COMM_SILENT_COMMUNICATION states. When the global configuration item is enabled, NoCom inhibition can also be controlled via API.</p>
 </section>
 <section id="managedmanaging-managed-channel-and-managing-channel">
-<h3>managed通道与managing通道 (managed channel and managing channel)<a class="headerlink" href="#managedmanaging-managed-channel-and-managing-channel" title="链接到此标题。">¶</a></h3>
+<h3>managed通道与managing通道 (managed channel and managing channel)<a class="headerlink" href="#managedmanaging-managed-channel-and-managing-channel" title="Link to this heading">¶</a></h3>
 <p>一个通道可以被配置为managed通道和managing通道，即被其他通道管理的通道和管理其他通道的通道。一个通道为managed通道还是managing通道是由配置参数ComMManageReference来决定的，如果通道1通过配置项ComMManageReference引用了通道2，那么，通道1为managed通道，通道2为managing通道。其中managed通道的ComMNmVariant（配置参数）为LIGHT，managing通道的ComMNmVariant为FULL。</p>
 <p>A channel can be configured as both a managed channel and a managing channel, i.e., a channel that is managed by other channels and a channel that manages other channels. Whether a channel is a managed channel or a managing channel is determined by the configuration parameter ComMManageReference. If Channel 1 references Channel 2 via the configuration item ComMManageReference, then Channel 1 is a managed channel, and Channel 2 is a managing channel. Among them, the managed channel's ComMNmVariant (configuration parameter) is LIGHT, while the managing channel's ComMNmVariant is FULL.</p>
 <p>如果一个managed通道被用户主动或ECUM被动唤醒请求FULL_COMMUNICATION ，那么它的managing通道也需要请求FULL_COMMUNICATION。当一个managing通道想要切换到NO_COMMUNICATION的时候，一定需要它的managed通道都没有请求FULL_COMMUNICATION时才能切换状态。</p>
 <p>If a managed channel is actively or passively awakened by a user to request FULL_COMMUNICATION, its managing channel also needs to request FULL_COMMUNICATION. When a managing channel wants to switch to NO_COMMUNICATION, it must wait until its managed channels have not requested FULL_COMMUNICATION before switching the state.</p>
 </section>
 <section id="multi-core-distribution">
-<h3>多核分布 (Multi-core Distribution)<a class="headerlink" href="#multi-core-distribution" title="链接到此标题。">¶</a></h3>
+<h3>多核分布 (Multi-core Distribution)<a class="headerlink" href="#multi-core-distribution" title="Link to this heading">¶</a></h3>
 <p>ComM 支持多分区（多核）分布，每一个通道和用户都支持被分配给特定的分区，通过配置项ComMChannelPartitionRef 和 ComMUserEcucPartitionRef 来实现。使能多分区功能，要确保 ComMMultiplePartitionEnabled 设置为TRUE。</p>
 <p>ComM supports multi-partition (multi-core) distribution, with each channel and user supporting allocation to a specific partition through configuration items ComMChannelPartitionRef and ComMUserEcucPartitionRef. To enable the multi-partition feature, ensure that ComMMultiplePartitionEnabled is set to TRUE.</p>
 <p>在使能多分区功能后，所有与通道和用户相关的 API 如ComM_CommunicationAllowed 或 ComM_RequestComMode 等，均只允许在对应通道或用户所在的分区上下文中被调用。</p>
@@ -359,7 +358,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 ComM组件文件描述 (Table ComponentM Component File Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -451,13 +450,13 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API Interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (Type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="comm-initstatustype-comm-initstatustype-type-definition">
-<h2>ComM_InitStatusType类型定义 (Comm_InitStatusType type definition)<a class="headerlink" href="#comm-initstatustype-comm-initstatustype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_InitStatusType类型定义 (Comm_InitStatusType type definition)<a class="headerlink" href="#comm-initstatustype-comm-initstatustype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -485,7 +484,7 @@
 </table>
 </section>
 <section id="comm-pncmodetype-commpncmodetype-type-definition">
-<h2>ComM_PNCModeType类型定义 (CommPNCModeType type definition)<a class="headerlink" href="#comm-pncmodetype-commpncmodetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_PNCModeType类型定义 (CommPNCModeType type definition)<a class="headerlink" href="#comm-pncmodetype-commpncmodetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -537,7 +536,7 @@
 </table>
 </section>
 <section id="comm-statetype-comm-statetype-type-definition">
-<h2>ComM_StateType类型定义 (Comm_StateType Type Definition)<a class="headerlink" href="#comm-statetype-comm-statetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_StateType类型定义 (Comm_StateType Type Definition)<a class="headerlink" href="#comm-statetype-comm-statetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -574,7 +573,7 @@
 </table>
 </section>
 <section id="comm-modetype-commmodetype-type-definition">
-<h2>ComM_ModeType类型定义 (CommModeType type definition)<a class="headerlink" href="#comm-modetype-commmodetype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_ModeType类型定义 (CommModeType type definition)<a class="headerlink" href="#comm-modetype-commmodetype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -608,7 +607,7 @@
 </table>
 </section>
 <section id="comm-userhandletype-comm-userhandletype-type-definition">
-<h2>ComM_UserHandleType类型定义 (Comm_UserHandleType type definition)<a class="headerlink" href="#comm-userhandletype-comm-userhandletype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_UserHandleType类型定义 (Comm_UserHandleType type definition)<a class="headerlink" href="#comm-userhandletype-comm-userhandletype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -633,7 +632,7 @@
 </table>
 </section>
 <section id="comm-configtype-comm-configtype-type-definition">
-<h2>ComM_ConfigType类型定义 (Comm_ConfigType Type Definition)<a class="headerlink" href="#comm-configtype-comm-configtype-type-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_ConfigType类型定义 (Comm_ConfigType Type Definition)<a class="headerlink" href="#comm-configtype-comm-configtype-type-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -657,7 +656,7 @@
 </tbody>
 </table>
 <section id="describe-the-input-function">
-<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Describe the input function:)<a class="headerlink" href="#describe-the-input-function" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -739,11 +738,11 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="comm-init-comm-init-function-definition">
-<h2>ComM_Init函数定义 (Comm_Init function definition)<a class="headerlink" href="#comm-init-comm-init-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_Init函数定义 (Comm_Init function definition)<a class="headerlink" href="#comm-init-comm-init-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -808,7 +807,7 @@
 </table>
 </section>
 <section id="comm-deinit-commdeinit-function-definition">
-<h2>ComM_DeInit函数定义 (CommDeInit function definition)<a class="headerlink" href="#comm-deinit-commdeinit-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_DeInit函数定义 (CommDeInit function definition)<a class="headerlink" href="#comm-deinit-commdeinit-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -857,7 +856,7 @@
 </table>
 </section>
 <section id="comm-getstatus-the-comm-getstatus-function-definition">
-<h2>ComM_GetStatus函数定义 (The Comm_GetStatus function definition)<a class="headerlink" href="#comm-getstatus-the-comm-getstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_GetStatus函数定义 (The Comm_GetStatus function definition)<a class="headerlink" href="#comm-getstatus-the-comm-getstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -937,7 +936,7 @@
 </table>
 </section>
 <section id="comm-getinhibitionstatus-the-comm-getinhibitionstatus-function-definition">
-<h2>ComM_GetInhibitionStatus函数定义 (The Comm_GetInhibitionStatus function definition)<a class="headerlink" href="#comm-getinhibitionstatus-the-comm-getinhibitionstatus-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_GetInhibitionStatus函数定义 (The Comm_GetInhibitionStatus function definition)<a class="headerlink" href="#comm-getinhibitionstatus-the-comm-getinhibitionstatus-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1022,7 +1021,7 @@
 </table>
 </section>
 <section id="comm-requestcommode-comm-requestcommode-function-definition">
-<h2>ComM_RequestComMode函数定义 (Comm_RequestComMode function definition)<a class="headerlink" href="#comm-requestcommode-comm-requestcommode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_RequestComMode函数定义 (Comm_RequestComMode function definition)<a class="headerlink" href="#comm-requestcommode-comm-requestcommode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1117,7 +1116,7 @@
 </table>
 </section>
 <section id="comm-getmaxcommode-the-comm-getmaxcommmode-function-definition">
-<h2>ComM_GetMaxComMode函数定义 (The Comm_GetMaxCommMode function definition)<a class="headerlink" href="#comm-getmaxcommode-the-comm-getmaxcommmode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_GetMaxComMode函数定义 (The Comm_GetMaxCommMode function definition)<a class="headerlink" href="#comm-getmaxcommode-the-comm-getmaxcommmode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1202,7 +1201,7 @@
 </table>
 </section>
 <section id="comm-getrequestedcommode-the-comm-getrequestedcommode-function-definition">
-<h2>ComM_GetRequestedComMode函数定义 (The Comm_GetRequestedComMode function definition)<a class="headerlink" href="#comm-getrequestedcommode-the-comm-getrequestedcommode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_GetRequestedComMode函数定义 (The Comm_GetRequestedComMode function definition)<a class="headerlink" href="#comm-getrequestedcommode-the-comm-getrequestedcommode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1287,7 +1286,7 @@
 </table>
 </section>
 <section id="comm-getcurrentcommode-the-comm-getcurrentcommode-function-definition">
-<h2>ComM_GetCurrentComMode函数定义 (The Comm_GetCurrentComMode function definition)<a class="headerlink" href="#comm-getcurrentcommode-the-comm-getcurrentcommode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_GetCurrentComMode函数定义 (The Comm_GetCurrentComMode function definition)<a class="headerlink" href="#comm-getcurrentcommode-the-comm-getcurrentcommode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1372,7 +1371,7 @@
 </table>
 </section>
 <section id="comm-preventwakeup-comm-preventwakeup-function-definition">
-<h2>ComM_PreventWakeUp函数定义 (Comm_PreventWakeUp function definition)<a class="headerlink" href="#comm-preventwakeup-comm-preventwakeup-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_PreventWakeUp函数定义 (Comm_PreventWakeUp function definition)<a class="headerlink" href="#comm-preventwakeup-comm-preventwakeup-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1462,7 +1461,7 @@
 </table>
 </section>
 <section id="comm-limitchanneltonocommode-the-function-definition-for-comm-limitchanneltonocommode">
-<h2>ComM_LimitChannelToNoComMode函数定义 (The function definition for ComM_LimitChannelToNoComMode)<a class="headerlink" href="#comm-limitchanneltonocommode-the-function-definition-for-comm-limitchanneltonocommode" title="链接到此标题。">¶</a></h2>
+<h2>ComM_LimitChannelToNoComMode函数定义 (The function definition for ComM_LimitChannelToNoComMode)<a class="headerlink" href="#comm-limitchanneltonocommode-the-function-definition-for-comm-limitchanneltonocommode" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1557,7 +1556,7 @@
 </table>
 </section>
 <section id="comm-limitecutonocommode-the-function-definition-for-comm-limitecutonocommode">
-<h2>ComM_LimitECUToNoComMode函数定义 (The function definition for ComM_LimitECUToNoComMode)<a class="headerlink" href="#comm-limitecutonocommode-the-function-definition-for-comm-limitecutonocommode" title="链接到此标题。">¶</a></h2>
+<h2>ComM_LimitECUToNoComMode函数定义 (The function definition for ComM_LimitECUToNoComMode)<a class="headerlink" href="#comm-limitecutonocommode-the-function-definition-for-comm-limitecutonocommode" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1642,7 +1641,7 @@
 </table>
 </section>
 <section id="comm-readinhibitcounter-the-comm-readinhibitcounter-function-definition">
-<h2>ComM_ReadInhibitCounter函数定义 (The Comm_ReadInhibitCounter function definition)<a class="headerlink" href="#comm-readinhibitcounter-the-comm-readinhibitcounter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_ReadInhibitCounter函数定义 (The Comm_ReadInhibitCounter function definition)<a class="headerlink" href="#comm-readinhibitcounter-the-comm-readinhibitcounter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1722,7 +1721,7 @@
 </table>
 </section>
 <section id="comm-resetinhibitcounter-the-comm-resetinhibitcounter-function-definition">
-<h2>ComM_ResetInhibitCounter函数定义 (The Comm_ResetInhibitCounter function definition)<a class="headerlink" href="#comm-resetinhibitcounter-the-comm-resetinhibitcounter-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_ResetInhibitCounter函数定义 (The Comm_ResetInhibitCounter function definition)<a class="headerlink" href="#comm-resetinhibitcounter-the-comm-resetinhibitcounter-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -1774,7 +1773,7 @@
 </table>
 </section>
 <section id="comm-setecugroupclassification-the-comm-setecugroupclassification-function-defines">
-<h2>ComM_SetECUGroupClassification函数定义 (The Comm_SetECUGroupClassification function defines)<a class="headerlink" href="#comm-setecugroupclassification-the-comm-setecugroupclassification-function-defines" title="链接到此标题。">¶</a></h2>
+<h2>ComM_SetECUGroupClassification函数定义 (The Comm_SetECUGroupClassification function defines)<a class="headerlink" href="#comm-setecugroupclassification-the-comm-setecugroupclassification-function-defines" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1854,7 +1853,7 @@
 </table>
 </section>
 <section id="comm-getversioninfo-the-commm-getversioninfo-function-definition">
-<h2>ComM_GetVersionInfo函数定义 (The CommM_GetVersionInfo function definition)<a class="headerlink" href="#comm-getversioninfo-the-commm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_GetVersionInfo函数定义 (The CommM_GetVersionInfo function definition)<a class="headerlink" href="#comm-getversioninfo-the-commm-getversioninfo-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1929,7 +1928,7 @@
 </table>
 </section>
 <section id="comm-nm-networkstartindication-comm-nm-networkstartindication-function-definition">
-<h2>ComM_Nm_NetworkStartIndication函数定义 (Comm_Nm_NetworkStartIndication function definition)<a class="headerlink" href="#comm-nm-networkstartindication-comm-nm-networkstartindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_Nm_NetworkStartIndication函数定义 (Comm_Nm_NetworkStartIndication function definition)<a class="headerlink" href="#comm-nm-networkstartindication-comm-nm-networkstartindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2004,7 +2003,7 @@
 </table>
 </section>
 <section id="comm-nm-networkmode-comm-nm-networkmode-function-definition">
-<h2>ComM_Nm_NetworkMode函数定义 (Comm_Nm_NetworkMode function definition)<a class="headerlink" href="#comm-nm-networkmode-comm-nm-networkmode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_Nm_NetworkMode函数定义 (Comm_Nm_NetworkMode function definition)<a class="headerlink" href="#comm-nm-networkmode-comm-nm-networkmode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2079,7 +2078,7 @@
 </table>
 </section>
 <section id="comm-nm-preparebussleepmode-the-function-definition-for-comm-nm-preparebussleepmode">
-<h2>ComM_Nm_PrepareBusSleepMode函数定义 (The function definition for ComM_Nm_PrepareBusSleepMode)<a class="headerlink" href="#comm-nm-preparebussleepmode-the-function-definition-for-comm-nm-preparebussleepmode" title="链接到此标题。">¶</a></h2>
+<h2>ComM_Nm_PrepareBusSleepMode函数定义 (The function definition for ComM_Nm_PrepareBusSleepMode)<a class="headerlink" href="#comm-nm-preparebussleepmode-the-function-definition-for-comm-nm-preparebussleepmode" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2154,7 +2153,7 @@
 </table>
 </section>
 <section id="comm-nm-bussleepmode-commnm-bussleepmode-function-definition">
-<h2>ComM_Nm_BusSleepMode函数定义 (CommNm_BusSleepMode function definition)<a class="headerlink" href="#comm-nm-bussleepmode-commnm-bussleepmode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_Nm_BusSleepMode函数定义 (CommNm_BusSleepMode function definition)<a class="headerlink" href="#comm-nm-bussleepmode-commnm-bussleepmode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2229,7 +2228,7 @@
 </table>
 </section>
 <section id="comm-nm-restartindication-function-definition-for-comm-nm-restartindication">
-<h2>ComM_Nm_RestartIndication函数定义 (Function definition for ComM_Nm_RestartIndication)<a class="headerlink" href="#comm-nm-restartindication-function-definition-for-comm-nm-restartindication" title="链接到此标题。">¶</a></h2>
+<h2>ComM_Nm_RestartIndication函数定义 (Function definition for ComM_Nm_RestartIndication)<a class="headerlink" href="#comm-nm-restartindication-function-definition-for-comm-nm-restartindication" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2304,7 +2303,7 @@
 </table>
 </section>
 <section id="comm-dcm-activediagnostic-thecomm-dcm-activediagnosticfunctiondefinition">
-<h2>ComM_DCM_ActiveDiagnostic函数定义 (TheComm_DCM_ActiveDiagnosticfunctiondefinition)<a class="headerlink" href="#comm-dcm-activediagnostic-thecomm-dcm-activediagnosticfunctiondefinition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_DCM_ActiveDiagnostic函数定义 (TheComm_DCM_ActiveDiagnosticfunctiondefinition)<a class="headerlink" href="#comm-dcm-activediagnostic-thecomm-dcm-activediagnosticfunctiondefinition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2379,7 +2378,7 @@
 </table>
 </section>
 <section id="comm-dcm-inactivediagnostic-comm-dcm-inactivediagnostic-function-definition">
-<h2>ComM_DCM_InactiveDiagnostic函数定义 (Comm_DCM_InactiveDiagnostic function definition)<a class="headerlink" href="#comm-dcm-inactivediagnostic-comm-dcm-inactivediagnostic-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_DCM_InactiveDiagnostic函数定义 (Comm_DCM_InactiveDiagnostic function definition)<a class="headerlink" href="#comm-dcm-inactivediagnostic-comm-dcm-inactivediagnostic-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2454,7 +2453,7 @@
 </table>
 </section>
 <section id="comm-ecum-wakeupindication-function-definition-for-comm-ecum-wakeupindication">
-<h2>ComM_EcuM_WakeUpIndication函数定义 (Function definition for ComM_EcuM_WakeUpIndication)<a class="headerlink" href="#comm-ecum-wakeupindication-function-definition-for-comm-ecum-wakeupindication" title="链接到此标题。">¶</a></h2>
+<h2>ComM_EcuM_WakeUpIndication函数定义 (Function definition for ComM_EcuM_WakeUpIndication)<a class="headerlink" href="#comm-ecum-wakeupindication-function-definition-for-comm-ecum-wakeupindication" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2529,7 +2528,7 @@
 </table>
 </section>
 <section id="comm-ecum-pncwakeupindication-the-commecum-pncwakeupindication-function-definition">
-<h2>ComM_EcuM_PNCWakeUpIndication函数定义 (The CommEcuM_PNCWakeUpIndication function definition)<a class="headerlink" href="#comm-ecum-pncwakeupindication-the-commecum-pncwakeupindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_EcuM_PNCWakeUpIndication函数定义 (The CommEcuM_PNCWakeUpIndication function definition)<a class="headerlink" href="#comm-ecum-pncwakeupindication-the-commecum-pncwakeupindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2604,7 +2603,7 @@
 </table>
 </section>
 <section id="comm-communicationallowed-the-commcommunicationallowed-function-definition">
-<h2>ComM_CommunicationAllowed函数定义 (The CommCommunicationAllowed function definition)<a class="headerlink" href="#comm-communicationallowed-the-commcommunicationallowed-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_CommunicationAllowed函数定义 (The CommCommunicationAllowed function definition)<a class="headerlink" href="#comm-communicationallowed-the-commcommunicationallowed-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2689,7 +2688,7 @@
 </table>
 </section>
 <section id="comm-bussm-modeindication-comm-bussm-modeindication-function-definition">
-<h2>ComM_BusSM_ModeIndication函数定义 (Comm_BusSM_ModeIndication function definition)<a class="headerlink" href="#comm-bussm-modeindication-comm-bussm-modeindication-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_BusSM_ModeIndication函数定义 (Comm_BusSM_ModeIndication function definition)<a class="headerlink" href="#comm-bussm-modeindication-comm-bussm-modeindication-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2774,7 +2773,7 @@
 </table>
 </section>
 <section id="comm-bussm-bussleepmode-comm-bussm-bussleepmode-function-definition">
-<h2>ComM_BusSM_BusSleepMode函数定义 (Comm_BusSM_BusSleepMode function definition)<a class="headerlink" href="#comm-bussm-bussleepmode-comm-bussm-bussleepmode-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_BusSM_BusSleepMode函数定义 (Comm_BusSM_BusSleepMode function definition)<a class="headerlink" href="#comm-bussm-bussleepmode-comm-bussm-bussleepmode-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2859,7 +2858,7 @@
 </table>
 </section>
 <section id="comm-comcbk-sn-comm-comcbk-sn-function-definition">
-<h2>ComM_COMCbk_&lt;sn&gt;函数定义 (ComM_COMCbk&lt;sn&gt; Function Definition)<a class="headerlink" href="#comm-comcbk-sn-comm-comcbk-sn-function-definition" title="链接到此标题。">¶</a></h2>
+<h2>ComM_COMCbk_&lt;sn&gt;函数定义 (ComM_COMCbk&lt;sn&gt; Function Definition)<a class="headerlink" href="#comm-comcbk-sn-comm-comcbk-sn-function-definition" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2908,7 +2907,7 @@
 </table>
 </section>
 <section id="comm-mainfunction-definition-of-comm-mainfunction-function">
-<h2>ComM_MainFunction函数定义 (Definition of ComM_MainFunction function)<a class="headerlink" href="#comm-mainfunction-definition-of-comm-mainfunction-function" title="链接到此标题。">¶</a></h2>
+<h2>ComM_MainFunction函数定义 (Definition of ComM_MainFunction function)<a class="headerlink" href="#comm-mainfunction-definition-of-comm-mainfunction-function" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2938,18 +2937,18 @@
 </tbody>
 </table>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable Function Definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>None.</p>
 </section>
 <section id="swc-swc-service-component-packaging">
-<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="链接到此标题。">¶</a></h3>
+<h3>SWC服务组件封装 (SWC Service Component Packaging)<a class="headerlink" href="#swc-swc-service-component-packaging" title="Link to this heading">¶</a></h3>
 <p>以下类型和接口可以封装至SWC生成完整的服务组件，可以与应用通过端口连接，没有列出的部分暂时不支持。</p>
 <p>The following types and interfaces can be encapsulated into SWC to generate complete service components, which can be connected to the application via ports. Parts not listed are currently unsupported.</p>
 </section>
 </section>
 <section id="implement-data-type-encapsulation">
-<h2>实现数据类型封装 (Implement data type encapsulation)<a class="headerlink" href="#implement-data-type-encapsulation" title="链接到此标题。">¶</a></h2>
+<h2>实现数据类型封装 (Implement data type encapsulation)<a class="headerlink" href="#implement-data-type-encapsulation" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -2974,9 +2973,9 @@
 </table>
 </section>
 <section id="sr-sr-interface-encapsulation">
-<h2>SR接口封装 (SR Interface Encapsulation)<a class="headerlink" href="#sr-sr-interface-encapsulation" title="链接到此标题。">¶</a></h2>
+<h2>SR接口封装 (SR Interface Encapsulation)<a class="headerlink" href="#sr-sr-interface-encapsulation" title="Link to this heading">¶</a></h2>
 <section id="comm-currentchannelrequest">
-<h3>ComM_CurrentChannelRequest<a class="headerlink" href="#comm-currentchannelrequest" title="链接到此标题。">¶</a></h3>
+<h3>ComM_CurrentChannelRequest<a class="headerlink" href="#comm-currentchannelrequest" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3008,9 +3007,9 @@
 </section>
 </section>
 <section id="cs-cs-interface-packaging">
-<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="链接到此标题。">¶</a></h2>
+<h2>CS接口封装 (CS Interface Packaging)<a class="headerlink" href="#cs-cs-interface-packaging" title="Link to this heading">¶</a></h2>
 <section id="rte-call-comm-comm-userrequest-getcurrentcommode">
-<h3>Rte_Call_ComM_ComM_UserRequest_GetCurrentComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-getcurrentcommode" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_UserRequest_GetCurrentComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-getcurrentcommode" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3041,7 +3040,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-userrequest-getmaxcommode">
-<h3>Rte_Call_ComM_ComM_UserRequest_GetMaxComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-getmaxcommode" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_UserRequest_GetMaxComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-getmaxcommode" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3072,7 +3071,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-userrequest-requestcommode">
-<h3>Rte_Call_ComM_ComM_UserRequest_RequestComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-requestcommode" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_UserRequest_RequestComMode<a class="headerlink" href="#rte-call-comm-comm-userrequest-requestcommode" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3103,7 +3102,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-channellimitation-getinhibitionstatus">
-<h3>Rte_Call_ComM_ComM_ChannelLimitation_GetInhibitionStatus<a class="headerlink" href="#rte-call-comm-comm-channellimitation-getinhibitionstatus" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_ChannelLimitation_GetInhibitionStatus<a class="headerlink" href="#rte-call-comm-comm-channellimitation-getinhibitionstatus" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3134,7 +3133,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-channellimitation-limitchanneltonocommode">
-<h3>Rte_Call_ComM_ComM_ChannelLimitation_LimitChannelToNoComMode<a class="headerlink" href="#rte-call-comm-comm-channellimitation-limitchanneltonocommode" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_ChannelLimitation_LimitChannelToNoComMode<a class="headerlink" href="#rte-call-comm-comm-channellimitation-limitchanneltonocommode" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3165,7 +3164,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-channelwakeup-preventwakeup">
-<h3>Rte_Call_ComM_ComM_ChannelWakeup_PreventWakeUp<a class="headerlink" href="#rte-call-comm-comm-channelwakeup-preventwakeup" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_ChannelWakeup_PreventWakeUp<a class="headerlink" href="#rte-call-comm-comm-channelwakeup-preventwakeup" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3196,7 +3195,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-ecumodelimitation-limitecutonocommode">
-<h3>Rte_Call_ComM_ComM_ECUModeLimitation_LimitECUToNoComMode<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-limitecutonocommode" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_ECUModeLimitation_LimitECUToNoComMode<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-limitecutonocommode" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3227,7 +3226,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-ecumodelimitation-readinhibitcounter">
-<h3>Rte_Call_ComM_ComM_ECUModeLimitation_ReadInhibitCounter<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-readinhibitcounter" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_ECUModeLimitation_ReadInhibitCounter<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-readinhibitcounter" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3258,7 +3257,7 @@
 </table>
 </section>
 <section id="rte-call-comm-comm-ecumodelimitation-resetinhibitcounter">
-<h3>Rte_Call_ComM_ComM_ECUModeLimitation_ResetInhibitCounter<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-resetinhibitcounter" title="链接到此标题。">¶</a></h3>
+<h3>Rte_Call_ComM_ComM_ECUModeLimitation_ResetInhibitCounter<a class="headerlink" href="#rte-call-comm-comm-ecumodelimitation-resetinhibitcounter" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3290,9 +3289,9 @@
 </section>
 </section>
 <section id="interface-encapsulation-for-mode-conversion">
-<h2>模式转换接口封装 (Interface Encapsulation for Mode Conversion)<a class="headerlink" href="#interface-encapsulation-for-mode-conversion" title="链接到此标题。">¶</a></h2>
+<h2>模式转换接口封装 (Interface Encapsulation for Mode Conversion)<a class="headerlink" href="#interface-encapsulation-for-mode-conversion" title="Link to this heading">¶</a></h2>
 <section id="comm-currentmode">
-<h3>ComM_CurrentMode<a class="headerlink" href="#comm-currentmode" title="链接到此标题。">¶</a></h3>
+<h3>ComM_CurrentMode<a class="headerlink" href="#comm-currentmode" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -3324,9 +3323,9 @@
 </section>
 </section>
 <section id="configure">
-<h2>配置 (Configure)<a class="headerlink" href="#configure" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configure)<a class="headerlink" href="#configure" title="Link to this heading">¶</a></h2>
 <section id="commgeneral">
-<h3>ComMGeneral<a class="headerlink" href="#commgeneral" title="链接到此标题。">¶</a></h3>
+<h3>ComMGeneral<a class="headerlink" href="#commgeneral" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表  ComMGeneral属性描述 (Table  ComMGeneral Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -3619,7 +3618,7 @@
 </table>
 </section>
 <section id="commconfigset">
-<h3>ComMConfigSet<a class="headerlink" href="#commconfigset" title="链接到此标题。">¶</a></h3>
+<h3>ComMConfigSet<a class="headerlink" href="#commconfigset" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表 ComMConfigSet属性描述 (Table ComMConfigSet Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -3661,7 +3660,7 @@
 </section>
 </section>
 <section id="commchannel">
-<h2>ComMChannel<a class="headerlink" href="#commchannel" title="链接到此标题。">¶</a></h2>
+<h2>ComMChannel<a class="headerlink" href="#commchannel" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 ComMChannel属性描述 (Table ComMChannel Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -3881,7 +3880,7 @@
 </tbody>
 </table>
 <section id="commnetworkmanagement">
-<h3>ComMNetworkManagement<a class="headerlink" href="#commnetworkmanagement" title="链接到此标题。">¶</a></h3>
+<h3>ComMNetworkManagement<a class="headerlink" href="#commnetworkmanagement" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表  ComMNetworkManagement属性描述 (Table  ComMNetworkManagement Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -3970,7 +3969,7 @@
 </table>
 </section>
 <section id="commuserperchannel">
-<h3>ComMUserPerChannel<a class="headerlink" href="#commuserperchannel" title="链接到此标题。">¶</a></h3>
+<h3>ComMUserPerChannel<a class="headerlink" href="#commuserperchannel" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表  ComMUserPerChannel属性描述 (Table  ComMUserPerChannel Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -4012,7 +4011,7 @@
 </section>
 </section>
 <section id="commpnc">
-<h2>ComMPNC<a class="headerlink" href="#commpnc" title="链接到此标题。">¶</a></h2>
+<h2>ComMPNC<a class="headerlink" href="#commpnc" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 ComMPnc属性描述 (Table ComMPnc Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -4106,7 +4105,7 @@
 </tbody>
 </table>
 <section id="commpnccomsignal">
-<h3>ComMPNCComSignal<a class="headerlink" href="#commpnccomsignal" title="链接到此标题。">¶</a></h3>
+<h3>ComMPNCComSignal<a class="headerlink" href="#commpnccomsignal" title="Link to this heading">¶</a></h3>
 <p class="centered">
 <strong><strong>表 ComMPNCComSignal属性描述 (Table ComMPNCComSignal Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -4184,7 +4183,7 @@
 </section>
 </section>
 <section id="commuser">
-<h2>ComMUser<a class="headerlink" href="#commuser" title="链接到此标题。">¶</a></h2>
+<h2>ComMUser<a class="headerlink" href="#commuser" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 ComMUser属性描述 (Table ComMUser Property Description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -4403,7 +4402,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -4412,11 +4411,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>

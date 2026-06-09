@@ -9,7 +9,6 @@
         <title>BswM &mdash; user_manual 0.0.1 文档</title>
     
     <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
@@ -60,7 +59,7 @@
     </form>
 </div><div class="site-toc">
     <nav class="toc mt-3" aria-label="Main menu">
-        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick_Start_Guide):</span></p>
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/S32K148/S32K148.html">S32K148</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%28Quick_Start_Guide%29/TC397/TC397.html">TC397</a></li>
@@ -178,9 +177,9 @@
                     <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
                         <main role="main" id="main">
     <section id="bswm">
-<h1>BswM<a class="headerlink" href="#bswm" title="链接到此标题。">¶</a></h1>
+<h1>BswM<a class="headerlink" href="#bswm" title="Link to this heading">¶</a></h1>
 <section id="introduction">
-<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="链接到此标题。">¶</a></h2>
+<h2>简介 (Introduction)<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>模式管理属于系统服务栈，在AutoSar R19-11软件层级架构如下图：</p>
 <p>Mode management belongs to the system service stack. The software level architecture of AutoSar R19-11 is as follows:</p>
 <figure class="align-center" id="introduction-to-mode-management-protocol-stack">
@@ -189,7 +188,7 @@
 <p>模式管理由BswM与EcuM组成，这两个模块对于Bsw中不同协议栈的串联与Ecu的整体把控紧密相关，其中BswM可以通过配置高度自由实现Bsw中模块的串联工作，EcuM则对Mcu的睡眠唤醒提供支持。</p>
 <p>Mode management consists of BswM and EcuM. These two modules are closely related to the serial connection of different protocol stacks in Bsw and the overall control of Ecu. BswM can realize the serial connection of modules in Bsw with a high degree of freedom through configuration, and EcuM provides support for the sleep and wake-up of Mcu.</p>
 <section id="references">
-<h3>参考资料 (References)<a class="headerlink" href="#references" title="链接到此标题。">¶</a></h3>
+<h3>参考资料 (References)<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <p>[1] AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf，R19-11</p>
 <p>[2] AUTOSAR_SWS_ECUStateManager.pdf，R19-11</p>
 <p>[3] AUTOSAR_SWS_BSWModeManager.pdf，R19-11</p>
@@ -229,7 +228,7 @@
 </section>
 </section>
 <section id="function-description">
-<h2>功能描述 (Function description)<a class="headerlink" href="#function-description" title="链接到此标题。">¶</a></h2>
+<h2>功能描述 (Function description)<a class="headerlink" href="#function-description" title="Link to this heading">¶</a></h2>
 <p>BSWM模块主要有如下两个功能：</p>
 <p>The BSWM module mainly has the following two functions:</p>
 <p>1.模式仲裁。</p>
@@ -237,16 +236,16 @@
 <p>2.模式控制。</p>
 <p>Mode control.</p>
 <section id="mode-arbitration">
-<h3>模式仲裁 (mode arbitration)<a class="headerlink" href="#mode-arbitration" title="链接到此标题。">¶</a></h3>
+<h3>模式仲裁 (mode arbitration)<a class="headerlink" href="#mode-arbitration" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-arbitration-function">
-<h4>仲裁功能介绍 (Introduction to arbitration function)<a class="headerlink" href="#introduction-to-arbitration-function" title="链接到此标题。">¶</a></h4>
+<h4>仲裁功能介绍 (Introduction to arbitration function)<a class="headerlink" href="#introduction-to-arbitration-function" title="Link to this heading">¶</a></h4>
 <p>模式仲裁是接收来自SWC或其他BSW模块的模式请求和通知，根据简单的规则作出模式切换。</p>
 <p>Mode arbitration is to receive mode requests and notifications from SWC or other BSW modules and make mode switching based on simple rules.</p>
 <p>Bsw或SW-C通知BswM进入模式仲裁，可以配置不同的Bsw模块给BswM的通知端口匹配的输入值；这些输入值可以根据具体需求组合成逻辑表达式；逻辑表达式决定了BswM执行的动作列表，动作列表是一系列Bsw或RTE模块操作接口。</p>
 <p>Bsw or SW-C notifies BswM to enter mode arbitration. Different Bsw modules can be configured to match input values ​​for BswM's notification port; these input values ​​can be combined into logical expressions according to specific requirements; the logical expression determines the action list executed by BswM, and the action list is a series of Bsw or RTE module operation interfaces.</p>
 </section>
 <section id="arbitration-function-implementation">
-<h4>仲裁功能实现 (Arbitration function implementation)<a class="headerlink" href="#arbitration-function-implementation" title="链接到此标题。">¶</a></h4>
+<h4>仲裁功能实现 (Arbitration function implementation)<a class="headerlink" href="#arbitration-function-implementation" title="Link to this heading">¶</a></h4>
 <p><strong>模式仲裁</strong>：每个模式仲裁的规则都有一个逻辑表达式，逻辑表达式的条件来源与Bsw模块的请求或Swc的请求，而逻辑表达式可以对多个请求的输入源使用逻辑运算符（与，或，异或，与非）进行连接。</p>
 <p><strong>Mode arbitration</strong>: Each mode arbitration rule has a logical expression. The condition source of the logical expression is the request of the Bsw module or the request of the Swc, and the logical expression can use logical operators (AND, OR, XOR, NAND) to connect the input sources of multiple requests.</p>
 <figure class="align-center" id="schematic-diagram-of-mode-arbitration">
@@ -260,9 +259,9 @@
 </section>
 </section>
 <section id="mode-control">
-<h3>模式控制 (Mode control)<a class="headerlink" href="#mode-control" title="链接到此标题。">¶</a></h3>
+<h3>模式控制 (Mode control)<a class="headerlink" href="#mode-control" title="Link to this heading">¶</a></h3>
 <section id="introduction-to-mode-control">
-<h4>模式控制介绍 (Introduction to mode control)<a class="headerlink" href="#introduction-to-mode-control" title="链接到此标题。">¶</a></h4>
+<h4>模式控制介绍 (Introduction to mode control)<a class="headerlink" href="#introduction-to-mode-control" title="Link to this heading">¶</a></h4>
 <p>模式控制是以模式仲裁得到的结果，执行相应的动作。BswM执行流程如下：</p>
 <p>Mode control is to perform corresponding actions based on the results obtained from mode arbitration.The BswM execution process is as follows:</p>
 <figure class="align-center" id="mode-controls-execution-flow">
@@ -270,7 +269,7 @@
 </figure>
 </section>
 <section id="mode-control-implementation">
-<h4>模式控制实现 (Mode control implementation)<a class="headerlink" href="#mode-control-implementation" title="链接到此标题。">¶</a></h4>
+<h4>模式控制实现 (Mode control implementation)<a class="headerlink" href="#mode-control-implementation" title="Link to this heading">¶</a></h4>
 <p>BswM可以配置一系列行为作为仲裁结果需要执行的动作，这些行为可以是操作Bsw模块或Rte，或另外的一个仲裁规则，典型示例如下：</p>
 <p>BswM can configure a series of actions that need to be performed as a result of arbitration. These actions can be operations on the Bsw module or Rte, or another arbitration rule. Typical examples are as follows:</p>
 <figure class="align-center" id="actionlist-actionlist-reference-diagram">
@@ -297,7 +296,7 @@
 </section>
 </section>
 <section id="source-file-description">
-<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="链接到此标题。">¶</a></h2>
+<h2>源文件描述 (Source file description)<a class="headerlink" href="#source-file-description" title="Link to this heading">¶</a></h2>
 <p class="centered">
 <strong><strong>表 BswM文件描述 (Table BswM file description)</strong></strong></p><table class="docutils align-default">
 <colgroup>
@@ -452,11 +451,11 @@
 </figure>
 </section>
 <section id="api-api-interface">
-<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="链接到此标题。">¶</a></h2>
+<h2>API接口 (API interface)<a class="headerlink" href="#api-api-interface" title="Link to this heading">¶</a></h2>
 <section id="type-definition">
-<h3>类型定义 (type definition)<a class="headerlink" href="#type-definition" title="链接到此标题。">¶</a></h3>
+<h3>类型定义 (type definition)<a class="headerlink" href="#type-definition" title="Link to this heading">¶</a></h3>
 <section id="bswm-configtype-bswm-configtype-type-definition">
-<h4>BswM_ConfigType类型定义 (BswM_ConfigType type definition)<a class="headerlink" href="#bswm-configtype-bswm-configtype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_ConfigType类型定义 (BswM_ConfigType type definition)<a class="headerlink" href="#bswm-configtype-bswm-configtype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -481,7 +480,7 @@
 </table>
 </section>
 <section id="bswm-modetype-bswm-modetype-type-definition">
-<h4>BswM_ModeType类型定义 (BswM_ModeType type definition)<a class="headerlink" href="#bswm-modetype-bswm-modetype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_ModeType类型定义 (BswM_ModeType type definition)<a class="headerlink" href="#bswm-modetype-bswm-modetype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -506,7 +505,7 @@
 </table>
 </section>
 <section id="bswm-usertype-bswm-usertype-type-definition">
-<h4>BswM_UserType类型定义 (BswM_UserType type definition)<a class="headerlink" href="#bswm-usertype-bswm-usertype-type-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_UserType类型定义 (BswM_UserType type definition)<a class="headerlink" href="#bswm-usertype-bswm-usertype-type-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -532,7 +531,7 @@
 </section>
 </section>
 <section id="enter-function-description">
-<h3>输入函数描述 (Enter function description)<a class="headerlink" href="#enter-function-description" title="链接到此标题。">¶</a></h3>
+<h3>输入函数描述 (Enter function description)<a class="headerlink" href="#enter-function-description" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50.0%" />
@@ -608,9 +607,9 @@
 </table>
 </section>
 <section id="static-interface-function-definition">
-<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>静态接口函数定义 (Static interface function definition)<a class="headerlink" href="#static-interface-function-definition" title="Link to this heading">¶</a></h3>
 <section id="bswm-bswmpartitionrestarted-bswm-bswmpartitionrestarted-function-definition">
-<h4>BswM_BswMPartitionRestarted函数定义 (BswM_BswMPartitionRestarted function definition)<a class="headerlink" href="#bswm-bswmpartitionrestarted-bswm-bswmpartitionrestarted-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_BswMPartitionRestarted函数定义 (BswM_BswMPartitionRestarted function definition)<a class="headerlink" href="#bswm-bswmpartitionrestarted-bswm-bswmpartitionrestarted-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -685,7 +684,7 @@
 </table>
 </section>
 <section id="bswm-cansm-currenticomconfiguration-bswm-cansm-currenticomconfiguration-function-definition">
-<h4>BswM_CanSM_CurrentIcomConfiguration函数定义 (BswM_CanSM_CurrentIcomConfiguration function definition)<a class="headerlink" href="#bswm-cansm-currenticomconfiguration-bswm-cansm-currenticomconfiguration-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_CanSM_CurrentIcomConfiguration函数定义 (BswM_CanSM_CurrentIcomConfiguration function definition)<a class="headerlink" href="#bswm-cansm-currenticomconfiguration-bswm-cansm-currenticomconfiguration-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -785,7 +784,7 @@
 </table>
 </section>
 <section id="bswm-cansm-currentstate-bswm-cansm-currentstate-function-definition">
-<h4>BswM_CanSM_CurrentState函数定义 (BswM_CanSM_CurrentState function definition)<a class="headerlink" href="#bswm-cansm-currentstate-bswm-cansm-currentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_CanSM_CurrentState函数定义 (BswM_CanSM_CurrentState function definition)<a class="headerlink" href="#bswm-cansm-currentstate-bswm-cansm-currentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -885,7 +884,7 @@
 </table>
 </section>
 <section id="bswm-comm-currentmode-bswm-comm-currentmode-function-definition">
-<h4>BswM_ComM_CurrentMode函数定义 (BswM_ComM_CurrentMode function definition)<a class="headerlink" href="#bswm-comm-currentmode-bswm-comm-currentmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_ComM_CurrentMode函数定义 (BswM_ComM_CurrentMode function definition)<a class="headerlink" href="#bswm-comm-currentmode-bswm-comm-currentmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -980,7 +979,7 @@
 </table>
 </section>
 <section id="bswm-comm-currentpncmode-bswm-comm-currentpncmode-function-definition">
-<h4>BswM_ComM_CurrentPNCMode函数定义 (BswM_ComM_CurrentPNCMode function definition)<a class="headerlink" href="#bswm-comm-currentpncmode-bswm-comm-currentpncmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_ComM_CurrentPNCMode函数定义 (BswM_ComM_CurrentPNCMode function definition)<a class="headerlink" href="#bswm-comm-currentpncmode-bswm-comm-currentpncmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1075,7 +1074,7 @@
 </table>
 </section>
 <section id="bswm-comm-initiatereset-bswm-comm-initiatereset-function-definition">
-<h4>BswM_ComM_InitiateReset函数定义 (BswM_ComM_InitiateReset function definition)<a class="headerlink" href="#bswm-comm-initiatereset-bswm-comm-initiatereset-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_ComM_InitiateReset函数定义 (BswM_ComM_InitiateReset function definition)<a class="headerlink" href="#bswm-comm-initiatereset-bswm-comm-initiatereset-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1150,7 +1149,7 @@
 </table>
 </section>
 <section id="bswm-dcm-applicationupdated-bswm-dcm-applicationupdated-function-definition">
-<h4>BswM_Dcm_ApplicationUpdated函数定义 (BswM_Dcm_ApplicationUpdated function definition)<a class="headerlink" href="#bswm-dcm-applicationupdated-bswm-dcm-applicationupdated-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Dcm_ApplicationUpdated函数定义 (BswM_Dcm_ApplicationUpdated function definition)<a class="headerlink" href="#bswm-dcm-applicationupdated-bswm-dcm-applicationupdated-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1225,7 +1224,7 @@
 </table>
 </section>
 <section id="bswm-dcm-communicationmode-currentstate-bswm-dcm-communicationmode-currentstate-function-definition">
-<h4>BswM_Dcm_CommunicationMode_CurrentState函数定义 (BswM_Dcm_CommunicationMode_CurrentState function definition)<a class="headerlink" href="#bswm-dcm-communicationmode-currentstate-bswm-dcm-communicationmode-currentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Dcm_CommunicationMode_CurrentState函数定义 (BswM_Dcm_CommunicationMode_CurrentState function definition)<a class="headerlink" href="#bswm-dcm-communicationmode-currentstate-bswm-dcm-communicationmode-currentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1310,7 +1309,7 @@
 </table>
 </section>
 <section id="bswm-deinit-bswm-deinit-function-definition">
-<h4>BswM_Deinit函数定义 (BswM_Deinit function definition)<a class="headerlink" href="#bswm-deinit-bswm-deinit-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Deinit函数定义 (BswM_Deinit function definition)<a class="headerlink" href="#bswm-deinit-bswm-deinit-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1385,7 +1384,7 @@
 </table>
 </section>
 <section id="bswm-ecum-currentstate-bswm-ecum-currentstate-function-definition">
-<h4>BswM_EcuM_CurrentState函数定义 (BswM_EcuM_CurrentState function definition)<a class="headerlink" href="#bswm-ecum-currentstate-bswm-ecum-currentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_EcuM_CurrentState函数定义 (BswM_EcuM_CurrentState function definition)<a class="headerlink" href="#bswm-ecum-currentstate-bswm-ecum-currentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1455,7 +1454,7 @@
 </table>
 </section>
 <section id="bswm-ecum-currentwakeup-bswm-ecum-currentwakeup-function-definition">
-<h4>BswM_EcuM_CurrentWakeup函数定义 (BswM_EcuM_CurrentWakeup function definition)<a class="headerlink" href="#bswm-ecum-currentwakeup-bswm-ecum-currentwakeup-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_EcuM_CurrentWakeup函数定义 (BswM_EcuM_CurrentWakeup function definition)<a class="headerlink" href="#bswm-ecum-currentwakeup-bswm-ecum-currentwakeup-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1560,7 +1559,7 @@
 </table>
 </section>
 <section id="bswm-ecum-requestedstate-bswm-ecum-requestedstate-function-definition">
-<h4>BswM_EcuM_RequestedState函数定义 (BswM_EcuM_RequestedState function definition)<a class="headerlink" href="#bswm-ecum-requestedstate-bswm-ecum-requestedstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_EcuM_RequestedState函数定义 (BswM_EcuM_RequestedState function definition)<a class="headerlink" href="#bswm-ecum-requestedstate-bswm-ecum-requestedstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1645,7 +1644,7 @@
 </table>
 </section>
 <section id="bswm-ethif-portgrouplinkstatechg-bswm-ethif-portgrouplinkstatechg-function-definition">
-<h4>BswM_EthIf_PortGroupLinkStateChg函数定义 (BswM_EthIf_PortGroupLinkStateChg function definition)<a class="headerlink" href="#bswm-ethif-portgrouplinkstatechg-bswm-ethif-portgrouplinkstatechg-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_EthIf_PortGroupLinkStateChg函数定义 (BswM_EthIf_PortGroupLinkStateChg function definition)<a class="headerlink" href="#bswm-ethif-portgrouplinkstatechg-bswm-ethif-portgrouplinkstatechg-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1735,7 +1734,7 @@
 </table>
 </section>
 <section id="bswm-ethsm-currentstate-bswm-ethsm-currentstate-function-definition">
-<h4>BswM_EthSM_CurrentState函数定义 (BswM_EthSM_CurrentState function definition)<a class="headerlink" href="#bswm-ethsm-currentstate-bswm-ethsm-currentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_EthSM_CurrentState函数定义 (BswM_EthSM_CurrentState function definition)<a class="headerlink" href="#bswm-ethsm-currentstate-bswm-ethsm-currentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1845,7 +1844,7 @@
 </table>
 </section>
 <section id="bswm-frsm-currentstate-bswm-frsm-currentstate-function-definition">
-<h4>BswM_FrSM_CurrentState函数定义 (BswM_FrSM_CurrentState function definition)<a class="headerlink" href="#bswm-frsm-currentstate-bswm-frsm-currentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_FrSM_CurrentState函数定义 (BswM_FrSM_CurrentState function definition)<a class="headerlink" href="#bswm-frsm-currentstate-bswm-frsm-currentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -1935,7 +1934,7 @@
 </table>
 </section>
 <section id="bswm-getversioninfo-bswm-getversioninfo-function-definition">
-<h4>BswM_GetVersionInfo函数定义 (BswM_GetVersionInfo function definition)<a class="headerlink" href="#bswm-getversioninfo-bswm-getversioninfo-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_GetVersionInfo函数定义 (BswM_GetVersionInfo function definition)<a class="headerlink" href="#bswm-getversioninfo-bswm-getversioninfo-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2010,7 +2009,7 @@
 </table>
 </section>
 <section id="bswm-init-bswm-init-function-definition">
-<h4>BswM_Init函数定义 (BswM_Init function definition)<a class="headerlink" href="#bswm-init-bswm-init-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Init函数定义 (BswM_Init function definition)<a class="headerlink" href="#bswm-init-bswm-init-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2085,7 +2084,7 @@
 </table>
 </section>
 <section id="bswm-j1939dcmbroadcaststatus-bswm-j1939dcmbroadcaststatus-function-definition">
-<h4>BswM_J1939DcmBroadcastStatus函数定义 (BswM_J1939DcmBroadcastStatus function definition)<a class="headerlink" href="#bswm-j1939dcmbroadcaststatus-bswm-j1939dcmbroadcaststatus-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_J1939DcmBroadcastStatus函数定义 (BswM_J1939DcmBroadcastStatus function definition)<a class="headerlink" href="#bswm-j1939dcmbroadcaststatus-bswm-j1939dcmbroadcaststatus-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2160,7 +2159,7 @@
 </table>
 </section>
 <section id="bswm-j1939nm-statechangenotification-bswm-j1939nm-statechangenotification-function-definition">
-<h4>BswM_J1939Nm_StateChangeNotification函数定义 (BswM_J1939Nm_StateChangeNotification function definition)<a class="headerlink" href="#bswm-j1939nm-statechangenotification-bswm-j1939nm-statechangenotification-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_J1939Nm_StateChangeNotification函数定义 (BswM_J1939Nm_StateChangeNotification function definition)<a class="headerlink" href="#bswm-j1939nm-statechangenotification-bswm-j1939nm-statechangenotification-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2290,7 +2289,7 @@
 </table>
 </section>
 <section id="bswm-linsm-currentschedule-bswm-linsm-currentschedule-function-definition">
-<h4>BswM_LinSM_CurrentSchedule函数定义 (BswM_LinSM_CurrentSchedule function definition)<a class="headerlink" href="#bswm-linsm-currentschedule-bswm-linsm-currentschedule-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_LinSM_CurrentSchedule函数定义 (BswM_LinSM_CurrentSchedule function definition)<a class="headerlink" href="#bswm-linsm-currentschedule-bswm-linsm-currentschedule-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2375,7 +2374,7 @@
 </table>
 </section>
 <section id="bswm-linsm-currentstate-bswm-linsm-currentstate-function-definition">
-<h4>BswM_LinSM_CurrentState函数定义 (BswM_LinSM_CurrentState function definition)<a class="headerlink" href="#bswm-linsm-currentstate-bswm-linsm-currentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_LinSM_CurrentState函数定义 (BswM_LinSM_CurrentState function definition)<a class="headerlink" href="#bswm-linsm-currentstate-bswm-linsm-currentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2465,7 +2464,7 @@
 </table>
 </section>
 <section id="bswm-lintp-requestmode-bswm-lintp-requestmode-function-definition">
-<h4>BswM_LinTp_RequestMode函数定义 (BswM_LinTp_RequestMode function definition)<a class="headerlink" href="#bswm-lintp-requestmode-bswm-lintp-requestmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_LinTp_RequestMode函数定义 (BswM_LinTp_RequestMode function definition)<a class="headerlink" href="#bswm-lintp-requestmode-bswm-lintp-requestmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2555,7 +2554,7 @@
 </table>
 </section>
 <section id="bswm-nm-carwakeupindication-bswm-nm-carwakeupindication-function-definition">
-<h4>BswM_Nm_CarWakeUpIndication函数定义 (BswM_Nm_CarWakeUpIndication function definition)<a class="headerlink" href="#bswm-nm-carwakeupindication-bswm-nm-carwakeupindication-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Nm_CarWakeUpIndication函数定义 (BswM_Nm_CarWakeUpIndication function definition)<a class="headerlink" href="#bswm-nm-carwakeupindication-bswm-nm-carwakeupindication-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2630,7 +2629,7 @@
 </table>
 </section>
 <section id="bswm-nvm-currentblockmode-bswm-nvm-currentblockmode-function-definition">
-<h4>BswM_NvM_CurrentBlockMode函数定义 (BswM_NvM_CurrentBlockMode function definition)<a class="headerlink" href="#bswm-nvm-currentblockmode-bswm-nvm-currentblockmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_NvM_CurrentBlockMode函数定义 (BswM_NvM_CurrentBlockMode function definition)<a class="headerlink" href="#bswm-nvm-currentblockmode-bswm-nvm-currentblockmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2750,7 +2749,7 @@
 </table>
 </section>
 <section id="bswm-nvm-currentjobmode-bswm-nvm-currentjobmode-function-definition">
-<h4>BswM_NvM_CurrentJobMode函数定义 (BswM_NvM_CurrentJobMode function definition)<a class="headerlink" href="#bswm-nvm-currentjobmode-bswm-nvm-currentjobmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_NvM_CurrentJobMode函数定义 (BswM_NvM_CurrentJobMode function definition)<a class="headerlink" href="#bswm-nvm-currentjobmode-bswm-nvm-currentjobmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2890,7 +2889,7 @@
 </table>
 </section>
 <section id="bswm-requestmode-bswm-requestmode-function-definition">
-<h4>BswM_RequestMode函数定义 (BswM_RequestMode function definition)<a class="headerlink" href="#bswm-requestmode-bswm-requestmode-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_RequestMode函数定义 (BswM_RequestMode function definition)<a class="headerlink" href="#bswm-requestmode-bswm-requestmode-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -2990,7 +2989,7 @@
 </table>
 </section>
 <section id="bswm-sd-clientservicecurrentstate-bswm-sd-clientservicecurrentstate-function-definition">
-<h4>BswM_Sd_ClientServiceCurrentState函数定义 (BswM_Sd_ClientServiceCurrentState function definition)<a class="headerlink" href="#bswm-sd-clientservicecurrentstate-bswm-sd-clientservicecurrentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Sd_ClientServiceCurrentState函数定义 (BswM_Sd_ClientServiceCurrentState function definition)<a class="headerlink" href="#bswm-sd-clientservicecurrentstate-bswm-sd-clientservicecurrentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3075,7 +3074,7 @@
 </table>
 </section>
 <section id="bswm-sd-consumedeventgroupcurrentstate-bswm-sd-consumedeventgroupcurrentstate-function-definition">
-<h4>BswM_Sd_ConsumedEventGroupCurrentState函数定义 (BswM_Sd_ConsumedEventGroupCurrentState function definition)<a class="headerlink" href="#bswm-sd-consumedeventgroupcurrentstate-bswm-sd-consumedeventgroupcurrentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Sd_ConsumedEventGroupCurrentState函数定义 (BswM_Sd_ConsumedEventGroupCurrentState function definition)<a class="headerlink" href="#bswm-sd-consumedeventgroupcurrentstate-bswm-sd-consumedeventgroupcurrentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3165,7 +3164,7 @@
 </table>
 </section>
 <section id="bswm-sd-eventhandlercurrentstate-bswm-sd-eventhandlercurrentstate-function-definition">
-<h4>BswM_Sd_EventHandlerCurrentState函数定义 (BswM_Sd_EventHandlerCurrentState function definition)<a class="headerlink" href="#bswm-sd-eventhandlercurrentstate-bswm-sd-eventhandlercurrentstate-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_Sd_EventHandlerCurrentState函数定义 (BswM_Sd_EventHandlerCurrentState function definition)<a class="headerlink" href="#bswm-sd-eventhandlercurrentstate-bswm-sd-eventhandlercurrentstate-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3255,7 +3254,7 @@
 </table>
 </section>
 <section id="bswm-wdgm-requestpartitionreset-bswm-wdgm-requestpartitionreset-function-definition">
-<h4>BswM_WdgM_RequestPartitionReset函数定义 (BswM_WdgM_RequestPartitionReset function definition)<a class="headerlink" href="#bswm-wdgm-requestpartitionreset-bswm-wdgm-requestpartitionreset-function-definition" title="链接到此标题。">¶</a></h4>
+<h4>BswM_WdgM_RequestPartitionReset函数定义 (BswM_WdgM_RequestPartitionReset function definition)<a class="headerlink" href="#bswm-wdgm-requestpartitionreset-bswm-wdgm-requestpartitionreset-function-definition" title="Link to this heading">¶</a></h4>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 25.0%" />
@@ -3331,15 +3330,15 @@
 </section>
 </section>
 <section id="configurable-function-definition">
-<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="链接到此标题。">¶</a></h3>
+<h3>可配置函数定义 (Configurable function definition)<a class="headerlink" href="#configurable-function-definition" title="Link to this heading">¶</a></h3>
 <p>无。</p>
 <p>none.</p>
 </section>
 </section>
 <section id="configuration">
-<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="链接到此标题。">¶</a></h2>
+<h2>配置 (Configuration)<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="bswmgeneral">
-<h3>BswMGeneral<a class="headerlink" href="#bswmgeneral" title="链接到此标题。">¶</a></h3>
+<h3>BswMGeneral<a class="headerlink" href="#bswmgeneral" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmgeneral-bswmgeneral-container-configuration-diagram">
 <img alt="BswMGeneral容器配置图(BswMGeneral container configuration diagram)" src="../../_images/image10.png" />
 </figure>
@@ -3825,7 +3824,7 @@
 </table>
 </section>
 <section id="bswmuserincludefiles">
-<h3>BswMUserIncludeFiles<a class="headerlink" href="#bswmuserincludefiles" title="链接到此标题。">¶</a></h3>
+<h3>BswMUserIncludeFiles<a class="headerlink" href="#bswmuserincludefiles" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmuserincludefiles-bswmuserincludefiles-container-configuration-diagram">
 <img alt="BswMUserIncludeFiles容器配置图(BswMUserIncludeFiles container configuration diagram)" src="../../_images/image11.png" />
 </figure>
@@ -3869,7 +3868,7 @@
 </table>
 </section>
 <section id="bswmconfigs">
-<h3>BswMConfigs<a class="headerlink" href="#bswmconfigs" title="链接到此标题。">¶</a></h3>
+<h3>BswMConfigs<a class="headerlink" href="#bswmconfigs" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmconfigs-bswmconfigs-container-configuration-diagram">
 <img alt="BswMConfigs容器配置图(BswMConfigs container configuration diagram)" src="../../_images/image12.png" />
 </figure>
@@ -3913,7 +3912,7 @@
 </table>
 </section>
 <section id="bswmlogicalexpression">
-<h3>BswMLogicalExpression<a class="headerlink" href="#bswmlogicalexpression" title="链接到此标题。">¶</a></h3>
+<h3>BswMLogicalExpression<a class="headerlink" href="#bswmlogicalexpression" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmlogicalexpression-bswmlogicalexpression-container-configuration-diagram">
 <img alt="BswMLogicalExpression容器配置图(BswMLogicalExpression container configuration diagram)" src="../../_images/image13.png" />
 </figure>
@@ -4025,7 +4024,7 @@
 </table>
 </section>
 <section id="bswmmodecondition">
-<h3>BswMModeCondition<a class="headerlink" href="#bswmmodecondition" title="链接到此标题。">¶</a></h3>
+<h3>BswMModeCondition<a class="headerlink" href="#bswmmodecondition" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmmodecondition-bswmmodecondition-container-configuration-diagram">
 <img alt="BswMModeCondition容器配置图(BswMModeCondition container configuration diagram)" src="../../_images/image15.png" />
 </figure>
@@ -4234,7 +4233,7 @@
 </table>
 </section>
 <section id="bswmmoderequestport">
-<h3>BswMModeRequestPort<a class="headerlink" href="#bswmmoderequestport" title="链接到此标题。">¶</a></h3>
+<h3>BswMModeRequestPort<a class="headerlink" href="#bswmmoderequestport" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmmoderequestport-bswmmoderequestport-container-configuration-diagram">
 <img alt="BswMModeRequestPort容器配置图(BswMModeRequestPort container configuration diagram)" src="../../_images/image22.png" />
 </figure>
@@ -4290,7 +4289,7 @@
 </table>
 </section>
 <section id="bswmmodeinitvalue">
-<h3>BswMModeInitValue<a class="headerlink" href="#bswmmodeinitvalue" title="链接到此标题。">¶</a></h3>
+<h3>BswMModeInitValue<a class="headerlink" href="#bswmmodeinitvalue" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmmodeinitvalue-bswmmodeinitvalue-container-configuration-diagram">
 <img alt="BswMModeInitValue容器配置图(BswMModeInitValue container configuration diagram)" src="../../_images/image23.png" />
 </figure>
@@ -4328,7 +4327,7 @@
 </table>
 </section>
 <section id="bswmmoderequestsource">
-<h3>BswMModeRequestSource<a class="headerlink" href="#bswmmoderequestsource" title="链接到此标题。">¶</a></h3>
+<h3>BswMModeRequestSource<a class="headerlink" href="#bswmmoderequestsource" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmmoderequestsource-bswmmoderequestsource-container-configuration-diagram">
 <img alt="BswMModeRequestSource容器配置图(BswMModeRequestSource container configuration diagram)" src="../../_images/image24.png" />
 </figure>
@@ -4846,7 +4845,7 @@
 </table>
 </section>
 <section id="bswmeventrequestsource">
-<h3>BswMEventRequestSource<a class="headerlink" href="#bswmeventrequestsource" title="链接到此标题。">¶</a></h3>
+<h3>BswMEventRequestSource<a class="headerlink" href="#bswmeventrequestsource" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmeventrequestsource-bswmeventrequestsource-container-configuration-diagram">
 <img alt="BswMEventRequestSource容器配置图(BswMEventRequestSource container configuration diagram)" src="../../_images/image25.png" />
 </figure>
@@ -4986,7 +4985,7 @@
 </table>
 </section>
 <section id="bswmrule">
-<h3>BswMRule<a class="headerlink" href="#bswmrule" title="链接到此标题。">¶</a></h3>
+<h3>BswMRule<a class="headerlink" href="#bswmrule" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmrule-bswmrule-container-configuration-diagram">
 <img alt="BswMRule容器配置图(BswMRule container configuration diagram)" src="../../_images/image26.png" />
 </figure>
@@ -5108,7 +5107,7 @@
 </table>
 </section>
 <section id="bswmdatatypemappingsets">
-<h3>BswMDataTypeMappingSets<a class="headerlink" href="#bswmdatatypemappingsets" title="链接到此标题。">¶</a></h3>
+<h3>BswMDataTypeMappingSets<a class="headerlink" href="#bswmdatatypemappingsets" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmdatatypemappingsets-bswmdatatypemappingsets-container-configuration-diagram">
 <img alt="BswMDataTypeMappingSets容器配置图(BswMDataTypeMappingSets container configuration diagram)" src="../../_images/image27.png" />
 </figure>
@@ -5152,7 +5151,7 @@
 </table>
 </section>
 <section id="bswmaction">
-<h3>BswMAction<a class="headerlink" href="#bswmaction" title="链接到此标题。">¶</a></h3>
+<h3>BswMAction<a class="headerlink" href="#bswmaction" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmaction-bswmaction-container-configuration-diagram">
 <img alt="BswMAction容器配置图(BswMAction container configuration diagram)" src="../../_images/image28.png" />
 </figure>
@@ -6120,7 +6119,7 @@
 </table>
 </section>
 <section id="bswmactionlist">
-<h3>BswMActionList<a class="headerlink" href="#bswmactionlist" title="链接到此标题。">¶</a></h3>
+<h3>BswMActionList<a class="headerlink" href="#bswmactionlist" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmactionlist-bswmactionlist-container-configuration-diagram">
 <img alt="BswMActionList容器配置图(BswMActionList container configuration diagram)" src="../../_images/image29.png" />
 </figure>
@@ -6226,7 +6225,7 @@
 </table>
 </section>
 <section id="bswmactionlistitem">
-<h3>BswMActionListItem<a class="headerlink" href="#bswmactionlistitem" title="链接到此标题。">¶</a></h3>
+<h3>BswMActionListItem<a class="headerlink" href="#bswmactionlistitem" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmactionlistitem-bswmactionlistitem-container-configuration-diagram">
 <img alt="BswMActionListItem容器配置图(BswMActionListItem container configuration diagram)" src="../../_images/image31.png" />
 </figure>
@@ -6324,7 +6323,7 @@
 </table>
 </section>
 <section id="bswmrtemoderequestport">
-<h3>BswMRteModeRequestPort<a class="headerlink" href="#bswmrtemoderequestport" title="链接到此标题。">¶</a></h3>
+<h3>BswMRteModeRequestPort<a class="headerlink" href="#bswmrtemoderequestport" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmrtemoderequestport-bswmrtemoderequestport-container-configuration-diagram">
 <img alt="BswMRteModeRequestPort容器配置图(BswMRteModeRequestPort container configuration diagram)" src="../../_images/image32.png" />
 </figure>
@@ -6386,7 +6385,7 @@
 </table>
 </section>
 <section id="bswmswitchport">
-<h3>BswMSwitchPort<a class="headerlink" href="#bswmswitchport" title="链接到此标题。">¶</a></h3>
+<h3>BswMSwitchPort<a class="headerlink" href="#bswmswitchport" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="bswmswitchport-bswmswitchport-container-configuration-diagram">
 <img alt="BswMSwitchPort容器配置图(BswMSwitchPort container configuration diagram)" src="../../_images/image33.png" />
 </figure>
@@ -6430,7 +6429,7 @@
 </table>
 </section>
 <section id="synchronize-module">
-<h3>Synchronize Module<a class="headerlink" href="#synchronize-module" title="链接到此标题。">¶</a></h3>
+<h3>Synchronize Module<a class="headerlink" href="#synchronize-module" title="Link to this heading">¶</a></h3>
 <figure class="align-center" id="synchronize-module-synchronize-module-container-configuration-diagram">
 <img alt="Synchronize Module配置图(Synchronize Module container configuration diagram)" src="../../_images/image34.png" />
 </figure>
@@ -6600,7 +6599,7 @@
                     </a>
                     and
                     <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
-                        Sphinx 9.0.4
+                        Sphinx 8.2.3
                     </a>
                 </small>
             </div>
@@ -6609,11 +6608,11 @@
         </div>
     </footer>
         <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
-        <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-        <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
-        <script src="../../_static/translations.js?v=540d3cec"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
         <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
         <script type="text/javascript" src="../../_static/dist/theme.js"></script>
         <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
