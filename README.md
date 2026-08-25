@@ -5,7 +5,7 @@ This repository contains the technical documentation for EasyXMen.
 
 ## 快捷入口 Quick Links
 
-- [版本发布说明（Version Release Notes）](./ReleaseNotes.txt)
+- [版本发布说明（Version Release Notes）](./ReleaseNotes)
 
 - [快速上手指南（Quick Start Guide）](https://easyxmen.atomgit.com/)
 
