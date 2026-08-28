@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'user_manual'
-copyright = '2024, i-soft'
-author = 'i-soft'
+copyright = '2024-2026, iSOFT'
+author = 'iSOFT'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
