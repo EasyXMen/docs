@@ -17,7 +17,7 @@ This page contains the Quick Start Guide, Module Reference Manual, Integration I
 
 Copyright (C) 2024-2026 iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled "GNU Free Documentation License".
 
-iSOFT
+版本控制(Version)
 ================================================================
 .. list-table::
    :widths: 10 60 20
@@ -38,14 +38,20 @@ iSOFT
    * - 2.0.0
      - 发布快速上手指南(Release Quick Start Guide)
      - 2026-06-01
+   * - 2.0.1
+     - 更新示例工程说明(Update Demo Project Discrption)
+     - 2026-08-28
+
+目录（Contents）
+================================================================
 
 .. toctree::
    :maxdepth: 1
    :caption: 快速上手指南(Quick Start Guide):
 
-   sub/快速上手指南(Quick_Start_Guide)/S32K148/S32K148.rst
-   sub/快速上手指南(Quick_Start_Guide)/TC397/TC397.rst
-   sub/快速上手指南(Quick_Start_Guide)/RH850U2A16/RH850U2A16.rst
+   sub/快速上手指南(Quick_Start_Guide)/S32K148.rst
+   sub/快速上手指南(Quick_Start_Guide)/TC397.rst
+   sub/快速上手指南(Quick_Start_Guide)/RH850U2A16.rst
 
 .. toctree::
    :maxdepth: 1
@@ -142,8 +148,6 @@ iSOFT
 
 .. toctree::
    :maxdepth: 1
-   :caption: 示例工程说明(Demo Project Description):
+   :caption: 示例工程说明(Demo Project Discrption):
 
-   sub/示例工程说明(Demo Project Description)/RH850U2A16_R7F702300BFABA_C_Demo.rst
-   sub/示例工程说明(Demo Project Description)/TC397_Demo.rst
-   sub/示例工程说明(Demo Project Description)/S32K148_Demo.rst
+   sub/示例工程说明(Demo_Project_Description)/示例工程说明(Demo_Project_Description).rst
