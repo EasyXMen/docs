@@ -38,14 +38,20 @@ iSOFT
    * - 2.0.0
      - 发布快速上手指南(Release Quick Start Guide)
      - 2026-06-01
+   * - 2.0.1
+     - 更新示例工程说明(Update Demo Project Discrption)
+     - 2026-08-28
+
+目录（Contents）
+================================================================
 
 .. toctree::
    :maxdepth: 1
    :caption: 快速上手指南(Quick Start Guide):
 
-   sub/快速上手指南(Quick_Start_Guide)/S32K148/S32K148.rst
-   sub/快速上手指南(Quick_Start_Guide)/TC397/TC397.rst
-   sub/快速上手指南(Quick_Start_Guide)/RH850U2A16/RH850U2A16.rst
+   sub/快速上手指南(Quick_Start_Guide)/S32K148.rst
+   sub/快速上手指南(Quick_Start_Guide)/TC397.rst
+   sub/快速上手指南(Quick_Start_Guide)/RH850U2A16.rst
 
 .. toctree::
    :maxdepth: 1
@@ -142,8 +148,6 @@ iSOFT
 
 .. toctree::
    :maxdepth: 1
-   :caption: 示例工程说明(Demo Project Description):
+   :caption: 示例工程说明(Demo Project Discrption):
 
-   sub/示例工程说明(Demo Project Description)/RH850U2A16_R7F702300BFABA_C_Demo.rst
-   sub/示例工程说明(Demo Project Description)/TC397_Demo.rst
-   sub/示例工程说明(Demo Project Description)/S32K148_Demo.rst
+   sub/示例工程说明(Demo_Project_Description)/示例工程说明(Demo_Project_Description).rst
