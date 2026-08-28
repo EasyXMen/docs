@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>TC397 &mdash; user_manual 0.0.1 文档</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/version-switcher.css?v=5a6714a8" />
+            <link rel="index" title="索引" href="../../genindex.html" />
+            <link rel="search" title="搜索" href="../../search.html" />
+            <link rel="top" title="user_manual 0.0.1 文档" href="#" />
+            <link rel="next" title="RH850U2A16" href="RH850U2A16.html" />
+            <link rel="prev" title="S32K148" href="S32K148.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="../../index.html"
+                        title="EasyXMen"
+                        class="logo navbar-brand"
+                    >
+                        <img src="../../_static/img/xmen_logo.png" width="45" height="59" alt="EasyXMen"
+                            class="logo-img"
+                        />
+                        开源小满EasyXMen
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">快速上手指南(Quick Start Guide):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="S32K148.html">S32K148</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TC397</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RH850U2A16.html">RH850U2A16</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参考手册(Reference Manual):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/BswM.html">BswM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CanIf.html">CanIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CanNm.html">CanNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CanSM.html">CanSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CanTp.html">CanTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CanTrcv.html">CanTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CanTSyn.html">CanTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Com.html">Com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/ComM.html">ComM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/ComXf.html">ComXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CRC.html">CRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CryIf.html">CryIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Crypto.html">Crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/CSM.html">CSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/DCM.html">Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Dem.html">Dem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Det.html">DET</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Dlt.html">DLT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/DoIP.html">DoIP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/E2EL.html">E2EL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/E2EXf.html">E2EXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Ea.html">Ea</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EcuC.html">EcuC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EcuM.html">EcuM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Eep.html">Eep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EthIf.html">EthIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EthSM.html">EthSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EthSwt.html">EthSwt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EthTrcv.html">EthTrcv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/EthTSyn.html">EthTSyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Fee.html">Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/FiM.html">FiM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/FOTA%20handler.html">FOTA Handler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/IoHwAb.html">IoHwAb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/IpduM.html">IpduM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/J1939Tp.html">J1939Tp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/J1939Nm.html">J1939Nm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/J1939Rm.html">J1939Rm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/J1939Dcm.html">J1939Dcm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/KeyM.html">KeyM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/LdCom.html">LdCom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/LinIf.html">LinIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/LinSM.html">LinSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/MemIf.html">MemIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/NmIf.html">NmIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/NvM.html">NvM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Os/Os.html">Os</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/PduR.html">PduR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/iRTE.html">iRTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/RTE.html">RTE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Sd.html">Sd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/SecOC.html">SecOC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/SoAd.html">SoAd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/SomeIpTp.html">SomeIpTp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/SomeIpXf.html">SomeIpXf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/StbM.html">StbM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/TcpIp.html">TcpIp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/Tm.html">Tm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/UdpNm.html">UdpNm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/WdgIf.html">WdgIf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/WdgM.html">WdgM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%28Module%20Reference%20Manual%29/XCP.html">XCP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">示例工程说明(Demo Project Discrption):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E%28Demo_Project_Description%29/%E7%A4%BA%E4%BE%8B%E5%B7%A5%E7%A8%8B%E8%AF%B4%E6%98%8E%28Demo_Project_Description%29.html">示例工程工程说明（Demo Project Description）</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">TC397</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../../_sources/sub/快速上手指南(Quick_Start_Guide)/TC397.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="tc397">
+<h1>TC397<a class="headerlink" href="#tc397" title="Link to this heading">¶</a></h1>
+<section id="preparation-of-development-environment">
+<h2>1 开发环境准备（Preparation of Development Environment）<a class="headerlink" href="#preparation-of-development-environment" title="Link to this heading">¶</a></h2>
+<p>主要工具和环境说明</p>
+<p>Description of Main Tools and Environment</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>工具描述(Tool Description)</p></th>
+<th class="head"><p>名称/版本(Name/Version)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>编译器和IDE(Compiler and IDE)</p></td>
+<td><p>Hightec For Tricore V4.9.4.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>EB工具(EB Tool)</p></td>
+<td><p>EB tresos Studio 26.2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>MCAL</p></td>
+<td><p>MC-ISAR_AS422_TC3xx _2.10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>硬件开发板(Hardware Development Board)</p></td>
+<td><p>Application Kit TC3X7 V2.0</p></td>
+</tr>
+</tbody>
+</table>
+<section id="mcalide-acquisition-of-mcal-compiler-and-ide">
+<h3>1.1 MCAL编译器和IDE获取（Acquisition of MCAL Compiler and IDE）<a class="headerlink" href="#mcalide-acquisition-of-mcal-compiler-and-ide" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="https://hightec-rt.com/">Hightec For Tricore V4.9.4.1获取网站</a>
+（<a class="reference external" href="https://hightec-rt.com/">Download link for Hightec For Tricore V4.9.4.1</a> ）</p>
+<p><a class="reference external" href="https://www.elektrobit.cn/">EB.tresos Studio 26.2.0获取网站</a>
+（<a class="reference external" href="https://www.elektrobit.cn/">Download link for EB.tresos Studio 26.2.0</a> ）</p>
+<p><a class="reference external" href="https://www.infineon.cn/?utm_campaign=202507_gc_cn_cp.b.branding&amp;utm_medium=sem&amp;utm_source=baidu_searchad&amp;utm_content=_&amp;utm_term=&amp;uid=ci56620001&amp;aid=ai5662&amp;sdclkid=AL2615FG1526b6DRxg&amp;bd_vid=11792938164491894888&amp;gad_source=7&amp;gad_campaignid=21818698728&amp;gclid=COzF2eitxJQDFW2TrAId_IQDqw&amp;gclsrc=ds">芯片厂网站</a>
+（<a class="reference external" href="https://www.infineon.cn/?utm_campaign=202507_gc_cn_cp.b.branding&amp;utm_medium=sem&amp;utm_source=baidu_searchad&amp;utm_content=_&amp;utm_term=&amp;uid=ci56620001&amp;aid=ai5662&amp;sdclkid=AL2615FG1526b6DRxg&amp;bd_vid=11792938164491894888&amp;gad_source=7&amp;gad_campaignid=21818698728&amp;gclid=COzF2eitxJQDFW2TrAId_IQDqw&amp;gclsrc=ds">Chip Manufacturer Official Website</a> ）</p>
+</div></blockquote>
+<p>开发环境需用户自行获取</p>
+<p>The development environment needs to be obtained by users themselves.</p>
+</section>
+<section id="bsw-acquisition-of-bsw-configuration-tool">
+<h3>1.2 BSW配置工具的获取 （Acquisition of BSW Configuration Tool）<a class="headerlink" href="#bsw-acquisition-of-bsw-configuration-tool" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>申请普华ORIENTAIS Configurator工具软件（for 开源小满）：<a class="reference external" href="https://register.easyxmen.com/welcome.html?channel=3">https://register.easyxmen.com/welcome.html?channel=3</a>。</p>
+<p>Apply for iSOFT ORIENTAIS Configurator software (for EasyXMen) via the link: <a class="reference external" href="https://register.easyxmen.com/welcome.html?channel=3">https://register.easyxmen.com/welcome.html?channel=3</a>.</p>
+</li>
+<li><p>审核通过后，邮件收到下载链接（含BSW配置工具和示例工程）以及BSW配置工具License。</p>
+<p>After application approval, users will receive download links via email (including BSW configuration tool and example projects), and the license of the BSW configuration tool.</p>
+</li>
+</ol>
+</section>
+<section id="bsw-installation-of-bsw-configuration-tool">
+<h3>1.3 BSW配置工具安装（Installation of BSW Configuration Tool）<a class="headerlink" href="#bsw-installation-of-bsw-configuration-tool" title="Link to this heading">¶</a></h3>
+<section id="pre-installation-notes">
+<h4>1.3.1 安装前须知（Pre-installation Notes）<a class="headerlink" href="#pre-installation-notes" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>安装盘符建议：请勿将工具安装于C盘。C盘通常为系统盘，Windows操作系统安装于此，且Windows对C盘的读写权限控制较为严格。</p>
+<p>Recommended installation drive letter: Do not install the tool on drive C. Drive C is generally the system disk where the Windows operating system is installed, and Windows implements strict read and write permission control over Drive C.</p>
+</li>
+<li><p>安装路径要求：若工具安装于D盘，请勿使用默认路径。需将安装路径修改为“D:iSoftORIENTAIS_Configurator_for_EasyXMen&lt;版本号&gt;”。安装路径应尽可能简短，也可直接设置为“D:ORIENTAIS_Configurator_for_EasyXMen&lt;版本号&gt;”。不应将工具安装至包含中文字符或空格的文件夹中，也不应安装至层级过深的目录。具体原因请参见第3点。</p>
+<p>Installation path requirements: If installing the tool on Drive D, do not use the default installation path. It is required to modify the installation path to &quot;D:iSoftORIENTAIS_Configurator_for_EasyXMen&lt;version number&gt;&quot;. The installation path shall be kept as short as possible, and may also be directly set to &quot;D:ORIENTAIS_Configurator_for_EasyXMen&lt;version number&gt;&quot;. The tool shall not be installed into folders containing Chinese characters or spaces, nor into directories with excessively deep hierarchy. Refer to Item 3 for detailed reasons.</p>
+</li>
+<li><p>工作区位置说明：请勿将工作区创建在工具安装目录之外。通常应将其创建在工具安装路径内，例如：“D:iSoftORIENTAIS_Configurator_for_EasyXMen&lt;版本号&gt;workspace”。曾有用户将工作区置于工具外部，且路径中包含中文字符、空格以及过深的层级，导致工具出现间歇性卡死。经分析，本工具基于Java开发，Java包名本身为保持层次清晰而包含多级目录。若再叠加用户工作区过深的层级，整个路径长度可能超出Java访问配置文件的限制，致使配置文件无法访问，从而引起工具卡死。用户遵照本建议创建工作区后，该问题未再出现。</p>
+<p>Workspace location specification: Do not create the workspace outside the tool installation path. Normally it shall be created inside the tool installation path, for example: &quot;D:iSoftORIENTAIS_Configurator_for_EasyXMen&lt;version number&gt;workspace&quot;. Some users previously placed the workspace outside the tool directory, with paths containing Chinese characters, spaces and overly deep directory levels, resulting in intermittent tool freeze. Upon analysis, this tool is developed based on Java, and Java package names adopt multi-level directories to maintain clear hierarchy. If an overly deep hierarchy of the user workspace is added additionally, the total path length may exceed Java’s limit for accessing configuration files, which makes configuration files inaccessible and further causes tool freeze. This problem no longer occurs after users create the workspace in compliance with this recommendation.</p>
+</li>
+<li><p>多工程管理建议：在满足以上三项建议的前提下，若工作区中创建了多个Project，可右键单击Project名称，在弹出菜单中选择“Close Project”以关闭不使用的工程。需要使用时，再通过“Open Project”将其打开。建议工作区中始终保持仅打开一个Project。这是由于Project处于打开状态时，工程内的所有arxml文件会被自动加载至内存。若工程较为复杂、配置数据量较大，将占用可观的内存与CPU处理时间，容易导致工具卡顿。关闭不使用的Project后，其所占用的内存与CPU资源会被释放，工具运行将更为流畅。</p>
+<p>Multi-project management suggestion: On the premise of complying with the above three suggestions, if multiple projects are created in one workspace, right-click the project name and select &quot;Close Project&quot; from the pop-up menu to close unused projects. The closed projects can be opened later via &quot;Open Project&quot;. It is recommended to keep only one project open in the workspace at all times. When a project is open, all arxml files inside this project will be automatically loaded into memory. Complex projects with massive configuration data will occupy considerable memory and CPU resources and easily lead to tool lagging. Closing unused projects releases occupied memory and CPU resources and improves the running smoothness of the tool.</p>
+</li>
+</ol>
+</section>
+<section id="installation-steps">
+<h4>1.3.2 安装步骤（Installation Steps）<a class="headerlink" href="#installation-steps" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>解压下载的安装包，找到安装程序，双击安装程序，启动安装向导。</p>
+<p>Extract the downloaded installation package, locate the installer and double-click it to launch the installation wizard.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/1_3_2_11.png" src="../../_images/1_3_2_11.png" />
+</figure>
+<ol class="arabic" start="2">
+<li><p>选择安装语言。</p>
+<p>Select installation language.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/1_3_2_21.png" src="../../_images/1_3_2_21.png" />
+</figure>
+<ol class="arabic" start="3">
+<li><p>选择安装目录（建议不要包含中文路径），阅读并接受许可协议。</p>
+<p>Specify the installation directory (paths with Chinese characters are not recommended), read and accept the license agreement.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/1_3_2_31.png" src="../../_images/1_3_2_31.png" />
+</figure>
+<ol class="arabic" start="4">
+<li><p>等待安装完成，点击Finish结束安装，安装界面如下图所示：</p>
+<p>Wait until installation completes and click Finish to exit installation; the corresponding installation interface is shown below:</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/1_3_2_41.png" src="../../_images/1_3_2_41.png" />
+</figure>
+<p>安装完成后，在开始菜单或桌面可找到ORIENTAIS Configurator for EasyXMen快捷方式。</p>
+<p>After installation, the shortcut of ORIENTAIS Configurator for EasyXMen can be found in the Start menu or on the desktop.</p>
+</section>
+</section>
+</section>
+<section id="bsw-compilation-and-debugging-of-bsw-configuration-tool">
+<h2>2 BSW配置工具编译调试（Compilation and Debugging of BSW Configuration Tool）<a class="headerlink" href="#bsw-compilation-and-debugging-of-bsw-configuration-tool" title="Link to this heading">¶</a></h2>
+<section id="bsw-brief-introduction-to-functions-of-bsw-configuration-tool">
+<h3>2.1 BSW配置工具功能简介（Brief Introduction to Functions of BSW Configuration Tool）<a class="headerlink" href="#bsw-brief-introduction-to-functions-of-bsw-configuration-tool" title="Link to this heading">¶</a></h3>
+<p>导入已有BSW配置工程的方法：</p>
+<p>Procedures to import an existing BSW configuration project:</p>
+<ol class="arabic">
+<li><p>选择File &gt; Import &gt; Existing Project。</p>
+<p>Select File &gt; Import &gt; Existing Project.</p>
+</li>
+<li><p>浏览选择已有的BSW配置工程目录。</p>
+<p>Browse and select the root directory of the target existing BSW configuration project.</p>
+</li>
+<li><p>选择需要导入的工程，点击Finish。</p>
+<p>Select the project to import and click Finish.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_1_12.png" src="../../_images/2_1_12.png" />
+</figure>
+<p>工程导入后可在Project Explorer中查看工程结构。</p>
+<p>The project structure can be checked in Project Explorer after import completes.</p>
+<p>向工程中添加AUTOSAR功能模块：</p>
+<p>Procedures to add AUTOSAR functional modules into a project:</p>
+<ol class="arabic">
+<li><p>在Autosar Explorer视图中右键点击工程名称。</p>
+<p>Right-click the project name in the Autosar Explorer view.</p>
+</li>
+<li><p>选择Add Module打开模块选择对话框。</p>
+<p>Select Add Module to open the module selection dialog box.</p>
+</li>
+<li><p>从列表中选择需要添加的模块（可多选）。</p>
+<p>Select required modules from the list (multiple selection supported).</p>
+</li>
+<li><p>点击OK确认添加，模块将显示在工程树中。</p>
+<p>Click OK to confirm addition; the added modules will display on the project tree.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_1_22.png" src="../../_images/2_1_22.png" />
+</figure>
+<p>从工程中删除AUTOSAR功能模块：</p>
+<p>Procedures to delete AUTOSAR functional modules from a project:</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_32.png" src="../../_images/2_1_32.png" />
+</figure>
+<p>在BSW配置工具中可以查看和导入MCAL配置信息：在工程树中找到MCAL配置节点，双击MCAL节点可打开MCAL配置查看界面，可以浏览MCAL各模块（Port、Dio、Adc等）的配置参数。</p>
+<p>Users can view and import MCAL configuration information in the BSW configuration tool: Locate the MCAL configuration node on the project tree, double-click this node to open the MCAL configuration view page and browse configuration parameters of each MCAL module such as Port, Dio and Adc.</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_42.png" src="../../_images/2_1_42.png" />
+</figure>
+<p>注意：打开MCAL配置后会参与整体工程校验，确保MCAL配置与BSW配置的一致性。</p>
+<p>Note: Opening MCAL configuration will trigger full-project validation to guarantee consistency between MCAL configuration and BSW configuration.</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_52.png" src="../../_images/2_1_52.png" />
+</figure>
+<p>对于支持服务封装的模块，可以生成服务层组件代码：在工程树中右键点击支持服务封装的模块，选择Generate Service Wrapper选项，在弹出的对话框中配置服务接口参数，点击Generate生成服务封装代码。</p>
+<p>For modules supporting service encapsulation, users can generate codes of service layer components: Right-click the target module supporting service encapsulation on the project tree, select the Generate Service Wrapper option, configure service interface parameters in the popped dialog box and click Generate to generate service wrapper codes.</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_62.png" src="../../_images/2_1_62.png" />
+</figure>
+<p>服务封装功能可将底层BSW接口封装为标准化服务接口，便于上层应用软件的调用和集成。</p>
+<p>The service encapsulation function encapsulates underlying BSW interfaces into standardized service interfaces to facilitate invocation and integration of upper-layer application software.</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_71.png" src="../../_images/2_1_71.png" />
+</figure>
+<section id="mcal-interaction-with-mcal-configuration-information">
+<h4>2.1.1 与MCAL配置信息的交互（Interaction with MCAL Configuration Information）<a class="headerlink" href="#mcal-interaction-with-mcal-configuration-information" title="Link to this heading">¶</a></h4>
+<section id="eb-interaction-with-eb-tool">
+<h5>2.1.1.1 与EB工具交互（Interaction with EB Tool）<a class="headerlink" href="#eb-interaction-with-eb-tool" title="Link to this heading">¶</a></h5>
+<p>从EB tresos导出MCAL配置并导入BSW配置工具的流程：在EB tresos中打开MCAL配置工程，右键点击MCAL配置中的ECU节点，选择Im- and Exporter &gt; Export，选择导出格式为ARXML，设置导出路径，点击OK完成导出。</p>
+<p>Process of exporting MCAL configuration from EB tresos and importing into BSW configuration tool: Open the MCAL configuration project in EB tresos, right-click the ECU node under MCAL configuration, select Im- and Exporter &gt; Export, choose ARXML as export format, set export path and click OK to finish export.</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_1_1_11.png" src="../../_images/2_1_1_1_11.png" />
+</figure>
+<p>EB tresos导出MCAL配置的ARXML文件界面如下图所示：</p>
+<p>The interface for exporting MCAL configuration ARXML file via EB tresos is shown below:</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_1_1_21.png" src="../../_images/2_1_1_1_21.png" />
+</figure>
+<p>打开BSW配置工具，右键点击Project，选择Import Module From Other Arxml，选择从EB导出的ARXML文件，点击OK导入。导入的MCAL配置信息将显示在工程树中。</p>
+<p>Launch the BSW configuration tool, right-click Project, select Import Module From Other Arxml, choose the ARXML file exported from EB tresos and click OK to finish import. Imported MCAL configuration information will display on the project tree.</p>
+</section>
+<section id="davinci-interaction-with-davinci-tool">
+<h5>2.1.1.2 与Davinci工具交互（Interaction with DaVinci Tool）<a class="headerlink" href="#davinci-interaction-with-davinci-tool" title="Link to this heading">¶</a></h5>
+<p>从DaVinci Configurator导出配置并导入BSW配置工具：在DaVinci中打开工程，选择File &gt; Export &gt; Export ARXML，选择导出内容和目标路径，在BSW配置工具中选择Import &gt; ARXML File导入。</p>
+<p>Export configuration from DaVinci Configurator and import to BSW configuration tool: Open the target project in DaVinci, select File &gt; Export &gt; Export ARXML, specify export contents and target path; in BSW configuration tool, select Import &gt; ARXML File to finish import.</p>
+<figure class="align-center">
+<img alt="../../_images/2_1_1_2_11.png" src="../../_images/2_1_1_2_11.png" />
+</figure>
+</section>
+</section>
+</section>
+<section id="example-project-demonstration">
+<h3>2.2 示例工程演示（Example Project Demonstration）<a class="headerlink" href="#example-project-demonstration" title="Link to this heading">¶</a></h3>
+<section id="example-project-description">
+<h4>2.2.1 示例工程说明（Example Project Description）<a class="headerlink" href="#example-project-description" title="Link to this heading">¶</a></h4>
+<p>TC397示例工程包含以下文件和内容：</p>
+<p>The TC397 example project contains the following files and contents:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件/目录名称(File/Directory Name)</p></th>
+<th class="head"><p>说明(Description)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Demo_TC397_MCAL_ASR422_R210_ConfigProject</p></td>
+<td><p>MCAL配置工程（EB工具）(MCAL configuration project (EB Tool))</p></td>
+</tr>
+<tr class="row-odd"><td><p>Demo_TC397_V2504_patch_BSW_ConfigProject</p></td>
+<td><p>BSW配置工程（BSW配置工具）(BSW configuration project (BSW configuration tool))</p></td>
+</tr>
+<tr class="row-even"><td><p>Demo_TC397_V2504_patch_HighTec_V4941_Project</p></td>
+<td><p>MCAL+BSW集成示例工程（Hightec For Tricore V4.9.4.1）(Integrated MCAL+BSW example project (Hightec For Tricore V4.9.4.1))</p></td>
+</tr>
+<tr class="row-odd"><td><p>示例工程说明(Example project description)</p></td>
+<td><p>TC397示例工程配置说明文档(Configuration description document of TC397 example project)</p></td>
+</tr>
+</tbody>
+</table>
+<p>建议按照以下顺序使用示例工程：首先查看示例工程说明文档了解工程整体结构和功能；打开并编译MCAL配置工程验证MCAL配置正确；打开并编译BSW配置工程验证BSW配置正确；最后编译集成工程，生成可烧录的目标文件。</p>
+<p>Recommended operation sequence for using the example project: First read the example project description document to learn the overall structure and functions of the project; open and compile the MCAL configuration project to verify the validity of MCAL configuration; open and compile the BSW configuration project to verify the validity of BSW configuration; finally compile the integrated project to generate programmable target files.</p>
+<figure class="align-center">
+<img alt="../../_images/2_2_1_11.png" src="../../_images/2_2_1_11.png" />
+</figure>
+</section>
+<section id="bsw-import-and-compilation-of-example-bsw-configuration-project">
+<h4>2.2.2 示例BSW配置工程导入及编译（Import and Compilation of Example BSW Configuration Project）<a class="headerlink" href="#bsw-import-and-compilation-of-example-bsw-configuration-project" title="Link to this heading">¶</a></h4>
+<p>导入和编译BSW配置工程的步骤：</p>
+<p>Steps to import and compile the example BSW configuration project:</p>
+<ol class="arabic">
+<li><p>启动ORIENTAIS Configurator配置工具，选择File &gt; Import &gt; Existing Project。</p>
+<p>Start ORIENTAIS Configurator and select File &gt; Import &gt; Existing Project.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_2_2_11.png" src="../../_images/2_2_2_11.png" />
+</figure>
+<ol class="arabic" start="2">
+<li><p>浏览选择Demo_RH850_U2A16_V2504_patch_BSW_ConfigProject目录。</p>
+<p>Browse and select the directory of Demo_RH850_U2A16_V2504_patch_BSW_ConfigProject.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_2_2_21.png" src="../../_images/2_2_2_21.png" />
+</figure>
+<ol class="arabic" start="3">
+<li><p>导入完成后在工程树中查看各模块配置。</p>
+<p>Check configuration parameters of each module on the project tree after import finishes.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_2_2_31.png" src="../../_images/2_2_2_31.png" />
+</figure>
+<ol class="arabic" start="4">
+<li><p>点击Validate All校验工程配置。</p>
+<p>Click Validate All to validate the project configuration.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_2_2_41.png" src="../../_images/2_2_2_41.png" />
+</figure>
+<ol class="arabic" start="5">
+<li><p>校验通过后编译工程或生成配置代码。</p>
+<p>Compile the project or generate configuration codes after validation passes.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/2_2_2_51.png" src="../../_images/2_2_2_51.png" />
+</figure>
+</section>
+<section id="bsw-code-generation-from-bsw-configuration-project">
+<h4>2.2.3 BSW配置工程代码生成（Code Generation from BSW Configuration Project）<a class="headerlink" href="#bsw-code-generation-from-bsw-configuration-project" title="Link to this heading">¶</a></h4>
+<p>从BSW配置工程生成代码的步骤：确保BSW配置工程已导入且校验通过；点击工具栏的Generate All按钮；在弹出的对话框中确认代码生成选项；选择代码输出目录（或保持默认）；等待代码生成完成，查看Console中的生成日志；在输出目录中检查生成的.c和.h文件。</p>
+<p>Steps to generate codes from BSW configuration project: Confirm the BSW configuration project is imported and fully validated; click the Generate All button on the toolbar; confirm code generation options in the popped dialog box; select code output directory (or keep default setting); wait for code generation completion and check generation logs in Console; verify generated .c and .h files under the output directory.</p>
+<figure class="align-center">
+<img alt="../../_images/2_2_3_11.png" src="../../_images/2_2_3_11.png" />
+</figure>
+</section>
+</section>
+</section>
+<section id="compilation-and-debugging-of-example-project">
+<h2>3 示例工程编译调试（Compilation and Debugging of Example Project）<a class="headerlink" href="#compilation-and-debugging-of-example-project" title="Link to this heading">¶</a></h2>
+<section id="import-and-compilation-of-example-project">
+<h3>3.1 示例工程导入编译（Import and Compilation of Example Project）<a class="headerlink" href="#import-and-compilation-of-example-project" title="Link to this heading">¶</a></h3>
+<p>将集成工程导入Hightec For Tricore并编译的步骤：</p>
+<p>Steps to import the integrated project into Hightec For Tricore and perform compilation:</p>
+<ol class="arabic">
+<li><p>打开文件进行编译</p>
+<p>Open the file and start compilation.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/3_1_12.png" src="../../_images/3_1_12.png" />
+</figure>
+</section>
+<section id="hardware-environment">
+<h3>3.2 硬件环境（Hardware Environment）<a class="headerlink" href="#hardware-environment" title="Link to this heading">¶</a></h3>
+<p>进行示例工程调试需要准备以下硬件环境：</p>
+<p>Prepare the following hardware environment for example project debugging:</p>
+<figure class="align-center">
+<img alt="../../_images/3_2_12.png" src="../../_images/3_2_12.png" />
+</figure>
+<p>硬件连接步骤：将TC397开发板放置在绝缘的工作台上；使用USB线连接开发板的USB接口和电脑；确认开发板电源指示灯亮起（绿色LED）；如需CAN通信测试，连接CAN工具到开发板的CAN接口。</p>
+<p>Hardware connection steps: Place the TC397 development board on an insulated workbench; connect the USB port of the development board to PC via USB cable; confirm the power indicator on the development board lights up (green LED); connect CAN tool to the CAN interface of the development board if CAN communication test is required.</p>
+</section>
+<section id="online-debugging">
+<h3>3.3 在线调试（Online Debugging）<a class="headerlink" href="#online-debugging" title="Link to this heading">¶</a></h3>
+<p>使用UDE STK 5.0进行在线调试的步骤：</p>
+<p>Steps for online debugging with UDE STK 5.0:</p>
+<ol class="arabic">
+<li><p>确保开发板已通过USB连接到电脑且驱动正常安装。</p>
+<p>Confirm the development board is connected to PC via USB with corresponding device driver installed properly.</p>
+</li>
+<li><p>在Hightec For Tricore中打开集成工程。</p>
+<p>Open the integrated project in Hightec For Tricore.</p>
+</li>
+<li><p>在UDE STK 5.0中进行调试。</p>
+<p>Perform debugging in UDE STK 5.0.</p>
+</li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/3_3_12.png" src="../../_images/3_3_12.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../_images/3_3_22.png" src="../../_images/3_3_22.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../_images/3_3_32.png" src="../../_images/3_3_32.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../_images/3_3_42.png" src="../../_images/3_3_42.png" />
+</figure>
+<figure class="align-center">
+<img alt="../../_images/3_3_51.png" src="../../_images/3_3_51.png" />
+</figure>
+<ol class="arabic" start="4">
+<li><p>等待程序连接下载到开发板。</p>
+<p>Wait for the program to be downloaded and flashed to the development board.</p>
+</li>
+<li><p>使用单步执行（F11）、断点、变量查看等功能进行调试。</p>
+<p>Perform debugging using functions such as single-step execution (F11), breakpoints and variable viewing.</p>
+</li>
+</ol>
+<p>常见问题排查：如果无法连接开发板，检查USB驱动是否正确安装；确认Debug配置中选择的调试器与实际硬件匹配；检查开发板跳线帽设置是否正确（参考开发板用户手册）。</p>
+<p>Troubleshooting for common faults: If you fail to connect the development board, check whether the USB driver is installed correctly; confirm that the debugger selected in the Debug configuration matches the actual hardware; check whether the jumper cap settings of the development board are correct (refer to the development board user manual).</p>
+<figure class="align-center">
+<img alt="../../_images/3_3_6.png" src="../../_images/3_3_6.png" />
+</figure>
+</section>
+</section>
+<section id="feedback-on-community-issues">
+<h2>4 社区问题反馈（Feedback on Community Issues）<a class="headerlink" href="#feedback-on-community-issues" title="Link to this heading">¶</a></h2>
+<p>在使用开源小满的过程中，如果遇到问题或有任何建议，欢迎前往 <a class="reference external" href="https://atomgit.com/easyxmen">项目主页</a> 找到对应的仓库提交Issue。</p>
+<p>If you encounter any problems or have any suggestions while using EasyXMen, you are welcome to submit issues in the corresponding repositories via <a class="reference external" href="https://atomgit.com/easyxmen">Project Homepage</a>.</p>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="S32K148.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>S32K148
+    </a>
+    <a class="float-right" href="RH850U2A16.html" title="Next">
+        RH850U2A16 <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">TC397</a><ul>
+<li><a class="reference internal" href="#preparation-of-development-environment">1 开发环境准备（Preparation of Development Environment）</a><ul>
+<li><a class="reference internal" href="#mcalide-acquisition-of-mcal-compiler-and-ide">1.1 MCAL编译器和IDE获取（Acquisition of MCAL Compiler and IDE）</a></li>
+<li><a class="reference internal" href="#bsw-acquisition-of-bsw-configuration-tool">1.2 BSW配置工具的获取 （Acquisition of BSW Configuration Tool）</a></li>
+<li><a class="reference internal" href="#bsw-installation-of-bsw-configuration-tool">1.3 BSW配置工具安装（Installation of BSW Configuration Tool）</a><ul>
+<li><a class="reference internal" href="#pre-installation-notes">1.3.1 安装前须知（Pre-installation Notes）</a></li>
+<li><a class="reference internal" href="#installation-steps">1.3.2 安装步骤（Installation Steps）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bsw-compilation-and-debugging-of-bsw-configuration-tool">2 BSW配置工具编译调试（Compilation and Debugging of BSW Configuration Tool）</a><ul>
+<li><a class="reference internal" href="#bsw-brief-introduction-to-functions-of-bsw-configuration-tool">2.1 BSW配置工具功能简介（Brief Introduction to Functions of BSW Configuration Tool）</a><ul>
+<li><a class="reference internal" href="#mcal-interaction-with-mcal-configuration-information">2.1.1 与MCAL配置信息的交互（Interaction with MCAL Configuration Information）</a><ul>
+<li><a class="reference internal" href="#eb-interaction-with-eb-tool">2.1.1.1 与EB工具交互（Interaction with EB Tool）</a></li>
+<li><a class="reference internal" href="#davinci-interaction-with-davinci-tool">2.1.1.2 与Davinci工具交互（Interaction with DaVinci Tool）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-project-demonstration">2.2 示例工程演示（Example Project Demonstration）</a><ul>
+<li><a class="reference internal" href="#example-project-description">2.2.1 示例工程说明（Example Project Description）</a></li>
+<li><a class="reference internal" href="#bsw-import-and-compilation-of-example-bsw-configuration-project">2.2.2 示例BSW配置工程导入及编译（Import and Compilation of Example BSW Configuration Project）</a></li>
+<li><a class="reference internal" href="#bsw-code-generation-from-bsw-configuration-project">2.2.3 BSW配置工程代码生成（Code Generation from BSW Configuration Project）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compilation-and-debugging-of-example-project">3 示例工程编译调试（Compilation and Debugging of Example Project）</a><ul>
+<li><a class="reference internal" href="#import-and-compilation-of-example-project">3.1 示例工程导入编译（Import and Compilation of Example Project）</a></li>
+<li><a class="reference internal" href="#hardware-environment">3.2 硬件环境（Hardware Environment）</a></li>
+<li><a class="reference internal" href="#online-debugging">3.3 在线调试（Online Debugging）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#feedback-on-community-issues">4 社区问题反馈（Feedback on Community Issues）</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            <div class="text-center">
+                    &copy; Copyright 2024-2026, iSOFT
+            </div>
+            <div class="text-center text-white-50 font-italic mt-3">
+                <small>
+                    Created using
+                    <a class="text-white" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Sphinx Wagtail Theme 6.5.0
+                    </a>
+                    and
+                    <a class="text-white" href="https://www.sphinx-doc.org/" rel="nofollow" target="_blank">
+                        Sphinx 8.2.3
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=5a0213dc"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../_static/translations.js?v=beaddf03"></script>
+        <script src="../../_static/version-switcher-static.js?v=14b00af6"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
