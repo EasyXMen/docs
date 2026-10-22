@@ -1,7 +1,6 @@
 
-StbM内部模块类型定义 StbM Internal Module Type Definitions
--------------------------------------------------------------------------------------------------------------------------------------------------------
-
+类型定义
+--------
 .. 如果没有就不存在该章节，或为None
 
 .. list-table:: 
@@ -12,46 +11,67 @@ StbM内部模块类型定义 StbM Internal Module Type Definitions
      - Type
      - Description
 
+   * - StbMTimeNtfCallbackType
+     - void*
+     - 
+
    * - StbM_HwCounterType
      - uint64
-     - clock counter value type
+     - 
 
    * - StbM_LocalTimeType
      - uint64
-     - local time type
+     - 
 
-   * - StbM_MainTimeTupleType
+   * - StbM_Time64TupleType
      - struct
-     - Variables of this type are used for expressing time tuples
+     - 
 
    * - StbM_RateCorrectionTupleType
      - struct
-     - Time base rate correction time tuple
+     - 
 
    * - StbM_RateCorrectionType
      - struct
-     - Time base rate correction datas
-
-   * - StbM_LocalClockTimeType
-     - struct
-     - Data required for local time compute
+     - 
 
    * - StbM_CurrentRateType
      - struct
-     - Rate correction and offset correction for time base 
+     - 
 
    * - StbM_NotificationType
      - struct
-     - Used to save timer information
+     - 
+
+   * - StbM_RateValidationTimeTripleType
+     - struct
+     - 
 
    * - StbM_TimeBaseType
      - struct
-     - Time-based running data
+     - 
 
 
       
-StbM内部模块提供的服务 Services Provided by StbM Internal Module
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+提供的服务
+-----------
+StbM_MainFunction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-None
+.. code::
+
+    void StbM_MainFunction(void)
+
+This function needs to be called periodically to perform the AUTOSAR StbM activities.
+
+**Sync/Async**
+   Asynchronous
+
+**Reentrancy**
+   Reentrant (Reentrant for different partitions. Non reentrant for the same partition.)
+
+
+**Return type**
+   void
+
 

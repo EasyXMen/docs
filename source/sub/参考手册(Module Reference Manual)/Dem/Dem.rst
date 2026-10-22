@@ -29,6 +29,11 @@ Dem
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2025/12/12
+     - chao.sun
+     - V1.1
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
 
 
 参考文档(References)
@@ -77,15 +82,15 @@ Dem
    * - 9
      - ISO
      - 17356-3.pdf
-     - -
+     - \-
    * - 10
      - SAE
      - J1979.pdf
-     - -
+     - \-
    * - 11
      - ISO
      - 14229.pdf
-     - -
+     - \-
 
 
 术语与简写(Terms and Abbreviations)
@@ -336,7 +341,7 @@ SAE-J1939-73等规范实现UDS、OBD和J1939的诊断事件管理及存储功能
 
 The module architecture is shown in *DemArchitecture in AUTOSAR*. The Dem module implements the diagnostic event management and storage functions for UDS, OBD, and J1939 in accordance with specifications such as ISO-14229-1, ISO-15031-5, and SAE-J1939-73. The specific implementations include: DTC status management, freeze frame and extended data storage, debouncing, recovery and aging, replacement, etc. Users can read or clear events and their related data through services in Dcm or J1939Dcm (for J1939 events). In addition, the non-volatile storage of all events and their related data in Dem depends on NvM.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/Dem_AUTOSAR_Architecture.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/CP产品架构图-R23V3.0版本_Dem.png
    :alt: Dem模块层次图 (Dem Module Hierarchy Diagram)
    :name: Dem_AUTOSAR_Arch
    :align: center
@@ -349,7 +354,7 @@ Dem依赖关系如图 :ref:`Dem_Relationship` 所示，接口的详细内容请�
 
 The dependencies of Dem are shown in *Demrelationship*. For detailed information about the interfaces, please refer to the "Interface Description" chapter.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/Dem_Relationship.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/Dem_Relationship.png
    :alt: Dem模块接口关系图
    :name: Dem_Relationship
    :align: center
@@ -361,64 +366,11 @@ The dependencies of Dem are shown in *Demrelationship*. For detailed information
 ==========================================
 
 
-特性(Features)
------------------------
+公共特性(Public Features)
+----------------------------
 
-.. only:: doc_pbs
-  
-  变体(Variants)
-  ~~~~~~~~~~~~~~~~~~~~~
-.. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
-.. 主要功能必须描述，比较偏尽量描述(不强制)
-
-  - DTC值允许在不同变体下使用不同值
-  
-    DTC values allow the use of different values under different variants
-	
-  - 事件使能状态在不同变体下使用使能或不使能
-  
-    The event enable status uses enabled or disabled under different variants
-  
-  - 事件在同操作循环下failed后允许pass条件在不同变体下使用使能或不使能
-  
-    After an event fails in the same operation cycle, the allow-pass condition uses enabled or disabled under different variants
-	
-  - 事件CDTC门限值在不同变体下使用不同值
-  
-    The event CDTC threshold uses different values under different variants
-	
-  - DTC组允许在不同变体下使用不同值
-    
-	DTC groups allow the use of different values under different variants
-
-  - 故障灯行为在不同变体下使用不同值
-
-   The malfunction indicator lamp behavior uses different values under different variants
-
- - 事件使能状态在不同变体下使用使能或不使能
-
-   The event enable status uses enabled or disabled under different variants
-
- - 事件在同操作循环下failed后允许pass条件在不同变体下使用使能或不使能
-
-   After an event fails in the same operation cycle, the allow-pass condition uses enabled or disabled under different variants
-
- - 事件CDTC门限值在不同变体下使用不同值
-
-   The event CDTC threshold uses different values under different variants
-
- - DTC组允许在不同变体下使用不同值
-
-   DTC groups allow the use of different values under different variants
-
- - 故障灯行为在不同变体下使用不同值
-
-   The malfunction indicator lamp behavior uses different values under different variants
-
-
-
-主卫星功能(Main Satellite Function)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 对于单分区操作系统，Dem主分区提供了服务组件的AUTOSAR接口。
 对于多分区操作系统，支持一个Dem主分区和多个卫星分区，每一个Dem分区都提供独有的服务接口。
 Dem主分区和卫星分区都运行在可信分区中。Dem的核间通讯采用了共享内存的内部数据进行交换，对受保护内存部分的写访问必须在可信任的分区中。
@@ -440,6 +392,81 @@ Both the Dem main partition and satellite partitions run in trusted partitions. 
    * - Dem卫星分区(Dem Satellite Partition)
      - 主要在本地执行去抖动操作(基于计数器和时间的去抖动)，以及管理分区的监控状态。(Mainly performs debouncing operations locally (counter-based and time-based debouncing) and manages the monitoring status of the partition)
 
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
+   .. 主要功能必须描述，比较偏尽量描述(不强制)
+
+   - DTC值允许在不同变体下使用不同值
+
+     DTC values allow the use of different values under different variants
+
+   - 事件使能状态在不同变体下使用使能或不使能
+
+     The event enable status uses enabled or disabled under different variants
+
+   - 事件在同操作循环下failed后允许pass条件在不同变体下使用使能或不使能
+
+     After an event fails in the same operation cycle, the allow-pass condition uses enabled or disabled under different variants
+
+   - 事件CDTC门限值在不同变体下使用不同值
+
+     The event CDTC threshold uses different values under different variants
+
+   - DTC组允许在不同变体下使用不同值
+        
+     DTC groups allow the use of different values under different variants
+
+   - 故障灯行为在不同变体下使用不同值
+
+     The malfunction indicator lamp behavior uses different values under different variants
+
+   - 事件使能状态在不同变体下使用使能或不使能
+
+     The event enable status uses enabled or disabled under different variants
+
+   - 事件在同操作循环下failed后允许pass条件在不同变体下使用使能或不使能
+
+     After an event fails in the same operation cycle, the allow-pass condition uses enabled or disabled under different variants
+
+   - 事件CDTC门限值在不同变体下使用不同值
+
+     The event CDTC threshold uses different values under different variants
+
+   - DTC组允许在不同变体下使用不同值
+
+     DTC groups allow the use of different values under different variants
+
+   - 故障灯行为在不同变体下使用不同值
+
+     The malfunction indicator lamp behavior uses different values under different variants
+
+   注：在实际项目集成时EcuM配置Dem初始化有以下约束
+
+   1.PB变体使能时，Dem_Init()、Dem_PreInit()不能配置在Init zero阶段。
+
+   2.PB变体不使能时，无限制。
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+memmap文件是动态的。存在DEM_START_SEC_CODE、DEM_STOP_SEC_CODE、DEM_START_SEC_CONFIG_DATA_16、DEM_STOP_SEC_CONFIG_DATA_16、DEM_START_SEC_CONFIG_DATA_32、DEM_STOP_SEC_CONFIG_DATA_32、DEM_START_SEC_CONFIG_DATA_8、DEM_STOP_SEC_CONFIG_DATA_8、DEM_START_SEC_CONFIG_DATA_UNSPECIFIED、DEM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、DEM_START_SEC_CONST_UNSPECIFIED、DEM_STOP_SEC_CONST_UNSPECIFIED、DEM_START_SEC_VAR_CLEARED_16、DEM_STOP_SEC_VAR_CLEARED_16、DEM_START_SEC_VAR_CLEARED_32、DEM_STOP_SEC_VAR_CLEARED_32、DEM_START_SEC_VAR_CLEARED_8、DEM_STOP_SEC_VAR_CLEARED_8、DEM_START_SEC_VAR_CLEARED_BOOLEAN、DEM_STOP_SEC_VAR_CLEARED_BOOLEAN、DEM_START_SEC_VAR_CLEARED_UNSPECIFIED、DEM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、DEM_START_SEC_VAR_INIT_8、DEM_STOP_SEC_VAR_INIT_8、DEM_START_SEC_VAR_INIT_UNSPECIFIED、DEM_STOP_SEC_VAR_INIT_UNSPECIFIED、DEM_START_SEC_VAR_CLEARED_{{EcucPartition}}_UNSPECIFIED [#f1]_ 、DEM_STOP_SEC_VAR_CLEARED_{{EcucPartition}}_UNSPECIFIED [#f1]_  字段。
+
+The memmap file is dynamic. There are DEM_START_SEC_CODE、DEM_STOP_SEC_CODE、DEM_START_SEC_CONFIG_DATA_16、DEM_STOP_SEC_CONFIG_DATA_16、DEM_START_SEC_CONFIG_DATA_32、DEM_STOP_SEC_CONFIG_DATA_32、DEM_START_SEC_CONFIG_DATA_8、DEM_STOP_SEC_CONFIG_DATA_8、DEM_START_SEC_CONFIG_DATA_UNSPECIFIED、DEM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、DEM_START_SEC_CONST_UNSPECIFIED、DEM_STOP_SEC_CONST_UNSPECIFIED、DEM_START_SEC_VAR_CLEARED_16、DEM_STOP_SEC_VAR_CLEARED_16、DEM_START_SEC_VAR_CLEARED_32、DEM_STOP_SEC_VAR_CLEARED_32、DEM_START_SEC_VAR_CLEARED_8、DEM_STOP_SEC_VAR_CLEARED_8、DEM_START_SEC_VAR_CLEARED_BOOLEAN、DEM_STOP_SEC_VAR_CLEARED_BOOLEAN、DEM_START_SEC_VAR_CLEARED_UNSPECIFIED、DEM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、DEM_START_SEC_VAR_INIT_8、DEM_STOP_SEC_VAR_INIT_8、DEM_START_SEC_VAR_INIT_UNSPECIFIED、DEM_STOP_SEC_VAR_INIT_UNSPECIFIED DEM_START_SEC_VAR_CLEARED_{{EcucPartition}}_UNSPECIFIED 、DEM_STOP_SEC_VAR_CLEARED_{{EcucPartition}}_UNSPECIFIED  fields.
+
+.. rubric:: 说明
+
+.. [#f1] 根据DemEventEcucPartitionRef配置，未配置时认为与DemMasterEcucPartitionRef一致。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+---------------------------
 
 初始化功能(Initialization Function)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -449,9 +476,12 @@ Both the Dem main partition and satellite partitions run in trusted partitions. 
 (预初始化)，分配给各个卫星的事件也可以使用Dem_SetEventStatus向Dem报告监视结果，并在第一个
 Dem_Mainfunction调用中排队处理。
 
+注：多分区操作系统中主分区可在MCAL初始化前调用Dem_PreInit，用于收集MCAL初始化上报的故障信息；卫星分区初始化(Dem_SatellitePreInit)需在OS初始化后调用。
+
 For a single-partition operating system, the initialization process is executed in accordance with the requirements specified in the AUTOSAR standard.
 For a multi-partition operating system, first, the pre-initialization (Dem_MasterPreInit) is performed in the main partition to load configuration data, and then the satellite partitions are pre-initialized and their monitoring status is updated (Dem_SatellitePreInit). At this point, both the main partition and the satellite partitions are in the PREINITIALIZED state. The events assigned to each satellite can also use Dem_SetEventStatus to report monitoring results to Dem, which will be queued for processing in the first call of Dem_Mainfunction.
 
+Note: In a multi-partition operating system, the main partition can call Dem_PreInit before MCAL initialization to collect fault information reported by MCAL initialization; the satellite partition initialization (Dem_SatellitePreInit) must be called after OS initialization.
 
 当NvM读取完Dem的存储数据后，将Dem所有功能全部初始化(Dem_MasterInit)，然后初始化各个卫星
 (Dem_SatelliteInit)，此时主分区以及卫星分区的状态都为INITIALIZED(已初始化)。
@@ -481,6 +511,22 @@ Dem_DebounceCounterCalculate/Dem_DebounceTimeCalculate里开始根据配置进�
 PREPASSED状态的事件的计数值/超时值达到配置的阈值时，事件状态将被确认为FAILED或PASSED。
 
 When the reported event status is PREPASSED (or PREFAILED), debounce processing is required to confirm the event status as PASSED or FAILED. Debouncing can be categorized into counter-based debouncing and time-based debouncing. When an event is reported with PREFAILED or PREPASSED status, the internal functions Dem_DebounceCounterCalculate and Dem_DebounceTimeCalculate within Dem_MainFunction begin counting according to the configuration. When the count value or timeout value for the event reporting PREFAILED or PREPASSED status reaches the configured threshold, the event status is confirmed as FAILED or PASSED.
+
+
+DTC配置功能(DTC Configuration Function)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+每个诊断事件关联一个DTC（Diagnostic Trouble Code），DTC的配置决定了故障在诊断层面如何被标识、分类与存储。
+DTC配置主要在Dem/DemConfigSet/DemDTC容器下完成，可配置DTC值（DemDtcValue）、DTC功能单元（DemDTCFunctionalUnit）、
+故障严重度（DemDTCSeverity）、存储策略（DemNvStorageStrategy）、OBD DTC引用（DemObdDTCRef）等参数；
+并通过DemDTC/DemDTCAttributesRef关联DTC属性，在DemDTCAttributes中可配置DTC优先级（DemDTCPriority）、
+故障分类（DemDTCSignificance）、老化阈值（DemAgingCycleCounterThreshold）、扩展数据索引（DemExtendedDataClassRef）、
+冻结帧索引（DemFreezeFrameClassRef）、冻结帧号索引（DemFreezeFrameRecNumClassRef）、存储地址（DemMemoryDestinationRef）等参数。
+配置完成的DTC通过DemEventParameter中的DTC索引（DemDTCRef）关联到具体事件，DTC状态位的管理与切换由DTC状态管理功能负责。
+
+Each diagnostic event is associated with a DTC (Diagnostic Trouble Code). The DTC configuration determines how the fault is identified, classified, and stored at the diagnostic level.
+The DTC configuration is mainly completed under the Dem/DemConfigSet/DemDTC container, where parameters such as the DTC value (DemDtcValue), DTC functional unit (DemDTCFunctionalUnit), fault severity (DemDTCSeverity), storage strategy (DemNvStorageStrategy), and OBD DTC reference (DemObdDTCRef) can be configured.
+The DTC attributes are associated via DemDTC/DemDTCAttributesRef. In DemDTCAttributes, parameters such as DTC priority (DemDTCPriority), fault classification (DemDTCSignificance), aging threshold (DemAgingCycleCounterThreshold), extended data index (DemExtendedDataClassRef), freeze frame index (DemFreezeFrameClassRef), freeze frame number index (DemFreezeFrameRecNumClassRef), and storage address (DemMemoryDestinationRef) can be configured.
+The configured DTC is linked to the specific event via the DTC index (DemDTCRef) in DemEventParameter. The management and switching of DTC status bits are handled by the DTC Status Management function.
 
 
 DTC状态管理(DTC Status Management)
@@ -541,29 +587,34 @@ Each event supports a DTC status, which consists of 8 status bits. During Dem in
      - 表示出此事件的warning indicator是否激活(Indicates whether the warning indicator for this event is activated)
 
 
-冻结帧和扩展数据(Freeze Frame and Extended Data)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ISO-14229-1规定了两种类型的诊断事件相关数据：冻结帧与扩展数据。数据可以以冻结帧和扩展数据的形式与每个DTC一起存储。
+冻结帧功能(Freeze Frame Function)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ISO-14229-1规定了冻结帧作为诊断事件相关数据的一种类型，数据可以以冻结帧的形式与每个DTC一起存储。
+冻结帧包括一个或多个DID(数据标识符)，每个DID又包括一个或多个数据元素。冻结帧在事件确认期间的可配置时间点进行收集和存储，
+通常会多次存储。
 
-ISO-14229-1 specifies two types of diagnostic event-related data: freeze frame and extended data. Data can be stored together with each DTC in the form of freeze frames and extended data.
+ISO-14229-1 specifies freeze frames as one type of diagnostic event-related data. Data can be stored together with each DTC in the form of freeze frames.
+A freeze frame consists of one or more DIDs (Data Identifiers), each of which contains one or more data elements. Freeze frames are collected and stored at configurable time points during event confirmation and are typically stored multiple times.
 
-.. list-table::
-   :widths: 10 25
-   :header-rows: 1
+SWC与BSW报告事件时，Dem根据配置DemFreezeFrameRecordTrigger决定在哪种条件下获取实时冻结帧数据，
+并且与事件一同存入buffer中。接着在Dem_MainFunction中等待事件的Memory Entry分配完成后，将数据存储到其中。
 
-   * - 功能(Function)
-     - 说明(Description)
-   
-   * - 冻结帧(Freeze Frame)
-     - 包括一个或多个DID(数据标识符)，每个DID又包括一个或多个数据元素。冻结帧在事件确认期间的可配置时间点进行收集和存储，通常会多次存储。(Consists of one or more DIDs (Data Identifiers), each of which contains one or more data elements. Freeze frames are collected and stored at configurable time points during event confirmation and are typically stored multiple times)
+When an SWC or BSW module reports an event, Dem determines under which conditions to acquire real-time freeze frame data based on the configuration of DemFreezeFrameRecordTrigger. This data is stored in a buffer together with the event. Subsequently, during the Dem_MainFunction execution, after the Memory Entry allocation for the event is completed, the data is stored into it.
 
-   * - 扩展数据(Extended Data)
-     - 包括一个或多个数据元素，通常用于统计数值(Consists of one or more data elements, typically used for statistical values)
 
-SWC与BSW报告事件时，Dem根据配置DemExtendedDataRecordTrigger与DemFreezeFrameRecordTrigger决定在哪种条件下获取实时
-扩展数据与冻结帧，并且与事件一同存入buffer中。接着在Dem_MainFunction中等待事件的Memory Entry分配完成后，将数据存储到其中。
+扩展数据功能(Extended Data Function)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ISO-14229-1规定了扩展数据作为诊断事件相关数据的另一种类型，数据可以以扩展数据的形式与每个DTC一起存储。
+扩展数据包括一个或多个数据元素，通常由Dem内部数据元素组成（如故障发生次数OCC、老化计数器AGINGCTR等），
+也可包含SWC/BSW上报的外部数据元素。
 
-When an SWC or BSW module reports an event, Dem determines under which conditions to acquire real-time extended data and freeze frames based on the configurations of DemExtendedDataRecordTrigger and DemFreezeFrameRecordTrigger. This data is stored in a buffer together with the event. Subsequently, during the Dem_MainFunction execution, after the Memory Entry allocation for the event is completed, the data is stored into it.
+ISO-14229-1 specifies extended data as another type of diagnostic event-related data. Data can be stored together with each DTC in the form of extended data.
+Extended data consists of one or more data elements, typically composed of Dem internal data elements (e.g., occurrence counter OCC, aging counter AGINGCTR, etc.), and may also contain external data elements reported by SWC/BSW.
+
+SWC与BSW报告事件时，Dem根据配置DemExtendedDataRecordTrigger决定在哪种条件下获取实时扩展数据，
+并且与事件一同存入buffer中。接着在Dem_MainFunction中等待事件的Memory Entry分配完成后，将数据存储到其中。
+
+When an SWC or BSW module reports an event, Dem determines under which conditions to acquire real-time extended data based on the configuration of DemExtendedDataRecordTrigger. This data is stored in a buffer together with the event. Subsequently, during the Dem_MainFunction execution, after the Memory Entry allocation for the event is completed, the data is stored into it.
 
 
 恢复与老化功能(Recovery and Aging Functions)
@@ -629,14 +680,15 @@ The following introduces three strategies for event replacement:
 
 事件存储管理功能(Event Storage Management Function)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-诊断事件的相关数据可以通过NvM模块读写存储单元中的数据，上电初始化时调用Dem_NvMMemoryInit将NvM读取的admin、entry数据
+诊断事件的存储依赖关联的存储栈（NvM存储栈）。诊断事件的相关数据可以通过NvM模块读写存储单元中的数据，上电初始化时调用Dem_NvMMemoryInit将NvM读取的admin、entry数据
 更新到Dem模块中，在下电时调用Dem_NvmShutdown将Dem的数据写入存储单元。如果不使用AUTOSAR NvM模块，则必须提供一个兼容的
 存储功能替代品，以便使用与非易失性数据管理相关的功能。
+Dem与NvM存储栈的关联通过配置项Dem/DemGeneral/DemNvRamBlockId建立（详见配置章节"诊断事件存储功能"），
 Dem只会触发少量的NvM写操作，所以ECU在运行时通常只存储变化不频繁的数据，如果需要多次触发NvM的写频率，则需要通过配置项
 (Dem/DemConfigSet/DemDTC/DemNvStorageStrategy)，使能Dem立即写功能。
 
-The relevant data of diagnostic events can be read from and written to the storage unit via the NvM module. During power-on initialization, Dem_NvMMemoryInit is called to update the admin and entry data read by NvM into the Dem module. During power-off, Dem_NvmShutdown is called to write the Dem data into the storage unit. If the AUTOSAR NvM module is not used, a compatible alternative storage function must be provided to utilize features related to non-volatile data management.
-Dem triggers only a minimal number of NvM write operations. Therefore, the ECU typically stores only infrequently changing data during operation. If it is necessary to trigger NvM write operations more frequently, the Dem immediate write function must be enabled via the configuration item (Dem/DemConfigSet/DemDTC/DemNvStorageStrategy).
+The storage of diagnostic events depends on the associated storage stack (NvM storage stack). The relevant data of diagnostic events can be read from and written to the storage unit via the NvM module. During power-on initialization, Dem_NvMMemoryInit is called to update the admin and entry data read by NvM into the Dem module. During power-off, Dem_NvmShutdown is called to write the Dem data into the storage unit. If the AUTOSAR NvM module is not used, a compatible alternative storage function must be provided to utilize features related to non-volatile data management.
+The association between Dem and the NvM storage stack is established through the configuration item Dem/DemGeneral/DemNvRamBlockId (see the "Diagnostic Event Storage Function" section in the Configuration chapter). Dem triggers only a minimal number of NvM write operations. Therefore, the ECU typically stores only infrequently changing data during operation. If it is necessary to trigger NvM write operations more frequently, the Dem immediate write function must be enabled via the configuration item (Dem/DemConfigSet/DemDTC/DemNvStorageStrategy).
 
 
 操作循环功能(Operation Cycle Function)
@@ -698,57 +750,55 @@ When a clearing operation is in progress:
 
 偏差(Deviation)
 ------------------------
-.. 有序列表示例
-
  #. 诊断事件依赖以及组件可用性(Diagnostic Event Dependencies and Component Availability)
 
-   AUTOSAR规范中的7.3.6章节(事件依赖关系)，7.3.7章节(组件可用性)暂未实现。
+    AUTOSAR规范中的7.3.6章节(事件依赖关系)，7.3.7章节(组件可用性)暂未实现。
 
-   The functionalities described in AUTOSAR specification chapters 7.3.6 (Event Dependencies) and 7.3.7 (Component Availability) are currently not implemented.
+    The functionalities described in AUTOSAR specification chapters 7.3.6 (Event Dependencies) and 7.3.7 (Component Availability) are currently not implemented.
 
  #. DTC组合事件(DTC Combination Events)
 
-   暂不支持DTC组合事件，Dem/DemGeneral/DemEventCombinationSupport配置项暂不支持配置，默认值为DEM_EVCOMB_DISABLED。
+    暂不支持DTC组合事件，Dem/DemGeneral/DemEventCombinationSupport配置项暂不支持配置，默认值为DEM_EVCOMB_DISABLED。
 
-   DTC combination events are not currently supported. The configuration parameter Dem/DemGeneral/DemEventCombinationSupport is not configurable and defaults to DEM_EVCOMB_DISABLED.
+    DTC combination events are not currently supported. The configuration parameter Dem/DemGeneral/DemEventCombinationSupport is not configurable and defaults to DEM_EVCOMB_DISABLED.
 
  #. 依赖操作周期(Dependent Operation Cycles)
 
-   暂不支持依赖操作周期功能，Dem/DemGeneral/DemOperationCycle/DemLeadingCycleRef配置项暂不支持配置，设置该参数时，
-   操作周期被视为依赖操作周期。每当参数未设置时，操作周期被视为“普通”操作周期。
+    暂不支持依赖操作周期功能，Dem/DemGeneral/DemOperationCycle/DemLeadingCycleRef配置项暂不支持配置，设置该参数时，
+    操作周期被视为依赖操作周期。每当参数未设置时，操作周期被视为“普通”操作周期。
 
-   Dependent operation cycle functionality is not currently supported. The configuration parameter Dem/DemGeneral/DemOperationCycle/DemLeadingCycleRef is not configurable. When this parameter is set, the operation cycle is treated as a dependent operation cycle. When the parameter is not set, the operation cycle is considered a "normal" operation cycle.
+    Dependent operation cycle functionality is not currently supported. The configuration parameter Dem/DemGeneral/DemOperationCycle/DemLeadingCycleRef is not configurable. When this parameter is set, the operation cycle is treated as a dependent operation cycle. When the parameter is not set, the operation cycle is considered a "normal" operation cycle.
 
  #. DemRatio功能(DemRatio Function)
 
-   暂不支持DemRatio功能，Dem/DemGeneral/DemRatio暂不支持配置。
+    暂不支持DemRatio功能，Dem/DemGeneral/DemRatio暂不支持配置。
 
-   The DemRatio function is not currently supported, and the Dem/DemGeneral/DemRatio parameter is not configurable.
+    The DemRatio function is not currently supported, and the Dem/DemGeneral/DemRatio parameter is not configurable.
 
  #. OBD相关功能(OBD-Related Functions)
 
-   AUTOSAR规范中的7.9章节的ODB相关功能暂未实现。
+    AUTOSAR规范中的7.9章节的ODB相关功能暂未实现。
 
-   OBD-related functions specified in Chapter 7.9 of the AUTOSAR specification are not yet implemented.
+    OBD-related functions specified in Chapter 7.9 of the AUTOSAR specification are not yet implemented.
 
  #. Replacement诊断事件(Replacement Diagnostic Events)
 
-   AUTOSAR规范中的7.6章节中的replacement功能暂未实现，Dem/DemGeneral/DemStorageCondition/
-   DemStorageConditionReplacementEventRef配置项暂不支持配置。
+    AUTOSAR规范中的7.6章节中的replacement功能暂未实现，Dem/DemGeneral/DemStorageCondition/
+    DemStorageConditionReplacementEventRef配置项暂不支持配置。
 
-   The replacement function described in Chapter 7.6 of the AUTOSAR specification is not yet implemented. The configuration parameter Dem/DemGeneral/DemStorageCondition/DemStorageConditionReplacementEventRef is not currently configurable.
+    The replacement function described in Chapter 7.6 of the AUTOSAR specification is not yet implemented. The configuration parameter Dem/DemGeneral/DemStorageCondition/DemStorageConditionReplacementEventRef is not currently configurable.
 
  #. J1939 Readiness功能(J1939 Readiness Function)
 
-   AUTOSAR规范中的7.10.5章节中的Readiness功能只实现了Dem_J1939DcmReadDiagnosticReadiness1，其余Readiness功能暂未实现。
+    AUTOSAR规范中的7.10.5章节中的Readiness功能只实现了Dem_J1939DcmReadDiagnosticReadiness1，其余Readiness功能暂未实现。
 
-   Among the Readiness functions in Chapter 7.10.5 of the AUTOSAR specification, only Dem_J1939DcmReadDiagnosticReadiness1 has been implemented. The remaining Readiness functions are not yet available.
+    Among the Readiness functions in Chapter 7.10.5 of the AUTOSAR specification, only Dem_J1939DcmReadDiagnosticReadiness1 has been implemented. The remaining Readiness functions are not yet available.
 
  #. 多事件触发(Multiple Event Triggers)
 
-   每当报告一个配置的事件时将触发其他事件。暂不实现。
+    每当报告一个配置的事件时将触发其他事件。暂不实现。
 
-   The feature to trigger other events upon reporting a configured event, which is not currently implemented.
+    The feature to trigger other events upon reporting a configured event, which is not currently implemented.
 
 
 扩展(Extension)
@@ -761,6 +811,74 @@ When a clearing operation is in progress:
    故障的event状态信息、扩展数据、冻结帧数据等。
 
    The synchronization function for diagnostic events allows Dem to create a reference relationship under DemNvRamBlockId with one click, while simultaneously generating the corresponding NvMBlock in the NvM module. This function automatically calculates the length and number of Blocks required by Dem based on its configuration. Selecting the synchronization function will automatically create the corresponding NvMBlock in the NvM module. Dem supports separate storage of events and will create (DemMaxNumberEventEntryPrimary + DemMaxNumberEventEntryPermanent) NvMBlocks. Each NvMBlock is used to individually store the status information, extended data, freeze frame data, etc., of a faulted event.
+
+   DemNvRamBlockId配置严格按照以下表格顺序生成：
+
+   The DemNvRamBlockId configuration is generated strictly according to the following table order:
+   
+  .. list-table:: 
+    :widths: 5 20 30 30 30
+    :header-rows: 1
+
+    * - 存储块(Memory block)
+      - 解释(Description)
+      - 变量(Variable)
+      - 存储块索引(Memory block index)
+      - 存储块大小(Memory block size)
+
+    * - DEM_NV_PRIMARYBLOCKINDEX
+      - 主存(Primary memory)
+      - Dem_MemoryEntry
+      - 起始块索引值为0，结束块索引值为DemMaxNumberEventEntryPrimary配置大小总和-1
+        
+        The starting block index value is 0, and the ending block index value is the total sum of the DemMaxNumberEventEntryPrimary configuration size minus 1.
+      - 单个存储块大小通过计算定义变量Dem_MemoryEntry的数据类型的大小来得出该存储块的最小值
+        
+        The size of a single memory block is derived as the minimum value of the memory block by calculating the size of the data type of the variable Dem_MemoryEntry.
+  
+    * - DEM_NV_USERDEFINEBLOCKINDEX
+      - 用户定义的内存(User defined memory)
+      - Dem_MemoryEntry
+      - 起始块索引值为DEM_NV_PRIMARYBLOCKINDEX结束块索引值+1，结束块索引值为(配置DemMaxNumberEventEntryUserDefined大小总和+DEM_NV_PRIMARYBLOCKINDEX结束块索引值)-1
+        
+        The starting block index value is DEM_NV_PRIMARYBLOCKINDEX, the ending block index value is 1, and the ending block index value is (the sum of the configured DemMaxNumberEventEntryUserDefined size and the DEM_NV_PRIMARYBLOCKINDEX ending block index) - 1
+      - 单个存储块大小通过计算定义变量Dem_MemoryEntry的数据类型的大小来得出该存储块的最小值
+        
+        The size of a single memory block is derived as the minimum value of the memory block by calculating the size of the data type of the variable Dem_MemoryEntry.
+
+    * - DEM_NV_ADMINBLOCKINDEX
+      - 管理员内存(Admin memory)
+      - Dem_AdminData
+      - 该block数量为1，起始块索引值为DEM_NV_USERDEFINEBLOCKINDEX结束块索引值+1，结束块索引值为DEM_NV_USERDEFINEBLOCKINDEX结束块索引值+1
+        
+        The number of blocks is 1, the starting block index value is DEM_NV_USERDEFINEBLOCKINDEX, the ending block index value is 1, the ending block index value is DEM_NV_USERDEFINEBLOCKINDEX, the ending block index value is 1
+      - 存储块大小通过计算定义变量Dem_AdminData的数据类型的大小来得出该存储块的最小值
+        
+        The storage block size is derived as the minimum value of the storage block by calculating the size of the data type of the variable Dem_AdminData.
+
+    * - DEM_NV_EVENTSTATUSBLOCKINDEX
+      - 事件状态存储(Event status memory)
+      - Dem_EventStatusData
+      - 该block数量为1，起始块索引值为DEM_NV_ADMINBLOCKINDEX结束块索引值+1，结束块索引值为DEM_NV_ADMINBLOCKINDEX结束块索引值+1
+        
+        The number of blocks is 1, the starting block index value is DEM_NV_ADMINBLOCKINDEX, the ending block index value is 1, the ending block index value is DEM_NV_ADMINBLOCKINDEX, ending block index value 1.
+      - 存储块大小通过计算定义变量Dem_EventStatusData的数据类型的大小来得出该存储块的最小值
+        
+        The storage block size is derived as the minimum value of this storage block by calculating the size of the data type of the variable Dem_EventStatusData.
+
+    * - DEM_NV_DEBOUNCEBLOCKINDEX
+      - 去抖内存(Debounce memory)
+      - Dem_DebounceData
+      - 该block数量为1，起始块索引值为DEM_NV_EVENTSTATUSBLOCKINDEX结束块索引值+1，结束块索引值为DEM_NV_EVENTSTATUSBLOCKINDEX结束块索引值+1
+        
+        The number of blocks is 1, the starting block index value is DEM_NV_EVENTSTATUSBLOCKINDEX, the ending block index value is 1, the ending block index value is DEM_NV_EVENTSTATUSBLOCKINDEX, the ending block index value is 1
+      - 存储块大小通过计算定义变量Dem_DebounceData的数据类型的大小来得出该存储块的最小值
+        
+        The storage block size is determined by calculating the size of the data type of the variable Dem_DebounceData to get the minimum value of the storage block.   
+
+  注：平台对齐方式不一样，需要根据实际集成结果调整相关的Nv Block的配置长度
+
+  Note: The platform alignment methods are different, and the configuration length of the relevant Nv Block needs to be adjusted according to the actual integration results.
 
 #. Dem模块的可选功能(Optional Functions of the Dem Module)
 
@@ -785,12 +903,37 @@ When a clearing operation is in progress:
 #. Dem多分区(Dem Multiple Partitions)
 
    需要EcuM与BswM进行不同分区的预初始化和初始化。(注意：Dem多分区初始化情况下会调用GetCurrentApplicationID接口，该接口需要OS启动后才能调用)
-   如诊断测试工程中，配置了分区0(主分区master分区)和分区1，预初始化和初始化流程如下：1、首先进行分区0(主分区master分区)的预初始化，调用Dem_PreInit；
-   2、在主分区初始化完成后调用其他分区上卫星分区的预初始化Dem_SatellitePreInit接口；3、初始化存储栈，调用NvM_ReadAll，等NvM_ReadAll结束(多块通知结果不为PENDING)
-   后调用Dem分区0(主分区master分区)初始化Dem_Init；4、在主分区初始化完成后，调用其他分区上卫星分区的初始化Dem_SatelliteInit接口。
+   如诊断测试工程中，配置了分区0(主分区master分区)和分区1，预初始化和初始化流程如下：
 
-   EcuM and BswM are required to perform pre-initialization and initialization for different partitions. (Note: In the case of Dem multi-partition initialization, the GetCurrentApplicationID interface is called, which can only be invoked after the OS has started.) For example, in a diagnostic test project where Partition 0 (master partition) and Partition 1 are configured, the pre-initialization and initialization process is as follows: 1. First, perform pre-initialization for Partition 0 (master partition) by calling Dem_PreInit; 2. After the master partition initialization is complete, call the Dem_SatellitePreInit interface for pre-initialization of satellite partitions on other partitions; 3. Initialize the storage stack, call NvM_ReadAll, and after NvM_ReadAll completes (the multi-block notification result is not PENDING), call Dem_Init for Dem Partition 0 (master partition); 4. After the master partition initialization is complete, call the Dem_SatelliteInit interface for initialization of satellite partitions on other partitions.
+   EcuM and BswM need to perform pre-initialization and initialization for different partitions. (Note: In the case of Dem multi-partition initialization, the GetCurrentApplicationID interface will be called, which can only be invoked after the OS starts.)
+   For example, in a diagnostic test project, if partition 0 (main partition/master partition) and partition 1 are configured, the pre-initialization and initialization process is as follows:
 
+   1、首先进行分区0(主分区master分区)的预初始化，调用Dem_PreInit。
+
+   1. First, perform the pre-initialization of partition 0 (master partition) by calling Dem_PreInit.
+
+   2、在主分区预初始化完成后调用其他分区上卫星分区的预初始化Dem_SatellitePreInit接口，其他卫星分区间的预初始化Dem_SatellitePreInit接口调用没有时序要求。
+
+   2. After the pre-initialization of the main partition is completed, call the pre-initialization Dem_SatellitePreInit interface of the satellite partitions on the other partitions. There is no timing requirement for calling the pre-initialization Dem_SatellitePreInit interface among other satellite partitions.   
+   
+   3、初始化存储栈，调用NvM_ReadAll，等NvM_ReadAll结束(多块通知结果不为PENDING)后调用Dem分区0(主分区master分区)初始化Dem_Init。
+
+   3. Initialize the storage stack by calling NvM_ReadAll. After NvM_ReadAll ends (the notification result of multiple blocks is not PENDING), call the Dem initialization of partition 0 (master partition) Dem_Init.
+
+   4、在主分区初始化完成后，调用其他分区上卫星分区的初始化Dem_SatelliteInit接口。
+
+   4. After the master partition initialization is completed, call the initialization interface Dem_SatelliteInit on the satellite partitions of other partitions.
+
+   Dem多分区初始化时序如图 :ref:`MultiPartitionInitializationTiming` 所示，接口的详细内容请参考“接口描述”章节。
+
+   The Dem multi-partition initialization timing is shown in *MultiPartitionInitializationTiming*. For detailed information about the interfaces, please refer to the "Interface Description" chapter.
+
+   .. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/MultiPartitionInitializationTiming.png
+      :alt: 多分区初始化时序图
+      :name: MultiPartitionInitializationTiming
+      :align: center
+
+      Multi-partition initialization timing
 
 文件列表(File List)
 -------------------------------
@@ -1152,7 +1295,7 @@ When a clearing operation is in progress:
 
 As shown in DemMasterEcucPartitionRef, configure the master Partition in Dem/DemGeneral/DemMasterEcucPartitionRef.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemMasterEcucPartitionRef.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemMasterEcucPartitionRef.png
    :alt: DemMasterEcucPartitionRef配置图(DemMasterEcucPartitionRef Configuration Diagram)
    :name: DemMasterEcucPartitionRef
    :align: center
@@ -1163,7 +1306,7 @@ As shown in DemMasterEcucPartitionRef, configure the master Partition in Dem/Dem
 
 As shown in DemEventEcucPartitionRef Config, the corresponding Partition can be configured under each event.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemEventEcucPartitionRef.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEventEcucPartitionRef.png
    :alt: DemEventEcucPartitionRef配置图(DemEventEcucPartitionRef Configuration Diagram)
    :name: DemEventEcucPartitionRef
    :align: center
@@ -1174,7 +1317,7 @@ As shown in DemEventEcucPartitionRef Config, the corresponding Partition can be 
 
 The associated partition must be configured as shown in EcuCPartition Config.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/EcuCPartition.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/EcuCPartition.png
    :alt: EcuCPartition配置图(EcuCPartition Configuration Diagram)
    :name: EcuCPartition
    :align: center
@@ -1189,7 +1332,7 @@ The associated partition must be configured as shown in EcuCPartition Config.
 
 First, it is necessary to configure the data element type. As shown in :ref:`DemDataElementClass`, sub-containers can be created under the Dem/DemGeneral/DemDataElementClass container, where configurations such as the length of data elements, internal data elements, and the access method of data elements can be set.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDataElementClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDataElementClass.png
    :alt: DemDataElementClass配置图(DemDataElementClass Configuration Diagram)
    :name: DemDataElementClass
    :align: center
@@ -1200,7 +1343,7 @@ First, it is necessary to configure the data element type. As shown in :ref:`Dem
 
 The internal elements include FailedCycles, AGINGCTR_UPCNT, AGINGCTR_DOWNCNT, CURRENT_FDC, OCC1~OCC6, OVFLIND, SI30, etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemInternalDataElement.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemInternalDataElement.png
    :alt: DemInternalDataElement配置图(DemInternalDataElement Configuration Diagram)
    :name: DemInternalDataElement
    :align: center
@@ -1212,7 +1355,7 @@ DemExtendedDataRecordClass容器下可创建子容器，配置扩展数据号、
 
 The configured data elements are associated in DemExtendedDataRecordClass. As shown in :ref:`DemExtendedDataRecordClass`, sub-containers can be created under the Dem/DemGeneral/DemExtendedDataRecordClass container to configure settings such as the extended data number, extended data storage trigger mode, whether to allow updating extended data, and extended data index.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemExtendedDataRecordClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemExtendedDataRecordClass.png
    :alt: DemExtendedDataRecordClass配置图(DemExtendedDataRecordClass Configuration Diagram)
    :name: DemExtendedDataRecordClass
    :align: center
@@ -1224,7 +1367,7 @@ The configured data elements are associated in DemExtendedDataRecordClass. As sh
 
 The configured DemExtendedDataRecordClass is associated in DemExtendedDataClass. Sub-containers can be created under the Dem/DemGeneral/DemExtendedDataClass container, as shown in :ref:`DemExtendedDataClass`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemExtendedDataClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemExtendedDataClass.png
    :alt: DemExtendedDataClass配置图(DemExtendedDataClass Configuration Diagram)
    :name: DemExtendedDataClass
    :align: center
@@ -1244,7 +1387,7 @@ For details, please refer to the configuration of diagnostic event parameters.
 
 If freeze frames are to be configured, the DID must first be configured. As shown in :ref:`DemDidClass`, sub-containers can be created under the Dem/DemGeneral/DemDidClass container to configure settings such as the DID identifier and data element index.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDidClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDidClass.png
    :alt: DemDidClass配置图(DemDidClass Configuration Diagram)
    :name: DemDidClass
    :align: center
@@ -1256,7 +1399,7 @@ DemFreezeFrameClass容器下可创建子容器，关联Did配置。
 
 The configured DID can be associated in DemFreezeFrameClass. As shown in :ref:`DemFreezeFrameClass`, sub-containers can be created under the Dem/DemGeneral/DemFreezeFrameClass container to associate with the DID configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemFreezeFrameClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemFreezeFrameClass.png
    :alt: DemFreezeFrameClass配置图(DemFreezeFrameClass Configuration Diagram)
    :name: DemFreezeFrameClass
    :align: center
@@ -1268,7 +1411,7 @@ DemFreezeFrameRecordClass容器下可创建子容器，配置冻结帧ID、冻�
 
 Configure DemFreezeFrameRecordClass. As shown in :ref:`DemFreezeFrameRecordClass`, sub-containers can be created under the Dem/DemGeneral/DemFreezeFrameRecordClass container to configure settings such as freeze frame ID, freeze frame storage trigger mode, and permission to update freeze frames.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemFreezeFrameRecordClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemFreezeFrameRecordClass.png
    :alt: DemFreezeFrameRecordClass配置图(DemFreezeFrameRecordClass Configuration Diagram)
    :name: DemFreezeFrameRecordClass
    :align: center
@@ -1280,7 +1423,7 @@ Configure DemFreezeFrameRecordClass. As shown in :ref:`DemFreezeFrameRecordClass
 
 The configured DemFreezeFrameRecordClass is associated in DemFreezeFrameRecNumClass. As shown in :ref:`DemFreezeFrameRecNumClass`, sub-containers can be created under the Dem/DemGeneral/DemFreezeFrameRecNumClass container to associate with the configured DemFreezeFrameRecordClass.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemFreezeFrameRecNumClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemFreezeFrameRecNumClass.png
    :alt: DemFreezeFrameRecNumClass配置图(DemFreezeFrameRecNumClass Configuration Diagram)
    :name: DemFreezeFrameRecNumClass
    :align: center
@@ -1293,6 +1436,47 @@ The configured DemFreezeFrameRecordClass is associated in DemFreezeFrameRecNumCl
 The DemFreezeFrameRecNumClass configured as mentioned above needs to be associated in DemDTCAttributes and then used in DemEventParameter.
 For details, please refer to the configuration of diagnostic event parameters.
 
+
+DTC配置(DTC Configuration)
+-----------------------------------------------------
+每个诊断事件关联一个DTC，DTC配置决定了故障在诊断层面如何被标识、分类与存储。配置路径为Dem/DemConfigSet/DemDTC与
+Dem/DemConfigSet/DemDTCAttributes，并通过DemEventParameter中的DTC索引（DemDTCRef）关联到具体事件。
+
+Each diagnostic event is associated with a DTC. The DTC configuration determines how the fault is identified, classified, and stored at the diagnostic level. The configuration path is Dem/DemConfigSet/DemDTC and Dem/DemConfigSet/DemDTCAttributes, and it is linked to the specific event via the DTC index (DemDTCRef) in DemEventParameter.
+
+如图 :ref:`DemDTC_Fig` 所示，在Dem/DemConfigSet/DemDTC容器下可创建子容器，可配置DTC值（DemDtcValue）、
+DTC功能单元（DemDTCFunctionalUnit）、故障严重度（DemDTCSeverity）、存储策略（DemNvStorageStrategy）、
+OBD DTC引用（DemObdDTCRef）、DTC属性索引（DemDTCAttributesRef）等参数。
+
+As shown in :ref:`DemDTC_Fig`, sub-containers can be created under the Dem/DemConfigSet/DemDTC container. Parameters such as the DTC value (DemDtcValue), DTC functional unit (DemDTCFunctionalUnit), fault severity (DemDTCSeverity), storage strategy (DemNvStorageStrategy), OBD DTC reference (DemObdDTCRef), and DTC attribute index (DemDTCAttributesRef) can be configured.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDTC.png
+   :alt: DemDTC配置图(DemDTC Configuration Diagram)
+   :name: DemDTC_Fig
+   :align: center
+
+   DemDTC Config
+
+其中DTC属性索引如图:ref:`DemDTCAttributes_Fig` 所示，在Dem/DemConfigSet/DemDTCAttributes容器下可创建子容器，
+可配置老化阈值（DemAgingCycleCounterThreshold）、Bit5老化阈值（DemAgingCycleCounterThresholdForTFSLC）、
+DTC优先级（DemDTCPriority）、故障分类（DemDTCSignificance）、扩展数据索引（DemExtendedDataClassRef）、
+冻结帧索引（DemFreezeFrameClassRef）、冻结帧号（DemFreezeFrameRecNumClassRef）、存储地址（DemMemoryDestinationRef）等参数。
+
+The DTC attribute index is shown in :ref:`DemDTCAttributes_Fig`. Sub-containers can be created under the Dem/DemConfigSet/DemDTCAttributes container, where parameters such as the aging threshold (DemAgingCycleCounterThreshold), Bit5 aging threshold (DemAgingCycleCounterThresholdForTFSLC), DTC priority (DemDTCPriority), fault classification (DemDTCSignificance), extended data index (DemExtendedDataClassRef), freeze frame index (DemFreezeFrameClassRef), freeze frame number (DemFreezeFrameRecNumClassRef), and storage address (DemMemoryDestinationRef) can be configured.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDTCAttributes.png
+   :alt: DemDTCAttributes配置图(DemDTCAttributes Configuration Diagram)
+   :name: DemDTCAttributes_Fig
+   :align: center
+
+   DemDTCAttributes Config
+
+配置完成的DTC需要在DemEventParameter中通过DTC索引（DemDTCRef）关联后使用，详细参考诊断事件参数配置。
+
+The configured DTC needs to be associated via the DTC index (DemDTCRef) in DemEventParameter before use. For details, please refer to the diagnostic event parameter configuration.
+
+
+
 诊断事件参数(Diagnostic Event Parameters)
 -----------------------------------------------------
 在Dem/DemConfigSet/DemEventParameter容器下创建子容器，如图 :ref:`DemEventParameter` 所示，
@@ -1301,7 +1485,7 @@ For details, please refer to the configuration of diagnostic event parameters.
 
 Create a sub-container under the Dem/DemConfigSet/DemEventParameter container, as shown in :ref:`DemEventParameter`. Parameters such as the priority within the specified component, the Bit3 set threshold, the ID of the diagnostic event, the event type, the reporting behavior of the Dem event, the DTC index, the operation cycle index, the DemEnableConditionGroup index, and the DemStorageConditionGroup index can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemEventParameter.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEventParameter.png
    :alt: DemEventParameter配置图(DemEventParameter Configuration Diagram)
    :name: DemEventParameter
    :align: center
@@ -1313,7 +1497,7 @@ DTC值、存储策略、DTC属性索引、OBD DTC索引等。
 
 The DTC associated in DemEventParameter is shown in :ref:`DemDTC`, where configurations such as DTC functional unit, DTC Severity, DTC value, storage strategy, DTC attribute index, and OBD DTC index can be made.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDTC.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDTC.png
    :alt: DemDTC配置图(DemDTC Configuration Diagram)
    :name: DemDTC
    :align: center
@@ -1326,7 +1510,7 @@ DemJ1939FreezeFrameClass的引用、存储地址等参数。
 
 The DTC attribute index is shown in :ref:`DemDTCAttributes`, where parameters such as aging threshold, Bit5 aging threshold, DTC priority, fault classification, extended data index, freeze frame index, freeze frame number, freeze frame number index, reference to DemJ1939FreezeFrameClass, and storage address can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDTCAttributes.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDTCAttributes.png
    :alt: DemDTCAttributes配置图(DemDTCAttributes Configuration Diagram)
    :name: DemDTCAttributes
    :align: center
@@ -1338,7 +1522,7 @@ The DTC attribute index is shown in :ref:`DemDTCAttributes`, where parameters su
 
 The DemEnableConditionGroupRef associated in DemEventParameter, as shown in :ref:`DemEnableConditionGroup`, can be linked to the enable condition index.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemEnableConditionGroup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEnableConditionGroup.png
    :alt: DemEnableConditionGroup配置图(DemEnableConditionGroup Configuration Diagram)
    :name: DemEnableConditionGroup
    :align: center
@@ -1349,7 +1533,7 @@ The DemEnableConditionGroupRef associated in DemEventParameter, as shown in :ref
 
 As shown in :ref:`DemEnableCondition`, the enable condition ID, enable condition status, etc. can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemEnableCondition.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEnableCondition.png
    :alt: DemEnableCondition配置图(DemEnableCondition Configuration Diagram)
    :name: DemEnableCondition
    :align: center
@@ -1361,7 +1545,7 @@ As shown in :ref:`DemEnableCondition`, the enable condition ID, enable condition
 
 The DemStorageConditionGroupRef associated in DemEventParameter, as shown in :ref:`DemStorageConditionGroup`, can be linked to the storage condition index.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemStorageConditionGroup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemStorageConditionGroup.png
    :alt: DemStorageConditionGroup配置图(DemStorageConditionGroup Configuration Diagram)
    :name: DemStorageConditionGroup
    :align: center
@@ -1372,7 +1556,7 @@ The DemStorageConditionGroupRef associated in DemEventParameter, as shown in :re
 
 As shown in :ref:`DemStorageCondition`, the storage condition ID, storage condition status, etc. can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemStorageCondition.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemStorageCondition.png
    :alt: DemStorageCondition配置图(DemStorageCondition Configuration Diagram)
    :name: DemStorageCondition
    :align: center
@@ -1384,7 +1568,7 @@ As shown in :ref:`DemStorageCondition`, the storage condition ID, storage condit
 
 The DemOperationCycleRef associated in DemEventParameter can be linked to the operation cycle index. As shown in :ref:`DemOperationCycle`, the DemOperationCycleId increases automatically according to the number of additions.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemOperationCycle.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemOperationCycle.png
    :alt: DemOperationCycle配置图(DemOperationCycle Configuration Diagram)
    :name: DemOperationCycle
    :align: center
@@ -1397,7 +1581,7 @@ The DemOperationCycleRef associated in DemEventParameter can be linked to the op
 For each event in DemEventParameter, a corresponding sub-container can be created for the callback interface, allowing selection of whether to configure the callback.
 As shown in :ref:`DemCallbackClearEventAllowed`, the ClearEventAllowed callback interface can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackClearEventAllowed.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackClearEventAllowed.png
    :alt: DemCallbackClearEventAllowed配置图(DemCallbackClearEventAllowed Configuration Diagram)
    :name: DemCallbackClearEventAllowed
    :align: center
@@ -1408,7 +1592,7 @@ As shown in :ref:`DemCallbackClearEventAllowed`, the ClearEventAllowed callback 
 
 As shown in :ref:`DemCallbackEventDataChanged`, the EventDataChanged callback interface can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackEventDataChanged.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackEventDataChanged.png
    :alt: DemCallbackEventDataChanged配置图(DemCallbackEventDataChanged Configuration Diagram)
    :name: DemCallbackEventDataChanged
    :align: center
@@ -1419,7 +1603,7 @@ As shown in :ref:`DemCallbackEventDataChanged`, the EventDataChanged callback in
 
 As shown in :ref:`DemCallbackEventUdsStatusChanged`, the EventUdsStatusChanged callback interface can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackEventUdsStatusChanged.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackEventUdsStatusChanged.png
    :alt: DemCallbackEventUdsStatusChanged配置图(DemCallbackEventUdsStatusChanged Configuration Diagram)
    :name: DemCallbackEventUdsStatusChanged
    :align: center
@@ -1430,7 +1614,7 @@ As shown in :ref:`DemCallbackEventUdsStatusChanged`, the EventUdsStatusChanged c
 
 As shown in :ref:`DemCallbackInitMForE`, the InitMonitorForEvent callback interface can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackInitMForE.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackInitMForE.png
    :alt: DemCallbackInitMForE配置图(DemCallbackInitMForE Configuration Diagram)
    :name: DemCallbackInitMForE
    :align: center
@@ -1441,7 +1625,7 @@ As shown in :ref:`DemCallbackInitMForE`, the InitMonitorForEvent callback interf
 
 As shown in :ref:`DemCallbackMonitorStatusChanged`, the MonitorStatusChanged callback interface can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackMonitorStatusChanged.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackMonitorStatusChanged.png
    :alt: DemCallbackMonitorStatusChanged配置图(DemCallbackMonitorStatusChanged Configuration Diagram)
    :name: DemCallbackMonitorStatusChanged
    :align: center
@@ -1452,7 +1636,7 @@ As shown in :ref:`DemCallbackMonitorStatusChanged`, the MonitorStatusChanged cal
 
 As shown in :ref:`DemIndicatorAttribute`, configurations such as the behavior of the indicator, the number of failure cycles of the Indicator, the number of recovery cycles, and the Indicator index can be made.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemIndicatorAttribute.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemIndicatorAttribute.png
    :alt: DemIndicatorAttribute配置图(DemIndicatorAttribute Configuration Diagram)
    :name: DemIndicatorAttribute
    :align: center
@@ -1468,7 +1652,7 @@ As shown in :ref:`DemIndicatorAttribute`, configurations such as the behavior of
 
 As shown in :ref:`DemDebounceAlgorithmClass`, sub-containers can be created under the Dem/DemConfigSet/DemEventParameter/DemDebounceAlgorithmClass container to associate debounce configurations based on counter/time, or monitor internal (DemDebounceMonitorInternal). The configured debounce function can then be associated in the corresponding sub-container.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceAlgorithmClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceAlgorithmClass.png
    :alt: DemDebounceAlgorithmClass配置图(DemDebounceAlgorithmClass Configuration Diagram)
    :name: DemDebounceAlgorithmClass
    :align: center
@@ -1481,7 +1665,7 @@ Jump-up/Jump-down的值、是否存储去抖计数等参数。
 
 If associating a count-based debounce function, as shown in :ref:`DemDebounceCounterBasedClass`, multiple count-based debounce sub-containers can be created under the Dem/DemConfigSet/DemDebounceCounterBasedClass container. Parameters such as debounce behavior, step size for counter calculation, thresholds for triggering fail/pass, Jump-up/Jump-down values, and whether to store the debounce count can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceCounterBasedClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceCounterBasedClass.png
    :alt: DemDebounceCounterBasedClass配置图(DemDebounceCounterBasedClass Configuration Diagram)
    :name: DemDebounceCounterBasedClass
    :align: center
@@ -1493,7 +1677,7 @@ If associating a count-based debounce function, as shown in :ref:`DemDebounceCou
 
 If associating a time-based debounce function, as shown in :ref:`DemDebounceTimeBasedClass`, multiple time-based debounce sub-containers can be created under the Dem/DemConfigSet/DemDebounceTimeBasedClass container. Parameters such as debounce behavior, thresholds for triggering fail/pass, and thresholds for allocating event memory entries and capturing freeze frames can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceTimeBasedClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceTimeBasedClass.png
    :alt: DemDebounceTimeBasedClass配置图(DemDebounceTimeBasedClass Configuration Diagram)
    :name: DemDebounceTimeBasedClass
    :align: center
@@ -1506,12 +1690,84 @@ If associating a time-based debounce function, as shown in :ref:`DemDebounceTime
 
 If associating the monitor internal (DemDebounceMonitorInternal) debounce function, as shown in :ref:`DemDebounceMonitorInternal`, a DemCallbackGetFDC sub-container can be created under the Dem/DemConfigSet/DemEventParameter/DemDebounceAlgorithmClass/DemDebounceMonitorInternal container, and you can choose whether to configure the callback interface.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceMonitorInternal.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemDebounceMonitorInternal.png
    :alt: DemDebounceMonitorInternal配置图(DemDebounceMonitorInternal Configuration Diagram)
    :name: DemDebounceMonitorInternal
    :align: center
 
    DemDebounceMonitorInternal Config
+
+
+使能条件(Enable Condition)
+-------------------------------------------
+
+使能条件被定义为一组分配给特定条件的参数，只要该条件未满足，事件报告（参考Dem_SetEventStatus）即为无效而不会被接受。
+配置路径为Dem/DemGeneral/DemEnableConditionGroup与Dem/DemGeneral/DemEnableCondition，并通过DemEventParameter中的DemEnableConditionGroupRef关联到具体事件。
+
+An enable condition is defined as a set of parameters assigned to a specific condition. As long as the condition is not met, event reporting (see Dem_SetEventStatus) is invalid and will not be accepted. The configuration path is Dem/DemGeneral/DemEnableConditionGroup and Dem/DemGeneral/DemEnableCondition, and it is linked to the specific event via DemEnableConditionGroupRef in DemEventParameter.
+
+如图 :ref:`DemEnableConditionGroup_Fig` 所示，在Dem/DemGeneral/DemEnableConditionGroup容器下可创建子容器，关联使能条件。
+
+As shown in :ref:`DemEnableConditionGroup_Fig`, sub-containers can be created under the Dem/DemGeneral/DemEnableConditionGroup container to associate enable conditions.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEnableConditionGroup.png
+   :alt: DemEnableConditionGroup配置图(DemEnableConditionGroup Configuration Diagram)
+   :name: DemEnableConditionGroup_Fig
+   :align: center
+
+   DemEnableConditionGroup Config
+
+如图 :ref:`DemEnableCondition_Fig` 所示，在Dem/DemGeneral/DemEnableCondition容器下可创建子容器，
+配置使能条件Id（DemEnableConditionId）、使能条件状态（DemEnableConditionStatus）等参数。
+
+As shown in :ref:`DemEnableCondition_Fig`, sub-containers can be created under the Dem/DemGeneral/DemEnableCondition container to configure parameters such as the enable condition ID (DemEnableConditionId) and enable condition status (DemEnableConditionStatus).
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEnableCondition.png
+   :alt: DemEnableCondition配置图(DemEnableCondition Configuration Diagram)
+   :name: DemEnableCondition_Fig
+   :align: center
+
+   DemEnableCondition Config
+
+配置的使能条件需要在DemEventParameter中通过DemEnableConditionGroupRef关联后使用，详细参考诊断事件参数配置。
+
+The configured enable condition needs to be associated via DemEnableConditionGroupRef in DemEventParameter before use. For details, please refer to the diagnostic event parameter configuration.
+
+
+存储条件(Storage Condition)
+-------------------------------------------
+
+存储条件被定义为一组分配给特定条件的参数，只要该条件未满足，Dem模块就不会将事件存储到事件存储器中。
+配置路径为Dem/DemGeneral/DemStorageConditionGroup与Dem/DemGeneral/DemStorageCondition，并通过DemEventParameter中的DemStorageConditionGroupRef关联到具体事件。
+
+A storage condition is defined as a set of parameters assigned to a specific condition. As long as the condition is not met, the Dem module will not store the event in the event memory. The configuration path is Dem/DemGeneral/DemStorageConditionGroup and Dem/DemGeneral/DemStorageCondition, and it is linked to the specific event via DemStorageConditionGroupRef in DemEventParameter.
+
+如图 :ref:`DemStorageConditionGroup_Fig` 所示，在Dem/DemGeneral/DemStorageConditionGroup容器下可创建子容器，关联存储条件。
+
+As shown in :ref:`DemStorageConditionGroup_Fig`, sub-containers can be created under the Dem/DemGeneral/DemStorageConditionGroup container to associate storage conditions.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemStorageConditionGroup.png
+   :alt: DemStorageConditionGroup配置图(DemStorageConditionGroup Configuration Diagram)
+   :name: DemStorageConditionGroup_Fig
+   :align: center
+
+   DemStorageConditionGroup Config
+
+如图 :ref:`DemStorageCondition_Fig` 所示，在Dem/DemGeneral/DemStorageCondition容器下可创建子容器，
+配置存储条件Id（DemStorageConditionId）、存储条件状态（DemStorageConditionStatus）等参数。
+
+As shown in :ref:`DemStorageCondition_Fig`, sub-containers can be created under the Dem/DemGeneral/DemStorageCondition container to configure parameters such as the storage condition ID (DemStorageConditionId) and storage condition status (DemStorageConditionStatus).
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemStorageCondition.png
+   :alt: DemStorageCondition配置图(DemStorageCondition Configuration Diagram)
+   :name: DemStorageCondition_Fig
+   :align: center
+
+   DemStorageCondition Config
+
+配置的存储条件需要在DemEventParameter中通过DemStorageConditionGroupRef关联后使用，详细参考诊断事件参数配置。
+
+The configured storage condition needs to be associated via DemStorageConditionGroupRef in DemEventParameter before use. For details, please refer to the diagnostic event parameter configuration.
 
 
 J939功能 J1939(Functionality)
@@ -1520,7 +1776,7 @@ J939功能 J1939(Functionality)
 
 In the Dem/DemGeneral/DemGeneralJ1939 container, as shown in :ref:`DemGeneralJ1939`, you can check to enable the corresponding function configurations.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemGeneralJ1939.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemGeneralJ1939.png
    :alt: DemGeneralJ1939配置图(DemGeneralJ1939 Configuration Diagram)
    :name: DemGeneralJ1939
    :align: center
@@ -1532,7 +1788,7 @@ In the Dem/DemGeneral/DemGeneralJ1939 container, as shown in :ref:`DemGeneralJ19
 
 In the Dem/DemGeneral/DemGeneralJ1939/DemSPNClass container, create a sub-container. As shown in :ref:`DemSPNClass`, you can configure the SPN identifier and associate data elements.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemSPNClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemSPNClass.png
    :alt: DemSPNClass配置图(DemSPNClass Configuration Diagram)
    :name: DemSPNClass
    :align: center
@@ -1544,7 +1800,7 @@ In the Dem/DemGeneral/DemGeneralJ1939/DemSPNClass container, create a sub-contai
 
 In the Dem/DemGeneral/DemGeneralJ1939/DemJ1939FreezeFrameClass container, create a sub-container. As shown in :ref:`DemJ1939FreezeFrameClass`, the configured DemSPNClass can be associated.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemJ1939FreezeFrameClass.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemJ1939FreezeFrameClass.png
    :alt: DemJ1939FreezeFrameClass配置图(DemJ1939FreezeFrameClass Configuration Diagram)
    :name: DemJ1939FreezeFrameClass
    :align: center
@@ -1556,7 +1812,7 @@ In the Dem/DemGeneral/DemGeneralJ1939/DemJ1939FreezeFrameClass container, create
 
 Additionally, a sub-container can be created in the Dem/DemGeneral/DemGeneralJ1939/DemCallbackJ1939DTCStatusChanged container. As shown in :ref:`DemCallbackJ1939DTCStatusChanged`, the callback interface can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackJ1939DTCStatusChanged.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemCallbackJ1939DTCStatusChanged.png
    :alt: DemCallbackJ1939DTCStatusChanged配置图(DemCallbackJ1939DTCStatusChanged Configuration Diagram)
    :name: DemCallbackJ1939DTCStatusChanged
    :align: center
@@ -1575,7 +1831,7 @@ DTC支持的类型(ISO11992_4、ISO14229_1、ISO15031_6、SAEJ1939_73、SAE_J201
 
 In the Dem/DemGeneral/DemEventMemorySet container, as shown in :ref:`DemEventMemorySet`, configure parameters such as the maximum number of events that can be stored in permanent memory, the DTC types supported (ISO11992_4, ISO14229_1, ISO15031_6, SAEJ1939_73, SAE_J2012_DA_DTCFORMAT_04), and associated indicator lamps including MIL, RSL, AWL, PL, etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemEventMemorySet.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemEventMemorySet.png
    :alt: DemEventMemorySet配置图(DemEventMemorySet Configuration Diagram)
    :name: DemEventMemorySet
    :align: center
@@ -1587,7 +1843,7 @@ In the Dem/DemGeneral/DemEventMemorySet container, as shown in :ref:`DemEventMem
 
 In the Dem/DemGeneral/DemEventMemorySet/DemClearDTCNotification sub-container, as shown in :ref:`DemClearDTCNotification`, the callback interface for clearing DTCs and the clearing timing can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemClearDTCNotification.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemClearDTCNotification.png
    :alt: DemClearDTCNotification配置图(DemClearDTCNotification Configuration Diagram)
    :name: DemClearDTCNotification
    :align: center
@@ -1598,7 +1854,7 @@ In the Dem/DemGeneral/DemEventMemorySet/DemClearDTCNotification sub-container, a
 
 In the Dem/DemGeneral/DemEventMemorySet/DemIndicator sub-container, as shown in :ref:`DemIndicator`, the indicator lamp ID can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemIndicator.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemIndicator.png
    :alt: DemIndicator配置图(DemIndicator Configuration Diagram)
    :name: DemIndicator
    :align: center
@@ -1610,7 +1866,7 @@ In the Dem/DemGeneral/DemEventMemorySet/DemIndicator sub-container, as shown in 
 
 In the Dem/DemGeneral/DemEventMemorySet/DemPrimaryMemory sub-container, as shown in :ref:`DemPrimaryMemory`, configurations can be made such as the mask for UDS service 0x19 positive response, replacement strategy, method for triggering event storage, maximum number of events stored in primary memory, OCC calculation method, and snapshot number calculation method.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemPrimaryMemory.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemPrimaryMemory.png
    :alt: DemPrimaryMemory配置图(DemPrimaryMemory Configuration Diagram)
    :name: DemPrimaryMemory
    :align: center
@@ -1621,7 +1877,7 @@ In the Dem/DemGeneral/DemEventMemorySet/DemPrimaryMemory sub-container, as shown
 
 and the associated DTC group, as shown in :ref:`DemGroupOfDTC`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemGroupOfDTC.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemGroupOfDTC.png
    :alt: DemGroupOfDTC配置图(DemGroupOfDTC Configuration Diagram)
    :name: DemGroupOfDTC
    :align: center
@@ -1633,7 +1889,7 @@ and the associated DTC group, as shown in :ref:`DemGroupOfDTC`.
 
 Additionally, in the Dem/DemGeneral/DemEventMemorySet/DemUserDefinedMemory sub-container, as shown in :ref:`DemUserDefinedMemory`, user-defined event storage functions can be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemUserDefinedMemory.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemUserDefinedMemory.png
    :alt: DemUserDefinedMemory配置图(DemUserDefinedMemory Configuration Diagram)
    :name: DemUserDefinedMemory
    :align: center
@@ -1646,7 +1902,7 @@ Additionally, in the Dem/DemGeneral/DemEventMemorySet/DemUserDefinedMemory sub-c
 When Dem needs to permanently store event status information and internal data, it needs to interact with NvM. A reference relationship can be created through the synchronization function under Dem/DemGeneral/DemNvRamBlockId.
 As shown in :ref:`DemNvRamBlockId`,
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemNvRamBlockId.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemNvRamBlockId.png
    :alt: DemNvRamBlockId配置图(DemNvRamBlockId Configuration Diagram)
    :name: DemNvRamBlockId
    :align: center
@@ -1657,7 +1913,7 @@ As shown in :ref:`DemNvRamBlockId`,
 
 Right-click on the DemNvRamBlockId container and click on the synchronization function, as shown in :ref:`DemNvRamBlockIdSYNC`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemNvRamBlockIdSYNC.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemNvRamBlockIdSYNC.png
    :alt: DemNvRamBlockIdSYNC配置图(DemNvRamBlockIdSYNC Configuration Diagram)
    :name: DemNvRamBlockIdSYNC
    :align: center
@@ -1668,7 +1924,7 @@ Right-click on the DemNvRamBlockId container and click on the synchronization fu
 
 Alternatively, right-click on the Dem module in BSW and click on the synchronization function, as shown in :ref:`DemSYNCModule`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dem/DemSYNCModule.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dem/DemSYNCModule.png
    :alt: DemSYNCModule配置图(DemSYNCModule Configuration Diagram)
    :name: DemSYNCModule
    :align: center

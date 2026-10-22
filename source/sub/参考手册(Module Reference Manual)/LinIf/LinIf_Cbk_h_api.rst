@@ -9,7 +9,7 @@ LinIf_WakeupConfirmation
 The LIN Driver or LIN Transceiver Driver will call this function to report the wake up source after the successful wakeup detection during CheckWakeup or after power on by bus.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -41,7 +41,7 @@ LinIf_HeaderIndication
 The LIN Driver will call this function to report a received LIN header.This function is only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Channels.
@@ -76,7 +76,7 @@ LinIf_RxIndication
 The LIN Driver will call this function to report a successfully received response and provides the reception data to the LIN Interface. This function is only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Channels.
@@ -111,7 +111,7 @@ LinIf_TxConfirmation
 The LIN Driver will call this function to report a successfully transmitted response. This function is only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Channels.
@@ -143,7 +143,7 @@ LinIf_LinErrorIndication
 The LIN Driver will call this function to report a detected error event during header or response processing This function is only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Channels.

@@ -4,7 +4,7 @@ Fee
 
 
 
-文档信息(Document Information)
+文档信息（Document Information）
 =======================================
 
 版本历史(Version History)
@@ -19,22 +19,43 @@ Fee
      - 版本(Version)
      - 状态(Status)
      - 说明(Description)
+
    * - 2024/11/12
      - peng.wu
      - V0.1
      - 发布(Release)
      - 首次发布(First release)
+
    * - 2025/04/04
      - peng.wu
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/09/30
+     - haibin.shao
+     - V1.1
+     - 修正
+     - 追加Cluster特性，MemAcc适配，Buffer对齐等功能(Add functions such as MemAcc adaptation and Buffer alignment)
+
+   * - 2025/11/28
+     - peng.wu
+     - V1.2
+     - 修正(Modify)
+     - 增加多分区功能的描述(Add the description of multi-partition)
+
+   * - 2025/12/11
+     - peng.wu
+     - V1.3
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
+
+
 参考文档(References)
 ----------------------------------
 
 .. list-table::
-   :widths: 10 12 25 10
+   :widths: 10 10 30 10
    :header-rows: 1
 
    * - 编号(Number)
@@ -48,7 +69,15 @@ Fee
    * - 2
      - Autosar
      - AUTOSAR_CP_SWS_FlashEEPROMEmulation.pdf
-     - R23-11 
+     - R23-11
+   * - 3
+     - Autosar
+     - AUTOSAR_CP_SWS_MemoryAccess.pdf
+     - R23-11
+   * - 4
+     - Autosar
+     - AUTOSAR_CP_SWS_NVRAMManager.pdf
+     - R23-11
 
 
 术语与简写(Terms and Abbreviations)
@@ -75,6 +104,9 @@ Fee
 
    * - Bank
      - 存储块，可能由一个或几个物理部分组成(A storage block, which may consist of one or several physical parts)
+
+   * - Cluster
+     - 存储集群组，可能由一个或几个集群组组成，然后每一个集群组划分几个物理部分等组织结构(Storage cluster groups may consist of one or several cluster groups, and then each cluster group is divided into several physical parts and other organizational structures)
 
    * - Virtual address
      - 虚拟地址，由逻辑块内的16位块号和16位偏移量组成(A virtual address, composed of a 16-bit block number and a 16-bit offset within a logical block)
@@ -124,6 +156,14 @@ Fee
      - Memory Access- AUTOSAR Basic Software module for memory access
      - AUTOSAR基本软件模块存储器访问
 
+   * - BndM
+     - Bulk Nv Data Manager
+     - 批量非易失性数据块管理
+
+   * - OTA
+     - Over The Air Technology
+     - AUTOSAR基本软件模块空中升级技术
+
    * - LSB
      - Least significant bit / byte 
      - 最低有效位/字节
@@ -135,43 +175,60 @@ Fee
 简介(Introduction)
 =========================
 
-
 Fee是对Flash块进行逻辑块的划分(逻辑块的大小根据配置可能不同)，以及地址映射，
 通过模拟Eeprom(不用先擦除再写入)主要实现基于Block的非易失性数据读、写功能，同时支持
 Immediate Block的擦除，Block的使无效操作，任务的取消机制，模块状态及任务结果的获取。
 
 Fee divides Flash blocks into logical blocks (logical block sizes may vary based on configuration) and performs address mapping. By emulating EEPROM (no erase before write), it mainly implements Block-based non-volatile data read/write functions, while supporting Immediate Block erasure, Block invalidation operations, task cancellation mechanisms, and module status and task result acquisition.
 
-Fee模块处于AUTOSAR架构中的存储服务层，其下层模块为Flash模块，上层模块为MemIf模块。
+Fee模块处于AUTOSAR架构中的存储服务层，其下层模块为Flash/MemAcc模块，上层模块为MemIf模块。
 模块架构如图 :ref:`Fee_AUTOSAR_Arch` 所示。
 
-The Fee module is located in the storage service layer of the AUTOSAR architecture. Its lower layer module is the Flash module, and its upper layer module is the MemIf module. The module architecture is shown in Figure :ref:`Fee_AUTOSAR_Arch`.
+The Fee module is located in the storage service layer of the AUTOSAR architecture. Its lower layer module is the Flash/MemAcc module, and its upper layer module is the MemIf module. The module architecture is shown in Figure :ref:`Fee_AUTOSAR_Arch`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_AUTOSAR_Architecture.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/Fee_AUTOSAR_Architecture.png
    :alt: Fee模块层次图(Fee Module Hierarchy Diagram)
    :name: Fee_AUTOSAR_Arch
    :align: center
 
    Fee AUTOSAR Architecture
 
-Fee接口调用关系如图 :ref:`Fee_Interface` 所示，接口的详细内容请参考“接口描述”章节。
-
-The Fee interface calling relationship is shown in Figure :ref:`Fee_Interface`. For detailed interface information, please refer to the "Interface Description" chapter.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_Interface_Relationship.png
-   :alt: Fee模块接口关系图(Fee Module Interface Relationship Diagram)
-   :name: Fee_Interface
-   :align: center
-
-   Fee interface relationship
-
 
 功能描述(Functional Description)
 ===================================
 
+公共特性（Public Features）
+--------------------------------------------------------------
 
-特性(Features)
-----------------------
+多核多分区功能（Multi-core and Multi-partition Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Fee多分区场景下，必须保持与上层NvM模块在同一分区。
+
+In the Fee multi-partition scenario, it is necessary to remain in the same partition as the upper-level NvM module.
+
+.. only:: doc_pbs
+
+   PBS功能（PBS Features）
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   无配置项，不支持。
+
+   No configurations, not supported.
+
+
+Memmap功能（Memmap Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Memmap文件是动态的。存在FEE_START_SEC_CODE、FEE_STOP_SEC_CODE、FEE_START_SEC_CONFIG_DATA_UNSPECIFIED、FEE_STOP_SEC_CONFIG_DATA_UNSPECIFIED、FEE_START_SEC_VAR_CLEARED_32、FEE_STOP_SEC_VAR_CLEARED_32、FEE_START_SEC_VAR_CLEARED_UNSPECIFIED、FEE_STOP_SEC_VAR_CLEARED_UNSPECIFIED、FEE_START_SEC_VAR_INIT_8、FEE_STOP_SEC_VAR_INIT_8、FEE_START_SEC_VAR_INIT_PTR、FEE_STOP_SEC_VAR_INIT_PTR字段。
+
+The memmap file is dynamic.There are FEE_START_SEC_CODE、FEE_STOP_SEC_CODE、FEE_START_SEC_CONFIG_DATA_UNSPECIFIED、FEE_STOP_SEC_CONFIG_DATA_UNSPECIFIED、FEE_START_SEC_VAR_CLEARED_32、FEE_STOP_SEC_VAR_CLEARED_32、FEE_START_SEC_VAR_CLEARED_UNSPECIFIED、FEE_STOP_SEC_VAR_CLEARED_UNSPECIFIED、FEE_START_SEC_VAR_INIT_8、FEE_STOP_SEC_VAR_INIT_8、FEE_START_SEC_VAR_INIT_PTR、FEE_STOP_SEC_VAR_INIT_PTR fields.
+
+
+独占区功能（Exclusive Area Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性（Module Features）
+--------------------------------------------
 
 模块初始化(Module Initialization)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,20 +270,20 @@ Block操作功能(Block Operation Functions)
    Only Blocks configured as Immediate support the Fee_EraseImmediateBlock operation, and the Fee_EraseImmediateBlock task must be completed before calling Fee_Write.
 
 
-访问Flash(Driver Accessing Flash Driver)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Fee功能的实现依赖于通过Flash Driver实现Flash的擦除、读、写功能，以及任务取消，任务结果获取等机制。
-Flash Driver中Flash数据的擦除、读、写同样通过异步机制实现，Fee模块与Flash Driver之间任务结果的交互同样分两种机制：
+访问Flash/Mem Driver(Flash/Mem Driver Accessing)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Fee功能的实现依赖于通过Flash/Mem Driver实现Flash/mem的擦除、读、写功能，以及任务取消，任务结果获取等机制。
+Flash/Mem Driver中Flash/Mem数据的擦除、读、写同样通过异步机制实现，Fee模块与Flash/Mem Driver之间任务结果的交互同样分两种机制：
 
-Fee function implementation relies on Flash Driver for Flash erase, read, and write operations, as well as task cancellation and result acquisition mechanisms. Flash data erase, read, and write operations in Flash Driver are also implemented asynchronously. Task result interaction between Fee module and Flash Driver also uses two mechanisms:
+Fee function implementation relies on Flash/Mem Driver for Flash/Mem erase, read, and write operations, as well as task cancellation and result acquisition mechanisms. Flash/Mem data erase, read, and write operations in Flash/Mem Driver are also implemented asynchronously. Task result interaction between Fee module and Flash/Mem Driver also uses two mechanisms:
 
 1. 在polling模式下，Fee通过调用接口Fls_GetJobResult获取Job结果；
 
-   In polling mode, Fee obtains Job results by calling the Fls_GetJobResult interface;
+   In polling mode, Fee obtains Job results by calling the Fls_GetJobResult/MemAcc_GetJobResult interface;
 
 2. 在Notification模式下，任务成功/失败Flash Driver都通过调用Fee_JobEndNotification回调函数通知Fee模块；
 
-   In Notification mode, Flash Driver notifies the Fee module of task success/failure by calling the Fee_JobEndNotification callback function;
+   In Notification mode, Flash/Mem Driver notifies the Fee module of task success/failure by calling the Fee_JobEndNotification callback function;
 
 
 偏差(Deviations)
@@ -244,9 +301,11 @@ Fee function implementation relies on Flash Driver for Flash erase, read, and wr
 
    Fee initialization can be implemented in both asynchronous and synchronous modes. However, since Fee initialization may involve extensive Flash read operations, the current implementation uses asynchronous mode, while synchronous mode is not yet implemented.
 
+
 扩展(Extension)
 ----------------------
 None
+
 
 集成(Integration)
 ===========================
@@ -281,6 +340,7 @@ None
        
    * - Fee_MemMap.h
      - 实现Fee模块内存映射抽象的声明 (Implements declaration of memory map abstraction for the Fee module)
+
 
 动态文件(Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -335,6 +395,12 @@ None
      - 0x05u
      - API service called with invalid length information
 
+
+产品错误（Product Errors）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+
 运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -354,53 +420,207 @@ None
      - 0x08u
      - Fee_Cancel called while no job was pending
 
-.. 引用接口描述。来自于code->doxygen->latex->rst
+
+接口描述（Interface Description）
+====================================
+
 .. include:: Fee_api.rst
+
+
+依赖的服务（Applicable Services）
+--------------------------------------------------------------
+
+可选接口（Optional Interface）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 10 5 30
+   :header-rows: 1
+
+   * - API Function
+     - Header File
+     - Description
+
+   * - Det_ReportError
+     - Det.h
+     - Service to report development errors
+
+   * - MemAcc_BlankCheck
+     - MemAcc.h
+     - Checks if the passed address space is blank. The result of this service can be retrieved using the MemAcc_GetJobResult API. If the address area defined by targetAddress and length is blank, the result is MEMACC_OK, otherwise the result is MEMACC_INCONSISTENT
+
+
+强制接口（Compulsory interface）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. 可选的章节，根据模块实际情况确定
+
+.. list-table::
+   :widths: 10 5 30
+   :header-rows: 1
+
+   * - API Function
+     - Header File
+     - Description
+
+   * - Det_ReportRuntimeError
+     - Det.h
+     - Service to report runtime errors.If a callout has been configured then this callout shall be called.
+
+   * - MemAcc_Compare
+     - MemAcc.h
+     - Cancels a running job
+
+   * - MemAcc_Erase
+     - MemAcc.h
+     - Service for erasing EEPROM sections
+
+   * - MemAcc_GetJobResult
+     - MemAcc.h
+     - This service returns the result of the last job
+
+   * - MemAcc_GetStatus
+     - MemAcc.h
+     - Returns the EEPROM status
+
+   * - MemAcc_Read
+     - MemAcc.h
+     - Reads from EEPROM
+
+   * - MemAcc_Write
+     - MemAcc.h
+     - Triggers a write job to store the passed data to the provided address area with given address and length. The result of this service can be retrieved using the MemAcc_GetJobResult API. If the write operation was successful, the job result is MEMACC_OK. If there was an issue writing the data, the result is MEMACC_FAILED.
+
+
+配置接口（Configuration Interfaces）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
 
 配置(Configuration)
 ===============================
 
-FeeBank
-----------------------
-因为Flash Driver的写操作特性，至少需要配置2个Fee_Bank用于Fee模块页的切换功能。
-如图 :ref:`Fee_Bank_Config` 展示了Fee_Bank的配置界面，可配置Bank索引值、Bank起始地址、Bank大小、Flash驱动Sector某一Sector的关联等。
-
-Due to Flash Driver write operation characteristics, at least 2 Fee_Banks need to be configured for Fee module page switching functionality.
-As shown in Figure :ref:`Fee_Bank_Config`, it displays the Fee_Bank configuration interface, where Bank index value, Bank start address, Bank size, association with specific Flash driver sector, etc. can be configured.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_Bank.png
-   :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
-   :name: Fee_Bank_Config
-   :align: center
-
-   Fee Bank Configuration
-
-
-头文件包含(Header File Inclusion)
---------------------------------------------
+头文件包含（Header File Including）
+---------------------------------------------------------------
 在Fee模块使用过程中，需要使用到下层Flash Driver模块，由于MCAL厂商的文件命名差异，可能会涉及文件名和类型名字不匹配的问题，所以在Fee模块中，需要在配置中包含Flash Driver的头文件#include "xxx.h"。
 如图 :ref:`Fee_Header_Including` 所示。
 
 During Fee module usage, the underlying Flash Driver module is required. Due to MCAL vendor file naming differences, file name and type name mismatches may occur. Therefore, in the Fee module, the Flash Driver header file #include "xxx.h" needs to be included in the configuration.
 As shown in Figure :ref:`Fee_Header_Including`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Fee/Fee_Header_Including.png
-   :alt: Fee模块配置图 (Fee Module Configuration Diagram)
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/Fee_Header_Including.png
+   :alt: Fee_Header_Including
    :name: Fee_Header_Including
    :align: center
 
    Fee Header Including
 
 
-不擦除直接写(Write without Erasing)
--------------------------------------------------
-此配置可决定是否使能Flash数据多次写入(未擦除)，以节约Block管理数据占用资源。默认不可配置，只有FeeVirtualPageSize的值 >= 16时该配置项才能配置。
+FeeFlsDriverName
+--------------------------------------------------------------
 
-This configuration determines whether to enable multiple Flash data writes (without erasing) to save Block management data resource usage. Not configurable by default, this configuration item can only be configured when FeeVirtualPageSize value >= 16.
+如图 :ref:`FeeFlsDriverName` 所示，可以关联底层Fls/MemAcc模块，并设置底层Fls/MemAcc模块对应的接口。
+对底层驱动的使用，需要设置对应的驱动名称，如使用Fls，则设置为Fls的驱动名称，若使用MemAcc，则设置为MemAcc
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/FeeFlsDriverName.png
+   :alt: FeeFlsDriverName
+   :name: FeeFlsDriverName
+   :align: center
+
+   Fee Fls Driver Name
 
 
-Header的大小(Size of Header)
-----------------------------------------------
-Fee/FeePublishedInformation中的FeeBlockOverhead和FeeBankOverhead配置项，不可手动修改，根据配置的FeeVirtualPageSize，以及是否勾选后了FeePageDirectWriteSupport配置项，最终由工具自动计算得到对应的数值。
+FeeMemAccAddressArea
+---------------------------------------------------------------
+当检测到FeeFlsDriverName配置项被设置为"MemAcc"的特定配置场景下，FeeClusterRef配置项关联MemAccAddressAreaConfiguration；
+FeeMemAccAddressArea配置项的前置开关必须被勾选✔，并且关联MemAcc模块的MemAccAddressAreaConfiguration配置项。如图 :ref:`FeeMemAccAddressArea` 所示。
 
-FeeBlockOverhead and FeeBankOverhead configuration items in Fee/FeePublishedInformation cannot be manually modified. Based on configured FeeVirtualPageSize and whether FeePageDirectWriteSupport is selected, corresponding values are automatically calculated by the tool.
+When they tested the FeeFlsDriverName configuration item is set to "MemAcc" specific configuration scenarios,
+FeeClusterRef configuration items associated MemAccAddressAreaConfiguration;
+FeeMemAccAddressArea ✔ to front switch configuration items must be checked, and associated MemAccAddressAreaConfiguration
+MemAcc module configuration items. As shown in the figure :ref: 'FeeMemAccAddressArea'.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/FeeMemAccAddressArea.PNG
+   :alt: FeeMemAccAddressArea
+   :name: FeeMemAccAddressArea
+   :align: center
+
+   Fee模块的内存访问地址区域关联
+
+
+FeeClusterGroupRef
+---------------------------------------------------------------
+根据Fee配置项FeeFlsDriverName的名称，关联底层驱动模块Fls或者Mem只能二选一；
+若填写了MemAcc模块名称，则FeeClusterRef配置项只能关联MemAccAddressAreaConfiguration；
+若填写了Fls驱动的名称，则FeeClusterRef配置项只能关联FlsSector。如图 :ref:`FeeClusterGroupRef` 所示。
+
+Based on the name of the Fee configuration item FeeFlsDriverName, only one of the underlying driver modules Fls or Mem can be associated.
+If you fill out the MemAcc module name, FeeClusterRef configuration items can only be associated MemAccAddressAreaConfiguration;
+If the name of the Fls driver is filled in, the FeeClusterRef configuration item can only be associated with the FlsSector.
+As shown in the figure :ref: 'FeeClusterGroupRef'.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/FeeClusterGroupRef.PNG
+   :alt: FeeClusterGroupRef
+   :name: FeeClusterGroupRef
+   :align: center
+
+   Fee模块Cluster集群组关联
+
+
+FeeClusterRef
+---------------------------------------------------------------
+Fee模块Cluster特性的FeeClusterRef配置项用于关联Flash驱动程序的FlsSector扇区或者关联MemAccAddressAreaConfiguration；
+根据Fee配置项FeeFlsDriverName的名称，关联底层驱动模块Fls或者Mem只能二选一；
+若填写了MemAcc模块名称，则FeeClusterRef处只能关联MemAccAddressAreaConfiguration；
+若填写了Fls驱动的名称，则FeeClusterRef处只能关联FlsSector。如图 :ref:`FeeClusterRef` 所示。
+
+Fee module Cluster characteristic FeeClusterRef configuration items used to correlate FlsSector sector of the
+Flash driver or associated MemAccAddressAreaConfiguration;
+Based on the name of the Fee configuration item FeeFlsDriverName, only one of the underlying driver modules
+Fls or Mem can be associated.
+If you fill out the MemAcc module name, FeeClusterRef associated MemAccAddressAreaConfiguration only;
+If the name of the Fls driver is filled in, the FeeClusterRef can only be associated with the FlsSector.
+As shown in the figure :ref: 'FeeClusterRef'.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/FeeClusterRef.PNG
+   :alt: FeeClusterRef
+   :name: FeeClusterRef
+   :align: center
+
+   Fee模块关联Flash驱动程序的扇区
+
+
+FeeCluster
+---------------------------------------------------------------
+因为Flash Driver的写操作特性，至少需要配置2个Fee_Cluster用于Fee模块页的切换功能。
+如图 :ref:`Fee_Cluster` 展示了Fee_Cluster的配置界面，可配置Cluster索引值、Cluster起始地址、Cluster大小、Flash驱动Sector的关联等。
+
+Due to the write operation characteristics of the Flash Driver, at least two fee_clusters need to be configured
+for the switching function of the Fee module pages.
+As shown in the figure :ref: 'Fee_Cluster_Config' presents the configuration interface of Fee_Cluster,
+where the index value of Cluster, the starting address of Cluster, the size of Cluster, the association of
+Flash driver sectors, etc. can be configured.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Fee/Fee_Cluster.PNG
+   :alt: Fee_Cluster
+   :name: Fee_Cluster
+   :align: center
+
+   Fee Cluster Configuration
+
+
+不擦除直接写（Write directly without erasing）
+---------------------------------------------------------------
+此配置可决定是否使能Flash数据多次写入（未擦除），以节约Block管理数据占用资源。默认不可配置，只有FeeVirtualPageSize的值 >= 16时该配置项才能配置。
+
+This configuration can determine whether to enable multiple writes of Flash data (without erasure) to save resources occupied
+by Block management data. By default, it cannot be configured. Only when the value of FeeVirtualPageSize is greater than or equal
+to 16 can this configuration item be configured.
+
+
+Header的大小（The size of the Header）
+---------------------------------------------------------------
+Fee/FeePublishedInformation中的FeeBlockOverhead和FeeClusterOverhead配置项，不可手动修改，根据配置的FeeVirtualPageSize，以及是否勾选后了FeePageDirectWriteSupport配置项，最终由工具自动计算得到对应的数值。
+
+In the Fee/FeePublishedInformation FeeBlockOverhead and FeeClusterOverhead configuration items, not manually modify,
+according to the configuration of FeeVirtualPageSize, After check and whether the FeePageDirectWriteSupport configuration items,
+finally the corresponding numerical calculated from tool automatically.

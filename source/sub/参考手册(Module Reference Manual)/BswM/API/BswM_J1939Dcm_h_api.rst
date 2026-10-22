@@ -10,7 +10,7 @@ BswM_J1939DcmBroadcastStatus
 This API tells the BswM the desired communication status of the available networks. The status will typically be activated via COM I-PDU group switches.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

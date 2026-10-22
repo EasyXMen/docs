@@ -28,7 +28,7 @@ Csm_Init
 Initializes the CSM module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -60,7 +60,7 @@ Csm_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant.
@@ -92,7 +92,7 @@ Csm_Hash
 Uses the given data to perform the hash calculation and stores the hash.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -686,7 +686,7 @@ Csm_KeyElementSet
 Sets the given key element bytes to the key identified by keyId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -737,7 +737,7 @@ Csm_KeySetValid
 Sets the key state of the key identified by keyId to valid.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -779,7 +779,7 @@ Csm_KeySetInvalid
 Sets the key state of the key identified by keyId to invalid.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -821,7 +821,7 @@ Csm_KeyElementGet
 Retrieves the key element bytes from a specific key element of the key identified by the keyId and stores the key element in the memory location pointed by the key pointer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -872,7 +872,7 @@ Csm_KeyElementCopy
 This function shall copy a key elements from one key to a target key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -913,7 +913,7 @@ Csm_KeyCopy
 This function shall copy all key elements from the source key to a target key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -958,7 +958,7 @@ Csm_KeyElementCopyPartial
 Copies a key element to another key element in the same crypto driver. The keyElementSourceOffset and keyElementCopyLength allows to copy just a part of the source key element into the destination. The offset into the target key is also specified with this function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -1018,7 +1018,7 @@ Csm_RandomSeed
 Feeds the key element CRYPTO_KE_RANDOM_SEED with a random seed.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -1066,7 +1066,7 @@ Csm_KeyGenerate
 Generates new key material and store it in the key identified by keyId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -1108,7 +1108,7 @@ Csm_KeyDerive
 Derives a new key by using the key elements in the given key identified by the keyId. The given key contains the key elements for the password and salt. The derived key is stored in the key element with the id 1 of the key identified by targetCryptoKeyId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -1153,7 +1153,7 @@ Csm_KeyExchangeCalcPubVal
 Calculates the public value of the current user for the key exchange and stores the public key in the memory location pointed by the public value pointer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -1201,7 +1201,7 @@ Csm_KeyExchangeCalcSecret
 Calculates the shared secret key for the key exchange with the key material of the key identified by the keyId and the partner public key. The shared secret key is stored as a key element in the same key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant, but not for the same keyId
@@ -1249,7 +1249,7 @@ Csm_JobKeySetValid
 Stores the key if necessary and sets the key state of the key identified by keyId to valid.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1291,7 +1291,7 @@ Csm_JobKeySetInValid
 Stores the key if necessary and sets the key state of the key identified by keyId to invalid.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1333,7 +1333,7 @@ Csm_JobRandomSeed
 This function shall dispatch the random seed function to the configured crypto driver object.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1384,7 +1384,7 @@ Csm_JobKeyGenerate
 Generates new key material and stores it in the key identified by keyId.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1429,7 +1429,7 @@ Csm_JobKeyDerive
 Derives a new key by using the key elements in the given key identified by the keyId. The given key contains the key elements for the password and salt. The derived key is stored in the key element with the id 1 of the key identified by targetCryptoKeyId.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1477,7 +1477,7 @@ Csm_JobKeyExchangeCalcPubVal
 Calculates the public value of the current user for the key exchange and stores the public key in the memory location pointed by the public value pointer.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1528,7 +1528,7 @@ Csm_JobKeyExchangeCalcSecret
 Calculates the shared secret key for the key exchange with the key material of the key identified by the keyId and the partner public key. The shared secret key is stored as a key element in the same key.
 
 **Sync/Async**
-   TRUE or FALSE, depending on the job configuration
+   Synchronous or FALSE, depending on the job configuration
 
 **Reentrancy**
    Reentrant
@@ -1579,7 +1579,7 @@ Csm_CancelJob
 Cancels the job processing from asynchronous or streaming jobs.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1624,7 +1624,7 @@ Csm_KeyGetStatus
 Retrieves the status of a key in the CSM module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1754,7 +1754,7 @@ Csm_CustomSync
 Custom synchronous operation for the CSM module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

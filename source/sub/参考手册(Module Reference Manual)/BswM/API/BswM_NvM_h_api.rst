@@ -10,7 +10,7 @@ BswM_NvM_CurrentJobMode
 Function called by NvM to inform the BswM about the current state of a multi block job.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -45,7 +45,7 @@ BswM_NvM_CurrentBlockMode
 Function called by NvM to indicate the current block mode of an NvM block. To use this function, integration code will be needed.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

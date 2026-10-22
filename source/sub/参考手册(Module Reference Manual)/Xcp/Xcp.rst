@@ -32,6 +32,12 @@ Xcp
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/12/30
+     - qinchun.yang
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
+
 
 参考文档 References
 ---------------------------------------------------------------------------------
@@ -145,12 +151,21 @@ Xcp在AUTOSAR架构中与其他模块的交互关系如下：
 
 The interactive relationship between Xcp and other modules in AUTOSAR architecture is as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp协议栈上下交互图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/Xcp协议栈上下交互图.png
    :alt: Xcp协议栈交互图 (Xcp Protocol Stack Interaction Diagram)
    :name: fig_Xcparch
    :align: center
 
    Xcp协议栈交互图 (Xcp Protocol Stack Interaction Diagram)
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/CP_Arch_Xcp.png
+   :alt: Xcp模块架构图(Xcp module architecture figure)
+   :name: Xcp_fig_Architecture
+   :align: center
+
+   Xcp模块架构图(Xcp module architecture figure)
+
+如图 :ref:`Xcp_fig_Architecture` 所示，Xcp模块处于AUTOSAR架构中的服务层。
 
 功能描述 Functional Description
 ========================================================================
@@ -174,7 +189,7 @@ The Master-Slave communication mode is adopted in XCP. In general, the calibrati
 
 During communication of master-slave node, the master node sends the protocol command, and the slave node analyzes the command and returns the corresponding response. The communication content is called XCP data packet (XCP PACKET, containing CTO and DTO). The diagram of communication is as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XCP主从通信示意图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XCP主从通信示意图.png
    :alt: XCP主从通信示意图 (XCP Diagram of Master-Slave Communication)
    :name: fig_XcpMS
    :align: center
@@ -204,7 +219,7 @@ XCP状态机如下所示：
 
 XCP state machine is as shown below:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp状态机.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/Xcp状态机.png
    :alt: Xcp状态机 (Xcp state machine)
    :name: fig_XcpState
    :align: center
@@ -228,7 +243,7 @@ The master-slave node communication mode is divided into three models: Standard 
      - Master/slave block transfer model: The block transfer model is divided into Master Block Transfer (master block transfer model: The slave node has one reply after the master node sends multiple commands continuously) and Slave Block Transfer (slave block transfer model: The slave node has repeated replies after the master node sends one command);
      - Interleaved communication model: The master node sends different messages at different time, and the slave nodes will also reply at the corresponding time.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp通信模型.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/Xcp通信模型.png
    :alt: Xcp通信模型 (Xcp communication model)
    :name: fig_XcpComModel
    :align: center
@@ -246,7 +261,7 @@ Xcp数据包格式包括Xcp头部(XCP Header)、Xcp协议包(XCP Packet)以及Xc
 
 Xcp data packet format includes Xcp header (XCP Header), Xcp protocol packet (XCP Packet) and Xcp tail (XCP Tail). The head and tail at different layers may be different. When Xcp message is transferred in Ethernet, the message length and count value should be added at the Xcp header (XCP Header);
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpFrame.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpFrame.png
    :alt: XcpFrame
    :name: fig_XcpFrame
    :align: center
@@ -305,8 +320,33 @@ The types of PID data packets at different transfer directions and corresponding
      - CTO
      - RES，下位机正响应(RES, lower computer has positive response) 
 
-特性 Features
-------------------------------------------------------------------------
+公共特性(Public Features)
+--------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   None
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
 
 数据观测(Measurement) Data observation (Measurement)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -330,7 +370,7 @@ Polling模式测量是指上位机通过发送指定的地址来从ECU内部获�
 
 Polling measurement means the upper computer acquires data from ECU by sending the designated address, and sends data to the upper computer through the response of lower computer, to realize periodic measurement of data through such cycles.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Polling测量.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/Polling测量.png
    :alt: Polling测量 (Polling measurement)
    :name: fig_XcpPolling
    :align: center
@@ -546,7 +586,7 @@ The Resume function-associated commands are as follows:
 
 The calibration data are essentially the fixed parameters (eg: Some important parameters in ECU); so, they will be configured in FLASH. These data need to be calibrated in real time during development; so, the standard data should also have modified attribute, i.e. RAM attribute. The essence of online calibration is to modify the calibration data stored in RAM.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp在线标定.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/Xcp在线标定.png
    :alt: Xcp在线标定 (Xcp online calibration)
    :name: fig_XcpOnlineCal
    :align: center
@@ -943,11 +983,11 @@ None
      - 定义Xcp模块PB配置的结构体参数(Defines the structure parameters for the PB configuration of the Xcp module)
 
 
-错误处理 Error Handling
-----------------------------------------------------------------------------------
+错误处理(Error Handling)
+----------------------------------
 
-开发错误 Development Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+开发错误(Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
    :widths: 20 10 30
@@ -974,13 +1014,13 @@ None
      - Null pointer has been passed as an argument.
 
 
-产品错误 Product Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 None
 
-运行时错误 Runtime Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 None
 
@@ -1060,13 +1100,15 @@ The value range of CTO and DTO is as follows:
      - DTO
      - 8~1500
 
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpBusSlect.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpBusSlect.png
    :alt: XcpBusSlect
    :name: fig_XcpBusSelct
    :align: center
 
    Xcp传输层配置 (Xcp transfer layer configuration)
+
+- 1: 选择总线类型
+- 2: CTO/DTO长度配置
 
 PDU关联 PDU association
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1095,7 +1137,7 @@ The associated configuration items are as follows:
      - XcpTxPdu
      - 选择传输层交互的发送PDU(从Xcp下发到CanIf或者Soad)(Select sending PDU (distributed to CanIf or Soad from Xcp) that has interaction in transfer layer)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpPdu.png
    :alt: XcpPdu
    :name: fig_XcpPdu
    :align: center
@@ -1105,13 +1147,18 @@ The associated configuration items are as follows:
 且XcpRxPdu和XcpTxPdu通过XcpRxPduRef引用的PDU必须在传输层(CanIf或者Soad)被引用。下图以XcpOnCan进行举例说明：
 
 PDU that is quoted by XcpRxPdu and XcpTxPdu through XcpRxPduRef must be quoted in transfer layer (CanIf or Soad). Taking XcpOnCan as example in picture below:
-   
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp_CanIF_PDURef.png
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/Xcp_CanIF_PDURef.png
    :alt: Xcp_CanIF_PDURef
    :name: fig_Xcp_CanIF_PDURef
    :align: center
 
    Xcp & CanIF PDU关联 (Xcp & CanIF PDU association)
+
+- 1: 配置CanIf Rx Pdu；
+- 2: 关联Xcp Rx Pdu；
+- 3: 配置CanIf Tx Pdu；
+- 4: 关联Xcp Tx Pdu
 
 XcpOnCanFD配置 XcpOnCanFD configuration
 *****************************************************************************************************************************************
@@ -1143,12 +1190,14 @@ For multi-partition system, the partition for XcpRxPdu and XcpTxPdu must be co
 
 The corresponding dispatch interfaces, such as Xcp_MainFunction and Xcp_EventIndication, can be called and executed in the corresponding partitions only.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpPartition.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpPartition.png
    :alt: XcpPartition
    :name: fig_XcpPartition
    :align: center
 
    Xcp分区映射 (Xcp partition mapping)
+
+- 1: Xcp Rx Pdu和Xcp Tx Pdu所在分区需一致
 
 XcpEvent配置 XcpEvent configuration
 ----------------------------------------------------------------------------------------------------------------
@@ -1200,14 +1249,16 @@ As the carrier that is periodically uploaded by DAQ, XcpEventchannel configurat
    * - XcpEventChannel
      - XcpEventChannelTriggeredDaqListRef
      - 定义此通道上能够承载的DAQ索引(仅适用于静态DAQ)(Define the DAQ index (applies to static DAQ only) that can be carried by this channel)
-	 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpEvent.png
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpEvent.png
    :alt: XcpEvent
    :name: fig_XcpEvent
    :align: center
 
    Xcp Eventchannel配置 (Xcp Eventchannel configuration)
-   
+
+- 1: 配置Max EventChannel；
+- 2: 配置EventChannel的属性
 	 
 DAQ配置 DAQ configuration
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -1247,7 +1298,7 @@ As an important function of Xcp protocol stack, DAQ simplifies the integration o
      - XcpOdtEntriesCount
      - 动态分配的ODT Entry最大数量(ALLOC_ODT_ENTRY)(The max. Number of dynamically distributed ODT Entry (ALLOC_ODT_ENTRY))	
 	 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpDynDaq.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpDynDaq.png
    :alt: XcpDynDaq
    :name: fig_XcpDynDaq
    :align: center
@@ -1324,14 +1375,16 @@ As the feature of static DAQ, the number of DAQ, ODT and ODT Entry needs to be 
    * - XcpEventChannel
      - XcpEventChannelTriggeredDaqListRef
      - 静态DAQ List需要挂载到XcpEventChannel上才有权限在此通道上周期发送(Static DAQ List needs to be mounted on XcpEventChannel before it can have period sending in this channel)
-	 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpStaticDaq.png
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpStaticDaq.png
    :alt: XcpStaticDaq
    :name: fig_XcpStaticDaq
    :align: center
 
    静态DAQ关联配置 (Associated configuration of static DAQ)
-   
+
+- 1: 静态DAQ下可配
+
 DAQ Resume
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1394,13 +1447,16 @@ Xcp protocol stack supports limiting of DAQ observation address. When the observ
      - XcpMeasuremenLen
      - DAQ观测地址长度(Length of DAQ observation address)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpCheckMeaAddr.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpCheckMeaAddr.png
    :alt: XcpCheckMeaAddr
    :name: fig_XcpCheckMeaAddr
    :align: center
 
    Xcp观测地址检测 (Detection of Xcp observation address)
-   
+
+- 1: 可配置0~*个观测地址地址集；
+- 2: 检测起始地址+长度
+
 Xcp在线标定 Xcp online calibration
 ----------------------------------------------------------------------------------------
 
@@ -1430,13 +1486,15 @@ Most of MCU is fitted with hardware unit module (such as Infineon Overlay) for p
    * - XcpCommand->XcpCal
      - XcpPageSwitch
      - 页切换的使能以及实现方式配置。配置为DISABLE时，不使能页切换功能；当选择为BY_HW时，那么相关的页切换操作由应用实现；(Configure enabling and realization method of page switching.) When configured as DISABLE, page switching function is not enabled; when configured as BY_HW, the relevant pages are switched by APP;
-	 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpPageSwitch.png
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpPageSwitch.png
    :alt: XcpPageSwitch
    :name: fig_XcpPageSwitch
    :align: center
 
    Xcp页切换配置 (Configuration of Xcp page switching)	 
+
+- 1: 页切换实现方式（软件或者硬件）
 
 通信模式配置 Configuration of communication model
 ------------------------------------------------------------------------------------------------
@@ -1480,14 +1538,17 @@ The relevant configuration items are as follows:
    * - XcpCommand->XcpStandard
      - XcpnterLeavedQueueSize
      - 交替通信模式下ECU最多能缓存多少帧命令(The min. number of frame commands which can be cached by ECU under interleaved communication model)		 
-	 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/XcpComModel.png
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpComModel.png
    :alt: XcpComModel
    :name: fig_XcpComModelCfg
    :align: center
 
    Xcp通信模式配置 (Configuration of Xcp communication model)
 
+- 1: Slave块传输；
+- 2: Master块传输；
+- 3: 交替通信模式
 
 其他特性 Other characteristics
 ----------------------------------------------------------------------------------------
@@ -1503,13 +1564,16 @@ Xcp protocol stack supports accelerated copy and memory alignment. When accelera
 
 When memory alignment is enabled, the transfer address will be subject to memory alignment in the Xcp protocol stack prior to operation, to avoid address error when the address is not aligned in some chip platforms. The associated configuration items of this function are as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp拷贝加速和内存对齐配置项.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpCopyFastAndAlign.png
    :alt: XcpFastCopy&AddressAlign
    :name: fig_XcpFastCopy&AddressAlign
    :align: center
 
    Xcp拷贝加速和内存对齐配置 (Configuration of Xcp copy acceleration and memory alignment)
-   
+
+- 1: 加速拷贝使能；
+- 2: 字节对齐使能
+
 大小端自检 Big/small end self-check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1517,9 +1581,11 @@ Xcp内部涉及到内存组装时会受到大小端的影响，当配置的大�
 
 The memory assembly of Xcp may be affected by the big/small end. When the configured big/small end is inconsistent with that of actual hardware, some unexpected errors may occur. When big/small end self-check is enabled, the big/small end of chip and configuration will pass self-check during initialization, and initialization will fail if they do not match; the associated configuration items of this function are as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Xcp/Xcp大小端自检.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Xcp/XcpEndianSelfCheck.png
    :alt: XcpEndiannessself-check
    :name: fig_XcpEndiannessself-check
    :align: center
 
    Xcp大小端自检配置 (Configuration of Xcp Big/small-end Self-check)
+
+- 1: 大小端自检

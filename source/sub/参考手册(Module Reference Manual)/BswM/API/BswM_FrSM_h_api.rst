@@ -10,7 +10,7 @@ BswM_FrSM_CurrentState
 Function called by FrSM to indicate its current state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

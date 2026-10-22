@@ -10,7 +10,7 @@ SoAd_RxIndication
 The TCP/IP stack calls this primitive after the reception of data on a socket. The socket identifier along with configuration information determines which module is to be called.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -29,7 +29,7 @@ The TCP/IP stack calls this primitive after the reception of data on a socket. T
      - Socket identifier of the related local socket resource.
    * - [in]
      - RemoteAddrPtr
-     - Pointer to memory containing IP address and port of the
+     - Pointer to memory containing IP address and port of the remote host which sent the data.
    * - [in]
      - BufPtr
      - Pointer to the received data
@@ -51,7 +51,7 @@ SoAd_CopyTxData
 This service requests to copy data for transmission to the buffer indicated. This call is triggered by TcpIp_Transmit(). Note: The call to <Up>_CopyTxData() may happen in the context of TcpIp_Transmit()
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId
@@ -101,7 +101,7 @@ SoAd_TxConfirmation
 The TCP/IP stack calls this function after the data has been acknowledged by the peer for TCP. Caveats: The upper layer might not be able to determine exactly which data bytes have been confirmed.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -136,7 +136,7 @@ SoAd_TcpAccepted
 This service gets called if the stack put a socket into the listen mode before (as server) and a peer connected to it (as client).In detail: The TCP/IP stack calls this function after a socket was set into the listen state with TcpIp_TcpListen() and a TCP connection is requested by the peer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -186,7 +186,7 @@ SoAd_TcpConnected
 This service gets called if the stack initiated a TCP connection before (as client) and the peer (the server) acknowledged the connection set up.In detail:The TCP/IP stack calls this function after a socket was requested to connect with TcpIp_TcpConnect() and a TCP connection is confirmed by the peer.The parameter value of SocketId equals the SocketId value of the preceding TcpIp_TcpConnect() call.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -218,7 +218,7 @@ SoAd_TcpIpEvent
 This service gets called if the stack encounters a condition described by the values in Event.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -253,7 +253,7 @@ SoAd_LocalIpAddrAssignmentChg
 This service gets called by the TCP/IP stack if an IP address assignment changes (i.e. new address assigned or assigned address becomes invalid).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

@@ -10,7 +10,7 @@ EcuM_ErrorHook
 The ECU State Manager will call the error hook if the error codes "ECUM_E_RAM_CHECK_FAILED" or "ECUM_E_CONFIGURATION_DATA_INCONSISTENT" occur. In this situation it is not possible to continue processing and the ECU must be stopped. The integrator may choose the modality how the ECU is stopped, i.e. reset, halt, restart, safe state etc.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -41,7 +41,7 @@ EcuM_AL_SetProgrammableInterrupts
 If the configuration parameter EcuMSetProgrammableInterrupts is set to true, this callout EcuM_AL_SetProgrammableInterrupts is executed and shall set the interrupts on ECUs with programmable interrupts.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -60,7 +60,7 @@ EcuM_AL_DriverInitZero
 This callout shall provide driver initialization and other hardware-related startup activities for loading the post-build configuration data. Beware: Here only pre-compile and link-time configurable modules may be used.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -81,7 +81,7 @@ EcuM_DeterminePbConfiguration
 This callout should evaluate some condition, like port pin or NVRAM value, to determine which post-build configuration shall be used in the remainder of the startup process. It shall load this configuration data into a piece of memory that is accessible by all BSW modules and shall return a pointer to the EcuM post-build configuration as a base for all BSW module post-build configurations.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -101,7 +101,7 @@ EcuM_AL_DriverInitOne
 This callout shall provide driver initialization and other hardware-related startup activities in case of a power on reset.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -121,7 +121,7 @@ EcuM_LoopDetection
 If the configuration parameter EcuMResetLoopDetection is set to true, this callout EcuM_LoopDetection is called on every startup.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -153,7 +153,7 @@ EcuM_OnGoOffOne
 This call allows the system designer to notify that the GO OFF I state is about to be entered.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -174,7 +174,7 @@ EcuM_OnGoOffTwo
 This call allows the system designer to notify that the GO OFF II state is about to be entered.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -195,7 +195,7 @@ EcuM_AL_SwitchOff
 This callout shall take the code for shutting off the power supply of the ECU. If the ECU cannot unpower itself, a reset may be an adequate reaction.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -216,7 +216,7 @@ EcuM_AL_Reset
 This callout shall take the code for resetting the ECU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -249,7 +249,7 @@ EcuM_EnableWakeupSources
 The ECU Manager Module calls EcuM_EnableWakeupSource to allow the system designer to notify wakeup sources defined in the wakeupSource bitfield that SLEEP will be entered and to adjust their source accordingly.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -282,7 +282,7 @@ EcuM_GenerateRamHash
 Generate code for RAM integrity test.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -303,7 +303,7 @@ EcuM_SleepActivity
 This callout is invoked periodically in all reduced clock sleep modes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -324,7 +324,7 @@ EcuM_StartCheckWakeup
 This API is called by the ECU Firmware to start the CheckWakeupTimer for the corresponding wakeupSource. If EcuMCheckWakeupTimeout > 0, the CheckWakeupTimer for the wakeupSource is started. If EcuMCheckWakeupTimeout <= 0, the API call is ignored by the EcuM.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -357,7 +357,7 @@ EcuM_CheckRamHash
 This callout is intended to provide a RAM integrity test. The goal of this test is to ensure that after a long SLEEP duration, RAM contents are still consistent. The check does not need to be exhaustive since this would consume quite some processing time during wakeups. A well-designed check will execute quickly and detect RAM integrity defects with a sufficient probability. The areas of RAM which will be checked have to be chosen carefully. It depends on the check algorithm itself and the task structure. Stack contents of the task executing the RAM check, for example, very likely cannot be checked. It is good practice to have the hash generation and checking in the same task and that this task is not preemptible and that there is only little activity between hash generation and hash check. The RAM check itself is provided by the system designer. In case of applied multi-core and the existence of Satellite-EcuM(s), this API will be called by the Master-EcuM only.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -389,7 +389,7 @@ EcuM_DisableWakeupSources
 The ECU Manager Module calls EcuM_DisableWakeupSources to set the wakeup source(s) defined in the wakeupSource bitfield so that they are not able to wake the ECU up.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -422,7 +422,7 @@ EcuM_AL_DriverRestart
 This callout shall provide driver initialization and other hardware-related startup activities in the wakeup case.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -443,7 +443,7 @@ EcuM_StartWakeupSources
 The callout shall start the given wakeup source(s) so that they are ready to perform wakeup validation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    FANon ReentrantLSE
@@ -476,7 +476,7 @@ EcuM_CheckValidation
 This callout is called by the EcuM to validate a wakeup source. If a valid wakeup has been detected, it shall be reported to EcuM via
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -509,7 +509,7 @@ EcuM_StopWakeupSources
 The callout shall stop the given wakeup source(s) after unsuccessful wakeup validation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -542,7 +542,7 @@ EcuM_CheckWakeupHook
 This callout is called by the EcuM to poll a wakeup source. It shall also be called by the ISR of a wakeup source to set up the PLL and check other wakeup sources that may be connected to the same interrupt.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -575,7 +575,7 @@ EcuM_McuSetMode
 This function calls Mcu_SetMode as a callback validation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -608,7 +608,7 @@ EcuM_CurrentTimestampMS
 This function retrieves the current timestamp in milliseconds.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -628,7 +628,7 @@ EcuM_CalculateElapsedMS
 This function calculates the elapsed time in milliseconds based on the provided old timestamp.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

@@ -10,7 +10,7 @@ BswM_Nm_CarWakeUpIndication
 Function called by NmIf to indicate a CarWakeup.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -42,7 +42,7 @@ BswM_Nm_StateChangeNotification
 Notification of current Nm state after state changes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

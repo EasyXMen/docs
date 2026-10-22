@@ -44,10 +44,10 @@ E2E_GetVersionInfo
 This service returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -76,10 +76,10 @@ E2E_SMCheck
 Checks the communication channel. It determines if the data can be used for safety-related application, based on history of checks performed by a corresponding E2E_P0XCheck() function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -132,10 +132,10 @@ E2E_SMCheckInit
 Initializes the state machine.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 

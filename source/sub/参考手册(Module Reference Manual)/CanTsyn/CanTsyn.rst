@@ -3,10 +3,10 @@ CanTsyn
 ====================
 
 
-文档信息 Document Information
+文档信息(Document Information)
 ============================================================
 
-版本历史 Version History
+版本历史(Version History)
 --------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -31,7 +31,13 @@ CanTsyn
      - 发布(Release)
      - 正式发布(Official release)
 
-参考文档 References
+   * - 2026/01/15
+     - caihong.liu
+     - V1.1
+     - 增加
+     - 补充3.0版本特性描述
+
+参考文档(References)
 --------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -52,11 +58,11 @@ CanTsyn
      - R23-11
 
 
-术语与简写 Terms and Abbreviations
+术语与简写(Terms and Abbreviations)
 ====================================================================
 
 
-术语 Terms
+术语(Terms)
 --------------------------------------------------------------------------------------------------------
 
 .. :align: center   表格内容居中(Table contents are centered)
@@ -84,7 +90,7 @@ CanTsyn
      - 后续消息(Subsequent Message)
 
 
-简写 Abbreviations
+简写(Abbreviations)
 --------------------------------------------------------------------------------------------------------
 .. list-table::
    :widths: 10 20 30
@@ -127,124 +133,230 @@ CanTsyn
      - Time Synchronization
      - 时间同步
 
-简介 Introduction
+简介(Introduction)
 ===================================================
-CanTSyn 在 AutoSAR 软件层级架构如下图， 其所属于时间同步栈。
+  CanTSyn 在 AutoSAR 软件层级架构如下图， 其所属于时间同步栈。
 
-The software layer architecture of StbM in AutoSAR is shown in the figure below. It belongs to the time synchronization stack.
+  The software layer architecture of StbM in AutoSAR is shown in the figure below. It belongs to the time synchronization stack.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_In_AutoSAR.png
-   :alt: CanTSyn在AUTOSAR中的位置(Position of CanTSyn in AUTOSAR))
-   :name: CanTSyn_fig_arch
-   :align: center
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_In_AutoSAR.png
+    :alt: CanTSyn在AUTOSAR中的位置(Position of CanTSyn in AUTOSAR))
+    :name: CanTSyn_fig_arch
+    :align: center
 
-   CanTSyn 在 AUTOSAR 中的位置 (Position of CanTSyn in AUTOSAR)
-
-
-本文中描述CanTSyn，StbM负责管理时间域，给CanTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。CanTSyn负责Can总线上的时间同步。
-
-As described in this document, CanTSyn works with StbM. StbM is responsible for managing the time domain, providing an interface for CanTSyn to update the synchronized time, and providing interfaces for other users to get/notify the synchronized time. CanTSyn is responsible for time synchronization over the CAN bus.
+  CanTSyn 在 AUTOSAR 中的位置 (Position of CanTSyn in AUTOSAR)
 
 
-功能描述 Functional Description
+  本文中描述CanTSyn，StbM负责管理时间域，给CanTSyn提供接口用来更新同步时间，给其他用户提供接口用来获取/通知同步时间。CanTSyn负责Can总线上的时间同步。
+
+  As described in this document, CanTSyn works with StbM. StbM is responsible for managing the time domain, providing an interface for CanTSyn to update the synchronized time, and providing interfaces for other users to get/notify the synchronized time. CanTSyn is responsible for time synchronization over the CAN bus.
+
+
+功能描述(Functional Description)
 ===============================================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-CanTSyn模块和StbM模块息息相关，StbM模块提供了时间同步的功能和时钟实例，但不负责在各个总线内的时间分发任务。那么CanTSyn模块就处理了在CAN总线发放时间信息的任务。
+  CanTSyn模块和StbM模块息息相关，StbM模块提供了时间同步的功能和时钟实例，但不负责在各个总线内的时间分发任务。那么CanTSyn模块就处理了在CAN总线发放时间信息的任务。
 
-The CanTSyn module is closely related to the StbM module. The StbM module provides time synchronization function and clock instances but is not responsible for the task of time distribution on individual buses. Therefore, the CanTSyn module handles the task of distributing time information on the CAN bus.
+  The CanTSyn module is closely related to the StbM module. The StbM module provides time synchronization function and clock instances but is not responsible for the task of time distribution on individual buses. Therefore, the CanTSyn module handles the task of distributing time information on the CAN bus.
 
-仅仅通过广播的方式把时间信息从Time Masters发送到Time Slaves会导致时间不精准，这是因为CAN总线传输仲裁机制以及BSW的延迟。
+  仅仅通过广播的方式把时间信息从Time Masters发送到Time Slaves会导致时间不精准，这是因为CAN总线传输仲裁机制以及BSW的延迟。
 
-Simply broadcasting time information from Time Masters to Time Slaves may lead to inaccuracies due to the CAN bus arbitration mechanism and BSW latency. 
+  Simply broadcasting time information from Time Masters to Time Slaves may lead to inaccuracies due to the CAN bus arbitration mechanism and BSW latency. 
 
-具体实现上我们通过以下的两步算法来尽可能消除这样的延迟：
+  具体实现上我们通过以下的两步算法来尽可能消除这样的延迟：
 
-In practice, this latency is minimized by implementing the following two-step algorithm:
+  In practice, this latency is minimized by implementing the following two-step algorithm:
 
-第一步：发送方(Time Master)首先记录当前的同步时间(SYNC)以及本地时间(T0VLT)并在第一个广播信息(所谓的SYNC信息)里，把同步好的时间的秒部分(SYNCSEC)作为内容发送。
+    第一步：发送方(Time Master)首先记录当前的同步时间(SYNC)以及本地时间(T0VLT)并在第一个广播信息(所谓的SYNC信息)里，把同步好的时间的秒部分(SYNCSEC)作为内容发送。
 
-Step 1: The sender (Time Master) first records the current synchronized time (SYNC) and the local time (T0VLT), and in the first broadcast message (the SYNC message), sends the seconds part of the synchronized time (SYNCSEC). 
+    Step 1: The sender (Time Master) first records the current synchronized time (SYNC) and the local time (T0VLT), and in the first broadcast message (the SYNC message), sends the seconds part of the synchronized time (SYNCSEC). 
 
-发送方在收到 “CAN transmit confirmation”时记录时间戳来得到信息实际发送的时间点(T1VLT)。接收方(Time Slave)收到信息 “CAN receive indication”时记录时间戳来检测信息实际收到的时间点(T2VLT)。
+    发送方在收到 “CAN transmit confirmation”时记录时间戳来得到信息实际发送的时间点(T1VLT)。接收方(Time Slave)收到信息 “CAN receive indication”时记录时间戳来检测信息实际收到的时间点(T2VLT)。
 
-The sender records the timestamp Upon receiving "CAN transmit confirmation" to get the actual transmission time of the message (T1VLT). The receiver (Time Slave) records the timestamp upon receiving "CAN receive indication" to detect the actual time the message was received (T2VLT).
+    The sender records the timestamp Upon receiving "CAN transmit confirmation" to get the actual transmission time of the message (T1VLT). The receiver (Time Slave) records the timestamp upon receiving "CAN receive indication" to detect the actual time the message was received (T2VLT).
 
-第二步：在第二个同步信息(所谓的FUP(follow-up)信息)里，发送方发送T4作为内容，T4为SYNC消息准备发送和实际发送的时间差(T1VLT-T0VLT)加上T0SYNCNS(同步时间的纳秒部分)(T4=T0SYNCNS+(T1VLT-T0VLT))。对于发送方来说，此时T0SYNCSEC+T4就为同步时间。Time Slave现在从SYNC和FUP消息里获取了足够的信息，再加上先前记录的时间戳T2VLT，就可以确定更加确切的时间信息。接收方将(T0SYNCSEC+T4)和T2VLT时间对信息传给StbM, StbM即可计算同步时间，完成一次Time Master和Time Slave之间的时间同步。
+    第二步：在第二个同步信息(所谓的FUP(follow-up)信息)里，发送方发送T4作为内容，T4为SYNC消息准备发送和实际发送的时间差(T1VLT-T0VLT)加上T0SYNCNS(同步时间的纳秒部分)(T4=T0SYNCNS+(T1VLT-T0VLT))。对于发送方来说，此时T0SYNCSEC+T4就为同步时间。Time Slave现在从SYNC和FUP消息里获取了足够的信息，再加上先前记录的时间戳T2VLT，就可以确定更加确切的时间信息。接收方将(T0SYNCSEC+T4)和T2VLT时间对信息传给StbM, StbM即可计算同步时间，完成一次Time Master和Time Slave之间的时间同步。
 
-Step 2: In the second synchronization message (the FUP, or follow-up, message), the sender transmits T4 as the content. T4 is the difference between the intended and actual transmission time of the SYNC message (T1VLT - T0VLT), plus the nanoseconds part of the synchronized time (T0SYNCNS). Thus, T4 = T0SYNCNS + (T1VLT - T0VLT). For the sender, the synchronized time at this point is T0SYNCSEC + T4. Time Slave now has obtained sufficient information from the SYNC and FUP messages, and along with its previously recorded timestamp T2VLT, it can determine a more precise time. The receiver passes the time pair information, (T0SYNCSEC + T4) and T2VLT, to StbM. StbM can then calculate the synchronized time, completing the time synchronization cycle between Time Master and Time Slave.
+    Step 2: In the second synchronization message (the FUP, or follow-up, message), the sender transmits T4 as the content. T4 is the difference between the intended and actual transmission time of the SYNC message (T1VLT - T0VLT), plus the nanoseconds part of the synchronized time (T0SYNCNS). Thus, T4 = T0SYNCNS + (T1VLT - T0VLT). For the sender, the synchronized time at this point is T0SYNCSEC + T4. Time Slave now has obtained sufficient information from the SYNC and FUP messages, and along with its previously recorded timestamp T2VLT, it can determine a more precise time. The receiver passes the time pair information, (T0SYNCSEC + T4) and T2VLT, to StbM. StbM can then calculate the synchronized time, completing the time synchronization cycle between Time Master and Time Slave.
 
-特性 Features
-------------------------------------------------------------------------------------------------------
+公共特性(Public Features)
+----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  - CanTSyn模块无分区配置参数，从CanTSynPort关联的CanIfController获取分区分布，使用Can硬件时钟时要考虑硬件是否支持跨分区访问
+
+  The CanTSyn module has no dedicated partition configuration parameters; it acquires the partition distribution from the CanIfController associated with the CanTSynPort. When using a CAN hardware clock, it is necessary to consider whether the hardware supports cross-partition access.
+    
+  - CanTSynGlobalTimeDomin引用的CanIfCcontroller分区，为各个 port 定义全局变量分配到相应的分区及定义MainFunction。
+
+  Based on the partition of the CanIfController referenced by CanTSynGlobalTimeDomain, global variables are defined for each port and allocated to their respective partitions, and the MainFunction is defined accordingly.
 
 .. only:: doc_pbs
 
-  变体 Variant
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  .. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
-  .. 主要功能必须描述，比较偏尽量描述(不强制)
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - 支持同一个时间域配置不同的SYNC报文DataIDList进行CRC校验。
+    
+   Support configuring different SYNC message DataIDLists under the same time domain for CRC checksum.
 
-  - 支持同一个时间域配置不同的SYNC报文DataIDList进行CRC校验。
-  - Support configuring different SYNC message DataIDLists under the same time domain for CRC checksum.
-  - 支持同一个时间域下配置不同的FUP报文DataIDList进行CRC校验。
-  - Support configuring different FUP message DataIDLists under the same time domain for CRC checksum.
-  - 支持同一个时间域配置不同的时间同步角色，且相应角色的参数均可配置为不同值。
-  - Support configuring different time synchronization roles under the same time domain, and the parameters for each role can be configured with different values.
+   - 支持同一个时间域下配置不同的FUP报文DataIDList进行CRC校验。
 
-消息格式 Message Format
+   Support configuring different FUP message DataIDLists under the same time domain for CRC checksum.
+
+   - 支持同一个时间域配置不同的时间同步角色，且相应角色的参数均可配置为不同值。
+
+   Support configuring different time synchronization roles under the same time domain, and the parameters for each role can be configured with different values.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  memmap文件是动态的。存在CANTSYN_START_SEC_CODE、CANTSYN_STOP_SEC_CODE、CANTSYN_START_SEC_CODE_FAST、CANTSYN_STOP_SEC_CODE_FAST、CANTSYN_START_SEC_CONFIG_DATA_32、CANTSYN_STOP_SEC_CONFIG_DATA_32、CANTSYN_START_SEC_CONFIG_DATA_UNSPECIFIED、CANTSYN_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANTSYN_START_SEC_VAR_CLEARED_GLOBAL_8、CANTSYN_STOP_SEC_VAR_CLEARED_GLOBAL_8、CANTSYN_START_SEC_VAR_CLEARED_GLOBAL_PTR、CANTSYN_STOP_SEC_VAR_CLEARED_GLOBAL_PTR、CANTSYN_START_SEC_CONST_PTR、CANTSYN_STOP_SEC_CONST_PTR、CANTSYN_START_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、CANTSYN_STOP_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、CANTSYN_START_SEC_VAR_CLEARED_{{PartitionName}}_UNSPECIFIED、CANTSYN_STOP_SEC_VAR_CLEARED_{{PartitionName}}_UNSPECIFIED 字段。
+
+  The memmap file is dynamic. There are CANTSYN_START_SEC_CODE、CANTSYN_STOP_SEC_CODE、CANTSYN_START_SEC_CODE_FAST、CANTSYN_STOP_SEC_CODE_FAST、CANTSYN_START_SEC_CONFIG_DATA_32、CANTSYN_STOP_SEC_CONFIG_DATA_32、CANTSYN_START_SEC_CONFIG_DATA_UNSPECIFIED、CANTSYN_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANTSYN_START_SEC_VAR_CLEARED_GLOBAL_8、CANTSYN_STOP_SEC_VAR_CLEARED_GLOBAL_8、CANTSYN_START_SEC_VAR_CLEARED_GLOBAL_PTR、CANTSYN_STOP_SEC_VAR_CLEARED_GLOBAL_PTR、CANTSYN_START_SEC_CONST_PTR、CANTSYN_STOP_SEC_CONST_PTR、CANTSYN_START_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、CANTSYN_STOP_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、CANTSYN_START_SEC_VAR_CLEARED_{{PartitionName}}_UNSPECIFIED、CANTSYN_STOP_SEC_VAR_CLEARED_{{PartitionName}}_UNSPECIFIED fields.
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  None.
+
+模块特性(Module Features)
+------------------------------------------------------------------------------------------------------
+
+消息格式(Message Format)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CanTSyn的协议格式即支持标准CAN模式也支持扩展CAN模式。
+  CanTSyn的协议格式即支持标准CAN模式也支持扩展CAN模式。
 
-The protocol format of CanTSyn supports both standard CAN and extended CAN modes.
+  The protocol format of CanTSyn supports both standard CAN and extended CAN modes.
 
 
-时间同步主站 Time Synchronization Master
+时间同步主站(Time Synchronization Master)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CanTSyn支持配置为时间主站，将时间同步给同网络下的其他时间从站。
+  CanTSyn支持配置为时间主站，将时间同步给同网络下的其他时间从站。
 
-CanTSyn can be configured as a Time Master to synchronize time with other Time Slaves on the same network.
+  CanTSyn can be configured as a Time Master to synchronize time with other Time Slaves on the same network.
 
-时间同步从站 Time Synchronization Slave
+时间同步从站(Time Synchronization Slave)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CanTSyn支持配置为时间从站，接受同网络下的时间主机的同步消息，将自己的时间与主站同步。
+  CanTSyn支持配置为时间从站，接受同网络下的时间主机的同步消息，将自己的时间与主站同步。
 
-CanTSyn can be configured as a Time Slave to receive synchronization messages from the Time Master on the same network and synchronize its own time with the master's time.
+  CanTSyn can be configured as a Time Slave to receive synchronization messages from the Time Master on the same network and synchronize its own time with the master's time.
 
+支持硬件时间戳(Hardware Timestamp Support)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CanTSyn模块支持使用CAN硬件时间戳功能来获取发送和接收时间戳，从而提高时间同步的精度。前提需要使用支持时间戳功能的CAN控制器，并在配置中启用硬件时间戳支持选项。
 
-偏差 Deviation
+  The CanTSyn module supports the use of the CAN hardware timestamping function to obtain transmission and reception timestamps, thereby improving the accuracy of time synchronization. The prerequisite is to use a CAN controller that supports the timestamping function and to enable the hardware timestamping support option in the configuration.
+
+安全时间同步(Secure Time Synchronization)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  安全时间同步通过为 Follow_Up 报文添加附加的认证信息来实现。安全认证信息主要包括两个部分：新鲜度值（Freshness Value，FV）和完整性校验值（Integrity Check Value，ICV）。
+
+  Secure time synchronization is achieved by adding additional authentication information to the Follow_Up message. The security authentication information primarily consists of two parts: the Freshness Value (FV) and the Integrity Check Value (ICV). 
+
+  在获取 FV 和生成/验证 ICV 的过程中，若获取失败或者验证失败则会跳过处理并报告相应的安全事件。
+
+  During the process of obtaining the FV and generating or verifying the ICV, if acquisition or verification fails, the processing is skipped and the corresponding security event is reported.
+
+新鲜度值(Freshness Value)
+******************************
+  首先，每个 Timebase 都至少配置一个新鲜度值（Freshness Value，FV）。
+
+  First, each Timebase is configured with at least one Freshness Value (FV).
+
+  FV 指向一个单调递增的计数机制，用于确保该时间基准的新鲜性，即保证被接收的时间信息在时间顺序上不发生回退，从而防止旧时间信息被重放使用。
+  该单调递增机制可以通过独立的消息计数器（Freshness Counter）实现，也可以通过时间戳值（Freshness Timestamp）来实现。
+
+  The FV points to a monotonically increasing counting mechanism used to ensure the freshness of the time base, guaranteeing that the received time information does not regress in chronological order to prevent the replay of old time information. This monotonic mechanism can be implemented through an independent Message Counter (Freshness Counter) or via a Freshness Timestamp.
+
+  FV 在StbM中进行管理和维护：
+
+  FV is managed and maintained within the StbM:
+
+    1. 发送 Follow_Up 报文时，会根据配置通过指定的 API 从 StbM 获取当前 Timebase 对应的 FV，并将其附加在 Follow_Up 报文。
+
+    When transmitting a Follow_Up message, the FV corresponding to the current Timebase is obtained from the StbM via the specified API based on the configuration and attached to the Follow_Up message.
+
+    2. 接收端在处理收到的 Follow_Up 报文时，从 StbM 获取当前 Timebase 对应的 FV，并将其构建 ICV 生成报文进行完整性校验。
+
+    When the receiver processes the incoming Follow_Up message, it obtains the FV corresponding to the current Timebase from the StbM and uses it to construct the ICV generation message for integrity verification.
+
+  若 FV 获取失败则跳过 ICV 的计算和附加过程，会向 Follow_Up 报文中写入标志位标识该消息不具备认证能力。
+
+  If FV acquisition fails, the ICV calculation and attachment process is skipped, and a flag is written into the Follow_Up message to indicate that the message does not possess authentication capability.
+
+完整性校验值(Integrity Check Value)
+***********************************************************
+  ICV 指的是密码学函数的计算结果，用于确保能够检测到对消息的未授权修改。该密码学函数可以采用任意一种密码学原语，并结合相应的密码密钥来实现。
+
+  ICV refers to the calculation result of a cryptographic function, used to ensure that unauthorized modifications to the message can be detected. This cryptographic function can employ any cryptographic primitive and be implemented in combination with a corresponding cryptographic key.
+
+  对应于接收端的 ICV 的使用是可选的。为了在多个时间观测单元之间实现较大的灵活性，相关配置会决定如何处理带有 ICV 的报文。
+
+  The use of ICV on the receiver side is optional. To achieve greater flexibility across multiple time observation units, relevant configurations determine how messages with ICV are processed.
+
+  如果接收端不启用 ICV 校验，则可能仅使用接收到的数值，而不对 ICV 本身进行验证。
+
+  If the receiver does not enable ICV verification, it may only use the received values without verifying the ICV itself.
+
+  ICV 的计算和验证算法由 Csm 模块负责实现：
+
+  The ICV calculation and verification algorithms are implemented by the Csm module:
+
+    1. 发送端在发送 Follow_Up 报文时，在获取 FV 后，构造用于生成 ICV 的数据后调用 Csm 提供的 API 来计算 ICV，并将其附加在 Follow_Up 报文的认证 TLV 中。
+
+    When the transmitter sends a Follow_Up message, after obtaining the FV, it constructs the data for ICV generation and calls the API provided by the Csm to calculate the ICV, attaching it to the authentication TLV of the Follow_Up message.
+
+    2. 接收端在处理收到的 Follow_Up 报文时，提取出 ICV，同样需要先获取 FV 后构造用于验证 ICV 的数据调用 Csm 提供的 API 来验证 ICV 的正确性。
+
+    When the receiver processes the received Follow_Up message, it extracts the ICV; similarly, it must first obtain the FV and construct the data for ICV verification, then call the API provided by the Csm to verify the correctness of the ICV.
+
+  构造的数据范围从 Follow_Up 报文起一个起始字节直到 FV 字段的末尾字节，并不包括 ICV 字段本身。
+
+  The range of the constructed data starts from a beginning byte of the Follow_Up message to the end byte of the FV field, excluding the ICV field itself.
+
+  若配置上选择使用截取的 FV，当构造校验数据时使用完整的 FV，但是实际发送的 Follow_Up 报文中填充截取后的 FV。
+
+  If the configuration selects the use of a truncated FV, the full FV is used when constructing the verification data, but the truncated FV is filled into the actually transmitted Follow_Up message.
+
+时间记录(Time Recording)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  为时间同步系统能够在运行过程中检测主从节点之间的时间偏差、识别时间同步劣化或异常情况，并从全系统视角判断是否建立了可信的一致时间基准，因此引入Time Validation特性。
+
+  The Time Validation feature is introduced to enable the time synchronization system to detect time deviations between master and slave nodes during operation, identify time synchronization degradation or anomalies, and determine from a system-wide perspective whether a trusted and consistent time base has been established.
+
+  TimeSync 模块需要能够采集时间同步状态信息，并将这些信息提供给应用（即Validator SWC），以支持 Time Validation 功能的实现。Time Slave、Time Master 以及 Time Gateway 会从相应的 TimeSync 模块中收集时间同步过程的相关信息，例如：基于其本地的全局时间实例（通过使用 SyncLocal Time Tuple）、时间同步报文的接收时间戳、时间同步报文中的全局时间信息等，来计算时间偏差和其他相关指标。
+
+  The TimeSync module must be able to collect time synchronization status information and provide this information to the application (i.e., Validator SWC) to support the implementation of the Time Validation function. Time Slave, Time Master, and Time Gateway will collect information related to the time synchronization process from the corresponding TimeSync modules—for example, based on their local global time instances (by using SyncLocal Time Tuple), reception timestamps of time synchronization messages, and global time information within time synchronization messages—to calculate time deviations and other relevant metrics.
+
+  CanTSyn 模块通过 StbM 各个接口将各个阶段的时间同步信息传递到 StbM。
+
+  The CanTSyn module passes time synchronization information from each stage to the StbM through various StbM interfaces.
+
+偏差(Deviation)
 --------------------------------------------------------------------
-
+  None
+  
 .. 有序列表示例
 
-1.不再支持偏移时间的同步，配置中删除CanTSynGlobalTimeOfsDataIDList配置项和CanTSynGlobalTimeOfnsDataIDList配置项
+  1. 不再支持偏移时间的同步，配置中删除CanTSynGlobalTimeOfsDataIDList配置项和CanTSynGlobalTimeOfnsDataIDList配置项
 
-1.Synchronization of offset time is no longer supported; the CanTSynGlobalTimeOfsDataIDList and CanTSynGlobalTimeOfnsDataIDList configuration items have been removed.
+  Synchronization of offset time is no longer supported; the CanTSynGlobalTimeOfsDataIDList and CanTSynGlobalTimeOfnsDataIDList configuration items have been removed.
 
-2.不支持CAN的硬件时间戳
+  2. 不支持时间验证功能
 
-2.CAN hardware timestamps are not supported.
+  Time verification function is not supported
 
-3.不支持时间验证功能
-
-3.Time verification function is not supported
-
-4.不支持数据完整性检查功能(ICV)
-
-4.The data integrity check function (ICV) is not supported.
-
-
-扩展 Extension
+扩展(Extension)
 --------------------------------------------------------------------
-None
+  None
 
-
-集成 Integration
+集成(Integration)
 ========================================
 
-文件列表 File List
+文件列表(File List)
 --------------------------------------------------------------------
 
-静态文件 Static Files
+静态文件(Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -267,7 +379,7 @@ None
      - 包含需要使用的宏定义，内部变量，内部函数，全局函数(Contains macro definitions, internal variables, internal functions, and global functions that need to be used)
 
 
-动态文件 Dynamic Files
+动态文件(Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -286,14 +398,16 @@ None
    * - CanTSyn_Cfg.c
      - CanTSyn Pre-Compile 配置源文件(Pre-Compile configuration source file of CanTSyn)
 
+   * - CanTSyn_PBcfg.h
+     - 包含CanTSyn模块内部宏定义和PB配置的数据类型定义(Contains internal macro definitions of the CanTSyn module and data type definitions for post-build configuration)
+
    * - CanTSyn_PBcfg.c
      - CanTSyn Post-Build 配置源文件(Post-Build configuration source file of CanTSyn)
 
-
-错误处理 Error Handling
+错误处理(Error Handling)
 ------------------------------------------------------------------------
 
-开发错误 Development Errors
+开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table::
    :widths: 20 10 30
@@ -335,18 +449,15 @@ None
      - 0xF1
      - CanTSyn has initialized
 
-产品错误 Product Errors
+产品错误(Product Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  None
 
-None
-
-运行时错误 Runtime Errors
+运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  None
 
-None
-
-
-接口描述 Interface Description
+接口描述(Interface Description)
 ==============================================================
 
 .. 目前能够自动生成的有类型定义，普通函数，回调函数。
@@ -359,7 +470,7 @@ None
 .. include:: CanTSyn_Internal_h_api.rst
 
 
-配置函数 Configuration function
+配置函数(Configuration function)
 ----------------------------------------------------------------------------------------
 
 .. 可选的章节，根据模块实际情况确定
@@ -383,13 +494,13 @@ This function needs to be called periodically to perform the AUTOSAR CanTSyn act
 **Return type**
    void
 
-依赖的服务 Applicable Services
+依赖的服务(Applicable Services)
 ----------------------------------------------------------------------------------------
 
 .. - 本章节暂时无法自动化生成，需在第八章最后部分手动copy
 .. - 接口有几种类型，根据实际情况选择，没有的章节就不写，格式都一样
 
-强制接口 Compulsory interface
+强制接口(Compulsory interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. 可选的章节，根据模块实际情况确定
@@ -423,7 +534,7 @@ This function needs to be called periodically to perform the AUTOSAR CanTSyn act
      - Requests transmission of a PDU.
 
 
-可选接口 Optional Interface
+可选接口(Optional Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. 可选的章节，根据模块实际情况确定
@@ -450,322 +561,115 @@ This function needs to be called periodically to perform the AUTOSAR CanTSyn act
      - Get application ID.
 
 
-配置接口 Configuration Interfaces
+配置接口(Configuration Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. 可选的章节，根据模块实际情况确定
 .. 格式同强制接口
 
-None
+  None
 
-
-配置 Configuration
+配置(Configuration)
 ====================================
+  1. 各CanTSynGlobalTimeDomain的CanTSynGlobalTimeDomainId是唯一的，不能出现相同。
 
-1.各CanTSynGlobalTimeDomain的CanTSynGlobalTimeDomainId是唯一的，不能出现相同。
+  CanTSynGlobalTimeDomainId for each CanTSynGlobalTimeDomain must be unique.
 
-1.CanTSynGlobalTimeDomainId for each CanTSynGlobalTimeDomain must be unique.
+  2. 如果使能了CRC校验，那么相同CanTSynGlobalTimeDomainId的Master和Slave的CanTSynGlobalTimeSyncDataIDList、CanTSynGlobalTimeFupDataIDListElement配置项必须相同，否则校验不过。
 
-2.如果使能了CRC校验，那么相同CanTSynGlobalTimeDomainId的Master和Slave的CanTSynGlobalTimeSyncDataIDList、CanTSynGlobalTimeFupDataIDListElement配置项必须相同，否则校验不过。
+  If CRC checksum is enabled, CanTSynGlobalTimeSyncDataIDList and CanTSynGlobalTimeFupDataIDListElement configuration items must be identical for the Master and Slave within the same CanTSynGlobalTimeDomainId; otherwise, the check will fail.
 
-2.If CRC checksum is enabled, CanTSynGlobalTimeSyncDataIDList and CanTSynGlobalTimeFupDataIDListElement configuration items must be identical for the Master and Slave within the same CanTSynGlobalTimeDomainId; otherwise, the check will fail.
+完整性校验值发送端配置描述(Transmitter ICV Config Description)
+----------------------------------------------------------------------------------------
+  1. 为 CanTSynGlobalTimeMaster 添加子容器 CanTSynGlobalTimeTxIcvGeneration 用于配置完整性校验值发送端的相关参数：
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_1.png
-   :alt: CanTSyn_1
-   :align: center
+  Add a sub-container CanTSynGlobalTimeTxIcvGeneration to CanTSynGlobalTimeMaster for configuring the relevant parameters of the Integrity Check Value transmitter side:
 
-配置主函数周期。 
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSynGlobalTimeTxIcvGeneration.png
+    :alt: CanTSyn发送端ICV配置
+    :align: center
 
-Configure the main function period.
+  CanTSyn发送端ICV配置(CanTSyn Transmitter ICV Configuration)
 
-Master配置
+  2. 其中 CanTSynIcvGenerationFvIdRef 需要引用 StbMFreshnessValue 的配置：
 
-Master Configuration
+  Where CanTSynIcvGenerationFvIdRef needs to reference the StbMFreshnessValue configuration:
 
-BSW部分
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EthTSyn/StbMFreshnessValue.png
+    :alt: CanTSyn引用 FV 配置
+    :align: center
 
-BSW Part
+  CanTSyn引用 FV 配置(CanTSyn Reference FV Configuration)
 
-导入萃取文件前
+  3. 其中 CanTSynIcvGenerationJobRef 需要引用 CsmJob 的配置：
 
-Before Importing the Extraction File
+  Where CanTSynIcvGenerationJobRef needs to reference the CsmJob configuration:
 
-注意：萃取文件更新步骤参考下文SWC部分
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EthTSyn/CsmJobs.png
+    :alt: CanTSyn引用 CsmJob 配置
+    :align: center
 
-Note: For the steps to update the extraction file, refer to the SWC part below.
+  CanTSyn引用 CsmJob 配置(CanTSyn Reference CsmJob Configuration)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_2.png
-   :alt: CanTSyn_2
-   :align: center
+完整性校验值接收端配置描述(Receiver ICV Config Description)
+----------------------------------------------------------------------------------------
+  1. 为 CanTSynGlobalTimeSlave 添加子容器 CanTSynGlobalTimeRxIcvVerification 用于配置完整性校验值接受端的相关参数：
 
-右键新增一个时间域。 
+  Add a sub-container CanTSynGlobalTimeRxIcvVerification to CanTSynGlobalTimeSlave for configuring the relevant parameters of the Integrity Check Value receiver side:
 
-Right-click to add a new time domain.
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSynGlobalTimeRxIcvVerification.png
+    :alt: CanTSyn接收端ICV配置
+    :align: center
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_3.png
-   :alt: CanTSyn_3
-   :align: center
+  CanTSyn接收端ICV配置(CanTSyn Receiver ICV Configuration)
 
-1.配置CanTSynGlobalTimeDomainId时间域的ID。(主从时间域ID必须一致才可进行同步，用于划分不同的同步局域网)
+  2. 其中 CanTSynIcvVerificationFvIdRef 需要引用 StbMFreshnessValue 的配置同于发送端
 
-1.Configure the time domain ID CanTSynGlobalTimeDomainId. (The Master and Slave time domain IDs must be identical for synchronization. This is used to create separate synchronization networks.)
+  Where CanTSynIcvVerificationFvIdRef needs to reference the StbMFreshnessValue configuration, the same as the transmitter side.
 
-2.关联时间基。
+  3. 其中 CanTSynIcvVerificationJobRef 需要引用 CsmJob 的配置同于发送端
 
-2.Associate the time base.
+  Where CanTSynIcvVerificationJobRef needs to reference the CsmJob configuration, the same as the transmitter side.
 
-3.关联CAN控制器。
+Can硬件时钟使能(CAN Hardware Clock Enable)
+----------------------------------------------------------------------------------------
+  1. 当 Can 硬件支持时间戳功能时，可以通过配置使能 CanTSynHardwareTimeStampSupport 选项来使能硬件时间戳功能.
 
-3.Associate the CAN controller.
+  When the CAN hardware supports the timestamping function, the hardware timestamping function can be enabled by configuring the CanTSynHardwareTimeStampSupport option.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_3.png
-   :alt: CanTSyn_3
-   :align: center
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSynHardwareTimeStampSupport.png
+    :alt: CanTSynHardwareTimeStampSupport配置
+    :align: center
 
-1.设置CanTSynCyclicMsgResumeTime时间，指从立即发送恢复到循环发送所需要的时间。
+  CanTSynHardwareTimeStampSupport配置(CanTSynHardwareTimeStampSupport Configuration)
 
-1.Set CanTSynCyclicMsgResumeTime, which specifies the time required to transition from immediate transmission back to cyclic transmission.
+  2. 同时，需要在 CanIf 中配置 CanIfGlobalTimeSupport 选项来使能全局时间支持。（该配置项使能依赖于 CanIfPublicCtrlDrvVersion，功能较旧的控制器不支持硬件时钟）
 
-2.设置CanTSynGlobalTimeDebounceTime，指SYNC报文和FU报文之间的时间间隔。
+  Meanwhile, the CanIfGlobalTimeSupport option needs to be configured in the CanIf to enable global time support. (The enablement of this configuration item depends on CanIfPublicCtrlDrvVersion; controllers with older functionality do not support the hardware clock.)
 
-2.Set CanTSynGlobalTimeDebounceTime, which specifies the time interval between the SYNC and FUP messages.
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/CanTSyn/CanIfGlobalTimeSupport.png
+    :alt: CanIfGlobalTimeSupport配置
+    :align: center
 
-3.CanTSynGlobalTimeTxCrcSecured可选择支持或不支持CRC校验。(CRC校验会校验报文中的sequenceID，DomainID等信息)此处选择不支持。注意：若选择支持，则需要配置CanTSynGlobalTimeFupDataIDList和CanTSynGlobalTimeSyncDataIDList。
+  CanIfGlobalTimeSupport配置(CanIfGlobalTimeSupport Configuration)
 
-3.Set CanTSynGlobalTimeTxCrcSecured to either enable or disable CRC checksum. (CRC checksum checks information in the message such as the sequence ID and Domain ID). Here, it is set to disabled. Note: If enabled, CanTSynGlobalTimeFupDataIDList and CanTSynGlobalTimeSyncDataIDList must be configured.
+时间记录配置描述(Time Recording Config Description)
+----------------------------------------------------------------------------------------
+  1. CanTSyn 需要使能 CanTSynTimeValidationSupport 和 CanTSynEnableTimeValidation 两个配置选项：
 
-4.设置同步报文的发送周期CanTSynGlobalTimeTxPeriod。
+  CanTSyn needs to enable two configuration options: CanTSynTimeValidationSupport and CanTSynEnableTimeValidation:
 
-4.Set the transmission period for synchronization messages CanTSynGlobalTimeTxPeriod.
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSynEnableTimeValidation.png
+    :alt: CanTSynEnableTimeValidation配置
+    :align: center
 
-导入萃取文件后
+  CanTSynEnableTimeValidation配置(CanTSynEnableTimeValidation Configuration)
 
-After Importing the Extraction File
+  2. StbM 需要为 Timebase 配置 StbMTimeValidation:
 
-完成更新萃取文件后，按照以下步骤生成RTE
+  StbM needs to configure StbMTimeValidation for the Timebase:
 
-After updating the extraction file, follow the steps below to generate the RTE.
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EthTSyn/StbMTimeRecording.png
+    :alt: StbMTimeRecording配置
+    :align: center
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_4.png
-   :alt: CanTSyn_4
-   :align: center
-
-首先打开ECUC模块，在上图位置添加之前在SWC新增的应用组件。 
-
-First, open the ECUC module and add the application component previously created in the SWC, as shown in the figure above.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_5.png
-   :alt: CanTSyn_5
-   :align: center
-
-右键ECUC模块，同步一下模块。
-
-Right-click the ECUC module and synchronize the module.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_6.png
-   :alt: CanTSyn_6
-   :align: center
-
-点金同步RTE/OS。 
-
-Click to synchronize RTE/OS.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_7.png
-   :alt: CanTSyn_7
-   :align: center
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_8.png
-   :alt: CanTSyn_8
-   :align: center
-
-生成RTE文件和APP文件。
-
-Generate the RTE and APP files.
-
-SWC部分
-
-SWC Part
-
-作为主时钟，需要将自己的本地时间基信息发送到总线上，在这之前需要设置主时钟关联的时间基。因此需要走SWC，通过StbM的服务组件设置时间基。
-
-As a master clock, it needs to send its local time base information to the bus. Before doing so, the time base associated with the master clock must be set. Therefore, this is done through SWC by setting the time base via the StbM service component.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_9.png
-   :alt: CanTSyn_9
-   :align: center
-
-如上图所示，在Application Component处右键新增一个应用组件。
-
-As shown in the figure above, right-click on Application Component to add a new application component.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_10.png
-   :alt: CanTSyn_10
-   :align: center
-
-对该APP组件进行命名。 
-
-Name this APP component.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_11.png
-   :alt: CanTSyn_11
-   :align: center
-
-右键新增一个客户端Port。
-
-Right-click to add a new client Port.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_12.png
-   :alt: CanTSyn_12
-   :align: center
-
-选中CanTSyn关联的时间基。 
-
-Select the time base associated with CanTSyn.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_13.png
-   :alt: CanTSyn_13
-   :align: center
-
-点击上图所示Runnable Entity List。
-
-Click Runnable Entity List, as shown in the figure above.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_14.png
-   :alt: CanTSyn_14
-   :align: center
-
-New一个Init Runnable。
-
-Create a new Init Runnable.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_15.png
-   :alt: CanTSyn_15
-   :align: center
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_16.png
-   :alt: CanTSyn_16
-   :align: center
-
-选择Access Points中的SetGlobalTime。 
-
-Select SetGlobalTime from the Access Points.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_17.png
-   :alt: CanTSyn_17
-   :align: center
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_18.png
-   :alt: CanTSyn_18
-   :align: center
-
-如上图所示开启图形界面。 
-
-Open the graphical interface, as shown in the figure above.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_19.png
-   :alt: CanTSyn_19
-   :align: center
-
-双击ECU_ComPosition。 
-
-Double-click ECU_Composition.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_20.png
-   :alt: CanTSyn_20
-   :align: center
-
-实例化TSyn_App。 
-
-Instantiate TSyn_App.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_21.png
-   :alt: CanTSyn_21
-   :align: center
-
-再次右键ECU_ComPosition打开图形化界面。 
-
-Right-click ECU_Composition again to open the graphical interface.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_22.png
-   :alt: CanTSyn_22
-   :align: center
-
-在空白处右键选择连接模式。 
-
-Right-click in the empty area and select the connection mode.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_23.png
-   :alt: CanTSyn_23
-   :align: center
-
-将StbM组件和TSynApp组件连接。 
-
-Connect the StbM component and the TSynApp component.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_24.png
-   :alt: CanTSyn_24
-   :align: center
-
-双击SysTem进入映射界面。 
-
-Double-click System to enter the mapping interface.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_25.png
-   :alt: CanTSyn_25
-   :align: center
-
-将ECU_Composition左键拖入ECU下，完成映射。 
-
-Drag ECU_Composition with the left mouse button under the ECU to complete the mapping.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_26.png
-   :alt: CanTSyn_26
-   :align: center
-
-点击上方箭头处进行校验。在下方箭头处查看是否有报错。若无报错，则可按照下图进行萃取。 
-
-Click the arrow at the top to perform verification. Check the area indicated by the arrow below for any errors. If there are no errors, proceed with extraction as shown in the figure below.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_27.png
-   :alt: CanTSyn_27
-   :align: center
-
-如上图所示，在ECU处右键创建萃取文件。 
-
-As shown in the figure above, right-click the ECU to create the extraction file.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_28.png
-   :alt: CanTSyn_28
-   :align: center
-
-替换到原有工程下的萃取文件。 
-
-Replace the existing extraction file in the project directory.
-
-Slave配置
-
-Slave Configuration
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_29.png
-   :alt: CanTSyn_29
-   :align: center
-
-CanTSynGlobalTimeDomain配置与Master一致。区别在于需要设置的是CanTSynGlobalTimeSlave。
-
-The CanTSynGlobalTimeDomain configuration is the same as that of the Master. The difference is that CanTSynGlobalTimeSlave needs to be configured.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTSyn/CanTSyn_30.png
-   :alt: CanTSyn_30
-   :align: center
-
-1.设置FU报文的接收超时。指在这个时间内必须收到FU报文，否则丢弃。
-
-1.Set the reception timeout for FUP messages. This means that the FUP message must be received within this time; otherwise, it is discarded.
-
-2.设置CanTSynGlobalTimeSequenceCounterJumpWidth，指报文中的序列号SequenceCounter允许跳变的最大值，即可接受的最大丢帧数。
-
-2.Set CanTSynGlobalTimeSequenceCounterJumpWidth, which specifies the maximum allowed jump for SequenceCounter in the message, i.e., the maximum number of acceptable lost frames.
-
-3.由于不设置CRC校验，因此CanTSynRxCrcValidated需要设置为CRC_IGNORED。
-
-3.Since CRC checksum is not being used, CanTSynRxCrcValidated must be set to CRC_IGNORED.
+  StbMTimeRecording配置(StbMTimeRecording Configuration)

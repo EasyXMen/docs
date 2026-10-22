@@ -28,7 +28,7 @@ DoIP_Init
 This service initializes all global variables of the DoIP module.After return of this service the DoIP module is operational.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -60,7 +60,7 @@ DoIP_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -92,7 +92,7 @@ DoIP_ActivationLineSwitch
 This function is used to notify the DoIP on a switch of the DoIPActivationLine.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -124,7 +124,7 @@ DoIP_TpTransmit
 This service is called to request the transfer data from the PduRouter to the SoAd.It is used to indicate the transmission which will be performed in the DoIP_Mainfunction.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -171,7 +171,7 @@ DoIP_TpCancelTransmit
 This service primitive is used to cancel the transfer of pending DoIPPduRTxIds. The connection is identified by DoIPPduRTxId. When the function returns, no transmission is in progress anymore with the given DoIPPduRTxId identifier.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -215,7 +215,7 @@ DoIP_TpCancelReceive
 By calling this API with the corresponding DoIPPduRRxId the currently ongoing data reception is terminated immediately. When the function returns, no reception is in progress anymore with the given DoIPPduRRxId identifier.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -259,7 +259,7 @@ DoIP_IfTransmit
 Requests transmission of an I-PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -306,7 +306,7 @@ DoIP_IfCancelTransmit
 Requests cancellation of an ongoing transmission of an I-PDU in a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -350,7 +350,7 @@ DoIP_MainFunction
 Schedules the Diagnostic over IP module. (Entry point for scheduling)
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -370,7 +370,7 @@ DoIP_MainFunction_HighFrequency
 Schedules the Diagnostic over IP module. (Entry point for scheduling) for hight frequency tasks.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

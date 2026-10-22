@@ -32,6 +32,12 @@ iRte
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/12/29
+     - Haiyun.Lian、Enjing.Cui、Lianru.Hong、Chunhui.Wang
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
+
 参考文档 References
 ----------------------------------------------------------------------------------------------------
 
@@ -167,9 +173,9 @@ iRte
 简介 Introduction
 ==========================================================
 
-iRte是适配普华BSW实现需求的BSW模块间通信接口层，与应用无交互，主要包括SchM模块。基于ECU为多核BSW架构提供运行时环境：
+iRte是适配普华BSW实现需求的BSW模块间通信接口层，与应用无交互，主要包括SchM模块(Rte子模块)。基于ECU为多核BSW架构提供运行时环境：
 
-iRte refers to communication interface layer, which is between BSW modules and adapts to the realization requirements of Puhua BSW. It does not interact with applications and mainly includes SchM modules. Provide the running environment for multi-core BSW architecture based on ECU:
+iRte refers to communication interface layer, which is between BSW modules and adapts to the realization requirements of Puhua BSW. It does not interact with applications and mainly includes SchM(submodule of Rte). Provide the running environment for multi-core BSW architecture based on ECU:
 
 -  生成TASK函数，负责映射到Task的周期BswEntity的运行调度；(Generate TASK function; map the execution scheduling of the BswEntity cycle to the Task;)
 
@@ -177,11 +183,66 @@ iRte refers to communication interface layer, which is between BSW modules and a
 
 -  为BSW数据一致性保护提供独占区接口。(Provide the exclusive zone interface for BSW data consistency protection.)
 
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/AD_Rte.png
+   :name: fig_iRteMArch
+   :align: center
+   :width: 800
+
+   图 1-1 Rte Architecture in AUTOSAR
+
+如图 :ref:`fig_iRteMArch` 所示，Rte处于Application Layer与Bsw模块之间，iRte的Schm作为Rte的子模块，作为Bsw模块间的通信接口层。
+
+As shown in :ref:`fig_iRteMArch` ,Rte resides between the Application Layer and the Bsw module, while iRte’s Schm, as a submodule of Rte, serves as the communication interface layer between Bsw modules.
 
 功能描述 Functional Description
 ==========================================================
 
-SchM特性 Characteristics of SchM
+公共特性(Public Features)
+---------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iRte支持Bsw模块间跨核、跨分区通信。
+
+iRte支持SchM按核启动、关闭。
+
+iRte supports inter-core and inter-partition communication between Bsw Modules.
+
+iRte supports core-based startup and shutdown.
+
+.. only:: doc_pbs
+
+   PBS支持约束(PBS Support Constraints)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   None
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+memmap文件是动态的，主要存在以下定义：
+
+RTE_START_SEC_CODE{_coreScope*}、RTE_STOP_SEC_CODE{_coreScope*}
+
+RTE_START_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_CONST_{ALIGNMENT}、RTE_STOP_SEC_CONST_{ALIGNMENT}
+
+The memmap file is dynamic. It contains the following fields:
+
+RTE_START_SEC_CODE{_coreScope*}、RTE_STOP_SEC_CODE{_coreScope*}
+
+RTE_START_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_CONST_{ALIGNMENT}、RTE_STOP_SEC_CONST_{ALIGNMENT}
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iRte为Bsw提供独占区保护接口、支持多种独占区实现方式。
+
+iRte provides exclusive area protection interfaces for Bsw Modules, supports multiple implementation methods of exclusive areas.
+
+模块特性 (Module Features)
 ----------------------------------------------------------------------------------------------------
 
 SchM功能支撑普华BSW的实现，与应用无交互，工程配置、集成时客户无需额外关注。
@@ -209,6 +270,12 @@ CS通信 CS Communication
 通信域：同分区，同核不同分区，不同核不同分区；支持CS同步/异步通信
 
 Communication domain: The same partition, the same core but different partitions, and different cores and partitions; support CS synchronous/asynchronous communication
+
+模式管理 Mode Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+通信域：同分区，同核不同分区，不同核不同分区；默认采用异步模式管理通信
+
+Communication domain: The same partition, the same core but different partitions, and different cores and partitions; support asynchronous mode switching procedure. 
 
 MainFunction的调度 Scheduling of MainFunction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -313,10 +380,70 @@ None
        - 定义版本号；(Define version number;)
        - 定义错误返回值(Define error return value)
 	   
-   * - Rte.c
+   * - Rte.c/Rte_<OsApplication>.c
      - 包含如下内容：(It includes the following contents:)
 
        - 定义Os_Task，填充其内容。(Define Os_Task and fill in its content.)
+
+   * - Rte_<Swc>.c
+     - 包含如下内容：(Contains the following contents :)
+
+       - SWC关联的Rte接口桩函数；(Swc-related RTE API stub definitions)
+
+   * - Rte_Cbk_User.c/Rte_Cbk.c
+     - 包含如下内容：(Contains the following contents :)
+
+       - CallBack桩函数；(Callback stub functions)
+
+   * - Rte_<Swc>.h
+     - 包含如下内容：(Contains the following contents:)
+
+       - RteEvent触发的Runnable函数声明；(Declaration of Runnable functions triggered)
+
+       - Runnable中要用到的Rte函数的声明，如Rte_Write等；(Declaration of Rte functions used in Runnables (e.g., Rte_Write))
+
+       - 定义CDS结构(Rte_Instance)；(CDS structure definition (Rte_Instance))
+
+       - 定义S/R(或者NV)端口配置的初始值；(Initial value definition for S/R (or NV) port configuration)
+
+       - 定义PerInstanceMemory类型；(PerInstanceMemory type definition)
+
+       - 定义C/S通信的应用特定的错误返回类型值；(Application-specific error return type definition for C/S communication)
+
+   * - Rte_<Swc>_Type.h
+     - 包含如下内容：(Contains the following contents:)
+
+       - 定义Enumeration Data Types (5.5.4)；(Enumeration Data Types definition (5.5.4))
+
+       - 定义Range Data Types (5.5.5)；(Range Data Types definition (5.5.5))
+
+       - 重定义定义Implementation Data Type symbols；(Implementation Data Type symbols redefinition)
+
+   * - Rte_<OsApplication>.h
+     - 包含如下内容：(Contains the following contents :)
+    
+       - 分区内部函数声明；(Declaration of partition-related functions)
+
+   * - Rte_Internal.h
+     - 包含如下内容：(Contains the following contents :)
+    
+       - 模块内公共函数定义、数据类型定义、宏定义等；(Internal functions,datatypes and macro definitions of RTE)
+
+   * - Rte_Cbk.h
+     - 包含如下内容：(Contains the following contents:)
+
+       - 回调函数头文件；(Callback functions header file)
+
+   * - Rte_DataHandleType.h
+     - 包含如下内容：(Contains the following contents:)
+
+       - 定义CDS结构里面Data Handle Type结构体；(Definition of Data Handle Type structure within CDS structure)
+         
+       - data element without status；(Data element without status)
+       - data element with status；(Data element with status)
+       - data element with extended status；(Data element with extended status)
+
+ 
 
 错误处理 Error Handling
 ------------------------------------------------------------------
@@ -380,30 +507,30 @@ None.
 
 .. _idevelop_flow:
 
-工具开发流程概述 Overview of Tool Development Process
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-- 完成除OS和iRTE之外的所有BSW模块配置；(Complete all BSW module configurations except for OS and iRTE;)
-- 补充必要的OS信息如OS核数；(Supplement necessary OS information such as the number of OS cores;)
-- 更新全部BSW模块的模块描述文件(包括iRTE本身的模块描述文件)；(Update the module description files of all BSW modules (including the files of iRTE);)
-- 手动进行iRTE、OS配置或通过iRTE-OS同步功能自动生成推荐Demo配置(iRTE模块和OS模块)；(Manually configure iRTE and OS, or automatically generate recommended demo configurations through iRTE OS synchronization function (iRTE and OS modules);)
-- 如果选用了iRTE-OS同步功能，需要基于自动生成的推荐OS、iRTE Demo配置，结合使用场景进行调整适配；(If the iRTE-OS synchronization function is selected, make adjustment based on the automatically generated recommended OS and iRTE Demo configuration as well as the usage scenario in order to adapt to the realities;)
-- 先生成iRTE代码，后生成OS代码(全工程生成顺序为其它BSW→iRTE→OS)。(Generate iRTE code and OS code in order (the generation sequence of the entire project: other BSW → iRTE → OS).)
+工具开发流程概述
+----------------------
+- 完成除OS和iRTE之外的所有BSW模块配置；
+- 补充必要的OS信息如OS核数；
+- 更新全部BSW模块的模块描述文件(包括iRTE本身的模块描述文件)；
+- 手动进行iRTE、OS配置或通过iRTE-OS同步功能自动生成推荐Demo配置（iRTE模块和OS模块）；
+- 如果选用了iRTE-OS同步功能，需要基于自动生成的推荐OS、iRTE Demo配置，结合使用场景进行调整适配；
+- 先生成iRTE代码，后生成OS代码（全工程生成顺序为其它BSW→iRTE→OS）；
 
 
-Bswmd文件更新 Updating of Bswmd File
---------------------------------------------------------------------------------------------------------------------------------------------------------
+Bswmd文件更新
+----------------------
 基于BSW模块的设计，工具可更新全部或单个描述文件用来模块的设计，工具可更新全部或单个描述文件用来模块的设计，工具可更新全部或单个描述文件用来BSW模块在接口层面、 BswEntity调度的需求 ，内存映射信息。
 
 Based on the BSW module design, the tool can update all or one description file for module design; update all or one description file for module design; update all or one description file for interface level, BswEntity scheduling requirements, and memory mapping information of the BSW module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_3.png
    :name: iRTE_4_3
    :align: center
    :width: 800
 
    更新全部Bswmd文件 (Update all Bswmd files)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_4.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_4.png
    :name: iRTE_4_4
    :align: center
    :width: 800
@@ -455,14 +582,14 @@ Automatically configure the OS module according to the BSW module description fi
 - SchM独占区保护的配置(Configuration of SchM exclusive area protection)
 - OTask的部分配置，如内各运行实体的调度顺序、优先级等。(Some configuration of OTask, such as the scheduling order and priority of each internal running entity)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_1.png
    :name: iRTE_4_1
    :align: center
    :width: 800
 
    iRTE-OS同步流程 (IRTE OS Synchronization Process)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_2.png
    :name: iRTE_4_2
    :align: center
    :width: 800
@@ -487,6 +614,27 @@ After selection, the cycle trigger will be automatically configured according to
 
 Fully manual configuration integration indicates that iRTE and OS modules are configured fully manually without using tools.
 
+无OS模块集成 No OS Module Integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+当配置中没有Os模块时，iRTE会将OS中断相关函数生成在增量段中，集成人员根据实际需要手动调整。
+
+When the Os module is not configured, iRTE generates the OS interrupt-related functions in the incremental section, and the integrator manually adjusts them according to actual needs.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_4_5.png
+   :name: iRTE_4_5
+   :align: center
+   :width: 800
+
+① 为增量段注释，用于标识用户可手动修改的代码区域，重新生成代码时会保留该区域内的内容。
+
+① Incremental section comments are used to identify the code area that can be manually modified by the user. The content in this area will be preserved when the code is regenerated.
+
+② 为中断函数宏映射，用户需要根据实际工程将自己的中断函数映射到该宏上。
+
+② Interrupt function macro mappings are used to map interrupt-related functions. The user needs to map their own interrupt functions to these macros according to the actual project.
+
+
 集成流程概述 Overview of Integration Process
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -498,7 +646,7 @@ Complete the configuration of the project according to :ref:`idevelop_flow` ; af
 ==========================================================
 
 SchM
-----------------------
+-----------
 
 SchM实现AUTOSAR BSW模块MainFunction主函数的调度，为BSW模块提供独占区接口服务，为BSW模块间实现跨分区函数调用提供CS接口。
 
@@ -558,7 +706,7 @@ Common scenarios:
 
 iRTE激活OsTask OsTask Activation by iRTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_1.png
    :name: iRTE_5_1
    :align: center
    
@@ -567,7 +715,7 @@ iRTE激活OsTask OsTask Activation by iRTE
 
 iRTE激活OsAlarm OsAlarm Activation by iRTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_2.png
    :name: iRTE_5_2
    :align: center
    
@@ -576,7 +724,7 @@ iRTE激活OsAlarm OsAlarm Activation by iRTE
 
 iRTE激活OsScheduleTable OsScheduleTable Activation by iRTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_3.png
    :name: iRTE_5_3
    :align: center
    
@@ -593,7 +741,7 @@ The configuration of Bsw modules in Ecu takes the module description files of ea
 
 Link relevant configurations RteBswModulus Instance to BswImplementation (defined in the module description file) with RteBswImplementeRef.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_19.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_19.png
    :name: iRTE_5_19
    :align: center
    
@@ -613,7 +761,7 @@ Map BswEvent to OsTask so that Task could schedule the corresponding BswSchduleE
 映射至Basic Task Mapping to Basic Task
 *****************************************************************************************************************************************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_20.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_20.png
    :name: iRTE_5_20
    :align: center
    
@@ -631,7 +779,7 @@ Map BswEvent to OsTask so that Task could schedule the corresponding BswSchduleE
 映射至Extended Task Mapping to Extended Task
 *****************************************************************************************************************************************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_21.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_21.png
    :name: iRTE_5_21
    :align: center
  
@@ -674,7 +822,7 @@ OsAlarm触发Basic Task Basic Task Triggering by OsAlarm
 
 Basic Task should map RunnableEntity with the same cycle, and the cycle of OsAlarm should be set consistent with that of RunnableEntity
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_9.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_9.png
    :name: iRTE_5_9
    :align: center
  
@@ -687,7 +835,7 @@ OsAlarm触发Extended Task Extended Task Triggering by OsAlarm
 
 One Task can map RunnableEntities of different cycles.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_10.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_10.png
    :name: iRTE_5_10
    :align: center
  
@@ -700,28 +848,28 @@ OsScheduleTable触发周期RunnableEntity Periodical RunnableEntity Triggering b
 
 Activation offsets can be set using scheduling table through scheduling points, in order to realize certain load balancing effect.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_11.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_11.png
    :name: iRTE_5_11
    :align: center
   
 
    OsScheduleTable配置示例 (Configuration Instance of OsScheduleTable)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_12.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_12.png
    :name: iRTE_5_12
    :align: center
    
 
    OsScheduleTableExpiryPoint配置示例 (Configuration instance of OsScheduleTableExpiryPoint)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_13.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_13.png
    :name: iRTE_5_13
    :align: center
 
 
    OsScheduleTableExpiryPoint激活Basic Task配置示例 (Configuration instance of Basic Task activation by OsScheduleTableExpiryPoint)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_14.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_14.png
    :name: iRTE_5_14
    :align: center
 
@@ -745,7 +893,7 @@ RTE includes five configuration options for the exclusive area of Bswmodule:
 - OS_SPINLOCK
 - NONE
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_23.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_23.png
    :name: iRTE_5_23
    :align: center
 
@@ -761,7 +909,7 @@ iRTE的多核支持 Multi-core support of iRTE
 Core Definition
 ********************************************************************************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_15.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_15.png
    :name: iRTE_5_15
    :align: center
  
@@ -779,7 +927,7 @@ Swc与Bsw模块需要映射至EcucPartition，表示被划分在该分区。
 
 Swc and Bsw modules should be mapped to EcucPartition, indicating that they are divided into that partition.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_16.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_16.png
    :name: iRTE_5_16
    :align: center
 
@@ -804,7 +952,7 @@ OsTask、OsAlarm、OsResource等系统对象需要映射至OsApplication，表�
 
 The system objects such as OsTask, OsAlarm, and OsResource should be mapped to OsApplication, indicating that they are divided into that partition.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_17.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_17.png
    :name: iRTE_5_17
    :align: center
   
@@ -835,7 +983,7 @@ IRTE identifies the partition in the EcuM configuration and starts EcuM.StartupT
 
 Select one partition (trusted) for each core and fill it into the configuration of EcuMFlexConfiguration, i.e., the number of startups for EcuM.StartupTwo is the same as the number of cores.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_18.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/iRte/iRTE_5_18.png
    :name: iRTE_5_18
    :align: center
  

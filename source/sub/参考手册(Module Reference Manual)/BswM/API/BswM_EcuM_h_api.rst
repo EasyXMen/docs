@@ -10,7 +10,7 @@ BswM_EcuM_CurrentWakeup
 Function called by EcuM to indicate the current state of a wakeup source.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -45,7 +45,7 @@ BswM_EcuM_RequestedState
 Function called by EcuM to notify about the current status of the Run Request Protocol.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -80,7 +80,7 @@ BswM_EcuM_CurrentState
 Function called by EcuM to indicate the current ECU Operation Mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

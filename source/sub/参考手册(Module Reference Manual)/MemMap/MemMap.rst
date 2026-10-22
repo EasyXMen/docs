@@ -256,6 +256,7 @@ The MemMap module supports the following 4 mapping modes:
 - 手动映射(Manual mapping)
 
 它们之间的优先级关系：
+
 工具配置映射(需配置) > 名称推导映射(需开启) > 默认映射(需关联) = 手动映射(需开启)
 
 Their priority relationship is as follows:
@@ -265,13 +266,13 @@ Tool configuration mapping (requires configuration) > Name derivation mapping (r
 
 Among them, Name Deduction Mapping and Manual Mapping are optional.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/MemorySection映射逻辑.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/MemorySection映射逻辑.png
    :name: MemorySection映射逻辑(MemorySection Mapping Logic)
    :align: center
 
    MemorySection映射逻辑 (MemorySection Mapping Logic)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/SwAddrMethod映射逻辑.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/SwAddrMethod映射逻辑.png
    :name: SwAddrMethod映射逻辑(SwAddrMethod Mapping Logic)
    :align: center
 
@@ -295,7 +296,7 @@ Tool configuration mapping is a standard mapping method compliant with the AUTOS
 
   Or associate SwAddrMethod with MemMapAddressingModeSet through the MemMapGenericMapping container to achieve mapping
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/MemMapSectionSpecificMapping.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/MemMapSectionSpecificMapping.png
    :name: MemMapSectionSpecificMapping
    :align: center
 
@@ -303,7 +304,7 @@ Tool configuration mapping is a standard mapping method compliant with the AUTOS
 
    MemMapSectionSpecificMapping is for MEMORY-SECTION mapping.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/MemMapGenericMappingg.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/MemMapGenericMappingg.png
    :name: MemMapGenericMappingg
    :align: center
 
@@ -344,7 +345,7 @@ MemMapAddressingModeStart和MemMapAddressingModeStop表示#pragma语句的具体
 
 MemMapAddressingModeStart and MemMapAddressingModeStop represent the specific content of the #pragma statement, for example.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/MemMapAddressingModeStart和MemMapAddressingModeStop.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/MemMapAddressingModeStart和MemMapAddressingModeStop.png
    :name: MemMapAddressingModeStart和MemMapAddressingModeStop
    :align: center
 
@@ -375,7 +376,7 @@ If manual mapping is not desired, you can reference a MemLayoutRegion. The tool 
 
 This feature provides a mapping method based on MEMORY-SECTION names, performing memory mapping for all MEMORY-SECTIONs in the system. It needs to be enabled through the AutoMappingByShortName switch.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/AutoMappingByShortName.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/AutoMappingByShortName.png
    :name: AutoMappingByShortName
    :align: center
 
@@ -484,7 +485,7 @@ MemMap模块为系统中默认存在的SW-ADDR-METHOD提供了一键创建映射
 
 The MemMap module provides a one-click mapping creation function for the SW-ADDR-METHODs that exist by default in the system. All mapping functions can be created immediately by clicking the Synchronize Modules button in the MemMap module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/SynchronizeMemMap.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/SynchronizeMemMap.png
    :name: SynchronizeMemMap
    :align: center
 
@@ -495,7 +496,7 @@ The MemMap module provides a one-click mapping creation function for the SW-ADDR
 The objects created by this function reference containers from another module (MemLayout). Therefore, the prerequisite for using it is that the MemLayout module has first used the Synchronize Modules function. See also the MemLayout User Manual [link].
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/SynchronizeMemMap_MemMapAddressingModeSet.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/SynchronizeMemMap_MemMapAddressingModeSet.png
    :name: SynchronizeMemMap_MemMapAddressingModeSet
    :align: center
 
@@ -503,7 +504,7 @@ The objects created by this function reference containers from another module (M
 
    MemMapAddressingModeSet Created after MemMap Synchronizes
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/SynchronizeMemMap_MemMapGenericMapping.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/SynchronizeMemMap_MemMapGenericMapping.png
    :name: SynchronizeMemMap_MemMapGenericMapping
    :align: center
 
@@ -526,7 +527,7 @@ The objects created by this function reference containers from another module (M
 
 Checking the EnableManual switch indicates that manual mapping mode is activated.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemMap/EnableManual.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemMap/EnableManual.png
    :name: EnableManual
    :align: center
 

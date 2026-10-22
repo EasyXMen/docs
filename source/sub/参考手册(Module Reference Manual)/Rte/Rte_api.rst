@@ -803,6 +803,59 @@ Generated when transmission is configured for a Signal (TP Pdu) in LdCom
 
 **Return values**
    None
+    
+Rte_LdComCbkTriggerTransmit_<sn>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: 
+
+   Std_ReturnType Rte_LdComCbkTriggerTransmit_<sn> (
+	PduInfoType* PduInfoPtr)
+
+当LdCom中Signal（IF Pdu）配置了Trigger transmit时生成
+
+Generated when Trigger transmit is configured for a Signal (IF Pdu) in LdCom
+
+**Service ID**
+   0x104
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+   
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+
+   * - [in]
+     - PduInfoPtr
+     - Signal（IF Pdu）的数据指针(data pointer for Signal（IF Pdu）)
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+
+   * - E_OK
+     - SDU被成功拷贝(SDU copied successfully)
+
+   * - E_NOT_OK
+     - SDU没有被拷贝，可能是指针为空或者值无效(SDU failed to copy, maybe pointer is Null or invalid value)
 
 Indirect(API)
 ---------------

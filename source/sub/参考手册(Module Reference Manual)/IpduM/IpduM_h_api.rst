@@ -65,7 +65,7 @@ IpduM_Init
 Initializes the I-PDU Multiplexer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -97,7 +97,7 @@ IpduM_GetVersionInfo
 Service returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -129,7 +129,7 @@ IpduM_Transmit
 Service is called by the PDU-Router to request a transmission.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant for the same PDU-ID. Reentrant for different PDU-ID.
@@ -164,7 +164,7 @@ IpduM_MainFunctionTx
 Performs the rx-processes of the activities that are not directly. initiated by the calls from PDU-R.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different partitions. Non reentrant for the same instance.
@@ -196,7 +196,7 @@ IpduM_MainFunctionRx
 Performs the tx-processes of the activities that are not directly. initiated by the calls from PDU-R. initiated by the calls from PDU-R.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different partitions. Non reentrant for the same instance.

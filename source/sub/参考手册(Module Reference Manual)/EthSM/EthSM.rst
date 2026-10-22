@@ -107,7 +107,7 @@ EthSM 模块提供一套抽象的接口给ComM用于打开和关闭以太网通�
 
 The EthSM module provides a set of abstract interfaces to ComM for enabling and disabling Ethernet communication.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthSM/EthSM在AUTOSAR中的位置.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/EthSM/EthSM在AUTOSAR中的位置.png
    :alt: EthSM 在 AUTOSAR 中的位置 (Position of EthSM in AUTOSAR)
    :align: center
 
@@ -117,8 +117,44 @@ The EthSM module provides a set of abstract interfaces to ComM for enabling and 
 ====================================================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-特性 Features
-----------------------------------------------------------
+公共特性(Public Features)
+--------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过 EthSMNetwork/EthSMComMNetworkHandleRef 引用的 ComMChannel/ComMChannelPartitionRef 获取分区信息.(要求 EthSMEthIfControllerRef 的分区配置需要与 ComMChannel 一致)
+
+  The partition information shall be obtained via the ComMChannel/ComMChannelPartitionRef referenced by EthSMNetwork/EthSMComMNetworkHandleRef. The partition configuration of EthSMEthIfControllerRef shall be consistent with that of the corresponding ComMChannel.
+
+- 每个 EthSMNetwork 生成一个Mainfunction，在各自的分区中被调用
+
+  Each EthSMNetwork generates a MainFunction, which is called in its respective partition.
+
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   EthSM 模块不支持PBS功能.
+
+   Memmap功能(Memmap Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Memmap文件是动态的。存在 ETHSM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、ETHSM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、ETHSM_START_SEC_CONFIG_DATA_UNSPECIFIED、ETHSM_START_SEC_CODE、ETHSM_STOP_SEC_CODE、ETHSM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、ETHSM_STOP_SEC_CONFIG_DATA_PTR、ETHSM_START_SEC_CONFIG_DATA_PTR
+
+   The Memmap files are dynamic. There are ETHSM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、ETHSM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、ETHSM_START_SEC_CONFIG_DATA_UNSPECIFIED、ETHSM_START_SEC_CODE、ETHSM_STOP_SEC_CODE、ETHSM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、ETHSM_STOP_SEC_CONFIG_DATA_PTR、ETHSM_START_SEC_CONFIG_DATA_PTR
+
+   .. rubric:: 说明
+
+   .. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+   独占区功能(Exclusive Area Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   None.
+
+模块特性(Module Features)
+--------------------------------------------------------
 
 以太网通信状态管理功能 Ethernet Communication State Management Function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,7 +163,7 @@ EthSM 提供接口给 ComM，用于接受来自 ComM 的通信模式请求。Eth
 
 The EthSM provides interfaces to ComM for receiving communication mode requests from ComM. Based on the parameters provided by ComM, the EthSM processes the internal network mode state machine. According to the transition conditions of the state machine, it calls the interfaces of EthIf and TcpIp to control the Ethernet controller, transceiver, and TcpIp protocol stack, thereby controlling the state of Ethernet communication. It also notifies ComM and BswM of the current communication mode through the interfaces of ComM and BswM.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthSM/EthSM_State_Machine_high_level.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/EthSM/EthSM_State_Machine_high_level.png
    :alt: EthSM 网络状态转换状态机 (EthSM Network State Transition State Machine)
    :align: center
 
@@ -439,25 +475,10 @@ EthSMTcpIpUsed
 
 If an **EthSMNetwork** does not use the TcpIp protocol stack, **EthSMTcpIpUsed** shall be configured as **FALSE**.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthSM/EthSMTcpIpUsed.png
-   :name: EthSMTcpIpUsed
-   :align: center
-
-   EthSMTcpIpUsed
-
-EthSMForwardSilentCommunicationEnabled
-----------------------------------------------------------------------------------------------------------------------------------------
 
 如果一个 **EthSMNetwork** 的 **EthSMForwardSilentCommunicationEnabled** 配置为 **TRUE**，当 **EthSM_RequestComMode(COMM_SILENT_COMMUNICATION)** 被 ComM 调用，EthSM 将控制 EthIf 控制器进入 **ETH_MODE_ACTIVE_TX_OFFLINE** 模式，这将禁用此以太网通道上的发送功能。此功能通常在使用 **UdpNm** 的以太网通道上使能。
 
 If **EthSMForwardSilentCommunicationEnabled** of an **EthSMNetwork** is configured as **TRUE**, when **EthSM_RequestComMode(COMM_SILENT_COMMUNICATION)** is called by ComM, the EthSM will control the EthIf controller to enter the **ETH_MODE_ACTIVE_TX_OFFLINE** mode, which will disable the transmission function on this Ethernet channel. This function is usually enabled on Ethernet channels using **UdpNm**.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EthSM/EthSMForwardSilentCommunicationEnabled.png
-   :name: EthSMForwardSilentCommunicationEnabled
-   :align: center
-
-   EthSMForwardSilentCommunicationEnabled
-
 
 临界区 Critical Sections
 ------------------------------------------------------------------------------------------------------------------------------

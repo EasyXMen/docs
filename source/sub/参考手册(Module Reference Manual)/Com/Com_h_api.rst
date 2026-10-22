@@ -42,7 +42,7 @@ Com_Init
 This service initializes internal and external interfaces and variables of the AUTOSAR COM module layer for the further processing. After calling this function the inter-ECU communication is still disabled.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -74,7 +74,7 @@ Com_DeInit
 This service stops the inter-ECU communication. All started I-PDU groups are stopped and have to be started again, if needed, after Com_Init is called. By a call to Com_DeInit the AUTOSAR COM module is put into an not initialized state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -94,7 +94,7 @@ Com_IpduGroupStart
 Starts a preconfigured I-PDU group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different I-PDU groups. Non reentrant for the same I-PDU group
@@ -129,7 +129,7 @@ Com_IpduGroupStop
 Stops a preconfigured I-PDU group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different I-PDU groups. Non reentrant for the same I-PDU group
@@ -161,7 +161,7 @@ Com_EnableReceptionDM
 Enables the reception deadline monitoring for the I-PDUs within the given IPDU group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different I-PDU groups. Non reentrant for the same I-PDU group
@@ -193,7 +193,7 @@ Com_DisableReceptionDM
 Disables the reception deadline monitoring for the I-PDUs within the given IPDU group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different I-PDU groups. Non reentrant for the same I-PDU group
@@ -225,7 +225,7 @@ Com_GetStatus
 Returns the status of the AUTOSAR COM module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -257,7 +257,7 @@ Com_GetVersionInfo
 
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -289,7 +289,7 @@ Com_SendSignal
 The service Com_SendSignal updates the signal(include group signal) object identified by SignalId with the signal referenced by the SignalDataPtr parameter.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant for the same signal. Reentrant for different signals.
@@ -338,7 +338,7 @@ Com_SendDynSignal
 The service Com_SendDynSignal updates the signal object identified by SignalId with the signal referenced by the SignalDataPtr parameter.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -392,7 +392,7 @@ Com_ReceiveSignal
 Com_ReceiveSignal copies the data of the signal identified by SignalId to the location specified by SignalDataPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -443,7 +443,7 @@ Com_ReceiveDynSignal
 Com_ReceiveDynSignal copies the data of the signal identified by SignalId to the location specified by SignalDataPtr and stores the length of the dynamical length signal at the position given by the Length parameter.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -497,7 +497,7 @@ Com_SendSignalGroup
 The service Com_SendSignalGroup copies the content of the associated shadow buffer to the associated I-PDU.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -543,7 +543,7 @@ Com_ReceiveSignalGroup
 The service Com_ReceiveSignalGroup copies the received signal group from the I-PDU to the shadow buffer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -589,7 +589,7 @@ Com_SendSignalGroupArray
 The service Com_SendSignalGroupArray copies the content of the provided SignalGroupArrayPtr to the associated I-PDU. The provided data shall correspond to the array representation of the signal group.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -638,7 +638,7 @@ Com_ReceiveSignalGroupArray
 The service Com_ReceiveSignalGroupArray copies the received signal group array representation from the PDU to the location designated by SignalGroupArrayPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -687,7 +687,7 @@ Com_InvalidateSignal
 The service Com_InvalidateSignal invalidates the signal with the given SignalId by setting its value to its configured ComSignalDataInvalidValue.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -733,7 +733,7 @@ Com_InvalidateSignalGroup
 The service Com_InvalidateSignalGroup invalidates all group signals of the signal group with the given SignalGroupId by setting their values to their configured ComSignalDataInvalidValues.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -779,7 +779,7 @@ Com_TriggerIPDUSend
 By a call to Com_TriggerIPDUSend the I-PDU with the given ID is triggered for transmission.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -823,7 +823,7 @@ Com_TriggerIPDUSendWithMetaData
 By a call to Com_TriggerIPDUSendWithMetaData the AUTOSAR COM module updates its internal metadata for the I-PDU with the given ID by copying the metadata from the given position and with respect to the globally configured metadata length of the I-PDU. Then the I-PDU is triggered for transmission.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -870,7 +870,7 @@ Com_SwitchIpduTxMode
 The service Com_SwitchIpduTxMode sets the transmission mode of the I-PDU referenced by PduId to Mode. In case the transmission mode changes, the new mode shall immediately be effective. In case the requested transmission mode was already active for this I-PDU, the call will have no effect.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -905,7 +905,7 @@ Com_MainFunctionRx
 This function performs the processing of the AUTOSAR COM module's receive processing that are not directly handled within the COM's functions invoked by the PDU-R, for example Com_RxIndication.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different instances. Non reentrant for the same instance.
@@ -937,7 +937,7 @@ Com_MainFunctionTx
 This function performs the processing of the AUTOSAR COM module's transmission activities that are not directly handled within the COM's function invoked by the RTE, for example Com_SendSignal.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different instances. Non reentrant for the same instance.
@@ -969,7 +969,7 @@ Com_MainFunctionRouteSignals
 Calls the signal gateway part of the AUTOSAR COM module to forward received signals to be routed.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different instances. Non reentrant for the same instance.

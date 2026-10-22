@@ -10,7 +10,7 @@ BswM_ComM_InitiateReset
 Function called by ComM to signal a shutdown.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -30,7 +30,7 @@ BswM_ComM_CurrentMode
 Function called by ComM to indicate the current communication mode of a ComM channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -65,7 +65,7 @@ BswM_ComM_CurrentPNCMode
 Function called by ComM to indicate the current mode of the PNC.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

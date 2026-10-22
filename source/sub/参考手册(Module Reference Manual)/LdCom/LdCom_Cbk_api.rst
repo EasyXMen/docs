@@ -1,8 +1,8 @@
-回调函数 Callback Function
+回调函数(Callback Function)
 ------------------------------------------------------------------
 
       
-提供的服务 Services
+提供的服务(Services)
 ------------------------------------------------------------------
 LdCom_CopyTxData
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -14,7 +14,7 @@ LdCom_CopyTxData
 Requests transmission of a signal.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ids. Non reentrant for the same Id.
@@ -69,7 +69,7 @@ LdCom_TpTxConfirmation
 This function is called after the I-PDU has been transmitted on its network, the result indicates whether the transmission was successful or not.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -104,7 +104,7 @@ LdCom_StartOfReception
 This function is called at the start of receiving an N-SDU..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -159,7 +159,7 @@ LdCom_CopyRxData
 This function is called to provide the received data of an I-PDU segment (N-PDU) to the upper layer. Each call to this function provides the next part of the I-PDU data. The size of the remaining buffer is written to the position indicated by bufferSizePtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -209,7 +209,7 @@ LdCom_TpRxIndication
 Called after an I-PDU has been received via the TP API, the result indicates whether the transmission was successful or not.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -244,7 +244,7 @@ LdCom_RxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -279,7 +279,7 @@ LdCom_TxConfirmation
 The lower layer communication interface module confirms the transmission of an IPDU, or the failure to transmit a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -314,7 +314,7 @@ LdCom_TriggerTransmit
 Copy the upper layer module(called module) data to be used the lower layer module transmission.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -333,7 +333,7 @@ Copy the upper layer module(called module) data to be used the lower layer modul
      - ID of the SDU that is requested to be transmitted.
    * - [inout]
      - PduInfoPtr
-     - Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be copied, and the available buffer size in SduLengh.On return, the service will indicate the length of the copied SDU data in SduLength.
+     - Contains a pointer to a buffer (SduDataPtr) to where the SDU data shall be copied, and the available buffer size in SduLength.On return, the service will indicate the length of the copied SDU data in SduLength.
 
 **Return type**
    Std_ReturnType

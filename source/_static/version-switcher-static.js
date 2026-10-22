@@ -1,7 +1,8 @@
 (function () {
   const VERSIONS = [
-    { key: "default", label: "V25.04" },
-    { key: "V25.10", label: "V25.10" }
+    { key: "default", label: "V26.10" },
+    { key: "V25.10", label: "V25.10" },
+    { key: "V25.04", label: "V25.04" }
   ];
 
   function logWarn(e) {
@@ -39,8 +40,9 @@
   }
 
   function detectCurrent(versionRootUrl) {
-    // 通过版本根路径判断是否在 V25.10
-    return /\/V25\.10\/$/.test(versionRootUrl) ? "V25.10" : "default";
+    // 版本根路径形如 .../V25.10/ 时返回对应 key；站点根目录视为 default（即最新版 V26.10）
+    const m = String(versionRootUrl).match(/\/(V\d+\.\d+)\/$/);
+    return m ? m[1] : "default";
   }
 
   function inject() {

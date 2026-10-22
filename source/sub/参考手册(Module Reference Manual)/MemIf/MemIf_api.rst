@@ -210,7 +210,7 @@ Invokes the "GetJobResult" function of the underlying memory abstraction module 
    * - MEMIF_JOB_CANCELED
      - The job has been canceled.
    * - MEMIF_BLOCK_INCONSISTENT
-     - 1. The requested block is inconsistent, it may contain corrupted data.
+     - The requested block is inconsistent, it may contain corrupted data.
    * - MEMIF_BLOCK_INVALID
      - The requested block has been marked as invalid, the requested operation can not be performed.
 

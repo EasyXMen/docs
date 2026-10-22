@@ -1,9 +1,9 @@
 
-类型定义(Type Definitions)
--------------------------------
+类型定义
+--------
 .. 如果没有就不存在该章节，或为None
 
-.. list-table::
+.. list-table:: 
    :widths: 15 5 20
    :header-rows: 1
 
@@ -11,17 +11,82 @@
      - Type
      - Description
 
-   * - CanSM_ConfigType
-     - struct
-     - This type defines a data structure for the post build parameters of the CanSM. At initialization the CanSM gets a pointer to a structure of this type to get access to its configuration data, which is necessary for initialization.
+   * - CanSM_NetworkIndexType
+     - uint8
+     - The range is at least equal to the range of type NetworkHandleType.
+
+   * - CanSM_ModuleStatusType
+     - enum
+     - Defines the values of the internal states of the CanSM module.
+
+   * - CanSM_BSM_StateType
+     - enum
+     - Defines the values of the major state machine.
+
+   * - CanSM_DeinitPnSupportedStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_DeinitPnSupported.
+
+   * - CanSM_DeinitPnNotSupportedStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_DeinitPnNotSupported.
+
+   * - CanSM_WUValidationStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_WUVALIDATION.
+
+   * - CanSM_PreFullComStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_S_PRE_FULLCOM.
+
+   * - CanSM_FullComStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_S_FULLCOM.
+
+   * - CanSM_ChangeBaudrateStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_S_CHANGE_BAUDRATE.
+
+   * - CanSM_SilentComBORStateType
+     - enum
+     - Defines the values of the Sub state machine CANSM_BSM_S_SILENTCOM_BOR.
+
+   * - CanSM_RequestModeType
+     - enum
+     - Defines the values of the request communication mode.
+
+   * - CanSM_CanIfIndicatedType
+     - enum
+     - Defines the values of CanIf API indication type.
 
    * - CanSM_BswMCurrentStateType
      - enum
      - Can specific communication modes / states notified to the BswM module.
 
+   * - CanSM_TrcvRefType
+     - struct
+     - Transceiver parameters of each CAN network.
 
-提供的服务(Services)
--------------------------------------
+   * - CanSM_ControllerRefType
+     - struct
+     - CAN controller ID parameters of each CAN network.
+
+   * - CanSM_DemEventParameterRefType
+     - struct
+     - Reference to configured DEM event to report dem errors for this CAN network.
+
+   * - CanSM_NetWorkRunTimeType
+     - struct
+     - type of CanSM module's runtime state
+
+   * - CanSM_ManagerNetworkType
+     - struct
+     - This type contains the CAN network specific parameters of each CAN network.
+
+
+      
+提供的服务
+-----------
 CanSM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -175,7 +240,7 @@ CanSM_GetVersionInfo
 
     void CanSM_GetVersionInfo(Std_VersionInfoType *VersionInfo)
 
-This service puts out the version information of this module (module ID, vendor ID, vendor specific version numbers related to BSW00407)
+This service puts out the version information of this module (module ID, vendor ID, vendor specific version numbers related to BSW00407).
 
 **Sync/Async**
    Synchronous
@@ -207,13 +272,13 @@ CanSM_SetBaudrate
 
     Std_ReturnType CanSM_SetBaudrate(NetworkHandleType Network, uint16 BaudRateConfigID)
 
-This service shall start an asynchronous process to change the baud rate for the configured CAN controllers of a certain CAN network.
+This service shall start an asynchronous process to change the baud rate for the configured CAN controllers of a certain CAN network. Depending on necessary baud rate modifications the controllers might have to reset.
 
 **Sync/Async**
-   Synchronous
+   Synchronous (only for different Networks)
 
 **Reentrancy**
-   Reentrant for different Networks. Non reentrant for the same Network.
+   Non Reentrant
 
 **Parameters**
 
@@ -273,7 +338,7 @@ This function can be used to set all CanSM channels of the ECU to a receive only
      - Description
    * - [in]
      - CanSM_Passive
-     - TRUE: set all CanSM channels to passive, i.e. receive only FALSE: set all CanSM channels back to non-passive
+     - TRUE set all CanSM channels to passive, i.e. receive only FALSE set all CanSM channels back to non-passive
 
 **Return type**
    Std_ReturnType
@@ -291,6 +356,37 @@ This function can be used to set all CanSM channels of the ECU to a receive only
    * - E_NOT_OK
      - Request denied
 
+CanSM_MainFunction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    void CanSM_MainFunction(CanSM_NetworkIndexType netIndex)
+
+Scheduled function of the CanSM.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - netIndex
+     - Affected CAN network
+
+**Return type**
+   void
+
 
 CanSM_StartWakeupSource
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -302,10 +398,10 @@ CanSM_StartWakeupSource
 This function shall be called by EcuM when a wakeup source shall be started.
 
 **Sync/Async**
-
+   Synchronous
 
 **Reentrancy**
-
+   Non Reentrant
 
 **Parameters**
 
@@ -346,10 +442,10 @@ CanSM_StopWakeupSource
 This function shall be called by EcuM when a wakeup source shall be stopped.
 
 **Sync/Async**
-
+   Asynchronous
 
 **Reentrancy**
-
+   Non Reentrant
 
 **Parameters**
 
@@ -379,3 +475,4 @@ This function shall be called by EcuM when a wakeup source shall be stopped.
      - Request accepted
    * - E_NOT_OK
      - Request denied
+

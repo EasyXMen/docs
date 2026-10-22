@@ -1,8 +1,63 @@
 功能描述 Functional Description
 ==============================================================
 
-特性 Features
-------------------------------------------------------------------------------------------------
+公共特性(Public Features)
+--------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过 UdpNmChannelConfig/UdpNmComMNetworkHandleRef 引用的 ComMChannel/ComMChannelPartitionRef 获取分区信息.
+
+  The partition information is obtained via the ComMChannel/ComMChannelPartitionRef referenced by UdpNmChannelConfig/UdpNmComMNetworkHandleRef.
+
+- 每个 UdpNmChannelConfig 生成一个Mainfunction，在各自的分区中被调用
+
+  Each UdpNmChannelConfig generates a MainFunction, which is called in its respective partition.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   UdpNm 支持在不同变体中：
+
+   UdpNm supports in different variants:
+
+   - 支持报文发送前的不同的偏移周期
+
+     Supports different offset periods before message transmission
+
+   - 支持配置不同的节点ID
+
+     Supports the configuration of different node IDs
+
+   - 支持配置是否启用PNC功能
+
+     Supports the configuration of whether to enable the PNC function
+
+   - 支持不同的NM-Pdu收发路径
+
+     Supports different NM-PDU reception and transmission paths
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Memmap文件是动态的。存在 UDPNM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、UDPNM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、UDPNM_START_SEC_VAR_CLEARED_UNSPECIFIED、UDPNM_START_SEC_VAR_CLEARED_BOOLEAN、UDPNM_START_SEC_CONFIG_DATA_16、UDPNM_STOP_SEC_CONFIG_DATA_PTR、UDPNM_START_SEC_VAR_CLEARED_PTR、UDPNM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、UDPNM_STOP_SEC_VAR_CLEARED_PTR、UDPNM_START_SEC_CONFIG_DATA_UNSPECIFIED、UDPNM_STOP_SEC_VAR_CLEARED_8、UDPNM_STOP_SEC_CONFIG_DATA_16、UDPNM_START_SEC_VAR_CLEARED_8、UDPNM_START_SEC_CONFIG_DATA_BOOLEAN、UDPNM_START_SEC_CODE、UDPNM_START_SEC_CONFIG_DATA_32、UDPNM_STOP_SEC_CONFIG_DATA_32、UDPNM_START_SEC_VAR_CLEARED_32、UDPNM_START_SEC_VAR_CLEARED_16、UDPNM_STOP_SEC_VAR_CLEARED_BOOLEAN、UDPNM_START_SEC_CONFIG_DATA_PTR、UDPNM_STOP_SEC_VAR_CLEARED_16、UDPNM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、UDPNM_START_SEC_CONFIG_DATA_8、UDPNM_STOP_SEC_CODE、UDPNM_STOP_SEC_CONFIG_DATA_BOOLEAN、UDPNM_STOP_SEC_CONFIG_DATA_8、UDPNM_STOP_SEC_VAR_CLEARED_32
+
+The Memmap files are dynamic. There are UDPNM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、UDPNM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、UDPNM_START_SEC_VAR_CLEARED_UNSPECIFIED、UDPNM_START_SEC_VAR_CLEARED_BOOLEAN、UDPNM_START_SEC_CONFIG_DATA_16、UDPNM_STOP_SEC_CONFIG_DATA_PTR、UDPNM_START_SEC_VAR_CLEARED_PTR、UDPNM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、UDPNM_STOP_SEC_VAR_CLEARED_PTR、UDPNM_START_SEC_CONFIG_DATA_UNSPECIFIED、UDPNM_STOP_SEC_VAR_CLEARED_8、UDPNM_STOP_SEC_CONFIG_DATA_16、UDPNM_START_SEC_VAR_CLEARED_8、UDPNM_START_SEC_CONFIG_DATA_BOOLEAN、UDPNM_START_SEC_CODE、UDPNM_START_SEC_CONFIG_DATA_32、UDPNM_STOP_SEC_CONFIG_DATA_32、UDPNM_START_SEC_VAR_CLEARED_32、UDPNM_START_SEC_VAR_CLEARED_16、UDPNM_STOP_SEC_VAR_CLEARED_BOOLEAN、UDPNM_START_SEC_CONFIG_DATA_PTR、UDPNM_STOP_SEC_VAR_CLEARED_16、UDPNM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、UDPNM_START_SEC_CONFIG_DATA_8、UDPNM_STOP_SEC_CODE、UDPNM_STOP_SEC_CONFIG_DATA_BOOLEAN、UDPNM_STOP_SEC_CONFIG_DATA_8、UDPNM_STOP_SEC_VAR_CLEARED_32
+
+.. rubric:: 说明
+
+.. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性(Module Features)
+--------------------------------------------------
 
 AUTOSAR UdpNm基于分散的直接网络管理策略，这意味着每个网络节点仅根据在通信系统内接收和/或发送报文，执行自给自足的活动。
 
@@ -29,7 +84,7 @@ The AUTOSAR UdpNm state machine consists of three operating modes:
 - Bus-Sleep Mode(总线睡眠模式)
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/UdpNm/UdpNmStateMachine.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/UdpNm/UdpNmStateMachine.png
    :alt: UdpNmStackMachine
    :align: center
 
@@ -120,7 +175,7 @@ AUTOSAR NM 报文有特定的格式要求，NM报文总长度视总线特性而�
 
 AUTOSAR NM messages have a specific format requirement. The total length of an NM message depends on the bus characteristics and is limited by the bus MTU. The format of the message data segment is as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/NM_message_layout_example.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/NM_message_layout_example.png
    :alt: Nm报文格式图(Nm Message Format Diagram)
    :align: center
 
@@ -130,7 +185,7 @@ AUTOSAR NM messages have a specific format requirement. The total length of an N
 
 1.Control Bit Vector (CBV): An optional one-byte field that, depending on the configuration, can be located in the first or second byte of the NM message, or not used at all. For the FlexRay bus, it can only be in the first byte or not used. This byte contains information as shown in the figure below.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/CBV_layout.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/CBV_layout.png
    :alt: CBV排版图(CBV Layout Diagram)
    :align: center
 
@@ -355,31 +410,6 @@ If the network is requested and UdpNmPnHandleMultipleNetworkRequests (a configur
 当通道使能UdpNmPnEnabled为TRUE，每次发送网络管理报文时，提供PNC bit vector字段起始地址调用Nm_PncBitVectorTxIndication接口以填充该字段。
 
 When UdpNmPnEnabled for a channel is TRUE, each time a network management message is sent, the Nm_PncBitVectorTxIndication interface is called with the starting address of the PNC bit vector field to fill that field.
-
-.. only:: doc_pbs
-
-多变体支持 Multi-variant Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-UdpNm 支持在不同变体中：
-
-UdpNm supports in different variants:
-
-1.支持报文发送前的不同的偏移周期
-
-1.Supports different offset periods before message transmission
-
-2.支持配置不同的节点ID
-
-2.Supports the configuration of different node IDs
-
-3.支持配置是否启用PNC功能
-
-3.Supports the configuration of whether to enable the PNC function
-
-4.支持不同的NM-Pdu收发路径
-
-4.Supports different NM-PDU reception and transmission paths
 
 偏差 Deviation
 ------------------------------------------------

@@ -23,7 +23,7 @@ IStdLib_MemCpy
 copy from srcptr to dstptr
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -61,7 +61,7 @@ IStdLib_MemSet
 Fill the destination address with val, which is n bytes in length.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -99,7 +99,7 @@ IStdLib_MemCmp
 compare str1ptr and strptr2, which is n bytes in length
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -149,7 +149,7 @@ IStdLib_MemHeapInit
 init heap
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different heap. Non reentrant for the same heap.
@@ -202,7 +202,7 @@ IStdLib_MemHeapMalloc
 malloc block depending on size
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different heap. Non reentrant for the same heap.
@@ -237,7 +237,7 @@ IStdLib_MemHeapCalloc
 malloc block depending on size, and fill 0
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different heap. Non reentrant for the same heap.
@@ -275,7 +275,7 @@ IStdLib_MemHeapFree
 free block to heap
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different heap. Non reentrant for the same heap.
@@ -326,7 +326,7 @@ IStdLib_MemHeapGetManageSize
 get the heap size
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -361,7 +361,7 @@ IStdLib_MemHeapGetRealMaxSize
 get the total assignable size
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -396,7 +396,7 @@ IStdLib_MemHeapGetUsedSize
 get the assigned size
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -431,7 +431,7 @@ IStdLib_MemHeapGetCurFreeMaxBlockSize
 get the max free block size
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -466,7 +466,7 @@ IStdLib_MemHeapGetMaxMallocSize
 get the max assigned size
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

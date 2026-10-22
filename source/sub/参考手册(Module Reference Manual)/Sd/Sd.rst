@@ -72,27 +72,49 @@ Sd
 简写 Abbreviations
 ------------------------------------------------
 
-+------------------------+---------------------------------------------+---------------------------------+
-| 缩写词（Abbreviation） | 英文全称（Full English name ）              | 中文解释（Chinese explanation） |
-+------------------------+---------------------------------------------+---------------------------------+
-| BswM                   | Basis software manager                      | 基础软件管理模块                |
-+------------------------+---------------------------------------------+---------------------------------+
-| ECU                    | Electronic Control Unit                     | 电子控制单元                    |
-+------------------------+---------------------------------------------+---------------------------------+
-| DEM                    | Diagnostic Event Manager                    | 诊断事件管理器                  |
-+------------------------+---------------------------------------------+---------------------------------+
-| DET                    | Default Error Tracer                        | 默认错误追踪器                  |
-+------------------------+---------------------------------------------+---------------------------------+
-| SD                     | Service Discovery                           | 服务发现                        |
-+------------------------+---------------------------------------------+---------------------------------+
-| Sd                     | Service Discovery Module in AUTOSARAUTOSAR  | 架构中的服务发现模块            |
-+------------------------+---------------------------------------------+---------------------------------+
-| SoAd                   | Socket Adaptor                              | 套接字适配器                    |
-+------------------------+---------------------------------------------+---------------------------------+
-| SOME/IP                | Scalable service-Oriented MiddlwarE over IP | 基于IP的可扩展服务导向中间件    |
-+------------------------+---------------------------------------------+---------------------------------+
-| SOME/IP-SD             | SOME/IP Service Discovery                   | SOME/IP 服务发现                |
-+------------------------+---------------------------------------------+---------------------------------+
+.. list-table::
+   :widths: 10 20 30
+   :header-rows: 1
+
+   * - 缩写词(Abbreviation)
+     - 英文全称(Full English name)
+     - 中文解释(Chinese explanation)
+
+   * - BswM
+     - Basis software manager
+     - 基础软件管理模块
+     
+   * - ECU
+     - Electronic Control Unit
+     - 电子控制单元
+     
+   * - DEM
+     - Diagnostic Event Manager
+     - 诊断事件管理器
+     
+   * - DET
+     - Default Error Tracer
+     - 默认错误追踪器
+     
+   * - SD
+     - Service Discovery
+     - 服务发现
+     
+   * - Sd
+     - Service Discovery Module in AUTOSARAUTOSAR
+     - 架构中的服务发现模块
+     
+   * - SoAd
+     - Socket Adaptor
+     - 套接字适配器
+     
+   * - SOME/IP
+     - Scalable service-Oriented MiddlwarE over IP
+     - 基于IP的可扩展服务导向中间件
+     
+   * - SOME/IP-SD
+     - SOME/IP Service Discovery
+     - SOME/IP 服务发现
 
 术语 Terms
 ---------------------------------------------------
@@ -190,17 +212,54 @@ Sd 模块位于 SoAd 和 BswM 模块之间， 和上述两个模块协作完成�
 
 The Sd module is between the SoAd and BswM modules, and works together with the two modules to complete the function of service discovery.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/外部依赖.jpg
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/Sd在AutoSar软件架构中的位置.jpg
    :alt: 外部依赖 (External dependence)
    :align: center
 
-   外部依赖 (External dependence)
+   Sd模块在AutoSar软件架构中的位置 (External dependence)
 
 功能描述 Functional Description
 ======================================
 
-OfferService 功能 OfferService Functions
----------------------------------------------------------
+公共特性 (Public Features)
+--------------------------------------------------
+
+多核多分区功能 (Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+如果EcuC模块中的EcucPartition容器数量大于1，则认为该工程为多分区工程。
+
+If the number of EcucPartition containers in the EcuC module is greater than 1, then this project is considered to be a multi-partition project.
+
+Sd模块SdInstance分区与SoAd中与SdInstanceTxPdu关联相同Pdu的SoAdPduRouting分区分布相同。
+
+The partitioning of the SdInstance in the Sd module is the same as the SoAdPduRouting partitioning in SoAd that is associated with the same Pdu as the SdInstanceTxPdu.
+
+ClientService和ServerService的分区分布与其父容器SdInstance的分区分布相同。
+
+The partition distribution of ClientService and ServerService is the same as that of their parent container SdInstance.
+
+.. only:: doc_pbs
+
+   PBS功能 (PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Sd模块的SdInstance、SdClientService和SdServerService容器支持配置数目的多变体。用户可根据需求在不同变体中配置不同数目的SdInstance、SdClientService和SdServerService以适配不同的应用场景。
+
+   The SdModule's SdInstance, SdClientService, and SdServerService containers support variable configurations of different numbers. Users can configure different numbers of SdInstance, SdClientService, and SdServerService according to their needs to adapt to different application scenarios.
+
+Memmap功能 (Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+memmap文件是动态的。存在SD_START_SEC_CODE，SD_STOP_SEC_CODE，SD_START_SEC_CODE_FAST，SD_STOP_SEC_CODE_FAST，SD_START_SEC_CONFIG_DATA_UNSPECIFIED，SD_STOP_SEC_CONFIG_DATA_UNSPECIFIED，SD_START_SEC_CONFIG_DATA_8，SD_STOP_SEC_CONFIG_DATA_8，SD_START_SEC_CONFIG_DATA_16，SD_STOP_SEC_CONFIG_DATA_16，SD_START_SEC_VAR_INIT_UNSPECIFIED，SD_STOP_SEC_VAR_INIT_UNSPECIFIED，SD_START_SEC_VAR_CLEARED_8，SD_STOP_SEC_VAR_CLEARED_8，SD_START_SEC_VAR_CLEARED_PTR，SD_STOP_SEC_VAR_CLEARED_PTR，SD_START_SEC_VAR_CLEARED_UNSPECIFIED，SD_STOP_SEC_VAR_CLEARED_UNSPECIFIED，SD_START_SEC_VAR_CLEARED_16，SD_STOP_SEC_VAR_CLEARED_16，SD_START_SEC_VAR_CLEARED_32，SD_STOP_SEC_VAR_CLEARED_32，SD_START_SEC_VAR_INIT_PTR，SD_STOP_SEC_VAR_INIT_PTR
+
+The memmap file is dynamic. It contains fields such as SD_START_SEC_CODE，SD_STOP_SEC_CODE，SD_START_SEC_CODE_FAST，SD_STOP_SEC_CODE_FAST，SD_START_SEC_CONFIG_DATA_UNSPECIFIED，SD_STOP_SEC_CONFIG_DATA_UNSPECIFIED，SD_START_SEC_CONFIG_DATA_8，SD_STOP_SEC_CONFIG_DATA_8，SD_START_SEC_CONFIG_DATA_16，SD_STOP_SEC_CONFIG_DATA_16，SD_START_SEC_VAR_INIT_UNSPECIFIED，SD_STOP_SEC_VAR_INIT_UNSPECIFIED，SD_START_SEC_VAR_CLEARED_8，SD_STOP_SEC_VAR_CLEARED_8，SD_START_SEC_VAR_CLEARED_PTR，SD_STOP_SEC_VAR_CLEARED_PTR，SD_START_SEC_VAR_CLEARED_UNSPECIFIED，SD_STOP_SEC_VAR_CLEARED_UNSPECIFIED，SD_START_SEC_VAR_CLEARED_16，SD_STOP_SEC_VAR_CLEARED_16，SD_START_SEC_VAR_CLEARED_32，SD_STOP_SEC_VAR_CLEARED_32，SD_START_SEC_VAR_INIT_PTR，SD_STOP_SEC_VAR_INIT_PTR
+
+模块特性（Module Features）
+------------------------------------------------
+
+OfferService 功能 (OfferService Functions)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 OfferService 功能用于向外部声明可以提供某种服务。当本地 ECU 作为服务器端提供某种服务时：
 
@@ -214,8 +273,8 @@ The OfferService function is used for declaring the specific service that can be
 
 (2)When other ECU sends FindService Entry to actively search for certain service, the local ECU will send OfferService Entry to the client searching for the service as the service provider, in order to declare that certain service is available. Unicast transmission of messages is required under such case.
 
-OfferService 功能实现 Realization of OfferService Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OfferService 功能实现 (Realization of OfferService Functions)
+********************************************************************************
 
 当服务可用或者不可用时， SWC 需要调用 BswM 的接口通知 BswM 某个服务可用/不可用， BswM 会调用 Sd_ServerServiceSetState(SdServerServiceHandleId，ServerServiceState)接口， 向 Sd 模块表明该服务的状态。其中 SdServerServiceHandleId 参数用于标识服务， ServerServiceState 用于标识服务状态。
 
@@ -225,11 +284,8 @@ Sd 模块会根据当前的状态向外发送 OfferService 或者 StopOfferServi
 
 The Sd module will send OfferService or StopOfferService messages externally based on the current status. The message will carry the information about the service represented by SdServerServiceHandleId (IP address, port number, etc.). The information can be used by other nodes to locate and use the services. The services that the Server can provide can be configured in the configuration tool SdInstanceSdServerService.
 
-FindService 功能 FindService Functions
-------------------------------------------------------------------------------------------------
-
-FindService 功能实现 Realization of FindService Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+FindService 功能 (FindService Functions)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当 SWC 作为客户端需要使用某种服务时， SWC 会需要调用 BswM 的接口通知 BswM 需要某个服务， BswM 调用 Sd_ClientServiceSetState(ClientServiceHandleId, ClientServiceState)接口， 向 Sd 模块表明需要某个服务。
 
@@ -243,11 +299,8 @@ Client 需要的的服务(即需要寻找的服务) 在配置工具 SdInstance->
 
 The services required by the Client (i.e. the service under search) are configured in the configuration tool SdInstance->SdClientService.
 
-Eventgroup 功能 Eventgroup Functions
-------------------------------------------------------------------------------------------------
-
-Eventgroup 功能实现 Realization of Eventgroup Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Eventgroup 功能 (Eventgroup Functions)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当 SWC(作为客户端) 需要订阅某个 Eventgroup 时， SWC 会调用 BswM 的接口通知 BswM， BswM 会调用 Sd_ConsumedEventGroupSetState(SdConsumedEventGroupHandleId， ConsumedEventGroupState)接口通知 Sd 模块。当 Sd 模块收到提供该 Eventgroup 的对应服务发送的 OfferService 报文时， Sd 模块会发送包含 SubscribeEventgroup Entry 的报文订阅 Eventgroup。
 
@@ -258,17 +311,17 @@ Client 需要订阅的 Eventgroup 在配置工具 SdInstance->SdClientService->S
 The Eventgroup that the Client needs to subscribe can be configured in the configuration tool SdInstance->SdClientService->SdConsumedEventGroup.
 
 Eventgroup 管理功能 Eventgroup Management Functions
-------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Eventgroup 管理功能简介 Introduction to Eventgroup Management Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Eventgroup 管理功能简介 (Introduction to Eventgroup Management Functions)
+********************************************************************************
 
 当 Client 向 Server 订阅 Eventgroup 时， Server 需要管理订阅该 Eventgroup的客户端。
 
 When Client subscribes Eventgroup from Server, the Server should manage the client that subscribes to that Eventgroup.
 
-Eventgroup 管理功能的实现 Realization of Eventgroup Management Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Eventgroup 管理功能的实现 (Realization of Eventgroup Management Functions)
+********************************************************************************
 
 当 收 到 Client 的 SubscribeEventgroup 报 文 后 ， Server 需 要 和 将 SubscribeEventgroup 报文中的信息(Eventgroup ID， 版本号， Service ID 等) 和配置中保存的信息作比较， 如果一致的情况下， 并且该 Client 之前不在订阅列表中， 则将该 Client 添加到订阅列表中， 向该 Client 应答 SubscribeEventgroupAck 报文。如果该 Client 之前已经在订阅列表中， 则用 SubscribeEventgroup Entry 中的 TTL 时 间 更 新 订 阅 列 表 中 的 TTL 值 。信 息 不 一 致 的 情 况 下 ， 应 答SubscribeEventgroupNAck 报文。
 
@@ -282,28 +335,28 @@ Server 提 供 的 Eventgroup ( 需 要 管 理 的 Eventgroup ) 在 配 置 工
 
 The Eventgroup provided by the Server (i.e., the Eventgroup that needs managing) is configured in the configuration tool SdInstance->SdServerService->SdEventHandler.
 
-RoutingPath 控制功能 RoutingPath Control Functions
-------------------------------------------------------------------------------------------------
+RoutingPath 控制功能 (RoutingPath Control Functions)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-RoutingPath 控制功能简介 Introduction to RoutingPath Control Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RoutingPath 控制功能简介 (Introduction to RoutingPath Control Functions)
+********************************************************************************
 
 Sd 模块通过控制 SoAd 里面 SoAdRoutingGroup 的状态(Enable/Disable) ，从而达到控制 Event 的接收和发送的路径的通断， 控制 Event 的接收和发送。其中对 Event 发送路径的控制叫 Fan out 控制， 对 Event 接收路径的控制叫 Fan in控制。
 
 The Sd module controls the on/off of the path for receiving and sending Events, as well as the receiving and sending of Event by controlling the status (Enable/Disable) of the SoAdRoutingGroup in SoAd. In particular, the control over the Event sending path is called Fan out control, and that over the Event receiving path is called Fan in control.
 
-RoutingPath 控制功能的实现 Realization of RoutingPath Control Functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RoutingPath 控制功能的实现 (Realization of RoutingPath Control Functions)
+********************************************************************************
 
-Fan out 控制 Fan out Control
-------------------------------------------------
+Fan out 控制 (Fan out Control)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当 Client 订阅 Eventgroup 时， Server 根据 Client 发送的 SubscribeEventgroupEntry 中携带的信息在配置中找到与之匹配的 SdEventHandler， 根据 SdEventHandler 中的 SdEventHandlerTcp/SdEventHandlerUdp 找到对应的 SoAdRoutingGroup(取得 RoutingGroup ID) 。根据 SubscribeEventgroup Entry 中携带的 Endpointoption 信息以及配置中的 SdServerServiceUdpRef/SdServerServiceTcpRef 参数推导出该 Event 发送对应的 SocketConnection(取得 SoConId) ， 然后调用 SoAd_EnableSpecificRouting()或 SoAd_DisableSpecificRouting(RoutingGroupId， SoConId)， 来控制对应的 RoutingGroup。
 
 When the Client subscribes Eventgroup, the Server will find the matching SdEventHandler in the configuration based on the information carried in the SubscribeEventgroupEntry sent by the Client, and further the corresponding SoAdRoutingGroup (obtains the RoutingGroup ID) based on the SdEventHandlerTcp/SdEventHandlerUdp in the SdEventHandler. According to the Endpointoption information in the SubscribeEventgroup Entry and the SdServerServiceUdpRef/SdServerServiceTcpRef  parameter in the configuration, deduce the corresponding SocketConnection (obtains the SoConId) sent by the Event, and then call SoAd_EnableSpecificRouting() or SoAd_DisableSpecificRouting(RoutingGroupId， SoConId) to control the corresponding RoutingGroup.
 
-Fan in 控制 Fan in Control
-------------------------------------------------
+Fan in 控制 (Fan in Control)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当 Client 向 Server 发送 SubscribeEventgroup Entry 向 Server 订阅某个 Eventgroup 时， Client 通过配置中的 SdConsumedEventGroupTcpActivationRef/SdConsumedEventGroupUdpActivationRef 参数找到对应的 SoAdRoutingGroup(取得 RoutingGroup ID) 。根据 OfferService Entry 中携带的 Endpoint option 信息以及配置中的 SdClientServiceUdpRef/SdClientServiceTcpRef 参数推导出该 Event 发送对应的 SocketConnection(取得 SoConId) ， 然后调用 SoAd_EnableSpecificRouting()或 SoAd_DisableSpecificRouting(RoutingGroupId， SoConId)， 来控制对应的 RoutingGroup。
 
@@ -314,100 +367,133 @@ When SubscribeEventgroup Entry sent from Client to Server subscribes one Eventgr
 Note: The premise for realizing all the functions described above is that the IP address of the local ECU has been specified, that is, the Sd_LocalIpAddrAssignmentChg(SoConId, State) of the Sd module has been called, and the State is TCPIP_IPADDR_STATE_ASSIGNED.
 
 
-偏差 Deviation
+偏差 (Deviation)
 ------------------------------------------------
 
 None
 
-扩展 Extension
+扩展 (Extension)
 ------------------------------------------------
 
 None
 
-集成 Integration
+集成 (Integration)
 ============================
 
-文件列表 File List
+文件列表 (File List)
 ------------------------------------------------
 
-文件结构图 File Structure Diagram
+文件结构图 (File Structure Diagram)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/文件结构图.jpg
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/文件结构图.jpg
    :alt: 文件结构图 (File structure diagram)
    :align: center
 
    文件结构图 (File Structure Diagram)
 
-静态文件 Static Files
+静态文件 (Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---------------+--------------------------------------------------------------------------------------------------------+
-| 文件（File）  | 说明（Description）                                                                                    |
-+---------------+--------------------------------------------------------------------------------------------------------+
-| Sd_Internal.h | 订阅 Sd 模块使用的宏定义和数据类型（Macro definitions and data types used for subscribing Sd modules） |
-+---------------+--------------------------------------------------------------------------------------------------------+
-| Sd_Types.h    | 定义Sd 模块的数据类型（Define the data type of Sd module）                                             |
-+---------------+--------------------------------------------------------------------------------------------------------+
-| Sd.h          | 声明 Sd 模块外部函数（Declare the external function of Sd module）                                     |
-+---------------+--------------------------------------------------------------------------------------------------------+
-| Sd.c          | 实现 Sd 模块功能（Realize the function of Sd module）                                                  |
-+---------------+--------------------------------------------------------------------------------------------------------+
+.. list-table::
+   :widths: 5 10 
+   :header-rows: 1
 
-动态文件 Dynamic Files
+   * - 文件 (File)
+     - 说明 (Description)
+
+   * - Sd_Internal.h
+     - 订阅 Sd 模块使用的宏定义和数据类型（Macro definitions and data types used for subscribing Sd modules）
+
+   * - Sd_Types.h
+     - 定义Sd 模块的数据类型（Define the data type of Sd module）
+
+   * - Sd.h
+     - 声明 Sd 模块外部函数（Declare the external function of Sd module）
+
+   * - Sd.c
+     - 实现 Sd 模块功能（Realize the function of Sd module）
+
+动态文件 (Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 文件（File） | 说明（Description）                                                                                                                                   |
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Sd_Cfg.h     | 定义 Sd 模块不支持变体的宏定义（Define the macro definition of variant not supported by Sd module）                                                   |
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Sd_PbCfg.h   | 定义 Sd 模块支持变体的宏定义和声明运行时变量（Define the macro definition of variant supported by Sd module and declare the variable during running） |
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Sd_PbCfg.c   | 定义 Sd 模块支持变体的配置（Define the configuration of variant supported by Sd module）                                                              |
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+.. list-table::
+   :widths: 5 10 
+   :header-rows: 1
 
-错误处理 Error Handling
+   * - 文件 (File)
+     - 说明 (Description)
+
+   * - Sd_Cfg.h
+     - 定义 Sd 模块不支持变体的宏定义（Define the macro definition of variant not supported by Sd module）
+
+   * - Sd_PbCfg.h
+     - 定义 Sd 模块支持变体的宏定义和声明运行时变量（Define the macro definition of variant supported by Sd module and declare the variable during running）
+
+   * - Sd_PbCfg.c
+     - 定义 Sd 模块支持变体的配置（Define the configuration of variant supported by Sd module）
+
+错误处理 (Error Handling)
 ------------------------------------------------
 
-开发错误 Development Errors
+开发错误 (Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 10 10 10
+   :header-rows: 1
+
+   * - Error code
+     - Value[hex]
+     - Description
+
+   * - SD_E_UNINIT
+     - 0x01
+     - SD has not been initialized.
+
+   * - SD_E_PARAM_POINTER
+     - 0x02
+     - Null pointer has been passed as an argument.
+
+   * - SD_E_INV_MODE
+     - 0x03
+     - Invalid mode request.
+
+   * - SD_E_INV_ID
+     - 0x04
+     - Invalid ID.
+
+   * - SD_E_INIT_FAILED
+     - 0x05
+     - Initialization failed.
+
+运行时错误 (Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------------------------+---------------+-----------------------------------------------------+
-| Error code                          | Value[hex]    | Description                                         |
-+=====================================+===============+=====================================================+
-| SD_E_UNINIT                         | 0x01          | SD has not been initialized                         |
-+-------------------------------------+---------------+-----------------------------------------------------+
-| SD_E_PARAM_POINTER                  | 0x02          | Null pointer has been passed as an argument         |
-+-------------------------------------+---------------+-----------------------------------------------------+
-| SD_E_INV_MODE                       | 0x03          | Invalid mode request                                |
-+-------------------------------------+---------------+-----------------------------------------------------+
-| SD_E_INV_ID                         | 0x04          | Invalid ID                                          |
-+-------------------------------------+---------------+-----------------------------------------------------+
-| SD_E_INIT_FAILED                    | 0x05          | Initialization failed                               |
-+-------------------------------------+---------------+-----------------------------------------------------+
+.. list-table::
+   :widths: 10 10 10
+   :header-rows: 1
 
-运行时错误 Runtime Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   * - Error code
+     - Value[hex]
+     - Description
 
-+-------------------------------------------+---------------+-----------------------------------------------------+
-| Error code                                | Value[hex]    | Description                                         |
-+===========================================+===============+=====================================================+
-| SD_E_COUNT_OF_RETRY_SUBSCRIPTION_EXCEEDED | 0x06          | Retry was not successful                            |
-+-------------------------------------------+---------------+-----------------------------------------------------+
+   * - SD_E_COUNT_OF_RETRY_SUBSCRIPTION_EXCEEDED
+     - 0x06
+     - Retry was not successful.
 
-接口描述 Interface Description
+接口描述 (Interface Description)
 ========================================================
 
 .. include:: Sd_h_api.rst
 
-功能集成 Function Integration
+功能集成 (Function Integration)
 ------------------------------------------------
 
-创建SdInstance Create SdInstance
+创建 SdInstance (Create SdInstance)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdInstance.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/SdInstance.png
    :alt: SdInstance
    :align: center
 
@@ -472,7 +558,7 @@ Different instance containers should be created for the Sd services using differ
 创建SdServerTimer Create SdServerTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdServerTimer.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/SdServerTimer.png
    :alt: SdInstance
    :align: center
 
@@ -549,7 +635,7 @@ Refer to the following steps for the configuration of SdServerTimer container:
 创建SdClientTimer Create SdClientTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdClientTimer.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/SdClientTimer.png
    :alt: SdClientTimer
    :align: center
 
@@ -630,7 +716,7 @@ Refer to the following steps for the configuration of SdClientTimer container:
 创建SdServerService Create SdServerService
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdServerService.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/SdServerService.png
    :alt: SdServerService
    :align: center
 
@@ -687,7 +773,7 @@ If the service instance needs to provide Event or Method for the client, it shou
 创建SdClientService Create SdClientService
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Sd/SdClientService.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Sd/SdClientService.png
    :alt: SdClientService
    :align: center
 

@@ -43,10 +43,10 @@ E2E_P05Protect
 Protects the array/buffer to be transmitted using the E2E profile 5. This includes checksum calculation, handling of counter and Data ID.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   FALSE
+   Reentrant
 
 **Parameters**
 
@@ -100,10 +100,10 @@ E2E_P05ProtectInit
 Initializes the protection state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -144,10 +144,10 @@ E2E_P05Check
 Checks the Data received using the E2E profile 5. This includes CRC calculation, handling of Counter and Data ID.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -201,10 +201,10 @@ E2E_P05CheckInit
 Initializes the check state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -245,10 +245,10 @@ E2E_P05MapStatusToSM
 The function maps the check status of Profile 1 to a generic check status, which can be used by E2E state machine check function. The E2E Profile 1 delivers a more fine-granular status, but this is not relevant for the E2E state machine.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 

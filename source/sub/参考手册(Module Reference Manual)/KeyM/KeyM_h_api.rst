@@ -41,7 +41,7 @@ KeyM_Init
 Initializes the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -73,7 +73,7 @@ KeyM_Deinit
 Deinitializes the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -93,7 +93,7 @@ KeyM_GetVersionInfo
 Retrieves version information for the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -125,7 +125,7 @@ KeyM_Start
 Starts the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -181,7 +181,7 @@ KeyM_Finalize
 Finalizes the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -234,7 +234,7 @@ KeyM_Prepare
 Prepares the Key Management module for a cryptographic operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -287,7 +287,7 @@ KeyM_Update
 Updates a key in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -346,7 +346,7 @@ KeyM_Verify
 Verifies a key in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -407,7 +407,7 @@ KeyM_ServiceCertificate
 Performs a certificate service operation in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -469,7 +469,7 @@ KeyM_ServiceCertificateByCertId
 Performs a certificate service operation in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -528,7 +528,7 @@ KeyM_SetCertificate
 Sets a certificate in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -575,7 +575,7 @@ KeyM_GetCertificate
 Retrieves a certificate from the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -626,7 +626,7 @@ KeyM_VerifyCertificates
 Verifies a certificate chain in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -677,7 +677,7 @@ KeyM_VerifyCertificate
 Verifies a certificate in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -725,7 +725,7 @@ KeyM_VerifyCertificateChain
 Verifies a certificate chain in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -775,7 +775,7 @@ KeyM_CertElementGet
 Retrieves a certificate element from the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -828,7 +828,7 @@ KeyM_CertificateElementGetByIndex
 Retrieves a certificate element by index from the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -884,7 +884,7 @@ KeyM_CertificateElementGetCount
 Retrieves the count of a specific certificate element in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -934,7 +934,7 @@ KeyM_CertElementGetFirst
 Retrieves the first occurrence of a certificate element and initializes an iterator.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -990,7 +990,7 @@ KeyM_CertElementGetNext
 Retrieves the next occurrence of a certificate element using an iterator.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.
@@ -1040,7 +1040,7 @@ KeyM_CertGetStatus
 Retrieves the status of a certificate in the Key Management module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant.

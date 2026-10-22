@@ -162,7 +162,7 @@ NmIf 的另一个功能是协调功能，网关ECUs使用的NM协调器功能可
 
 The NmIf module serves as an adaptation layer between the AUTOSAR ComM module and bus-specific network management modules (such as CAN network management and Ethernet network management). Another function of NmIf is coordination. The NM coordinator function used by gateway ECUs can synchronously shut down one or more buses. When all networks in the coordination cluster are ready to enter sleep state or are already in bus sleep mode, the NM coordinator shall initiate coordinated shutdown on all awakened networks. The purpose of coordinated shutdown is to synchronously shut down the awakened networks in the cluster. Support for the NmIf coordination function is optional. NmIf can support only the basic function, or both the basic function and the NM coordination function.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/模块层次图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/模块层次图.png
    :alt: NmIf 在 AUTOSAR中 的位置(Position of NmIf in AUTOSAR)
    :align: center
 
@@ -174,8 +174,44 @@ The NmIf module serves as an adaptation layer between the AUTOSAR ComM module an
 ==========================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-特性(Features)
-------------------------------------------
+公共特性(Public Features)
+--------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过 NmChannelConfig/NmComMChannelRef 引用的 ComMChannel/ComMChannelPartitionRef 获取分区信息.
+
+  The partition information is obtained via the ComMChannel/ComMChannelPartitionRef referenced by NmChannelConfig/NmComMChannelRef.
+
+- 每个 NmChannelConfig 生成一个Mainfunction，在各自的分区中被调用
+
+  Each NmChannelConfig generates a MainFunction, which is called in its respective partition.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Nm 模块不支持PBS功能.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Memmap文件是动态的。存在 NM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、NM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、NM_START_SEC_VAR_CLEARED_{{ n }}_16 [#f1]_、NM_STOP_SEC_VAR_CLEARED_{{ n }}_16 [#f1]_、NM_START_SEC_CONFIG_DATA_PTR、NM_START_SEC_CONFIG_DATA_8、NM_START_SEC_CONFIG_DATA_32、NM_STOP_SEC_VAR_CLEARED_BOOLEAN、NM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、NM_STOP_SEC_CONFIG_DATA_8、NM_START_SEC_VAR_CLEARED_BOOLEAN、NM_START_SEC_VAR_CLEARED_8、NM_STOP_SEC_CODE、NM_START_SEC_CONFIG_DATA_UNSPECIFIED、NM_STOP_SEC_CONFIG_DATA_32、NM_STOP_SEC_CONFIG_DATA_PTR、NM_START_SEC_CODE、NM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、NM_STOP_SEC_VAR_CLEARED_EcucPartition_C0P0_Trust_UNSPECIFIED、NM_STOP_SEC_VAR_CLEARED_8、NM_START_SEC_VAR_CLEARED_UNSPECIFIED、
+
+The Memmap files are dynamic. There are NM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、NM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、NM_START_SEC_VAR_CLEARED_{{ n }}_16、NM_STOP_SEC_VAR_CLEARED_{{ n }}_16、NM_START_SEC_CONFIG_DATA_PTR、NM_START_SEC_CONFIG_DATA_8、NM_START_SEC_CONFIG_DATA_32、NM_STOP_SEC_VAR_CLEARED_BOOLEAN、NM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、NM_STOP_SEC_CONFIG_DATA_8、NM_START_SEC_VAR_CLEARED_BOOLEAN、NM_START_SEC_VAR_CLEARED_8、NM_STOP_SEC_CODE、NM_START_SEC_CONFIG_DATA_UNSPECIFIED、NM_STOP_SEC_CONFIG_DATA_32、NM_STOP_SEC_CONFIG_DATA_PTR、NM_START_SEC_CODE、NM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、NM_STOP_SEC_VAR_CLEARED_EcucPartition_C0P0_Trust_UNSPECIFIED、NM_STOP_SEC_VAR_CLEARED_8、NM_START_SEC_VAR_CLEARED_UNSPECIFIED、
+
+.. rubric:: 说明
+
+.. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性(Module Features)
+--------------------------------------------------------
 
 基本功能(Basic Functions)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -226,7 +262,7 @@ TSHUTDOWN_CHANNEL time calculation:
 CanNm: Ready Sleep Time + Prepare BusSleep Time
 UdpNm: Ready Sleep Time + Prepare BusSleep Time
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/协调算法.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/协调算法.png
    :alt: 协调算法(Coordination Algorithm)
    :align: center
 
@@ -238,7 +274,7 @@ NmCoordinatorSyncSupport使能时，打开嵌套子网功能。
 When NmCoordinatorSyncSupport is enabled, the nested subnet function is activated.
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/嵌套子网示例图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/嵌套子网示例图.png
    :alt: 嵌套子网示例图(Example Diagram of Nested Subnets)
    :align: center
 
@@ -375,13 +411,13 @@ EIRA reflects the request and release status of a specific PNC by the current no
 
 For detailed procedures, please refer to the following diagrams:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/Nm_partial_network_functionality_part1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/Nm_partial_network_functionality_part1.png
    :alt: Nm_partial_network_functionality_part1
    :align: center
 
    Nm_partial_network_functionality_part1
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/Nm_partial_network_functionality_part2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/Nm_partial_network_functionality_part2.png
    :alt: Nm_partial_network_functionality_part2
    :align: center
 
@@ -653,7 +689,7 @@ the calls. e.g. from the RTE. There shall be one dedicated Main Function for eac
 
 Before configuring individual channels, Nm global configuration must be completed:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/Nm全局配置coordinate.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/Nm全局配置coordinate.png
    :alt: Nm全局配置支持协同睡眠(Nm Global Configuration Supporting Coordinated Sleep)
    :align: center
 
@@ -671,7 +707,7 @@ Before configuring individual channels, Nm global configuration must be complete
 
 Coordinated sleep requires configuration of multiple Nm channels, associating them with corresponding ComM channels. It is essential to define each channel's coordination mode (NmActiveCoordinator), specify the associated NmCoordClusterIndex, and determine whether it functions as a NmChannelSleepMaster.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/通道配置1.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/通道配置1.png
    :alt: 通道配置1( Channel configuration 1)
    :align: center
 
@@ -679,7 +715,7 @@ Coordinated sleep requires configuration of multiple Nm channels, associating th
 
   
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/通道配置3.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/通道配置3.png
    :alt: 通道配置2(Channel configuration 2)
    :align: center
 
@@ -687,7 +723,7 @@ Coordinated sleep requires configuration of multiple Nm channels, associating th
 
   
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/通道配置2.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/通道配置2.png
    :alt: 通道配置3(Channel configuration 3)
    :align: center
 
@@ -715,7 +751,7 @@ Nm的全局配置：
 
 Global configuration of Nm:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/Nm全局配置partialNetwork.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/Nm全局配置partialNetwork.png
    :alt: Nm全局配置支持部分网络管理(Nm Global Configuration Supporting Partial Network Management)
    :align: center
 
@@ -732,7 +768,7 @@ Each channel also requires the following configuration:
 
 Channel configuration:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/NmPartialNetworkSupportEnabled1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/NmPartialNetworkSupportEnabled1.png
    :alt: 通道配置pn(Channel configuration for pn)
    :align: center
 
@@ -745,7 +781,7 @@ Channel configuration:
 
 Additionally, the PNC bits requiring filtering must be configured:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/NmPnFilterMaskByte.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/NmPnFilterMaskByte.png
    :alt: 通道配置NmPnFilterMaskByte(Channel configuration for NmPnFilterMaskByte)
    :align: center
 

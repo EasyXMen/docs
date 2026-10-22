@@ -28,7 +28,7 @@ Ea_Det_ReportError
 Report Develop Error.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -63,7 +63,7 @@ Ea_Det_ReportRunTimeError
 Report Running Time Error.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -98,7 +98,7 @@ Ea_Init
 Initializes the EEPROM abstraction module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -130,7 +130,7 @@ Ea_Read
 Reads Length bytes of block BlockNumber at offset BlockOffset into the buffer DataBufferPtr.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -183,7 +183,7 @@ Ea_Write
 Writes the contents of the DataBufferPtr to the block BlockNumber.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -230,7 +230,7 @@ Ea_Cancel
 Cancels the ongoing asynchronous operation.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -250,7 +250,7 @@ Ea_GetStatus
 Service to return the status.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -286,7 +286,7 @@ Ea_GetJobResult
 Service to return the job result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -326,7 +326,7 @@ Ea_InvalidateBlock
 Invalidates the block BlockNumber.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -358,7 +358,7 @@ Invalidates the block BlockNumber.
    * - E_OK
      - The requested job has been accepted by the module
    * - E_NOT_OK
-     - - only if DET is enabled: The requested job has not been accepted by the EA module.
+     - only if DET is enabled: The requested job has not been accepted by the EA module.
 
 Ea_GetVersionInfo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -370,7 +370,7 @@ Ea_GetVersionInfo
 Service to get the version information of EA module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -402,7 +402,7 @@ Ea_EraseImmediateBlock
 Erases the block BlockNumber.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -434,7 +434,7 @@ Erases the block BlockNumber.
    * - E_OK
      - The requested job has been accepted by the module
    * - E_NOT_OK
-     - - only if DET is enabled: The requested job has not been accepted by the EA module.
+     - only if DET is enabled: The requested job has not been accepted by the EA module.
 
 Ea_JobEndNotification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -446,7 +446,7 @@ Ea_JobEndNotification
 Service to report to this module the successful end of an asynchronous operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

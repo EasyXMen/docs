@@ -1,6 +1,7 @@
 
-类型定义(Type Definitions)
--------------------------------------
+类型定义
+--------
+.. 如果没有就不存在该章节，或为None
 
 .. list-table:: 
    :widths: 15 5 20
@@ -10,25 +11,53 @@
      - Type
      - Description
 
-   * - Tm_PredefTimer1us16bitType
-     - struct Tm_PredefTimer1us16bitTypeTag
-     - Data type of Time Service Predef Timer 1us16bit. The structure contains the reference time.
+   * - Tm_PreDefTimerType
+     - struct Tm_PreDefTimerTypeTag
+     - 
 
-   * - Tm_PredefTimer1us24bitType
-     - struct Tm_PredefTimer1us24bitTypeTag
-     - Data type of Time Service Predef Timer 1us24bit. The structure contains the reference time.
+   * - Tm_ConfigType
+     - struct Tm_ConfigTypeTag
+     - 
 
-   * - Tm_PredefTimer1us32bitType
-     - struct Tm_PredefTimer1us32bitTypeTag
-     - Data type of Time Service Predef Timer 1us32bit. The structure contains the reference time.
+   * - Tm_PreDefTimerInstanceType
+     - enum
+     - 
 
-   * - Tm_PredefTimer100us32bitType
-     - struct Tm_PredefTimer100us32bitTypeTag
-     - Data type of Time Service Predef Timer 100µs32bit. The structure contains the reference time.
-     
+
       
-提供的服务(Services)
-----------------------------------
+提供的服务
+-----------
+Tm_Init
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    void Tm_Init(const Tm_ConfigType *config)
+
+This service initializes the Time Service module.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - config
+     - Pointer to Tm configuration data.
+
+**Return type**
+   void
+
 
 Tm_GetVersionInfo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,10 +66,10 @@ Tm_GetVersionInfo
 
     void Tm_GetVersionInfo(Std_VersionInfoType *versioninfo)
 
-Returns the version information of this module..
+Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -59,23 +88,23 @@ Returns the version information of this module..
      - to where to store the version information of this module.
 
 **Return type**
-    void
+   void
 
 
-Tm_ResetTimer1us16bit
+Tm_ResetTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
-    Std_ReturnType Tm_ResetTimer1us16bit(Tm_PredefTimer1us16bitType *TimerPtr)
+    Std_ReturnType Tm_ResetTimer(uint32 timerId)
 
 Resets a timer instance (user point of view).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Reentrant but not for the same timer instance
+   Reentrant but not for the same timerId.
 
 **Parameters**
 
@@ -87,8 +116,8 @@ Resets a timer instance (user point of view).
      - Name
      - Description
    * - [out]
-     - TimerPtr
-     - to a timer instance defined by the user.
+     - timerId
+     - A timer instance handle.
 
 **Return type**
    Std_ReturnType
@@ -102,24 +131,24 @@ Resets a timer instance (user point of view).
    * - Name
      - Description
    * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
+     - The underlying GPT driver service has returned E_OK.
    * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
+     - The underlying GPT driver service has not returned E_NOT_OK.
 
-Tm_GetTimeSpan1us16bit
+Tm_GetTimeSpan
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
-    Std_ReturnType Tm_GetTimeSpan1us16bit(const Tm_PredefTimer1us16bitType *TimerPtr, uint16 *TimeSpanPtr)
+    Std_ReturnType Tm_GetTimeSpan(uint32 timerId, uint32 *timeSpan)
 
 Delivers the time difference (current time - reference time).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Reentrant but not for the same timer instance
+   Reentrant
 
 **Parameters**
 
@@ -131,11 +160,11 @@ Delivers the time difference (current time - reference time).
      - Name
      - Description
    * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
+     - timerId
+     - A timer instance handle.
    * - [out]
-     - TimeSpanPtr
-     - to time span destination data in RAM.
+     - timeSpan
+     - Pointer to location where the time will be stored.
 
 **Return type**
    Std_ReturnType
@@ -149,21 +178,21 @@ Delivers the time difference (current time - reference time).
    * - Name
      - Description
    * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
+     - The underlying GPT driver service has returned E_OK.
    * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
+     - The underlying GPT driver service has returned E_NOT_OK.
 
-Tm_ShiftTimer1us16bit
+Tm_ShiftTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
-    void Tm_ShiftTimer1us16bit(Tm_PredefTimer1us16bitType *TimerPtr, uint16 TimeValue)
+    void Tm_ShiftTimer(uint32 timerId, uint32 timeValue)
 
 Shifts the reference time of the timer instance.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -178,27 +207,27 @@ Shifts the reference time of the timer instance.
      - Name
      - Description
    * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
+     - timerId
+     - A timer instance handle.
    * - [out]
-     - TimeValue
-     - value in us, the reference time has to be shifted.
+     - timeValue
+     - Time value in in units (e.g. us), the reference time has to be shifted.
 
 **Return type**
    void
 
 
-Tm_SyncTimer1us16bit
+Tm_SyncTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
-    void Tm_SyncTimer1us16bit(Tm_PredefTimer1us16bitType *TimerDstPtr, const Tm_PredefTimer1us16bitType *TimerSrcPtr)
+    void Tm_SyncTimer(uint32 timerIdSrc, uint32 timerIdDst)
 
 Synchronizes two timer instances.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -212,28 +241,28 @@ Synchronizes two timer instances.
    * - Dir
      - Name
      - Description
-   * - [out]
-     - TimerDstPtr
-     - to the destination timer instance defined by the user.
    * - [in]
-     - TimerSrcPtr
-     - to the source timer instance defined by the user.
+     - timerIdSrc
+     - Source timer instance defined by the user.
+   * - [out]
+     - timerIdDst
+     - Destination timer instance defined by the user.
 
 **Return type**
    void
 
 
-Tm_BusyWait1us16bit
+Tm_BusyWait1us
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
-    Std_ReturnType Tm_BusyWait1us16bit(uint8 WaitingTimeMin)
+    Std_ReturnType Tm_BusyWait1us(uint8 WaitingTimeMin)
 
 Performs busy waiting by polling with a guaranteed minimum waiting time.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -249,7 +278,7 @@ Performs busy waiting by polling with a guaranteed minimum waiting time.
      - Description
    * - [in]
      - WaitingTimeMin
-     - waiting time in microseconds.
+     - Minimum waiting time in microseconds.
 
 **Return type**
    Std_ReturnType
@@ -263,625 +292,7 @@ Performs busy waiting by polling with a guaranteed minimum waiting time.
    * - Name
      - Description
    * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
+     - The underlying GPT driver service has returned E_OK.
    * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_ResetTimer1us24bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_ResetTimer1us24bit(Tm_PredefTimer1us24bitType *TimerPtr)
-
-Resets a timer instance (user point of view).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [out]
-     - TimerPtr
-     - to a timer instance defined by the user.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_GetTimeSpan1us24bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_GetTimeSpan1us24bit(const Tm_PredefTimer1us24bitType *TimerPtr, uint32 *TimeSpanPtr)
-
-Delivers the time difference (current time - reference time).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeSpanPtr
-     - to time span destination data in RAM.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_ShiftTimer1us24bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void Tm_ShiftTimer1us24bit(Tm_PredefTimer1us24bitType *TimerPtr, uint32 TimeValue)
-
-Shifts the reference time of the timer instance.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeValue
-     - value in us, the reference time has to be shifted.
-
-**Return type**
-   void
-
-
-Tm_SyncTimer1us24bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void Tm_SyncTimer1us24bit(Tm_PredefTimer1us24bitType *TimerDstPtr, const Tm_PredefTimer1us24bitType *TimerSrcPtr)
-
-Synchronizes two timer instances.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [out]
-     - TimerDstPtr
-     - to the destination timer instance defined by the user.
-   * - [in]
-     - TimerSrcPtr
-     - to the source timer instance defined by the user.
-
-**Return type**
-   void
-
-
-Tm_BusyWait1us24bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_BusyWait1us24bit(uint8 WaitingTimeMin)
-
-Performs busy waiting by polling with a guaranteed minimum waiting time.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - WaitingTimeMin
-     - waiting time in microseconds.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_ResetTimer1us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_ResetTimer1us32bit(Tm_PredefTimer1us32bitType *TimerPtr)
-
-Resets a timer instance (user point of view).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [out]
-     - TimerPtr
-     - to a timer instance defined by the user.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_GetTimeSpan1us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_GetTimeSpan1us32bit(const Tm_PredefTimer1us32bitType *TimerPtr, uint32 *TimeSpanPtr)
-
-Delivers the time difference (current time - reference time).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeSpanPtr
-     - to time span destination data in RAM.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_ShiftTimer1us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void Tm_ShiftTimer1us32bit(Tm_PredefTimer1us32bitType *TimerPtr, uint32 TimeValue)
-
-Shifts the reference time of the timer instance.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeValue
-     - value in us, the reference time has to be shifted.
-
-**Return type**
-   void
-
-
-Tm_SyncTimer1us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void Tm_SyncTimer1us32bit(Tm_PredefTimer1us32bitType *TimerDstPtr, const Tm_PredefTimer1us32bitType *TimerSrcPtr)
-
-Synchronizes two timer instances.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [out]
-     - TimerDstPtr
-     - to the destination timer instance defined by the user.
-   * - [in]
-     - TimerSrcPtr
-     - to the source timer instance defined by the user.
-
-**Return type**
-   void
-
-
-Tm_BusyWait1us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_BusyWait1us32bit(uint8 WaitingTimeMin)
-
-Performs busy waiting by polling with a guaranteed minimum waiting time.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - WaitingTimeMin
-     - waiting time in microseconds.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_ResetTimer100us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_ResetTimer100us32bit(Tm_PredefTimer100us32bitType *TimerPtr)
-
-Resets a timer instance (user point of view).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [out]
-     - TimerPtr
-     - to a timer instance defined by the user.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_GetTimeSpan100us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_GetTimeSpan100us32bit(const Tm_PredefTimer100us32bitType *TimerPtr, uint32 *TimeSpanPtr)
-
-Delivers the time difference (current time - reference time).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeSpanPtr
-     - to time span destination data in RAM.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
-
-Tm_ShiftTimer100us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void Tm_ShiftTimer100us32bit(Tm_PredefTimer100us32bitType *TimerPtr, uint32 TimeValue)
-
-Shifts the reference time of the timer instance.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeValue
-     - value in us, the reference time has to be shifted.
-
-**Return type**
-   void
-
-
-Tm_SyncTimer100us32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void Tm_SyncTimer100us32bit(Tm_PredefTimer100us32bitType *TimerDstPtr, const Tm_PredefTimer100us32bitType *TimerSrcPtr)
-
-Synchronizes two timer instances.
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [out]
-     - TimerDstPtr
-     - to the destination timer instance defined by the user.
-   * - [in]
-     - TimerSrcPtr
-     - to the source timer instance defined by the user.
-
-**Return type**
-   void
-
-
-Tm_GetTimeSpan1ms32bit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    Std_ReturnType Tm_GetTimeSpan1ms32bit(const Tm_PredefTimer1ms32bitType *TimerPtr, uint32 *TimeSpanPtr)
-
-Delivers the time difference (current time - reference time).
-
-**Sync/Async**
-   TRUE
-
-**Reentrancy**
-   Reentrant but not for the same timer instance
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - TimerPtr
-     - to a timer instance defined by the user.
-   * - [out]
-     - TimeSpanPtr
-     - to time span destination data in RAM.
-
-**Return type**
-   Std_ReturnType
-
-**Return values**
-
-.. list-table::
-   :widths: 10 30
-   :header-rows: 1
-
-   * - Name
-     - Description
-   * - E_OK
-     - The underlying GPT driver service has returned E_OK and no development error has been detected
-   * - E_NOT_OK
-     - The underlying GPT driver service has returned E_NOT_OK, or a development error has been detected
+     - The underlying GPT driver service has returned E_NOT_OK.
 

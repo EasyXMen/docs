@@ -40,7 +40,7 @@ Eep_Det_ReportError
 Report Develop Error.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -75,7 +75,7 @@ Eep_Det_ReportRunTimeError
 Report Running Time Error.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -110,7 +110,7 @@ Eep_62_CheckPartition
 Check satellite partition current id.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -130,7 +130,7 @@ Eep_62_Init
 Service for EEPROM initialization.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -162,7 +162,7 @@ Eep_62_SetMode
 Sets the mode.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -197,7 +197,7 @@ Eep_62_Read
 Reads from EEPROM.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -250,7 +250,7 @@ Eep_62_Write
 Writes from EEPROM.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -303,7 +303,7 @@ Eep_62_Erase
 Service for erasing EEPROM sections.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -353,7 +353,7 @@ Eep_62_Compare
 Compares a data block in EEPROM with an EEPROM block in the memory.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -406,7 +406,7 @@ Eep_62_Cancel
 Cancels a running job.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -426,7 +426,7 @@ Eep_62_GetStatus
 Returns the EEPROM status.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -462,7 +462,7 @@ Eep_62_GetJobResult
 This service returns the result of the last job.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -502,7 +502,7 @@ Eep_62_GetVersionInfo
 Service to get the version information of this module.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -533,7 +533,7 @@ Eep_62_JobEndNotification
 This callback function provided by the module user is called when a job has been completed with a positive result.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -553,7 +553,7 @@ Eep_62_JobErrorNotification
 This callback function provided by the module user is called when a job has been canceled or finished with negative result.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant

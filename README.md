@@ -18,9 +18,9 @@ This repository contains the technical documentation for EasyXMen.
 说明：快速上手指南、参考手册、集成手册、示例工程说明等文档页面右上角可选择对应版本的文档，左侧导航栏为所选版本的目录。  
 Note: On documentation pages such as the Quick Start Guide, Module Reference Manual, Integration Instruction Manual, and Demo Project Description, you can select the corresponding version of the documentation in the top-right corner of the page. The left-side navigation will then show the table of contents for that version.
 
-
 ## 目录结构 Directory Structure
-```
+
+```text
 |── ReleaseNotes            # 版本发布说明 (Version Release Notes)
 |── source                  # 文档文件夹 (Documentation Folder)
 │   ├── _static             # 文档图片相关静态资料 (Static Materials Related to Document Images)
@@ -29,6 +29,7 @@ Note: On documentation pages such as the Quick Start Guide, Module Reference Man
 |── make.bat                # 本地查阅文档批处理文件 (Batch File for Viewing Documents Locally)
 └── README.md               # 仓库说明文档 (Repository Description Document)
 ```
+
 ## 开源许可 License
 
 本仓库文档基于GNU Free Documentation License, Version 1.3（FDL 1.3）开源，详见本仓库的[LICENSE.txt](./LICENSE.txt)

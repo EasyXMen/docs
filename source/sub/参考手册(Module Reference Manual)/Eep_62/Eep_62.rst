@@ -4,10 +4,10 @@ Eep_62
 
 
 
-文档信息 Document Information
+文档信息（Document Information）
 ==================================================================
 
-版本历史 Version History
+版本历史（Version History）
 ------------------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -32,7 +32,20 @@ Eep_62
      - 发布(Release)
      - 正式发布(Official release)
 
-参考文档 References
+   * - 2025/11/28
+     - peng.wu
+     - V1.1
+     - 修正(Modify)
+     - 增加多分区功能的描述(Add the description of multi-partition)
+
+   * - 2025/12/11
+     - peng.wu
+     - V1.3
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
+
+
+参考文档（References）
 ------------------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -52,10 +65,10 @@ Eep_62
      - AUTOSAR_CP_SWS_EEPROMDriver.pdf
      - R23-11
 
-术语与简写 Terms and Abbreviations
+术语与简写（Terms and Abbreviations）
 ==================================================================
 
-术语 Terms
+术语（Terms）
 ---------------------------------------------------------
 .. :align: center   表格内容居中(Table contents are centered)
 
@@ -81,7 +94,7 @@ Eep_62
    * - EEPROM cell
      - EEPROM设备中存储数据的最小物理单元。通常为1字节。(The minimum physical unit for storing data in an EEPROM device. Usually 1 byte.)
 
-简写 Abbreviations
+简写（Abbreviations）
 ---------------------------------------------------------
 
 .. list-table::
@@ -168,7 +181,8 @@ Eep_62
      - Module name of Default Error Tracer
      - 默认错误跟踪器的模块名称.
 
-简介 Introduction
+
+简介（Introduction）
 =================================
 
 Eep_62模块的上层与Ea模块进行交互，并提供API函数接口给Ea模块使用，完成EEPROM驱动程序的读取/写入/擦除/比较等作业任务，
@@ -176,25 +190,60 @@ Eep_62模块的上层与Ea模块进行交互，并提供API函数接口给Ea模�
 
 The upper layer of the Eep_62 module interacts with the Ea module and provides API function interfaces for the Ea module to use, so as to complete EEPROM driver operation tasks such as reading/writing/erasing/comparing. After the operation tasks are completed, an API query interface is provided to report the operation result/operation status to the Ea module, or an interrupt callback notification interface is provided to report the operation result and operation status.
 
+在Autosar架构中属于存储驱动层
 
-功能描述 Functional Description
-=================================
+The Ea module belongs to the memory driver layer in the Autosar architecture.
 
-特性 Features
----------------------------------------------------------
+模块架构如图 :ref:`Eep_AUTOSAR_Arch` 所示。
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Eep_62/Eep_Autosar_Archit.png
+   :alt: Eep_62模块层次图(Eep_62 module hierarchy diagram)
+   :name: Eep_AUTOSAR_Arch
+   :align: center
+
+   Ea AUTOSAR Architecture
+
+
+功能描述（Functional Description）
+==================================================
+
+公共特性（Public Features）
+--------------------------------------------------------------
+
+多核多分区功能（Multi-core and Multi-partition Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Eep_62多分区场景下，需要配置EepEcucPartitionRef关联对应的分区。Eep_62只能在关联的分区下执行，不能在未关联的分区执行，且保持与上层的存储模块在同一分区，若需要切换分区，只能重新配置关联相关的EepEcucPartitionRef。
+
+In the Eep_62 multi-partition scenario, it is necessary to configure EepEcucPartitionRef to associate the corresponding partitions. Eep_62 can only be executed under associated partitions and not
+on unassociated partitions. It must remain in the same partition as the upper-level storage module. If it is necessary to switch partitions, the associated EepEcucPartitionRef must be reconfigured.
+
 
 .. only:: doc_pbs
 
-  变体  Variant
-  ~~~~~~~~~~~~~~~
-  .. 支持PBS的模块，必须具有本章节，以功能为导向描述模块级别的变体支持情况
-  .. 主要功能必须描述，比较偏尽量描述(不强制)
+   PBS功能（PBS Features）
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   支持配置不同EepInitConfiguration容器中的地址大小和模式以及回调通知等。
 
-  - 支持配置不同EepInitConfiguration容器中的地址大小和模式以及回调通知等
-  - Supports configuring the address size, mode, callback notification, etc. in different EepInitConfiguration containers.
+   Supports configuring the address size, mode, callback notification, etc. in different EepInitConfiguration containers.
 
 
-内外部Eep驱动 Internal and External Eep Drivers
+Memmap功能（Memmap Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Memmap文件是动态的。存在EEP_62_START_SEC_CODE、EEP_62_STOP_SEC_CODE、EEP_62_START_SEC_VAR_CLEARED_UNSPECIFIED、EEP_62_STOP_SEC_VAR_CLEARED_UNSPECIFIED、EEP_62_START_SEC_VAR_CLEARED_8、EEP_62_STOP_SEC_VAR_CLEARED_8、EEP_62_START_SEC_VAR_CLEARED_PTR、EEP_62_STOP_SEC_VAR_CLEARED_PTR、EEP_62_START_SEC_CONFIG_DATA_UNSPECIFIED、EEP_62_STOP_SEC_CONFIG_DATA_UNSPECIFIED、EEP_62_START_SEC_CONFIG_DATA_PTR、EEP_62_STOP_SEC_CONFIG_DATA_PTR
+字段。
+
+The memmap file is dynamic.There are EEP_62_START_SEC_CODE、EEP_62_STOP_SEC_CODE、EEP_62_START_SEC_VAR_CLEARED_UNSPECIFIED、EEP_62_STOP_SEC_VAR_CLEARED_UNSPECIFIED、EEP_62_START_SEC_VAR_CLEARED_8、EEP_62_STOP_SEC_VAR_CLEARED_8、EEP_62_START_SEC_VAR_CLEARED_PTR、EEP_62_STOP_SEC_VAR_CLEARED_PTR、EEP_62_START_SEC_CONFIG_DATA_UNSPECIFIED、EEP_62_STOP_SEC_CONFIG_DATA_UNSPECIFIED、EEP_62_START_SEC_CONFIG_DATA_PTR、EEP_62_STOP_SEC_CONFIG_DATA_PTR fields.
+
+
+独占区功能（Exclusive Area Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性（Module Features）
+---------------------------------------------------------
+
+内外部Eep驱动（Internal and External Eep Drivers）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 当ECU采用片内Eep驱动程序时，Eep模块的下层与Mcal-Int.Eep模块进行交互，直接提供API接口给Ea模块进行调用，完成所有的作业任务；
 
@@ -205,56 +254,51 @@ When the ECU uses the on-chip Eep driver, the lower layer of the Eep module inte
 When the ECU uses the off-chip Eep driver, the lower layer of the Eep module interacts with the peripheral serial bus driver SPI/IIC module. For example, an Ext.Eep peripheral is connected via the SPI bus, and the Spi_SetupEB/Spi_SyncTransmit function interfaces of the SPI driver are called to complete EEPROM memory cell operation tasks such as writing/reading/erasing/comparing.
 
 
-数据存储管理 Data Storage Management
+数据存储管理（Data Storage Management）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 EEP模块将非易失性存储空间划分为多个逻辑块，每个逻辑块可以存储一定量的数据。用户可以通过配置工具定义这些逻辑块的大小和数量。
 
 The EEP module divides the non-volatile storage space into multiple logical blocks, and each logical block can store a certain amount of data. Users can define the size and quantity of these logical blocks through configuration tools.
 
 
-数据读取管理 Data Reading Management
+数据读取管理（Data Reading Management）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 EEP模块提供了读取接口，应用层可以通过这些接口读取存储在EEPROM中的数据。读取操作是同步的，即应用层在调用读取接口后会立即得到数据。
 
 The EEP module provides read interfaces, through which the application layer can read the data stored in the EEPROM. The read operation is synchronous, that is, the application layer will obtain the data immediately after calling the read interface.
 
 
-数据校验和错误处理 Data Verification and Error Handling
+数据校验和错误处理（Data Verification and Error Handling）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 EEP模块在读取和写入数据时会进行校验，以确保数据的完整性和正确性。如果检测到错误，EEP模块会触发相应的错误处理机制，如重试操作或通知应用层。
 
 The EEP module performs verification during data reading and writing to ensure data integrity and correctness. If an error is detected, the EEP module will trigger the corresponding error handling mechanism, such as retry operation or notifying the application layer.
 
 
-数据写入和擦除操作 Data Writing and Erasing Operations
+数据写入和擦除操作（Data Writing and Erasing Operations）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 EEP模块提供了写入和擦除接口，应用层可以通过这些接口将数据写入EEPROM或擦除EEPROM中的数据。写入和擦除操作是异步的，即应用层在调用接口后可以继续执行其他任务，EEP模块会在后台完成这些操作。
 
 The EEP module provides write and erase interfaces, through which the application layer can write data to the EEPROM or erase data in the EEPROM. The write and erase operations are asynchronous, that is, the application layer can continue to execute other tasks after calling the interfaces, and the EEP module will complete these operations in the background.
 
-偏差 Deviation
+
+偏差（Deviation）
 ---------------------------------------------------------
 None
 
-扩展 Extension
+
+扩展（Extension）
 ---------------------------------------------------------
 None
 
-集成 Integration
+
+集成（Integration）
 =================================
 
-多分区 Multi-Partition
+文件列表（File List）
 ---------------------------------------------------------
 
-Eep_62多分区场景下，需要配置EepEcucPartitionRef关联对应的分区。Eep_62只能在关联的分区下执行，不能在未关联的分区执行，若需要切换分区，只能重新配置关联相关的EepEcucPartitionRef。
-
-In the multi-partition scenario of Eep_62, it is necessary to configure EepEcucPartitionRef to associate the corresponding partition. Eep_62 can only execute under the associated partition and cannot execute under unassociated partitions. If partition switching is required, only the EepEcucPartitionRef related to the association can be reconfigured.
-
-
-文件列表 File List
----------------------------------------------------------
-
-静态文件 Static Files
+静态文件（Static Files）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -278,7 +322,7 @@ In the multi-partition scenario of Eep_62, it is necessary to configure EepEcucP
      - Memory abstraction including Eep module.
 
 
-动态文件 Dynamic Files
+动态文件（Dynamic Files）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table::
    :widths: 10 30
@@ -310,10 +354,11 @@ In the multi-partition scenario of Eep_62, it is necessary to configure EepEcucP
    * - CDD_62_<deviceName>.h
      - API declarations drivers for specific hardware devices in the Eep_62 module.
 
-错误处理 Error Handling
+
+错误处理（Error Handling）
 ---------------------------------------------------------
 
-开发错误 Development Errors
+开发错误（Development Errors）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -360,12 +405,12 @@ In the multi-partition scenario of Eep_62, it is necessary to configure EepEcucP
      - Partition info error
 
 
-产品错误 Product Errors
+产品错误（Product Errors）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None
 
 
-运行时错误 Runtime Errors
+运行时错误（Runtime Errors）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
@@ -385,7 +430,7 @@ None
      - Timeout exceeded
 
 
-扩展产品错误 Extended Product Errors
+扩展产品错误（Extended Product Errors）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -412,17 +457,17 @@ None
      - The Eeprom module reports this error when EEPROM compare job fails due to a hardware error
 
 
-接口描述 Interface Description
+接口描述（Interface Description）
 ==================================================================
 
 .. include:: Eep_62_api.rst
 
 
 
-依赖的服务 Applicable Services
+依赖的服务（Applicable Services）
 ---------------------------------------------------------
 
-可选接口 Optional Interface
+可选接口（Optional Interface）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -438,7 +483,7 @@ None
      - Service to report development errors
 
 
-强制接口 Compulsory interface
+强制接口（Compulsory interface）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 
@@ -457,7 +502,7 @@ None
      - Service to report runtime errors.If a callout has been configured then this callout shall be called. Service to report runtime errors. If a callout has been configured then this callout shall be called
 
 
-配置接口 Configuration Interfaces
+配置接口（Configuration Interfaces）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 .. 格式同强制接口
@@ -477,7 +522,7 @@ None
      - This callback function provided by the module user is called when a job has been canceled or finished with negative result
 
 
-配置 Configuration
+配置（Configuration）
 =================================
 
 EepInitConfiguration
@@ -490,7 +535,7 @@ Mode selection of Eep_62, which can set the default mode and the read/write Size
 
 As shown in Figure :ref:`InitConfiguration`, the configuration interface of EepInitConfiguration is displayed.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Eep_62/EepInitConfiguration.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Eep_62/EepInitConfiguration.png
    :alt: 模块配置图 (Module Configuration Diagram)
    :name: InitConfiguration
    :align: center
@@ -508,7 +553,7 @@ If the SPI serial bus is used for connection, the SPI component that comes with 
 
 As shown in Figure :ref:`DeviceConfiguration`, the configuration interface of EepDeviceConfiguration is displayed.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Eep_62/EepDeviceConfiguration.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Eep_62/EepDeviceConfiguration.png
    :alt: 模块配置图 (Module Configuration Diagram)
    :name: DeviceConfiguration
    :align: center
@@ -526,7 +571,7 @@ For the operation of EEPROM hardware, the basic operation API functions of the E
 
 As shown in Figure :ref:`DeviceHwApis`, the configuration interface of EepDeviceHwApis is displayed.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Eep_62/EepDeviceHwApis.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Eep_62/EepDeviceHwApis.png
    :alt: 模块配置图 (Module Configuration Diagram)
    :name: DeviceHwApis
    :align: center

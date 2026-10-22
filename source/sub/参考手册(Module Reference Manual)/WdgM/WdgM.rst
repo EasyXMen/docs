@@ -31,6 +31,13 @@ WdgM
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/12/30
+     - xudong.guan
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
+
+
 参考文档 References
 ------------------------------------------------------------------------------------------------------
 
@@ -224,22 +231,69 @@ WdgM是AUTOSAR的一个基础软件模块，WdgM能够监督程序的执行并�
 
 As a basic software module of AUTOSAR, WdgM can supervise the execution of programs and trigger hardware watchdogs. ORIENTIS WDG integrates its functions into related objects through static configuration and dynamic management. The calls between objects are achieved through related interfaces. The design goal of ORIENTIS WDG is to design a secure watchdog management and entity supervision protocol stack, which satisfies the requirements of ISO26262:2018 functional safety. ORIENTIS WDG has passed the product certification of ISO 26262 ASIL D by T Ü V Rheinland. The architecture of ORIENTIS WDG is shown in the following figure, where WdgM is at the system service layer.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_ArchitectureFigure.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/CP_Arch_WdgM.png
    :alt: WdgM架构层次图 (WdgM architecture hierarchy diagram)
-   :name: WdgM_arch
+   :name: WdgM_fig_Architecture
    :align: center
 
    WdgM架构层次图 (WdgM architecture hierarchy diagram)
 
-如“WdgM架构层次图”所示，WdgM模块处于AUTOSAR架构中的系统服务层，其下层模块为WdgIf模块，上层模块为RTE。
+如 :ref:`WdgM_fig_Architecture` 所示，WdgM模块处于AUTOSAR架构中的系统服务层，其下层模块为WdgIf模块，上层模块为RTE。
 
-As shown in the "WdgM architecture hierarchy diagram", the WdgM module is in the system service layer of the AUTOSAR architecture. Its upper and lower modules are WdgIf module and RTE respectively.
+As shown in :ref:`WdgM_fig_Architecture`, the WdgM module is in the system service layer of the AUTOSAR architecture. Its upper and lower modules are WdgIf module and RTE respectively.
 
 功能描述 Functional Description
 ==========================================================
 
-特性 Features
-----------------------------------------------------------------
+公共特性(Public Features)
+--------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   - 支持在不同ConfigSet变体中配置不同的'WdgMInitialMode'。
+
+   - Support to configure different 'WdgMInitialMode' in different ConfigSet variants.
+
+   - 支持在不同AliveSupervision变体中配置不同的'WdgMExpectedAliveIndications'、'WdgMMaxMargin'、'WdgMMinMargin'、'WdgMSupervisionReferenceCycle'和'WdgMAliveSupervisionCheckpointRef'。
+
+   - Supported to configure different 'WdgMExpectedAliveIndications', 'WdgMMaxMargin', 'WdgMMinMargin', 'WdgMSupervisionReferenceCycle 'and 'WdgMAliveSupervisionCheckpointRef'in different AliveSupervision variants.
+
+   - 支持在不同DeadlineSupervision变体中配置不同的'WdgMDeadlineMax'、'WdgMDeadlineMin'、'WdgMDeadlineStartRef'和'WdgMDeadlineStopRef'。
+
+   - Support to configure different 'WdgMDeadlineMax', 'WdgMDeadlineMin', 'WdgMDeadlineStartRef 'and 'WdgMDeadlineStopRef 'in different variants of DeadlineSupervision. Support to configure different 'WdgMDeadlineMax', 'WdgMDeadlineMin', 'WdgMDeadlineStartRef 'and 'WdgMDeadlineStopRef' in different variants of DeadlineSupervision.
+
+   - 支持在不同ExternalLogicalSupervision变体中配置不同的'WdgMExternalCheckpointInitialRef'和'WdgMExternalCheckpointFinalRef'以及支持在不同WdgMExternalTransition变体中配置不同的'WdgMExternalTransitionSourceRef'和'WdgMExternalTransitionDestRef'。
+
+   - Support to configure different 'WdgMExternalCheckpointInitialRef' and 'WdgMExternalCheckpointFinalRef'in different ExternalLogicalSupervision variants and different 'WdgMExternalTransition variants. ExternalTransitionSourceRef' and 'WdgMExternalTransitionDestRef'.
+
+   - 支持在不同WdgMLocalStatusParams变体中配置不同的'WdgMFailedAliveSupervisionRefCycleTol'和'WdgMLocalStatusSupervisedEntityRef'。
+
+   - Supported to configure different 'WdgMLocalStatusParams variants' and 'WdgMFailedAliveSupervisionRefCycleTol' and 'WdgMLocalStatusSupervisedEntityRef'.
+
+   - 支持在不同WdgMTrigger变体中配置不同的'WdgMTriggerConditionValue'、'WdgMWatchdogMode'和'WdgMTriggerWatchdogRef'。
+
+   - Support to configure different' WdgMTriggerConditionvalue', 'WdgMWatchdogMode' and 'WdgMTriggerWatchdogRef' in different WdgMTrigger variants.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
 
 WdgM功能介绍 Introduction to WdgM Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -248,7 +302,7 @@ WdgM模块为Watchdog看门狗协议栈的顶层，为用户提供API应用的�
 
 The WdgM module is the top layer of the Watchdog protocol stack. It provides users with interface for API application. WdgM changes the watchdog mode via WdgIf and is used for reporting the conditions that trigger the hardware watchdog to WdgDriver. The Watchdog structure hierarchy is shown in the figure below.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_layer.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_layer.png
    :alt: WdgM层次介绍(Introduction toWdgM hierarchy)
    :name: fig_layer
    :align: center
@@ -273,7 +327,7 @@ WdgM引入Local Status和Global Status两种状态，其中Local Status和所属
 
 WdgM introduces two statuses: Local Status and Global Status, of which, the former is related to various monitoring results of the SE it belongs to while the latter is related to the Local Status of all activities in the present mode. WdgM calculates the status using supervised algorithm to judge whether to trigger the hardware watchdog. 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_Supervision.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_Supervision.png
    :alt: WdgM监督(WdgM supervision)
    :name: fig_supervision
    :align: center
@@ -287,7 +341,7 @@ WdgM模块通过监督算法、模式和状态机制，完成对程序的Alive�
 
 The WdgM module finishes supervising Alive, Deadline, and Logical by the program by supervising algorithms, mode and state mechanisms. Its execution process is shown in the figure below:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_flow.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_flow.png
    :alt: WdgM监督流程(WdgM supervision process)
    :name: fig_flow
    :align: center
@@ -296,31 +350,23 @@ The WdgM module finishes supervising Alive, Deadline, and Logical by the program
 
 偏差 Deviation
 ------------------------------------------------------------------------------------
-1.不支持多MainFunction配置
+1.不支持Cluster集群功能配置
 
-因为目前设计的架构为核心独立的WdgM，不支持同一核心多MainFunction配置。
+当前版本不支持Cluster集群功能配置
 
-1.Multiple MainFunction configurations are not supported
+1.Cluster cluster feature configuration is not supported.Cluster cluster feature configuration is not supported.
 
-The current architecture is the WdgM with an independent core, it does not support multiple MainFunction configurations within the same core.
-
-2.localSupervision_{SupervisedEntityCheckpointName}服务接口CheckpointId为参数传递
-
-当前服务封装为统一接口和便于管理，将CheckpointId作为参数传递，WdgM根据CheckpointId获取CheckpointName，并调用WdgM的localSupervision接口。
-
-2.localSupervision_{SuperviseEntityCheckpointName} service interface CheckpointId is passed as a parameter
-   
-The current service is encapsulated with a unified interface. To facilitate management, CheckpointId is passed as a parameter. WdgM obtains CheckpointName based on CheckpointId and calls the localSupervision interface of WdgM.
+The current version does not support the Cluster feature configuration.
 
 扩展 Extension
 ------------------------------------------------------------------------------------
-1.WdgM Combination支持
+1.WdgM Master-Satellite 心跳检测支持
 
-通过不同核心的WdgM进行组合，组成联合体，适用于一个看门狗硬件管控所有内核的情况。
+通过对WdgMSatelliteMainFunctionAliveSupervisions配置，实现Master对Satellite活性的检测。
 
-1.WdgM Combination support
+1.WdgM Master-Satellite heartbeat detection support
    
-Combine WdgM with different cores to form a consortium. It is suitable for the scenario where a watchdog hardware is used for controlling to control all cores.
+Through the configuration of WdgMSatelliteMainFunctionAliveSupervisions, the Master can detect the activity of satellite.
 
 集成 Integration
 ========================================
@@ -365,11 +411,11 @@ Combine WdgM with different cores to form a consortium. It is suitable for the s
    * - WdgM_Cfg.c
      - WdgM配置源码文件，存放WdgM的配置生成代码。(WdgM configuration source code file, which is used for storing WdgM configuration generation code.)
 
-错误处理 Error Handling
-------------------------------------------------------------------------------------------
+错误处理(Error Handling)
+----------------------------------
 
-开发错误 Development Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+开发错误(Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
    :header-rows: 1
@@ -414,8 +460,8 @@ Combine WdgM with different cores to form a consortium. It is suitable for the s
      - 0x1C
      - 调用API服务时，参数为空指针。(The parameter is a null pointer while calling API services.)
 
-产品错误 Product Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
    :header-rows: 1
@@ -428,8 +474,8 @@ Combine WdgM with different cores to form a consortium. It is suitable for the s
      - 取决于配置(Depend on the configuration)
      - 监控失败(全局监控状态已达到WDGM_GLOBAL_STATUS_STOPPED ),将发生看门狗复位。(Monitoring failure (global monitoring status has reached WDGM_GLOBAL-STUS-STOPPED), watchdog will reset.)
 
-运行时错误 Runtime Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
    :header-rows: 1
@@ -625,11 +671,7 @@ The following types and interfaces can be encapsulated into SWC to generate comp
      - ProvidedPort(ModeSwitch)
      - WdgM_LocalMode
 
-   * - globalmode (only one core WdgM)
-     - ProvidedPort(ModeSwitch)
-     - WdgM_GlobalMode
-
-   * - globalmode_Core{id} (multiple cores WdgM)
+   * - globalmode (Only in Master MainFunction in multiple-partition architecture)
      - ProvidedPort(ModeSwitch)
      - WdgM_GlobalMode
 
@@ -642,7 +684,7 @@ The following types and interfaces can be encapsulated into SWC to generate comp
 
 看门狗实例配置 Configuration of Watchdog Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-由于系统中可能存在多个看门狗，包括多个内部看门狗和多个外部看门狗。由于WdgIf模块完成了设备的抽象，在WdgM模块只需要引用WdgIf创建的配置实例。
+由于系统中可能存在多个看门狗，包括内部看门狗和外部看门狗。由于WdgIf模块完成了设备的抽象，在WdgM模块只需要引用WdgIf创建的配置实例。
 
 The system may includes several watchdogs, including multiple internal watchdogs and multiple external watchdogs. The WdgIf module completes the abstraction of the device, so the WdgM module only needs to reference the configuration instance created by WdgIf.
 
@@ -658,12 +700,15 @@ Steps for configuring WdgM watchdog:
 
 2.Add WdgIf instance in WdgMGeneral.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_Wdg.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/WdgM_Wdg.png
    :alt: WdgM看门狗实例配置图 (Configuration diagram of WdgM watchdog instance)
    :name: WdgM_Watchdog
    :align: center
 
    WdgM看门狗实例配置图 (Configuration diagram of WdgM watchdog instance)
+
+- 1: 可创建多个；
+- 2: 引用WdgIf创建的实例
 
 红色框1：可创建多个  
 
@@ -707,18 +752,29 @@ Basic operation of the mode configuration is as below:
 
 5.Supervision configurations, including the supervision of Alive, Deadline, and External Logical. (Internal Logical supervision is configured within the supervised entity. If it needs including here, reference the supervised entity.)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/Mode.png
+6.MainFunction周期配置，表示当前模式下所有主函数的运行周期（每个主函数可配置不同的周期）。
+
+6.MainFunction cycle configuration, indicating the running cycles of all main functions in the current mode (each main function can be configured with a different cycle).
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/Mode.png
    :alt: WdgM模式配置图 (WdgM Mode Configuration Diagram)
    :name: Mode
    :align: center
 
    模式配置图 (Mode configuration diagram)
 
+- 1: 创建容器；
+- 2: 配置容忍度和周期；
+- 3: 引用看门狗实例；
+- 4: 引用监督实体；
+- 5: 监督功能
+- 6: 配置主函数周期。
+
 根据需要，可以选择当前WdgM的初始运行模式，WdgM模块在初始化的时候会将看门狗驱动自动切换到该模式。
 
 The initial operating mode of the current WdgM can be selected as required. The WdgM module will automatically switch the watchdog driver to this mode during initialization.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/InitMode.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/InitMode.png
    :alt: WdgM模式配置图 (WdgM Mode Configuration Diagram)
    :name: InitMode
    :align: center
@@ -777,26 +833,41 @@ Steps for the configuration of Alive supervision:
 
 The figure below shows an Alive supervision with a supervised entity ID of 0 and a checkpoint ID of 0. The supervision cycle is 1 MainFunction cycle, with 4 expected times. The allowed number of exceeding or insufficient times is 1 (i.e., reporting for 3-5 times within a cycle is allowed).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/AliveSup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/AliveSup.png
    :alt: Alive监督配置(Alive supervision configuration)
    :name: AliveSup
    :align: center
 
    Alive监督配置图-1 (Alive Supervision Configuration Diagram -1)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/AliveSup_1.png
+- 1: 配置监督实体和检查点；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/AliveSup_1.png
    :alt: Alive监督配置=(Alive supervision configuration)
    :name: AliveSup_1
    :align: center
 
    Alive监督配置图-2 (Alive supervision configuration diagram -2)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/AliveSup_2.png
+- 2: 引用相关监督实体
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/AliveSup_2.png
    :alt: Alive监督配置(Alive supervision configuration)
    :name: AliveSup_2
    :align: center
 
    Alive监督配置图-3 (Alive supervision configuration diagram -3)
+
+- 3: 创建Alive监督；
+- 4: Expected Alive Indications配置期待报告次数，
+  
+  Max Margin配置最大允许超出次数，
+  
+  Min Margin配置最大允许少于次数，
+  
+  Supervision Reference Cycle配置实行Alive监督的周期次数，
+  
+  Alive Supervision Checkpoint Ref应用检查点
 
 注:(1)期待报告次数;(2)最大允许超出次数;(3)最大允许少于次数;(4)实行Alive监督的周期次数;(5)检查点引用
 
@@ -832,6 +903,9 @@ Deadline supervision requires the following configuration items:
    * - WdgMMode
      - 运行模式，包含看门狗的运行模式，监督实体、Alive、Deadline、External Logical监督配置等。(Operation mode, including watchdog operation mode, supervised entity, Alive, Deadline, External Logical supervision configuration, etc.)
 
+   * - WdgMEnableTimeoutDetection
+     - 用于开启超时检测。(Used to open timeout detection.)
+
 Deadline监督的配置需要以下步骤：
 
 Steps for the configuration of Deadline supervision:
@@ -852,34 +926,49 @@ Steps for the configuration of Deadline supervision:
 
 4.Create Deadline supervision (more than 1 supervisions allowed), reference checkpoints and set allowed time interval.
 
+5.根据需求，决定是否开启超时检测。
+5.Open timeout detection based on demand.
+
 下图配置了一个执行时间在4ms和6ms之间的Deadline监督，且开启了Timout检测(即在报告开始点后，结束点一直不报告的超时情况)。
 
 The figure below displays the Deadline supervision with an execution time between 4ms and 6ms, and Timeout detection is enabled (i.e. timeout not reported after the start and end points).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup.png
    :alt: Deadline监督配置(Deadline supervision configuration)
    :name: DeadlineSup
    :align: center
 
    Deadline监督配置图-1 (Deadline Supervision Configuration Diagram -1)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup_1.png
+- 1: 创建2个检查点；
+- 2: 指定SE的Counter；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup_1.png
    :alt: Deadline监督配置(Deadline supervision configuration)
    :name: DeadlineSup_2
    :align: center
 
    Deadline监督配置图-2 (Deadline supervision configuration diagram -2)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup_2.png
+- 3: 创建模式并引用SE；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup_2.png
    :alt: Deadline监督配置(Deadline supervision configuration)
    :name: DeadlineSup_3
    :align: center
 
    Deadline监督配置图-3 (Deadline supervision configuration diagram -3)
 
-注:(1)是否开启超时检测;(2)最大时间间隔(s);(3)最小时间间隔(s);(4)开始检查点;(5)结束检查点
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/DeadlineSup_3.png
+   :alt: Deadline监督配置(Deadline supervision configuration)
+   :name: DeadlineSup_4
+   :align: center
 
-Note: (1) Whether timeout detection is enabled; (2) Maximum time interval (s); (3) Minimum time interval (s); (4) Start checkpoint; (5) End checkpoint
+   Deadline监督配置图-4 (Deadline supervision configuration diagram -4)
+
+注:(1)最大时间间隔(s);(2)最小时间间隔(s);(3)开始检查点;(4)结束检查点
+
+Note: (1) Maximum time interval (s); (2) Minimum time interval (s); (3) Start checkpoint; (4) End checkpoint
 
 Internal Logical监督配置 Internal Logical supervision configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -934,26 +1023,34 @@ Steps for Internal Logical supervision configuration:
 
 The figure below displays an Internal Logical supervision consisting of a supervised entity ID of 1 and checkpoint IDs of 0, 1, and 2. The reporting order is SE1_CP0->SE1_CP1->SE1_CP2 (numbers represent IDs).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/IntLogSup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/IntLogSup.png
    :alt: Internal Logical监督配置(Internal Logical supervision configuration)
    :name: IntLogSup
    :align: center
 
    Internal Logical监督配置图-1 (Internal Logical Supervision Configuration Diagram -1)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/IntLogSup_1.png
+- 1: 创建1个SE和3个CheckPoint；
+- 2: 创建2个内部转换图；
+- 3: 指定转换图的报告顺序；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/IntLogSup_1.png
    :alt: Internal Logical监督配置(Internal Logical supervision configuration)
    :name: IntLogSup_1
    :align: center
 
    Internal Logical监督配置图-2 (Internal Logical supervision configuration diagram -2)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/IntLogSup_2.png
+- 4: 设置最终开始检查点和结束点；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/IntLogSup_2.png
    :alt: Internal Logical监督配置(Internal Logical supervision configuration)
    :name: IntLogSup_2
    :align: center
 
    Internal Logical监督配置图-3 (Internal Logical supervision configuration diagram -3)
+
+- 5: Mode中引用该SE
 
 External Logical监督配置 External Logical supervision configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1010,114 +1107,131 @@ Steps for External Logical supervision configuration:
 
 The figure belowdisplays an External Logical supervision consisting of supervised entity IDs of 0, 1, 2 and checkpoint IDs of 1, 3, 2. The reporting order is SE0_CP1->SE1_CP3->SE2_CP2 (numbers represent IDs).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup.png
    :alt: External Logical监督配置(External Logical supervision configuration)
    :name: ExtLogSup
    :align: center
 
    External Logical监督配置图-1  (External Logical supervision configuration diagram -1)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup_1.png
+- 1: 配置3个SE和3个Checkpoint；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup_1.png
    :alt: External Logical监督配置(External Logical supervision configuration) 
    :name: ExLogSup_1
    :align: center
 
    External Logical监督配置图-2 (External Logical supervision configuration diagram -2)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup_2.png
+- 2: 创建Mode，并引用相关SE；
+- 3: 创建外部逻辑监控和转换图；
+- 4: 外部逻辑监控转换图描述2个检查点的报告顺序；
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup_2.png
    :alt: External Logical监督配置(External Logical supervision configuration)
    :name: ExtLogSup_2
    :align: center
 
    External Logical监督配置图-3 (External Logical supervision configuration diagram -3)
 
+- 5: 指定开始点和结束点
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/ExtLogSup_3.png
+   :alt: External Logical监督配置(External Logical supervision configuration)
+   :name: ExtLogSup_3
+   :align: center
+
+   External Logical监督配置图-4 (External Logical supervision configuration diagram -4)
+
 
 多核多分区配置说明 Descriptions of Multi-core Multi-Partition Configuration
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-由于多核Mcu可能存在多个内部看门狗驱动，而每个内部看门狗驱动具有独立的时钟源，需要相对应的核心才能够完成喂狗操作。在多核架构中，每个核心可以单独运行WdgM模块，分别监督当前核心的运行情况，独立喂狗；也可以由多个核心的WdgM组成联合结构，共同维持系统的运行(该情况通常用于整个系统由一个外狗监控)。
+在多核多分区架构中，WdgM的架构为Master-Satellite架构，WdgM存在于多个分区中，监控整个系统的运行情况。每个分区最多存在1个WdgMMainFunction，用于执行该分区的Alive，Internal Logical，Deadline以及External Logical监控，并更新本地状态。同时整个WdgM中存在1个Master WdgMMainFunction，除了更新本地状态外，还需要计算整个WdgM的全局状态，并根据状态决定是否要触发看门狗或执行复位操作并报告Dem，除Master WdgMMainFunction，其余的为Satellite WdgMMainFunction。在此版本中，还增加了从核卡死检测功能，在Satellite WdgMMainFunction任务卡死不更新状态时，会通知Master WdgMMainFunction所在分区，由集成人员决定后续操作。
 
-The multi-core Mcu may contains several internal watchdog drivers, each of which has an independent clock source. The corresponding core is required to complete feeding. In a multi-core architecture, each core can run the WdgM module independently, monitor the operation of the current core and feed watchdog independently; a joint structure consisting of several core WdgMs is used to jointly maintain system operation (the latter case is generally applicable to the scenario where the entire system is monitored by an external watchdog).
+The architecture of WdgM is Master-Satellite in multi-core and multi-partition architecture, and WdgM exists in multiple partitions to monitor the operation of the whole system. There is at most one WdgMMainFunction in each partition, which is used to perform Alive, Internal Logical, Deadline and External Logical monitoring of the partition and update the local status. At the same time, there is a master WdgMmainfunction in the whole WdgM. In addition to updating the local state, it is necessary to calculate the global state of the whole wdgm, and decide whether to trigger the watchdog or perform a reset operation and report it to Dem according to the state. Except for the Master WdgMMainFunction, the others are Satellite WdgMMainFunction. In this version, the slave kernel stuck detection function is also added. When the Satellite WdgMMainFunction task is stuck and the status is not updated, the partition where the Master WdgMMainFunction is located will be notified, and the integrator will decide the subsequent operation.
 
-在多分区架构中，监督实体包含了分区信息，不同分区的监督实体是相互隔离的。
+在多分区架构中，监督实体包含了分区信息，不同分区的监督实体是相互隔离的（除了external logical监督）。
 
-In a multi-partition architecture, the supervised entity contains partition information. The supervised entities of different partitions are isolated from each other.
+In a multi-partition architecture, the supervised entity contains partition information. The supervised entities of different partitions are isolated from each othe (except external logical supervision).
 
-在多分区架构中，需要指定WdgM的周期函数运行分区和监督实体的分区信息。
+在多分区架构中，需要指定WdgMMainFunction的分区信息和监督实体的分区信息（通过关联WdgMMainFunction）。
 
-In a multi-partition architecture, specify the partition information of periodic function running partition and supervised entity partition of WdgM.
-
-监督实体分区配置 Configuration of Supervised Entity Partition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/SE_Ecuc.png
-   :alt: 监督实体分区配置(Partition configuration of supervised entity)
-   :name: SE_Ecuc
-   :align: center
-
-   监督实体分区配置图 (Supervised Entity Partition Configuration Diagram)
-
-红色框1：配置监督实体的分区信息
-
-Red box 1: Partition information for configuring supervised entities
+In a multi-partition architecture, it is necessary to specify the partition information of WdgMMainFunction and the partition information of the supervising entity (by associating WdgMMainFunction).In the multi-partition architecture, it is necessary to specify the partition information of WdgMMainFunction and the partition information of the supervising entity (by associating WdgMMainFunction).
+复
 
 周期函数执行分区配置 Partition Configuration for Periodic Function Execution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/MainFunction_Ecuc.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/MainFunction_Ecuc.png
    :alt: 监督实体分区配置(Partition configuration of supervised entity)
    :name: MainFunction_Ecuc
    :align: center
 
    周期函数执行分区配置图 (Periodic Function Execution Partition Configuration Diagram)
 
-红色框2：WdgM周期函数分区配置
+红色框1：WdgM周期函数分区配置
 
-Red box 2: Partition configuration of WdgM periodic function
+Red box 1: Partition configuration of WdgM periodic function
 
-联合体结构配置 Structure configuration of combination
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-联合体(Combination)结构用于将多个核心的WdgM作为整体看待，分为Master和Slave，其中Master是主看门狗，负责监控和喂狗，Slave是从看门狗，负责监控。
+监督实体分区配置 Configuration of Supervised Entity Partition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Combination structure is used for taking the multi-core WdgMs as a whole. It can be further divided into Master and Slave, of which, the former is the main watchdog responsible for monitoring and feeding dogs, while the latter is the secondary watchdog responsible for monitoring.
-
-联合体结构配置需要以下步骤：
-
-Steps for configuring combination structure:
-
-1.创建多个WdgMConfigSet。
-
-1.Create several WdgMConfigSets.
-
-2.创建联合体结构，并指定联合体结构名称。
-
-2.Create a combination structure and specify the structure name.
-
-3.设置主看门狗和从看门狗的同步周期。
-
-3.Set the synchronization period between the master watchdog and the slave watchdog.
-
-4.配置主核心看门狗。
-
-4.Configure the main core watchdog.
-
-5.配置从核心看门狗。
-
-5.Configure the slave core watchdog.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/MultipleCores.png
-   :alt: 多核心Combination配置(Multi-core Combination configuration)
-   :name: MultipleCores
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/SE_Ecuc.png
+   :alt: 监督实体分区配置(Partition configuration of supervised entity)
+   :name: SE_Ecuc
    :align: center
 
-   多核心Combination配置图-1 (Configuration diagram of multi-core Combination - 1)
+   监督实体分区配置图 (Supervised Entity Partition Configuration Diagram)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/MultipleCores_2.png
-   :alt: 多核心Combination配置 (Multi-core Combination configuration)
-   :name: MultipleCores_2
+红色框2：配置监督实体的分区信息
+
+Red box 2: Partition information for configuring supervised entities
+
+Master WdgMMainFunction配置 (Master WdgMMainFunction configuration)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Master WdgMMainFunction除了更新本地状态，还会更新全局状态，并有触发看门狗和系统复位的权限，除此之外，还会监控其他satellite WdgMMainFunction的周期心跳。
+
+Master WdgMMainFunction not only updates the local status, but also updates the global status, and has the authority to trigger watchdog and system reset. Besides, it also monitors the periodic heartbeat of other satellite WdgMMainFunction.
+
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/Master.png
+   :alt: Master WdgMMainFunction配置(Master WdgMMainFunction configuration)
+   :name: Master
    :align: center
 
-   多核心Combination配置图-2 (Multi-core Combination Configuration Diagram - 2)
+   Master WdgMMainFunction配置图 (Configuration diagram of Master WdgMMainFunction)
 
+
+Satellite WdgMMainFunction配置 (Satellite WdgMMainFunction configuration)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Satellite WdgMMainFunction除了会更新本地监督状态，还会向Master WdgMMainFunction发送周期心跳，其配置原理和Alive监控相同，只是检查点报告由Satellite WdgMMainFunction周期报告。
+
+Satellite WdgMMainFunction not only updates the local supervision status, but also sends periodic heartbeats to Master WdgMMainFunction. Its configuration principle is the same as Alive monitoring, except that the checkpoint report is periodically reported by Satellite WdgMMainFunction.Satellite WdgMMainFunction not only updates the local supervision status, but also sends periodic heartbeats to Master WdgMMainFunction. Its configuration principle is the same as Alive monitoring, except that the checkpoint report is periodically reported by Satellite WdgMMainFunction.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/Satellite.png
+   :alt: Satellite WdgMMainFunction配置(Satellite WdgMMainFunction configuration)
+   :name: Satellite
+   :align: center
+
+   Satellite WdgMMainFunction配置图 (Configuration diagram of Satellite WdgMMainFunction)
+
+注: (1)期待的报告次数; (2)最大允许超出次数; (3)最大允许少于次数; (4)最大容许Failed次数; (5)执行Alive的周期数(以Master周期为单位); (6)Satellite MainFunction实例引用;
+
+Master-Satellite 允许过期周期数配置 (Master-Satellite expired supervision cycle tolerance configuration)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Master-Satellite允许过期周期数和Alive监控原理一致，此参数确定Master-Satellite监控状态达到EXPIRED状态后到STOPPED状态的周期数量。
+
+Master-Satellite allows the number of EXPIRED cycles to be consistent with the principle of Alive monitoring. This parameter determines the number of cycles from the monitoring state of Master-Satellite to the STOPPED state after reaching the expired state.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/Master-Satellite_Tol.png
+   :alt: Master-Satellite Tol配置(Master-Satellite expired supervision cycle tolerance configuration)
+   :name: Master-Satellite Tol
+   :align: center
+
+   Master-Satellite expired supervision cycle tolerance 配置图 (Configuration diagram of Master-Satellite expired supervision cycle tolerance)
 
 SWC交互配置说明 Descriptions of SWC Interactive Configuration
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1125,7 +1239,7 @@ WdgM提供C/S接口供SWC进行交互。SWC可以通过相应的Client端口执�
 
 WdgM provides a C/S interface for SWC for interaction. SWC can perform monitoring operations via the corresponding Client port, such as reporting checkpoints, setting modes, resetting watchdogs, etc. and also get the status change of WdgM mode through mode switching ports.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/WdgM/SWC_WdgM.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/SWC_WdgM.png
    :alt: SWC和WdgM交互示意图 (Interaction diagram of SWC and WdgM)
    :name: SWC_WdgM
    :align: center
@@ -1169,8 +1283,8 @@ The followings are the port definitions of global supervision as provided by Wdg
    * - globalSupervision
      - This port provides the Global Supervision interface of the WdgM.
 
-SWC模式切换配置(Single Core)说明 Description of SWC mode switch configuration  (Single Core)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SWC模式切换配置说明 Description of SWC mode switch configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 以下是WdgM提供的模式切换的端口定义：
 
@@ -1189,17 +1303,15 @@ The followings are the port definitions for mode switching provided by WdgM:
    * - globalmode
      - This port provides the mode switch interface of the WdgM.
 
-SWC模式切换配置(Multiple Core)说明 Description of SWC mode switch configuration  (Multiple Core)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. list-table::
-   :widths: 10 20
-   :header-rows: 1
+WdgM多分布服务组件分布 WdgM multi-distributed service component distribution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+由于监控实体分布在不同的分区，并且存在Master和Satellite分区，故服务组件按照分区进行分布。其中每个配置了WdgMMainFunction的分区都会提供一个服务组件，其中包括每个分区监督实体对应的服务端口localSupervision_{SupervisedEntityName}和localSupervisonStatus_{SupervisedEntityName}，以及当前分区对应的模式端口mode_{SupervisedEntityName}。除此之外，Master分区会提供全局端口globalSupervision，以及全局模式端口globalmode。
 
-   * - 端口名称(Port name)
-     - 描述(Description)
+Because the monitoring entities are distributed in different partitions, and there are Master and Satellite partitions, the service components are distributed according to partitions. Each partition configured with WdgMMainFunction will provide a service component, including the service ports localsupervision_{supervisedentityname} and localsupervisonstatus_{supervisedentityname} corresponding to each partition supervising entity, and the mode port mode_{SupervisedEntityName} corresponding to the current partition. In addition, the Master partition will provide the global port globalSupervision and the globalmode port Global Mode.
 
-   * - mode_{SupervisedEntityName}
-     - This port provides the mode switch interface of the Supervised Entity.
+.. figure:: /_static/参考手册(Module_Reference_Manual)/WdgM/WdgMServiceComponent.png
+   :alt: WdgM多分区服务组件 (WdgM multi-partition service component)
+   :name: WdgMServiceComponent
+   :align: center
 
-   * - globalmode_Core{Id}
-     - This port provides the mode switch interface of the WdgM response to the CoreId.
+   WdgM多分区服务组件图 (Diagram of WdgM multi-partition service component)

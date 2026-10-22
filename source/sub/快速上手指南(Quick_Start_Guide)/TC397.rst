@@ -1,17 +1,16 @@
-===================
+============
 TC397
-===================
-
+============
 
 1 开发环境准备（Preparation of Development Environment）
-===============================================================================================================================================================================
+============================================================
 
 主要工具和环境说明
 
 Description of Main Tools and Environment
 
 .. list-table::
-   :widths: 20 20 
+   :widths: 20 20
    :header-rows: 1
 
    * - 工具描述(Tool Description)
@@ -19,44 +18,46 @@ Description of Main Tools and Environment
    * - 编译器和IDE(Compiler and IDE)
      - Hightec For Tricore V4.9.4.1
    * - EB工具(EB Tool)
-     - EB tresos Studio 26.2.0
+     - EB tresos Studio 34.0.0
    * - MCAL
-     - MC-ISAR_AS422_TC3xx _2.10.0
+     - MC-ISAR_AS440_TC3xx_BASIC_3.0.0
    * - 硬件开发板(Hardware Development Board)
      - Application Kit TC3X7 V2.0
+   * - 编译工具(Compilation tool)
+     - CMake 3.20+
 
 1.1 MCAL编译器和IDE获取（Acquisition of MCAL Compiler and IDE）
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------
 
- `Hightec For Tricore V4.9.4.1获取网站 <https://hightec-rt.com/>`__ 
- （`Download link for Hightec For Tricore V4.9.4.1 <https://hightec-rt.com/>`__ ）
+`Hightec For Tricore V4.9.4.1获取网站 <https://hightec-rt.com/>`__
+（`Download link for Hightec For Tricore V4.9.4.1 <https://hightec-rt.com/>`__ ）
 
- `EB.tresos Studio 26.2.0获取网站 <https://www.elektrobit.cn/>`__ 
- （`Download link for EB.tresos Studio 26.2.0 <https://www.elektrobit.cn/>`__ ）
+`EB.tresos Studio 34.0.0获取网站 <https://www.elektrobit.cn/>`__
+（`Download link for EB.tresos Studio 34.0.0 <https://www.elektrobit.cn/>`__ ）
 
- `芯片厂网站 <https://www.infineon.cn/?utm_campaign=202507_gc_cn_cp.b.branding&utm_medium=sem&utm_source=baidu_searchad&utm_content=_&utm_term=&uid=ci56620001&aid=ai5662&sdclkid=AL2615FG1526b6DRxg&bd_vid=11792938164491894888&gad_source=7&gad_campaignid=21818698728&gclid=COzF2eitxJQDFW2TrAId_IQDqw&gclsrc=ds>`__ 
- （`Chip Manufacturer Official Website <https://www.infineon.cn/?utm_campaign=202507_gc_cn_cp.b.branding&utm_medium=sem&utm_source=baidu_searchad&utm_content=_&utm_term=&uid=ci56620001&aid=ai5662&sdclkid=AL2615FG1526b6DRxg&bd_vid=11792938164491894888&gad_source=7&gad_campaignid=21818698728&gclid=COzF2eitxJQDFW2TrAId_IQDqw&gclsrc=ds>`__ ）
+`芯片厂网站 <https://www.infineon.cn/?utm_campaign=202507_gc_cn_cp.b.branding&utm_medium=sem&utm_source=baidu_searchad&utm_content=_&utm_term=&uid=ci56620001&aid=ai5662&sdclkid=AL2615FG1526b6DRxg&bd_vid=11792938164491894888&gad_source=7&gad_campaignid=21818698728&gclid=COzF2eitxJQDFW2TrAId_IQDqw&gclsrc=ds>`__
+（`Chip Manufacturer Official Website <https://www.infineon.cn/?utm_campaign=202507_gc_cn_cp.b.branding&utm_medium=sem&utm_source=baidu_searchad&utm_content=_&utm_term=&uid=ci56620001&aid=ai5662&sdclkid=AL2615FG1526b6DRxg&bd_vid=11792938164491894888&gad_source=7&gad_campaignid=21818698728&gclid=COzF2eitxJQDFW2TrAId_IQDqw&gclsrc=ds>`__ ）
 
 开发环境需用户自行获取
 
 The development environment needs to be obtained by users themselves.
 
 1.2 BSW配置工具的获取 （Acquisition of BSW Configuration Tool）
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------
 
-1. 申请普华ORIENTAIS Configurator工具软件（for 开源小满）：https://register.easyxmen.com/welcome.html?channel=3。
+1. 申请普华ORIENTAIS Configurator工具软件（for 开源小满）：`https://register.easyxmen.com/welcome.html?channel=3 <https://register.easyxmen.com/welcome.html?channel=3>`__。
 
-   Apply for iSOFT ORIENTAIS Configurator software (for EasyXMen) via the link: https://register.easyxmen.com/welcome.html?channel=3.
+   Apply for iSOFT ORIENTAIS Configurator software (for EasyXMen) via the link: `https://register.easyxmen.com/welcome.html?channel=3. <https://register.easyxmen.com/welcome.html?channel=3>`__.
 
 2. 审核通过后，邮件收到下载链接（含BSW配置工具和示例工程）以及BSW配置工具License。
 
    After application approval, users will receive download links via email (including BSW configuration tool and example projects), and the license of the BSW configuration tool.
 
 1.3 BSW配置工具安装（Installation of BSW Configuration Tool）
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------
 
 1.3.1 安装前须知（Pre-installation Notes）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. 安装盘符建议：请勿将工具安装于C盘。C盘通常为系统盘，Windows操作系统安装于此，且Windows对C盘的读写权限控制较为严格。
 
@@ -75,7 +76,7 @@ The development environment needs to be obtained by users themselves.
    Multi-project management suggestion: On the premise of complying with the above three suggestions, if multiple projects are created in one workspace, right-click the project name and select "Close Project" from the pop-up menu to close unused projects. The closed projects can be opened later via "Open Project". It is recommended to keep only one project open in the workspace at all times. When a project is open, all arxml files inside this project will be automatically loaded into memory. Complex projects with massive configuration data will occupy considerable memory and CPU resources and easily lead to tool lagging. Closing unused projects releases occupied memory and CPU resources and improves the running smoothness of the tool.
 
 1.3.2 安装步骤（Installation Steps）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. 解压下载的安装包，找到安装程序，双击安装程序，启动安装向导。
 
@@ -109,11 +110,11 @@ The development environment needs to be obtained by users themselves.
 
 After installation, the shortcut of ORIENTAIS Configurator for EasyXMen can be found in the Start menu or on the desktop.
 
-2 BSW配置工具编译调试（Compilation and Debugging of BSW Configuration Tool）
-======================================================================================================================================================================================================================
+2 EasyXMen配置工具编译调试（Compilation and Debugging of EasyXMen Configuration Tool）
+=================================================================================================
 
 2.1 BSW配置工具功能简介（Brief Introduction to Functions of BSW Configuration Tool）
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 导入已有BSW配置工程的方法：
 
@@ -197,10 +198,10 @@ The service encapsulation function encapsulates underlying BSW interfaces into s
    :align: center
 
 2.1.1 与MCAL配置信息的交互（Interaction with MCAL Configuration Information）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2.1.1.1 与EB工具交互（Interaction with EB Tool）
-************************************************************************************************************************************************************************************************************************************************************************************************
+****************************************************
 
 从EB tresos导出MCAL配置并导入BSW配置工具的流程：在EB tresos中打开MCAL配置工程，右键点击MCAL配置中的ECU节点，选择Im- and Exporter > Export，选择导出格式为ARXML，设置导出路径，点击OK完成导出。
 
@@ -221,7 +222,7 @@ The interface for exporting MCAL configuration ARXML file via EB tresos is shown
 Launch the BSW configuration tool, right-click Project, select Import Module From Other Arxml, choose the ARXML file exported from EB tresos and click OK to finish import. Imported MCAL configuration information will display on the project tree.
 
 2.1.1.2 与Davinci工具交互（Interaction with DaVinci Tool）
-************************************************************************************************************************************************************************************************************************************************************************************************
+**************************************************************
 
 从DaVinci Configurator导出配置并导入BSW配置工具：在DaVinci中打开工程，选择File > Export > Export ARXML，选择导出内容和目标路径，在BSW配置工具中选择Import > ARXML File导入。
 
@@ -230,28 +231,145 @@ Export configuration from DaVinci Configurator and import to BSW configuration t
 .. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_1_1_2_1.png
    :align: center
 
-2.2 示例工程演示（Example Project Demonstration）
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.2 SWC配置工具功能简介（Brief Introduction to Functions of SWC Configuration Tool）
+-----------------------------------------------------------------------------------------------
 
-2.2.1 示例工程说明（Example Project Description）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+导入已有SWC配置工程的方法：\
 
-TC397示例工程包含以下文件和内容：
+Methods to import an existing SWC configuration project:
+
+* 选择File > Open Project。\
+
+  Select File > Open Project.
+
+* 浏览选择已有的SWC配置工程目录。\
+
+  Browse and select the existing SWC configuration project directory.
+
+* 选择需要导入工程的.project文件，点击打开。\
+
+  Select the .project file of the project to be imported and click Open.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_1.png
+   :align: center
+
+工程导入后可在Navigator中查看工程结构。\
+
+After the project is imported, the project structure can be viewed in the Navigator.
+
+* Software Architecture：配置应用软件层所需的对象。 例如数据类型、 端口接口、 计算方法、 软件组件等。\
+
+  Software Architecture: Configure the objects required for the application software layer. For example, data types, port interfaces, calculation methods, software components, etc.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_2.png
+   :align: center
+
+* 在 Software Architecture 创建的对象， 选中对象右键， 存在以下通用功能\
+
+  For objects created in Software Architecture, right-click the selected object to access the following general functions:
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_3.png
+   :align: center
+
+* Properties：查看对象配置内容， 选中对象， 右键将会弹出 Properties 功能。 此功能打开的页面与双击选中对象打开的页面相同。 Component、 Composition 两个特殊对象， Properties 功能打开的页面与双击打开的页面不同。\
+
+  Properties: View the object configuration content. Select the object and right-click to pop up the Properties function. The page opened by this function is the same as the page opened by double-clicking the selected object. For the two special objects, Component and Composition, the page opened by the Properties function is different from the page opened by double-clicking.
+
+* Open With Common Editor：通用编辑器功能， 选中对象， 右键将会弹出 Open With Common Editor 功能， 此功能将打开通用编辑器。 所有对象都存在此功能。 Software Architecture分类下的对象， 需要通过右键选择 Open With Common Editor 才能打开通用编辑器， System 及 Diagnostic 分类下的对象， 双击打开的就是通用编辑器(System对象除外)。\
+
+  Open With Common Editor: General editor function. Select the object and right-click to pop up the Open With Common Editor function, which will open the general editor. This function exists for all objects. For objects under the Software Architecture category, you need to right-click and select Open With Common Editor to open the general editor. For objects under the System and Diagnostic categories, double-clicking opens the general editor (except for System objects).
+
+* Delete：删除数据功能， 为避免误删除数据。\
+
+  Delete: Delete data function, to avoid accidental data deletion.
+
+* Export Arxml Data...：将选中的数据， 通过 ARXML 导出， 该功能可以同时选中多个对象， 同时导出。\
+
+  Export Arxml Data...: Export the selected data via ARXML. This function allows you to select multiple objects and export them simultaneously.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_4.png
+   :align: center
+
+SWC配置工具支持arxml导入功能。\
+
+The SWC configuration tool supports the arxml import function.
+
+* 点击Arxml File Importer。\
+
+  Click Arxml File Importer.
+
+* 浏览选择已有的BSW配置工程目录中的服务组件arxml。\
+
+  Browse and select the service component arxml in the existing BSW configuration project directory.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_5.png
+   :align: center
+
+* 选择需要导入工程的Repeat Data，点击Next。\
+
+  Select the Repeat Data to be imported and click Next.
+
+* 选择需要导入工程的Arxml File Data，点击Next。\
+
+  Select the Arxml File Data to be imported and click Next.
+
+* 选择需要导入的方式，一般建议Merge，选择完后点击Finish。\
+
+  Select the import method; Merge is generally recommended. Click Finish after selection.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_6.png
+   :align: center
+
+SWC配置工具支持萃取文件导出功能\
+
+The SWC configuration tool supports the extract file export function.
+
+* 点击Extract。\
+
+  Click Extract.
+
+* 将RootComposition中ECU存在的组件映射到EcuInstance的不同ecuPartition中。\
+
+  Map the components existing in the ECU in the RootComposition to different ecuPartitions of the EcuInstance.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_7.png
+   :align: center
+
+* 点击Create ECU Extract，选择需要保存的萃取文件名与位置。\
+
+  Click Create ECU Extract, and select the extract file name and location to be saved.
+
+* 点击Finish完成萃取文件导出。\
+
+  Click Finish to complete the extract file export.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_8.png
+   :align: center
+
+2.3 示例工程演示（Example Project Demonstration）
+------------------------------------------------------------
+
+2.3.1 示例工程说明（Example Project Description）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+以TC397示例工程做演示说明，工程包包含以下文件和内容：
 
 The TC397 example project contains the following files and contents:
 
 .. list-table::
-   :widths: 20 20 
+   :widths: 20 20
    :header-rows: 1
 
    * - 文件/目录名称(File/Directory Name)
      - 说明(Description)
-   * - Demo_TC397_MCAL_ASR422_R210_ConfigProject
+   * - TC397_ASR440_3_0_0_MCAL
      - MCAL配置工程（EB工具）(MCAL configuration project (EB Tool))
-   * - Demo_TC397_V2504_patch_BSW_ConfigProject
+   * - TC397_RTE_MC
      - BSW配置工程（BSW配置工具）(BSW configuration project (BSW configuration tool))
-   * - Demo_TC397_V2504_patch_HighTec_V4941_Project
+   * - TC397_RTE_MC
      - MCAL+BSW集成示例工程（Hightec For Tricore V4.9.4.1）(Integrated MCAL+BSW example project (Hightec For Tricore V4.9.4.1))
+   * - TC397_RTE_MC
+     - SWC配置工程（SWC配置工具）(SWC configuration project (SWC configuration tool))
    * - 示例工程说明(Example project description)
      - TC397示例工程配置说明文档(Configuration description document of TC397 example project)
 
@@ -259,11 +377,11 @@ The TC397 example project contains the following files and contents:
 
 Recommended operation sequence for using the example project: First read the example project description document to learn the overall structure and functions of the project; open and compile the MCAL configuration project to verify the validity of MCAL configuration; open and compile the BSW configuration project to verify the validity of BSW configuration; finally compile the integrated project to generate programmable target files.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_1_1.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_1_1.png
    :align: center
 
-2.2.2 示例BSW配置工程导入及编译（Import and Compilation of Example BSW Configuration Project）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3.2 示例BSW配置工程导入及编译（Import and Compilation of Example BSW Configuration Project）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 导入和编译BSW配置工程的步骤：
 
@@ -273,66 +391,153 @@ Steps to import and compile the example BSW configuration project:
 
    Start ORIENTAIS Configurator and select File > Import > Existing Project.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_2_1.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_2_1.png
    :align: center
 
-2. 浏览选择Demo_RH850_U2A16_V2504_patch_BSW_ConfigProject目录。
+2. 浏览选择Demo_TC397_U2A16_V2504_patch_BSW_ConfigProject目录。
 
    Browse and select the directory of Demo_RH850_U2A16_V2504_patch_BSW_ConfigProject.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_2_2.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_2_2.png
    :align: center
 
 3. 导入完成后在工程树中查看各模块配置。
 
    Check configuration parameters of each module on the project tree after import finishes.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_2_3.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_2_3.png
    :align: center
 
 4. 点击Validate All校验工程配置。
 
    Click Validate All to validate the project configuration.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_2_4.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_2_4.png
    :align: center
 
 5. 校验通过后编译工程或生成配置代码。
 
    Compile the project or generate configuration codes after validation passes.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_2_5.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_2_5.png
    :align: center
 
-2.2.3 BSW配置工程代码生成（Code Generation from BSW Configuration Project）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3.3 示例SWC配置工程导入及萃取（Import and Extraction of Sample SWC Configuration Project）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+导入和萃取SWC配置工程的步骤：\
+
+Steps for importing and extracting SWC configuration projects:
+
+* 启动SWC配置工具，选择File > Open Project，选择已有的SWC配置工程中的project文件。\
+
+  Start the SWC configuration tool, select File > Open Project, and select the project file in the existing SWC configuration project.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_1.png
+   :align: center
+
+* 点击Check ALL，确保工程校验无报错。\
+
+  Click Check ALL to ensure there are no errors in the project validation.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_2.png
+   :align: center
+
+* 点击Extract，将RootComposition中ECU存在的组件映射到EcuInstance的不同ecuPartition中。\
+
+  Click Extract to map the components existing in the ECU in the RootComposition to different ecuPartitions of the EcuInstance.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_3.png
+   :align: center
+
+* 点击Create ECU Extract，选择需要保存的萃取文件名与位置。\
+
+  Click Create ECU Extract, and select the extract file name and location to be saved.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_4.png
+   :align: center
+
+萃取文件导入BSW配置工程的步骤：\
+
+Steps for importing the extract file into the BSW configuration project:
+
+* 打开已有的BSW配置工程，右键ECU，选择导入ECU Extract。\
+
+  Open the existing BSW configuration project, right-click the ECU, and select Import ECU Extract.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_5.png
+   :align: center
+
+* 默认点击Next，添加所有通信矩阵信息。\
+
+  Click Next by default to add all communication matrix information.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_6.png
+   :align: center
+
+* 选择需要导入的萃取文件中包含的模块。\
+
+  Select the modules contained in the extract file to be imported.
+
+* 点击Finish完成萃取文件导入。\
+
+  Click Finish to complete the extract file import.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_7.png
+   :align: center
+
+* 右键Rte模块，点击Open with Rte Editor，点击Synchronize ECU Extract进行萃取信息同步。\
+
+  Right-click the Rte module, click Open with Rte Editor, and click Synchronize ECU Extract to synchronize the extract information.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_3_8.png
+   :align: center
+
+2.3.4 BSW配置工程代码生成（Code Generation from BSW Configuration Project）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 从BSW配置工程生成代码的步骤：确保BSW配置工程已导入且校验通过；点击工具栏的Generate All按钮；在弹出的对话框中确认代码生成选项；选择代码输出目录（或保持默认）；等待代码生成完成，查看Console中的生成日志；在输出目录中检查生成的.c和.h文件。
 
 Steps to generate codes from BSW configuration project: Confirm the BSW configuration project is imported and fully validated; click the Generate All button on the toolbar; confirm code generation options in the popped dialog box; select code output directory (or keep default setting); wait for code generation completion and check generation logs in Console; verify generated .c and .h files under the output directory.
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_2_3_1.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/2_3_4_1.png
    :align: center
 
 3 示例工程编译调试（Compilation and Debugging of Example Project）
-=======================================================================================================================================================================
+======================================================================
 
 3.1 示例工程导入编译（Import and Compilation of Example Project）
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------
 
-将集成工程导入Hightec For Tricore并编译的步骤：
+示例工程编译使用MakeFile编译，需要在电脑中安装3.2.0以上版本的CMake和1.1.0及以上版本Ninja，并在CMakeLists中将TOOLCHAIN_ROOT替换成HighTec路径。环境准备完成后进行编译：\
 
-Steps to import the integrated project into Hightec For Tricore and perform compilation:
-
-1. 打开文件进行编译
-
-   Open the file and start compilation.
+The sample project is compiled using MakeFile. You need to install CMake version 3.2.0 or above and Ninja version 1.1.0 or above on your computer, and replace TOOLCHAIN_ROOT with the HighTec path in CMakeLists. Compile after the environment is ready:
 
 .. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_1_1.png
    :align: center
 
+* 双击build.bat文件即可进行编译，也可通过命令行调用，目前支持build、rebuild、clean三条指令。\
+
+  Double-click the build.bat file to compile, or call it via the command line. Currently, three commands are supported: build, rebuild, and clean.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_1_2.png
+   :align: center
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_1_3.png
+   :align: center
+
+* 编译通过后编译文件存放在工程目录的build文件夹中。\
+
+  After successful compilation, the compiled files are stored in the build folder of the project directory.
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_1_4.png
+   :align: center
+
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_1_5.png
+   :align: center
+
 3.2 硬件环境（Hardware Environment）
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------
 
 进行示例工程调试需要准备以下硬件环境：
 
@@ -346,7 +551,7 @@ Prepare the following hardware environment for example project debugging:
 Hardware connection steps: Place the TC397 development board on an insulated workbench; connect the USB port of the development board to PC via USB cable; confirm the power indicator on the development board lights up (green LED); connect CAN tool to the CAN interface of the development board if CAN communication test is required.
 
 3.3 在线调试（Online Debugging）
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------
 
 使用UDE STK 5.0进行在线调试的步骤：
 
@@ -356,11 +561,7 @@ Steps for online debugging with UDE STK 5.0:
 
    Confirm the development board is connected to PC via USB with corresponding device driver installed properly.
 
-2. 在Hightec For Tricore中打开集成工程。
-
-   Open the integrated project in Hightec For Tricore.
-
-3. 在UDE STK 5.0中进行调试。
+2. 在UDE STK 5.0中进行调试。
 
    Perform debugging in UDE STK 5.0.
 
@@ -374,16 +575,13 @@ Steps for online debugging with UDE STK 5.0:
    :align: center
 
 .. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_3_4.png
-   :align: center 
-
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_3_5.png
    :align: center
 
-4. 等待程序连接下载到开发板。
+3. 等待程序连接下载到开发板。
 
    Wait for the program to be downloaded and flashed to the development board.
 
-5. 使用单步执行（F11）、断点、变量查看等功能进行调试。
+4. 使用单步执行（F11）、断点、变量查看等功能进行调试。
 
    Perform debugging using functions such as single-step execution (F11), breakpoints and variable viewing.
 
@@ -391,11 +589,11 @@ Steps for online debugging with UDE STK 5.0:
 
 Troubleshooting for common faults: If you fail to connect the development board, check whether the USB driver is installed correctly; confirm that the debugger selected in the Debug configuration matches the actual hardware; check whether the jumper cap settings of the development board are correct (refer to the development board user manual).
 
-.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_3_6.png
+.. figure:: ../../_static/快速上手指南(Quick_Start_Guide)/TC397/3_3_5.png
    :align: center
 
 4 社区问题反馈（Feedback on Community Issues）
-=======================================================================================================================================================================
+==================================================
 
 在使用开源小满的过程中，如果遇到问题或有任何建议，欢迎前往 `项目主页 <https://atomgit.com/easyxmen>`__ 找到对应的仓库提交Issue。
 

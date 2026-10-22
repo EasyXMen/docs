@@ -1,14 +1,14 @@
-接口描述 Interface Description
+接口描述(Interface Description)
 ================================================
 
-类型定义 Type Definitions
+类型定义(Type Definitions)
 --------------------------------------------------------------------------------
 .. 引用接口描述。来自于code->doxygen->latex->rst
 .. 引用接口描述。 From code->doxygen->latex->rst
 .. include:: LdCom_Types.rst
 
       
-提供的服务 Services
+提供的服务(Services)
 ---------------------------------------------------------------------------------
 LdCom_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,7 +20,7 @@ LdCom_Init
 Initializes internal and external interfaces and variables of the AUTOSAR LdCom module for the further processing.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -52,7 +52,7 @@ LdCom_DeInit
 With a call to LdCom_DeInit the AUTOSAR LdCom module is put into an not initialized state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -72,7 +72,7 @@ LdCom_GetVersionInfo
 Returns the version information of ldCom module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -104,7 +104,7 @@ LdCom_Transmit
 Requests transmission of a signal.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ids. Non reentrant for the same Id.

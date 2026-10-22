@@ -107,16 +107,23 @@ IpduM
 简介 Introduction
 ===============================
 
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/IpduM.png
+   :alt: IpduM模块层次图图(IpduM Module Hierarchy Diagram)
+   :name: IpduM_fig_archLayer
+   :align: center
+
+   IpduM模块层次图 (IpduM Module Layer Diagram)
+
 IpduM实现I-PDU的多路复用功能。发送时，将Com层需要发送的多帧I-PDU进行重新封装，将重新封装得到的新I-PDU进行统一发送。接收时将接收到的I-PDU解析成Com层的多帧I-PDU，分别传递给Com模块(通过PduR传递)。IpduM层I-PDU的封装存在两种方式：(1)Multiplex方式：将Static Pdu和某一Dynamic Pdu按配置Segement段进行重组，新I-PDU的部分数据段来自Static Pdu，部分数据段来自Dynamic Pdu；(2)Container方式：将与Com层Ref的多个Contained Pdus(及其Header),封装到同一个IpduM层I-PDU中进行统一发送。IpduM层I-PDU的解析，与封装相反。
 
 IpduM implements the multiplexing function of I-PDUs. When sending, multiple frames of I-PDUs that need to be sent by the Com layer are re-encapsulated, and the new I-PDUs obtained by re-encapsulation are sent uniformly. When receiving, the received I-PDUs are parsed into multiple frames of I-PDUs in the Com layer and transmitted to the Com module (transmitted through PduR respectively). There are two ways to encapsulate I-PDUs in the IpduM layer: (1) Multiplex method: Reorganize the Static Pdu and a certain Dynamic Pdu according to the configured Segement. Some data segments of the new I-PDU come from the Static Pdu, and some data segments come from the Dynamic Pdu; (2) Container method: Multiple Contained Pdus (and their Headers) Reffed with the Com layer are encapsulated into the same IpduM layer I-PDU for unified sending. The parsing of I-PDUs in the IpduM layer is the opposite of encapsulation.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/IpduM_layer.png
-   :alt: IpduM模块层次图(IpduM Module Hierarchy Diagram)
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/IpduM_layer.png
+   :alt: IpduM模块交互图(IpduM Module Hierarchy Diagram)
    :name: IpduM_fig_arch
    :align: center
 
-   IpduM模块层次图 (IpduM Module Layer Diagram)
+   IpduM模块交互图 (IpduM Module Interaction Diagram)
 
 
 如图 :ref:`IpduM_fig_arch`  所示，IpduM模块处于通信服务层，既属于PduR模块的上层，又属于PduR模块的下层，与PduR模块实现IF Pdu的收发。发送时，将Com层IPdu通过PduR路由到IpduM，IpduM将其重新组装，组装完毕调用PduR模块发送接口进行发送。接收时，从PduR接收来自底层的IPdu报文，将其进行解析，并调用PduR模块接收接口进行接收传递
@@ -129,28 +136,68 @@ As shown in :ref:`IpduM_fig_arch`, the IpduM module is located in the communicat
 ==============================================================
 
 
-特性 Features
+公共特性(Public Features)
 ------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- IpduM模块支持多核与多分区部署,具体的分区信息由Pdu配置项EcucPduDefaultPartitionRef决定。
+
+  The IpduM supports multi-core and multi-partition deployment, with specific partition information determined by the Pdu configuration parameter EcucPduDefaultPartitionRef.
 
 
 .. only:: doc_pbs
 
-  变体 Variant
-  ~~~~~~~~~~~~~~~~~~~~~~
-  - IpduMContainedRxPdu支持属性变体与数量变体
-  - IpduMContainedRxPdu supports attribute variants and quantity variants
-  - IpduMContainedTxPdu支持属性变体与数量变体
-  - IpduMContainedTxPdu supports attribute variants and quantity variants
-  - IpduMContainerRxPdu支持属性变体与数量变体
-  - IpduMContainerRxPdu supports attribute variants and quantity variants
-  - IpduMContainerTxPdu支持属性变体与数量变体
-  - IpduMContainerTxPdu supports attribute variants and quantity variants
-  - IpduMRxPathway支持属性变体与数量变体
-  - IpduMRxPathway supports attribute variants and quantity variants
-  - IpduMTxPathway支持属性变体与数量变体
-  - IpduMTxPathway supports attribute variants and quantity variants
-  - 不同变体IpduM使用的EcuC的Partitions需要一致
-  - The EcuC Partitions used by different variant IpduMs need to be consistent
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - 模块支持PBS
+          
+     The module supports PBS.
+
+   - IpduMContainedRxPdu支持属性变体与数量变体
+          
+     IpduMContainedRxPdu supports attribute variants and quantity variants
+
+   - IpduMContainedTxPdu支持属性变体与数量变体
+          
+     IpduMContainedTxPdu supports attribute variants and quantity variants
+
+   - IpduMContainerRxPdu支持属性变体与数量变体
+
+     IpduMContainerRxPdu supports attribute variants and quantity variants
+
+   - IpduMContainerTxPdu支持属性变体与数量变体
+
+     IpduMContainerTxPdu supports attribute variants and quantity variants
+
+   - IpduMRxPathway支持属性变体与数量变体
+
+     IpduMRxPathway supports attribute variants and quantity variants
+
+   - IpduMTxPathway支持属性变体与数量变体
+
+     IpduMTxPathway supports attribute variants and quantity variants
+
+   - 不同变体IpduM使用的EcuC的Partitions需要一致
+
+     The EcuC Partitions used by different variant IpduMs need to be consistent
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。包含这些名称的标签段 IPDUM_VAR_INIT_PTR、IPDUM_CONST_PTR、IPDUM_CONFIG_DATA_8、IPDUM_CONFIG_DATA_PTR、IPDUM_CONFIG_DATA_16、IPDUM_CONFIG_DATA_UNSPECIFIED、IPDUM_VAR_CLEARED_GLOBAL_8、IPDUM_VAR_CLEARED_PTR、IPDUM_VAR_CLEARED_[iParition]_8、IPDUM_VAR_CLEARED_[iParition]_UNSPECIFIED。其中[iParition]为IpduM所部署的分区名称。
+
+The memmap file is dynamic.There are IPDUM_VAR_INIT_PTR、IPDUM_CONST_PTR、IPDUM_CONFIG_DATA_8、IPDUM_CONFIG_DATA_PTR、IPDUM_CONFIG_DATA_16、IPDUM_CONFIG_DATA_UNSPECIFIED、IPDUM_VAR_CLEARED_GLOBAL_8、IPDUM_VAR_CLEARED_PTR、IPDUM_VAR_CLEARED_[iParition]_8、IPDUM_VAR_CLEARED_[iParition]_UNSPECIFIED.Among them [iParition] is the name of the partition deployed for IpduM. 
+
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+
+模块特性(Module Features)
+----------------------------
 
 .. _my_anchor_multiplexing:
 
@@ -381,7 +428,7 @@ feature 4
 Whether it is the IPDU of the dynamic part or the static part, the positions of their valid bit segments within themselves and after being loaded into the multiplexed IPDU have not changed;
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/IpduM_MultiplexedPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/IpduM_MultiplexedPdu.png
    :alt: IpduMMultiplexed Pdu组成图 (Composition Diagram of IpduMMultiplexed Pdu)
    :name: IpduMMultiplexed
    :align: center
@@ -400,7 +447,7 @@ Whether it is the IPDU of the dynamic part or the static part, the positions of 
 Step 1
 **************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Step1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Step1.png
    :alt: IpduM模块层次图 (IpduM Module Hierarchy Diagram)
    :name: 创建一个新的TxPathway(Create a New TxPathway)
    :align: center
@@ -409,7 +456,7 @@ Step 1
 
 Step 2
 **************
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Step2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Step2.png
    :alt: IpduM模块层次图 (IpduM Module Hierarchy Diagram)
    :name: 创建一个新的TxPart(Create a New TxPart)
    :align: center
@@ -418,7 +465,7 @@ Step 2
 
 Step 3
 **************
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Step3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Step3.png
    :alt: IpduM模块层次图 (IpduM Module Hierarchy Diagram)
    :name: 创建一个新的Segment(Create a New Segment)
    :align: center
@@ -434,7 +481,7 @@ Complete the filling of the configuration content in each level container of TxP
 IpduMTxRequest层级上配置项含义 Meaning of Configuration Items at the IpduMTxRequest Level
 ************************************************************************************************************************************************************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Annotation.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/TxPathway_Annotation.png
    :alt: IpduM模块层次图 (IpduM Module Hierarchy Diagram)
    :name: IpduMTxRequest层级上配置项含义(Meaning of Configuration Items at the IpduMTxRequest Level)
    :align: center
@@ -494,7 +541,7 @@ Dynamic Container
 *********************************************************************************************************
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/ContainerLayout.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/ContainerLayout.png
    :alt: IpduMContainerTxPdu的结构 (Structure of IpduMContainerTxPdu)
    :name: IpduMContainerTxPdu的结构(Structure of IpduMContainerTxPdu)
    :align: center
@@ -525,7 +572,7 @@ Because the position of the collected Pdu in the Static Container is fixed (real
 Step 1
 **************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step1.png
    :alt: ContainerTxPdu
    :name: 创建一个新的ContainerTxPdu(Create a New ContainerTxPdu)
    :align: center
@@ -535,7 +582,7 @@ Step 1
 Step 2
 **************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step2.png
    :alt: ContainerTxPdu
    :name: 创建若干个新的ContainedTxPdu(Create Several New ContainedTxPdus)
    :align: center
@@ -545,7 +592,7 @@ Step 2
 Step 3
 **************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step3.png
    :alt: ContainerTxPdu
    :name: 配置ContainerTxPdu(Configure ContainerTxPdu)
    :align: center
@@ -584,7 +631,7 @@ Step 3
 Step 4
 **************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step4.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/ContainerTxPdu_Step4.png
    :alt: ContainerTxPdu
    :name: 配置ContainedTxPdu(Configure ContainedTxPdu)
    :align: center
@@ -622,7 +669,7 @@ Step 4
 
 The configuration process of ContainerRxPdu is similar to that of ContainerTxPdu, which will not be repeated here. The focus is on introducing the meanings of key configuration items.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/IpduM/ContainerRxPdu_Cfg.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/IpduM/ContainerRxPdu_Cfg.png
    :alt: ContainerRxPdu
    :name: 配置ContainedRxPdu(Configure ContainedRxPdu)
    :align: center

@@ -20,7 +20,7 @@ Crc_GetVersionInfo
 This service returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -52,7 +52,7 @@ Crc_CalculateCRC8
 This service makes a CRC8 calculation on Crc_Length data bytes, with SAE J1850 parameters.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -93,7 +93,7 @@ Crc_CalculateCRC8H2F
 This service makes a CRC8 calculation with the Polynomial 0x2F on Crc_Length.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -134,7 +134,7 @@ Crc_CalculateCRC16
 This service makes a CRC16 calculation on Crc_Length data bytes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -175,7 +175,7 @@ Crc_CalculateCRC16ARC
 This service makes a CRC16 calculation on Crc_Length data bytes, using the polynomial 0x8005.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -216,7 +216,7 @@ Crc_CalculateCRC32
 This service makes a CRC32 calculation on Crc_Length data bytes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -257,7 +257,7 @@ Crc_CalculateCRC32P4
 This service makes a CRC32 calculation on Crc_Length data bytes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -298,7 +298,7 @@ Crc_CalculateCRC64
 This service makes a CRC64 calculation on Crc_Length data bytes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

@@ -1,5 +1,5 @@
 Memory(Protection Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 内存保护策略是基于可执行程序的(数据，代码和堆栈)段。
 
@@ -31,7 +31,7 @@ Code: Code segments are dedicated to an OS-Application but can also be shared am
 
 
 CheckISRMemoryAccess
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -40,7 +40,7 @@ CheckISRMemoryAccess
 This service checks if a memory region is write/read/execute accessible and also returns information if the memory region is part of the stack space.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -98,7 +98,7 @@ This service checks if a memory region is write/read/execute accessible and also
 
 
 CheckTaskMemoryAccess
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -107,7 +107,7 @@ CheckTaskMemoryAccess
 This service checks if a memory region is write/read/execute accessible and also returns information if the memory region is part of the stack space.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

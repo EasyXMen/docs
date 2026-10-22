@@ -158,6 +158,7 @@ CanNm
 ============================
 
 AUTOSAR CanNm是一个仅是现在Can总线的硬件独立协议模块，CanNm模块的核心功能是协调网络正常运行和总线睡眠模式之间的转换，还提供了可选功能，例如检测当前节点或检测其他所有节点是否准备休眠等。
+CanNm提供网络管理接口（Nm）和CanIf模块之间的适配。CanNm通过调用CanIf模块的发送API来传输数据，并提供接收API给CanIf用于接收下层网络管理报文。Nm模块调用CanNm模块API来更改CanNm的当前状态机状态，CanNm的状态机模式切换需要通知给Nm模块。
 
 AUTOSAR CanNm is a hardware-independent protocol module designed specifically for CAN buses. Its core function is to manage transitions between normal network operation and bus sleep mode. It also offers optional features, such as detecting if the current node or all other nodes are ready for sleep.
 
@@ -165,7 +166,7 @@ CanNm提供网络管理接口(Nm)和CanIf模块之间的适配。CanNm通过调�
 
 CanNm adapts between the Network Management (Nm) interface and the CanIf module. It transmits messages by calling CanIf's transmit API and provides a receive API for CanIf to handle incoming network management messages. The Nm module calls CanNm APIs to change its state machine state, and CanNm notifies the Nm module of any state machine mode transitions.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/模块层次图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNm在AUTOSAR中的位置.png
    :alt: CanNm 在 AUTOSAR中 的位置(Position of CanNm in AUTOSAR)
    :align: center
 

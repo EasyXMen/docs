@@ -17,7 +17,7 @@ CryIf_CallbackNotification
 Callback function for Crypto Job notification.This function is called by the Crypto driver to notify the application about the completion of a Crypto Job.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

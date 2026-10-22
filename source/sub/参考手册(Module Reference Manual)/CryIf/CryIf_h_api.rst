@@ -40,7 +40,7 @@ CryIf_Init
 Initializes the Cryptographic Interface (CryIf) module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -72,7 +72,7 @@ CryIf_GetVersionInfo
 Retrieves the version information of the Cryptographic Interface (CryIf) module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -104,7 +104,7 @@ CryIf_ProcessJob
 Processes a cryptographic job using the specified channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same channel ID
@@ -151,7 +151,7 @@ CryIf_CancelJob
 Cancels a cryptographic job using the specified channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same channel ID
@@ -198,7 +198,7 @@ CryIf_KeyElementSet
 Sets a key element for a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -251,7 +251,7 @@ CryIf_KeySetValid
 Sets a cryptographic key as valid.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -295,7 +295,7 @@ CryIf_KeySetInValid
 Sets a cryptographic key as INvalid.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -339,7 +339,7 @@ CryIf_KeyElementGet
 Retrieves a key element from a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -392,7 +392,7 @@ CryIf_KeyElementCopy
 Copies a key element from one cryptographic key to another.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -445,7 +445,7 @@ CryIf_KeyElementCopyPartial
 Copies a partial key element from one cryptographic key to another.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -507,7 +507,7 @@ CryIf_KeyCopy
 Copies a cryptographic key to another key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -554,7 +554,7 @@ CryIf_RandomSeed
 Seeds the random number generator with a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -604,7 +604,7 @@ CryIf_KeyGenerate
 Generates a key using the Crypto driver.This function generates a key based on the provided cryIfKeyId.It first checks if the CryIf module is initialized and if the provided key ID is valid.If the checks pass, it calls the Crypto_KeyGenerate_Name function of the corresponding driver API to generate the key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -648,7 +648,7 @@ CryIf_KeyDerive
 Derives a key from an existing key using the Crypto driver.This function derives a key based on the provided cryIfKeyId and targetCryIfKeyId.It first checks if the CryIf module is initialized and if the provided key IDs are valid.If the checks pass, it calls the Crypto_KeyDerive_Name function of the corresponding driver API to derive the key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -695,7 +695,7 @@ CryIf_KeyExchangeCalcPubVal
 Calculates the public value for a key exchange using a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -745,7 +745,7 @@ CryIf_KeyExchangeCalcSecret
 Calculates the secret value for a key exchange using a cryptographic key and a partner's public value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -795,7 +795,7 @@ CryIf_CustomSync
 Performs a custom synchronous cryptographic operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -869,7 +869,7 @@ CryIf_KeyGetStatus
 Retrieves the status of a key using the Crypto driver.This function retrieves the status of a key based on the provided cryIfKeyId.It calls the Crypto_62_KeyGetStatus function to get the key status.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

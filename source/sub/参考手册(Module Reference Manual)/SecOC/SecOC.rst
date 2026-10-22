@@ -30,6 +30,12 @@ SecOC
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/12/30
+     - Jian.Jiang
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
+
 参考文档 References
 --------------------------------------------------------------------------------------------------------
 
@@ -130,7 +136,7 @@ The SecOC module provides a mechanism featuring efficient and practical resource
 
 They use the keys that are much smaller than asymmetric methods to achieve the security of the same level compactly and efficiently in software and hardware. Both symmetric and asymmetric authentication methods can also be used.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOC架构图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/CP_Arch_SecOC.png
    :alt: SecOC模块层次图 (SecOC Module Layer Diagram)
    :name: SecOC_fig_arch
    :align: center
@@ -146,8 +152,49 @@ As shown in the figure :ref:`SecOC_fig_arch` , the SecoC module is in the commun
 功能描述 Functional Description
 ==========================================================
 
-特性 Features
-----------------------------------------------------------------------------------------------------
+公共特性(Public Features)
+--------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+为了在不同分区之间提供负载分配，Crypto-Stack 的不同部分应分配给不同的分区。因此，应支持这种分区基于加密实例进行，即加密驱动程序实例应可定位到不同的不同分区上。
+
+To provide load distribution between different partitions, different parts of Crypto Stack should be allocated to different partitions. Therefore, this partition should be supported based on encrypted instances; in other words, the encrypted driver instances can be located on different partitions.
+
+SecOC 模块中的主执行线程(即相应的 MainFunctions)可以拆分为不同的 MainFunctions(每个分区至少一个)。
+
+The main executing threads (i.e. corresponding MainFunctions) in the SecOC module can be split into different MainFunctions (at least one for each partition).
+
+SecOC 和 PduR 之间的分区间通信由 PduR 管理。
+
+The communication between SecOC and PduR is managed by PduR.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   1.支持保护和校验I-PDU
+
+   1.Support the protection and verification of I-PDU
+
+   2.支持配置使用不同的新鲜度管理器
+
+   2.Support the configuration and use of different freshness managers
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
 
 Authentic I-PDU
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,7 +214,7 @@ Secured I-PDU Header指示Authentic I-PDU的长度，当没有Secured I-PDU Head
 
 Secured I-PDU Header indicates the length of Authentic I-PDU. If there is no Secured I-PDU Header, the length of Authentic I-PDU is gotten by configuration. Freshness Value is the value used for generating Authenticator. Authenticator is the generated authentication information.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecuredIPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecuredIPdu.png
    :alt: Secured I-PDU
    :name: SecOC_fig_arch_01
    :align: center
@@ -182,7 +229,7 @@ Secured I-PDU 中包含的身份验证器长度(参数 SecOCAuthInfoTruncLength)
 
 The length of the authenticator (parameter SecOCAuthInfoTruncLength) contained in the Secured I-PDU is specific to the unique identifiable Secured I-PDU. By providing fine-grained configuration of MAC truncation length for each Secured I-PDU, the flexibility in the entire system can be ensured (i.e., two independent unique Secured I-PDUs may have different lengths of authenticators included in the Secured I-PDU payload).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/TruncatedFVMAC.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/TruncatedFVMAC.png
    :alt: 带有截断新鲜度计数器和截断认证器的Secured I-PDU 内容示例(Instance of Secured I-PDU content with truncated freshness counter and truncated authenticator)
    :name: SecOC_fig_arch_02
    :align: center
@@ -226,7 +273,7 @@ To send data, SecOC serves as a lower layer module of PduR to get Authentic I-PD
 
 To receive data, SecOC serves as the upper layer module of PduR to receive Secured I-PDU from PduR. After parsing the Authentic I-PDU from the Secured I-PDU and passing the verification, SecOC acts as a lower layer module of PduR to transmit the data to the upper layer through PduR.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOC_PduR.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOC_PduR.png
    :alt: SecOC和PduR的关系 (Relationship between SecOC and PduR)
    :name: SecOC_fig_arch_03
    :align: center
@@ -388,34 +435,6 @@ Override strategy is shown in the table below:
    * - SECOC_OVERRIDE_SKIP_UNTIL_NOTICE
      - 除非另行通知，否则不执行认证器验证，I-PDU 被发送到上层，验证结果设置为 SECOC_NO_VERIFICATION。如果配置了 SecOCRxSecuredPduCollection，SecOc 应处理 SecOCRxAuthentic Pdu，而无需等待 SecOCRx CryptographicPdu。(Unless otherwise notified, authentication verification will not be performed and I-PDU will be transmitted to the upper layer. The verification result will be set to SECOC_NO_VERIFICATION.) If SecOCRxSecuredPduCollection is configured, SecOc should process SecOCRxAuthentic Pdu without waiting for SecOCRx CryptographicPdu.
 
-多核分布 Multi-core Distribution
------------------------------------------------------------------------------------------------------------------------------------------
-
-为了在不同分区之间提供负载分配，Crypto-Stack 的不同部分应分配给不同的分区。因此，应支持这种分区基于加密实例进行，即加密驱动程序实例应可定位到不同的不同分区上。
-
-To provide load distribution between different partitions, different parts of Crypto Stack should be allocated to different partitions. Therefore, this partition should be supported based on encrypted instances; in other words, the encrypted driver instances can be located on different partitions.
-
-SecOC 模块中的主执行线程(即相应的 MainFunctions)可以拆分为不同的 MainFunctions(每个分区至少一个)。
-
-The main executing threads (i.e. corresponding MainFunctions) in the SecOC module can be split into different MainFunctions (at least one for each partition).
-
-SecOC 和 PduR 之间的分区间通信由 PduR 管理。
-
-The communication between SecOC and PduR is managed by PduR.
-
-.. only:: doc_pbs
-
-  变体 Variant
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  1.支持保护和校验I-PDU
-
-  1.Support the protection and verification of I-PDU
-
-  2.支持配置使用不同的新鲜度管理器
-
-  2.Support the configuration and use of different freshness managers
-  
 偏差 Deviation
 ----------------------------------------------------------------------------------------------------
    None
@@ -496,11 +515,12 @@ The communication between SecOC and PduR is managed by PduR.
      - SecOC模块PB配置参数(PB configuration parameters in SecOC module)
 
 
-错误处理 Error Handling
-----------------------------------------------------------------------------------------------------
+错误处理(Error Handling)
+----------------------------------
 
-开发错误 Development Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+开发错误(Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. list-table:: 
    :widths: 20 10 30
    :header-rows: 1
@@ -529,13 +549,13 @@ The communication between SecOC and PduR is managed by PduR.
      - 0x07
      - initialization of SecOC failed
 
-产品错误 Product Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 None
 
-运行时错误 Runtime Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
    :widths: 20 10 30
@@ -687,7 +707,7 @@ None
 
 2.First, confirm whether the I-PDU that needs protecting has been configured in the SecOC module, and then link the PduID of the relevant message in PduR.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/ComTxPduR.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/ComTxPduR.png
    :alt: 发送时将SecOC与PduR串起来 (String SecOC and PduR together during sending)
    :name: SecOC_fig_arch_04
    :align: center
@@ -698,7 +718,7 @@ None
 
 3.Configure relevant attributes of Authentic I-PDU, including DataId, SecOCFreshnessValueId, SecOCRxAuthServiceConfigRef, etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxConfig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxConfig.png
    :alt: 配置SecOC发送安全I-PDU (Configure SecOC to send secure I-PDU)
    :name: SecOC_fig_arch_05
    :align: center
@@ -709,7 +729,7 @@ None
 
 4.Configure and link original I-PDU ID
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxAuthenticPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxAuthenticPdu.png
    :alt: Config TxAuthentic
    :name: SecOC_fig_arch_06
    :align: center
@@ -720,7 +740,7 @@ None
 
 5.Configure Secured I-PDU and link it with the lower layer
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxSecuredPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCTxSecuredPdu.png
    :alt: Config TxSecured
    :name: SecOC_fig_arch_07
    :align: center
@@ -739,7 +759,7 @@ None
 
 2.First, confirm whether the I-PDU that needs verifying has been configured in the SecOC module, and then link the PduID of the relevant message in PduR.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCToUpper.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCToUpper.png
    :alt: 接收时将SecOC与PduR串起来 (String SecOC and PduR together during receiving)
    :name: SecOC_fig_arch_08
    :align: center
@@ -750,7 +770,7 @@ None
 
 3.Configure relevant attributes of Secured I-PDU, including DataId, SecOCFreshnessValueId, SecOCRxAuthServiceConfigRef etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxConfig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxConfig.png
    :alt: 配置接收时PduR与SecOC上层模块关联 (Link PduR and SecOC upper layer modules when receiving configuration)
    :name: SecOC_fig_arch_09
    :align: center
@@ -761,7 +781,7 @@ None
 
 4.Configure the linked Secured I-PDU ID
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxSecuredPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxSecuredPdu.png
    :alt: Config RxSecured
    :name: SecOC_fig_arch_10
    :align: center
@@ -772,7 +792,7 @@ None
 
 5.Configure Authentic I-PDU and link it with the upper layer
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxAuthenticPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCRxAuthenticPdu.png
    :alt: Config RxAuthentic
    :name: SecOC_fig_arch_11
    :align: center
@@ -786,7 +806,7 @@ None
 
 1.In SecOCMainFunctionRx or SecOCMainFunctionTx, the SecOC module should allocate different tasks to different partitions based on the configured partition information.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCPartition.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCPartition.png
    :alt: SecOCPartition
    :name: SecOC_fig_arch_12
    :align: center
@@ -819,9 +839,25 @@ Collection配置 Configuration of Collection
 
 2.Divide the security into two frames and send them out, i.e., AuthenticPdu and CryptographicPdu.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SecOC/SecOCCollection.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCCollection.png
    :alt: SecOCCollection
    :name: SecOC_fig_arch_13
    :align: center
 
    SecOCCollection.
+
+SecOC Cluster配置
+----------------------
+
+Rx Pdu与Tx Pdu具有相同的配置SecOCClusterKeyID，分别关联各自的Key ID（秘钥标识符，用于表示自身所属的SecOC Cluster）。
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SecOC/SecOCClusterCfg.png
+   :alt: SecOC Cluster配置图
+   :name: SecOCClusterCfg_fig_arch_01
+   :align: center
+
+   SecOC Cluster配置图.
+
+- 1: SecOCClusterKeyID用于标识Tx/Rx PDU所属的SecOC Cluster，
+
+  SecOCRxAuthServiceConfigRef选择CsmJob之后，与CsmJob关联的KeyId会自动填充到SecOCClusterKeyID

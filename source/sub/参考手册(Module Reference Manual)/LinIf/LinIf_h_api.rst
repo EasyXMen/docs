@@ -8,7 +8,7 @@ LinIf_Init
 Initializes the LIN Interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -40,7 +40,7 @@ LinIf_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -72,7 +72,7 @@ LinIf_Transmit
 Indicates a request.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -102,12 +102,12 @@ LinIf_ScheduleRequest
 
 .. code::
 
-    Std_ReturnType LinIf_ScheduleRequest(NetworkHandleType Channel, LinIf_SchHandleType Schedule)
+    Std_ReturnType LinIf_ScheduleRequest(NetworkHandleType Channel, LinIf_SchHandleType ScheduleTableIdx)
 
 Requests a schedule table to be executed.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -142,7 +142,7 @@ LinIf_GotoSleep
 Initiates a transition into the Sleep Mode on the selected channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -174,7 +174,7 @@ LinIf_Wakeup
 Initiates the wake up process.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -206,7 +206,7 @@ LinIf_SetTrcvMode
 Set the given LIN transceiver to the given mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -241,7 +241,7 @@ LinIf_GetTrcvMode
 Returns the actual state of a LIN Transceiver Driver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -276,7 +276,7 @@ LinIf_GetTrcvWakeupReason
 Returns the reason for the wake up that has been detected by the LIN Transceiver Driver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -311,7 +311,7 @@ LinIf_SetTrcvWakeupMode
 This API enables, disables and clears the notification for wakeup events on the addressed network.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -346,7 +346,7 @@ LinIf_ChannelMainFunction
 LinIf main function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -378,7 +378,7 @@ LinIf_CheckWakeup
 Will be called when the EcuM has been notified about a wakeup on a specific LIN channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -410,7 +410,7 @@ LinIf_GetPIDTable
 Retrieves all assigned PID values.The order is congruent to the LIN frame index.Only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -448,7 +448,7 @@ LinIf_SetPIDTable
 Sets all assigned PID values.The order is congruent to the LIN frame index.Only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -486,7 +486,7 @@ LinIf_GetConfiguredNAD
 Reports the current configured NAD.Only applicable for LIN slave nodes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -521,7 +521,7 @@ LinIf_SetConfiguredNAD
 
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

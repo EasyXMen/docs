@@ -1,5 +1,3 @@
-接口描述(Interface Description)
-==========================================
 
 类型定义(Type Definitions)
 ---------------------------------------------
@@ -20,7 +18,7 @@ PduR_Init
 Initializes the PDU Router.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -52,7 +50,7 @@ PduR_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -84,7 +82,7 @@ PduR_GetConfigurationId
 Returns the unique identifier of the post-build time configuration of the PDU Router.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -104,7 +102,7 @@ PduR_EnableRouting
 Enables a routing path group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -136,7 +134,7 @@ PduR_DisableRouting
 Disables a routing path group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -171,7 +169,7 @@ PduR_Transmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -218,7 +216,7 @@ PduR_CancelTransmit
 Requests cancellation of an ongoing transmission of a PDU in a lower layer communication module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -262,7 +260,7 @@ PduR_CancelReceive
 Requests cancellation of an ongoing reception of a PDU in a lower layer transport protocol module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -306,7 +304,7 @@ PduR_IfRxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId
@@ -341,7 +339,7 @@ PduR_IfTxConfirmation
 The lower layer communication interface module confirms the transmission of a PDU, or the failure to transmit a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId
@@ -376,7 +374,7 @@ PduR_IfTriggerTransmit
 Within this API, the upper layer module (called module) shall check whether the available data fits into the buffer size reported by PduInfoPtr->SduLength. If it fits, it shall copy its data into the buffer provided by PduInfoPtr->SduDataPtr and update the length of the actual copied data in PduInfoPtr->SduLength. If not, it returns E_NOT_OK without changing PduInfoPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId
@@ -423,7 +421,7 @@ PduR_TpCopyRxData
 This function is called to provide the received data of an I-PDU segment (N-PDU) to the upper layer. Each call to this function provides the next part of the I-PDU data. The size of the remaining buffer is written to the position indicated by bufferSizePtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -473,7 +471,7 @@ PduR_TpRxIndication
 Called after an I-PDU has been received via the TP API, the result indicates whether the transmission was successful or not.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -508,7 +506,7 @@ PduR_TpStartOfReception
 This function is called at the start of receiving an N-SDU. The N-SDU might be fragmented into multiple N-PDUs (FF with one or more following CFs) or might consist of a single N-PDU (SF). The service shall provide the currently available maximum buffer size when invoked with TpSdu Length equal to 0.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -563,7 +561,7 @@ PduR_TpCopyTxData
 This function is called to acquire the transmit data of an I-PDU segment (N-PDU). Each call to this function provides the next part of the I-PDU data unless retry->TpDataState is TP_DATARETRY. In this case the function restarts to copy the data beginning at the offset from the current position indicated by retry->TxTpDataCnt. The size of the remaining data is written to the position indicated by availableDataPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -618,7 +616,7 @@ PduR_TpTxConfirmation
 This function is called after the I-PDU has been transmitted on its network, the result indicates whether the transmission was successful or not.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

@@ -34,7 +34,7 @@ SecOC_Init
 Initializes the the SecOC module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -66,7 +66,7 @@ SecOC_DeInit
 This service stops the secure onboard communication. All buffered I-PDU are removed and have to be obtained again, if needed, after SecOC_Init has been called.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -86,7 +86,7 @@ SecOC_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -118,7 +118,7 @@ SecOC_IfTransmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -165,7 +165,7 @@ SecOC_TpTransmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -212,7 +212,7 @@ SecOC_IfCancelTransmit
 Requests cancellation of an ongoing transmission of a PDU in a lower layer communication module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -256,7 +256,7 @@ SecOC_TpCancelTransmit
 Requests cancellation of an ongoing transmission of a PDU in a lower layer communication module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -300,7 +300,7 @@ SecOC_TpCancelReceive
 Requests cancellation of an ongoing reception of a PDU in a lower layer transport protocol module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -344,7 +344,7 @@ SecOC_VerifyStatusOverride
 This service provides the ability to force specific behaviour of SecOc: accept or drop an I-PDU with or without performing the verification of authenticator or independent of the authenticator verification result, and force a specific result for SecOC_VerificationResultType allowing additional fault handling in the application.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Freshness ValueIDs
@@ -394,7 +394,7 @@ SecOC_SendDefaultAuthenticationInformation
 The service provides the ability to enable the sending of un-authenticated PDU to lower layer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different FreshnessValueIDs.

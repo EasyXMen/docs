@@ -9,7 +9,7 @@ SecOC_RxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -44,7 +44,7 @@ SecOC_TpRxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -79,7 +79,7 @@ SecOC_TxConfirmation
 The lower layer communication interface module confirms the transmission of a PDU,or the failure transmit a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -114,7 +114,7 @@ SecOC_TpTxConfirmation
 This function is called after the I-PDU has been transmitted on its network, the result indicates whether the transmission was successful or not.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -149,7 +149,7 @@ SecOC_TriggerTransmit
 Within this API, the upper layer module (called module) shall check whether the available data fits into the buffer size reported by PduInfoPtr->SduLength.If it fits, it shall copy its data into the buffer provided by PduInfoPtr->SduDataPtr and update the length of the actual copied data in PduInfoPtr->SduLength. If not, it returns E_NOT_OK without changing PduInfoPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds
@@ -196,7 +196,7 @@ SecOC_CopyRxData
 This function is called to provide the received data of an I-PDU segment (N-PDU) to the upper layer. Each call to this function provides the next part of the I-PDU data.The size of the remaining buffer is written to the position indicated by bufferSizePtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -246,7 +246,7 @@ SecOC_CopyTxData
 This function is called to acquire the transmit data of an I-PDU segment (N-PDU).Each call to this function provides the next part of the I-PDU data unless retry->TpDataState is TP_DATARETRY . In this case the function restarts to copy the data beginning at the offset from the current position indicated by retry->TxTpDataCnt.The size of the remaining data is written to the position indicated by availableDataPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -301,7 +301,7 @@ SecOC_StartOfReception
 This function is called at the start of receiving an N-SDU. The N-SDU might be fragmented into multiple N-PDUs (FF with one or more following CFs) or might consist of a single N-PDU (SF).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -356,7 +356,7 @@ SecOC_CsmGenerateJobFinishedIndication
 CSM notifies SecOC that a Authenticator generate job has finished.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -391,7 +391,7 @@ SecOC_CsmVerifyJobFinishedIndication
 CSM notifies SecOC that a Authenticator verify job has finished.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

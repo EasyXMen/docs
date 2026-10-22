@@ -80,7 +80,6 @@ ComM
 
    * - Communication Mode
      - 通信模式决定了系统中允许的通信类型。(The communication mode determines the types of communication allowed in the system.)
-      
 
        "full communication" = COMM_FULL_COMMUNICATION
 
@@ -89,8 +88,6 @@ ComM
        "silent communication" = COMM_SILENT_COMMUNICATION
 
        注意： COMM_SILENT_COMMUNICATION 无法被用户直接请求，用于网络管理同步睡眠目的。(Note: COMM_SILENT_COMMUNICATION cannot be directly requested by the user and is used for network management synchronous sleep purposes)
-
-
 
    * - Fan-out
      - 相同的信息被发送到多个目的地/接收者。(The same information is sent to multiple destinations/recipients)
@@ -122,7 +119,7 @@ ComM
 
 
    * - 简写(Abbreviation)
-     - 全称(Full name) 
+     - 全称(Full name)
      - 解释(Explanation)
 
    * - API
@@ -196,7 +193,7 @@ ComM(COM Manage，通信管理)模块是一个资源管理器，它封装了对�
 
 The ComM (Communication Manager) module is a resource manager that encapsulates the control of basic communication services. The ComM module controls the basic software modules related to communication, collects bus communication access requests from communication requesters, and coordinates them.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/ComM/ComM在AUTOSAR中的位置.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/ComM/ComM在AUTOSAR中的位置.png
    :alt: ComM 在 AUTOSAR 中的位置(The Position of ComM in AUTOSAR)
    :align: center
 
@@ -236,8 +233,84 @@ The purpose of the ComM module is to:
 ==========================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-特性(Features)
--------------------------
+公共特性(Public Features)
+--------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过配置项 ComMChannelPartitionRef 定义 ComMChannel 的分区。并且 ComMChannel 被网络管理协议栈其他模块关联，作为其他模块的分区信息来源.
+
+  The partition of ComMChannel is defined through the configuration item ComMChannelPartitionRef. And ComMChannel is associated with other modules of the network management protocol stack as a source of partition information for other modules.
+
+- 通过配置项 ComMUserEcucPartitionRef 定义 ComMUser 的分区。通过把 ComMUser 的运行时变量设置在 GLOBAL 段，以支持不同分区的 User 请求.
+
+  The partition of ComMUser is defined through the configuration item ComMUserEcucPartitionRef. By placing the runtime variables of ComMUser in the GLOBAL section, it supports User requests from different partitions.
+
+- ComM 按分区配置为各个分区提供服务组件，每个分区上的服务组件向 SWC 提供该分区的 Channel 和 User 服务；全局范围的服务每个服务组件上都支持，如ComM_LimitECUToNoComMode.
+
+  ComM is configured by partition to provide service components for each partition, and the service components on each partition provide Channel and User services for that partition to the SWC; services with global scope are supported on each service component, such as ComM_LimitECUToNoComMode.
+
+- 每个ComMChannel有一个Mainfunction，运行在相应的分区
+
+  Each ComMChannel has a MainFunction that runs in the corresponding partition.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   ComM 支持 PNC 相关功能的多变体配置，具体支持多变体的配置项如下：
+
+   ComM supports multi-variant configuration for PNC-related functions. The specific configuration items supporting multi-variant are:
+
+   - ComMPncEnabled: 支持在不同变体中配置是否启用 PNC 功能。
+
+     ComMPncEnabled: Supports enabling or disabling the PNC function in different variants.
+
+   - ComMChannelPerPnc: 支持同一个 PNC 在不同变体中关联不同的通道。
+
+     ComMChannelPerPnc: Supports associating the same PNC with different channels in different variants.
+
+   - ComMUserPerPnc: 支持同一个 PNC 在不同变体中关联不同的 User。
+
+     ComMUserPerPnc: Supports associating the same PNC with different Users in different variants.
+
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MmemMap文件是动态的。存在 COMM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、COMM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、COMM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、COMM_STOP_SEC_CODE、COMM_START_SEC_VAR_CLEARED_32、COMM_START_SEC_CONFIG_DATA_UNSPECIFIED、COMM_STOP_SEC_VAR_CLEARED_8、COMM_STOP_SEC_VAR_CLEARED_BOOLEAN、COMM_STOP_SEC_VAR_CLEARED_32、COMM_START_SEC_CONFIG_DATA_PTR、COMM_STOP_SEC_CONFIG_DATA_PTR、COMM_STOP_SEC_CONFIG_DATA_16、COMM_STOP_SEC_CONFIG_DATA_8、COMM_STOP_SEC_VAR_CLEARED_PTR、COMM_START_SEC_CONFIG_DATA_32、COMM_START_SEC_CONFIG_DATA_BOOLEAN、COMM_START_SEC_VAR_CLEARED_PTR、COMM_START_SEC_VAR_CLEARED_16、COMM_STOP_SEC_CONFIG_DATA_BOOLEAN、COMM_START_SEC_CONFIG_DATA_16、COMM_START_SEC_CONFIG_DATA_8、COMM_START_SEC_CODE、COMM_STOP_SEC_CONFIG_DATA_32、COMM_START_SEC_VAR_CLEARED_BOOLEAN、COMM_STOP_SEC_VAR_CLEARED_16、COMM_START_SEC_VAR_CLEARED_UNSPECIFIED、COMM_START_SEC_VAR_CLEARED_8、COMM_STOP_SEC_VAR_CLEARED_UNSPECIFIED.
+
+The MemMap files are dynamic. There are COMM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、COMM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、COMM_STOP_SEC_CONFIG_DATA_UNSPECIFIED, COMM_STOP_SEC_CODE, COMM_START_SEC_VAR_CLEARED_32, COMM_START_SEC_CONFIG_DATA_UNSPECIFIED, COMM_STOP_SEC_VAR_CLEARED_8, COMM_STOP_SEC_VAR_CLEARED_BOOLEAN, COMM_STOP_SEC_VAR_CLEARED_32, COMM_START_SEC_CONFIG_DATA_PTR, COMM_STOP_SEC_CONFIG_DATA_PTR, COMM_STOP_SEC_CONFIG_DATA_16, COMM_STOP_SEC_CONFIG_DATA_8, COMM_STOP_SEC_VAR_CLEARED_PTR, COMM_START_SEC_CONFIG_DATA_32, COMM_START_SEC_CONFIG_DATA_BOOLEAN, COMM_START_SEC_VAR_CLEARED_PTR, COMM_START_SEC_VAR_CLEARED_16, COMM_STOP_SEC_CONFIG_DATA_BOOLEAN, COMM_START_SEC_CONFIG_DATA_16, COMM_START_SEC_CONFIG_DATA_8, COMM_START_SEC_CODE, COMM_STOP_SEC_CONFIG_DATA_32, COMM_START_SEC_VAR_CLEARED_BOOLEAN, COMM_STOP_SEC_VAR_CLEARED_16, COMM_START_SEC_VAR_CLEARED_UNSPECIFIED, COMM_START_SEC_VAR_CLEARED_8, and COMM_STOP_SEC_VAR_CLEARED_UNSPECIFIED.
+
+.. rubric:: 说明
+
+.. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ComM 使用的临界区如下，这一部分在 Rte 模块中配置。
+
+ComM uses the following critical sections, which are configured in the Rte module.
+
+- ComM_Global
+
+- Pnc
+
+- UM
+
+- CommunicationInhibition
+
+- Channel
+
+详见 "配置/临界区" 章节
+
+refer to the "Configuration/Critical Sections" section for details.
+
+模块特性(Module Features)
+--------------------------------------------------
 
 Channel 与 PNC 状态管理功能(Channel and PNC Status Management Function)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -279,7 +352,7 @@ COMM_FULL_COM_NETWORK_REQUESTED 和 COMM_FULL_COM_READY_SLEEP两个子状态。C
 ComM implements a state machine for each channel. The ComM channel has three main states: COMM_NO_COMMUNICATION, COMM_SILENT_COMMUNICATION, and COMM_FULL_COMMUNICATION. The COMM_SILENT_COMMUNICATION state is used for internal network management state synchronization and cannot be requested by users.
 COMM_NO_COMMUNICATION internally includes two substates: COMM_NO_COM_NO_PENDING_REQUEST and COMM_NO_COM_REQUEST_PENDING. COMM_FULL_COMMUNICATION internally includes two substates: COMM_FULL_COM_NETWORK_REQUESTED and COMM_FULL_COM_READY_SLEEP. The ComM channel state machine is shown in the figure below.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/ComM/ComM通道状态机.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/ComM/ComM通道状态机.png
    :alt: ComM 通道状态机(ComM Channel State Machine)
    :align: center
 
@@ -305,13 +378,13 @@ ComM PNC 的状态机如下图所示。
 
 On each system channel, each PNC uses the same bit position in the Pnc Bit Vector. ComM uses two types of bit vectors, EIRA and ERA, for PNC state information exchange. EIRA reflects the request and release status of a specific PNC by the current node and other nodes on the network. EIRA does not distinguish between physical channels and is only for different PNs. ERA is used only in gateway nodes to represent external requests for PNs from different channels. ComM PNC has two main states: COMM_PNC_NO_COMMUNICATION and COMM_PNC_FULL_COMMUNICATION. COMM_PNC_FULL_COMMUNICATION internally includes three substates: COMM_PNC_PREPARE_SLEEP, COMM_PNC_READY_SLEEP, and COMM_PNC_REQUESTED. The ComM PNC state machine is shown in the figure below.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/ComM/ComMPNC状态机.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/ComM/ComMPNC状态机.png
    :alt: ComM PNC 状态机(ComM PNC State Machine)
    :align: center
 
    ComM PNC 状态机 (ComM PNC State Machine)
 
-   
+
 
 通信抑制(Communication suppression)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -341,27 +414,6 @@ A channel can be configured as either a managed channel or a managing channel, i
 个managing通道想要切换到 NO_COMMUNICATION 的时候，一定需要它的 managed 通道都没有请求 FULL_COMMUNICATION 时才能切换状态。
 
 If a managed channel is requested for FULL_COMMUNICATION by an active user request or a passive wake-up from EcuM, its managing channel must also request FULL_COMMUNICATION. When a managing channel attempts to switch to NO_COMMUNICATION, it can only do so when none of its managed channels have pending FULL_COMMUNICATION requests.
-
-.. only:: doc_pbs
-
-  多变体支持 Multi-variant support
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ComM 支持 PNC 相关功能的多变体配置，具体支持多变体的配置项如下：
-
-  ComM supports multi-variant configuration for PNC-related functions. The specific configuration items supporting multi-variant are:
-
-  - ComMPncEnabled: 支持在不同变体中配置是否启用 PNC 功能。
-
-    ComMPncEnabled: Supports enabling or disabling the PNC function in different variants.
-
-  - ComMChannelPerPnc: 支持同一个 PNC 在不同变体中关联不同的通道。
-
-    ComMChannelPerPnc: Supports associating the same PNC with different channels in different variants.
-
-  - ComMUserPerPnc: 支持同一个 PNC 在不同变体中关联不同的 User。
-
-    ComMUserPerPnc: Supports associating the same PNC with different Users in different variants.
-
 
 偏差(Deviation)
 --------------------------
@@ -394,7 +446,7 @@ If a managed channel is requested for FULL_COMMUNICATION by an active user reque
    Dynamic PNC-to-channel-mapping is not supported.
 
 #. 不支持模块间版本一致性检查。
-  
+
    Inter-module version consistency check is not supported.
 
 扩展(Extension)
@@ -663,14 +715,6 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
      - SchM_ComM.h
      - Enter exclusive area Pnc.
 
-   * - SchM_Enter_ComM_UM
-     - SchM_ComM.h
-     - Enter exclusive area UM.
-
-   * - SchM_Exit_ComM_UM
-     - SchM_ComM.h
-     - Enter exclusive area UM.
-
    * - SchM_Enter_ComM_CommunicationInhibition
      - SchM_ComM.h
      - Enter exclusive area CommunicationInhibition.
@@ -701,16 +745,11 @@ e.g. from the RTE. There shall be one dedicated Main Function for each channel o
 
 To enable the NvM storage function, **ComMGlobalNvMBlockDescriptor** must be configured, and vice versa. ComM does not actively read from or write to NVRAM blocks; the related tasks must be completed during project integration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/ComM/ComMGlobalNvMBlockDescriptor.png
-   :name: ComMGlobalNvMBlockDescriptor
-   :align: center
-
-   ComMGlobalNvMBlockDescriptor
 
 ComM 提供 **ComM_InhibitionData** 和 **ComM_InhibitionDefault** 用于 **NvMRamBlockDataAddress** 和 **NvMRomBlockDataAddress** 的配置。
 **NvMBlockHeaderInclude** 需要配置为 "ComM.h"。
 
-ComM provides **ComM_InhibitionData** and **ComM_InhibitionDefault** for configuring **NvMRamBlockDataAddress** and **NvMRomBlockDataAddress**. 
+ComM provides **ComM_InhibitionData** and **ComM_InhibitionDefault** for configuring **NvMRamBlockDataAddress** and **NvMRomBlockDataAddress**.
 **NvMBlockHeaderInclude** must be configured as "ComM.h".
 
 .. important::
@@ -749,17 +788,7 @@ ComM 支持将通道和 User 分配到不同的分区，通过配置项 **ComMCh
 
 ComM supports assigning channels and Users to different partitions through the configuration items **ComMChannelPartitionRef** and **ComMUserEcucPartitionRef**. In multi-partition systems, all channels and Users must be assigned to specific partitions.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/ComM/ComMChannelPartitionRef.png
-   :name: ComMChannelPartitionRef
-   :align: center
 
-   ComMChannelPartitionRef
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/ComM/ComMUserEcucPartitionRef.png
-   :name: ComMUserEcucPartitionRef
-   :align: center
-
-   ComMUserEcucPartitionRef
 
 .. important::
 
@@ -824,18 +853,6 @@ The critical sections used by ComM and their recommended configurations are list
  + Pnc，如果不使用 Pnc 功能，配置为 ``NONE``，否则
 
    Pnc: Configure as ``NONE`` if Pnc functionality is not used; otherwise:
-
-   - 多核场景使用 ``OS_SPINLOCK``
-     
-     Use ``OS_SPINLOCK`` for multi-core scenarios
-
-   - 单核场景使用 ``ALL_INTERRUPT_BLOCKING``
-
-     Use ``ALL_INTERRUPT_BLOCKING`` for single-core scenarios
-
- + UM，如果不使用模式切换接口 ComM_CurrentMode，配置为 ``NONE``，否则
-
-   UM: Configure as ``NONE`` if the mode switching interface ComM_CurrentMode is not used; otherwise:
 
    - 多核场景使用 ``OS_SPINLOCK``
 

@@ -60,7 +60,7 @@ Returns the version information of this module.
    * - Dir
      - Name
      - Description
-   * - [in]
+   * - [out]
      - versioninfo
      - Pointer to the memory location holding the version information of the module.
 
@@ -230,7 +230,7 @@ EthTSyn_MainFunction
 
     void EthTSyn_MainFunction(uint8 portIndex)
 
-Main function for cyclic call/resp.Sync, Follow_Up and Pdelay_Req transmissions.
+Main function for cyclic call/resp. Sync, Follow_Up and Pdelay_Req transmissions.
 
 **Sync/Async**
    Synchronous
@@ -253,3 +253,145 @@ Main function for cyclic call/resp.Sync, Follow_Up and Pdelay_Req transmissions.
 
 **Return type**
    void
+
+
+EthTSyn_SetProtocolParam
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType EthTSyn_SetProtocolParam(StbM_SynchronizedTimeBaseType timeBaseId, const StbM_ProtocolParamType *protocolParam)
+
+This API is used to set FollowUp information TLV parameters of a Follow_Up message prior transmission.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - ID of the synchronized time base.
+   * - [in]
+     - protocolParam
+     - structure with Follow_Up information TLV parameters.
+
+**Return type**
+   Std_ReturnType
+
+
+EthTSyn_GetProtocolParam
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType EthTSyn_GetProtocolParam(StbM_SynchronizedTimeBaseType timeBaseId, StbM_ProtocolParamType *protocolParam)
+
+This API is used to read FollowUp information TLV parameters from received Follow_Upmessage.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - ID of the synchronized time base.
+   * - [out]
+     - protocolParam
+     - structure to store received Follow_Up information TLV parameters.
+
+**Return type**
+   Std_ReturnType
+
+
+EthTSyn_IcvGenerationIndication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    void EthTSyn_IcvGenerationIndication(Crypto_JobType *job, Crypto_ResultType result)
+
+By this API service the EthTSyn gets an indication and the result of ICV generation.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - job
+     - Job of the operation that caused the callback.
+   * - [in]
+     - result
+     - Contains the result of the cryptographic operation.
+
+**Return type**
+   void
+
+
+EthTSyn_IcvVerificationIndication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    void EthTSyn_IcvVerificationIndication(Crypto_JobType *job, Crypto_ResultType result)
+
+By this API service the EthTSyn gets an indication and the result of ICV verification.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - job
+     - Job of the operation that caused the callback.
+   * - [in]
+     - result
+     - Contains the result of the cryptographic operation.
+
+**Return type**
+   void
+
+

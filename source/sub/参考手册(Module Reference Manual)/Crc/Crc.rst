@@ -28,6 +28,11 @@ Crc
      - V1.0
      - 发布(Release)
      - 正式发布(Official Release)
+   * - 2025/11/24
+     - qinmei.chen
+     - V2.0
+     - 发布(Release)
+     - 添加半字节查表法(Add nibble-based look-up table method)
 
 参考文档(References)
 ----------------------------------
@@ -111,13 +116,17 @@ Dividing C by a k-th order polynomial yields a (k-1)-th order remainder r(x), an
 
 The k-th order polynomial used for division is the generator.
 
-CRCL模块提供三种算法处理机制：
+CRCL模块提供四种算法处理机制：
 
-The CRCL module provides three algorithm processing mechanisms:
+The CRCL module provides four algorithm processing mechanisms:
 
- - 查表计算方法：速度快，需要占用较大的ROM。
+ - 经典查表计算方法：速度快，需要占用较大的ROM。
 
-   Look-up table calculation method: Fast but requires large ROM space.
+   Classic look-up table calculation method: Fast but requires large ROM space.
+
+ - 半字节查表计算方法：速度比经典查表法慢2-3倍，占用ROM比经典查表法少93%。
+
+   nibble-based look-up table calculation method: Slower than the classic look-up table method by 2-3 times, but uses 93% less ROM.
 
  - 运行时计算方法：速度慢，占用ROM少。
    
@@ -127,13 +136,50 @@ The CRCL module provides three algorithm processing mechanisms:
 
    Hardware calculation method: Fast but requires hardware support.
 
+CRCL在架构上属于AUTOSAR静态库代码，为同样属于静态库代码的E2EL模块来进行安全数据的保护。
+
+Architecturally, CRCL belongs to AUTOSAR static library code and is designed to safeguard security data for the E2EL module, which also belongs to the static library code category.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crc/Crc在AUTOSAR中的位置.png
+   :alt: CRC架构图(CRC Architecture Diagram)
+   :name: fig_CRC_architecture
+   :align: center
+
+   CRC架构图 (CRC Architecture Diagram)
+
 
 功能描述(Functional Description)
 ==========================================
 
+公共特性(Public Features)
+----------------------------
 
-特性(Features)
-----------------------
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CRC支持多分区调用，所有接口都是可重入的，可以同时由多个应用程序使用。有模块描述文件。
+
+CRC supports multi-partition calls. All interfaces are reentrant and can be used simultaneously by multiple applications. There is module description file.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   已有的配置项均不支持PBS。
+
+   No existing configurations support PBS.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。存在CRC_START_SEC_CODE、CRC_STOP_SEC_CODE、CRC_START_SEC_CONST_16、CRC_STOP_SEC_CONST_16、CRC_START_SEC_CONST_32、CRC_STOP_SEC_CONST_32、CRC_START_SEC_CONST_64、CRC_STOP_SEC_CONST_64、CRC_START_SEC_CONST_8、CRC_STOP_SEC_CONST_8字段。
+
+The memmap file is dynamic. There are CRC_START_SEC_CODE、CRC_STOP_SEC_CODE、CRC_START_SEC_CONST_16、CRC_STOP_SEC_CONST_16、CRC_START_SEC_CONST_32、CRC_STOP_SEC_CONST_32、CRC_START_SEC_CONST_64、CRC_STOP_SEC_CONST_64、CRC_START_SEC_CONST_8、CRC_STOP_SEC_CONST_8 fields.
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+----------------------------
 
 CRC算法简介(Introduction to CRC Algorithms)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -220,9 +266,9 @@ The standard parameters required for CRC8, CRC16, CRC32, and CRC64 are as follow
 
 CRC功能实现(CRC Function Implementation)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CRC功能实现分为三种方式：直接计算法、查表法、硬件实现法，分别对应配置项CrcxMode中的取值CRC_RUNTIME、CRC_TABLE和CRC_HARDWARE ，x代表CRC位宽，可为8、8H2F、16、16ARC、32、32P4、64。
+CRC功能实现分为四种方式：直接计算法、查表法（包括经典查表法和半字节查表法）、硬件实现法，分别对应配置项CrcxMode中的取值CRC_RUNTIME、CRC_TABLE和CRC_HARDWARE ；经典查表法和半字节查表法还需配置项TableSize分别为256和16。x代表CRC位宽，可为8、8H2F、16、16ARC、32、32P4、64。
 
-CRC function implementation is divided into three methods: direct calculation, look-up table, and hardware implementation, corresponding to the values CRC_RUNTIME, CRC_TABLE, and CRC_HARDWARE in configuration item CrcxMode respectively. Here, "x" represents CRC bit width, which can be 8, 8H2F, 16, 16ARC, 32, 32P4, or 64.
+CRC function implementation is divided into four methods: direct calculation, look-up table(classic and nibble-based), and hardware implementation, corresponding to the values CRC_RUNTIME, CRC_TABLE, and CRC_HARDWARE in configuration item CrcxMode respectively. The classic lookup table method and the nibble-based lookup table method require the values TableSize to be set to 256 and 16, respectively. Here, "x" represents CRC bit width, which can be 8, 8H2F, 16, 16ARC, 32, 32P4, or 64.
 
 集成(Integration)
 ===============================
@@ -314,7 +360,49 @@ Crc64Mode
 
 Enables Crc64 support; optional methods include CRC_TABLE, CRC_RUNTIME, and CRC_HARDWARE
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crc/CRC容器配置图.png
+TableSize8
+----------------------
+查表法时使用的表大小，可选值包括CRC8_TABLE_SIZE_256和CRC8_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC8_TABLE_SIZE_256 and CRC8_TABLE_SIZE_16
+
+TableSize8H2F
+----------------------
+查表法时使用的表大小，可选值包括CRC8_TABLE_SIZE_256和CRC8_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC8H2F_TABLE_SIZE_256 and CRC8H2F_TABLE_SIZE_16
+
+TableSize16
+----------------------
+查表法时使用的表大小，可选值包括CRC16_TABLE_SIZE_256和CRC16_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC16_TABLE_SIZE_256 and CRC16_TABLE_SIZE_16
+
+TableSize16ARC
+----------------------
+查表法时使用的表大小，可选值包括CRC16_ARC_TABLE_SIZE_256和CRC16_ARC_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC16_ARC_TABLE_SIZE_256 and CRC16_ARC_TABLE_SIZE_16
+
+TableSize32
+----------------------
+查表法时使用的表大小，可选值包括CRC32_TABLE_SIZE_256和CRC32_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC32_TABLE_SIZE_256 and CRC32_TABLE_SIZE_16
+
+TableSize32P4
+----------------------
+查表法时使用的表大小，可选值包括CRC32P4_TABLE_SIZE_256和CRC32P4_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC32P4_TABLE_SIZE_256 and CRC32P4_TABLE_SIZE_16
+
+TableSize64
+----------------------
+查表法时使用的表大小，可选值包括CRC64_TABLE_SIZE_256和CRC64_TABLE_SIZE_16
+
+Table size used in look-up table method; optional values include CRC64_TABLE_SIZE_256 and CRC64_TABLE_SIZE_16
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crc/CRC容器配置图.png
    :alt: CRC容器配置图 (CRC Container Configuration Diagram)
    :name: fig_event-handler
    :align: center

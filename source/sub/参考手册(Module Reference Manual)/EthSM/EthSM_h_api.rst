@@ -1,9 +1,9 @@
 
-类型定义 Type Definitions
---------------------------------------------------------------------------------
+类型定义
+--------
 .. 如果没有就不存在该章节，或为None
 
-.. list-table::
+.. list-table:: 
    :widths: 15 5 20
    :header-rows: 1
 
@@ -16,9 +16,9 @@
      - This type shall define the states of the network mode state machine.
 
 
-
-提供的服务 Services
---------------------------------------------------------------------------------
+      
+提供的服务
+-----------
 EthSM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -33,6 +33,7 @@ This function initialize the EthSM.
 
 **Reentrancy**
    Reentrant (Reentrant for different partitions. Non reentrant for the same partition.)
+
 
 **Return type**
    void
@@ -83,7 +84,7 @@ Handles the communication mode and sets the Ethernet network active or passive.
    Asynchronous
 
 **Reentrancy**
-   Reentrant (only for different Ethernet controllers)
+   Reentrant (Reentrant for different networks. Non reentrant for the same network.)
 
 **Parameters**
 
@@ -171,7 +172,7 @@ EthSM_CtrlModeIndication
 
     void EthSM_CtrlModeIndication(uint8 CtrlIdx, Eth_ModeType CtrlMode)
 
-Called when mode has been read out.
+Called when mode has been read out. Either triggered by previous EthIf_GetControllerMode or by EthIf_SetControllerMode call. Can directly be called within the trigger functions.
 
 **Sync/Async**
    Synchronous
@@ -209,10 +210,10 @@ EthSM_TrcvLinkStateChg
 This service is called by the Ethernet Interface to report a transceiver link state change.
 
 **Sync/Async**
-   Synchronous (only for different Ethernet controllers)
+   Synchronous
 
 **Reentrancy**
-   Reentrant
+   Reentrant (only for different Ethernet controllers)
 
 **Parameters**
 

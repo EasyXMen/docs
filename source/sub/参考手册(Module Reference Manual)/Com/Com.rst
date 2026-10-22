@@ -190,19 +190,101 @@ Com模块主要实现了Signal在I-PDU中的封装及解析功能，为RTE层提
 
 The Com module mainly implements the functions of encapsulating and parsing Signals in I-PDUs, provides Signal-based sending and receiving interfaces for the RTE layer, realizes Signal-based gateway functions, implements different sending modes of PDUs, as well as functions such as Signal filtering and Update bit.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/image1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/Com.png
    :alt: Com模块层次图 (Com Module Hierarchy Diagram)
    :name: Com_fig_arch
    :align: center
 
-   Figure caption goes here.
-
    Module hierarchy diagram.
 
 
-如图 :[Com_fig_arch]所示，Com模块处于AUTOSAR架构中的通信服务层，其下层模块为PduR模块，上层模块为RTE。
+如图 :ref:`Com_fig_arch` 所示，Com模块处于AUTOSAR架构中的通信服务层，其下层模块为PduR模块，上层模块为RTE。
 
-As shown in the [Module Hierarchy Diagram], the Com module is located in the Communication Service Layer of the AUTOSAR architecture, with the PduR module as its lower-layer module and the RTE as its upper-layer module.
+As shown in the :ref:`Com_fig_arch`, the Com module is located in the Communication Service Layer of the AUTOSAR architecture, with the PduR module as its lower-layer module and the RTE as its upper-layer module.
+
+
+功能描述 Functional Description
+==============================================================
+
+
+公共特性(Public Features)
+------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ - 为了在多分区(核)之间提供负载分配，通信栈的不同部分可以被分配到不同的分区。不同的网络类型如 FlexRay，CAN 和 Ethernet 的部分可以被分配到不同的分区(核)。
+
+   To provide load distribution among multiple partitions (cores), different parts of the communication stack can be allocated to different partitions. Components of different network types such as FlexRay, CAN, and Ethernet can be assigned to separate partitions (cores).
+
+ - 为了支持上述灵活的分配，减少分区间的通信(从而潜在的减少跨分区同步带来的阻塞)，COM 模块可以按照网络类型创建不同的 MainFunction(每个分区至少一个)。在具体的 MainFunction 中仅处理与该网络类型相关的 PDU，接收和发送将保持在单个网络范围内(即在单个分区中)，因此不需要考虑跨分区同步的问题。唯一的例外是信号网关，当信号网关的源和目的PDU不在同一个分区时，COM模块提供跨分区的数据一致性保护。每个 MainFunction 都拥有独立的 Time Base。
+
+   To support the above flexible allocation and reduce inter-partition communication (thereby potentially reducing blocking caused by cross-partition synchronization), the COM module can create different MainFunctions according to network types (at least one per partition). Each specific MainFunction only processes PDUs related to that network type, and reception and transmission are kept within a single network scope (i.e., within a single partition), thus eliminating the need to consider cross-partition synchronization. The only exception is the signal gateway: when the source and destination PDUs of the signal gateway are not in the same partition, the COM module provides cross-partition data consistency protection. Each MainFunction has an independent Time Base.
+
+ - ComIPdu 通过 ComIPduMainFunctionRef 与特定的 ComMainFunctionRx/ComMainFunctionTx 关联。ComMainFunctionRouteSignalsRef 仅在信号网关目标信号所在的 ComIPdu 上使用。ComMainRxPartitionRef/ComMainTxPartitionRef/ComMainRouteSignalsPartitionRef 分别表示该 ComMainFunction 实例运行的分区。如果配置了分区信息，则 ComMainFunction 所在的分区必须与 ComIPdu 关联的 Pdu(EcucPduDefaultPartitionRef)的分区一致。此处强调，如果发送IPDU(IPDU或者IPDU包含的信号和组信号)用于信号网关，则其需要同时配置ComIPduMainFunctionRef 关联到ComMainFunctionTx 和配置ComMainFunctionRouteSignalsRef，并且分区一致。
+
+   ComIPdu is associated with specific ComMainFunctionRx/ComMainFunctionTx through ComIPduMainFunctionRef. ComMainFunctionRouteSignalsRef is only used on the ComIPdu where the target signal of the signal gateway is located. ComMainRxPartitionRef/ComMainTxPartitionRef/ComMainRouteSignalsPartitionRef respectively indicate the partition in which the ComMainFunction instance runs. If partition information is configured, the partition where ComMainFunction is located must be consistent with the partition of the Pdu (EcucPduDefaultPartitionRef) associated with ComIPdu. It is emphasized here that if a transmitting IPDU (IPDU or the signals and group signals contained in the IPDU) is used for the signal gateway, it needs to be configured with ComIPduMainFunctionRef associated to ComMainFunctionTx and ComMainFunctionRouteSignalsRef at the same time, and the partitions must be consistent.
+
+ - Com模块如果配置了ComIpduGroup，则其必须被至少一个IPDU关联，且关联在同一个ComIpduGroup的IPDU的分区必须一致。
+
+   If the Com module is configured with ComIpduGroup, it must be associated with at least one IPDU, and the partitions of the IPDUs associated with the same ComIpduGroup must be consistent.
+
+ - IPDU的分区信息是在ECUC模块配置实现的，Com模块配置并校验成功后，在ECUC模块右键Synchronize Module选择Com模块进行同步，可以将Com模块的分区信息同步到ECUC模块的IPDU上。
+
+   The partition information of IPDU is configured and implemented in the ECUC module. After the Com module is configured and verified successfully, right-click "Synchronize Module" in the ECUC module and select the Com module to synchronize, so that the partition information of the Com module can be synchronized to the IPDU of the ECUC module.
+
+ - 代码生成器会为每一个 ComMainFunction 生成一个函数(声明在SchM_Com.h)。每一个 ComMainFunction 的实例和API接口在集成时需要被放在正确的分区中被调用。建议开发阶段打开ComConfigurationUseDet配置，存在不合理的分区调用时，可以报Det错误。
+
+   The code generator will generate a function for each ComMainFunction (declared in SchM_Com.h). Each ComMainFunction instance and API interface needs to be placed in the correct partition to be called during integration. It is recommended to enable the ComConfigurationUseDet configuration during the development phase. If there is an unreasonable partition call, a Det error can be reported.
+
+
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - 模块支持PBS
+          
+     The module supports PBS.
+
+   - 信号过滤器仅在为ONE_EVERY_N时周期可配置变体
+        
+     The signal filter is only configurable as a variant when the period is set to ONE_EVERY_N.
+        
+   - 支持配置IPdu数目、信号数目、信号组、组信号数目、IPduGroup数目变体
+          
+     Supports configuring variants for the number of IPdus, the number of signals, signal groups, the number of group signals, and the number of IPduGroups.
+        
+   - 支持IPdu信号处理模式配置变体
+        
+     Supports configuring variants for the IPdu signal processing mode.
+        
+   - 支持IPdu关联的信号、信号组、IPduGroup配置变体
+        
+     Supports configuring variants for signals, signal groups, and IPduGroups associated with IPdus.
+        
+   - Pdu发送模式支持变体
+        
+     Supports variants for Pdu transmission modes.
+        
+   - 信号网关支持变体
+        
+     Supports variants for signal gateways.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。包含这些名称的标签段COM_VAR_CLEARED_BOOLEANCOM_VAR_CLEARED_PTR、COM_VAR_CLEARED_8、COM_VAR_CLEARED_16、COM_VAR_CLEARED_32、COM_VAR_CLEARED_64、COM_VAR_CLEARED_UNSPECIFIED、COM_VAR_CLEARED_[iParition]_BOOLEAN、COM_VAR_CLEARED_[iParition]_8、COM_VAR_CLEARED_[iParition]_16、COM_VAR_CLEARED_[iParition]_32、COM_VAR_CLEARED_[iParition]_64、COM_VAR_CLEARED_[iParition]_UNSPECIFIED、COM_CODE_FAST_[iParition]、COM_VAR_INIT_BOOLEAN、COM_VAR_INIT_8、COM_VAR_INIT_PTR、COM_CONFIG_DATA_BOOLEAN、COM_CONFIG_DATA_8、COM_CONFIG_DATA_32、COM_CONFIG_DATA_64、COM_CODE、COM_CODE_FAST、COM_CONFIG_DATA_UNSPECIFIED、COM_CONFIG_DATA_PTR、其中[iParition]为Com所部署的分区名称。
+
+The memmap file is dynamic.There are COM_VAR_CLEARED_BOOLEAN、COM_VAR_CLEARED_PTR、COM_VAR_CLEARED_8、COM_VAR_CLEARED_16、COM_VAR_CLEARED_32、COM_VAR_CLEARED_64、COM_VAR_CLEARED_UNSPECIFIED、COM_VAR_CLEARED_[iParition]_BOOLEAN、COM_VAR_CLEARED_[iParition]_8、COM_VAR_CLEARED_[iParition]_16、COM_VAR_CLEARED_[iParition]_32、COM_VAR_CLEARED_[iParition]_64、COM_VAR_CLEARED_[iParition]_UNSPECIFIED、COM_CODE_FAST_[iParition]、COM_VAR_INIT_BOOLEAN、COM_VAR_INIT_8、COM_VAR_INIT_PTR、COM_CONFIG_DATA_BOOLEAN、COM_CONFIG_DATA_8、COM_CONFIG_DATA_32、COM_CONFIG_DATA_64、COM_CODE、COM_CODE_FAST、COM_CONFIG_DATA_UNSPECIFIED、COM_CONFIG_DATA_PTR.Among them [iParition] is the name of the partition deployed for Com. 
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+
+模块特性(Module Features)
+----------------------------
 
 
 功能描述(Functional Description)
@@ -232,6 +314,10 @@ Signal 封装解析(Signal encapsulation and parsing)
 
 IPdu 收发(IPdu transmission and reception)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ - IPdu方向分为SEND和RECEIVE两种。信号的方向与其关联的IPdu方向一致。
+   
+   IPdu directions are divided into SEND and RECEIVE. The direction of a signal is same as the direction of the IPdu it associates with.
+
  - Com模块实现IPdu的收发方式按数据流分两种类型，即IF方式和TP方式，IF方式通常用于“数据长度较小”的IPdu，而TP方式通常用于“数据长度较大”的IPdu，这里的“数据长度”是相对于传输总线来定义的，如CAN总线为8字节，CANFD为64字节，ETH可以达到1000+字节。其中IF IPdu的发送又分为Direct和TriggerTransmit两种类型，前者发送时机由Com决定，后者发送时机由下层模块决定。
  
    The Com module implements two types of IPdu transmission and reception methods based on data flow: the IF mode and the TP mode. The IF mode is usually used for IPdus with "small data length", while the TP mode is generally applied to IPdus with "large data length". Here, the "data length" is defined relative to the transmission bus. For example, the CAN bus is 8 bytes, CANFD is 64 bytes, and ETH can reach more than 1000 bytes. Among them, the transmission of IF IPdu is further divided into two types: Direct and TriggerTransmit. The transmission timing of the former is determined by Com, while that of the latter is decided by the lower-layer module.
@@ -239,6 +325,20 @@ IPdu 收发(IPdu transmission and reception)
  - Tx IPdu从发送时机角度又分为四种模式，即PERIODIC，DIRECT，MIXED，NONE。NONE模式通常与TriggerTransmit，或者调用Com_TriggerIPDUSend/ Com_TriggerIPDUSendWithMetaData来配置实现IPdu的发送。
 
    From the perspective of transmission timing, Tx IPdu is further divided into four modes: PERIODIC, DIRECT, MIXED, and NONE. The NONE mode is usually configured with TriggerTransmit, or by calling Com_TriggerIPDUSend/Com_TriggerIPDUSendWithMetaData to implement the transmission of IPdu.
+
+收发通知(Transmission and reception notification)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ - 用户可以配置回调，用于在接受到消息或发送消息成功时获取Com模块的通知。
+
+   Users can config callbacks to get notifications from the Com module when messages are received or sent successfully.
+
+ - Com_CbkRxAck仅在接收侧调用。它可以配置用于信号和信号组。Com_CbkRxAck会在消息存储到接收消息对象后立即被调用。
+   
+   Com_CbkRxAck is called on receiver side only. It can be configured for signals and signal groups. Com_CbkRxAck is called immediately after the message has been stored in the receiving message object.
+
+ - Com_CbkTxAck仅在发送侧调用。它可以配置用于信号和信号组。Com_CbkTxAck会在包含消息的IPdu成功传输后立即被调用。
+
+   Com_CbkTxAck is called on sender side only. It can be configured for signals and signal groups. Com_CbkTxAck is called immediately after successful transmission of the IPdu containing the message.
 
 超时监测功能(Timeout monitoring function)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -312,60 +412,7 @@ IPdu 收发(IPdu transmission and reception)
    Similarly, the GwDestination can also be configured in two ways: by configuring ComGwDestinationDescription and by configuring ComGwSignal.
 
 
-多核分布(Multicore distribution)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- - 为了在多分区(核)之间提供负载分配，通信栈的不同部分可以被分配到不同的分区。不同的网络类型如 FlexRay，CAN 和 Ethernet 的部分可以被分配到不同的分区(核)。
 
-   To provide load distribution among multiple partitions (cores), different parts of the communication stack can be allocated to different partitions. Components of different network types such as FlexRay, CAN, and Ethernet can be assigned to separate partitions (cores).
-
- - 为了支持上述灵活的分配，减少分区间的通信(从而潜在的减少跨分区同步带来的阻塞)，COM 模块可以按照网络类型创建不同的 MainFunction(每个分区至少一个)。在具体的 MainFunction 中仅处理与该网络类型相关的 PDU，接收和发送将保持在单个网络范围内(即在单个分区中)，因此不需要考虑跨分区同步的问题。唯一的例外是信号网关，当信号网关的源和目的PDU不在同一个分区时，COM模块提供跨分区的数据一致性保护。每个 MainFunction 都拥有独立的 Time Base。
-
-   To support the above flexible allocation and reduce inter-partition communication (thereby potentially reducing blocking caused by cross-partition synchronization), the COM module can create different MainFunctions according to network types (at least one per partition). Each specific MainFunction only processes PDUs related to that network type, and reception and transmission are kept within a single network scope (i.e., within a single partition), thus eliminating the need to consider cross-partition synchronization. The only exception is the signal gateway: when the source and destination PDUs of the signal gateway are not in the same partition, the COM module provides cross-partition data consistency protection. Each MainFunction has an independent Time Base.
-
- - ComIPdu 通过 ComIPduMainFunctionRef 与特定的 ComMainFunctionRx/ComMainFunctionTx 关联。ComMainFunctionRouteSignalsRef 仅在信号网关目标信号所在的 ComIPdu 上使用。ComMainRxPartitionRef/ComMainTxPartitionRef/ComMainRouteSignalsPartitionRef 分别表示该 ComMainFunction 实例运行的分区。如果配置了分区信息，则 ComMainFunction 所在的分区必须与 ComIPdu 关联的 Pdu(EcucPduDefaultPartitionRef)的分区一致。此处强调，如果发送IPDU(IPDU或者IPDU包含的信号和组信号)用于信号网关，则其需要同时配置ComIPduMainFunctionRef 关联到ComMainFunctionTx 和配置ComMainFunctionRouteSignalsRef，并且分区一致。
-
-   ComIPdu is associated with specific ComMainFunctionRx/ComMainFunctionTx through ComIPduMainFunctionRef. ComMainFunctionRouteSignalsRef is only used on the ComIPdu where the target signal of the signal gateway is located. ComMainRxPartitionRef/ComMainTxPartitionRef/ComMainRouteSignalsPartitionRef respectively indicate the partition in which the ComMainFunction instance runs. If partition information is configured, the partition where ComMainFunction is located must be consistent with the partition of the Pdu (EcucPduDefaultPartitionRef) associated with ComIPdu. It is emphasized here that if a transmitting IPDU (IPDU or the signals and group signals contained in the IPDU) is used for the signal gateway, it needs to be configured with ComIPduMainFunctionRef associated to ComMainFunctionTx and ComMainFunctionRouteSignalsRef at the same time, and the partitions must be consistent.
-
- - Com模块如果配置了ComIpduGroup，则其必须被至少一个IPDU关联，且关联在同一个ComIpduGroup的IPDU的分区必须一致。
-
-   If the Com module is configured with ComIpduGroup, it must be associated with at least one IPDU, and the partitions of the IPDUs associated with the same ComIpduGroup must be consistent.
-
- - IPDU的分区信息是在ECUC模块配置实现的，Com模块配置并校验成功后，在ECUC模块右键Synchronize Module选择Com模块进行同步，可以将Com模块的分区信息同步到ECUC模块的IPDU上。
-
-   The partition information of IPDU is configured and implemented in the ECUC module. After the Com module is configured and verified successfully, right-click "Synchronize Module" in the ECUC module and select the Com module to synchronize, so that the partition information of the Com module can be synchronized to the IPDU of the ECUC module.
-
- - 代码生成器会为每一个 ComMainFunction 生成一个函数(声明在SchM_Com.h)。每一个 ComMainFunction 的实例和API接口在集成时需要被放在正确的分区中被调用。建议开发阶段打开ComConfigurationUseDet配置，存在不合理的分区调用时，可以报Det错误。
-
-   The code generator will generate a function for each ComMainFunction (declared in SchM_Com.h). Each ComMainFunction instance and API interface needs to be placed in the correct partition to be called during integration. It is recommended to enable the ComConfigurationUseDet configuration during the development phase. If there is an unreasonable partition call, a Det error can be reported.
-
-
-.. only:: doc_pbs
-
-  支持变体功能(Support variant functionality)
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  - 信号过滤器仅在为ONE_EVERY_N时周期可配置变体
-  
-    The signal filter is only configurable as a variant when the period is set to ONE_EVERY_N.
-  
-  - 支持配置IPdu数目、信号数目、信号组、组信号数目、IPduGroup数目变体
-    
-    Supports configuring variants for the number of IPdus, the number of signals, signal groups, the number of group signals, and the number of IPduGroups.
-  
-  - 支持IPdu信号处理模式配置变体
-  
-    Supports configuring variants for the IPdu signal processing mode.
-  
-  - 支持IPdu关联的信号、信号组、IPduGroup配置变体
-  
-    Supports configuring variants for signals, signal groups, and IPduGroups associated with IPdus.
-  
-  - Pdu发送模式支持变体
-  
-    Supports variants for Pdu transmission modes.
-  
-  - 信号网关支持变体
-  
-    Supports variants for signal gateways.
 
 
 偏差(Deviation)
@@ -625,14 +672,14 @@ None
 ----------------------
 1.1(RxIpdu Path)
 ----------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxIpdu1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxIpdu1.png
    :alt: RxIpdu1
    :name: RxIpdu1
    :align: center
 
    RxIpdu1
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxIpdu2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxIpdu2.png
    :alt: RxIpdu2
    :name: RxIpdu2
    :align: center
@@ -655,7 +702,7 @@ None
     
    IPdu type: ComIPduType = NORMAL (normal type IPdu), TP (TP type IPdu)
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxIpduGroup.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxIpduGroup.png
     :alt: RxIpduGroup
     :name: RxIpduGroup
     :align: center
@@ -678,7 +725,7 @@ None
 
    Associated ComIPduSignalRef = ComIPduSignal (if it exists)
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/EcuCRx.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/EcuCRx.png
     :alt: EcuCRx
     :name: EcuCRx
     :align: center
@@ -692,7 +739,7 @@ None
 
 1.2(RxSignal Path)
 ----------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxSignal.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxSignal.png
    :alt: RxSignal
    :name: RxSignal
    :align: center
@@ -724,7 +771,7 @@ As shown in [RxSignal]:
    Signal type: ComSignalType, as shown in [SignalType]:
 
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/SignalType.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/SignalType.png
     :alt: SignalType
     :name: SignalType
     :align: center
@@ -736,7 +783,7 @@ As shown in [RxSignal]:
    The selection of signal triggering mode is ComTransferProperty as shown in [TransferProperty]:
 
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TransferProperty.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TransferProperty.png
     :alt: TransferProperty
     :name: TransferProperty
     :align: center
@@ -745,7 +792,7 @@ As shown in [RxSignal]:
 
 1.3(RxSignalGroup Path)
 ---------------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxSignalGroup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxSignalGroup.png
    :alt: RxSignalGroup
    :name: RxSignalGroup
    :align: center
@@ -764,14 +811,14 @@ As shown in [RxSignalGroup]:
 ----------------------
 2.1(TxIpdu Path)
 ----------------------
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxIpdu1.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxIpdu1.png
     :alt: TxIpdu1
     :name: TxIpdu1
     :align: center
 
     TxIpdu1
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxIpdu2.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxIpdu2.png
     :alt: TxIpdu2
     :name: TxIpdu2
     :align: center
@@ -795,7 +842,7 @@ As shown in [RxSignalGroup]:
    Associated IpduGroup: ComIPduGroupRef = ComIpduGroup, as shown in [TxIpduGroup]:
  
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxIpduGroup.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxIpduGroup.png
     :alt: TxIpduGroup
     :name: TxIpduGroup
     :align: center
@@ -822,7 +869,7 @@ As shown in [RxSignalGroup]:
 
    Associated ComPduIdRef = EcuC module -> EcucConfigSet -> EcucPduCollection -> Pdu, as shown in [EcuCTx]:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/EcuCTx.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/EcuCTx.png
     :alt: EcuCTx
     :name: EcuCTx
     :align: center
@@ -831,7 +878,7 @@ As shown in [RxSignalGroup]:
 
 2.2(TxSignal Path)
 ----------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxSignal.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxSignal.png
    :alt: TxSignal
    :name: TxSignal
    :align: center
@@ -866,7 +913,7 @@ As shown in [TxSignal]:
 
 2.3(TxSignalGroup Path)
 ---------------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxSignalGroup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxSignalGroup.png
    :alt: TxSignalGroup
    :name: TxSignalGroup
    :align: center
@@ -887,7 +934,7 @@ As shown in [TxSignalGroup]:
 
 Transmission filtering can be configured in TxSignal, TxGroupSignal, and ComGwDestinationDescription. The prerequisite for filter configuration is that it must be configured simultaneously, as shown in [TxModeTrueFalse]:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxModeTrueFalse.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxModeTrueFalse.png
    :alt: TxModeTrueFalse
    :name: TxModeTrueFalse
    :align: center
@@ -898,7 +945,7 @@ Transmission filtering can be configured in TxSignal, TxGroupSignal, and ComGwDe
 
 Filter configuration, as shown in [Filter]:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/Filter.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/Filter.png
    :alt: Filter
    :name: Filter
    :align: center
@@ -915,7 +962,7 @@ Reception filtering can be configured in RxSignal and RxGroupSignal. Filter conf
 ----------------------
 3.1 Src:Signal
 ----------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/SrcSignal.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/SrcSignal.png
    :alt: SrcSignal
    :name: SrcSignal
    :align: center
@@ -928,7 +975,7 @@ Signal gateway Source configuration: ComGwSignal is associated with Signal or Gr
 
 3.2 Src:Description
 ----------------------
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/SrcDesp.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/SrcDesp.png
    :alt: SrcDesp
    :name: SrcDesp
    :align: center
@@ -969,7 +1016,7 @@ Signal gateway Source configuration: ComGwSourceDescription is associated with I
 
 Signal gateway Destination configuration: ComGwSignal is associated with Signal or GroupSignal, as shown in [DestSignal].
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/DestSignal.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Com/DestSignal.png
    :alt: DestSignal
    :name: DestSignal
    :align: center
@@ -982,7 +1029,7 @@ Signal gateway Destination configuration: ComGwSignal is associated with Signal 
 
 Signal gateway Destination configuration: ComGwDestinationDescription is associated with Ipdu, as shown in [DestDesp]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/DestDesp.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/DestDesp.png
     :alt: DestDesp
     :name: DestDesp
     :align: center
@@ -1017,7 +1064,7 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
 
    Receive callback, as shown in [RxCbk]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxCbk.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxCbk.png
     :alt: RxCbk
     :name: RxCbk
     :align: center
@@ -1028,12 +1075,15 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
 
    Transmission callback, as shown in [TxCbk]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxCbk.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxCbk.png
     :alt: TxCbk
     :name: TxCbk
     :align: center
 
     ComNotification:Rte_COMCbkTAck
+
+4.2(Invalid Notification)
+-------------------------------
 
  - 无效值接收通知,先配置无效值ComSignalDataInvalidValue，才可以配置ComDataInvalidAction，如果ComDataInvalidAction = NOTIFY，则可配置ComInvalidNotification无效值通知， 如果ComDataInvalidAction = REPLACE,则实现的是接收无效值后，接收值被替换为初始值。
      
@@ -1043,18 +1093,21 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
      
    Invalid value transmission notification: Similar to the invalid value reception notification, but the difference is that transmission will not perform invalid value replacement and only has a notification function. Sending invalid values can be implemented using API functions, as shown in [RxInvalid]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxInvalid.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxInvalid.png
     :alt: RxInvalid
     :name: RxInvalid
     :align: center
 
     ComInvalidNotification
 
+4.3(Timeout Notification)
+-------------------------------
+
  - 接收超时监测通知，必须配置非零ComTimeout，可根据需求配置ComFirstTimeout，接收超时通知ComTimeoutNotification与接收通知相互独立，接收超时动作ComRxDataTimeoutAction = NONE不处理、REPLACE替换初始值、SUBSTITUTE替换ComTimeoutSubstitutionValue值。如图 :[RxTimeout]所示
      
    Reception timeout monitoring notification: A non-zero ComTimeout must be configured. ComFirstTimeout can be configured as required. The reception timeout notification (ComTimeoutNotification) is independent of the reception notification. The reception timeout action (ComRxDataTimeoutAction) includes: NONE (no processing), REPLACE (replace with initial value), and SUBSTITUTE (replace with ComTimeoutSubstitutionValue), as shown in [RxTimeout]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxTimeout.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxTimeout.png
     :alt: RxTimeout
     :name: RxTimeout
     :align: center
@@ -1065,18 +1118,21 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
      
    Transmission timeout monitoring notification: A non-zero ComTimeout must be configured. The transmission timeout notification (ComTimeoutNotification) can be configured as required and is independent of the transmission notification. The timeout action (ComRxDataTimeoutAction) is set to NONE (no processing), as shown in [TxTimeout]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/TxTimeout.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxTimeout.png
     :alt: TxTimeout
     :name: TxTimeout
     :align: center
 
     ComTimeoutNotification
 
+4.4(Callout)
+-------------------
+
  - 接收发送IPDU callout,用户填写callout使用的函数名字，如图 :[RxCallout]所示
      
    Receive and send IPDU callout: Users fill in the function name used for the callout, as shown in [RxCallout]:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Com/RxCallout.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxCallout.png
     :alt: RxCallout
     :name: RxCallout
     :align: center
@@ -1084,8 +1140,98 @@ Signal gateway Destination configuration: ComGwDestinationDescription is associa
     ComIPduCallout
 
 
+5. IPdu发送(IPdu Transmission)
+-------------------------------------
 
+ - 配置数据发送路径，需配置EcuC Pdu，ComSingals或ComSignalGroup (以ComSignals为例), ComMainFunctionTxs, ComIPdus。
 
+   To configure the data transmission path, the EcuC Pdu, ComSingals or ComSignalGroup (using ComSignals as an example), ComMainFunctionTxs, ComIPdus need to be configured.
 
+ - 在EcuC模块中，需配置报文在Com模块中所需的Pdu相关设置，该Pdu应该同时被PduR相应配置（PduRSrcPduRef）引用。
 
+   In the EcuC module, the Pdu-related settings required for the message in the CanIf module need to be configured. This Pdu should also be referenced by PduR with the corresponding configuration (PduRSrcPduRef).
 
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxEcucPdu.png
+    :alt: TxEcucPdu
+    :name: TxEcucPdu
+    :align: center
+
+ - 在ComSingals中配置发送的消息中需要包含的信号。需配置ComBitPosition，ComBitSize，ComSignalEndianness，ComSignalInitValue，ComSignalType，ComTransferProperty。
+
+   In ComSignals, configure the signals that need to be included in the transmission messages. The following items need to be configured ComBitPosition, ComBitSize, ComSignalEndianness, ComSignalInitValue, ComSignalType, ComTransferProperty.
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxComSignal.png
+    :alt: TxComSignal
+    :name: TxComSignal
+    :align: center
+
+ - 在ComMainFunctionTxs中配置发送消息所属的主函数。需配置ComMainTxTimeBase。
+
+   In ComMainFunctionTxs, configure the main function to which the transmission message belongs. ComMainTxTimeBase need to be configured.
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxComMainFunctionTx.png
+    :alt: TxComMainFunctionTx
+    :name: TxComMainFunctionTx
+    :align: center
+
+ - 在 ComIPdus 中配置发送消息的基本属性，需配置ComIPduDirection为SEND，ComIPduSignalRef关联ComSignals中配置的信号，ComPduId关联EcuC中配置的Pdu。其他需要配置有：ComIPduSignalProcessing，ComIPduType。
+
+   In ComIPdus, configure the basic properties of a transmission message, ComIPduDirection need to be configured to SEND, ComIPduSignalRef need to be associated with the signals configured in ComSignals, ComPduId need to be associated with the Pdu configured in EcuC. Other items need to be configured are: ComIPduSignalProcessing, ComIPduType.
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxComIPdu1.png
+    :alt: TxComIPdu1
+    :name: TxComIPdu1
+    :align: center
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/TxComIPdu2.png
+    :alt: TxComIPdu2
+    :name: TxComIPdu2
+    :align: center
+
+6. IPdu接收(IPdu Reception)
+--------------------------------
+
+ - 配置数据接收路径，需配置EcuC Pdu，ComSingals或ComSignalGroup (以ComSignals为例), ComMainFunctionRxs, ComIPdus。
+
+   To configure the data reception path, the EcuC Pdu, ComSingals or ComSignalGroup (using ComSignals as an example), ComMainFunctionRxs, ComIPdus need to be configured.
+
+ - 在EcuC模块中，需配置报文在Com模块中所需的Pdu相关设置，该Pdu应该同时被PduR相应配置（PduRDestPduRef）引用。
+
+   In the EcuC module, the Pdu-related settings required for the message in the CanIf module need to be configured. This Pdu should also be referenced by PduR with the corresponding configuration (PduRDestPduRef).
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxEcucPdu.png
+    :alt: RxEcucPdu
+    :name: RxEcucPdu
+    :align: center
+
+ - 在ComSingals中配置接收的消息中需要解析的信号。需配置ComBitPosition，ComBitSize，ComSignalEndianness，ComSignalInitValue，ComSignalType，ComTransferProperty。
+
+   In ComSignals, configure the signals that need to be parsed in the reception messages. The following items need to be configured ComBitPosition, ComBitSize, ComSignalEndianness, ComSignalInitValue, ComSignalType, ComTransferProperty.
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxComSignal.png
+    :alt: RxComSignal
+    :name: RxComSignal
+    :align: center
+
+ - 在ComMainFunctionRxs中配置发送消息所属的主函数。需配置ComMainRxTimeBase。
+
+   In ComMainFunctionRxs, configure the main function to which the transmission message belongs. ComMainTxTimeBase need to be configured.
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxComMainFunctionRx.png
+    :alt: RxComMainFunctionRx
+    :name: RxComMainFunctionRx
+    :align: center
+
+ - 在 ComIPdus 中配置发送消息的基本属性，需配置ComIPduDirection为RECEIVE，ComIPduSignalRef关联ComSignals中配置的信号，ComPduId关联EcuC中配置的Pdu。其他需要配置有：ComIPduSignalProcessing，ComIPduType。
+   
+   In ComIPdus configure the basic properties of a transmission message, ComIPduDirection need to be configured to RECEIVE, ComIPduSignalRef need to be associated with the signals configured in ComSignals, ComPduId need to be associated with the Pdu configured in EcuC. Other items need to be configured are: ComIPduSignalProcessing, ComIPduType.
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxComIPdu1.png
+    :alt: RxComIPdu1
+    :name: RxComIPdu1
+    :align: center
+
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Com/RxComIPdu2.png
+    :alt: RxComIPdu2
+    :name: RxComIPdu2
+    :align: center

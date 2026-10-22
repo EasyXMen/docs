@@ -14,7 +14,7 @@ Sd_Init
 Initializes the Service Discovery.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -46,7 +46,7 @@ Sd_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -78,7 +78,7 @@ Sd_ServerServiceSetState
 This API function is used by the BswM to set the Server Service Instance state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -113,7 +113,7 @@ Sd_ClientServiceSetState
 This API function is used by the BswM to set the Client Service Instance state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -148,7 +148,7 @@ Sd_ServiceGroupStart
 Starts a preconfigured SdServiceGroup.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -180,7 +180,7 @@ Sd_ServiceGroupStop
 Stops a preconfigured SdServiceGroup.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -212,7 +212,7 @@ Sd_ConsumedEventGroupSetState
 This API function is used by the BswM to set the requested state of the EventGroupStatus.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -247,7 +247,7 @@ Sd_LocalIpAddrAssignmentChg
 This function gets called by the SoAd if an IP address assignment related to a socket connection changes (i.e. new address assigned or assigned address becomes invalid).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds.
@@ -282,10 +282,10 @@ Sd_SoConModeChg
 Notification about a SoAd socket connection state change, e.g. socket connection gets online.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Reentrant for different SoConIds.
+   Reentrant for different SoConIds. Non reentrant for same SoConIds
 
 **Parameters**
 
@@ -317,10 +317,10 @@ Sd_RxIndication
 Indication of a received I-PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Reentrant for different SoConIds.
+   Reentrant for different SoConIds. Non reentrant for same SoConIds
 
 **Parameters**
 

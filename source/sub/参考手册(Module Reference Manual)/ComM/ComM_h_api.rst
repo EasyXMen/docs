@@ -1,31 +1,39 @@
-类型定义(Type Definitions)
----------------------------
-.. list-table::
-   :widths: 5 10 30
+
+类型定义
+--------
+.. 如果没有就不存在该章节，或为None
+
+.. list-table:: 
+   :widths: 15 5 20
    :header-rows: 1
 
    * - Type Name
      - Type
      - Description
+
    * - ComM_InitStatusType
      - enum
      - Initialization status of ComM
+
    * - ComM_StateType
      - enum
      - State and sub-state of ComM state machine
+
    * - ComM_PncModeType
      - enum
      - Current mode of a PNC
+
    * - ComM_ConfigType
      - struct
      - This type contains the implementation-specific post build configuration structure
+
    * - ComM_InhibitionType
      - struct
      - Communication inhibition status and counter
 
-
-提供的服务(Services)
--------------------------------------------
+      
+提供的服务
+-----------
 ComM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -304,7 +312,7 @@ ComM_GetCurrentComMode
 
     Std_ReturnType ComM_GetCurrentComMode(ComM_UserHandleType User, ComM_ModeType *ComMode)
 
-Function to query the current Communication Mode. ComM shall use the corresponding interfaces of the Bus State Managers to get the current Communication Mode of the network.
+Function to query the current Communication Mode. ComM shall use the corresponding interfaces of the Bus State Managers to get the current Communication Mode of the network. (Call to Bus State Manager API: <Bus>SM_GetCurrentComMode(...)).
 
 **Sync/Async**
    Synchronous
@@ -449,7 +457,7 @@ ComM_LimitChannelToNoComMode
 
     Std_ReturnType ComM_LimitChannelToNoComMode(NetworkHandleType Channel, boolean Status)
 
-Changes the inhibition status for the channel for changing from COMM_NO_COMMUNICATION to a higher Communication Mode. (See also ComM_LimitECUToNoComMode, same functionality but for all channels)
+Changes the inhibition status for the channel for changing from COMM_NO_COMMUNICATION to a higher Communication Mode. (See also ComM_LimitECUToNoComMode, same functionality but for all channels).
 
 **Sync/Async**
    Synchronous
@@ -496,7 +504,7 @@ ComM_LimitECUToNoComMode
 
     Std_ReturnType ComM_LimitECUToNoComMode(boolean Status)
 
-Changes the inhibition status for the ECU (=all channels) for changing from COMM_NO_COMMUNICATION to a higher Communication Mode. (See also ComM_LimitChannelToNo ComMode, same functionality but for a specific channels)
+Changes the inhibition status for the ECU (=all channels) for changing from COMM_NO_COMMUNICATION to a higher Communication Mode. (See also ComM_LimitChannelToNo ComMode, same functionality but for a specific channels).
 
 **Sync/Async**
    Synchronous

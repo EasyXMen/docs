@@ -10,7 +10,7 @@ BswM_SoAd_SoConModeChg
 Function called by SoAd to notify state changes of a socket connection.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

@@ -10,7 +10,7 @@ BswM_CanSM_CurrentState
 Function called by CanSM to indicate its current state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

@@ -23,7 +23,7 @@ Bfx_SetBit_u8u8
 set logical status of input data as '1' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -58,7 +58,7 @@ Bfx_ClrBit_u8u8
 clear the logical status of the input data to '0' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -93,7 +93,7 @@ Bfx_GetBit_u8u8_u8
 return the logical status of the input data for the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -128,7 +128,7 @@ Bfx_SetBits_u8u8u8u8
 set the input data as '1' or '0' as per 'Status' value starting from 'BitStartPn' for the length 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -169,7 +169,7 @@ Bfx_GetBits_u8u8u8_u8
 return the Bits of the input data starting from 'BitStartPn' for the length of 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -207,7 +207,7 @@ Bfx_SetBitMask_u8u8
 set the data to logical status '1' as per the corresponding Mask bits when set to value 1 and remaining bits will retain their original values.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -242,7 +242,7 @@ Bfx_ClrBitMask_u8u8
 clear the logical status to '0' for the input data for all the bit positions as per the mask.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -277,7 +277,7 @@ Bfx_TstBitMask_u8u8_u8
 return TRUE, if all bits defined in Mask value are set in the input Data value. In all other cases this function shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -312,7 +312,7 @@ Bfx_TstBitLnMask_u8u8_u8
 makes a test on the input data and if at least one bit is set as per the mask, then the function shall return TRUE, otherwise it shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -347,7 +347,7 @@ Bfx_TstParityEven_u8_u8
 tests the number of bits set to 1. If this number is even, it shall return TRUE, otherwise it returns FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -379,7 +379,7 @@ Bfx_ToggleBits_u8
 toggles all the bits of data (1's Complement Data).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -411,7 +411,7 @@ Bfx_ToggleBitMask_u8u8
 toggles the bits of data when the corresponding bit of the mask is enabled and set to 1.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
   Non Reentrant
@@ -446,7 +446,7 @@ Bfx_ShiftBitRt_u8u8
 shift data to the right by ShiftCnt. The most significant bit (left-most bit) is replaced by a '0' bit and the least significant bit (right-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -481,7 +481,7 @@ Bfx_ShiftBitLt_u8u8
 shift data to the left by ShiftCnt. The least significant bit (right-most bit) is replaced by a '0' bit and the most significant bit (left-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -516,7 +516,7 @@ Bfx_RotBitRt_u8u8
 rotate data to the right by ShiftCnt. The least significant bit is rotated to the most significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -551,7 +551,7 @@ Bfx_RotBitLt_u8u8
 rotate data to the left by ShiftCnt. The most significant bit is rotated to the least significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -586,7 +586,7 @@ Bfx_CopyBit_u8u8u8u8
 copy a bit from source data from bit position to destination data at bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -627,7 +627,7 @@ Bfx_PutBits_u8u8u8u8
 put bits as mentioned in Pattern to the input Data from the specified bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -668,7 +668,7 @@ Bfx_PutBitsMask_u8u8u8
 put all bits defined in Pattern and for which the corresponding Mask bit is set to 1 in the input Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -706,7 +706,7 @@ Bfx_PutBit_u8u8u8
 update the bit specified by BitPn of input data as '1' or '0' as per 'Status' value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -744,7 +744,7 @@ Bfx_ShiftBitSat_s8s8_s8
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -779,7 +779,7 @@ Bfx_ShiftBitSat_u8s8_u8
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -814,7 +814,7 @@ Bfx_CountLeadingSigns_s8
 Count the number of consecutive bits which have the same value as most significant bit in Data,starting with bit at position msb minus one. Put the result in Data. It is the number of leading sign bits minus one, giving the number of redundant sign bits in Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -846,7 +846,7 @@ Bfx_CountLeadingOnes_u8
 Count the number of consecutive ones in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -878,7 +878,7 @@ Bfx_CountLeadingZeros_u8
 Count the number of consecutive zeros in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -910,7 +910,7 @@ Bfx_SetBit_u16u8
 set logical status of input data as '1' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -945,7 +945,7 @@ Bfx_ClrBit_u16u8
 clear the logical status of the input data to '0' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -980,7 +980,7 @@ Bfx_GetBit_u16u8_u8
 return the logical status of the input data for the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1015,7 +1015,7 @@ Bfx_SetBits_u16u8u8u8
 set the input data as '1' or '0' as per 'Status' value starting from 'BitStartPn' for the length 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1056,7 +1056,7 @@ Bfx_GetBits_u16u8u8_u16
 return the Bits of the input data starting from 'BitStartPn' for the length of 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1094,7 +1094,7 @@ Bfx_SetBitMask_u16u16
 set the data to logical status '1' as per the corresponding Mask bits when set to value 1 and remaining bits will retain their original values.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1129,7 +1129,7 @@ Bfx_ClrBitMask_u16u16
 clear the logical status to '0' for the input data for all the bit positions as per the mask.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1164,7 +1164,7 @@ Bfx_TstBitMask_u16u16_u8
 return TRUE, if all bits defined in Mask value are set in the input Data value. In all other cases this function shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1199,7 +1199,7 @@ Bfx_TstBitLnMask_u16u16_u8
 makes a test on the input data and if at least one bit is set as per the mask, then the function shall return TRUE, otherwise it shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1234,7 +1234,7 @@ Bfx_TstParityEven_u16_u8
 tests the number of bits set to 1. If this number is even, it shall return TRUE, otherwise it returns FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1266,7 +1266,7 @@ Bfx_ToggleBits_u16
 toggles all the bits of data (1's Complement Data).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1298,7 +1298,7 @@ Bfx_ToggleBitMask_u16u16
 toggles the bits of data when the corresponding bit of the mask is enabled and set to 1.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1333,7 +1333,7 @@ Bfx_ShiftBitRt_u16u8
 shift data to the right by ShiftCnt. The most significant bit (left-most bit) is replaced by a '0' bit and the least significant bit (right-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1368,7 +1368,7 @@ Bfx_ShiftBitLt_u16u8
 shift data to the left by ShiftCnt. The least significant bit (right-most bit) is replaced by a '0' bit and the most significant bit (left-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1403,7 +1403,7 @@ Bfx_RotBitRt_u16u8
 rotate data to the right by ShiftCnt. The least significant bit is rotated to the most significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1438,7 +1438,7 @@ Bfx_RotBitLt_u16u8
 rotate data to the left by ShiftCnt. The most significant bit is rotated to the least significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1473,7 +1473,7 @@ Bfx_CopyBit_u16u8u16u8
 copy a bit from source data from bit position to destination data at bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1514,7 +1514,7 @@ Bfx_PutBits_u16u8u8u16
 put bits as mentioned in Pattern to the input Data from the specified bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1555,7 +1555,7 @@ Bfx_PutBitsMask_u16u16u16
 put all bits defined in Pattern and for which the corresponding Mask bit is set to 1 in the input Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1593,7 +1593,7 @@ Bfx_PutBit_u16u8u8
 update the bit specified by BitPn of input data as '1' or '0' as per 'Status' value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1631,7 +1631,7 @@ Bfx_ShiftBitSat_s16s8_s16
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1666,7 +1666,7 @@ Bfx_ShiftBitSat_u16s8_u16
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1701,7 +1701,7 @@ Bfx_CountLeadingSigns_s16
 Count the number of consecutive bits which have the same value as most significant bit in Data,starting with bit at position msb minus one. Put the result in Data. It is the number of leading sign bits minus one, giving the number of redundant sign bits in Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1733,7 +1733,7 @@ Bfx_CountLeadingOnes_u16
 Count the number of consecutive ones in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1765,7 +1765,7 @@ Bfx_CountLeadingZeros_u16
 Count the number of consecutive zeros in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1797,7 +1797,7 @@ Bfx_SetBit_u32u8
 set logical status of input data as '1' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1832,7 +1832,7 @@ Bfx_ClrBit_u32u8
 clear the logical status of the input data to '0' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1867,7 +1867,7 @@ Bfx_GetBit_u32u8_u8
 return the logical status of the input data for the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1902,7 +1902,7 @@ Bfx_SetBits_u32u8u8u8
 set the input data as '1' or '0' as per 'Status' value starting from 'BitStartPn' for the length 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1943,7 +1943,7 @@ Bfx_GetBits_u32u8u8_u32
 return the Bits of the input data starting from 'BitStartPn' for the length of 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1981,7 +1981,7 @@ Bfx_SetBitMask_u32u32
 set the data to logical status '1' as per the corresponding Mask bits when set to value 1 and remaining bits will retain their original values.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2016,7 +2016,7 @@ Bfx_ClrBitMask_u32u32
 clear the logical status to '0' for the input data for all the bit positions as per the mask.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2051,7 +2051,7 @@ Bfx_TstBitMask_u32u32_u8
 return TRUE, if all bits defined in Mask value are set in the input Data value. In all other cases this function shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2086,7 +2086,7 @@ Bfx_TstBitLnMask_u32u32_u8
 makes a test on the input data and if at least one bit is set as per the mask, then the function shall return TRUE, otherwise it shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2121,7 +2121,7 @@ Bfx_TstParityEven_u32_u8
 tests the number of bits set to 1. If this number is even, it shall return TRUE, otherwise it returns FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2153,7 +2153,7 @@ Bfx_ToggleBits_u32
 toggles all the bits of data (1's Complement Data).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2185,7 +2185,7 @@ Bfx_ToggleBitMask_u32u32
 toggles the bits of data when the corresponding bit of the mask is enabled and set to 1.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2220,7 +2220,7 @@ Bfx_ShiftBitRt_u32u8
 shift data to the right by ShiftCnt. The most significant bit (left-most bit) is replaced by a '0' bit and the least significant bit (right-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2255,7 +2255,7 @@ Bfx_ShiftBitLt_u32u8
 shift data to the left by ShiftCnt. The least significant bit (right-most bit) is replaced by a '0' bit and the most significant bit (left-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2290,7 +2290,7 @@ Bfx_RotBitRt_u32u8
 rotate data to the right by ShiftCnt. The least significant bit is rotated to the most significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2325,7 +2325,7 @@ Bfx_RotBitLt_u32u8
 rotate data to the left by ShiftCnt. The most significant bit is rotated to the least significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2360,7 +2360,7 @@ Bfx_CopyBit_u32u8u32u8
 copy a bit from source data from bit position to destination data at bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2401,7 +2401,7 @@ Bfx_PutBits_u32u8u8u32
 put bits as mentioned in Pattern to the input Data from the specified bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2442,7 +2442,7 @@ Bfx_PutBitsMask_u32u32u32
 put all bits defined in Pattern and for which the corresponding Mask bit is set to 1 in the input Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2480,7 +2480,7 @@ Bfx_PutBit_u32u8u8
 update the bit specified by BitPn of input data as '1' or '0' as per 'Status' value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2518,7 +2518,7 @@ Bfx_ShiftBitSat_s32s8_s32
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2553,7 +2553,7 @@ Bfx_ShiftBitSat_u32s8_u32
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2588,7 +2588,7 @@ Bfx_CountLeadingSigns_s32
 Count the number of consecutive bits which have the same value as most significant bit in Data,starting with bit at position msb minus one. Put the result in Data. It is the number of leading sign bits minus one, giving the number of redundant sign bits in Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2620,7 +2620,7 @@ Bfx_CountLeadingOnes_u32
 Count the number of consecutive ones in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2652,7 +2652,7 @@ Bfx_CountLeadingZeros_u32
 Count the number of consecutive zeros in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2684,7 +2684,7 @@ Bfx_SetBit_u64u8
 set logical status of input data as '1' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2719,7 +2719,7 @@ Bfx_ClrBit_u64u8
 clear the logical status of the input data to '0' at the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2754,7 +2754,7 @@ Bfx_GetBit_u64u8_u8
 return the logical status of the input data for the requested bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2789,7 +2789,7 @@ Bfx_SetBits_u64u8u8u8
 set the input data as '1' or '0' as per 'Status' value starting from 'BitStartPn' for the length 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2830,7 +2830,7 @@ Bfx_GetBits_u64u8u8_u64
 return the Bits of the input data starting from 'BitStartPn' for the length of 'BitLn'.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2868,7 +2868,7 @@ Bfx_SetBitMask_u64u64
 set the data to logical status '1' as per the corresponding Mask bits when set to value 1 and remaining bits will retain their original values.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2903,7 +2903,7 @@ Bfx_ClrBitMask_u64u64
 clear the logical status to '0' for the input data for all the bit positions as per the mask.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2938,7 +2938,7 @@ Bfx_TstBitMask_u64u64_u8
 return TRUE, if all bits defined in Mask value are set in the input Data value. In all other cases this function shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2973,7 +2973,7 @@ Bfx_TstBitLnMask_u64u64_u8
 makes a test on the input data and if at least one bit is set as per the mask, then the function shall return TRUE, otherwise it shall return FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3008,7 +3008,7 @@ Bfx_TstParityEven_u64_u8
 tests the number of bits set to 1. If this number is even, it shall return TRUE, otherwise it returns FALSE.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3040,7 +3040,7 @@ Bfx_ToggleBits_u64
 toggles all the bits of data (1's Complement Data).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3072,7 +3072,7 @@ Bfx_ToggleBitMask_u64u64
 toggles the bits of data when the corresponding bit of the mask is enabled and set to 1.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3107,7 +3107,7 @@ Bfx_ShiftBitRt_u64u8
 shift data to the right by ShiftCnt. The most significant bit (left-most bit) is replaced by a '0' bit and the least significant bit (right-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3142,7 +3142,7 @@ Bfx_ShiftBitLt_u64u8
 shift data to the left by ShiftCnt. The least significant bit (right-most bit) is replaced by a '0' bit and the most significant bit (left-most bit) is discarded for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3177,7 +3177,7 @@ Bfx_RotBitRt_u64u8
 rotate data to the right by ShiftCnt. The least significant bit is rotated to the most significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3212,7 +3212,7 @@ Bfx_RotBitLt_u64u8
 rotate data to the left by ShiftCnt. The most significant bit is rotated to the least significant bit location for every single bit shift cycle.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3247,7 +3247,7 @@ Bfx_CopyBit_u64u8u64u8
 copy a bit from source data from bit position to destination data at bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3288,7 +3288,7 @@ Bfx_PutBits_u64u8u8u64
 put bits as mentioned in Pattern to the input Data from the specified bit position.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3329,7 +3329,7 @@ Bfx_PutBitsMask_u64u64u64
 put all bits defined in Pattern and for which the corresponding Mask bit is set to 1 in the input Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3367,7 +3367,7 @@ Bfx_PutBit_u64u8u8
 update the bit specified by BitPn of input data as '1' or '0' as per 'Status' value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3405,7 +3405,7 @@ Bfx_ShiftBitSat_s64s8_s64
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3440,7 +3440,7 @@ Bfx_ShiftBitSat_u64s8_u64
 Arithmetic shift with saturation.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3475,7 +3475,7 @@ Bfx_CountLeadingSigns_s64
 Count the number of consecutive bits which have the same value as most significant bit in Data,starting with bit at position msb minus one. Put the result in Data. It is the number of leading sign bits minus one, giving the number of redundant sign bits in Data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -3507,7 +3507,7 @@ Bfx_CountLeadingOnes_u64
 Count the number of consecutive ones in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3539,7 +3539,7 @@ Bfx_CountLeadingZeros_u64
 Count the number of consecutive zeros in Data starting with the most significant bit and return the result.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3571,7 +3571,7 @@ Bfx_GetVersionInfo
 Returns the version information of this library.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
