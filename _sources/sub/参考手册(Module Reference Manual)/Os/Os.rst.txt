@@ -193,7 +193,7 @@ ORIENTAIS OS软件结构见
 
 The software structure of ORIENTAIS OS is shown in
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/OS软件结构.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/OS软件结构.png
    :alt: ORIENTAIS OS软件结构图片
    :name: ORIENTAIS OS软件结构
    :align: center
@@ -1091,7 +1091,7 @@ OS基本配置如下：
 
 The basic OS configurations are as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Os_obj.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Os_obj.png
    :align: center
 
    OS对象配置(OS Object Configuration)
@@ -1106,7 +1106,7 @@ SystemConfig对象主要用于生成OS正常运行依赖的一系列中断：如
 
 The SystemConfig object is primarily used to generate a series of interrupts required for normal OS operation, such as clock interrupts, time protection interrupts, and cross-core communication interrupts (for multi-core systems).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/SystemConfig_obj.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/SystemConfig_obj.png
    :align: center
 
    SystemConfig对象配置(SystemConfig Object Configuration)
@@ -1124,7 +1124,7 @@ Counter对象主要用于生成OS所依赖的计时器，可分为软件counter�
 
 Counter objects are primarily used to generate timers required by the OS, which can be categorized into software counters and hardware counters.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Counter_obj.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Counter_obj.png
    :align: center
 
    Counter对象配置(Counter Object Configuration)
@@ -1142,12 +1142,12 @@ Task对象是用户代码的执行者，配置该对象将在Os_UserInf.c中生�
 
 The Task object executes user code. Configuring this object generates the corresponding task entry in Os_UserInf.c. Users can add their code to the entry or call standard APIs defined by the AUTOSAR specification to implement their functional requirements.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Task_obj.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Task_obj.png
    :align: center
 
    Task对象配置(Task Object Configuration)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Task_entry.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Task_entry.png
    :align: center
 
    Task entry
@@ -1165,7 +1165,7 @@ ISR对象是中断执行的载体，分为二类中断与一类中断两类。�
 
 The ISR object serves as the carrier for interrupt execution, divided into Category 2 interrupts and Category 1 interrupts. Category 2 interrupts are managed by the OS and can call standard APIs defined by the AUTOSAR specification, while Category 1 interrupts are not OS-controlled and may cause undefined behavior.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Isr_obj.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Isr_obj.png
    :align: center
 
    ISR对象配置(ISR Object Configuration)
@@ -1177,7 +1177,7 @@ Alarm对象主要用于在设置的counter计数点执行对应的动作。如�
 
 The Alarm object is primarily used to execute corresponding actions at configured counter counting points, such as activating tasks, calling user callback functions, incrementing counter counts, and setting Events. Using an Alarm requires association with a corresponding counter as the trigger.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Alarm_obj.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Alarm_obj.png
    :align: center
 
    Alarm对象配置(Alarm Object Configuration)
@@ -1210,7 +1210,7 @@ Applications are categorized as: untrusted Applications, trusted Applications wi
 
   Invalid input parameters trigger an error hook in the OS application module. The user should determine appropriate handling.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/App.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/App.png
    :align: center
 
    APP对象配置(APP Object Configuration)
@@ -1228,7 +1228,7 @@ EcuC首先需要配置Core对象，确定工程中Core的数量及ID。
 
 First, EcuC requires configuration of Core objects to determine the number and IDs of Cores in the project.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Ecuc_part.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Ecuc_part.png
    :align: center
 
    EcuC配置Partition对象(EcuC Partition Object Configuration)
@@ -1247,7 +1247,7 @@ First, OS needs to configure Core num in the OSos object (this must match the nu
 
 Then, OS associates EcuC Partition objects in OSAPP to map to different Cores.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/OS_app.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/OS_app.png
    :align: center
 
    OS配置Partition对象(OS Partition Object Configuration)
@@ -1298,7 +1298,7 @@ AUTOSAR OS 通过使用到达间隔时序保护来保证以下时间的静态配
 
 AUTOSAR OS prevents timing errors in (3) through arrival interval timing protection, which ensures a statically configured lower limit (called time frame) for:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/Tprot.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/Tprot.png
    :align: center
 
    Task配置时间保护功能(Task Time Protection Configuration)
@@ -1371,7 +1371,7 @@ ORIENTAIS OS已经通过服务调用返回的状态码提供了一些服务保�
 
 ORIENTAIS OS already provides basic service protection through status codes returned by service calls, which form the foundation for service protection. This means service protection applies only to ORIENTAIS OS extended states.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/service_prot.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/service_prot.png
    :align: center
 
    配置服务保护(Service Protection Configuration)
