@@ -9,14 +9,6 @@ This repository contains the technical documentation for EasyXMen.
 
 - [用户手册（User Manual）](https://easyxmen.atomgit.com/)
 
-  - 快速上手指南（Quick Start Guide）
-
-  - 参考手册（Module Reference Manual）
-
-  - 集成手册（Integration Instruction Manual）
-
-  - 开发平台工程说明（Development Plantform Project Description）
-
 说明：用户手册内含快速上手指南、参考手册、集成手册、开发平台工程说明等文档，页面右上角可选择对应版本的文档，左侧导航栏为所选版本的目录。  
 Note: The User Manual contains documents such as the Quick Start Guide, Module Reference Manual, Integration Instruction Manual, and Development Plantform Project Description. On these documentation pages, you can select the corresponding version of the documentation in the top-right corner of the page. The left-side navigation will then show the table of contents for that version.
 
