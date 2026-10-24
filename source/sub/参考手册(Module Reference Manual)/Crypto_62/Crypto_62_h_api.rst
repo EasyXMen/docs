@@ -28,7 +28,7 @@ Crypto_62_Init
 Initializes the Crypto_62 module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -60,7 +60,7 @@ Crypto_62_GetVersionInfo
 Retrieves the version information of the Crypto_62 module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -92,7 +92,7 @@ Crypto_62_ProcessJob
 Processes a cryptographic job.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -147,7 +147,7 @@ Crypto_62_CancelJob
 Cancels a cryptographic job.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -202,7 +202,7 @@ Crypto_62_KeyElementSet
 Sets a key element for a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -263,7 +263,7 @@ Crypto_62_KeySetValid
 Sets a cryptographic key to a valid state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -313,7 +313,7 @@ Crypto_62_KeySetInValid
 Sets a cryptographic key to an invalid state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -361,7 +361,7 @@ Crypto_62_KeyElementGet
 Retrieves a key element from a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -426,7 +426,7 @@ Crypto_62_KeyGetStatus
 Retrieves the status of a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -479,7 +479,7 @@ Crypto_62_KeyElementCopy
 Copies a key element from one cryptographic key to another.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -542,7 +542,7 @@ Crypto_62_KeyElementCopyPartial
 Copies a partial key element from one cryptographic key to another.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -614,7 +614,7 @@ Crypto_62_KeyCopy
 Copies all key elements from one cryptographic key to another.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -665,7 +665,7 @@ Crypto_62_KeyElementIdsGet
 Retrieves the IDs and lengths of all key elements for a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -719,7 +719,7 @@ Crypto_62_RandomSeed
 Seeds the random number generator with a given seed.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -779,7 +779,7 @@ Crypto_62_KeyGenerate
 Generates a cryptographic key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -827,7 +827,7 @@ Crypto_62_KeyDerive
 Derives a cryptographic key from another key.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -878,7 +878,7 @@ Crypto_62_KeyExchangeCalcPubVal
 Calculates the public value for a key exchange operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -936,7 +936,7 @@ Crypto_62_KeyExchangeCalcSecret
 Calculates the shared secret for a key exchange operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -994,7 +994,7 @@ Crypto_62_CustomSync
 Performs a custom synchronous cryptographic operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant

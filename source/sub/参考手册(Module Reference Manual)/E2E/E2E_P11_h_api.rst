@@ -47,10 +47,10 @@ E2E_P11Protect
 Protects the array/buffer to be transmitted using the E2E profile 11. This includes checksum calculation, handling of counter and Data ID.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -104,10 +104,10 @@ E2E_P11ProtectInit
 Initializes the protection state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -148,10 +148,10 @@ E2E_P11Check
 Checks the Data received using the E2E profile 11. This includes CRC calculation, handling of Counter and Data ID.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -205,10 +205,10 @@ E2E_P11CheckInit
 Initializes the check state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -249,10 +249,10 @@ E2E_P11MapStatusToSM
 The function maps the check status of profile 11 to a generic check status, which can be used by E2E state machine check function. The E2E profile 11 delivers a more fine-granular status, but this is not relevant for the E2E state machine.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 

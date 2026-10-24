@@ -29,6 +29,11 @@ Det
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2025/12/15
+     - chao.sun
+     - V1.1
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
 
 参考文档(References)
 ----------------------------------
@@ -150,7 +155,7 @@ Det
 模块架构(Module Architecture)
 --------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_AUTOSAR_Architecture.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_AUTOSAR_Architecture.png
    :alt: Det模块层次图(Det Module Hierarchy Diagram)
    :name: Det_AUTOSAR_Arch
    :align: center
@@ -165,7 +170,7 @@ As shown in :ref:`Det_AUTOSAR_Arch`, the Det module is located in the system ser
 Det接口调用关系(Det Interface Calling Relationship)
 -----------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_Interface_Relationship.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_Interface_Relationship.png
    :alt: Det模块接口关系图(Det Module Interface Relationship Diagram)
    :name: Det_Interface
    :align: center
@@ -180,7 +185,7 @@ As shown in :ref:`Det_Interface`, it displays the interface relationship of the 
 Det与Bsw之间的交互关系(Interaction Relationship between Det and Bsw)
 -----------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_Interaction_API_With_Bsw.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_Interaction_API_With_Bsw.png
    :alt: Det模块接口关系图(Det Module Interface Relationship Diagram)
    :name: Det_Interaction
    :align: center
@@ -195,9 +200,35 @@ As shown in :ref:`Det_Interaction`, it illustrates the interaction relationship 
 功能描述(Functional Description)
 ==========================================
 
+公共特性(Public Features)
+----------------------------
 
-特性(Features)
--------------------------
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+支持多核部署，任意可信分区均能调用
+
+Support multi-core deployment, and any trusted partition can be invoked.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   不支持。
+
+   Not supported.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。存在DET_START_SEC_CODE、DET_STOP_SEC_CODE、DET_START_SEC_CONFIG_DATA_16、DET_STOP_SEC_CONFIG_DATA_16、DET_START_SEC_CONFIG_DATA_32、DET_STOP_SEC_CONFIG_DATA_32、DET_START_SEC_CONFIG_DATA_8、DET_STOP_SEC_CONFIG_DATA_8、DET_START_SEC_CONFIG_DATA_UNSPECIFIED、DET_STOP_SEC_CONFIG_DATA_UNSPECIFIED、DET_START_SEC_CONST_UNSPECIFIED、DET_STOP_SEC_CONST_UNSPECIFIED、DET_START_SEC_VAR_CLEARED_16、DET_STOP_SEC_VAR_CLEARED_16、DET_START_SEC_VAR_CLEARED_32、DET_STOP_SEC_VAR_CLEARED_32、DET_START_SEC_VAR_CLEARED_8、DET_STOP_SEC_VAR_CLEARED_8、DET_START_SEC_VAR_CLEARED_BOOLEAN、DET_STOP_SEC_VAR_CLEARED_BOOLEAN、DET_START_SEC_VAR_CLEARED_UNSPECIFIED、DET_STOP_SEC_VAR_CLEARED_UNSPECIFIED、DET_START_SEC_VAR_INIT_8、DET_STOP_SEC_VAR_INIT_8、DET_START_SEC_VAR_INIT_PTR、DET_STOP_SEC_VAR_INIT_PTR、DET_START_SEC_VAR_CLEARED__UNSPECIFIED、DET_STOP_SEC_VAR_CLEARED__UNSPECIFIED字段。
+
+The memmap file is dynamic.There are BDET_START_SEC_CODE、DET_STOP_SEC_CODE、DET_START_SEC_CONFIG_DATA_16、DET_STOP_SEC_CONFIG_DATA_16、DET_START_SEC_CONFIG_DATA_32、DET_STOP_SEC_CONFIG_DATA_32、DET_START_SEC_CONFIG_DATA_8、DET_STOP_SEC_CONFIG_DATA_8、DET_START_SEC_CONFIG_DATA_UNSPECIFIED、DET_STOP_SEC_CONFIG_DATA_UNSPECIFIED、DET_START_SEC_CONST_UNSPECIFIED、DET_STOP_SEC_CONST_UNSPECIFIED、DET_START_SEC_VAR_CLEARED_16、DET_STOP_SEC_VAR_CLEARED_16、DET_START_SEC_VAR_CLEARED_32、DET_STOP_SEC_VAR_CLEARED_32、DET_START_SEC_VAR_CLEARED_8、DET_STOP_SEC_VAR_CLEARED_8、DET_START_SEC_VAR_CLEARED_BOOLEAN、DET_STOP_SEC_VAR_CLEARED_BOOLEAN、DET_START_SEC_VAR_CLEARED_UNSPECIFIED、DET_STOP_SEC_VAR_CLEARED_UNSPECIFIED、DET_START_SEC_VAR_INIT_8、DET_STOP_SEC_VAR_INIT_8、DET_START_SEC_VAR_INIT_PTR、DET_STOP_SEC_VAR_INIT_PTR、DET_START_SEC_VAR_CLEARED__UNSPECIFIED、DET_STOP_SEC_VAR_CLEARED__UNSPECIFIED fields.
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+---------------------------
 
 模块初始化(Module Initialization)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -326,6 +357,7 @@ Backend task processing after calling Det_ReportError interface when ECU system 
 
 #. 循环继续。
 
+
    The loop continues.
 
 
@@ -368,13 +400,10 @@ None
      - 描述(Description)
    
    * - Det.c
-     -      - 作为Det模块的核心文件，实现Det模块全部对外接口，以及实现Det模块功能所必须的local函数，local宏定义，local变量定义(As the core file of the Det module, it implements all external interfaces of the Det module, as well as the local functions, local macro definitions, and local variable definitions necessary for implementing Det module functions)
+     - 作为Det模块的核心文件，实现Det模块全部对外接口，以及实现Det模块功能所必须的local函数，local宏定义，local变量定义(As the core file of the Det module, it implements all external interfaces of the Det module, as well as the local functions, local macro definitions, and local variable definitions necessary for implementing Det module functions)
        
    * - Det.h
      - 实现Det模块全部外部接口的声明，以及配置文件中全局变量的声明(Implements the declarations of all external interfaces of the Det module and the declarations of global variables in the configuration file)
-       
-   * - Det_Types.h
-     - 实现Det模块全部外部宏定义，数据类型的定义与声明(Implements all external macro definitions of the Det module, as well as the definitions and declarations of data types)
        
    * - Det_MemMap.h
      - 实现Det模块内存映射抽象的声明(Implements the declaration of memory mapping abstraction for the Det module)
@@ -430,7 +459,7 @@ DetGeneral配置(DetGeneral Configuration)
 
 Used to describe the list of general configuration parameters of the Det module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_General.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_General.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_General
    :align: center
@@ -479,7 +508,7 @@ DetModule配置(DetModule Configuration)
 
 Used to describe the list of configuration parameters for a given PC/PB module in the Det module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_ConfigSet_Module.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_ConfigSet_Module.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_ConfigSet_Module
    :align: center
@@ -514,7 +543,7 @@ DetModuleInstance配置(DetModuleInstance Configuration)
 
 Used to describe the list of instance configuration parameters for a given PC/PB module in the Det module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_ConfigSet_Module_Instance.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_ConfigSet_Module_Instance.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_ConfigSet_Module_Instance
    :align: center
@@ -549,7 +578,7 @@ DetNotification配置(DetNotification Configuration)
 
 Used to describe the API configuration list of error notification callbacks in the Det module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Det/Det_Notification.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Det/Det_Notification.png
    :alt: Fee模块Bank配置图(Fee Module Bank Configuration Diagram)
    :name: Det_Notification
    :align: center

@@ -18,7 +18,7 @@ TcpIp_Init
 This service initializes the TCP/IP Stack.TcpIp_Init may not block the start-up process for an indefinite amount of time.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -50,7 +50,7 @@ TcpIp_GetVersionInfo
 Returns the version information.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -82,7 +82,7 @@ TcpIp_Close
 By this API service the TCP/IP stack is requested to close the socket and release all related resources.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -129,7 +129,7 @@ TcpIp_Bind
 By this API service the TCP/IP stack is requested to bind a UDP or TCP socket to a local resource.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -179,7 +179,7 @@ TcpIp_TcpConnect
 By this API service the TCP/IP stack is requested to establish a TCP connection to the configured peer.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -226,7 +226,7 @@ TcpIp_TcpListen
 By this API service the TCP/IP stack is requested to listen on the TCP socket specified by the socket identifier.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -273,7 +273,7 @@ TcpIp_TcpReceived
 By this API service the reception of socket data is confirmed to the TCP/IP stack.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -320,7 +320,7 @@ TcpIp_RequestComMode
 By this API service the TCP/IP stack is requested to change the TcpIp state of the communication network identified by EthIf controller index.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non reentrant
@@ -367,7 +367,7 @@ TcpIp_RequestIpAddrAssignment
 By this API service the local IP address assignment for the IP address specified by LocalAddrId shall be initiated.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non reentrant
@@ -423,7 +423,7 @@ TcpIp_ReleaseIpAddrAssignment
 By this API service the local IP address assignment for the IP address specified by LocalAddrId shall be released.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non reentrant
@@ -467,7 +467,7 @@ TcpIp_ResetIpAssignment
 Resets all learned IP-addresses to invalid values.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -499,7 +499,7 @@ TcpIp_IcmpTransmit
 By this API service the TCP/IP stack sends an ICMP message according to the specified parameters.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -561,7 +561,7 @@ TcpIp_IcmpV6Transmit
 By this API service the TCP/IP stack sends an ICMPv6 message according to the specified parameters.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -623,7 +623,7 @@ TcpIp_DhcpReadOption
 By this API service the TCP/IP stack retrieves DHCP option data identified by parameter option for already received DHCP options.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -676,7 +676,7 @@ TcpIp_DhcpV6ReadOption
 By this API service the TCP/IP stack retrieves DHCPv6 option data identified by parameter option for already received DHCPv6 options.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -729,7 +729,7 @@ TcpIp_DhcpWriteOption
 By this API service the TCP/IP stack writes the DHCP option data identified by parameter option.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -782,7 +782,7 @@ TcpIp_DhcpV6WriteOption
 By this API service the TCP/IP stack writes the DHCPv6 option data identified by parameter option.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -835,7 +835,7 @@ TcpIp_ChangeParameter
 By this API service the TCP/IP stack is requested to change a parameter of a socket. E.g. the Nagle algorithm may be controlled by this API.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -885,7 +885,7 @@ TcpIp_GetIpAddr
 Obtains the local IP address actually used by LocalAddrId, the netmask and default router.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -938,7 +938,7 @@ TcpIp_GetPhysAddr
 Obtains the physical source address used by the EthIf controller implicitly specified via Local AddrId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -985,7 +985,7 @@ TcpIp_GetRemotePhysAddr
 TcpIp_GetRemotePhysAddr queries the IP/physical address translation table specified by Ctrl Idx and returns the physical address related to the IP address specified by IpAddrPtr. In case no physical address can be retrieved and parameter initRes is TRUE, address resolution for the specified IP address is initiated on the local network.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -1038,7 +1038,7 @@ TcpIp_GetCtrlIdx
 TcpIp_GetCtrlIdx returns the index of the controller related to LocalAddrId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1085,7 +1085,7 @@ TcpIp_GetArpCacheEntries
 Copies entries from the physical address cache of the IPv4 instance that is active on the EthIf controller specified by ctrlIdx into a user provided buffer. The function will copy all or numberOf Elements into the output list. If input value of numberOfElements is 0 the function will not copy any data but only return the number of valid entries in the cache. EntryListPtr may be NULL_PTR in this case.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -1135,7 +1135,7 @@ TcpIp_GetNdpCacheEntries
 Copies entries from the physical address cache of the IPv6 instance that is active on the EthIf controller specified by ctrlIdx into a user provided buffer. The function will copy all or numberOf Elements into the output list. If input value of numberOfElements is 0 the function will not copy any data but only return the number of valid entries in the cache. EntryListPtr may be NULL_PTR in this case.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -1185,7 +1185,7 @@ TcpIp_GetAndResetMeasurementData
 Allows to read and reset detailed measurement data for diagnostic purposes. Get all MeasurementIdx's at once is not supported. TCPIP_MEAS_ALL shall only be used to reset all MeasurementIdx's at once. A NULL_PTR shall be provided for MeasurementDataPtr in this case.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1235,7 +1235,7 @@ TcpIp_IsConnectionReady
 API allows to check if a communication over this socket is possible for a dedicated remote address. It includes that the socket is bound, a physical address is available for the requested remote address and if a security association is configured that a secured connection is already established.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -1284,7 +1284,7 @@ TcpIp_UdpTransmit
 This service transmits data via UDP to a remote node. The transmission of the data is immediately performed with this function call by forwarding it to EthIf.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -1337,7 +1337,7 @@ TcpIp_TcpTransmit
 This service requests transmission of data via TCP to a remote node.The transmission of the data is decoupled.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different SocketIds. Non reentrant for the same SocketId.
@@ -1390,7 +1390,7 @@ TcpIp_RxIndication
 By this API service the TCP/IP stack gets an indication and the data of a received frame.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -1437,7 +1437,7 @@ TcpIp_MainFunction
 Schedules the TCP/IP stack.(Entry point for scheduling)
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -1469,7 +1469,7 @@ TcpIp_MainFunction
 Schedules the TCP/IP stack.(Entry point for scheduling)
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non reentrant
@@ -1489,10 +1489,10 @@ TcpIp_GetSocket
 By this API service the TCP/IP stack is requested to allocate a new socket. Note: Each accepted incoming TCP connection also allocates a socket resource.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   TRUE
+   Reentrant
 
 **Parameters**
 

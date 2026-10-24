@@ -5,10 +5,10 @@ LdCom
 
 
 
-文档信息 Document Information
+文档信息(Document Information)
 ================================================
 
-版本历史 Version History
+版本历史(Version History)
 --------------------------------------------------------------------------------
 
 .. list-table::
@@ -33,7 +33,13 @@ LdCom
      - 发布(Release)
      - 正式发布(Official release)
 
-参考文档 References
+   * - 2026/03/10
+     - fupeng.yu
+     - V1.1
+     - 修改(Modify)
+     - 调整文档架构(Modify the document structure)
+
+参考文档(References)
 --------------------------------------------------------------------------------
 
 .. list-table::
@@ -90,15 +96,15 @@ LdCom
      - AUTOSAR_CP_TPS_ECUConfiguration
      - R23-11
 
-术语与简写 Terms and Abbreviations
+术语与简写(Terms and Abbreviations)
 ============================================================
 
-术语 Terms
+术语(Terms)
 ----------------------------------------------------------------
 None
 
 
-简写 Abbreviations
+简写(Abbreviations)
 ----------------------------------------------------------------
 
 .. list-table::
@@ -119,7 +125,7 @@ None
      - LargeDataCOM
      - "大数据信号"通信模块
 
-简介 Introduction
+简介(Introduction)
 ================================
 
 
@@ -129,7 +135,7 @@ The LdCom module is mainly used for transmitting I-PDU between users (RTE) and P
 
 模块架构 Module architecture
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LdCom/LdCom_Autosar_Architecture.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LdCom/LdCom_Autosar_Architecture.png
    :alt: LdCom模块层次图 (LdCom Module Layer Diagram)
    :name: LdCom_AUTOSAR_Arch
    :align: center
@@ -147,16 +153,49 @@ LdCom 实现了与上下层模块间基于 I-PDU 传输的接口传递，包括 
 LdCom can realize interface transfer based on I-PDU transmission between the modules of upper and lower layers, including sending IF Pdu (Direct sending/sending via TriggerTransmit), receiving IF Pdu, sending TP Pdu, receiving TP Pdu, and detecting DET errors.
 
 
-功能描述 Functional Description
+功能描述(Functional Description)
 ======================================================
 
-特性 Features
+公共特性(Public Features)
+-----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- LdCom模块支持多核多分区部署，用户可根据需求将 LdCom 模块部署在单核或多核上，并且可以在不同的分区中部署 LdCom 模块，具体的分区信息由LdComPduRef所引用Pdu的配置项EcucPduDefaultPartitionRef决定。
+  
+  The LdCom module supports multi-core and multi partition deployment. Users can deploy the LdCom module on a single core or multiple cores according to their needs, and can deploy the LdCom module in different partitions. The specific partition information is determined by the configuration item EcucPduDefaultPartitionRef referenced by LdComPduRef.
+
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - LdCom模块支持LdComIpdu配置数目的多变体，用户可根据需求配置不同数目的LdComIpdu以适配不同的应用场景。
+        
+     The LdCom module supports the variant of the number of LdComIpdu configurations. Users can configure different numbers of LdComIpdu according to their needs to adapt to different application scenarios.
+
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Memmap文件是动态的，存在LDCOM_START_SEC_VAR_CLEARED_BOOLEAN、LDCOM_STOP_SEC_VAR_CLEARED_BOOLEAN、LDCOM_START_SEC_VAR_CLEARED_PTR、LDCOM_STOP_SEC_VAR_CLEARED_PTR、LDCOM_START_SEC_CODE、LDCOM_STOP_SEC_CODE、LDCOM_START_SEC_CODE_FAST、LDCOM_STOP_SEC_CODE_FAST、LDCOM_START_SEC_CALLOUT_CODE、LDCOM_STOP_SEC_CALLOUT_CODE、LDCOM_START_SEC_CONFIG_DATA_UNSPECIFIED、LDCOM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、LDCOM_START_SEC_CONFIG_DATA_16、LDCOM_STOP_SEC_CONFIG_DATA_16、LDCOM_START_SEC_VAR_CLEARED_{{ n }}_BOOLEAN [#f1]_、LDCOM_STOP_SEC_VAR_CLEARED__{{n}}_BOOLEAN [#f1]_ 多个Memmap段。
+  
+  The Memmap file is dynamic, with multiple Memmap sections including LDCOM_START_SEC_VAR_CLEARED_BOOLEAN, LDCOM_STOP_SEC_VAR_CLEARED_BOOLEAN, LDCOM_START_SEC_VAR_CLEARED_PTR, LDCOM_STOP_SEC_VAR_CLEARED_PTR, LDCOM_START_SEC_CODE, LDCOM_STOP_SEC_CODE, LDCOM_START_SEC_CODE_FAST, LDCOM_STOP_SEC_CODE_FAST, LDCOM_START_SEC_CALLOUT_CODE, LDCOM_STOP_SEC_CALLOUT_CODE, LDCOM_START_SEC_CONFIG_DATA_UNSPECIFIED, LDCOM_STOP_SEC_CONFIG_DATA_UNSPECIFIED, LDCOM_START_SEC_CONFIG_DATA_16, LDCOM_STOP_SEC_CONFIG_DATA_16, and multiple sections of LDCOM_START_SEC_VAR_CLEARED_{{ n }}_BOOLEAN and [#f1]_ , and LDCOM_STOP_SEC_VAR_CLEARED__{{n}}_BOOLEAN [#f1]_.
+
+.. rubric:: 说明
+
+.. [#f1] n为LdComIPdu.LdComPduRef引用Pdu.EcucPduDefaultPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+模块特性(Module Features)
 ------------------------------------------------------------
 
-IF IPDU 发送合接收 IF IPDU Sending and Receiving
+IF IPDU 发送和接收(IF IPDU Sending and Receiving)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-IF IPDU发送 IF IPDU Sending
+IF IPDU发送(IF IPDU Sending)
 ******************************************************************************************************************************
 LdCom 支持 IPdu 以 IF 方式进行发送， IF 方式发送存在两种形式：
 
@@ -183,7 +222,7 @@ If the Pdu is sent directly, the user directly calls LdCom_Transmit to send it w
 After the sending is completed, the lower layer calls LdCom_TxCConfirmation while LdCom calls the configured LdComTxConfirmation for transmission.
 
 
-IF IPDU的接收 IF IPDU Receiving
+IF IPDU的接收(IF IPDU Receiving)
 ******************************************************************************************************************************
 LdCom 支持 IPdu 以 IF 方式进行接收，下层接收到 IPdu 数据时直接调用LdCom_RxIndication 传递给 LdCom。
 
@@ -198,10 +237,10 @@ If the Pdu is received in IF mode, LdComApiType of LdComIPdu is configured as LD
 When the lower layer calls LdCom_RxIndication, LdCom will call the configured LdComRxIndication for transmission.
 
 
-TP IPDU 发送和接收 TP IPDU Sending and Receiving
+TP IPDU 发送和接收(TP IPDU Sending and Receiving)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TP IPDU 发送 TP IPDU Sending
+TP IPDU 发送(TP IPDU Sending)
 ******************************************************************************************************************************
 LdCom 支持 IPdu 以 TP 方式进行发送，按 TP 发送流程 Transmit→N 次 CopyTxData→TpTxConfirmation 进行 IPdu 的发送。
 
@@ -216,7 +255,7 @@ If IPdu is sent in TP mode, LdComApiType of LdComIPdu should be configured as LD
 The user layer calls LdCom_Transmit to request the sending of IPdu, and the lower layer module calls LdCom_CopyTxData to request the copying of IPdu data segments. LdCom makes transmission via the configured LdComTxCopyTxData. When the entire IPdu is sent, the lower layer will call LdCom_TpTxConfirmation and LdCom will make transmission via the configured LdComTpTxConfirmation.
 
 
-TP IPDU 接收 TP IPDU Receiving
+TP IPDU 接收(TP IPDU Receiving)
 ******************************************************************************************************************************
 LdCom 支持 IPdu 以 TP 方式进行接收，按 TP 接收流程 StartOfReception→N次 CopyRxData→TpRxIndication 进行 IPdu 的接收。
 
@@ -231,7 +270,7 @@ If IPdu is received in TP mode, LdComApiType of LdComIPdu should be configured a
 When the lower level module calls LdCom_StartOfReception, LdCom_CpyRxData, and LdCom_TpRXIndication, LdCom will call the configured LdComRxStartOfReception, LdComRxCopyRxData, and LdComTpRxIndication in order for transmission.
 
 
-偏差 Deviation
+偏差(Deviation)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1.调用上层(用户层)的回调接口暂不支持入参 LdComUserCbkHandleId，涉及到的回调接口有LdComUser_LdComCbkCopyTxData,
 LdComUser_LdComCbkTpTxConfirmation,LdComUser_LdComCbkStartOfReception,LdComUser_LdComCbkCopyRxData,
@@ -254,17 +293,17 @@ LdComTpTxConfirmation,LdComTxCopyTxData,LdComTxTriggerTransmit
 
 3.The configuration tool temporarily does not realize the configuration of LdComUserModule,LdComUserUriDefSet,LdComUserModuleCnf,LdComUserCallback,LdComUserIPdu
 
-扩展 Extension
+扩展(Extension)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None
 
-集成 Integration
+集成(Integration)
 ==========================================
 
-文件列表 File List
+文件列表(File List)
 ------------------------------------------------------------------
 
-静态文件 Static Files
+静态文件(Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -290,7 +329,7 @@ None
      - LdCom模块类型定义文件(Type definition file of LdCom module)
 
 
-动态文件 Dynamic Files
+动态文件(Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -312,7 +351,7 @@ None
 错误处理 Error Handling
 ------------------------------------------------------------
 
-开发错误 Development Errors
+开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -342,11 +381,11 @@ None
      - 0x06u
      - Invalid configuration set selection 
 
-产品错误 Product Errors
+产品错误(Product Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None
 
-运行时错误 Runtime Errors
+运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None
 
@@ -357,35 +396,35 @@ None
 
 
 
-配置 Configuration
+配置(Configuration)
 ==========================================
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LdCom/LdComIpdu_Cfg.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LdCom/LdComIpdu_Cfg.png
    :alt: LdComIpduM配置 (LdComIpduM configuration)
    :name: LdComIpdu
    :align: center
 
    LdComIpdu Configuration
 
-IF IPDU发送 IF IPDU Sending
+IF IPDU发送(IF IPDU Sending)
 ------------------------------------------------------------------------------------
 用户发送IF IPDU时，需要在LdComIPdu中配置LdComApiType为LDCOM_IF,LdComIPduDirection配置为LDCOM_SEND,LdComPduRef配置为发送Pdu,另外有两个可配置的回调接口LdComTxConfirmation和LdComTxTriggerTransmit，若用户层设计需要，则需要配置，分别用于用于收到来自底层的发送确认和来自底层请求发送的数据。
 
 To send IF IPDU, the user should configure LdComApiType as LDCOM_IF, LdComIPduDirection as LDCOM_SND, and LdComPduRef as sending Pdu in LdCommIPdu. In addition, there are two configurable callback interfaces,LdComTxConfirmation and LdComTxTriggerTransmit. They can be configured, as long as they are required by the user layer design, to receive the sending confirmations from the underlying layer and data requests from the underlying layer respectively.
 
-IF IPDU接收 IF IPDU Receiving
+IF IPDU接收(IF IPDU Receiving)
 ------------------------------------------------------------------------------------
 接收IF IPDU时，需要在LdComIPdu中配置LdComApiType为LDCOM_IF,LdComIPduDirection配置为LDCOM_RECEIVE,LdComPduRef配置为接收的Pdu,另外有个可配置的回调接口LdComRxIndication，用于把接收到的数据通知给用户，若用户层设计需要，则需要配置。
 
 To receive IF IPDU, the user should configure LdComApiType as LDCOM_IF, LdComIPduDirection as LDCOM_RECEIVE, LdComPduRef as the received Pdu in LdComIPdu. In addition, callback interface LdComRxIndication is also available, to notify the user of the received data. It needs configuring as long as it is required by the user layer design.
 
-TP IPDU发送 TP IPDU Sending
+TP IPDU发送(TP IPDU Sending)
 ------------------------------------------------------------------------------------
 用户发送TP IPDU时，需要在LdComIPdu中配置LdComApiType为LDCOM_TP,LdComIPduDirection配置为LDCOM_SEND,LdComPduRef配置为发送Pdu,另外有两个可配置的回调接口LdComTpTxConfirmation和LdComTxCopyTxData需要配置，用于把来自底层的发送确认结果通知给用户层和向用户层请求发送数据。
 
 To send TP IPDU, the user should configure LdComApiType as LDCOM_TP, LdComIPduDirection as LDCOM_SEND, and LdComPduRef as sending Pdu in LdCommIPdu. In addition, there are two configurable callback interfaces, LdComTpTxConfirmation and LdComTxCopyTxData, to notify the user layer of the sending confirmation results from the underlying layer and request the user layer to send data.
 
-TP IPDU接收 TP IPDU Receiving
+TP IPDU接收(TP IPDU Receiving)
 -----------------------------------------------------------------------------------
 接收TP IPDU时，需要在LdComIPdu中配置LdComApiType为LDCOM_TP,LdComIPduDirection配置为LDCOM_RECEIVE,LdComPduRef配置为接收的Pdu,另外有三个可配置的回调接口LdComRxStartOfReception,LdComRxCopyRxData和LdComTpRxIndication，分别用于通知用户开始接收数据，把接收到的数据通知给用户和接收数据结果通知给用户。
 

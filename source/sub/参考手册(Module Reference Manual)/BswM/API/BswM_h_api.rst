@@ -32,10 +32,10 @@ BswM_Init
 Initializes the BSW Mode Manager.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Conditionally Reentrant
+   Conditionally
 
 **Parameters**
 
@@ -64,7 +64,7 @@ BswM_Deinit
 Deinitializes the BSW Mode Manager. After a call of BswM_Deinit, no mode processing shall be performed by BswM even if any mode requests are made or the BswM main function is called.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -84,7 +84,7 @@ BswM_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -116,7 +116,7 @@ BswM_BswMPartitionRestarted
 Function called by Restart Task if the partition containing the BswM has been restarted.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -136,7 +136,7 @@ BswM_RequestMode
 Generic function call to request modes. This function shall only be used by other BSW modules that do not have a specific mode request interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

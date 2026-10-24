@@ -1,10 +1,9 @@
 
-StbM对外类型定义 StbM External Type Definitions
-----------------------------------------------------------------------------------------------------------------------------------------
-
+类型定义
+--------
 .. 如果没有就不存在该章节，或为None
 
-.. list-table::
+.. list-table:: 
    :widths: 15 5 20
    :header-rows: 1
 
@@ -12,58 +11,14 @@ StbM对外类型定义 StbM External Type Definitions
      - Type
      - Description
 
-   * - StbM_ConfigType
-     - struct
-     - Configuration data structure of the StbM module
-
-   * - StbM_SynchronizedTimeBaseType
-     - uint16
-     - Variables of this type are used to represent the kind of synchronized time-base
-
-   * - StbM_TimeTupleType
-     - struct
-     - Variables of this type are used for expressing time tuples
-
-   * - StbM_UserDataType
-     - struct
-     - Current user data of the Time Base
-
-   * - StbM_TimeStampType
-     - struct
-     - Variables of this type are used for expressing time stamps including relative time and absolute calendar time.
-
    * - StbM_MeasurementType
      - struct
-     - structure which contains additional measurement data
-
-   * - StbM_RateDeviationType
-     - sint16
-     - Variables of this type are used to express a rate deviation in ppm
-
-   * - StbM_TimeDiffType
-     - sint32
-     - Variables of this type are used to express time differences / offsets as signed values in in nanoseconds
-
-   * - StbM_TimeBaseStatusType
-     - uint16
-     - Variables of this type are used to express if and how a Local Time Base is synchronized to the Global Time Master
-
-   * - StbM_CustomerIdType
-     - uint16
-     - unique identifier of a notification customer
-
-   * - StbM_SyncRecordTableHeadType
-     - struct
-     - Synchronized Time Base Record Table Header
-
-   * - StbM_MasterConfigType
-     - uint8
-     - This type indicates if an ECU is configured for a system wide master for a given Time Base is available or not
+     - 
 
 
-StbM对外提供的服务 Services Provided Externally by StbM
-----------------------------------------------------------------------------------------------------------------------------------------
-
+      
+提供的服务
+-----------
 StbM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -127,6 +82,7 @@ This function returns the version information of this module.
 **Return type**
    void
 
+
 StbM_GetCurrentTime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -164,7 +120,6 @@ Returns a time value(Local Time Base derived from Global Time Base) in standard 
 **Return type**
    Std_ReturnType
 
-
 **Return values**
 
 .. list-table::
@@ -177,6 +132,56 @@ Returns a time value(Local Time Base derived from Global Time Base) in standard 
      - Successfully get the Current time
    * - E_NOT_OK
      - Getting the Current time failed
+
+StbM_GetCurrentSafeTime
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_GetCurrentSafeTime(StbM_SynchronizedTimeBaseType timeBaseId, StbM_TimeTripleType *timeTriple, StbM_UserDataType *userData)
+
+Returns a time triple (Local Time, Fallback Local Time, Global time and timebase status) and user data details. Note: This API shall be called with locked interrupts / within an Exclusive Area to prevent interruption (i.e., the risk that the time stamp is outdated on return of the function call).
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - time base reference
+   * - 
+     - timeTriple
+     - 
+   * - 
+     - userData
+     - 
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - successful
+   * - E_NOT_OK
+     - failed
 
 StbM_GetCurrentVirtualLocalTime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -225,6 +230,52 @@ Returns the Virtual Local Time of the referenced Time Base.
    * - E_NOT_OK
      - Getting the Virtual Local Time failed
 
+StbM_GetFallbackVirtualLocalTime
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_GetFallbackVirtualLocalTime(StbM_SynchronizedTimeBaseType timeBaseId, StbM_VirtualLocalTimeType *localTimePtr)
+
+Returns the fallback Virtual Local Time of the referenced Time Base.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - Time Base reference
+   * - [out]
+     - localTimePtr
+     - Current Fallback Virtual Local Time value
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - successful
+   * - E_NOT_OK
+     - failed
 
 StbM_SetGlobalTime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -276,7 +327,6 @@ Allows the Customers to set the new global time that has to be valid for the sys
    * - E_NOT_OK
      - Setting the global Time failed
 
-
 StbM_UpdateGlobalTime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -326,7 +376,6 @@ Allows the Customers to set the Global Time that will be sent to the buses. This
      - Successfully update the global time
    * - E_NOT_OK
      - updating the global Time failed
-
 
 StbM_SetUserData
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -428,7 +477,6 @@ Allows the Time Base Provider Modules to forward a new Global Time tuple(i.e., t
    * - E_NOT_OK
      - Setting the Global Time tuple failed
 
-
 StbM_GetRateDeviation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -476,7 +524,6 @@ Returns value of the current rate deviation of a Time Base.
    * - E_NOT_OK
      - Getting the rate deviation failed
 
-
 StbM_SetRateCorrection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -484,7 +531,7 @@ StbM_SetRateCorrection
 
     Std_ReturnType StbM_SetRateCorrection(StbM_SynchronizedTimeBaseType timeBaseId, StbM_RateDeviationType rateDeviation)
 
-Allows to set the rate of a Synchronized Time Base(being either a Pure Local Time Base or not)
+Allows to set the rate of a Synchronized Time Base(being either a Pure Local Time Base or not).
 
 **Sync/Async**
    Synchronous
@@ -523,7 +570,6 @@ Allows to set the rate of a Synchronized Time Base(being either a Pure Local Tim
      - Successfully set rate deviation of a Time Base
    * - E_NOT_OK
      - Setting the rate deviation failed
-
 
 StbM_GetTimeLeap
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -572,7 +618,6 @@ Returns value of Time Leap.
    * - E_NOT_OK
      - Getting Time leap value failed
 
-
 StbM_GetTimeBaseStatus
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -619,7 +664,6 @@ Returns detailed status information for a Synchronized(or Pure Local) Time Base.
      - Successfully get status of the Time Base
    * - E_NOT_OK
      - Getting status of the Time Base failed
-
 
 StbM_StartTimer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -671,7 +715,6 @@ Sets a time value, which the Time Base value is compared against.
    * - E_NOT_OK
      - Starting the timer failed
 
-
 StbM_GetSyncTimeRecordHead
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -718,7 +761,6 @@ Accesses to the recorded snapshot data Header of the table belonging to the Sync
      - Successful
    * - E_NOT_OK
      - Failed
-
 
 StbM_TriggerTimeTransmission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -806,7 +848,6 @@ Allows the Timesync Modules to detect, whether a Time Base should be transmitted
    * - Counter
      - value belonging to the Time Base, that indicates a Time Base update to the Timesync Modules
 
-
 StbM_GetMasterConfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -853,3 +894,401 @@ Indicates if the functionality for a system wide master(e.g. StbM_SetGlobalTime)
      - Successful
    * - E_NOT_OK
      - Failed
+
+StbM_GetBusProtocolParam
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_GetBusProtocolParam(StbM_SynchronizedTimeBaseType timeBaseId, StbM_ProtocolParamType *protocolParam)
+
+Returns the protocol parameters for the Time Base.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - Identification of a Time Base
+   * - [out]
+     - protocolParam
+     - Protocol parameters
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - Successfully get protocol parameters
+   * - E_NOT_OK
+     - Getting protocol parameters failed
+
+StbM_SetBusProtocolParam
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_SetBusProtocolParam(StbM_SynchronizedTimeBaseType timeBaseId, const StbM_ProtocolParamType *protocolParam)
+
+Sets the protocol parameters for the Time Base.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - Identification of a Time Base
+   * - [in]
+     - protocolParam
+     - Protocol parameters
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - Successfully set protocol parameters
+   * - E_NOT_OK
+     - Setting protocol parameters failed
+
+StbM_GetTxFreshness
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_GetTxFreshness(uint16 StbMFreshnessValueId, uint8 *StbMFreshnessValue, uint32 *StbMFreshnessValueLength)
+
+
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - StbMFreshnessValueId
+     - Holds the identifier of the freshness value
+   * - [out]
+     - StbMFreshnessValue
+     - Holds the current freshness value
+   * - [inout]
+     - StbMFreshnessValueLength
+     - Holds the length of the provided freshness in bits
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - request successful
+   * - E_NOT_OK
+     - request failed, a Freshness Value cannot be provided due to general issues for Freshness for this FreshnessValueId
+   * - STBM_E_BUSY
+     - The Freshness information can temporarily not be provided
+
+StbM_GetTxFreshnessTruncData
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_GetTxFreshnessTruncData(uint16 StbMFreshnessValueId, uint8 *StbMFreshnessValue, uint32 *StbMFreshnessValueLength, uint8 *StbMTruncatedFreshnessValue, uint32 *StbMTruncatedFreshnessValueLength)
+
+
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - StbMFreshnessValueId
+     - Holds the identifier of the freshness value
+   * - [out]
+     - StbMFreshnessValue
+     - Holds the current freshness value
+   * - [inout]
+     - StbMFreshnessValueLength
+     - Holds the length of the provided freshness in bits
+   * - [out]
+     - StbMTruncatedFreshnessValue
+     - Holds the truncated freshness to be included into the Secured time sync message. The parameter is optional.
+   * - [inout]
+     - StbMTruncatedFreshnessValueLength
+     - Provides the truncated freshness length configured for this freshness. The caller may adapt the value if needed or can leave it unchanged if the configured length and provided length is the same.
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - request successful
+   * - E_NOT_OK
+     - request failed, a Freshness Value cannot be provided due to general issues for Freshness for this FreshnessValueId
+   * - STBM_E_BUSY
+     - The Freshness information can temporarily not be provided.
+
+StbM_SPduTxConfirmation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    void StbM_SPduTxConfirmation(uint16 StbMFreshnessValueId)
+
+
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - StbMFreshnessValueId
+     - Holds the identifier of the freshness value
+
+**Return type**
+   void
+
+
+StbM_GetRxFreshness
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_GetRxFreshness(uint16 StbMFreshnessValueId, const uint8 *StbMTruncatedFreshnessValue, uint32 StbMTruncatedFreshnessValueLength, uint16 StbMAuthVerifyAttempts, uint8 *StbMFreshnessValue, uint32 *StbMFreshnessValueLength)
+
+
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - StbMFreshnessValueId
+     - Holds the identifier of the freshness value.
+   * - [in]
+     - StbMTruncatedFreshnessValue
+     - Holds the truncated freshness value that was contained in the Secured time sync message
+   * - [in]
+     - StbMTruncatedFreshnessValueLength
+     - Holds the length in bits of the truncated freshness value.
+   * - [in]
+     - StbMAuthVerifyAttempts
+     - Holds the number of authentication verify attempts of this time sync message since the last reception. The value is 0 for the first attempt and incremented on every unsuccessful verification attempt.
+   * - [out]
+     - StbMFreshnessValue
+     - Holds the current freshness value
+   * - [inout]
+     - StbMFreshnessValueLength
+     - Holds the length in bits of the freshness value
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - request successful
+   * - E_NOT_OK
+     - request failed, a Freshness Value cannot be provided due to general issues for Freshness for this FreshnessValueId
+   * - STBM_E_BUSY
+     - The Freshness information can temporarily not be provided.
+
+StbM_SetCloningOffset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_SetCloningOffset(StbM_SynchronizedTimeBaseType timeBaseId, const StbM_TimeStampType *timeOffset)
+
+This interface is used by the StbM to set the time offset for the Time Base.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - Identification of a Time Base
+   * - [in]
+     - timeOffset
+     - Time offset
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - Successfully set time offset
+   * - E_NOT_OK
+     - Setting time offset failed
+
+StbM_CloneTimeBase
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    Std_ReturnType StbM_CloneTimeBase(StbM_SynchronizedTimeBaseType timeBaseId, StbM_CloneConfigType cloneCfg, StbM_TimeBaseStatusType statusMask, StbM_TimeBaseStatusType statusValue)
+
+This interface is used by the StbM to clone the Time Base.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - timeBaseId
+     - Identification of a Time Base
+   * - [in]
+     - cloneCfg
+     - Clone configuration
+   * - [in]
+     - statusMask
+     - Status mask
+   * - [in]
+     - statusValue
+     - Status value
+
+**Return type**
+   Std_ReturnType
+
+**Return values**
+
+.. list-table::
+   :widths: 10 30
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - E_OK
+     - Successfully cloned Time Base
+   * - E_NOT_OK
+     - Cloning Time Base failed
+

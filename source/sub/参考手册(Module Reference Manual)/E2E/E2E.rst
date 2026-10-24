@@ -137,7 +137,7 @@ E2EL在架构上属于AUTOSAR静态库代码，使用同样属于静态库代码
 
 Architecturally, E2EL belongs to AUTOSAR static library code and uses the CRC module, which is also static library code, to protect safety data. E2E XF abstracts E2EL's related algorithms into user-friendly configuration items and interfaces, and generates code based on user inputs to help users better use E2EL for data protection.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/E2E/image2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/E2E/image2.png
    :alt: E2EL架构图(E2EL Architecture Diagram)
    :name: fig_E2E2
    :align: center
@@ -149,8 +149,36 @@ Architecturally, E2EL belongs to AUTOSAR static library code and uses the CRC mo
 功能描述(Functional Description)
 ==========================================
 
-特性(Features)
------------------------
+公共特性(Public Features)
+----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+E2E支持多分区调用，所有接口都是可重入的，可以同时由多个应用程序使用。无模块描述文件。
+
+E2E supports multi-partition calls. All interfaces are reentrant and can be used simultaneously by multiple applications. No module description file.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   无配置项，不支持。
+
+   No configurations, not supported.
+
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是静态的。存在E2E_START_SEC_CODE、E2E_STOP_SEC_CODE字段。
+
+The memmap file is static.There are E2E_START_SEC_CODE and E2E_STOP_SEC_CODE fields.
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+----------------------------
 
 E2EL的各个profile提供了一种可以满足功能安全目标的数据保护机制，各个E2E profile通过不同的算法和API完成以下类型的数据保护机制：
 
@@ -732,7 +760,7 @@ None
    * - E2E.h
      - E2E的共有头文件(Common header file of E2E)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/E2E/image3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/E2E/image3.png
    :alt: E2EL组件文件交互关系图(E2EL Component Files Interaction Diagram)
    :name: fig_E2E1
    :align: center

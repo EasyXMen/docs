@@ -136,12 +136,12 @@ As shown in Figure :ref:`fig_LinStack_arch` below, the lower layer of the LinSM 
 
 3.Notify the upper-layer modules when the LIN channel state switches to a new state
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinSM/AutosarLINStack.png
-   :alt: LIN通信栈架构图 (LIN Communication Stack Architecture Diagram)
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinSM/LinSM在AUTOSAR中的位置.png
+   :alt: LinSM在AUTOSAR中的位置(Position of LinSM in Autosar)
    :name: fig_LinStack_arch
    :align: center
 
-   AUTOSAR BSW software architecture - LIN stack scope.
+   LinSM在AUTOSAR中的位置(Position of LinSM in Autosar)
 
 .. 功能描述章节
 .. include:: LinSM_Functional.rst

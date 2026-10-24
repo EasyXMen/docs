@@ -1,8 +1,66 @@
 功能描述(Functional Description)
 ========================================
 
-特性(Features)
--------------------------
+公共特性(Public Features)
+--------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过 CanNmChannelConfig/CanNmComMNetworkHandleRef 引用的 ComMChannel/ComMChannelPartitionRef 获取分区信息.
+
+  The partition information is obtained via the ComMChannel/ComMChannelPartitionRef referenced by CanNmChannelConfig/CanNmComMNetworkHandleRef.
+
+- 每个 CanNmChannelConfig 生成一个Mainfunction，在各自的分区中被调用
+
+  Each CanNmChannelConfig generates a MainFunction, which is called in its respective partition.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   CanNm 支持在不同变体中：
+
+   CanNm supports different variants:
+
+   - 支持报文发送前的不同的偏移周期
+
+   Supports different offset periods before message transmission.
+
+   - 支持配置不同的总线负载降低计时器
+
+   Supports configuration of different bus load reduction timers.
+
+   - 支持配置不同的节点ID
+
+   Supports configuration of different Node IDs.
+
+   - 支持配置是否启用PNC功能，以及含PNC的报文发送超时计时器
+
+   Supports configuration for enabling PNC function and timeout timers for PNC message transmission.
+
+   - 支持不同的NM-Pdu收发路径
+
+   Supports different NM-Pdu transmission and reception paths.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Memmap文件是动态的。存在 CANNM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、CANNM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、CANNM_START_SEC_VAR_CLEARED_16、CANNM_STOP_SEC_CONFIG_DATA_8、CANNM_STOP_SEC_CONFIG_DATA_16、CANNM_START_SEC_CONFIG_DATA_BOOLEAN、CANNM_START_SEC_VAR_CLEARED_UNSPECIFIED、CANNM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、CANNM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANNM_STOP_SEC_CONFIG_DATA_32、CANNM_STOP_SEC_VAR_CLEARED_PTR、CANNM_STOP_SEC_VAR_CLEARED_BOOLEAN、CANNM_START_SEC_VAR_CLEARED_BOOLEAN、CANNM_START_SEC_VAR_CLEARED_8、CANNM_STOP_SEC_VAR_CLEARED_8、CANNM_START_SEC_CODE、CANNM_START_SEC_CONFIG_DATA_8、CANNM_START_SEC_CONFIG_DATA_PTR、CANNM_STOP_SEC_CONFIG_DATA_PTR、CANNM_STOP_SEC_VAR_CLEARED_16、CANNM_START_SEC_CONFIG_DATA_UNSPECIFIED、CANNM_STOP_SEC_CONFIG_DATA_BOOLEAN、CANNM_START_SEC_CONFIG_DATA_16、CANNM_START_SEC_CONFIG_DATA_32、CANNM_STOP_SEC_VAR_CLEARED_32、CANNM_START_SEC_VAR_CLEARED_PTR、CANNM_START_SEC_VAR_CLEARED_32、CANNM_STOP_SEC_CODE
+
+The Memmap files are dynamic. There are CANNM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、CANNM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、CANNM_START_SEC_VAR_CLEARED_16、CANNM_STOP_SEC_CONFIG_DATA_8、CANNM_STOP_SEC_CONFIG_DATA_16、CANNM_START_SEC_CONFIG_DATA_BOOLEAN、CANNM_START_SEC_VAR_CLEARED_UNSPECIFIED、CANNM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、CANNM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANNM_STOP_SEC_CONFIG_DATA_32、CANNM_STOP_SEC_VAR_CLEARED_PTR、CANNM_STOP_SEC_VAR_CLEARED_BOOLEAN、CANNM_START_SEC_VAR_CLEARED_BOOLEAN、CANNM_START_SEC_VAR_CLEARED_8、CANNM_STOP_SEC_VAR_CLEARED_8、CANNM_START_SEC_CODE、CANNM_START_SEC_CONFIG_DATA_8、CANNM_START_SEC_CONFIG_DATA_PTR、CANNM_STOP_SEC_CONFIG_DATA_PTR、CANNM_STOP_SEC_VAR_CLEARED_16、CANNM_START_SEC_CONFIG_DATA_UNSPECIFIED、CANNM_STOP_SEC_CONFIG_DATA_BOOLEAN、CANNM_START_SEC_CONFIG_DATA_16、CANNM_START_SEC_CONFIG_DATA_32、CANNM_STOP_SEC_VAR_CLEARED_32、CANNM_START_SEC_VAR_CLEARED_PTR、CANNM_START_SEC_VAR_CLEARED_32、CANNM_STOP_SEC_CODE
+
+.. rubric:: 说明
+
+.. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性(Module Features)
+--------------------------------------------------
 
 AUTOSAR CanNm基于分散的直接网络管理策略，这意味着每个网络节点仅根据在通信系统内接收和/或发送报文，执行自给自足的活动。
 
@@ -27,7 +85,7 @@ The AUTOSAR CanNm state machine includes three operating modes.
 - Prepare Bus-Sleep Mode(总线预睡眠模式)
 - Bus-Sleep Mode(总线睡眠模式)
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmStateMachine.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmStateMachine.png
    :alt: CanNmStackMachine
    :align: center
 
@@ -117,7 +175,7 @@ AUTOSAR NM 报文有特定的格式要求，NM报文总长度视总线特性而�
 
 AUTOSAR NM messages have specific format requirements. The total NM message length depends on the bus characteristics and is limited by the bus MTU. The message data segment format is as follows:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/NM_message_layout_example.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/NM_message_layout_example.png
    :alt: Nm报文格式图
    :align: center
 
@@ -127,7 +185,7 @@ AUTOSAR NM messages have specific format requirements. The total NM message leng
 
    Control Bit Vector (CBV): An optional one-byte field. Depending on configuration, it can be in the first or second byte of the NM message, or not used at all. For FlexRay bus, it can only be in the first byte or not used. The byte layout is shown below.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Nm/CBV_layout.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Nm/CBV_layout.png
    :alt: CBV排版图(CBV layout)
    :align: center
 
@@ -339,36 +397,6 @@ If the network is requested and CanNmPnHandleMultipleNetworkRequests (configurat
 当通道使能CanNmPnEnabled为TRUE，每次发送网络管理报文时，提供PNC bit vector字段起始地址调用Nm_PncBitVectorTxIndication接口以填充该字段。
 
 If the channel has CanNmPnEnabled=TRUE, the starting address of the PNC bit vector field is provided to call the Nm_PncBitVectorTxIndication interface each time an NM message is sent, to populate this field.
-
-.. only:: doc_pbs
- 
-  多变体支持 Multi-variant support
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
-    CanNm 支持在不同变体中：
-  
-    CanNm supports different variants:
-  
-  - 支持报文发送前的不同的偏移周期
-  
-     Supports different offset periods before message transmission.
-  
-  - 支持配置不同的总线负载降低计时器
-  
-     Supports configuration of different bus load reduction timers.
-  
-  - 支持配置不同的节点ID
-  
-     Supports configuration of different Node IDs.
-  
-  - 支持配置是否启用PNC功能，以及含PNC的报文发送超时计时器
-  
-     Supports configuration for enabling PNC function and timeout timers for PNC message transmission.
-  
-  - 支持不同的NM-Pdu收发路径
-  
-     Supports different NM-Pdu transmission and reception paths.
-
 
 偏差(Deviation)
 ----------------------

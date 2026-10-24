@@ -8,6 +8,13 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = build
 
+# Optional: pass tags via `TAGS="tag1 tag2" make html`
+ifeq (,$(strip $(TAGS)))
+# no tags
+else
+SPHINXOPTS   += $(foreach t,$(TAGS),-t $(t))
+endif
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

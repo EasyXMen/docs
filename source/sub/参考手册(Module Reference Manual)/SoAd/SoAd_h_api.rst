@@ -9,7 +9,7 @@ SoAd_Init
 Initializes internal and external interfaces and variables of SoAd module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -41,7 +41,7 @@ SoAd_GetVersionInfo
 Returns the version information of SoAd module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -73,7 +73,7 @@ SoAd_IfRoutingGroupTransmit
 Triggers the transmission of all If-TxPDUs identified by the parameter id after requesting the data from the related upper layer.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -117,7 +117,7 @@ SoAd_IfSpecificRoutingGroupTransmit
 Triggers the transmission of all If-TxPDUs identified by the parameter id on the socket connection specified by SoConId after requesting the data from the related upper layer.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -164,7 +164,7 @@ SoAd_GetSoConId
 Returns socket connection index related to the specified TxPduId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -211,7 +211,7 @@ SoAd_OpenSoCon
 This service opens the socket connection specified by SoConId.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -255,7 +255,7 @@ SoAd_CloseSoCon
 This service closes the socket connection specified by SoConId.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -302,7 +302,7 @@ SoAd_RequestIpAddrAssignment
 By this API service the local IP address assignment which shall be used for the socket connection specified by SoConId is initiated.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -358,7 +358,7 @@ SoAd_ReleaseIpAddrAssignment
 By this API service the local IP address assignment used for the socket connection specified by SoConId is released.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -402,7 +402,7 @@ SoAd_GetLocalAddr
 Retrieves the local address (IP address and port) actually used for the SoAd socket connection specified by SoConId, the netmask and default router.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -455,7 +455,7 @@ SoAd_GetPhysAddr
 Retrieves the physical source address of the EthIf controller used by the SoAd socket connection specified by SoConId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -502,7 +502,7 @@ SoAd_GetRemoteAddr
 Retrieves the remote address (IP address and port) actually used for the SoAd socket connection specified by SoConId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -549,7 +549,7 @@ SoAd_EnableRouting
 Enables routing of a group of PDUs in the SoAd related to the RoutingGroup specified by parameter id. Routing of PDUs can be either forwarding of PDUs from the upper layer to a TCP or UDP socket of the TCP/IP stack specified by a PduRoute or the other way around specified by a SocketRoute.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -593,7 +593,7 @@ SoAd_EnableSpecificRouting
 Enables routing of a group of PDUs in the SoAd related to the RoutingGroup specified by parameter id only on the socket connection identified by SoConId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -640,7 +640,7 @@ SoAd_DisableRouting
 Disables routing of a group of PDUs in the SoAd related to the RoutingGroup specified by parameter id. Routing of PDUs can be either forwarding of PDUs from the upper layer to a TCP or UDP socket of the TCP/IP stack specified by a PduRoute or the other way around specified by a SocketRoute.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -684,7 +684,7 @@ SoAd_DisableSpecificRouting
 Disables routing of a group of PDUs in the SoAd related to the RoutingGroup specified by parameter id only on the socket connection identified by SoConId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -731,7 +731,7 @@ SoAd_SetRemoteAddr
 By this API service the remote address (IP address and port) of the specified socket connection shall be set.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -778,7 +778,7 @@ SoAd_SetUniqueRemoteAddr
 This API service shall either return the socket connection index of the SoAdSocketConnection Group where the specified remote address (IP address and port) is set or assign the remote address to an unused socket connection from the same SoAdSocketConnectionGroup.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -828,7 +828,7 @@ SoAd_ReleaseRemoteAddr
 By this API service the remote address (IP address and port) of the specified socket connection shall be released, i.e. set back to the configured remote address setting.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -872,7 +872,7 @@ SoAd_TpChangeParameter
 Request to change a specific transport protocol parameter (e.g. block size).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -922,7 +922,7 @@ SoAd_ReadDhcpHostNameOption
 By this API service an upper layer of the SoAd can read the currently configured hostname, i.e. FQDN option in the DHCP submodule of the TCP/IP stack.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -972,7 +972,7 @@ SoAd_WriteDhcpHostNameOption
 By this API service an upper layer of the SoAd can set the hostname, i.e. FQDN option in the DHCP submodule of the TCP/IP stack.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -1022,7 +1022,7 @@ SoAd_GetSoConMode
 Returns current state of the socket connection specified by SoConId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1057,7 +1057,7 @@ SoAd_IfTransmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -1104,7 +1104,7 @@ SoAd_TpTransmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.
@@ -1151,7 +1151,7 @@ SoAd_TpCancelReceive
 Requests cancellation of an ongoing reception of a PDU in a lower layer transport protocol module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1195,7 +1195,7 @@ SoAd_TpCancelTransmit
 Requests cancellation of an ongoing transmission of a PDU in a lower layer communication module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -1236,10 +1236,10 @@ SoAd_IsConnectionReady
 
     TcpIp_ReturnType SoAd_IsConnectionReady(SoAd_SoConIdType SoConId, const TcpIp_SockAddrType *RemoteAddrPtr)
 
-API allows to check if a communication over this socket connection is possible for a dedicated remote address. It includes that the socket connection is bound to a socket, a physical address is available for the requested remote address and if a security association is configured that a ecured connection is already established.
+API allows to check if a communication over this socket connection is possible for a dedicated remote address. It includes that the socket connection is bound to a socket, a physical address is available for the requested remote address and if a security association is configured that a secured connection is already established.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different SoConIds. Non reentrant for the same SoConId.

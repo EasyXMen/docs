@@ -25,7 +25,7 @@ CanTp_RxIndication
 Notify CanTp to receive CAN N-PDU frame.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -60,7 +60,7 @@ CanTp_TxConfirmation
 Notify CanTp to Confirm the transmission of CAN N-PDU frame.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ids. Non reentrant for the same Id.
@@ -95,7 +95,7 @@ CanTp_Init
 Service for basic initialization of CanTp module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant.
@@ -127,7 +127,7 @@ CanTp_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -159,7 +159,7 @@ CanTp_Shutdown
 This function to shutdown the CanTp module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant.
@@ -179,7 +179,7 @@ CanTp_Transmit
 The transmission of segmented or unsegmented message is requested.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ids. Non reentrant for the same Id.
@@ -226,7 +226,7 @@ CanTp_CancelTransmit
 Requests cancellation of an ongoing transmission of a PDU in a lower layer communication module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ids. Non reentrant for the same Id.
@@ -270,7 +270,7 @@ CanTp_CancelReceive
 Requests cancellation of an ongoing reception of a PDU in a lower layer transport protocol module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ids. Non reentrant for the same Id.
@@ -314,7 +314,7 @@ CanTp_ChangeParameter
 Request to change a specific transport protocol parameter (e.g. block size).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant.
@@ -364,7 +364,7 @@ CanTp_ReadParameter
 This service is used to read the current value of reception parameters BS and STmin for a specified N-SDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant.

@@ -18,7 +18,7 @@ CanIf_Init
 This service Initializes internal and external interfaces of the CAN Interface for the further processing.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -50,7 +50,7 @@ CanIf_DeInit
 De-initializes the CanIf module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -70,7 +70,7 @@ CanIf_SetControllerMode
 This service calls the corresponding CAN Driver service for changing of the CAN controller mode.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant (Not for the same controller)
@@ -117,7 +117,7 @@ CanIf_GetControllerMode
 This service calls the corresponding CAN Driver service for obtaining the current status of the CAN controller.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -164,7 +164,7 @@ CanIf_Transmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -211,7 +211,7 @@ CanIf_ReadRxPduData
 This service provides the Data Length and the received data of the requested CanIfRxSduId to the calling upper layer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -258,7 +258,7 @@ CanIf_ReadTxNotifStatus
 This service returns the confirmation status (confirmation occurred or not) of a specific static or dynamic CAN Tx L-PDU, requested by the CanIfTxSduId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -290,7 +290,7 @@ CanIf_ReadRxNotifStatus
 This service returns the indication status (indication occurred or not) of a specific CAN Rx L-PDU, requested by the CanIfRxSduId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -322,7 +322,7 @@ CanIf_SetPduMode
 This service sets the requested mode at the L-PDUs of a predefined logical PDU channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -369,7 +369,7 @@ CanIf_GetPduMode
 This service reports the current mode of a requested PDU channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant (Not for the same channel)
@@ -416,7 +416,7 @@ CanIf_GetVersionInfo
 This service returns the version information of the called CAN Interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -448,7 +448,7 @@ CanIf_SetDynamicTxId
 This service reconfigures the corresponding CAN identifier of the requested CAN L-PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -483,7 +483,7 @@ CanIf_SetTrcvMode
 This service changes the operation mode of the tansceiver TransceiverId, via calling the corresponding CAN Transceiver Driver service.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -530,7 +530,7 @@ CanIf_GetTrcvMode
 This function invokes CanTrcv_GetOpMode and updates the parameter TransceiverModePtr with the value OpMode provided by CanTrcv.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -577,7 +577,7 @@ CanIf_GetTrcvWakeupReason
 This service returns the reason for the wake up of the transceiver TransceiverId, via calling the corresponding CAN Transceiver Driver service.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -624,7 +624,7 @@ CanIf_SetTrcvWakeupMode
 This function shall call CanTrcv_SetTrcvWakeupMode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -671,7 +671,7 @@ CanIf_CheckWakeup
 This service checks, whether an underlying CAN driver or a CAN transceiver driver already signals a wakeup event.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -715,7 +715,7 @@ CanIf_CheckValidation
 This service is performed to validate a previous wakeup event.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -759,7 +759,7 @@ CanIf_GetTxConfirmationState
 This service reports, if any TX confirmation has been done for the whole CAN controller since the last CAN controller start.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant (Not for the same controller)
@@ -791,7 +791,7 @@ CanIf_ClearTrcvWufFlag
 Requests the CanIf module to clear the WUF flag of the designated CAN transceiver.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different CAN transceivers
@@ -835,7 +835,7 @@ CanIf_CheckTrcvWakeFlag
 Requests the CanIf module to check the Wake flag of the designated CAN transceiver.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant for different CAN transceivers
@@ -879,7 +879,7 @@ CanIf_SetBaudrate
 This service shall set the baud rate configuration of the CAN controller. Depending on necessary baud rate modifications the controller might have to reset.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different ControllerIds. Non reentrant for the same ControllerId.
@@ -926,7 +926,7 @@ CanIf_ConfirmPnAvailability
 This service indicates that the transceiver is running in PN communication mode referring to the corresponding CAN transceiver with the abstract CanIf TransceiverId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -958,7 +958,7 @@ CanIf_ClearTrcvWufFlagIndication
 This service indicates that the transceiver has cleared the WufFlag referring to the corresponding CAN transceiver with the abstract CanIf TransceiverId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -990,7 +990,7 @@ CanIf_CheckTrcvWakeFlagIndication
 This service indicates that the check of the transceiver’s wake-up flag has been finished by the corresponding CAN transceiver with the abstract CanIf TransceiverId. This indication is used to cope with the asynchronous transceiver communication.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1022,7 +1022,7 @@ CanIf_TrcvModeIndication
 This service indicates a transceiver state transition referring to the corresponding CAN transceiver with the abstract CanIf TransceiverId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1056,7 +1056,7 @@ CanIf_TriggerTransmit
 Within this API, the upper layer module (called module) shall check whether the available data fits into the buffer size reported by PduInfoPtr->SduLength. If it fits, it shall copy its data into the buffer provided by PduInfoPtr->SduDataPtr and update the length of the actual copied data in PduInfoPtr->SduLength. If not, it returns E_NOT_OK without changing PduInfoPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -1103,7 +1103,7 @@ CanIf_TxConfirmation
 This service confirms a previously successfully processed transmission of a CAN TxPDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1135,7 +1135,7 @@ CanIf_RxIndication
 This service indicates a successful reception of a received CAN Rx L-PDU to the CanIf after passing all filters and validation checks.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1170,7 +1170,7 @@ CanIf_ControllerBusOff
 This service indicates a Controller BusOff event referring to the corresponding CAN Controller with the abstract CanIf ControllerId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1202,7 +1202,7 @@ CanIf_ControllerModeIndication
 This service indicates a controller state transition referring to the corresponding CAN controller with the abstract CanIf ControllerId.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

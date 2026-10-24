@@ -44,7 +44,7 @@ Csm_ReportDetErr
 Reports a development error to the DET (Development Error Tracer).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant
@@ -79,7 +79,7 @@ Csm_ChkInitParam
 Checks the initialization parameters for the CSM module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -111,7 +111,7 @@ Csm_ChkGetVersionInfo
 Checks the parameters for the Csm_GetVersionInfo function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -146,7 +146,7 @@ Csm_ChkServiceParam
 Checks the parameters for the Csm_Servicexxx function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -181,7 +181,7 @@ Csm_ChkKeyEleSetParam
 Checks the parameters for the CryIf_KeyElementSet function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -222,7 +222,7 @@ Csm_ChkKeySetValid
 Checks the parameters for the Csm_KeySetValid function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -257,7 +257,7 @@ Csm_ChkKeySetInValid
 Checks the parameters for the Csm_KeySetInValid function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -292,7 +292,7 @@ Csm_ChkKeyEleGet
 Checks the parameters for the Csm_KeyElementGet function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -333,7 +333,7 @@ Csm_ChkKeyEleCopy
 Checks the parameters for the Csm_KeyElementCopy function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -371,7 +371,7 @@ Csm_ChkKeyCopy
 Checks the parameters for the Csm_KeyCopy function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -409,7 +409,7 @@ Csm_ChkKeyEleCopyPart
 Checks the parameters for the Csm_KeyElementCopyPartial function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -447,7 +447,7 @@ Csm_ChkRandomSeed
 Checks the parameters for the Csm_RandomSeed function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -488,7 +488,7 @@ Csm_ChkKeyGenerate
 Checks the parameters for the Csm_KeyGenerate function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -523,7 +523,7 @@ Csm_ChkKeyDerive
 Checks the parameters for the Csm_KeyDerive function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -561,7 +561,7 @@ Csm_ChkExCalcPubVal
 Checks the parameters for the Csm_KeyExchangeCalcPubVal function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -602,7 +602,7 @@ Csm_ChkExCalcSecVal
 Checks the parameters for the Csm_KeyExchangeCalcSecret function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -643,7 +643,7 @@ Csm_ChkJobKeySetValid
 Checks the parameters for the Csm_JobKeySetValid function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -678,7 +678,7 @@ Csm_ChkJobKeySetInValid
 Checks the parameters for the Csm_JobKeySetInValid function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -713,7 +713,7 @@ Csm_ChkJobRandomSeed
 Checks the parameters for the Csm_JobRandomSeed function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -757,7 +757,7 @@ Csm_ChkJobKeyGenerate
 Checks the parameters for the Csm_JobKeyGenerate function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -795,7 +795,7 @@ Csm_ChkJobKeyDerive
 Checks the parameters for the Csm_JobKeyDerive function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -836,7 +836,7 @@ Csm_ChkJobExCalcPubVal
 Checks the parameters for the Csm_JobKeyExchangeCalcPubVal function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -880,7 +880,7 @@ Csm_ChkJobExCalcSec
 Checks the parameters for the Csm_JobKeyExchangeCalcSecret function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -924,7 +924,7 @@ Csm_ChkCancelJob
 Checks the parameters for the Csm_CancelJob function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance
@@ -959,7 +959,7 @@ Csm_ChkCbkNotify
 Checks the parameters for the Csm_CbkNotify function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same timer instance

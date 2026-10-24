@@ -30,6 +30,13 @@ MemIf
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/12/11
+     - peng.wu
+     - V1.1
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
+
+
 参考文档(References)
 ----------------------------------
 
@@ -126,12 +133,52 @@ MemIf模块的核心功能是为上层模块(如NvM)提供统一的访问接口�
 
 The core function of the MemIf module is to provide a unified access interface for upper-layer modules (such as NvM), while delegating specific storage operations to the underlying drivers. The MemIf interface layer provides unified interfaces for FLASH or EEPROM memory operations including writing, reading, erasing, and comparing to the storage stack service layer. All state control and operation result data types used within the storage stack are also implemented by the MemIf interface layer.
 
+在Autosar架构中属于存储硬件抽象层
+
+The MemIf module belongs to the memory hardware abstraction layer in the Autosar architecture.
+
+模块架构如图 :ref:`MemIf_AUTOSAR_Arch` 所示。
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemIf/MemIf_AUTOSAR_Architecture.png
+   :alt: MemIf模块层次图(MemIf module hierarchy diagram)
+   :name: MemIf_AUTOSAR_Arch
+   :align: center
+
+   MemIf AUTOSAR Architecture
+
 
 功能描述(Functional Description)
 ===================================
 
-特性(Features)
-----------------------
+公共特性（Public Features）
+--------------------------------------------------------------
+
+多核多分区功能（Multi-core and Multi-partition Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+
+.. only:: doc_pbs
+
+   PBS功能（PBS Features）
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   None
+
+
+Memmap功能（Memmap Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Memmap文件是动态的。存在MEMIF_START_SEC_CODE、MEMIF_STOP_SEC_CODE、MEMIF_START_SEC_CONFIG_DATA_PTR、MEMIF_STOP_SEC_CONFIG_DATA_PTR字段。
+
+The memmap file is dynamic.There are MEMIF_START_SEC_CODE、MEMIF_STOP_SEC_CODE、MEMIF_START_SEC_CONFIG_DATA_PTR、MEMIF_STOP_SEC_CONFIG_DATA_PTR fields.
+
+
+独占区功能（Exclusive Area Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性（Module Features）
+--------------------------------------------------------------
 
 抽象接口(Abstract Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,28 +202,18 @@ MemIf模块将底层驱动的错误传递给上层模块(如NvM)，以便进行�
 The MemIf module propagates errors from underlying drivers to upper-layer modules (such as NvM) for error handling. Error types include: read failure, write failure, erase failure, etc.
 
 
+偏差 （Deviation）
+--------------------------------------------------------------
+None
+
+
+扩展（Extension）
+--------------------------------------------------------------
+None
+
+
 集成(Integration)
 ========================
-
-初始化(Initialization)
------------------------------
-MemIf模块没有初始化，没有配置指针，没有状态指针。
-
-The MemIf module has no initialization routine, no configuration pointers, and no status pointers.
-
-
-底层模块映射(Underlying Module Mapping)
-----------------------------------------------
-MemIf模块配置了MemIfDevErrorDetect功能后，将使用源码对底层模块进行。可以使用MemIf_Read、MemIf_Write、MemIf_InvalidateBlock、
-MemIf_EraseImmediateBlock、MemIf_Cancel、MemIf_GetJobResult等接口。若打开了MemIfDevErrorDetect功能，且MemIfNumberOfDevices为2，则可使用MemIf_GetStatus接口。
-若打开了MemIfVersionInfoApi功能，则可使用MemIf_GetVersionInfo接口。
-若没有打开MemIfDevErrorDetect功能。则将使用宏定义映射底层模块的MemIf_Read、MemIf_Write、MemIf_InvalidateBlock、MemIf_EraseImmediateBlock、MemIf_Cancel、
-MemIf_GetJobResult、MemIf_GetStatus等接口。
-
-When the MemIfDevErrorDetect feature is configured in the MemIf module, it uses source code to interface with underlying modules. Interfaces such as MemIf_Read, MemIf_Write, MemIf_InvalidateBlock, MemIf_EraseImmediateBlock, MemIf_Cancel, and MemIf_GetJobResult can be used. If MemIfDevErrorDetect is enabled and MemIfNumberOfDevices is set to 2, the MemIf_GetStatus interface becomes available.
-If the MemIfVersionInfoApi feature is enabled, the MemIf_GetVersionInfo interface can be used.
-If MemIfDevErrorDetect is not enabled, macro definitions are used to map the underlying module's interfaces including MemIf_Read, MemIf_Write, MemIf_InvalidateBlock, MemIf_EraseImmediateBlock, MemIf_Cancel, MemIf_GetJobResult, and MemIf_GetStatus.
-
 
 文件列表(File List)
 ----------------------------------
@@ -215,6 +252,7 @@ If MemIfDevErrorDetect is not enabled, macro definitions are used to map the und
    * - MemIf_Cfg.c
      - Configuration parameters required for the implementation of MemIf; Contains the API information that need to be used.
 
+
 错误处理(Error Handling)
 --------------------------------
 
@@ -246,11 +284,15 @@ If MemIfDevErrorDetect is not enabled, macro definitions are used to map the und
 None
 
 
+运行时错误（Runtime Errors）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+
 接口描述(Interface Description)
 ========================================
 
 .. include:: MemIf_api.rst
-
 
 
 依赖的服务(Dependent Services)
@@ -303,8 +345,33 @@ None
      - Service to invalidate a logical block
 
 
-配置(Configuration)
-=============================
+配置接口（Configuration Interfaces）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+
+配置（Configuration）
+====================================
+
+初始化(Initialization)
+-----------------------------
+MemIf模块没有初始化，没有配置指针，没有状态指针。
+
+The MemIf module has no initialization routine, no configuration pointers, and no status pointers.
+
+
+底层模块映射(Underlying Module Mapping)
+----------------------------------------------
+MemIf模块配置了MemIfDevErrorDetect功能后，将使用源码对底层模块进行。可以使用MemIf_Read、MemIf_Write、MemIf_InvalidateBlock、
+MemIf_EraseImmediateBlock、MemIf_Cancel、MemIf_GetJobResult等接口。若打开了MemIfDevErrorDetect功能，且MemIfNumberOfDevices为2，则可使用MemIf_GetStatus接口。
+若打开了MemIfVersionInfoApi功能，则可使用MemIf_GetVersionInfo接口。
+若没有打开MemIfDevErrorDetect功能。则将使用宏定义映射底层模块的MemIf_Read、MemIf_Write、MemIf_InvalidateBlock、MemIf_EraseImmediateBlock、MemIf_Cancel、
+MemIf_GetJobResult、MemIf_GetStatus等接口。
+
+When the MemIfDevErrorDetect feature is configured in the MemIf module, it uses source code to interface with underlying modules. Interfaces such as MemIf_Read, MemIf_Write, MemIf_InvalidateBlock, MemIf_EraseImmediateBlock, MemIf_Cancel, and MemIf_GetJobResult can be used. If MemIfDevErrorDetect is enabled and MemIfNumberOfDevices is set to 2, the MemIf_GetStatus interface becomes available.
+If the MemIfVersionInfoApi feature is enabled, the MemIf_GetVersionInfo interface can be used.
+If MemIfDevErrorDetect is not enabled, macro definitions are used to map the underlying module's interfaces including MemIf_Read, MemIf_Write, MemIf_InvalidateBlock, MemIf_EraseImmediateBlock, MemIf_Cancel, MemIf_GetJobResult, and MemIf_GetStatus.
+
 
 MemIfGeneral
 ---------------------------
@@ -316,7 +383,7 @@ MemIfDevErrorDetect没有勾选，则使用宏定义的方式。若勾选了，�
 In the General section, the MemIfVersionInfoApi configuration item is used to enable the version information retrieval function. The MemIfDevErrorDetect configuration item determines whether the MemIf module uses function pointers or macro definitions for mapping. If MemIfDevErrorDetect is not selected, macro definitions are used. If selected, function pointers are used, and when MemIfDevErrorDetect is selected with MemIfNumberOfDevices configured as 2, the MemIf_GetStatus interface becomes available.
 Figure :ref:`General` shows the configuration interface of MemIfGeneral.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/MemIf/MemIfGeneral.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/MemIf/MemIfGeneral.png
    :alt: MemIf模块TestEccApi配置图 (TestEccApi Configuration Diagram of MemIf Module)
    :name: General
    :align: center

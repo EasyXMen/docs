@@ -10,7 +10,7 @@ BswM_J1939Nm_StateChangeNotification
 Notification of the current J1939Nm state after state changes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

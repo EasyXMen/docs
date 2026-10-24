@@ -29,6 +29,11 @@ EcuM
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2025/12/30
+     - Jian.Jiang
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
 
 参考文档(References)
 ----------------------------------
@@ -48,11 +53,11 @@ EcuM
    * - 2
      - Autosar
      - AUTOSAR_CP_SRS_ModeManagement.pdf
-     - R23-11 
+     - R23-11
    * - 3
      - Autosar
      - AUTOSAR_CP_SWS_ECUStateManager.pdf
-     - R23-11 
+     - R23-11
 
 
 术语与简写(Terms and Abbreviations)
@@ -87,7 +92,7 @@ EcuM
 
    * - Wakeup Reason
      - 导致唤醒的物理事件。CAN 消息或切换 IO 线可以是唤醒事件。同样，内部 SW 表示(例如中断)也可以称为唤醒事件。 (A physical event that causes wakeup. A CAN message or a switched IO line can be a wakeup event. Similarly, an internal software representation (such as an interrupt) can also be called a wakeup event)
-  
+
 
 简写(Abbreviations)
 -------------------------
@@ -130,7 +135,7 @@ EcuM主要用于管理ECU状态的模块，它管理ECU的运行状态，并控�
 EcuM is mainly used to manage ECU states. It manages the operating state of the ECU and controls operations such as ECU startup, shutdown, sleep, and wake-up. Specifically, the EcuM module mainly accomplishes the following functions:
 
    * 初始化和取消初始化OS、SchM和BswM以及一些基本软件驱动模块。
-   
+
      Initializes and deinitializes OS, SchM, BswM, and some basic software driver modules.
 
    * 根据请求将 ECU 配置为休眠和关机。
@@ -141,7 +146,7 @@ EcuM is mainly used to manage ECU states. It manages the operating state of the 
 
      Manages all wake-up events on the ECU.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/EcuM层次图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/CP_Arch_EcuM.png
    :alt: EcuM模块层次图 (EcuM Hierarchy Diagram)
    :name: fig_EcuMarch
    :align: center
@@ -158,18 +163,65 @@ As shown in Figure :ref:`fig_EcuMarch`, the EcuM module is located in the system
 功能描述(Functional Description)
 ==========================================
 
+公共特性(Public Features)
+--------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+在多核架构中，EcuM必须在每个核心存在一个实例。有一个指定的主核心，其中引导加载
+程序通过 EcuM_Init 启动主EcuM。主EcuM启动一些驱动程序，确定构建后配置，并启动
+所有剩余核心及其所有从EcuM。每个 EcuM 现在启动核心本地操作系统和所有核心本地BswM。
+多核架构中，EcuM的分部如下图所示：
+
+In a multi-core architecture, EcuM must have one instance per core. There is a designated main core where the boot loader starts the main EcuM via EcuM_Init. The main EcuM starts some drivers, determines post-build configuration, and starts all remaining cores and their slave EcuMs. Each EcuM then starts the core-local operating system and all core-local BswMs.
+The distribution of EcuM in a multi-core architecture is shown below:
+
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/MultiCore.png
+    :alt: EcuM 多核分布(EcuM Multi-core Distribution)
+    :name: fig_EcuM08
+    :align: center
+
+    Multi Core
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   - 支持OS启动后支持模块初始化
+
+     Support module initialization after OS startup
+
+   - 支持唤醒源配置
+
+     Support wake-up source configuration
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
+
 模块初始化功能(Module Initialization Function)
------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 模块初始化功能介绍(Introduction to Module Initialization Function)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************************************************************
 上电时，EcuM负责基础软件模块(包含MCAL)的初始化(结合BswM)，然后启动Os。
 
 When powered on, EcuM is responsible for initializing basic software modules (including MCAL) (in conjunction with BswM) and then starting the OS.
 
 
 模块初始化功能集成(Integration of Module Initialization Function)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************************************************************
 针对模块初始化工作需要通过EcuM配置实现，初始化列表中的项限定于Autosar中的模块注1 初始化
 列表分为EcuMDriverInitListZero、EcuMDriverInitListOne、EcuMDriverRestartList；其中
 EcuMDriverInitListZero与EcuMDriverInitListOne两者都在Os启动前进行初始化，意味这这些
@@ -178,7 +230,7 @@ EcuMDriverInitListZero与EcuMDriverInitListOne两者都在Os启动前进行初�
 
 Module initialization work needs to be implemented through EcuM configuration. Items in the initialization list are limited to modules specified in AUTOSAR [Note 1]. The initialization lists are divided into EcuMDriverInitListZero, EcuMDriverInitListOne, and EcuMDriverRestartList. Both EcuMDriverInitListZero and EcuMDriverInitListOne are initialized before OS startup, meaning these modules cannot use any OS interfaces during initialization. Additionally, EcuMDriverInitListZero cannot use module initialization with post-build configuration parameters. Examples of both initialization lists are shown in the following figure.
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/DriverInitialization.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/DriverInitialization.png
      :alt: EcuM模块初始化列表(EcuM Module Initialization List)
      :name: fig_EcuM00
      :align: center
@@ -187,10 +239,10 @@ Module initialization work needs to be implemented through EcuM configuration. I
 
 
 睡眠唤醒功能 Sleep/Wake-up(Function)
-------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 睡眠唤醒功能介绍 Introduction to Sleep/Wake-up(Function)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************************************************************
 
 对于车机系统中，休眠唤醒是最常见的功能，也是AutoSar中最基础的功能，它主要完成ECU的休眠、唤醒等操作。
 在AUTOSAR中，休眠唤醒主要通过EcuM来配置实现的。ECU一般休眠方式有三种：
@@ -199,7 +251,7 @@ In vehicle systems, sleep/wake-up is the most common function and also the most 
 In AUTOSAR, sleep/wake-up is primarily configured and implemented through EcuM. There are generally three ECU sleep modes:
 
    * Mcu休眠，EcuM进入Halt模式，通过外设中断唤醒；
-  
+
      MCU sleep: EcuM enters Halt mode and wakes up via peripheral interrupts;
 
    * Mcu处于低功耗，还能运行简单循环逻辑，EcuM进入Poll模式，通过外设中断唤醒或周期事件唤醒；
@@ -211,7 +263,7 @@ In AUTOSAR, sleep/wake-up is primarily configured and implemented through EcuM. 
      MCU power off: External device detects wake-up event and directly powers the MCU.
 
 Sleep(Phase)
-**************
+**************************************************************************
 
 上述前两个方式在EcuM中属于SLEEP阶段，都是通过控制Mcu进入低功耗模式来使Mcu暂停，
 需要调用EcuM的API: EcuM_GoDownHaltPoll来进入，对应的处理流程如下图
@@ -219,7 +271,7 @@ Sleep(Phase)
 The first two methods above belong to the SLEEP phase in EcuM, both pausing the MCU by controlling it to enter low-power mode.
 Requires calling EcuM API: EcuM_GoDownHaltPoll to enter, with corresponding processing flow as shown below.
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/SLEEPPhaseGeneral.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/SLEEPPhaseGeneral.png
     :alt: EcuM模块休眠流程(EcuM Module Sleep Process)
     :name: fig_EcuM01
     :align: center
@@ -230,7 +282,7 @@ Requires calling EcuM API: EcuM_GoDownHaltPoll to enter, with corresponding proc
 
 The GoSleep Sequence parsing process is shown below:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/EcuMGoSleepSequence.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/EcuMGoSleepSequence.png
     :alt: GoSleep Sequence
     :name: fig_EcuM02
     :align: center
@@ -238,13 +290,13 @@ The GoSleep Sequence parsing process is shown below:
     EcuM Go Sleep Sequence
 
 Shutdown(Phase)
-**************************
+**************************************************************************
 
 对于Mcu掉电，在EcuM中处于Shutdown阶段，有BswM执行相应逻辑后进入该阶段，对应的处理流程如下图：
 
 For MCU power-off, it is in the Shutdown phase in EcuM, entered after BswM executes corresponding logic, with processing flow as shown below:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/ShutdownPhaseGeneral.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/ShutdownPhaseGeneral.png
     :alt: EcuM Shutdown Phase
     :name: fig_EcuM03
     :align: center
@@ -255,7 +307,7 @@ For MCU power-off, it is in the Shutdown phase in EcuM, entered after BswM execu
 
 The decomposed OffPreOS Sequence in the flow is shown below:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/OffPreOSSequence.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/OffPreOSSequence.png
     :alt: OffPreOS Sequence
     :name: fig_EcuM04
     :align: center
@@ -266,7 +318,7 @@ The decomposed OffPreOS Sequence in the flow is shown below:
 
 The decomposed OffPostOS Sequence in the flow is shown below:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/OffPostOSSequence.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/OffPostOSSequence.png
     :alt: OffPostOS Sequence
     :name: fig_EcuM05
     :align: center
@@ -274,13 +326,13 @@ The decomposed OffPostOS Sequence in the flow is shown below:
     Off PostOS Sequence
 
 唤醒以及验证流程 Wake-up and(Verification Process)
-***********************************************************
+**************************************************************************
 
 在EcuM中对于每个唤醒源Wakeup Source的状态与对应的描述如下表所示：
 
 In EcuM, the status and corresponding descriptions for each wake-up source are shown in the following table:
 
-  .. list-table:: 
+  .. list-table::
      :widths: 10 30
      :header-rows: 1
 
@@ -303,7 +355,7 @@ In EcuM, the status and corresponding descriptions for each wake-up source are s
 
 The wake-up status transition process is shown below:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/WakeupSourceStatus.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/WakeupSourceStatus.png
     :alt: EcuM Wakeup Source Status
     :name: fig_EcuM06
     :align: center
@@ -318,7 +370,7 @@ ECU 管理器模块最多可以管理 32 个唤醒源，每个唤醒源占32位�
 
 The ECU Manager module can manage up to 32 wake-up sources, each occupying 1 bit of 32-bit data, with 5 system defaults as shown below:
 
-  .. list-table:: 
+  .. list-table::
      :widths: 10 30 30
      :header-rows: 1
 
@@ -350,7 +402,7 @@ EcuM可以通过配置来EcuMCheckWakeupTimeout、EcuMValidationTimeout来使能
 
 EcuM can enable wake-up verification by configuring EcuMCheckWakeupTimeout and EcuMValidationTimeout. The wake-up verification sequence diagram is shown below:
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/WakeupValidationSequence.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/WakeupValidationSequence.png
     :alt: EcuM Wakeup Validation Sequence
     :name: fig_EcuM07
     :align: center
@@ -359,49 +411,31 @@ EcuM can enable wake-up verification by configuring EcuMCheckWakeupTimeout and E
 
 
 睡眠唤醒功能实现 Implementation of Sleep/Wake-up(Function)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************************************************************
 
 EcuM 管理器模块提供以下接口来确定这些唤醒源的状态：
 
 The EcuM manager module provides the following interfaces to determine the status of these wake-up sources:
 
-  * EcuM_GetPendingWakeupEvents 
-  * EcuM_GetValidatedWakeupEvents 
+  * EcuM_GetPendingWakeupEvents
+  * EcuM_GetValidatedWakeupEvents
   * EcuM_GetExpiredWakeupEvents
 
-EcuM通过以下接口操纵唤醒源的状态 : 
+EcuM通过以下接口操纵唤醒源的状态 :
 
 EcuM manipulates wake-up source status through the following interfaces:
 
-  * EcuM_ClearWakeupEvent 
-  * EcuM_SetWakeupEvent 
-  * EcuM_ValidateWakeupEvent 
-  * EcuM_CheckWakeup 
-  * EcuM_DisableWakeupSources 
-  * EcuM_EnableWakeupSources 
-  * EcuM_StartWakeupSources 
+  * EcuM_ClearWakeupEvent
+  * EcuM_SetWakeupEvent
+  * EcuM_ValidateWakeupEvent
+  * EcuM_ChepbsckWakeup
+  * EcuM_DisableWakeupSources
+  * EcuM_EnableWakeupSources
+  * EcuM_StartWakeupSources
   * EcuM_StopWakeupSources
 
-多核 Multi-core
------------------------------------------------
-
-在多核架构中，EcuM必须在每个核心存在一个实例。有一个指定的主核心，其中引导加载
-程序通过 EcuM_Init 启动主EcuM。主EcuM启动一些驱动程序，确定构建后配置，并启动
-所有剩余核心及其所有从EcuM。每个 EcuM 现在启动核心本地操作系统和所有核心本地BswM。
-多核架构中，EcuM的分部如下图所示：
-
-In a multi-core architecture, EcuM must have one instance per core. There is a designated main core where the boot loader starts the main EcuM via EcuM_Init. The main EcuM starts some drivers, determines post-build configuration, and starts all remaining cores and their slave EcuMs. Each EcuM then starts the core-local operating system and all core-local BswMs.
-The distribution of EcuM in a multi-core architecture is shown below:
-
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/MultiCore.png
-    :alt: EcuM 多核分布(EcuM Multi-core Distribution)
-    :name: fig_EcuM08
-    :align: center
-
-    Multi Core
-
 EcuM 模式处理(EcuM Mode Handling)
----------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ECU 状态管理器为 SW-C 提供接口，以便选择性地请求和释放模式 RUN 和 POST_RUN。
 EcuMFlex 仲裁 SW-C 发出的请求和释放，并将结果传播给 BswM。EcuM 和 BswM 之间
@@ -413,25 +447,12 @@ BswM 会收到通知。如图所示EcuM模式处理机构。
 The ECU State Manager provides interfaces for SW-C to selectively request and release RUN and POST_RUN modes.
 EcuMFlex arbitrates requests and releases issued by SW-C and propagates results to BswM. Cooperation between EcuM and BswM is necessary because only BswM can decide when to transition to different modes. Since EcuM lacks its own state machine, it relies on BswM for state transitions. Therefore, EcuM does not request states. Additionally, it notifies BswM of current arbitration status for all requests. BswM is notified when RTE executes all Runnables belonging to a certain mode. The EcuM mode handling mechanism is shown in the figure.
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/ModeHandling.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/ModeHandling.png
     :alt: EcuM 模式处理(EcuM Mode Handling)
     :name: fig_EcuM09
     :align: center
 
     Mode Handling
-
-.. only:: doc_pbs
-
-  变体(Variants)
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  - 支持OS启动后支持模块初始化
-  
-    Support module initialization after OS startup
-  
-  - 支持唤醒源配置
-  
-    Support wake-up source configuration
 
 集成(Integration)
 ============================
@@ -448,40 +469,40 @@ EcuMFlex arbitrates requests and releases issued by SW-C and propagates results 
 
    * - 文件(File)
      - 描述(Description)
-   
+
    * - EcuM.h
      - PB配置数据结构，以及外部接口声明(PB configuration data structure and external interface declarations)
-       
+
    * - EcuM_Cbk.h
      - EcuM回调函数声明(EcuM callback function declarations)
-       
+
    * - EcuM_Externals.h
      - EcuM模块中所有callout函数声明(Declarations of all callout functions in the EcuM module)
-       
+
    * - EcuM_Internal.h
      - 定义所有内部数据结构，以及内部接口声明(Defines all internal data structures and internal interface declarations)
-       
+
    * - EcuM_MemMap.h
      - EcuM代码、变量所用的MemMap段(MemMap segments used by EcuM code and variables)
-       
+
    * - EcuM_Types.h
      - EcuM通用宏定义以及类型定义(EcuM general macro definitions and type definitions)
-       
+
    * - EcuM.c
      - RUN/POST_RUN 仲裁、EcuM通用函数定义(RUN/POST_RUN arbitration and EcuM general function definitions)
-       
+
    * - EcuM_AlarmClock.c
      - 包含当alarm存在时，设置alarm的API集合(Contains API collection for setting alarms when alarms exist)
-       
+
    * - EcuM_Shutdown.c
      - 所有SHUTDOWN阶段API定义(All SHUTDOWN phase API definitions)
-       
+
    * - EcuM_Sleep.c
      - 所有SLEEP阶段API定义(All SLEEP phase API definitions)
-       
+
    * - EcuM_StartUp.c
      - 所有STARTUP阶段API定义(All STARTUP phase API definitions)
-       
+
    * - EcuM_Up.c
      - 所有UP阶段API定义(All UP phase API definitions)
 
@@ -494,41 +515,41 @@ EcuMFlex arbitrates requests and releases issued by SW-C and propagates results 
 
    * - 文件(File)
      - 描述(Description)
-   
+
    * - EcuM_Callout_Stubs.c
      - EcuM callout函数定义(EcuM callout function definitions)
-       
+
    * - EcuM_Cfg.c
      - EcuM 的配置参数(Configuration parameters of EcuM)
-       
+
    * - EcuM_Cfg.h
      - 一些控制宏以及宏参数定义(Some control macros and macro parameter definitions)
-       
+
    * - EcuM_Generated_Types.h
      - 依赖配置生成的宏定义、数据结构等(Configuration-dependent generated macro definitions, data structures, etc.)
-       
+
    * - EcuM_Lcfg.c
      - 定义链接配置运行时变量以及内部接口定义(Defines link configuration runtime variables and internal interface definitions)
-       
+
    * - EcuM_PBcfg.c
      - Post-Build 配置参数定义(Post-Build configuration parameter definitions)
-       
+
    * - EcuM_PBcfg.h
      - 全局Post-Build 配置参数声明(Global Post-Build configuration parameter declarations)
-       
+
    * - Rte_EcuM_Type.h
      - 外部参数类型定义(External parameter type definitions)
-       
+
    * - SchM_EcuM.h
      - 定义关键区域保护以及mainfunction声明(Defines critical section protection and main function declarations)
 
 
 错误处理(Error Handling)
---------------------------------
+----------------------------------
 
 开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. list-table:: 
+.. list-table::
    :widths: 20 10 30
    :header-rows: 1
 
@@ -544,7 +565,7 @@ EcuMFlex arbitrates requests and releases issued by SW-C and propagates results 
      - 0x01
      - A function was called which was disabled by configuration
 
-   * - ECUM_E_NULL_POINTER
+   * - ECUM_E_PARAM_POINTER
      - 0x02
      - A invalid pointer was passed as an argument
 
@@ -582,16 +603,20 @@ EcuMFlex arbitrates requests and releases issued by SW-C and propagates results 
 
    * - ECUM_E_CALL_OS_FAILED
      - 0x11
-     - Call to OS_Start failed 
+     - Call to OS_Start failed
 
    * - ECUM_E_REINIT
      - 0x13
      - Reinit EcuM module
 
-
-运行时错误(Runtime ErrorS)
+产品错误(Product Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. list-table:: 
+
+None
+
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. list-table::
    :widths: 20 10 30
    :header-rows: 1
 
@@ -604,6 +629,7 @@ EcuMFlex arbitrates requests and releases issued by SW-C and propagates results 
      - After a wake up, no wake up event was set in the given time (see EcuMCheckWakeupTimeout)
 
 
+.. 引用接口描述。来自于code->doxygen->latex->rst
 .. include:: EcuM_api.rst
 
 配置(Configuration)
@@ -612,7 +638,7 @@ EcuMFlex arbitrates requests and releases issued by SW-C and propagates results 
 初始化其他模块配置(Initialization of Other Module Configurations)
 ---------------------------------------------------------------------
 
-EcuM初始化其他模块分为三种 EcuMDriverInitListOne, EcuMDriverInitListZero, EcuMDriverInitListBswM, 
+EcuM初始化其他模块分为三种 EcuMDriverInitListOne, EcuMDriverInitListZero, EcuMDriverInitListBswM,
 前两个是对Mcu以及Mcal以及Det和Dem的初始化，在EcuM初始化时就会被执行，后一个对基础软件的初始化，由BswM模块完成。
 
 EcuM initializes other modules in three types: EcuMDriverInitListOne, EcuMDriverInitListZero, and EcuMDriverInitListBswM. The first two initialize MCU, MCAL, Det, and Dem, executed during EcuM initialization. The last one initializes basic software, completed by the BswM module.
@@ -621,7 +647,7 @@ EcuM initializes other modules in three types: EcuMDriverInitListOne, EcuMDriver
 
 Initialization content is specified by configuring EcuMDriverInitItem. Specific configuration descriptions are shown in the following table:
 
-.. list-table:: 
+.. list-table::
    :widths: 20 30
    :header-rows: 1
 
@@ -630,28 +656,28 @@ Initialization content is specified by configuring EcuMDriverInitItem. Specific 
 
    * - EcuMModuleParameter
      - 配置参数类型， VOID无参数，NULL_PTR传入空指针，POSTBUILD_PTR传对应模块的配置参数指针 (Configuration parameter type. VOID: no parameter, NULL_PTR: pass null pointer, POSTBUILD_PTR: pass configuration parameter pointer of corresponding module)
-       
+
    * - EcuMModuleService
      - 指定调用的函数， 例如： Init, PreInit, Start 等函数。 (Specify function to call, e.g.: Init, PreInit, Start, etc.)
-       
+
    * - EditModuleService
      - 使能是否可以手动修改配置EcuMModuleService，由用户手动填入服务函数名称。 (Enable manual modification of EcuMModuleService configuration, user manually enters service function name)
-       
+
    * - EcuMModulePbConfigName
      - 配置当EcuMModuleParameter选择POSTBUILD_PTR时，对应模块的配置参数名称。 (Configure configuration parameter name of corresponding module when EcuMModuleParameter selects POSTBUILD_PTR)
-       
+
    * - EditPbConfigName
      - 使能是否可以手动修改配置EcuMModulePbConfigName，由用户手动填入配置参数名称。 (Enable manual modification of EcuMModulePbConfigName configuration, user manually enters configuration parameter name)
-       
+
    * - IncludeHeaderFile
      - 配置包含的对应初始化模块的头文件。 (Configure header file of corresponding initialization module to be included)
-       
+
    * - EditHeaderFile
      - 使能是否可以手动修改配置IncludeHeaderFile，由用户手动填入配置头文件名称。 (Enable manual modification of IncludeHeaderFile configuration, user manually enters configuration header file name)
-       
+
    * - EcuMEcucCoreDefinitionRef
      - 在多核的情况下，配置需要在不同核上初始化的内容，如果一个容器中存在该配置，那么该容器其他的EcuMDriverInitItem都需要配置该项。 (In multi-core case, configure content to be initialized on different cores. If this configuration exists in a container, other EcuMDriverInitItems in the container must also configure this item)
-       
+
    * - EcuMModuleRef
      - 在当前工程下配置需要EcuM初始化的模块。 (Configure modules requiring EcuM initialization in current project)
 
@@ -666,7 +692,7 @@ Initialization content is specified by configuring EcuMDriverInitItem. Specific 
 
    First configure the default power-off mode. There are three modes: EcuMShutdownTargetOff, EcuMShutdownTargetReset, and EcuMShutdownTargetSleep. When configured as EcuMShutdownTargetReset or EcuMShutdownTargetSleep, reset mode or sleep mode must be configured. Specific configuration is shown below:
 
-   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/DefaultSleepConfig.png
+   .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/DefaultSleepConfig.png
       :alt: 默认睡眠配置 (Default Sleep Configuration)
       :name: fig_EcuM10
       :align: center
@@ -677,7 +703,7 @@ Initialization content is specified by configuring EcuMDriverInitItem. Specific 
 
    Configure sleep mode. Determine Halt or Poll via EcuMSleepModeSuspend configuration. Configure EcuMSleepModeMcuModeRef to select MCU control mode. Configure EcuMWakeupSourceMask to select wake-up sources in this sleep mode. Specific configuration is shown below:
 
-   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/SleepModeConfig.png
+   .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/SleepModeConfig.png
       :alt: 睡眠模式配置 (Sleep Mode Configuration)
       :name: fig_EcuM11
       :align: center
@@ -688,7 +714,7 @@ Initialization content is specified by configuring EcuMDriverInitItem. Specific 
 
    Configure reset mode. Only need to configure EcuMResetModeId. Specific configuration is shown below:
 
-   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/ResetModeConfig.png
+   .. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/ResetModeConfig.png
       :alt: 复位模式配置(Reset Mode Configuration)
       :name: fig_EcuM12
       :align: center
@@ -703,7 +729,7 @@ Initialization content is specified by configuring EcuMDriverInitItem. Specific 
 
 Configure EcuM wake-up sources by configuring EcuMWakeupSource. Specific configuration is shown below:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/WakeupSourceConfig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/WakeupSourceConfig.png
    :alt: 唤醒源配置 (Wake-up Source Configuration)
    :name: fig_EcuM13
    :align: center
@@ -714,7 +740,7 @@ Configure EcuM wake-up sources by configuring EcuMWakeupSource. Specific configu
 
 Wake-up source configuration descriptions are shown below:
 
-.. list-table:: 
+.. list-table::
    :widths: 20 30
    :header-rows: 1
 
@@ -723,22 +749,22 @@ Wake-up source configuration descriptions are shown below:
 
    * - EcuMCheckWakeupTimeout
      - 用于配置唤醒源的检测超时时间，单位为s，默认为0，表示不检测超时 (Used to configure wake-up source detection timeout in seconds, default 0 means no timeout detection)
-       
+
    * - EcuMValidationTimeout
      - 用于配置唤醒源的有效验证超时时间，单位为s，默认为0，表示不检测超时 (Used to configure wake-up source validation timeout in seconds, default 0 means no timeout detection)
-  
+
    * - EcuMWakeupSourceId
      - 用户可配置的唤醒源ID，从5起开始配置 (User-configurable wake-up source ID, starting from 5)
-       
+
    * - EcuMWakeupSourcePolling
      - 当此EcuMWakeupSource被EcuMSleepMode->EcuMWakeupSourceMask引用，且EcuMSleepMode->EcuMSleepModeSuspend配置为FALSE(POLL模式)，则此项EcuMWakeupSourcePolling应该配置为TRUE，表示以轮询的方式检测唤醒源 (When this EcuMWakeupSource is referenced by EcuMSleepMode->EcuMWakeupSourceMask and EcuMSleepMode->EcuMSleepModeSuspend is configured as FALSE (POLL mode), this EcuMWakeupSourcePolling should be configured as TRUE, indicating wake-up source detection via polling)
-       
+
    * - EcuMComMChannelRef
      - 当配置此项后，当唤醒源检测到后，会调用ComM_EcuM_WakeUpIndication通知EcuMComMChannelRef引用的ComMChannel (When configured, ComM_EcuM_WakeUpIndication is called to notify ComMChannel referenced by EcuMComMChannelRef when wake-up source is detected)
-       
+
    * - EcuMComMPNCRef
      - 当配置此项后，当唤醒源检测到后，会调用ComM_EcuM_PNCWakeUpIndication通知EcuMComMPNCRef引用的ComMPnc (When configured, ComM_EcuM_PNCWakeUpIndication is called to notify ComMPnc referenced by EcuMComMPNCRef when wake-up source is detected)
-       
+
    * - EcuMResetReasonRef
      - MCU 驱动程序检测到的复位原因到唤醒源的映射 (Mapping from reset reason detected by MCU driver to wake-up source)
 
@@ -751,7 +777,7 @@ Wake-up source configuration descriptions are shown below:
 
 When the system is multi-core, EcuM must be configured as multi-core by configuring EcuMPartitionRef. This configuration references partition configuration, and only one partition per core can be selected for association. Then a mutex must be configured for EcuM use. Specific configuration is shown below:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/EcuM/PartitionConfig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/EcuM/PartitionConfig.png
    :alt: 多核配置(Multi-core Configuration)
    :name: fig_EcuM14
    :align: center

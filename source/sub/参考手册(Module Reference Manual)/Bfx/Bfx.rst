@@ -83,12 +83,50 @@ Bfx模块实现了AUTOSAR中需要的位操作，包括特定位的置位、清�
 
 The Bfx module implements the bit operations required in AUTOSAR, including setting, clearing, getting the status value of specific bits, left and right shifting, and bitwise negation, etc.
 
+Bfx在架构上属于AUTOSAR静态库代码。
+
+Architecturally, Bfx belongs to AUTOSAR static library code.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Bfx/CP产品架构图-R23V3.0版本_Bfx.png
+   :alt: Bfx架构图(Bfx Architecture Diagram)
+   :name: fig_Bfx_architecture
+   :align: center
+
+   Bfx架构图 (Bfx Architecture Diagram)
+
 功能描述(Functional Description)
 =====================================
 
 
-特性(Features)
-------------------
+公共特性(Public Features)
+----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Bfx支持多分区调用，所有接口都是可重入的，可以同时由多个应用程序使用。无模块描述文件。
+
+Bfx supports multi-partition calls. All interfaces are reentrant and can be used simultaneously by multiple applications. No module description file.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   无配置项，不支持。
+
+   No configurations, not supported.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是静态的。存在BFX_START_SEC_CODE、BFX_STOP_SEC_CODE字段。
+
+The memmap file is static.There are BFX_START_SEC_CODE and BFX_STOP_SEC_CODE fields.
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+----------------------------
 
 初始化和shutdown(Initialization and shutdown)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,6 +1,7 @@
 @ECHO OFF
 
 pushd %~dp0
+setlocal EnableDelayedExpansion
 
 REM Command file for Sphinx documentation
 
@@ -9,6 +10,15 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
+
+REM If TAGS env var is provided (space-separated), convert to `-t` options
+if not "%TAGS%"=="" (
+    set TAGOPTS=
+    for %%t in (%TAGS%) do (
+        set TAGOPTS=!TAGOPTS! -t %%t
+    )
+    set SPHINXOPTS=%SPHINXOPTS%!TAGOPTS!
+)
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
@@ -32,4 +42,5 @@ goto end
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 
 :end
+endlocal
 popd

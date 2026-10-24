@@ -1,8 +1,55 @@
 功能描述 Functional Description
 ==========================================================
 
-特性 Features
---------------------------------------------------------------------------------------------------
+公共特性(Public Features)
+--------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过 LinSMChannel/LinSMComMNetworkHandleRef 引用的 ComMChannel/ComMChannelPartitionRef 获取分区信息.
+
+  The partition information is obtained via the ComMChannel/ComMChannelPartitionRef referenced by LinSMChannel/LinSMComMNetworkHandleRef.
+
+- 每个 LinSMChannel 生成一个Mainfunction，在各自的分区中被调用
+
+  Each LinSMChannel generates a MainFunction, which is called in its respective partition.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   LinSM 支持在不同变体中：
+
+   LinSM supports in different variants:
+
+   - 支持配置不同的调度表
+
+     Supports configuring different schedule tables.
+
+   - 支持配置不同唤醒失败重试次数
+
+     Supports configuring different numbers of wakeup failure retries.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Memmap文件是动态的。存在 LINSM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、LINSM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、LINSM_START_SEC_CODE、LINSM_STOP_SEC_VAR_CLEARED_8、LINSM_START_SEC_VAR_CLEARED_8、LINSM_START_SEC_VAR_CLEARED_PTR、LINSM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、LINSM_STOP_SEC_VAR_CLEARED_PTR、LINSM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、LINSM_START_SEC_CONFIG_DATA_32、LINSM_STOP_SEC_CODE、LINSM_STOP_SEC_CONFIG_DATA_32、LINSM_START_SEC_VAR_CLEARED_UNSPECIFIED、LINSM_START_SEC_CONFIG_DATA_UNSPECIFIED
+
+The Memmap files are dynamic. There are LINSM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、LINSM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、LINSM_START_SEC_CODE、LINSM_STOP_SEC_VAR_CLEARED_8、LINSM_START_SEC_VAR_CLEARED_8、LINSM_START_SEC_VAR_CLEARED_PTR、LINSM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、LINSM_STOP_SEC_VAR_CLEARED_PTR、LINSM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、LINSM_START_SEC_CONFIG_DATA_32、LINSM_STOP_SEC_CODE、LINSM_STOP_SEC_CONFIG_DATA_32、LINSM_START_SEC_VAR_CLEARED_UNSPECIFIED、LINSM_START_SEC_CONFIG_DATA_UNSPECIFIED
+
+.. rubric:: 说明
+
+.. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性(Module Features)
+--------------------------------------------------------
 
 LIN网络的状态管理功能 State Management Function of LIN Network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,23 +185,6 @@ Schedule table switching indication:
    LinIf具有自动切换调度表的机制，即请求切换调度表与调度表切换指示并非一一对应，LinSM_ScheduleRequestConfirmation()被回调时不一定是因为调用过LinSM_ScheduleRequest()
 
    LinIf has a mechanism for automatically switching schedule tables, that is, the request to switch the schedule table does not correspond one-to-one with the schedule table switching indication. LinSM_ScheduleRequestConfirmation() may be called back not necessarily because LinSM_ScheduleRequest() has been called.
-
-.. only:: doc_pbs
-
-   多变体支持 Multi-variant Support
-   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-   LinSM 支持在不同变体中：
-
-   LinSM supports in different variants:
-
-   1.支持配置不同的调度表
-   
-   1.Supports configuring different schedule tables.
-   
-   2.支持配置不同唤醒失败重试次数
-   
-   2.Supports configuring different numbers of wakeup failure retries.
 
 偏差 Deviation
 ----------------------------------

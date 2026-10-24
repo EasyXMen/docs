@@ -4,10 +4,10 @@ SoAd
 .. 标题标识符“===”的长度必须要大于其内容的长度，否则会报错，其他标题亦是如此
 
 
-文档信息 Document Information
+文档信息(Document Information)
 ============================================================
 
-版本历史 Version History
+版本历史(Version History)
 --------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -32,7 +32,13 @@ SoAd
      - 发布(Release)
      - 正式发布(Official release)
 
-参考文档 References
+   * - 2026/03/10
+     - fupeng.yu
+     - V1.1
+     - 修改(Modify)
+     - 调整文档架构(Modify the document structure)
+
+参考文档(References)
 --------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -53,11 +59,11 @@ SoAd
      - R23-11 
 
 
-术语与简写 Terms and Abbreviations
+术语与简写(Terms and Abbreviations)
 ====================================================================
 
 
-术语 Terms
+术语(Terms)
 --------------------------------------------------------------------------------------------------------
 .. :align: center   表格内容居中(Table contents are centered)
 
@@ -84,7 +90,7 @@ SoAd
    * - TP-PDU(TP-PDU is the PDU sent/received via SoAd's TP-API)
      - TP-PDU是通过SoAd的TP-API发送/接收的PDU
 
-简写 Abbreviations
+简写(Abbreviations)
 --------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -184,7 +190,7 @@ SoAd
      - AUTOSAR UDP Network Management
      - AUTOSAR UDP网络管理
 
-简介 Introduction
+简介(Introduction)
 ===================================================
 
 
@@ -192,7 +198,7 @@ SoAd 作为“通信桥梁”将上层基于 I-PDU 的通信，与下层基于 S
 
 SoAd, as the "communication bridge", connects the I-PDU-based upper layer communication and Socket-based lower layer TCP/UDP communication. It can also realize the connection control based on Socket Connection, as well as routing control between I-PDU and Socket Connection, and provide corresponding interfaces for the upper layer.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAd_Autosar_Architecture.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SoAd/SoAd_Autosar_Architecture.png
    :alt: SoAd模块在AUTOSAR架构中的位置 (Position of SoAd Module in AUTOSAR Architecture)
    :name: SoAd_Autosar_Architecture
    :align: center
@@ -206,23 +212,48 @@ As shown in the figure :ref:`SoAd_Autosar_Architecture` , the SoAd module is in 
 
 
 
-功能描述 Functional Description
+功能描述(Functional Description)
 ==========================================================
 
+公共特性(Public Features)
+-----------------------------
 
-特性 Features
---------------------------------------------------------------------------------------------
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- SoAd模块支持多核多分区部署，用户可根据需求将 SoAd 模块部署在单核或多核上，并且可以在不同的分区中部署 SoAd 模块，具体的分区信息由SoAdSocketConnectionGroup/SoAdSocketLocalAddressRef->TcpIpLocalAddr/TcpIpCtrlRef->TcpIpCtrl/TcpIpEthIfCtrlRef->EthIfController/EthIfPhysControllerRef->EthIfPhysController/EthIfCtrlPartitionRef决定。
+  
+  The SoAd module supports multi-core and multi partition deployment. Users can deploy the SoAd module on a single core or multiple cores according to their needs, and the SoAd module can be deployed in different partitions. The specific partition information is determined by SoAdSocketConnectionGroup/SoAdSocketLocalAddressRef->TcpIpLocalAddr/TcpIpCtrlRef->TcpIpCtrl/TcpIpEthIfCtrlRef->EthIfController/EthIfPhysControllerRef->EthIfPhysController/EthIfCtrlPartitionRef.
+
 
 .. only:: doc_pbs
 
-  变体(Multi-variant support) Variant (Multi-variant support)
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - SoAd 模块支持PduRoute，SocketConnectionGroup,SocketRoute中一些配置项的配置的变体
 
-  SoAd 模块支持PduRoute，SocketConnectionGroup,SocketRoute中一些配置项的配置的变体
+     The SoAd module supports PduRoute, SocketConnectGroup, and variants of some configuration items in SocketRoute
 
-  The SoAd module supports PduRoute, SocketConnectGroup, and variants of some configuration items in SocketRoute
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Memmap文件是动态的，存在 SOAD_START_SEC_VAR_CLEARED_PTR、SOAD_STOP_SEC_VAR_CLEARED_PTR、SOAD_START_SEC_VAR_CLEARED_8、SOAD_STOP_SEC_VAR_CLEARED_8、SOAD_START_SEC_VAR_CLEARED_16、SOAD_STOP_SEC_VAR_CLEARED_16、SOAD_START_SEC_CODE、SOAD_STOP_SEC_CODE、SOAD_START_SEC_CODE_FAST、SOAD_STOP_SEC_CODE_FAST、SOAD_START_SEC_CONFIG_DATA_UNSPECIFIED、SOAD_STOP_SEC_CONFIG_DATA_UNSPECIFIED、SOAD_START_SEC_CONFIG_DATA_32、SOAD_STOP_SEC_CONFIG_DATA_32、SOAD_START_SEC_CONFIG_DATA_16、SOAD_STOP_SEC_CONFIG_DATA_16、SOAD_START_SEC_CONFIG_DATA_8、SOAD_STOP_SEC_CONFIG_DATA_8、SOAD_START_SEC_VAR_INIT_UNSPECIFIED、SOAD_STOP_SEC_VAR_INIT_UNSPECIFIED、SOAD_START_SEC_VAR_CLEARED_UNSPECIFIED、SOAD_STOP_SEC_VAR_CLEARED_UNSPECIFIED、 SOAD_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、SOAD_STOP_SEC_VAR_CLEARED__{{n}}_UNSPECIFIED [#f1]_、SOAD_START_SEC_VAR_CLEARED_{{n}}_8 [#f1]_、SOAD_STOP_SEC_VAR_CLEARED_{{n}}_8 [#f1]_ 多个Memmap段。
+  
+  The Memmap file is dynamic, with multiple Memmap sections including SOAD_START_SEC_VAR_CLEARED_PTR, SOAD_STOP_SEC_VAR_CLEARED_PTR, SOAD_START_SEC_VAR_CLEARED_8, SOAD_STOP_SEC_VAR_CLEARED_8, SOAD_START_SEC_VAR_CLEARED_16, SOAD_STOP_SEC_VAR_CLEARED_16, SOAD_START_SEC_CODE, SOAD_STOP_SEC_CODE, SOAD_START_SEC_CODE_FAST, SOAD_STOP_SEC_CODE_FAST, SOAD_START_SEC_CONFIG_DATA_UNSPECIFIED, SOAD_STOP_SEC_CONFIG_DATA_UNSPECIFIED, SOAD_START_SEC_CONFIG_DATA_32, SOAD_STOP_SEC_CONFIG_DATA_32, SOAD_START_SEC_CONFIG_DATA_16, SOAD_STOP_SEC_CONFIG_DATA_16, SOAD_START_SEC_CONFIG_DATA_8, SOAD_STOP_SEC_CONFIG_DATA_8, SOAD_START_SEC_VAR_INIT_UNSPECIFIED, SOAD_STOP_SEC_VAR_INIT_UNSPECIFIED, SOAD_START_SEC_VAR_CLEARED_UNSPECIFIED, SOAD_STOP_SEC_VAR_CLEARED_UNSPECIFIED, and multiple sections of SOAD_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED and [#f1]_, and SOAD_STOP_SEC_VAR_CLEARED__{{n}}_UNSPECIFIED [#f1]_, and multiple sections of SOAD_START_SEC_VAR_CLEARED_{{n}}_8 [#f1]_ and SOAD_STOP_SEC_VAR_CLEARED_{{n}}_8 [#f1]_.
 
-Socket Connections 功能 Function of Socket Connections
+.. rubric:: 说明
+
+.. [#f1] n为SoAdSocketConnectionGroup.SoAdSocketLocalAddressRef->TcpIpLocalAddr.TcpIpCtrlRef->TcpIpCtrl.TcpIpEthIfCtrlRef->EthIfController.EthIfPhysControllerRef->EthIfPhysController.EthIfCtrlPartitionRef配置名称。
+
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- SoAd模块中SchM_Enter_SoAd_ExclusiveArea和SchM_Exit_SoAd_ExclusiveArea是为了保护SoAd模块中的buffer资源，防止多个任务同时访问buffer资源，导致数据错乱。
+
+  SchM_Enter_SoAd_ExclusiveArea and SchM_Exit_SoAd_ExclusiveArea in SoAd module are used to protect the buffer resources in SoAd module, preventing multiple tasks from accessing the buffer resources at the same time, which may cause data confusion.
+
+模块特性(Module Features)
+--------------------------------------------------------------------------------------------
+
+Socket Connections 功能(Function of Socket Connections)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 为了实现上层 PDUs 与下层 Sockets 之前的通信映射， SoAd 模块定义了 Socket Connection 的概念。一个 Socket Connection 表示一个本端 socket(本端 IP 和本端 Port)与远端 socket(远端 IP 和远端 Port)的链接，以及该链接基于的传 输协议(UDP/TCP)，是否使用 PDU Header，是否需求 buffer，传输协议相关参数等。
@@ -266,7 +297,7 @@ Switch the mode of Socket Connection after notifying the upper layer module by c
 Switch the status of the IP address (local) linked with Socket Connection after notifying the upper layer by calling <Up>_LocalIpAddrAssignmentChg() function.
 
 
-PDU Transmission 功能 Function of PDU Transmission
+PDU Transmission 功能(Function of PDU Transmission)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SoAd 通过 PDU route(SoAdPduRoute, SoAdPduRouteDest)将 PDU 映射到socket connection，进而通过其关联的 UDP/TCP Socket 进行发送。SoAd 提供 IF、TP 两种 PDU 发送方式。
@@ -306,21 +337,21 @@ Some IF PDUs above refer to the PDUs linked with a specific Socket Connection.
 PDUs with longer data lengths in upper level modules are generally sent through TP. TP transmission does not support 1: n routing of PDU.
 
 
-PDU Header option 功能 Function of PDU Header option
+PDU Header option 功能(Function of PDU Header option)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SoAd 支持 PDU Header 功能， PDU Header 由 4 字节的 Header ID,4 字节的PDU 数据长度组成(大端字节序)。当 Socket Connection 关联到多个接收 PDU，以及需要用到 nPduUdpTxBuffer 机制等情况时，都需要 PDU Header 功能的支持。
 
 SoAd supports PDU Header function. PDU Header consists of a 4-byte Header ID and a 4-byte PDU data length (big endian byte order). PDU Header is required, when Socket Connection links with several receiving PDUs and requires nPduUdpTxBuffer mechanism.
 
-PDU Reception 功能 Function of PDU Reception
+PDU Reception 功能(Function of PDU Reception)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PDU 的接收，在 SoAd 中通过 Socket Route (SoAdSocketRoute,SoAdSocketRouteDest)来实现，将通过 UDP/TCP Socket 获取的报文映射到 PDUs。当前 Socket Route 仅支持 1： 1 路由(即一个 SoAdSocketRoute 只能包含一个SoAdSocketRouteDest)，但需注意的是一个 Socket Connection 可以关联多个SoAdSocketRoute。SoAd 与上层模块 PDU 接收同样有两种方式： IF 接收、 TP 接收。
 
 In SoAd, PDUs is received through Socket Route (SoAdSocketRoute, SoAdSocketRouteDest) and is  mapped by the message obtained through UDP/TCP Socket. At present, Socket Route only supports 1:1 routing (i.e. one SoAdSocketRoute can only contain one SoAdSocketRouteDest). However, a Socket Connection can be linked with multiple SoAdSocketRoutes. There are two receiving methods for SoAd and upper layer module PDU: IF and TP.
 
-Best Match Algorithm 功能 Function of Best Match Algorithm
+Best Match Algorithm 功能(Function of Best Match Algorithm)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 该最佳匹配算法是根据提供的 remote address(IP 和 Port)从 SocketConnection Group 中选择出最佳匹配的 Socket Connection。
@@ -328,7 +359,7 @@ Best Match Algorithm 功能 Function of Best Match Algorithm
 The best matching algorithm is the most matched Socket Connection selected from the SocketConnection Group based on the provided remote address (IP and Port).
 
 
-Message Acceptance Policy 功能 Function of Message Acceptance Policy
+Message Acceptance Policy 功能(Function of Message Acceptance Policy)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 该功能用于接收远端节点(remote nodes)发送报文的过滤。当该功能使能时， Socket Connection 只能接收指定的某个/某些远端节点发送来的报文。当该功能不使能时， Socket Connection 将接收所有远端节点发送来的报文。
@@ -336,7 +367,7 @@ Message Acceptance Policy 功能 Function of Message Acceptance Policy
 This function is used for filtering the messages sent by remote nodes. After this function is enabled, Socket Connection can receive messages from the designated one or some remote nodes only. If this function is not enabled, Socket Connection can receive the messages from all remote nodes.
 
 
-TP PDU Cancelation 功能 Function of TP PDU Cancelation
+TP PDU Cancelation 功能(Function of TP PDU Cancelation)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TP PDU 的传输支持中途取消，分为接收取消和发送取消。
@@ -344,7 +375,7 @@ TP PDU 的传输支持中途取消，分为接收取消和发送取消。
 The transmission of TP PDU can be cancelled in the middle way and can be further divided into receiving cancellation and sending cancellation.
 
 
-Disconnection and recovery 功能 Function of Disconnection and recovery
+Disconnection and recovery 功能(Function of Disconnection and recovery)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 在 SoAd_MainFunction 中，将会对需要断开连接的 Socket Connection 进行连接关闭，其关闭后 Socket Connection 状态分为两种情况：SOAD_SOCON_OFFLINE 和 SOAD_SOCON_RECONNECT。对于处于 SOAD_SOCON_RECONNECT 状态的 Socket Connection， SoAd 将会自动尝试恢复连接。
@@ -352,7 +383,7 @@ Disconnection and recovery 功能 Function of Disconnection and recovery
 In SoAd_SainFunction, the Socket Connection that needs to be disconnected will be closed. After being closed, the Socket Connection status will have two conditions: SOAD_SOCON_OFFLINE and SOAD_SOCON_RECONNECT.For Socket Connection under the status of SOAD_SOCON_RECONNECT, SoAd will try to recover connection automatically.
 
 
-Routing Groups 功能 Function of Routing Groups
+Routing Groups 功能(Function of Routing Groups)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SoAd 支持对每个 Routing Group 的使能状态进行控制，进而控制各 RoutingGroup 关联的 SoAdPduRouteDest 或者 SoAdSocketRouteDest。只有当 RouteDest处于使能状态时，才能执行新 PDU 的收发。
@@ -361,7 +392,7 @@ SoAd can control the enabling status of each Routing Group, thereby controlling 
 
 
 
-Buffer handling 功能 Function of Buffer handling
+Buffer handling 功能(Function of Buffer handling)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 在 SoAd 的报文收发过程中，有些情况下需要用到合适的 buffer 来缓存需要发送的数据及接收到的数据。
@@ -370,23 +401,23 @@ When the messages in SoAd are sent or received, appropriate buffers are needed i
 
 
 
-偏差 Deviation
+偏差(Deviation)
 --------------------------------------------------------------------
 None
 
 
 
-扩展 Extension
+扩展(Extension)
 --------------------------------------------------------------------
 None
 
-集成 Integration
+集成(Integration)
 ========================================
 
-文件列表 File List
+文件列表(File List)
 --------------------------------------------------------------------
 
-静态文件 Static Files
+静态文件(Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -411,7 +442,7 @@ None
    * - SoAd.c
      - 作为 SoAd 模块的核心文件，实现 SoAd 模块全部对外接口，以及实现 SoAd 模块功能所必须的 local 函数， local 宏定义， local 变量定义。(As the core file of SoAd module, it can realize all external interfaces of SoAd module, as well as all local functions, local macro definitions and local variable definitions which are required for realizing SoAd module function.)
 
-动态文件 Dynamic Files
+动态文件(Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -433,12 +464,12 @@ None
    * - SoAd_PBcfg.c
      - 定义 SoAd 模块 PB 配置的结构体参数。(Defines the structural parameters for the PB configuration of the SoAd module.)
 
-错误处理 Error Handling
+错误处理(Error Handling)
 --------------------------------------------------------------------
 
 
 
-开发错误 Development Errors
+开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -476,11 +507,11 @@ None
      - 0x80
      - Invalid partition ID
 
-产品错误 Product Errors
+产品错误(Product Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 None
 
-运行时错误 Runtime Errors
+运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
    :widths: 20 10 30
@@ -502,27 +533,27 @@ None
      - 0x10
      - Automatic TCP connection failed
 
-接口描述 Interface Description
+接口描述(Interface Description)
 ==============================================================
 
-类型定义 Type Definitions
+类型定义(Type Definitions)
 --------------------------------------------------------------------------------------------
 .. include:: SoAd_Types_h_api.rst
 
       
-提供的服务 Services
+提供的服务(Services)
 --------------------------------------------------------------------------------------------
 .. include:: SoAd_h_api.rst
 
-回调函数 Callback Function
+回调函数(Callback Function)
 --------------------------------------------------------------------------------------------
 .. include:: SoAd_Cbk_h_api.rst
 
 
-依赖的服务 Applicable Services
+依赖的服务(Applicable Services)
 --------------------------------------------------------------------------------------------
 
-强制接口 Compulsory interface
+强制接口(Compulsory interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -604,7 +635,7 @@ None
      - This service transmits data via UDP to a remote node. The transmission of the data is immediately performed with this function call by forwarding it to EthIf.
 
 
-可选接口 Optional Interface
+可选接口(Optional Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -640,7 +671,7 @@ None
      - TcpIp.h
      - By this API service the TCP/IP stack writes the DHCP option data identified by parameter option.
 
-配置接口 Configuration Interfaces
+配置接口(Configuration Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -692,43 +723,27 @@ None
      - PduR_SoAd.h/DoIP_Cbk.h/Sd.h
      - This function gets called by the SoAd if an IP address assignment related to a socket connection changes (i.e. new address assigned or assigned address becomes invalid).
 
-配置 Configuration
+配置(Configuration)
 ====================================
 
-SoAd Socket Connection
+SoAd 套接字连接(SoAd Socket Connection)
 --------------------------------------------------------------
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAdSocketConnectionGroup.png
-   :name: SoAd_SoAdSocketConnectionGroup
-   :align: center
-
-   SoAdSocketConnectionGroup
 
 SoAd模块的Socket Connection是在SoAdSocketConnectionGroup中配置的,SoAdSocketConnectionGroup配置了该Socket Connection的端口，是否自动连接，PduHeader是否使能，是否通知上层Ip地址分配变化和连接模式改变，TP接收缓存大小的配置等。而SoAdSocketConnection中配置了远端的IP和端口，在SoAdSocketConnectionGroup中还要配置该连接是UDP还是TCP连接
 
 The Socket Connection of the SoAd module is configured in the SoAdSocketconnectionGroup, which comes with the port for the Socket Connection, in order to realize automatic connection, enabling of PduHeader, and the upper layer is notified of the changes on IP address allocation and connection mode, and the configuration of TP receiving cache size.The remote IP and port are configured in SoAdSocketConnection. In SoAdSocketConnection Group, configure the specific connection (UDP or TCP).
 
-发送PDU Send PDU
+发送PDU(Send PDU)
 --------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAdPduRouteDest.png
-   :name: SoAd_SoAdPduRouteDest
-   :align: center
-
-   SoAdPduRouteDest
 
 上层发送PDU 是在SoAdPduRoute中配置的，可以配置该PDU路由(SoAdPduRouteDest)到不同的SocketConnection中让后将其发出,SoAdPduRouteDest还可以选择关联RoutingGroup，通过RoutingGroup控制该PDU的发送。
 
 The PDU sending by upper layer is configured in SoAdPduRoute. The PDU can be routed (SoAdPduRouteDest) to different SocketConnections for sending. SoAdPduRouteDest can also be linked with RoutingGroup to control PDU sending.
 
-接收PDU Receive PDU
+接收PDU(Receive PDU)
 --------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SoAd/SoAdSocketRouteDest.png
-   :name: SoAd_SoAdSocketRouteDest
-   :align: center
-
-   SoAdSocketRouteDest
 
 接收PDU在SoAdSocketRoute配置，通过SocketConnection接收的报文转化为PDU后，把该PDU通知给上层模块，可以将加收的PDU通过SoAdSocketRouteDest配置后路由到多个上层模块中
 

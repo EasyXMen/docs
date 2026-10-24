@@ -32,7 +32,7 @@ Xcp_Init
 Xcp Module Initialization Function.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -64,7 +64,7 @@ Xcp_GetVersionInfo
 The interface provided to the outside for returning version information.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -96,7 +96,7 @@ Xcp_SetTransmissionMode
 The interface for enabling or disabling XCP transmission.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -131,7 +131,7 @@ Xcp_EventIndication
 The event measurement notification interface, which sends the observation data of a DAQ list with each invocation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -157,12 +157,12 @@ Xcp_CanIfTxConfirmation
 
 .. code::
 
-    void Xcp_CanIfTxConfirmation(PduIdType TxPduId)
+    void Xcp_CanIfTxConfirmation(PduIdType TxPduId, Std_ReturnType result)
 
 The lower layer communication interface module confirms the transmission of a PDU, or the failure to transmit a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -179,6 +179,9 @@ The lower layer communication interface module confirms the transmission of a PD
    * - [in]
      - TxPduId
      - The PDU ID to be notified as having been sent.
+   * - [in]
+     - result
+     - The transmission result of the lower layer.
 
 **Return type**
    void
@@ -194,7 +197,7 @@ Xcp_CanIfRxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -223,12 +226,12 @@ Xcp_SoAdTxConfirmation
 
 .. code::
 
-    void Xcp_SoAdTxConfirmation(PduIdType TxPduId)
+    void Xcp_SoAdTxConfirmation(PduIdType TxPduId, Std_ReturnType result)
 
 The lower layer communication interface module confirms the transmission of a PDU, or the failure to transmit a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -245,6 +248,9 @@ The lower layer communication interface module confirms the transmission of a PD
    * - [in]
      - TxPduId
      - The PDU ID to be notified as having been sent.
+   * - [in]
+     - result
+     - The transmission result of the lower layer.
 
 **Return type**
    void
@@ -260,7 +266,7 @@ Xcp_SoAdRxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -294,7 +300,7 @@ void Xcp_MainFunction
 Handle transmission timeouts, send requests, pending tasks, and deal with session status and interleaved mode according to configuration.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

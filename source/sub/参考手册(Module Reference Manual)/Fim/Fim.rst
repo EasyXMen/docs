@@ -32,6 +32,13 @@ Fim
      - 发布(Release)
      - 正式发布(Official release)
 
+
+   * - 2025/12/15
+     - chao.sun
+     - V1.1
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
+
 参考文档 References
 ------------------------------------------------------------------------------------------------------------
 
@@ -143,7 +150,7 @@ Fim
 
 As shown in picture, the FiM module is in system service layer for providing SWC (used by application software component). One SWC contains multiple functions. Each function corresponds to one FID; when the event status of SWC changes, SWC will make report to DEM, FiM will get the event status of DEM through polling/trigger, then determine whether disable the function based on configured event and mapping relationship of function, and the corresponding SWC of function Access FiM to see if this feature needs disabling
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiM_architecture.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiM_architecture.png
    :alt: FiM架构层次图 (FiM Architecture Hierarchy Diagram)
    :name: FiM_arch
    :align: center
@@ -154,7 +161,7 @@ As shown in picture, the FiM module is in system service layer for providing SWC
 
 As shown in the figure :ref:`FiM_Relationship` , please see the 'Interface Description' chapter for details about interface
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiM_Relationship.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiM_Relationship.png
    :alt: FiM模块接口关系图 (FiM Module Interface Relationship Diagram)
    :name: FiM_Relationship
    :align: center
@@ -164,35 +171,71 @@ As shown in the figure :ref:`FiM_Relationship` , please see the 'Interface Descr
 功能描述 Functional Description
 ================================================================
 
-特性 Features
-------------------------------------------------------------------------------------------------------------
+公共特性(Public Features)
+----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+FiM支持多分区,FiMFIDEcucPartitionRef为该功能所在的分区索引。
+
+FiM supports multiple partitions, and FiMFIDEcucPartitionRef is the partition index where this feature is located.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   1.支持功能抑制配置不同的抑制源和抑制条件。
+
+   1.Support the configuration of function inhibition with different inhibition sources and conditions
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。存在FIM_START_SEC_CODE、FIM_STOP_SEC_CODE、FIM_START_SEC_CONFIG_DATA_8、FIM_STOP_SEC_CONFIG_DATA_8、FIM_START_SEC_CONFIG_DATA_16、FIM_STOP_SEC_CONFIG_DATA_16、FIM_START_SEC_CONFIG_DATA_UNSPECIFIED、FIM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、FIM_START_SEC_CONST_UNSPECIFIED、FIM_STOP_SEC_CONST_UNSPECIFIED、FIM_START_SEC_VAR_INIT_PTR、FIM_STOP_SEC_VAR_INIT_PTR、FIM_START_SEC_VAR_CLEARED_8、FIM_STOP_SEC_VAR_CLEARED_8、FIM_START_SEC_VAR_CLEARED_{{Partition}}_32 [#f1]_ 、FIM_STOP_SEC_VAR_CLEARED_{{Partition}}_32 [#f1]_ 字段。
+
+The memmap file is dynamic.There are FIM_START_SEC_CODE、FIM_STOP_SEC_CODE、FIM_START_SEC_CONFIG_DATA_8、FIM_STOP_SEC_CONFIG_DATA_8、FIM_START_SEC_CONFIG_DATA_16、FIM_STOP_SEC_CONFIG_DATA_16、FIM_START_SEC_CONFIG_DATA_UNSPECIFIED、FIM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、FIM_START_SEC_CONST_UNSPECIFIED、FIM_STOP_SEC_CONST_UNSPECIFIED、FIM_START_SEC_VAR_INIT_PTR、FIM_STOP_SEC_VAR_INIT_PTR、FIM_START_SEC_VAR_CLEARED_8、FIM_STOP_SEC_VAR_CLEARED_8、FIM_START_SEC_VAR_CLEARED_{{Partition}}_32 and FIM_STOP_SEC_VAR_CLEARED_{{Partition}}_32 fields.
+
+.. rubric:: 说明
+
+.. [#f1] {}中内容为配置的分区名。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+----------------------------
 
 模块初始化 Module initialization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Dem和FiM的初始化顺序如下:
 
 The initialization sequence of Dem and FiM is as follows:
 
-1.Dem_PreInit,Dem预初始化
+1.当FiM配置为Polling模式时初始化正确流程:FiM的初始化状态只有unInit和Init,在执行FiM_Init时状态改变
 
-1.Dem_PreInit, Dem pre-initialization
+1.Correct initialization process when FiM is configured in Polling Mode:
+FiM has only two initialization states: Uninit and Init. The state changes when FiM_Init is executed.
 
-2.非易失性存储器数据需可用
+  DemPreInit -> Dem_Init -> FiM_Init
 
-2.Non-volatile memory data should be available
+2.FiM配置为Trigger模式时初始化正确流程:FiM初始化状态有UnInit、PreInit、Init三种。
 
-3.FiM初始化(设置内部变量);初始化后,FiM尚不能使用
+2. Correct initialization process when FiM is configured in Trigger Mode:
+FiM has three initialization states: Uninit, PreInit and Init.
 
-3.FiM initialization (set internal variables); FiM cannot be used yet after initialization
+在执行FiM_Init时状态由Uninit变为PreInit
 
-4.DEM初始化:进行内部DEM初始化,并使用FiM_DemInit最终初始化FiM
+The state changes from Uninit to PreInit when FiM_Init is executed.
 
-4.DEM initialization: Conduct internal DEM initialization and use FiM_DemInit to finally initialize FiM
+Dem_Init会触发FiM_DemInit,执行FiM_DemInit时状态由PreInit变为Init
 
-FiM_GetFunctionPermission在FiM完整初始化之前(FiM_DemInit)调用需要返回E_NOT_OK
+Dem_Init will trigger FiM_DemInit; the state changes from PreInit to Init when FiM_DemInit is executed.
 
-Before the full initialization of FiM (FiM_DemInit),  return E_NOT-OK for calling FiM_GetFunctionalPermission
+  DemPreInit -> FiM_Init -> Dem_Init -> FiM_DemInit 
+
 
 
 FID唯一性 FID Uniqueness
@@ -237,7 +280,7 @@ FiM should be able to handle all FID prohibition conditions linked with the Summ
 
 The figure :ref:`FIM-EVENT-COMPONENT` is the schematic diagram of the relationship between Event and FID:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FIM-EVENT-COMPONENT.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FIM-EVENT-COMPONENT.png
    :alt: FID-Event映射关系 (FID-Event mapping relationship)
    :name: FIM-EVENT-COMPONENT
    :align: center
@@ -320,14 +363,6 @@ The FiM module should ensure immediate control over functionality by synchronous
 
 If FID is not enabled via FiM_SetFunctionalAvailable, then return to FALSE when requesting FiM_GetFunctionalPermission
 
-.. only:: doc_pbs
-
-  变体 Variant
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  1.支持功能抑制配置不同的抑制源和抑制条件
-
-  1.Support the configuration of function inhibition with different inhibition sources and conditions
 
 偏差 Deviation
 ------------------------------------------------------------------------------------------------------------
@@ -492,7 +527,7 @@ FiMConfigSetup配置 Configuration of FiMConfigSetup
 
 This configuration contains three sub-containers for describing the FIM module, as shown in the figure :ref:`FiMConfigSetup`
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMConfigSetup.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMConfigSetup.png
    :alt: FiMConfigSetup配置图 (FiMConfigSetup Configuration Diagram)
    :name: FiMConfigSetup
    :align: center
@@ -508,7 +543,7 @@ FiM管理功能的抑制,每一个功能都会被分配一个唯一的FiD,给FiM
 
 Inhibition of FiM management function. Each function is assigned a unique FiD,To add FiD to FiM, right click FiMFID, as shown below :ref:`FiMFID_add`:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMFID_add.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMFID_add.png
    :alt: FiMFID_add配置图 (FiMFID_add Configuration Diagram)
    :name: FiMFID_add
    :align: center
@@ -520,7 +555,7 @@ Inhibition of FiM management function. Each function is assigned a unique FiD,To
 
 After creating iMFiD, the FID will be displayed by the FiMFIDs folder. Left click the name of the FID, and the configuration options for the FID will appear on the right. It includes Fid numbers and partitions; FiM supports multiple partitions.FiMFIDEcucPartitionRef is the index of the area that includes such function. For the options of FiMFIDEcucPartitionRef, refer to the EcuC configuration reference document, as shown in the following figure :ref:`FiMFiDs`:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMFiDs.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMFiDs.png
    :alt: FiMFiDs配置图 (FiMFiDs Configuration Diagram)
    :name: FiMFiDs
    :align: center
@@ -538,7 +573,7 @@ Several FiMInhibitionConfiguration-x can be added in FiMInhibitionConfiguration 
 
 As shown in the following figure :ref:`FiMInhibitionConfiguration_add` :
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMInhibitionConfiguration_add.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMInhibitionConfiguration_add.png
    :alt: FiMInhibitionConfiguration_add配置图 (FiMInhibitionConfiguration_add Configuration Diagram)
    :name: FiMInhibitionConfiguration_add
    :align: center
@@ -558,7 +593,7 @@ On the basis of the above, FiMInhibitionConfiguration describes all Events, Comp
 
 Therefore, one FID can have at most 4 FiMInhibitionConfiguration options, as shown in the figure :ref:`FiMInhibitionConfiguration` :
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMInhibitionConfiguration.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMInhibitionConfiguration.png
    :alt: FiMInhibitionConfiguration配置图 (FiMInhibitionConfiguration Configuration Diagram)
    :name: FiMInhibitionConfiguration
    :align: center
@@ -593,7 +628,7 @@ This configuration includes all components related to such FID under the combina
 
 As shown in the figure below: ref: ` FiMInhWidgetRef_dedd ` Click the button in the red box to add the option corresponding to FID. In particular, DemWidget-x is configured by DEM
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMInhComponentRef_add.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMInhComponentRef_add.png
    :alt: FiMInhComponentRef_add配置图 (FiMInhComponentRef_add Configuration Diagram)
    :name: FiMInhComponentRef_add
    :align: center
@@ -636,7 +671,7 @@ FiMSummaryEvents is mainly used for configuring Sum Events and individual events
 
 Right click FiMSummaryEvents to add Sum Events, as shown in the following figure :ref:`FiMSummaryEvents` :
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMSummaryEvents.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMSummaryEvents.png
    :alt: FiMSummaryEvents配置图 (FiMSummaryEvents Configuration Diagram)
    :name: FiMSummaryEvents
    :align: center
@@ -647,7 +682,7 @@ Right click FiMSummaryEvents to add Sum Events, as shown in the following figure
 
 Then click the created Sum Event entry to pop up the 'Create' option on the right to add or delete individual events within the Sum Even :ref:`FiMSummaryEvents_add` .
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMSummaryEvents_add.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMSummaryEvents_add.png
    :alt: FiMSummaryEvents_add配置图 (FiMSummaryEvents_add Configuration Diagram)
    :name: FiMSummaryEvents_add
    :align: center
@@ -673,7 +708,7 @@ false:不支持
 
 false: No support
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMAvailabilitySupport.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMAvailabilitySupport.png
    :alt: FiMAvailabilitySupport配置图 (FiMAvailabilitySupport Configuration Diagram)
    :name: FiMAvailabilitySupport
    :align: center
@@ -696,7 +731,7 @@ false:关闭检测和通知功能
 false: Disable detection and notification functions
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMDevErrorDetect.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMDevErrorDetect.png
    :alt: FiMDevErrorDetect配置图 (FiMDevErrorDetect Configuration Diagram)
    :name: FiMDevErrorDetect
    :align: center
@@ -719,7 +754,7 @@ FALSE: FIM轮询从DEM模块周期性或按需监视状态.
 
 FALSE: The FIM polling monitors the status periodically or based on demand from the DEM module
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMEventUpdateTriggeredByDem.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMEventUpdateTriggeredByDem.png
    :alt: FiMEventUpdateTriggeredByDem配置图 (FiMEventUpdateTriggeredByDem Configuration Diagram)
    :name: FiMEventUpdateTriggeredByDem
    :align: center
@@ -731,7 +766,7 @@ FiMMainFunctionPeriod
 
 周期任务的执行时间 Execution Time of Cycle Task
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMainFunctionPeriod.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMainFunctionPeriod.png
    :alt: FiMMainFunctionPeriod配置图 (FiMMainFunctionPeriod Configuration Diagram)
    :name: FiMMainFunctionPeriod
    :align: center
@@ -745,7 +780,7 @@ FiMMaxEventsPerFidInhibitionConfiguration
 
 Specify the max. total number of inhibited events in a single FiMInhibitionConfiguration, which is the sum of Events, Components, and Summarized Events
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxEventsPerFidInhibitionConfiguration.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxEventsPerFidInhibitionConfiguration.png
    :alt: FiMMaxEventsPerFidInhibitionConfiguration配置图 (FiMMaxEventsPerFidInhibitionConfiguration Configuration Diagram)
    :name: FiMMaxEventsPerFidInhibitionConfiguration
    :align: center
@@ -760,7 +795,7 @@ FiMMaxFiMInhibitionConfigurations
 
 Specify the max. total number of FiMInhibitionConfiguration, that is, the number of FiMInhibitionConfiguration in it
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxFiMInhibitionConfigurations.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxFiMInhibitionConfigurations.png
    :alt: FiMMaxFiMInhibitionConfigurations配置图 (FiMMaxFiMInhibitionConfigurations Configuration Diagram)
    :name: FiMMaxFiMInhibitionConfigurations
    :align: center
@@ -776,7 +811,7 @@ FiMMaxInputEventsPerSummaryEvents
 
 Specify the total number of individual events in each Summarized Event, i.e. the total number of events that can be added under FiMSummaryEvent-x
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxInputEventsPerSummaryEvents.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxInputEventsPerSummaryEvents.png
    :alt: FiMMaxInputEventsPerSummaryEvents配置图 (FiMMaxInputEventsPerSummaryEvents Configuration Diagram)
    :name: FiMMaxInputEventsPerSummaryEvents
    :align: center
@@ -791,7 +826,7 @@ FiMMaxSumEventsPerFidInhibitionConfiguration
 
 Specify the max. total number of Summarized Events in FiMInhibitionConfiguration. Total events that can be added under FiMInhSumRef container
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxSumEventsPerFidInhibitionConfiguration.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxSumEventsPerFidInhibitionConfiguration.png
    :alt: FiMMaxSumEventsPerFidInhibitionConfiguration配置图 (FiMMaxSumEventsPerFidInhibitionConfiguration Configuration Diagram)
    :name: FiMMaxSumEventsPerFidInhibitionConfiguration
    :align: center
@@ -805,7 +840,7 @@ FiMMaxSummaryEvents
 
 Specify the max. number of configurable Summary Events, which is the total number of FiMSummaryEvents in the FiMSummaryEvents container
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxSummaryEvents.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxSummaryEvents.png
    :alt: FiMMaxSummaryEvents配置图 (FiMMaxSummaryEvents Configuration Diagram)
    :name: FiMMaxSummaryEvents
    :align: center
@@ -819,7 +854,7 @@ FiMVersionInfoApi
 
 Open or close to get the API of version information
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMVersionInfoApi.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMVersionInfoApi.png
    :alt: FiMVersionInfoApi配置图 (FiMVersionInfoApi Configuration Diagram)
    :name: FiMVersionInfoApi
    :align: center
@@ -833,7 +868,7 @@ FiMMaxComponentsPerFidInhibitionConfiguration
 
 Specify the max. total number of Components in FiMInhibitionConfiguration, that is, the total number of Components that can be added under the FiMInhWidgetRef container
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxComponentsPerFidInhibitionConfiguration.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/FiM/FiMMaxComponentsPerFidInhibitionConfiguration.png
    :alt: FiMMaxComponentsPerFidInhibitionConfiguration配置图 (FiMMaxComponentsPerFidInhibitionConfiguration Configuration Diagram)
    :name: FiMMaxComponentsPerFidInhibitionConfiguration
    :align: center

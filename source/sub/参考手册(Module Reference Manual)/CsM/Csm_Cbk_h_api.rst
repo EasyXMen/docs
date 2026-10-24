@@ -11,7 +11,7 @@ Csm_CallbackNotification
 the CSM that a job has finished. This function is used by the underlying layer (CRYIF).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

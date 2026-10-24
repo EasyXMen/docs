@@ -27,7 +27,11 @@ CanTp
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
-
+   * - 2025/12/15
+     - chao.sun
+     - V1.1
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
 
 参考文档(References)
 ----------------------------------
@@ -288,7 +292,7 @@ CanTp模块用于传输诊断(例如OBD和UDS协议)和AUTOSAR COM I-PDU，其�
 
 The CanTp module is used to transmit diagnostic data (such as OBD and UDS protocols) and AUTOSAR COM I-PDUs. Its main function is to segment and reassemble CAN I-PDUs, and it can handle multiple connections simultaneously, that is, perform multiple segmentation sessions in parallel.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTp模块交互图.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTp模块交互图.png
    :alt: CanTp模块交互图 (CanTp Module Interaction Diagram)
    :name: CanTp_interactions_png
    :align: center
@@ -305,8 +309,62 @@ As shown in Figure "CanTp_interactions_png", the CanTp module is located in the 
 ==========================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-特性(Features)
-------------------------
+公共特性(Public Features)
+-----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- CanTp模块分布在多分区,具体的分区信息由Pdu配置项EcucPduDefaultPartitionRef决定。
+
+  The CanTp module is distributed across multiple partitions, with specific partition information determined by the Pdu configuration parameter EcucPduDefaultPartitionRef.
+
+- 支持配置不同的RxNSdu、TxNSdu分布在不同的变体中，但需要统一该NSdu下的分区信息，如NSduRef，NPduRef应该保证分布在统一分区。
+
+  It supports configuring different RxNSdus and TxNSdus to be distributed across different variants, but the partition information under each NSdu must be unified. For example, NSduRef and NPduRef should be guaranteed to be distributed in the same partition.
+
+- 在多变体情况下，同一RxNSdu、TxNSdu的分区属性不可改变，需保持一致。
+
+  In multi-variant scenarios, the partition attributes of the same RxNSdu and TxNSdu cannot be changed and must remain consistent. 
+
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   - 支持配置CanTp模块连接通道(CanTpChannel)数目变体。
+
+     Supports configuring variants in the number of CanTp module connection channels (CanTpChannel).
+
+   - 支持配置RxNSdu、TxNSdu数目变体。
+
+     Supports configuring variants in the number of RxNSdus and TxNSdus.
+
+   - 基本支持配置RxNSdu、TxNSdu配置项属性变体，但AddressingFormat、TaType、SA、TA及AE等属性除外。
+
+     Basically supports configuring variants in the attribute configuration items of RxNSdu and TxNSdu, except for attributes such as AddressingFormat, TaType, SA, TA, and AE.
+
+   - 支持配置Pdu引用变体。如CanTpRxNPduRef，CanTpTxNPduRef,CanTpRxFcNPduRef，CanTpTxFcNPduRef，CanTpRxNSduRef，CanTpTxNSduRef。
+
+     Supports configuring Pdu reference variants, such as CanTpRxNPduRef, CanTpTxNPduRef, CanTpRxFcNPduRef, CanTpTxFcNPduRef, CanTpRxNSduRef, and CanTpTxNSduRef.
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。存在CANTP_START_SEC_CODE、CANTP_STOP_SEC_CODE、CANTP_START_SEC_CODE_FAST、CANTP_STOP_SEC_CODE_FAST、CANTP_START_SEC_CONFIG_DATA_UNSPECIFIED、CANTP_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANTP_START_SEC_CONFIG_DATA_8、CANTP_STOP_SEC_CONFIG_DATA_8、CANTP_START_SEC_VAR_CLEARED_8、CANTP_STOP_SEC_VAR_CLEARED_8、CANTP_START_SEC_VAR_CLEARED_32、CANTP_STOP_SEC_VAR_CLEARED_32、CANTP_START_SEC_VAR_CLEARED_BOOLEAN、CANTP_STOP_SEC_VAR_CLEARED_BOOLEAN、CANTP_START_SEC_VAR_CLEARED_UNSPECIFIED、CANTP_STOP_SEC_VAR_CLEARED_UNSPECIFIED、CANTP_START_SEC_VAR_CLEARED_PTR、CANTP_STOP_SEC_VAR_CLEARED_PTR、CANTP_START_SEC_VAR_INIT_UNSPECIFIED、CANTP_STOP_SEC_VAR_INIT_UNSPECIFIED、CANTP_START_SEC_VAR_CLEARED_{{n}}_UNSPECIFIED [#f1]_、CANTP_STOP_SEC_VAR_CLEARED__{{n}}_UNSPECIFIED [#f1]_ 字段。
+
+The memmap file is dynamic.There are CANTP_START_SEC_CODE、CANTP_STOP_SEC_CODE、CANTP_START_SEC_CODE_FAST、CANTP_STOP_SEC_CODE_FAST、CANTP_START_SEC_CONFIG_DATA_UNSPECIFIED、CANTP_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANTP_START_SEC_CONFIG_DATA_8、CANTP_STOP_SEC_CONFIG_DATA_8、CANTP_START_SEC_VAR_CLEARED_8、CANTP_STOP_SEC_VAR_CLEARED_8、CANTP_START_SEC_VAR_CLEARED_32、CANTP_STOP_SEC_VAR_CLEARED_32、CANTP_START_SEC_VAR_CLEARED_BOOLEAN、CANTP_STOP_SEC_VAR_CLEARED_BOOLEAN、CANTP_START_SEC_VAR_CLEARED_UNSPECIFIED、CANTP_STOP_SEC_VAR_CLEARED_UNSPECIFIED、CANTP_START_SEC_VAR_CLEARED_PTR、CANTP_STOP_SEC_VAR_CLEARED_PTR、CANTP_START_SEC_VAR_INIT_UNSPECIFIED、CANTP_STOP_SEC_VAR_INIT_UNSPECIFIED、CANTP_START_SEC_VAR_CLEARED_{{n}}_UNSPECIFIED、CANTP_STOP_SEC_VAR_CLEARED__{{n}}_UNSPECIFIED fields. 
+
+.. rubric:: 说明
+
+.. [#f1] n为CanTpConfig.CanTpEcucPartitionShortName配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+----------------------------
 
 单帧接收功能 Single-frame(Reception Function)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -418,6 +476,8 @@ When the status information carried by the received FC is CTS (Continue To Send)
 
 如果发送的CF个数达到FC所带的BS(Block Size)，则需要等待下一个FC，直到数据发送完成。
 
+When a multi-frame message needs to be transmitted, the CanTp module adds the control information of the First Frame (FF). After the FF is successfully sent, it waits to receive a Flow Control Frame (FC).
+When the status information carried by the received FC is CTS (Continue To Send), CanTp will fill the subsequent data into Consecutive Frames (CF) and send them.
 If the number of sent CFs reaches the BS (Block Size) carried by the FC, it needs to wait for the next FC until the data transmission is completed.
 
 
@@ -499,44 +559,6 @@ CF发送流程(CF Transmission Process)
 
    This process repeats until all data is transmitted, and finally, ``PduR_<User:LoTp>TxConfirmation`` is called to notify PduR of the transmission result.
 
-
-支持多核分布功能 Support Multi-core(Distribution Function)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
- - CanTp模块分布在多分区,具体的分区信息由Pdu配置项EcucPduDefaultPartitionRef决定。
-
-   The CanTp module is distributed across multiple partitions, with specific partition information determined by the Pdu configuration parameter EcucPduDefaultPartitionRef.
-
- - 支持配置不同的RxNSdu、TxNSdu分布在不同的变体中，但需要统一该NSdu下的分区信息，如NSduRef，NPduRef应该保证分布在统一分区。
-
-   It supports configuring different RxNSdus and TxNSdus to be distributed across different variants, but the partition information under each NSdu must be unified. For example, NSduRef and NPduRef should be guaranteed to be distributed in the same partition.
-
- - 在多变体情况下，同一RxNSdu、TxNSdu的分区属性不可改变，需保持一致。
-
-   In multi-variant scenarios, the partition attributes of the same RxNSdu and TxNSdu cannot be changed and must remain consistent. 
-
-.. only:: doc_pbs
-
-支持变体功能(Support variant functionality)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
- - 支持配置CanTp模块连接通道(CanTpChannel)数目变体。
-
-   Supports configuring variants in the number of CanTp module connection channels (CanTpChannel).
-
- - 支持配置RxNSdu、TxNSdu数目变体。
-
-   Supports configuring variants in the number of RxNSdus and TxNSdus.
-
- - 基本支持配置RxNSdu、TxNSdu配置项属性变体，但AddressingFormat、TaType、SA、TA及AE等属性除外。
-
-   Basically supports configuring variants in the attribute configuration items of RxNSdu and TxNSdu, except for attributes such as AddressingFormat, TaType, SA, TA, and AE.
-
- - 支持配置Pdu引用变体。如CanTpRxNPduRef，CanTpTxNPduRef,CanTpRxFcNPduRef，CanTpTxFcNPduRef，CanTpRxNSduRef，CanTpTxNSduRef。
-
-   Supports configuring Pdu reference variants, such as CanTpRxNPduRef, CanTpTxNPduRef, CanTpRxFcNPduRef, CanTpTxFcNPduRef, CanTpRxNSduRef, and CanTpTxNSduRef.
-
-
 偏差(Deviation)
 --------------------------
 .. 有序列表示例
@@ -574,6 +596,8 @@ The current CanTp module has expanded some optional functions that customers can
    
    该功能可通过配置项CanTpRxQueue来控制该功能的启用状态，默认情况下该功能为关闭状态。
 
+   Receive FIFO (First - In - First - Out) mechanism:
+
    This function supports using a FIFO queue to store receiving connections when the MainFunction processes receiving tasks, ensuring that the connection activated first is processed first. If a receiving connection is processed, it will be removed from the FIFO queue, and the subsequent connections will move forward in sequence.
 
    This feature is controlled by the configuration parameter CanTpRxQueue and is disabled by default.
@@ -596,6 +620,8 @@ The current CanTp module has expanded some optional functions that customers can
 
    开启该功能后，在CanTp_Transmit被触发时，直接进行SF/FF的发送，不必再等一个MainFunction周期。通过配置项CanTpSynchronousTransmission控制使能，默认情况下该功能为关闭状态。
 
+   Synchronous transmission function:
+
    When this function is enabled, the transmission of SF/FF will be carried out directly when CanTp_Transmit is triggered, without waiting for another MainFunction cycle. It is controlled by the configuration parameter CanTpSynchronousTransmission and is disabled by default.
 
 #. 报告运行时错误:
@@ -603,6 +629,8 @@ The current CanTp module has expanded some optional functions that customers can
    Report runtime errors:
 
    用户可以通过配置项CanTpRuntimeErrorDetect控制是否向Det报告运行时错误，默认情况下该功能为打开状态。
+
+   Report runtime errors:
 
    Users can control whether to report runtime errors to Det through the configuration item CanTpRuntimeErrorDetect, and this function is enabled by default.
 
@@ -613,6 +641,8 @@ The current CanTp module has expanded some optional functions that customers can
    CAN/CAN FD 兼容功能 是一种支持在 CAN FD 通道下同时处理 CAN 和 CAN FD 帧的机制。开启该功能后，系统能够根据接收到的帧类型(CAN 或 CAN FD)自动切换发送模式，从而实现 CAN 和 CAN FD 的兼容通信。
 
    该功能通过CanTpSupportCanWithCanFD功能控制，默认情况下该功能为关闭状态。
+
+   CAN/CAN FD compatibility function:
 
    The CAN/CAN FD compatibility feature is a mechanism that allows processing of both CAN and CAN FD frames on a CAN FD channel. When this function is enabled, the system can automatically switch the transmission mode according to the type of received frame (CAN or CAN FD), thereby achieving compatible communication between CAN and CAN FD.
 
@@ -888,7 +918,7 @@ CanTpGeneral容器包含一些CanTp模块通用的配置参数。
 
 The CanTpGeneral container includes configuration parameters common to the CanTp module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpGeneral.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpGeneral.png
    :name: CanTpGeneral
    :align: center
    :width: 500
@@ -932,10 +962,16 @@ The CanTpGeneral container includes configuration parameters common to the CanTp
 
   Control the activation status of the synchronous transmission function (see details in the "Functional Description" chapter - Extension).Enabled: Enables the synchronous transmission function.Disabled: Disables the synchronous transmission function (default state).
 
+- CanTpReceiveCancellation
+
+  启用或禁用该模块中的API：CanTp_CancelReceive。Enabled：启用API：CanTp_CancelReceive。Disabled：禁用API：CanTp_CancelReceive(默认状态)。
+  
+  Enable or disable the API in this module: CanTp_CancelReceive. Enabled: Enable the API: CanTp_CancelReceive. Disabled: Disable the API: CanTp_CancelReceive (default state).
+
 2.(CanTpDemEventParameterRefs)
 --------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpDemEventParameterRefs.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpDemEventParameterRefs.png
    :alt: CanTpDemEventParameterRefs
    :name: CanTpDemEventParameterRefs
    :align: center
@@ -956,7 +992,7 @@ When an additional product error occurs during CanTp operation (see details in t
 3.(Channel property)
 ----------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpSupportCanWithCanFD.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpSupportCanWithCanFD.png
    :alt: CanTpSupportCanWithCanFD
    :name: CanTpSupportCanWithCanFD
    :align: center
@@ -981,7 +1017,7 @@ RxNSdu 负责接收 CAN 总线上的分段数据并将其重组为完整的数�
 
 An RxNSdu is responsible for receiving data (both segmented and unsegmented) from the CAN bus and reassembling segmented data into complete packets. CanTp uses this RxNSdu to transfer the received data to the upper-layer module PduR.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpRxNSdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpRxNSdu.png
    :alt: CanTpRxNSdu
    :name: CanTpRxNSdu
    :align: center
@@ -1034,7 +1070,7 @@ CanTpRxNPdu 是 CanTp模块中用于接收协议数据单元(Protocol Data Unit,
 CanTpRxNPdu is a key component in the CanTp module for receiving Protocol Data Units (PDUs).
 The lower-layer module CanIf uses this CanTpRxNPdu to transfer data frames from the CAN bus to the CanTp module, enabling the CanTp module to perform further processing (such as parsing, reassembly, etc.).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpRxNPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpRxNPdu.png
    :name: CanTpRxNPdu
    :align: center
    :width: 500
@@ -1054,7 +1090,7 @@ The lower-layer module CanIf uses this CanTpRxNPdu to transfer data frames from 
 
 After the receiver receives the data frame, it sends flow control frames (such as CTS, Wait, or Overflow) through TxFcNPdu to control the behavior of the sender, based on the status of the upper-layer buffer and data processing capability.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpTxFcNPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpTxFcNPdu.png
    :alt: CanTpTxFcNPdu
    :name: CanTpTxFcNPdu
    :align: center
@@ -1080,7 +1116,7 @@ CanTpTxNSdu的主要作用是将上层应用的数据打包成适合 CAN 总线�
 
 The main function of CanTpTxNSdu is to package data from upper-layer applications into a format suitable for transmission over the CAN bus and pass it to lower-layer modules.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpTxNSdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpTxNSdu.png
    :alt: CanTpTxNSdu
    :name: CanTpTxNSdu
    :align: center
@@ -1131,7 +1167,7 @@ CanTpTxNPdu 负责将 CanTp 模块处理后的数据帧发送给CanIf模块，�
 
 CanTpTxNPdu is responsible for sending the data frames processed by the CanTp module to the CanIf module, which are then transmitted to the CAN bus.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpTxNPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpTxNPdu.png
    :alt: CanTpTxNPdu
    :name: CanTpTxNPdu
    :align: center
@@ -1154,7 +1190,7 @@ CanTpRxFcNPdu 负责从 CAN 总线接收流控帧， CanTp会进行解析Fc，�
 
 An RxFcNPdu is used to receive Flow Control Frames (FC) from the CAN bus. CanTp parses the received FC to extract key information (such as BS and STmin).
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanTp/CanTpRxFcNPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanTp/CanTpRxFcNPdu.png
    :alt: CanTpRxFcNPdu
    :name: CanTpRxFcNPdu
    :align: center

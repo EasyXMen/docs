@@ -1,9 +1,9 @@
 开源小满EasyXMen技术文档(EasyXMen Technical Documentation)
 ==================================================================================================================
 
-本页面包含快速上手指南、参考手册、集成手册和示例工程说明。版本发布说明请参考链接：https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
+本页面包含快速上手指南、参考手册、集成手册和开发平台工程说明。版本发布说明请参考链接：https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
 
-This page contains the Quick Start Guide, Module Reference Manual, Integration Instruction Manual and Demo Project Description. For version release notes, please refer to the link: https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
+This page contains the Quick Start Guide, Module Reference Manual, Integration Instruction Manual and Development Plantform Project Description. For version release notes, please refer to the link: https://atomgit.com/easyxmen/docs/tree/master/ReleaseNotes
 
 .. tip::
 
@@ -49,15 +49,20 @@ Copyright (C) 2024-2026 iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD. Permission is gra
    :maxdepth: 1
    :caption: 快速上手指南(Quick Start Guide):
 
-   sub/快速上手指南(Quick_Start_Guide)/S32K148.rst
-   sub/快速上手指南(Quick_Start_Guide)/TC397.rst
    sub/快速上手指南(Quick_Start_Guide)/RH850U2A16.rst
+   sub/快速上手指南(Quick_Start_Guide)/RH850U2B24.rst
+   sub/快速上手指南(Quick_Start_Guide)/S32K148.rst
+   sub/快速上手指南(Quick_Start_Guide)/S32K312.rst
+   sub/快速上手指南(Quick_Start_Guide)/S32K344.rst
+   sub/快速上手指南(Quick_Start_Guide)/TC377.rst
+   sub/快速上手指南(Quick_Start_Guide)/TC397.rst
 
 .. toctree::
    :maxdepth: 1
    :caption: 参考手册(Module Reference Manual):
 
    sub/参考手册(Module Reference Manual)/Bfx/Bfx.rst
+   sub/参考手册(Module Reference Manual)/BndM/BndM.rst
    sub/参考手册(Module Reference Manual)/BswM/BswM.rst
    sub/参考手册(Module Reference Manual)/CanIf/CanIf.rst
    sub/参考手册(Module Reference Manual)/CanNm/CanNm.rst
@@ -81,17 +86,16 @@ Copyright (C) 2024-2026 iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD. Permission is gra
    sub/参考手册(Module Reference Manual)/Eep_62/Eep_62.rst
    sub/参考手册(Module Reference Manual)/EthIf/EthIf.rst
    sub/参考手册(Module Reference Manual)/EthSM/EthSM.rst
-   sub/参考手册(Module Reference Manual)/EthTrcv/EthTrcv.rst
    sub/参考手册(Module Reference Manual)/EthTSyn/EthTSyn.rst
    sub/参考手册(Module Reference Manual)/Fee/Fee.rst
    sub/参考手册(Module Reference Manual)/Fim/Fim.rst
-   sub/参考手册(Module Reference Manual)/FlashTest/FlashTest.rst
    sub/参考手册(Module Reference Manual)/IpduM/IpduM.rst
    sub/参考手册(Module Reference Manual)/IStdLib/IStdLib.rst
    sub/参考手册(Module Reference Manual)/KeyM/KeyM.rst
    sub/参考手册(Module Reference Manual)/LdCom/LdCom.rst
    sub/参考手册(Module Reference Manual)/LinIf/LinIf.rst
    sub/参考手册(Module Reference Manual)/LinSM/LinSM.rst
+   sub/参考手册(Module Reference Manual)/MemAcc/MemAcc.rst
    sub/参考手册(Module Reference Manual)/MemIf/MemIf.rst
    sub/参考手册(Module Reference Manual)/MemMap/MemMap.rst
    sub/参考手册(Module Reference Manual)/MemLayout/MemLayout.rst
@@ -99,7 +103,6 @@ Copyright (C) 2024-2026 iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD. Permission is gra
    sub/参考手册(Module Reference Manual)/NvM/NvM.rst
    sub/参考手册(Module Reference Manual)/Os/Os.rst
    sub/参考手册(Module Reference Manual)/PduR/PduR.rst
-   sub/参考手册(Module Reference Manual)/RamTest/RamTest.rst
    sub/参考手册(Module Reference Manual)/Rte/Rte.rst
    sub/参考手册(Module Reference Manual)/iRte/iRte.rst
    sub/参考手册(Module Reference Manual)/Sd/Sd.rst
@@ -113,9 +116,6 @@ Copyright (C) 2024-2026 iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD. Permission is gra
    sub/参考手册(Module Reference Manual)/WdgM/WdgM.rst
    sub/参考手册(Module Reference Manual)/Xcp/Xcp.rst
    sub/参考手册(Module Reference Manual)/Tm/Tm.rst
-   sub/参考手册(Module Reference Manual)/CDD_FVM/CDD_FVM.rst
-   sub/参考手册(Module Reference Manual)/EthSwt/EthSwt.rst
-   sub/参考手册(Module Reference Manual)/CanTrcv/CanTrcv.rst
 
 
 .. toctree::
@@ -148,6 +148,6 @@ Copyright (C) 2024-2026 iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD. Permission is gra
 
 .. toctree::
    :maxdepth: 1
-   :caption: 示例工程说明(Demo Project Discrption):
+   :caption: 开发平台工程说明(Development Plantform Project Discrption):
 
-   sub/示例工程说明(Demo_Project_Description)/示例工程说明(Demo_Project_Description).rst
+   sub/开发平台工程说明(Development_Plantform_Project_Description)/开发平台工程说明(Development_Plantform_Project_Description).rst

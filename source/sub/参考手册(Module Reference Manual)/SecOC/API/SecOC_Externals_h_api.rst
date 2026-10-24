@@ -9,7 +9,7 @@ SecOC_VerifyStatus
 This function is called by the SecOC module to notify the BSW module about the verification status.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

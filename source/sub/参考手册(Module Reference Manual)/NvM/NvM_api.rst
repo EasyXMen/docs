@@ -58,7 +58,7 @@ NvM_JobEndNotification
 Function to be used by the underlying memory abstraction to signal end of job without error.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -78,7 +78,7 @@ NvM_JobErrorNotification
 Function to be used by the underlying memory abstraction to signal end of job with error.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -97,7 +97,7 @@ NvM_Init
 Service for resetting all internal variables.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -129,7 +129,7 @@ NvM_GetVersionInfo
 Service to get the version information of the NvM module.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -161,7 +161,7 @@ NvM_GetErrorStatus
 Service to read the block dependent error/status information.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -208,7 +208,7 @@ NvM_SetRamBlockStatus
 Service for setting the RAM block status of a permanent RAM block or the status of the explicit synchronization of a NVRAM block.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -255,7 +255,7 @@ NvM_CancelWriteAll
 Service to cancel a running NvM_WriteAll request.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -275,7 +275,7 @@ NvM_ReadAll
 Initiates a multi block read request.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -295,7 +295,7 @@ NvM_WriteAll
 Initiates a multi block write request.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -315,7 +315,7 @@ NvM_FirstInitAll
 The function initiates a multi block first initialization request.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -335,7 +335,7 @@ NvM_WritePRAMBlock
 Service to copy the data of the permanent RAM block to its corresponding NV block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -379,7 +379,7 @@ NvM_RestorePRAMBlockDefaults
 Service to restore the default data to its corresponding permanent RAM block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -423,7 +423,7 @@ NvM_SetDataIndex
 Service for setting the DataIndex of a dataset NVRAM block.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -470,7 +470,7 @@ NvM_GetDataIndex
 Service for getting the currently set DataIndex of a dataset NVRAM block.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -517,7 +517,7 @@ NvM_ReadPRAMBlock
 Service to copy the data of the NV block to its corresponding permanent RAM block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -561,7 +561,7 @@ NvM_ReadBlock
 Service to copy the data of the NV block to its corresponding RAM block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -608,7 +608,7 @@ NvM_WriteBlock
 Service to copy the data of the RAM block to its corresponding NV block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -655,7 +655,7 @@ NvM_RestoreBlockDefaults
 Service to restore the default data to its corresponding RAM block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -702,7 +702,7 @@ NvM_CancelJobs
 Service to cancel all jobs pending for a NV block.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -746,7 +746,7 @@ NvM_ValidateAll
 Initiates a multi block validation request.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -766,7 +766,7 @@ NvM_SetBlockProtection
 Service for setting/resetting the write protection for a NV block.
 
 **Sync/Async**
-   TRUE
+  Synchronous
 
 **Reentrancy**
    Reentrant
@@ -813,7 +813,7 @@ NvM_InvalidateNvBlock
 Service to invalidate a NV block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -857,7 +857,7 @@ NvM_EraseNvBlock
 Service to erase a NV block.
 
 **Sync/Async**
-   FALSE
+  Asynchronous
 
 **Reentrancy**
    Reentrant

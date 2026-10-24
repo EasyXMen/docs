@@ -1,5 +1,6 @@
-类型定义 Type Definitions
-------------------------------------------------
+
+类型定义
+--------
 .. 如果没有就不存在该章节，或为None
 
 .. list-table:: 
@@ -14,36 +15,10 @@
      - uint8
      - 
 
-   * - LinSM_ConfigType
-     - struct
-     - The root struct configuration parameters of LinSM.
 
-.. list-table:: 
-   :widths: 15 5 20
-   :header-rows: 1
-
-   * - Type Name
-     - Type
-     - Description
-
-   * - LinSM_RunTimeType
-     - struct
-     - Runtime variables.
-
-   * - LinSM_ScheduleType
-     - struct
-     - Record the schedule table configuration of a channel.
-
-   * - LinSM_ScheduleVariant
-     - struct
-     - Record all schedule table configurations for a variant.
-
-   * - LinSM_ChannelType
-     - struct
-     - Channel-related configuration parameter structure.
       
-提供的服务 Services
-------------------------------------------------
+提供的服务
+-----------
 LinSM_Init
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -394,12 +369,12 @@ The LinIf will call this callback when the wake up signal command is sent not su
    void
 
 
-LinSM_MainFunction_<LinSMChannel.ShortName>
+LinSM_MainFunction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code::
 
-    void LinSM_MainFunction_<LinSMChannel.ShortName>(void)
+    void LinSM_MainFunction(LinSM_ChannelIndexType chlIndex)
 
 Periodic function that runs the timers of different request timeouts.
 
@@ -408,6 +383,19 @@ Periodic function that runs the timers of different request timeouts.
 
 **Reentrancy**
    Reentrant (Reentrant for different Channels)
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - chlIndex
+     - Index of the LinSM channel
 
 **Return type**
    void

@@ -14,7 +14,7 @@ IpduM_RxIndication
 Indication of a received I-PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -49,7 +49,7 @@ IpduM_TxConfirmation
 The lower layer communication interface module confirms the transmission of an I-PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.
@@ -84,7 +84,7 @@ IpduM_TriggerTransmit
 The lower layer communication interface module confirms the transmission of an I-PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds. Non reentrant for the same PduId.

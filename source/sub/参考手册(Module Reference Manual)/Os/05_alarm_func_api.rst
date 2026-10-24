@@ -1,11 +1,11 @@
 Alarm(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Os提供用于处理重复事件的服务，例如在Alarm到期时激活任务，设置事件或调用AlarmCallBack回调函数。Alarm回调函数是应用程序提供的简短函数。
 
 The OS provides services for handling recurring events, such as activating tasks upon alarm expiration, setting events, or invoking the AlarmCallback function. The alarm callback is a short function supplied by the application.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/alarm分层模型.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/alarm分层模型.png
    :alt: Alarm的分层模型 Alarm Layered Model
    :align: center
 
@@ -20,7 +20,7 @@ Counters and alarms are statically defined. The assignment of counters to alarms
 Dynamic parameters include the counter value at alarm expiration and the cycle time for periodic alarms.
 
 GetAlarmBase
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -29,7 +29,7 @@ GetAlarmBase
 The system service GetAlarmBase reads the alarm base characteristics. The return value <Info> is a structure in which the information of data type
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -107,7 +107,7 @@ The system service GetAlarmBase reads the alarm base characteristics. The return
 
 
 GetAlarm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -116,7 +116,7 @@ GetAlarm
 The system service GetAlarm returns the relative value in ticks before the alarm <AlarmID> expires.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -198,7 +198,7 @@ The system service GetAlarm returns the relative value in ticks before the alarm
 
 
 SetRelAlarm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -207,7 +207,7 @@ SetRelAlarm
 The system service occupies the alarm <AlarmID> element. After <increment> ticks have elapsed, the task assigned to the alarm <AlarmID> is activated or the assigned event (only for extended tasks) is set or the alarm-callback routine is called.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -277,7 +277,7 @@ The system service occupies the alarm <AlarmID> element. After <increment> ticks
 
 
 SetAbsAlarm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -286,7 +286,7 @@ SetAbsAlarm
 The system service occupies the alarm <AlarmID> element. When <start> ticks are reached, the task assigned to the alarm <AlarmID> is activated or the assigned event (only for extended tasks) is set or the alarm-callback routine is called.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -382,7 +382,7 @@ The system service occupies the alarm <AlarmID> element. When <start> ticks are 
 
 
 CancelAlarm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -391,7 +391,7 @@ CancelAlarm
 The system service cancels the alarm <AlarmID>.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

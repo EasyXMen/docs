@@ -48,7 +48,7 @@ Dlt_TriggerTransmit
 
     FUNC(Std_ReturnType, DLT_APPL_CODE) Dlt_TriggerTransmit(
         PduIdType TxPduId,
-        P2CONST(PduInfoType, AUTOMATIC, DLT_APPL_CONST) PduInfoPtr)
+        P2VAR(PduInfoType, AUTOMATIC, DLT_APPL_DATA) PduInfoPtr)
 
 Upper layer module shall check if data fits into PduInfoPtr->SduLength buffer.
 

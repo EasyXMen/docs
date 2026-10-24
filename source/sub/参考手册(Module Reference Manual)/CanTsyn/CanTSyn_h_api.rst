@@ -1,62 +1,13 @@
 
-类型定义 Type Definitions
-------------------------------------------------------------------------
-
+类型定义
+--------
 .. 如果没有就不存在该章节，或为None
 
-.. list-table::
-   :widths: 10 3 20
-   :header-rows: 1
+None
 
-   * - Type Name
-     - Type
-     - Description
-
-   * - CanTSyn_ConfigType
-     - struct
-     - This is the base type for the configuration of the Time Synchronization over CAN.
-
-   * - CanTSyn_TransmissionModeType
-     - enum
-     - Handles the enabling and disabling of the transmission mode.
-
-
-提供的服务 Services
-------------------------------------------------------------------------
-
-CanTSyn_Init
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code::
-
-    void CanTSyn_Init(const CanTSyn_ConfigType *configPtr)
-
-This function initializes the Time Synchronization over CAN.
-
-**Sync/Async**
-   Synchronous
-
-**Reentrancy**
-  Non Reentrant
-
-**Parameters**
-
-.. list-table::
-   :widths: 5 10 30
-   :header-rows: 1
-
-   * - Dir
-     - Name
-     - Description
-   * - [in]
-     - configPtr
-     - Pointer to selected configuration structure
-
-**Return type**
-   void
-
-
-
+      
+提供的服务
+-----------
 CanTSyn_GetVersionInfo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,7 +21,7 @@ This service returns the version information of this module.
    Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -83,7 +34,7 @@ This service returns the version information of this module.
      - Description
    * - [out]
      - versioninfoPtr
-     - See Std_VersionInfoType
+     - Pointer to where to store the version information of this module
 
 **Return type**
    void
@@ -122,3 +73,37 @@ This API is used to turn on and off the TX capabilities of the CanTSyn.
 
 **Return type**
    void
+
+
+CanTSyn_Init
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    void CanTSyn_Init(const CanTSyn_ConfigType *configPtr)
+
+This function initializes the Time Synchronization over CAN.
+
+**Sync/Async**
+   Synchronous
+
+**Reentrancy**
+   Non Reentrant
+
+**Parameters**
+
+.. list-table::
+   :widths: 5 10 30
+   :header-rows: 1
+
+   * - Dir
+     - Name
+     - Description
+   * - [in]
+     - configPtr
+     - Pointer to selected configuration structure
+
+**Return type**
+   void
+
+

@@ -1,5 +1,5 @@
 Counter(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 一个计数器由一个以“滴答”为单位表示的计数器值和一些计数器特定的常数。 Os提供标准化的API，以直接操作计数器。
 Os提供了两种不同的计数器：
@@ -19,7 +19,7 @@ The OS offers two distinct types of counters:
 **Software Counter**: The counter value is incremented by calling IncrementCounter. The counter value is maintained "in software" by ORIENTAIS OS.
 
 IncrementCounter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -28,7 +28,7 @@ IncrementCounter
 This service increments a software counter.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -90,7 +90,7 @@ This service increments a software counter.
 
 
 GetCounterValue
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -99,7 +99,7 @@ GetCounterValue
 This service reads the current count value of a counter .
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -178,7 +178,7 @@ This service reads the current count value of a counter .
 
 
 GetElapsedValue
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -187,7 +187,7 @@ GetElapsedValue
 This service gets the number of ticks between the current tick value and a previously read tick value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

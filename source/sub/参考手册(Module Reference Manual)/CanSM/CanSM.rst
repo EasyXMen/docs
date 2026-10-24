@@ -131,38 +131,67 @@ CanSM 模块负责 CAN 网络的控制流抽象，它使用 CanIf 模块的 API�
 
 The CanSM module is responsible for the control flow abstraction of the CAN network. It uses the API of the CanIf module to change the communication mode of the configured CAN network according to the mode request from the ComM module. Any changes in the CAN controller mode and CAN transceiver mode will be notified to the CanSM module by the CanIf module. Based on the CanIf notification and the state of the CanSM state machine, the CanSM module will notify ComM and BswM.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanSM/Layered-Software-Architecture-from-CanSM-point-of-view.png
-   :alt: Layered Software Architecture from-CanSM point of view
-   :name: Layered-Software-Architecture-from-CanSM-point-of-view
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanSM/CanSM在AUTOSAR中的位置.png
+   :alt: CanSM在AUTOSAR中的位置(Position of CanSM in AUTOSAR)
    :align: center
 
-   Layered Software Architecture from-CanSM point of view
+   CanSM在AUTOSAR中的位置(Position of CanSM in AUTOSAR)
 
 
 功能描述(Functional Description)
 ====================================
 .. 本章节仅描述模块支持的功能大致情况，不宜做细致描述；更加细致的描述在配置章节，结合配置，从集成角度描述
 
-特性(Features)
------------------------
+公共特性(Public Features)
+--------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 通过 CanSMManagerNetwork/CanSMComMNetworkHandleRef 引用的 ComMChannel/ComMChannelPartitionRef 获取分区信息.(要求CanSMController的分区配置需要与ComMChannel一致)
+
+  The partition information is obtained through the ComMChannel/ComMChannelPartitionRef referenced by CanSMManagerNetwork/CanSMComMNetworkHandleRef. (The partition configuration of CanSMController is required to be consistent with ComMChannel)
+
+- 每个 CanSMManagerNetwork 生成一个Mainfunction，在各自的分区中被调用
+
+  Each CanSMManagerNetwork generates a MainFunction, which is called in its respective partition.
 
 .. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   - 支持在不同变体中配置不同的 `CanSMModeRequestRepetitionMax` 和 `CanSMModeRequestRepetitionTime`。
+
+     Support configuring different `CanSMModeRequestRepetitionMax` and `CanSMModeRequestRepetitionTime` in different variants.
+
+   - 支持相同的 CAN 网络在不同的变体中配置不同的 bus-off 恢复时间参数 `CanSMBorCounterL1ToL2, CanSMBorTimeL1, CanSMBorTimeL2` 和 `CanSMBorTimeTxEnsured`。
+
+     Support configuring different bus-off recovery time parameters `CanSMBorCounterL1ToL2`, `CanSMBorTimeL1`, `CanSMBorTimeL2` and `CanSMBorTimeTxEnsured` for the same CAN network in different variants.
+
+   - 支持相同的 CAN 网络在不同的变体中的产品错误 `CANSM_E_BUS_OFF` 和 `CANSM_E_MODE_REQUEST_TIMEOUT` 使用不同的 Dem Event。
+
+     Support that the product errors `CANSM_E_BUS_OFF` and `CANSM_E_MODE_REQUEST_TIMEOUT` of the same CAN network in different variants use different Dem Events.
   
-  变体(Variant)
-  ~~~~~~~~~~~~~~~~~~~~~~~
-    
-  - 支持在不同变体中配置不同的 `CanSMModeRequestRepetitionMax` 和 `CanSMModeRequestRepetitionTime`。
-  
-    Support configuring different `CanSMModeRequestRepetitionMax` and `CanSMModeRequestRepetitionTime` in different variants.
-  
-  - 支持相同的 CAN 网络在不同的变体中配置不同的 bus-off 恢复时间参数 `CanSMBorCounterL1ToL2, CanSMBorTimeL1, CanSMBorTimeL2` 和 `CanSMBorTimeTxEnsured`。
-  
-    Support configuring different bus-off recovery time parameters `CanSMBorCounterL1ToL2`, `CanSMBorTimeL1`, `CanSMBorTimeL2` and `CanSMBorTimeTxEnsured` for the same CAN network in different variants.
-  
-  - 支持相同的 CAN 网络在不同的变体中的产品错误 `CANSM_E_BUS_OFF` 和 `CANSM_E_MODE_REQUEST_TIMEOUT` 使用不同的 Dem Event。
-  
-    Support that the product errors `CANSM_E_BUS_OFF` and `CANSM_E_MODE_REQUEST_TIMEOUT` of the same CAN network in different variants use different Dem Events.
-  
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Memmap文件是动态的。存在 CANSM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、CANSM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED [#f1]_、CANSM_STOP_SEC_CONST_PTR、CANSM_START_SEC_VAR_CLEARED_BOOLEAN、CANSM_START_SEC_CONFIG_DATA_8、CANSM_START_SEC_CONFIG_DATA_16、CANSM_START_SEC_CONFIG_DATA_UNSPECIFIED、CANSM_STOP_SEC_VAR_CLEARED_BOOLEAN、CANSM_START_SEC_CODE、CANSM_STOP_SEC_CODE、CANSM_STOP_SEC_VAR_CLEARED_8、CANSM_START_SEC_VAR_CLEARED_8、CANSM_STOP_SEC_CONFIG_DATA_16、CANSM_START_SEC_VAR_CLEARED_PTR、CANSM_STOP_SEC_CONFIG_DATA_8、CANSM_STOP_SEC_VAR_CLEARED_PTR、CANSM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANSM_START_SEC_CONST_PTR
+
+The Memmap files are dynamic. There are CANSM_START_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、CANSM_STOP_SEC_VAR_CLEARED_{{ n }}_UNSPECIFIED、CANSM_STOP_SEC_CONST_PTR、CANSM_START_SEC_VAR_CLEARED_BOOLEAN、CANSM_START_SEC_CONFIG_DATA_8、CANSM_START_SEC_CONFIG_DATA_16、CANSM_START_SEC_CONFIG_DATA_UNSPECIFIED、CANSM_STOP_SEC_VAR_CLEARED_BOOLEAN、CANSM_START_SEC_CODE、CANSM_STOP_SEC_CODE、CANSM_STOP_SEC_VAR_CLEARED_8、CANSM_START_SEC_VAR_CLEARED_8、CANSM_STOP_SEC_CONFIG_DATA_16、CANSM_START_SEC_VAR_CLEARED_PTR、CANSM_STOP_SEC_CONFIG_DATA_8、CANSM_STOP_SEC_VAR_CLEARED_PTR、CANSM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、CANSM_START_SEC_CONST_PTR
+
+.. rubric:: 说明
+
+.. [#f1] n 为ComMChannel.ComMChannelPartitionRef配置名称。
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+--------------------------------------------------------
+
 状态机(State machine)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -170,7 +199,7 @@ CAN 总线的状态管理器 CanSM，负责实现 CAN 网络控制流程的抽�
 
 CanSM, the state manager of the CAN bus, is responsible for implementing the abstraction of CAN network control processes. CanSM provides an API for ComM to request the CAN network to switch communication modes. When ComM requests to switch the network mode, it will pass a parameter (used to identify which network it is). After receiving this request, the corresponding network will execute the corresponding communication mode switch. During the switching of network communication modes, the corresponding CAN peripheral control and PDU processing will be performed.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanSM/CANSM_BSM.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanSM/CANSM_BSM.png
    :alt: CANSM_BSM, state machine diagram for one CAN network
    :name: CANSM_BSM
    :align: center
@@ -481,9 +510,3 @@ Scheduled function of the CanSM.
 因 CanSM 依赖 CanNM 接口 CanNm_ConfirmPnAvailability，所以需要确保 CanNM 在 CanSM 之前初始化，这通常是在 EcuMDriverInitListBswM 中配置的。
 
 Since CanSM depends on the CanNM interface CanNm_ConfirmPnAvailability, CanNM must be initialized before CanSM. This is usually configured in EcuMDriverInitListBswM.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanSM/EcuMDriverInitListBswM.png
-   :name: EcuMDriverInitListBswM
-   :align: center
-
-   EcuMDriverInitListBswM

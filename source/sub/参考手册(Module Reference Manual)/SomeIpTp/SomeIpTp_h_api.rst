@@ -18,7 +18,7 @@ SomeIpTp_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -50,7 +50,7 @@ SomeIpTp_Init
 Initializes the SOME/IP TP module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -82,7 +82,7 @@ SomeIpTp_Transmit
 Requests transmission of a PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -117,7 +117,7 @@ SomeIpTp_TriggerTransmit
 Within this API, the upper layer module (called module) shall check whether the available data fits into the buffer size reported by PduInfoPtr->SduLength.If it fits, it shall copy its data into the buffer provided by PduInfoPtr->SduDataPtr and update the length of the actual copied data in PduInfoPtr->SduLength. If not, it returns E_NOT_OK without changing PduInfoPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -152,7 +152,7 @@ SomeIpTp_RxIndication
 Indication of a received PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different PduIds.
@@ -187,7 +187,7 @@ SomeIpTp_TxConfirmation
 This service is called by the Ethernet Interface to report a transceiver link state change.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -222,7 +222,7 @@ SomeIpTp_MainFunctionTx
 This function performs the processing of the AUTOSAR SOME/IP TP module's transmission activities.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -242,7 +242,7 @@ SomeIpTp_MainFunctionRx
 This function performs the processing of the AUTOSAR SOME/IP TP module's reception activities.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

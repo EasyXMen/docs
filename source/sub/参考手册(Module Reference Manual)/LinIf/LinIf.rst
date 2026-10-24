@@ -2,10 +2,10 @@
 LinIf
 ========================
 
-文档信息 Document Information
+文档信息 (Document Information)
 ============================================================
 
-版本历史 Version History
+版本历史 (Version History)
 ------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -31,7 +31,7 @@ LinIf
      - 正式发布(Official release)
 
 
-参考文档 References
+参考文档 (References)
 -------------------------------------------------------------------------------------------------------
 .. list-table::
    :widths: 10 10 30 10
@@ -66,7 +66,7 @@ LinIf
      - AUTOSAR_SWS_PDURouter.pdf 
      - R23-11
 
-术语与简写 Terms and Abbreviations
+术语与简写 (Terms and Abbreviations)
 ====================================================================
 
 简写 Abbreviations
@@ -116,7 +116,7 @@ LinIf
      - SRF Slave Response Frame  
      - 从节点应答帧    
 
-简介 Introduction
+简介 (Introduction)
 ==================================
 
 本文档是 AUTOSAR R23-11 的 LIN Interface(以下简称 LinIf) 模块参考手册。旨在指导使用 LinIf 模块的用户能够清晰地了解如何去使用 LinIf 模块。
@@ -131,7 +131,7 @@ The LinIf module includes two main functions: an interface service (LinIf) for n
 
 This document primarily introduces the interface functions, type definitions of the LinIf module, and the usage of the LinIf module's configuration tool.
 
-.. image:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/软件架构.png
+.. image:: /_static/参考手册(Module_Reference_Manual)/LinIf/LinIf在AutoSar架构中的位置.jpg
 
 注： 本文后面的描述为了区分 LinIf 模块和 LinIf 功能， 在描述时如果使用 LinIf模块， 则指 LinIf 模块整体， 包含 LinIf 和 LinTp 功能。如果使用 LinIf 功能则单指 LinIf 模块下的 LinIf 功能部分。
 
@@ -140,10 +140,40 @@ Note: In the subsequent descriptions within this document, to distinguish betwee
 功能描述 Functional Description
 ==========================================================
 
-报文传输 Message Transmission
---------------------------------------------------------------------------------------------------
+公共特性 (Public Features)
+--------------------------------------------------
 
-功能介绍 Functional Description
+多核多分区功能 (Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+如果EcuC模块中的EcucPartition容器数量大于1，则认为该工程为多分区工程。
+
+If the number of EcucPartition containers in the EcuC module is greater than 1, then this project is considered to be a multi-partition project.
+
+LinIf模块中LinIfChannel的分区分布由LinIfChPartitionRef参数指定且必须和LinMacl配置中的LinChannel分区分布相同。
+
+The partition distribution of LinIfChannel in the LinIf module is specified by the LinIfChPartitionRef parameter and must be the same as the partition distribution of LinChannel in the LinMacl configuration.
+
+.. only:: doc_pbs
+
+   PBS功能 (PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   LinIf模块仅支持LinIfChannel的多变体配置，不支持变体多重性，即在多个变体中LinIfChannel中的参数可以不同，但LinIfChannel容器的数量必须相同。
+
+   The LinIf module only supports multi-variant configuration of LinIfChannel, but does not support multiple multiplicities of variants. That is, the parameters in LinIfChannel can be different in multiple variants, but the number of LinIfChannel containers must be the same.
+
+Memmap功能 (Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+memmap文件是动态的。存在LINIF_START_SEC_CODE、LINIF_STOP_SEC_CODE、LINIF_START_SEC_CALLOUT_CODE、LINIF_STOP_SEC_CALLOUT_CODE、LINIF_START_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、LINIF_STOP_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、LINIF_START_SEC_VAR_CLEARED_GLOBAL_BOOLEAN、LINIF_STOP_SEC_VAR_CLEARED_GLOBAL_BOOLEAN、LINIF_START_SEC_VAR_INIT_PTR、LINIF_STOP_SEC_VAR_INIT_PTR、LINIF_START_SEC_VAR_CLEARED_8、LINIF_STOP_SEC_VAR_CLEARED_8、LINIF_START_SEC_VAR_CLEARED_PTR、LINIF_STOP_SEC_VAR_CLEARED_PTR、LINIF_START_SEC_VAR_CLEARED_UNSPECIFIED、LINIF_STOP_SEC_VAR_CLEARED_UNSPECIFIED、LINIF_START_SEC_VAR_CLEARED_16、LINIF_STOP_SEC_VAR_CLEARED_16、LINIF_START_SEC_VAR_INIT_PTR、LINIF_STOP_SEC_VAR_INIT_PTR、LINIF_START_SEC_VAR_INIT_UNSPECIFIED、LINIF_STOP_SEC_VAR_INIT_UNSPECIFIED、LINIF_START_SEC_CONFIG_DATA_16、LINIF_STOP_SEC_CONFIG_DATA_16、LINIF_START_SEC_CONFIG_DATA_UNSPECIFIED、LINIF_STOP_SEC_CONFIG_DATA_UNSPECIFIED、LINIF_START_SEC_CONFIG_DATA_UNSPECIFIED、LINIF_STOP_SEC_CONFIG_DATA_UNSPECIFIED
+
+The memmap file is dynamic. It contains fields such as LINIF_START_SEC_CODE、LINIF_STTOP_SEC_CODE、LINIF_START_SEC_CALLOUT_CODE、LINIF_STOP_SEC_CALLOUT_CODE、LINIF_START_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、LINIF_STOP_SEC_VAR_CLEARED_GLOBAL_UNSPECIFIED、LINIF_START_SEC_VAR_CLEARED_GLOBAL_BOOLEAN、LINIF_STOP_SEC_VAR_CLEARED_GLOBAL_BOOLEAN、LINIF_START_SEC_VAR_INIT_PTR、LINIF_STOP_SEC_VAR_INIT_PTR、LINIF_START_SEC_VAR_CLEARED_8、LINIF_STOP_SEC_VAR_CLEARED_8、LINIF_START_SEC_VAR_CLEARED_PTR、LINIF_STOP_SEC_VAR_CLEARED_PTR、LINIF_START_SEC_VAR_CLEARED_UNSPECIFIED、LINIF_STOP_SEC_VAR_CLEARED_UNSPECIFIED、LINIF_START_SEC_VAR_CLEARED_16、LINIF_STOP_SEC_VAR_CLEARED_16、LINIF_START_SEC_VAR_INIT_PTR、LINIF_STOP_SEC_VAR_INIT_PTR、LINIF_START_SEC_VAR_INIT_UNSPECIFIED、LINIF_STOP_SEC_VAR_INIT_UNSPECIFIED、LINIF_START_SEC_CONFIG_DATA_16、LINIF_STOP_SEC_CONFIG_DATA_16、LINIF_START_SEC_CONFIG_DATA_UNSPECIFIED、LINIF_STOP_SEC_CONFIG_DATA_UNSPECIFIED、LINIF_START_SEC_CONFIG_DATA_UNSPECIFIED、LINIF_STOP_SEC_CONFIG_DATA_UNSPECIFIED
+
+模块特性（Module Features）
+------------------------------------------------
+
+报文传输 (Message Transmission)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 LinIf 模块支持以下几种类型报文的接收和发送：
@@ -166,13 +196,10 @@ The LinIf module supports the reception and transmission of the following messag
 
 4.Diagnostic Frames
 
-功能描述 Functional Description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 无条件帧(Unconditional frame)：Unconditional Frame:
 ***************************************************************************************************************************************
 
-主节点 Master Node
+主节点 (Master Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 根据调度表的配置， 当前帧为发送的无条件帧时， LinIf 调用<User_TriggerTransmit>从上层模块获取数据， 然后调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值， 将 Drc设置为发送， 将 SduPtr 设置为存放从上层获取到的数据的地址。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认当前发送的结果。
@@ -183,7 +210,7 @@ According to the schedule table, when the current frame is a transmitted uncondi
 
 According to the schedule table, when the current frame is a received unconditional frame, LinIf calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to receive, and setting SduPtr to NULL_PTR.  Then, when the next schedule table Entry arrives, it calls Lin_GetStatus to confirm the reception status and retrieve the received data.  It then calls <User_RxIndication> to send the received data to the upper layer module.
 
-从节点 Slave Node
+从节点 (Slave Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 当 LinIf_HeaderIndication(Channel, PduPtr)被 Lin 模块调用时， LinIf 根据配置， 判断该 PID 是否为本节点需要处理的报文：
@@ -205,14 +232,14 @@ If this node does not need to respond to this PID, it sets Drc to ignore.
 事件触发帧(Event-triggered frame)：Event-triggered Frame:
 **********************************************************************************************************************************************
 
-主节点 Master Node
+主节点 (Master Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 根据调度表的配置， 当前帧为事件触发帧时， LinIf 调用 Lin_SendFrame(),将第二个参数中的(Lin_PduType 类型) Pid， Cs， Dl 设置为配置数据中的值，将 Drc 设置为接收， 将 SduPtr 设置为 NULL_PTR。然后在下个调度表 Entry 到来时， 调用 Lin_GetStatus 确认接收状态。如果正确接收则继续按照调度表处理后续报文， 如果总线发生碰撞， 则切换到冲突解决调度表， 将该事件触发帧关联的无条件帧都轮询一遍。
 
 According to the schedule table configuration, when the current frame is an event-triggered frame, LinIf calls Lin_SendFrame(), setting the Pid, Cs, and Dl of the second parameter (of type Lin_PduType) to their configured values, setting Drc to receive, and setting SduPtr to NULL_PTR.  Then, when the next schedule table entry arrives, it calls Lin_GetStatus to confirm the reception status.  If the reception is successful, it continues to process subsequent messages according to the schedule table. If a bus collision occurs, it switches to the collision resolution schedule table and polls all the unconditional frames associated with this event-triggered frame.
 
-从节点 Slave Node
+从节点 (Slave Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 当 LinIf_HeaderIndication(Channel, PduPtr)被 Lin 模块调用时， LinIf 判断是否有发送标志位(LinIf_Transmit 被调用时， LinIf 设置发送标志位)， 如果有发送标志位， 和发送正常的无条件帧处理过程一致， 在收到LinIf_TxConfirmation(E_OK)时， 清除发送标志， 否则保留发送标志。如果没有发送标志， 则忽略(将 Drc 设置为忽略) 该通知。
@@ -222,7 +249,7 @@ When LinIf_HeaderIndication(Channel, PduPtr) is called by the Lin module, LinIf 
 零星帧(Sporadic frame)：Sporadic Frame
 ******************************************************************************************************************
 
-主节点 Master Node
+主节点 (Master Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 零星帧只有主节点可以发送。
@@ -233,7 +260,7 @@ Only the master node can transmit sporadic frames.
 
 According to the schedule table configuration, when the current frame is a sporadic frame, LinIf checks if a transmit flag is set (the transmit flag is set by LinIf when LinIf_Transmit is called). If the transmit flag is set, the process is consistent with that for a normal unconditional frame transmission. Upon receiving LinIf_TxConfirmation(E_OK), the transmit flag is cleared; otherwise, the transmit flag is retained. If the transmit flag is not set, no message is transmitted.
 
-从节点 Slave Node
+从节点 (Slave Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 从节点对于零星帧的处理和无条件帧一致。
@@ -247,7 +274,7 @@ The slave node's handling of sporadic frames is consistent with that of uncondit
 
 Node configuration and diagnostics use the same MRF and SRF.
 
-主节点 Master Node
+主节点 (Master Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 如果是发送节点配置相关的报文， LinIf 从配置中获取报文数据信息， 然后发送一帧 MRF 报文， 将命令发送出去。在下个 Entry 到来时， 发送一帧 SRF 获取命令执行结果。
@@ -258,7 +285,7 @@ If transmitting a node configuration-related message, LinIf retrieves the messag
 
 If it is a diagnostic message, when LinTp_Transmit() is called, LinIf needs to notify BswM to switch the schedule table. After the schedule table is switched to one for transmitting MRFs, LinIf sends MRF messages until all request data has been completely transmitted.  Then, LinIf notifies BswM to switch to the SRF transmission schedule table, and LinIf sends SRFs until all response data has been completely received.
 
-从节点 Slave Node
+从节点 (Slave Node)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 当接收到 MRF 报文时， 从节点根据报文内容是节点配置报文还是诊断报文：
@@ -273,11 +300,8 @@ If it is a node configuration message, LinIf processes it based on the message c
 
 If it is a diagnostic message, LinIf performs TP processing on the received MRF data and then passes it to the upper layer module. Upon receiving an SRF, it retrieves data from the upper layer module, performs TP processing, and then sends a response.
 
-调度表管理 Schedule Table Management
-------------------------------------------------------------------------------------------------------------
-
-功能介绍 Functional Description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+调度表管理 (Schedule Table Management)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 LIN 通信需要根据提前配置好的调度表进行通信， 一个节点可以有多个调度表， 以便在不同的情况下使用。
 
@@ -291,18 +315,12 @@ LinIf is responsible for managing message transmission (sending headers in seque
 
 Only the master node has the schedule table management function.
 
-功能实现 Functional Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 上电后 LinIf 默认使用 NULL_SCHEDULE 调度表，该调度表为空调度表，不发送和接收任何报文。当 LinIf_ScheduleRequest ()被调用时， LinIf 记录该请求。在 MainFunction 中，判断是否可以切换调度表(RUN_ONCE 调度表不能被中断)，并进行调度表切换。在发生调度表切换时调用<User>_ScheduleRequestConfirmation 将当前切换的调度表通知上层模块。
 
 After power-on, LinIf defaults to using the NULL_SCHEDULE, which is an empty schedule table that does not transmit or receive any messages. When LinIf_ScheduleRequest() is called, LinIf records the request. In the MainFunction, it checks if a schedule table switch is possible (a RUN_ONCE schedule table cannot be interrupted) and performs the switch. When a schedule table switch occurs, <User>_ScheduleRequestConfirmation is called to notify the upper layer module of the currently active schedule table.
 
-睡眠 Sleep
-----------------------------------------------------------------
-
-功能介绍 Functional Description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+睡眠 (Sleep)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当主节点需要睡眠时，需要在总线上发送 go-to-sleep 命令，使整个网络进入睡眠状态。
 
@@ -312,85 +330,64 @@ When the master node needs to sleep, it must send a go-to-sleep command on the b
 
 When a slave node receives a go-to-sleep command or detects bus inactivity, it needs to enter a sleep state.
 
-功能实现 Functional Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-主节点 Master Node
+主节点睡眠 (Master Node Sleep)
 ******************************************************************************************************************
 
 当 LinIf_GotoSleep()被调用时，LinIf 判断当前通道是否为睡眠状态，如果为非睡眠状态则调用 Lin_GoToSleep()发送睡眠命令，如果当前通道为睡眠状态，则调用 Lin_GoToSleepInternal()接口，进行内部的状态转换。在经过睡眠处理的延时之后(4s-10s， 由配置决定)，调用 Lin_GetStatus()查看当前总线是否进入睡眠状态， 如果总线进入睡眠状态，LinIf 切换到睡眠状态，并且调用<User>_GotoSleepConfirmation()通知上层模块。
 
 When LinIf_GotoSleep() is called, LinIf checks if the current channel is in a sleep state. If it is not, it calls Lin_GoToSleep() to send a sleep command. If the channel is already in a sleep state, it calls the Lin_GoToSleepInternal() interface to perform an internal state transition. After a sleep processing delay (4s-10s, determined by configuration), Lin_GetStatus() is called to check if the bus has entered the sleep state. If the bus has entered the sleep state, LinIf switches to the sleep state and calls <User>_GotoSleepConfirmation() to notify the upper layer module.
 
-从节点 Slave Node
+从节点睡眠 (Slave Node Sleep)
 ******************************************************************************************************************
 
 当接收到睡眠命令或者总线空闲定时器超时， LinIf 调用<User>_GotoSleepIndication()通知上层模块。当 LinIf_GotoSleep()被调用时， LinIf调用 Lin_GoToSleepInternal() 接口，然后切换到睡眠状态，并且调用<User>_GotoSleepConfirmation()通知上层模块。
 
 When a sleep command is received or the bus idle timer expires, LinIf calls <User>_GotoSleepIndication() to notify the upper layer module. When LinIf_GotoSleep() is called, LinIf calls the Lin_GoToSleepInternal() interface, then switches to the sleep state, and calls <User>_GotoSleepConfirmation() to notify the upper layer module.
 
-唤醒 Wakeup
-----------------------------------------------------------------
-
-功能介绍 Functional Description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+唤醒 (Wakeup)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 当节点需要唤醒网络，或者检测到总线唤醒信号，需要执行唤醒处理。
 
 When a node needs to wake up the network, or a bus wakeup signal is detected, a wakeup procedure must be executed.
 
-功能实现 Functional Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 当 LinIf_Wakeup()被调用时，LinIf判断当前是否处于睡眠状态，如果处于睡眠状态调用 Lin_Wakeup()唤醒总线，否则不做操作。然后在 MainFunction 中调用<User>_WakeupConfirmation()通知上层模块。
 
 When LinIf_Wakeup() is called, LinIf checks if it is currently in the sleep state. If so, it calls Lin_Wakeup() to wake up the bus; otherwise, no action is taken. Then, in the MainFunction, it calls <User>_WakeupConfirmation() to notify the upper layer module.
 
-节点配置 Node Configuration
---------------------------------------------------------------------------------------------------------------
-
-功能介绍 Functional Description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+节点配置 (Node Configuration)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 节点配置功能用来配置总线上的从节点，比如配置节点 NAD 和报文 ID 等。使从节点能够被寻址，避免总线冲突的发生。
 
 The node configuration function is used to configure slave nodes on the bus, such as configuring the node's NAD and message IDs. This allows slave nodes to be addressed and prevents bus collisions.
 
-功能实现 Functional Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-主节点 Master Node
+主节点节点配置 (Master Node Configuration)
 ******************************************************************************************************************
 
 主节点通过在调度表中， 配置的节点配置命令， 实现节点配置。当需要使用节点配置功能时， 切换到对应的调度表。LinIf 会根据调度表中的报文类型， 从配置中获取配置命令数据， 然后发送报文。
 
 The master node performs node configuration through node configuration commands configured in the schedule table.  When the node configuration function is needed, the system switches to the corresponding schedule table.  LinIf will retrieve the configuration command data from the configuration based on the message type in the schedule table and then transmit the message.
 
-从节点 Slave Node
+从节点节点配置 (Slave Node Configuration)
 ******************************************************************************************************************
 
 从节点在接收到节点配置命令后， 根据配置命令执行相关操作， 在收到 SRF时， 应答执行结果。
 
 After receiving a node configuration command, the slave node executes the relevant operations according to the command and responds with the execution result upon receiving an SRF.
 
-诊断传输协议(TP) Diagnostic Transport Protocol (TP)
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-功能介绍 Functional Description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+诊断传输协议(TP) (Diagnostic Transport Protocol (TP))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 传输协议实现了 ISO 17987 规范中对诊断传输协议的要求。
 
 The transport protocol implements the requirements for the diagnostic transport protocol as specified in the ISO 17987 standard.
 
-功能实现 Functional Implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 对于需要使用传输协议发送的报文， LinTp 根据报文的长度决定使用单帧还是多帧发送， 并在发送时追加协议控制信息。
 
 For messages that require transmission using the transport protocol, LinTp determines whether to use single-frame or multi-frame transmission based on the message length and appends protocol control information during transmission.
 
-主节点 Master Node
+主节点TP传输 (Master Node TP Transmission)
 ****************************************************************
 
 用户调用 LinTp_Transmit()发起报文发送请求， LinIf 通知 BswM 切换到 MRF调度表， 随后 LinIf 模块重复调用 PduR_LinTpCopyTxData()从上层获取数据， 在发送完最后一帧数据后调用 PduR_LinTpTxConfirmation()通知上层模块， 并通知BswM 切换到 SRF 调度表。
@@ -401,7 +398,7 @@ LinIf 重复发送 SRF 获取应答信息。在收到 SF 或者 FF 时， 调用
 
 LinIf repeatedly sends SRFs to retrieve the response. Upon receiving an SF or FF, it calls PduR_LinTpStartOfReception() to prepare for reception, and then calls PduR_LinTpCopyRxData() to transfer the data to the upper layer module. Subsequently, upon receiving CFs, it repeatedly calls PduR_LinTpCopyRxData() is repeatedly called to transfer data to the upper layer until reception is complete. Then, PduR_LinTpRxIndication() is called to notify the upper layer module, and BswM is notified to switch to the application schedule table.
 
-从节点 Slave Node
+从节点TP传输 (Slave Node TP Transmission)
 ****************************************************************
 
 LinIf 在接收到 MRF 报文时， 调用 PduR_LinTpStartOfReception()准备接收(FF 或者 SF)， 然后调用 PduR_LinTpCopyRxData()将数据传送到上层模块。后续在接收到 CF 时， 反复调用 PduR_LinTpCopyRxData()向上层传送数据， 直到接收完成， 调用 PduR_LinTpRxIndication()通知上层模块。
@@ -412,23 +409,34 @@ When LinIf receives an MRF message, it calls PduR_LinTpStartOfReception() to pre
 
 The user initiates a message transmission request by calling LinTp_Transmit(). When an SRF is received, the LinIf module repeatedly calls PduR_LinTpCopyTxData() to retrieve data from the upper layer. After the last frame is transmitted, it calls PduR_LinTpTxConfirmation() to notify the upper layer module.
 
-偏差 Deviation
+Bus Mirror功能 (Bus Mirror Function)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+LinIf如果开启了Bus Mirror功能，在接收或发送报文时，会将Pdu转发至Mirror模块。
+
+LinIf forwards the Pdu to the Mirror module when receiving or transmitting a message.
+
+全局的Bus Mirror功能由配置打开，各个通道的Bus Mirror由上层模块调用LinIf_EnableBusMirroring接口控制。
+
+The global Bus Mirror function is enabled by configuration, while the Bus Mirror of each channel is controlled by the upper layer module through the LinIf_EnableBusMirroring interface.
+
+偏差 (Deviation)
 --------------------------------------------------------------------
 
 None
 
-扩展 Extension
+扩展 (Extension)
 --------------------------------------------------------------------
 
 None
 
-集成 Integration
+集成 (Integration)
 ========================================
 
-文件列表 File List
+文件列表 (File List)
 --------------------------------------------------------------------
 
-静态文件 Static Files
+静态文件 (Static Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -477,7 +485,7 @@ None
    * - LinTp_Types.h
      - LinTp 模块类型定义头文件。(LinTp module type definition header file.)
 
-动态文件 Dynamic Files
+动态文件 (Dynamic Files)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -508,10 +516,10 @@ None
    * - LinTp_PartitionVar.c
      - 定义 LinTp 模块多分区的运行时变量和状态变量。(Defines the runtime and state variables for the multi-partition LinTp module.)
 
-错误处理 Error Handling
+错误处理 (Error Handling)
 ------------------------------------------------------------------------
 
-开发错误 Development Errors
+开发错误 (Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -594,7 +602,7 @@ None
 LinIfGeneral
 --------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/LinIf_General.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/LinIf_General.png
    :alt: LinIf_General
    :align: center
    
@@ -676,6 +684,22 @@ LinIfGeneral
 |                    | 依赖关系（Dependence）            | 无(None)                                                                                                                                                                                      |
 +--------------------+-----------------------------------+-----------------------------------------------------------------------------------+---------------------------------------------------------------+-------------------------------------------+
 
+LinIf模块配置LinDriver API
+------------------------------------------------------------------------------------------------------------------------
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/LinIfLinDrvCfg.png
+   :alt: LinIfLinDrvCfg
+   :align: center
+
+   LinIfLinDrvCfg
+
+LinIf模块需创建LinIfLinDrvCfg容器，用于配置LinIf中需要使用的Lin驱动接口。LinGetStatus/LinGoToSleep/LinSendFrame参数在LinIfLinDrvApiCfg容器被主节点关联后才可配置。
+
+The LinIf module needs to create a LinIfLinDrvCfg container to configure the LIN driver interface that is required to be used in LinIf. The parameters of LinGetStatus/LinGoToSleep/LinSendFrame can be configured only after the LinIfLinDrvApiCfg container is associated by the master node.
+
+如果系统中存在多种不同的Lin驱动程序，则需要创建多个LinIfLinDrvCfg容器。
+
+If there are multiple different Lin driver programs in the system, multiple LinIfLinDrvCfg containers need to be created.
+
 LinIf模块集成 LinIf Module Integration
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -683,7 +707,7 @@ LinIf模块集成 LinIf Module Integration
 
 To integrate master and slave node functions in the LinIf module, first create LinIfChannel in the LinIfGlobalConfig container. Then, configure the parameters for the LinIf channel in the right-hand panel.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfChannelContainr.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfChannelContainr.png
    :alt: CreateLinIfChannelContainr
    :align: center
    
@@ -700,7 +724,7 @@ To integrate master and slave node functions in the LinIf module, first create L
 
 To use the master node function in the LinIf module, create a new sub-container named LinIfMaster in the LinIfNodeType container.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/LinIfMaster.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/LinIfMaster.png
    :alt: LinIfMaster
    :align: center
    
@@ -846,7 +870,7 @@ When the frame type is selected as SRF, it indicates that the frame is a slave r
 
 For the LinIf master node to be able to send Lin requests and responses, a schedule table must be created for each LinIf master node. To create a schedule table, add a LinIfScheduleTableContainer in the LinIfChannelContainer and configure the LinIfResumePosition and LinIfRunMode parameters on the right-hand side. If a LinIf master node requires multiple schedule tables, simply add multiple LinIfScheduleTableContainers in the LinIfChannelContainer.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfScheduleTable.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfScheduleTable.png
    :alt: CreateLinIfScheduleTable
    :align: center
    
@@ -878,7 +902,7 @@ To add a message to the schedule table, create a LinIfEntry container. The LinIf
 
 Note: When the associated frame is an event-triggered frame, the LinIfCollisionResolving configuration shall be enabled, and the corresponding collision resolution table for that event-triggered frame must be selected.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfEntry.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinIfEntry.png
    :alt: CreateLinIfEntry
    :align: center
    
@@ -887,13 +911,19 @@ Note: When the associated frame is an event-triggered frame, the LinIfCollisionR
 设置主节点Lin驱动Api Setting the Master Node Lin Driver API
 ******************************************************************************************************************
 
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/MasterLinIfLinDriverConfig.png
+   :alt: MasterLinIfLinDriverConfig
+   :align: center
+
+   MasterLinIfLinDriverConfig 
+
 创建LinIfChannel时会默认创建一个名为LinIfLinDriverApi的容器，该容器设置LinIf主节点在发送、接收、唤醒和睡眠等操作中将调用的Lin驱动接口。
 
 When a LinIfChannel is created, a container named LinIfLinDriverApi is created by default. This container is used to set the Lin driver interfaces that the LinIf master node will call for operations such as sending, receiving, waking up, and sleeping. 
 
-主节点需设置LinGetStatus、LinGoToSleep、LinGoToSleepInternal、LinSendFrame、LinWakeup、LinWakeupInternal和LinCheckWakeup
+该容器中需要关联一个LinIfLinDrvCfg容器。当多个LinIf通道使用相同的Lin驱动时，可关联同一个LinIfLinDrvCfg容器。
 
-The master node needs to set LinGetStatus, LinGoToSleep, LinGoToSleepInternal, LinSendFrame, LinWakeup, LinWakeupInternal, and LinCheckWakeup.
+A LinIfLinDrvCfg container needs to be associated with this container. When multiple LinIf channels use the same Lin driver, they can be associated with the same LinIfLinDrvCfg container.
 
 从节点集成 Slave Node Integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -905,7 +935,7 @@ The master node needs to set LinGetStatus, LinGoToSleep, LinGoToSleepInternal, L
 
 To use the slave node function in the LinIf module, create a new container named LinIfSlave in the LinIfNodeTypeContainer.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/LinIfSlave.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/LinIfSlave.png
    :alt: LinIfSlave
    :align: center
    
@@ -1002,13 +1032,19 @@ When creating an SRF frame, a LinIfTxPdu sub-container needs to be created in th
 设置从节点Lin驱动Api Setting the Slave Node Lin Driver API
 *****************************************************************************************************************************************************
 
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/SlaveLinIfLinDriverConfig.png
+   :alt: SlaveLinIfLinDriverConfig
+   :align: center
+
+   SlaveLinIfLinDriverConfig 
+
 创建LinIfChannel时会固定创建一个名为LinIfLinDriverApi的容器，该容器设置LinIf在发送、接收、唤醒和睡眠等操作中需调用的Lin驱动接口。
 
 When a LinIfChannel is created, a container named LinIfLinDriverApi is always created. This container sets the Lin driver interfaces that LinIf needs to call for operations such as sending, receiving, waking up, and sleeping. 
 
-从节点需设置LinGoToSleepInternal、LinWakeup、LinWakeupInternal和LinCheckWakeup。
+该容器中需要关联一个LinIfLinDrvCfg容器。当多个LinIf通道使用相同的Lin驱动时，可关联同一个LinIfLinDrvCfg容器。
 
-The slave node needs to set LinGoToSleepInternal, LinWakeup, LinWakeupInternal, and LinCheckWakeup.
+A LinIfLinDrvCfg container needs to be associated with this container. When multiple LinIf channels use the same Lin driver, they can be associated with the same LinIfLinDrvCfg container.
 
 LinTp模块集成 LinTp Module Integration
 ------------------------------------------------------------------------------------------------------
@@ -1024,7 +1060,7 @@ The LinTpChannelConfig container describes the basic configuration of a LinTp ch
 
 The following chapters describe a LinTp node associated with a LinIf slave node as a LinTp slave node, and a LinTp node associated with a LinIf master node as a LinTp master node.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpChannelConfig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpChannelConfig.png
    :alt: CreateLinTpChannelConfig
    :align: center
    
@@ -1075,7 +1111,7 @@ The configuration items for the LinTpChannelConfig container are shown in the ta
 
 If a Lin node expects to receive response messages for MRF or SRF frames from the Lin bus, the LinTp module needs to create a LinTpRxSdu container. This container sets the NAD of the LinTp node, as well as the ComM channel and PduId associated with the LinTp node. After LinIf receives a response message for an MRF or SRF, it will forward non-node-configuration messages to the RxNSdu with the same ComM channel based on the NAD.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpRxNSdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpRxNSdu.png
    :alt: CreateLinTpRxNSdu
    :align: center
    
@@ -1126,7 +1162,7 @@ The detailed configuration of the LinTpRxNSdu container is shown in the table be
 
 If a Lin node expects to send response messages for MRF or SRF frames to the bus, a LinTpTxNSdu container needs to be created in the LinTp module. The parameters in the LinTpTxNSdu container specify the NAD, ComM channel, and PDU of the Lin node.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpTxNSdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/LinIf/CreateLinTpTxNSdu.png
    :alt: CreateLinTpTxNSdu
    :align: center
    

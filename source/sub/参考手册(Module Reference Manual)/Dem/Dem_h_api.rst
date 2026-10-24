@@ -418,7 +418,7 @@ Dem_GetMonitorStatus
 
 .. code::
 
-    Std_ReturnType Dem_GetMonitorStatus(Dem_EventIdType EventID, Dem_MonitorStatusType *MonitorStatus)
+    Std_ReturnType Dem_GetMonitorStatus(Dem_EventIdType EventId, Dem_MonitorStatusType *MonitorStatus)
 
 Gets the current monitor status for an event.
 
@@ -438,7 +438,7 @@ Gets the current monitor status for an event.
      - Name
      - Description
    * - 
-     - EventID
+     - EventId
      - 
    * - [out]
      - MonitorStatus
@@ -1572,10 +1572,10 @@ This API will be available only if ({Dem/DemConfigSet/DemEventParameter/DemEvent
      - Monitor test result
    * - [in]
      - monitorData0
-     - -
+     - \-
    * - [in]
      - monitorData1
-     - -
+     - \-
 
 **Return type**
    Std_ReturnType

@@ -9,7 +9,7 @@ DoIP_SoAdTpCopyTxData
 This function is called to acquire the transmit data of an I-PDU segment (N-PDU).Each call to this function provides the next part of the I-PDU data unless retry->TpDataState is TP_DATARETRY.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -64,7 +64,7 @@ DoIP_SoAdTpTxConfirmation
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -109,7 +109,7 @@ DoIP_SoAdTpCopyRxData
 This function is called to provide the received data of an I-PDU segment (N-PDU) to the upper layer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -159,7 +159,7 @@ DoIP_SoAdTpStartOfReception
 This function is called at the start of receiving an N-SDU. The N-SDU might be fragmented into multiple N-PDUs (FF with one or more following CFs) or might consist of a single N-PDU (SF).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -214,7 +214,7 @@ DoIP_SoAdTpRxIndication
 Called after an I-PDU has been received via the TP API, the result indicates whether the transmission was successful or not.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -259,7 +259,7 @@ DoIP_SoAdIfRxIndication
 Indication of a received I-PDU from a lower layer communication interface module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -304,7 +304,7 @@ DoIP_SoAdIfTxConfirmation
 The lower layer communication interface module confirms the transmission of an I-PDU.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -349,7 +349,7 @@ DoIP_SoConModeChg
 Notification about a SoAd socket connection state change, e.g. socket connection gets online.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -394,7 +394,7 @@ DoIP_LocalIpAddrAssignmentChg
 This function gets called by the SoAd if an IP address assignment related to a socket connection changes.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

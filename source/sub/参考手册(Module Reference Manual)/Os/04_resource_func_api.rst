@@ -1,5 +1,5 @@
 Resource(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 资源管理用于协调具有不同优先级的多个任务对共享资源的并发访问，例如：管理的实体(调度器)，程序，内存或硬件区域。
 
@@ -9,7 +9,7 @@ Resource management is used to coordinate concurrent access by multiple tasks wi
 
 During system generation, each resource is statically assigned its own highest priority. Users can acquire/release standard resources by calling GetResource/ReleaseResource in tasks/interrupts. The priority of the running task/interrupt is temporarily elevated to the resource's priority until the resource is released.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Os/资源天花板机制.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Os/资源天花板机制.png
    :alt: 可抢占任务间优先级天花板的资源分配 Resource Allocation with Priority Ceiling Among Preemptive Tasks
    :align: center
 
@@ -25,7 +25,7 @@ When holding standard resources, TerminateTask, ChainTask, Schedule, and WaitEve
 
 
 GetResource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -34,7 +34,7 @@ GetResource
 This call serves to enter critical sections in the code that are assigned to the resource referenced by <ResID>. A critical section shall always be left using ReleaseResource.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -122,7 +122,7 @@ This call serves to enter critical sections in the code that are assigned to the
 
 
 ReleaseResource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -131,7 +131,7 @@ ReleaseResource
 ReleaseResource is the counterpart of GetResource and serves to leave critical sections in the code that are assigned to the resource referenced by <ResID>.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

@@ -29,6 +29,11 @@ BswM
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2025/12/30
+     - Jian.Jiang
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
 
 参考文档(References)
 -----------------------------------------------
@@ -66,6 +71,7 @@ BswM
 术语(Terms)
 --------------------
    .. :align: center   表格内容居中
+
 
 .. list-table::
    :widths: 10 40
@@ -138,19 +144,16 @@ Mode Arbitration: initiates mode switching based on the arbitration results of r
 
 Mode Control: executes the mode switch by performing an action list that include mode switching operations of other BSW modules.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/BswM架构图.png
-   :alt: BswM模块层次图(BswM Module Hierarchy Diagram)
-   :name: fig_BswMarch
+.. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/CP_Arch_BswM.png
+   :alt: CP_Arch_BswM
+   :name: fig_BswMArch
    :align: center
 
-   BswM架构图
-   
-   BswM Architecture Diagram
+   BswM架构图(BswM Architecture Diagram)
 
+如图 :ref:`fig_BswMArch` 所示，BswM模块处于AUTOSAR架构中的系统服务层，主要服务于其他基础软件模块以及上层RTE。
 
-如图 :ref:`fig_BswMarch` 所示，BswM模块处于AUTOSAR架构中的系统服务层，主要服务于其他基础软件模块以及上层RTE。
-
-As shown in :ref:fig_BswMarch, the BswM module resides in the System Services layer of the AUTOSAR architecture, where it primarily serves other Basic Software Modules (BSW) and the upper-layer RTE.
+As shown in :ref:fig_BswMArch, the BswM module resides in the System Services layer of the AUTOSAR architecture, where it primarily serves other Basic Software Modules (BSW) and the upper-layer RTE.
 
 
 功能描述(Functional Description)
@@ -169,8 +172,33 @@ The BswM module mainly has the following two functions:
    Mode Control: executes mode switching by performing an action list that include mode switching operations of other BSW modules.
  
 
-特性(Features)
----------------------
+公共特性(Public Features)
+--------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   None
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
 
 模式仲裁(Mode Arbitration)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -205,7 +233,7 @@ If a condition references a BswMEventRequestPort, it checks whether the request 
 
 The BswMEventRequestPort enters the SET state upon the requester sending or invoking an event. The BswM can then place the port into the CLEAR state by executing the BswMClearEventRequest operation. An example comprising two conditions is shown in Figure :ref:fig_BswM01.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/仲裁规则.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/仲裁规则.png
    :alt: BswM仲裁示例图(BswM Arbitration Example Diagram)
    :name: fig_BswM01
    :align: center
@@ -240,7 +268,7 @@ The actions in the action list can be divided into three types:
 
 Typical use cases are shown in :ref:`fig_BswM02` below:
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/动作列表.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/动作列表.png
    :alt: BswM动作列表示例图(BswM Action List Example Diagram)
    :name: fig_BswM02
    :align: center
@@ -248,22 +276,22 @@ Typical use cases are shown in :ref:`fig_BswM02` below:
    动作列表
    
    Action list
-
+   
 .. only:: doc_pbs
 
-  变体(Variants)
-  ~~~~~~~~~~~~~~~
+   变体(Variants)
+   ~~~~~~~~~~~~~~~
   
-  - 支持仲裁执行不同的action list(Supports arbitration to execute different action lists)
+   - 支持仲裁执行不同的action list(Supports arbitration to execute different action lists)
     
   
-  - 支持不同数量的Rule(Supports different numbers of Rules)    
+   - 支持不同数量的Rule(Supports different numbers of Rules)    
   
   
-  - 支持不同数量的Action(Supports different numbers of Actions)   
+   - 支持不同数量的Action(Supports different numbers of Actions)   
       
   
-  - 支持部分Action中执行不同的动作(Supports executing different actions in some Actions.) 
+   - 支持部分Action中执行不同的动作(Supports executing different actions in some Actions.) 
   
 
 
@@ -451,10 +479,11 @@ Typical use cases are shown in :ref:`fig_BswM02` below:
 
 
 错误处理(Error Handling)
---------------------------------
+----------------------------------
 
 开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. list-table:: 
    :widths: 20 10 30
    :header-rows: 1
@@ -495,9 +524,14 @@ Typical use cases are shown in :ref:`fig_BswM02` below:
      - 0x08
      - Invalid configuration set selection
 
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
 
 运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. list-table:: 
    :widths: 20 10 30
    :header-rows: 1
@@ -512,6 +546,7 @@ Typical use cases are shown in :ref:`fig_BswM02` below:
 
      - Invalid configuration set selection
 
+.. 引用接口描述。来自于code->doxygen->latex->rst
 .. include:: BswM_api.rst
 
 配置(Configuration)
@@ -552,7 +587,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the actions to be executed when the arbitration result of the Rule is true by configuring BswMRuleTrueActionList.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/RuleConfig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/RuleConfig.png
    :alt: Rule configuration
    :name: fig_BswM03
    :align: center
@@ -560,11 +595,10 @@ The first step is to define the operational logic. For instance, to control a li
    RuleConfig
 
 
-- 1: 名称(Name)
-- 2: 规则初始状态(Initial status of the rule)
-- 3: 仲裁条件(Arbitration rule)
-- 4: 条件为假执行的动作(Actions to be executed when the condition is FALSE)
-- 5: 条件为真执行的动作(Actions to be executed when the condition is TRUE)
+- 1: 规则初始状态(Initial status of the rule)
+- 2: 仲裁条件(Arbitration rule)
+- 3: 条件为假执行的动作(Actions to be executed when the condition is FALSE)
+- 4: 条件为真执行的动作(Actions to be executed when the condition is TRUE)
 
 3. 然后在BswMLogicalExpression配置相应的逻辑表达式。
 
@@ -578,7 +612,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the operand of the logical expression by configuring BswMArgumentRef.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/LogicalExpression.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/LogicalExpression.png
    :alt: LogicalExpression configuration
    :name: fig_BswM04
    :align: center
@@ -601,7 +635,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the object on the left side of the equation by configuring BswMConditionMode,
 
-   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeConditionLeft.png
+   .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ModeConditionLeft.png
     :alt: condition configuration
     :name: fig_BswM05
     :align: center
@@ -617,7 +651,7 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select right-side value of the equation by configuring BswMBswRequestedMode or BswModeCompareValue under BswMBswMode.
 
-   .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeConditionRight.png
+   .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ModeConditionRight.png
     :alt: 比较模式配置(Comparison type configuration)
     :name: fig_BswM06
     :align: center
@@ -656,14 +690,14 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the source of the mode request by configuring BswMRequestSource. The BswMEventRequestPort is shown in Figure :ref:`fig_BswM07`, and the BswMModeRequestPort is shown in Figure :ref:`fig_BswM08`.
      
-     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/BswMEventRequestSource.png
+     .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/BswMEventRequestSource.png
       :alt: Event request source configuration
       :name: fig_BswM07
       :align: center
 
       BswMEventRequestSource
 
-     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeRequestSource.png
+     .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ModeRequestSource.png
       :alt: Mode request source configuration
       :name: fig_BswM08
       :align: center
@@ -684,39 +718,39 @@ The first step is to define the operational logic. For instance, to control a li
 
      Select the action type (trigger execution or conditional execution) by configuring BswMActionListExecution.
 
-     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ActionList.png
+     .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ActionList.png
         :alt: Action List configuration
         :name: fig_BswM09
         :align: center
 
         ActionList
-  
-  - 1: actionList的执行类型(Execution type of ActionList)
-  - 2: 优先级(Priority)
+
+- 1: actionList的执行类型(Execution type of ActionList)
+- 2: 优先级(Priority)
 
    - 通过配置BswMActionListItem选择动作列表中执行的动作。
 
      Select the actions to be executed in the action list by configuring BswMActionListItem
 
-     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ActionListItem.png
+     .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ActionListItem.png
         :alt: Action List Item configuration
         :name: fig_BswM10
         :align: center
 
         ActionListItem
 
-  - 1: 中断执行(Terminate execution)
-  - 2: 执行顺序(Execution order)
-  - 3: 执行过程中报Detld(Report DET error during execution)
-  - 4: 执行的动作，可以是action、其他actionList、Rule(Actions to be executed, which can be action, another action list or Rule)
-  
+- 1: 中断执行(Terminate execution)
+- 2: 执行顺序(Execution order)
+- 3: 执行过程中报Detld(Report DET error during execution)
+- 4: 执行的动作，可以是action、其他actionList、Rule(Actions to be executed, which can be action, another action list or Rule)
+
 7. 配置执行动作(Configure actions)
 
    - 通过配置BswMAction->BswMAvailableActions选择执行的动作。
 
      Select the action to be executed by configuring BswMAction->BswMAvailableActions
 
-     .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/Action.png
+     .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/Action.png
       :alt: Action configuration
       :name: fig_BswM11
       :align: center
@@ -740,7 +774,7 @@ BswM存在于每个分区中，每个分区有单独的BswMConfig实例，在多
 BswM resides in each partition, with a dedicated BswMConfig instance per partition. In a multi-partition system, users need to configure multiple BswMConfig instances.
 As these BswM instances operate in isolation, their configuration data must be shared via the RTE or user-defined global variables. The following figure illustrates the multi-partition configuration:
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/MultiPartition.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/MultiPartition.png
    :alt: MultiPartition
    :name: fig_BswM12
    :align: center
@@ -757,7 +791,7 @@ BswM提供模式管理和模式请求两种方式来与SWC或其他基础软件�
 
 BswM provides two ways, namely mode management and mode request, to interact with SWC or other basic software modules. BswM can act as both a mode user and a mode provider.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeCtrl.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ModeCtrl.png
    :alt: Mode Control
    :name: fig_BswM13
    :align: center
@@ -771,7 +805,7 @@ Port0)连接到 BSW 模式管理器的相应模式请求端口。
 
 The following figure illustrates the port connections between an Application SW-C and the BSW Mode Manager. The Application Mode Manager SW-C is equipped with a Mode Request Port and a Mode Switch R-Port (named modeNotificationPort to distinguish it from the Mode Switch P-Port). The former is used to request changes to its application mode, while the latter is used to receive notifications when BswM executes a mode change. The Mode Request Port (modeRequestPort0) of the Application Mode Manager is connected to the corresponding Mode Request Port of the BSW Mode Manager.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/BswM/ModeManager.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/BswM/ModeManager.png
    :alt: Mode Management
    :name: fig_BswM14
    :align: center

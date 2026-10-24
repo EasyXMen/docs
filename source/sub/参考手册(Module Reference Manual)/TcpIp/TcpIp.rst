@@ -30,6 +30,17 @@ TcpIp
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/11/05
+     - xiankun.zhou
+     - V1.1
+     - 发布(Release)
+     - 支持TLS协议(Support TLS protocol)
+
+   * - 2026/3/17
+     - xiankun.zhou
+     - V1.2
+     - 发布(Release)
+     - 支持IKE和IpSec协议(Support IKE and IpSec protocol)
 
 参考文档 References
 ---------------------------------------------------------------------------------------
@@ -95,7 +106,24 @@ TcpIp
    * - LwIP
      - A Lightweight TCP/IP stack
      - 一种轻量级TCP/IP协议栈
-
+   * - TLS
+     - Transport Layer Security
+     - 传输层安全协议
+   * - MAC
+     - Message Authentication Code
+     - 消息认证码，主要用于确保信息在传输或存储过程中的完整性，同时提供对信息来源的身份验证，也称为tag
+   * - AEAD
+     - authenticated encryption with associated data
+     - 种将加密和认证放在一起完成的模式
+   * - IKE
+     - Internet Key Exchange
+     - 互联网密钥交换协议
+   * - IpSec
+     - Internet Protocol Security
+     - 互联网安全协议
+   * - ISAKMP
+     - Internet Security Association and Key Management Protocol
+     - 互联网安全关联和密钥管理协议
 
 
 简介 Introduction
@@ -129,15 +157,15 @@ The main functions of the TcpIp module are as follows:
 
 4.Implement encapsulation and parsing of IP/ARP datagrams based on Ethernet datagrams.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image1.png
    :name: TcpIp_arch
    :align: center
 
    TcpIp模块层次图 (TcpIp Module Layer Diagram)
 
 
-功能描述 Functional Description
-==========================================================
+.. 功能描述章节
+.. include:: TcpIp_Functional.rst
 
 System Scalability功能介绍 Introduction to System Scalability Function
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -146,7 +174,7 @@ System Scalability功能介绍 Introduction to System Scalability Function
 
 According to different application scenarios, the functions of the TcpIp module (support for IP protocols) are divided into three levels. Due to development requirements, only IPv4 is supported currently, so only the SC1 function is supported.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image2.png
    :name: scalability
    :align: center
 
@@ -215,6 +243,68 @@ DHCP使用UDP进行报文的传输。通过同DHCP服务器的交互，设备可
 
 DHCP uses UDP for message transmission. Through interaction with a DHCP server, a device can obtain a valid IP address, enabling it to operate in a specific network environment. Currently, DHCPv4 and DHCPv6 functions are not supported.
 
+TLS（传输层安全协议）是一种位于传输层和应用层之间的安全通信协议，用于在网络上传输数据时提供机密性、完整性和身份认证。
+在建立连接时，客户端和服务器通过 握手过程（Handshake） 协商出加密算法、会话密钥，并验证双方身份。
+握手完成后，所有应用层数据都会被加密传输，从而防止窃听和篡改。
+
+- 支持版本：TLS1.2、TLS 1.3
+- 支持TLS Client和Server
+- 支持签名算法：RSA ECDSA
+- 支持秘钥交换算法：RSA ECDHE（X25519）
+- 支持对称加密算法：AES-CBC AES-GCM
+- 不支持TLS Alert Protocol
+- 不支持TLS 1.2 Hello Request和TLS 1.3 Hello Retry Request
+- 不支持Client Certificate和Certificate Request
+- 不支持证书链验证
+- 不支持PSK和0-RTT
+- 不支持的extension：encrypt then mac，record size limit
+
+TLS (Transport Layer Security) is a cryptographic protocol that operates between the transport and application layers, ensuring confidentiality, integrity, and authentication for data transmitted over the network.
+During the handshake phase, the client and server negotiate cipher suites, exchange keys, and authenticate each other. 
+Once the handshake is complete, all subsequent application data is encrypted to prevent eavesdropping or tampering.
+
+- Supported version: TLS1.2, TLS 1.3
+- Support TLS Client and Server
+- Supported signature algorithm: RSA ECDSA
+- Supported key exchange algorithm: RSA ECDHE (X25519)
+- Supported symmetric algorithm: AES-CBC, AES-GCM
+- TLS Alert Protocol is not supported
+- TLS 1.2 Hello Request and TLS 1.3 Hello Retry Request are not supported
+- Client Certificate and Certificate Request are not supported
+- Certificate chain validation is not supported
+- PSK and 0-RTT are not supported
+- Unsupported extensions: encrypt-then-MAC, record size limit
+
+IKE（Internet Key Exchange）协议建立在 Internet 安全联盟和密钥管理协议 ISAKMP 定义的框架上，是基于 UDP（User Datagram Protocol）的应用层协议。
+它为 IPSec 提供了自动协商密钥、建立 IPSec 安全联盟的服务，能够简化 IPSec 的配置和维护工作。
+
+- 支持版本：IKEv2
+- 支持身份认证方式：PSK
+- 支持完整性校验算法：HMAC_SHA2_256
+- 支持对称加密算法：AES-CBC
+- 支持密钥交换算法：ECDHE（X25519）
+
+IKE (Internet Key Exchange) is an application-layer protocol based on UDP (User Datagram Protocol) and built on the framework defined by ISAKMP (Internet Security Association and Key Management Protocol).
+It provides IPSec with automatic key negotiation and services for establishing IPSec security associations, simplifying IPSec configuration and maintenance.
+
+- Supported version: IKEv2
+- Supported authentication method: PSK
+- Supported integrity algorithm: HMAC_SHA2_256
+- Supported symmetric algorithm: AES-CBC
+- Supported key exchange algorithm: ECDHE (X25519)
+
+IPsec（Internet Protocol Security）是一组在 IP 层提供加密、认证、防篡改和重放保护的安全协议。
+它可以保护主机、网络或 VPN 之间的数据通信安全。
+
+- 支持模式：传输模式（Transport Mode）
+- 支持服务：认证头（AH）
+
+IPsec (Internet Protocol Security) is a suite of security protocols that provides encryption, authentication, anti-tampering, and anti-replay protection at the IP layer.
+It can protect data communication security between hosts, networks, or VPNs.
+
+- Supported mode: Transport Mode
+- Supported service: Authentication Header (AH)
+
 TCP/IP Stack state handling功能介绍 Introduction to TCP/IP Stack State Handling Function
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -234,7 +324,6 @@ TCPIP_STATE_ONHOLD，
 and TCPIP_STATE_SHUTDOWN.
 Among them, TCPIP_STATE_STARTUP and TCPIP_STATE_SHUTDOWN are intermediate transition states.
 
-.. only:: doc_pbs
 
 特性 Features
 --------------------------------------------------
@@ -278,7 +367,7 @@ None
 
    * - TcpIp.c
      - 作为TcpIp模块的核心文件，实现TcpIp模块全部对外接口， 以及实现TcpIp模块功能所必须的local函数，local宏定义，local变量定义。(Serves as the core file of the TcpIp module, implementing all external interfaces of the TcpIp module, as well as local functions, local macros, and local variable definitions necessary for implementing the functions of the TcpIp module.)
-      
+
    * - TcpIp_Types.h
      - 定义TcpIp模块外部/内部类型，包括AUTOSAR标准定义的类型。(Defines external/internal types of the TcpIp module, including types defined by the AUTOSAR standard.)
 
@@ -296,6 +385,27 @@ None
 
    * - TcpIp_MemMap.h
      - 声明TcpIp模块内存布局。(Declares the memory mapping of the TcpIp module.)
+
+   * - TcpIp_TlsGeneral.c
+     - TLS通用接口实现，加解密流程，头部构造解析。(TLS general interface implementation, encryption and decryption process, header construction analysis.)
+
+   * - TcpIp_TlsClient.c
+     - TLS客户端实现，包括状态机维护，报文构造。(TLS client implementation, including state machine maintenance and message construction.)
+
+   * - TcpIp_TlsServer.c
+     - TLS服务端实现，包括状态机维护，报文构造。(TLS server implementation, including state machine maintenance and message construction.)
+
+   * - TcpIp_TlsBase.c
+     - TLS基础接口，收发包流程，模块初始化。(TLS basic interface, packet sending and receiving process, module initialization.)
+
+   * - TcpIp_Algo.c
+     - 算法实现，包括秘钥推导算法。(Algorithm implementation, including the key derivation algorithm.)
+
+   * - TcpIp_Tls.h
+     - TLS函数声明，宏定义。(TLS function declaration, macro definition.)
+
+   * - TcpIp_TlsTypes.h
+     - TLS模块类型结构体定义。(TLS type structure definition.)
 
 动态文件 Dynamic Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -418,6 +528,7 @@ None
 
 .. include:: TcpIp_h_api.rst
 
+.. include:: TcpIp_SocketOwner_h_api.rst
 
 
 配置 Configuration
@@ -436,12 +547,6 @@ Since SC1 only supports functions implemented based on the IPv4 protocol, config
 
 Internet Protocol Version 4功能 Internet Protocol Version 4 Function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image3.png
-   :name: TcpIp_TcpIpIpV4General
-   :align: center
-
-   TcpIpIpV4General
 
 
 该部分的功能主要体现在TcpIpIpV4General的配置Container中，涉及的配置参数及功能如下：
@@ -481,12 +586,6 @@ The functions of this part are mainly reflected in the configuration Container o
 We convert the AUTOSAR configuration into the configuration of lwIP (the tool generates the lwipopts.h file), thereby realizing the configurability of functions.
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image4.png
-   :name: TcpIp_TcpIpIpFragmentationConfig
-   :align: center
-
-   TcpIpIpFragmentationConfig
-
 
 IPv4：该部分的功能主要体现在IPv4接收数据报的重组功能上，TcpIpIpConfig->TcpIpIpV4Config->TcpIpIpFragmentationConfig的配置Container中，涉及的配置参数及功能如下：
 
@@ -508,12 +607,6 @@ IPv4: The functions of this part are mainly reflected in the reassembly function
 
 4.TcpIpIpReassTimeout: The reassembly timeout period (when TcpIpIpFragmentationRxEnabled is enabled).
 
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image5.png
-   :name: TcpIp_TcpIpArpConfig
-   :align: center
-
-   TcpIpArpConfig
 
 
 ARP：该部分的功能体现在TcpIpIpConfig->TcpIpIpV4Config->TcpIpArpConfig的配置Container中，涉及的配置参数及功能如下：
@@ -537,12 +630,6 @@ ARP: The functions of this part are reflected in the configuration Container of 
 4.TcpIpArpTableSizeMax: The size of the ARP cache table (i.e., the number of entries).
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image6.png
-   :name: TcpIp_TcpIpIcmpConfig
-   :align: center
-
-   TcpIpIcmpConfig
-
 
 ICMP：该部分的功能体现在TcpIpIpConfig->TcpIpIpV4Config->TcpIpIcmpConfig的配置Container中，涉及的配置参数及功能如下：
 
@@ -563,11 +650,6 @@ ICMP: The functions of this part are reflected in the configuration Container of
 IP Based Protocols功能 IP Based Protocols Function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image7.png
-   :name: TcpIp_TcpIpAddrAssignment
-   :align: center
-
-   TcpIpAddrAssignment
 
 
 每个TcpIpLocalAddr配置Container中，主要实现了IP地址的分配机制TcpIpAddrAssignment(考虑到目前标准的不完善以及代码实现的复杂性，暂只支持配置一个IP分配机制)。其中，
@@ -595,12 +677,6 @@ In each TcpIpLocalAddr configuration Container, the main function is to implemen
 When TcpIpAssignmentMethod is configured as TCPIP_STATIC, you can choose whether to configure TcpIpStaticIpAddressConfig  (When TcpIpAssignmentTrigger is configured as TCPIP_AUTOMATIC, configuration is mandatory; When configured as TCPIP_MANUAL, configuration is optional. If not configured, the IP address parameter cannot be empty when TcpIp_RequestIpAddrAssignment is called to request IP assignment). When the IP address state changes, Up_LocalIpAddrAssignmentChg is called to notify the upper-layer module.
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image8.png
-   :name: TcpIp_TcpIpUdpConfig
-   :align: center
-
-   TcpIpUdpConfig
-
 
 UDP的配置参数只有TcpIpUdpTtl，该信息封装在相应IP报的首部。TcpIp为上层模块提供接口TcpIp_UdpTransmit来发送UDP报文，当收到UDP接收报文时，通过调用Up_RxIndication(一般为SoAd_RxIndication)传递给上层。
 
@@ -623,12 +699,6 @@ In addition to providing the upper-layer module with the sending interface TcpIp
 
 3.TcpIp_TcpReceived: The interface for increasing the receive window (the upper-layer module needs to call this interface to release the TCP receive window in the TcpIp module after receiving data).
 
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/TcpIp/image9.png
-   :name: TcpIp_TcpIpTcpConfig
-   :align: center
-
-   TcpIpTcpConfig
 
 
 通过配置TcpIpTcpConfig(Container)的各个配置参数来说明TCP的功能实现：
@@ -703,3 +773,206 @@ The functional implementation of TCP is illustrated by configuring each configur
 
 17.TcpIpTcpTtl: This information is encapsulated in the header of the corresponding IP packet.
 
+Transport Layer Security功能 Transport Layer Security Function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image10.png
+   :name: TcpIp_TcpIpTlsConfig
+   :align: center
+
+   TcpIpTlsConfig
+
+#. | TcpIpTlsCiphersuites：TLS加密套件相关配置；
+   | TcpIpTlsCiphersuites: TLS cipher suite related configuration.
+
+#. | TcpIpTlsCertificateIdentity: 选择TLS使用的证书；
+   | TcpIpTlsCertificateIdentity: Selects the certificate used by TLS.
+
+#. | TcpIpTlsCiphersuiteDefinition: 加密套件基础配置；
+   | TcpIpTlsCiphersuiteDefinition: Basic configuration of the cipher suite.
+
+#. | TcpIpTlsCiphersuiteWorker: 加密时的job和key相关配置；
+   | TcpIpTlsCiphersuiteWorker: Job and key configuration used during encryption.
+
+#. | TcpIpTlsHandshake: 握手阶段秘钥交换、签名和hash算法的job与key的配置；
+   | TcpIpTlsHandshake: Job and key configuration for key exchange, signature, and hash algorithms during the handshake.
+
+#. | TcpIpTlsConnection：TLS连接配置，包括端口、ip，需要引用的证书与加密套件。
+   | TcpIpTlsConnection: TLS connection settings including port, IP, and referenced certificates and cipher suites.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image11.png
+   :name: TcpIp_TcpIpTlsCiphersuiteWorkerConfig
+   :align: center
+
+   TcpIpTlsCiphersuiteWorkerConfig
+
+#. | TcpIpTlsCipherAEADCipherKeyLength：指定AEAD算法秘钥长度；
+   | TcpIpTlsCipherAEADCipherKeyLength: Specifies the key length for the AEAD algorithm.
+
+#. | TcpIpTlsCipherEncryptKeyLength: 指定对称加密算法秘钥长度；
+   | TcpIpTlsCipherEncryptKeyLength: Specifies the key length for symmetric encryption algorithms.
+
+#. | TcpIpTlsCipherMacKeyLength: 指定MAC算法秘钥长度；
+   | TcpIpTlsCipherMacKeyLength: Specifies the key length for MAC algorithms.
+
+#. | TcpIpTlsCipherCsmDecryptJobRef: CSM解密算法job引用；
+   | TcpIpTlsCipherCsmDecryptJobRef: CSM decrypt algorithm job reference.
+
+#. | TcpIpTlsCipherCsmDecryptKeyRef: CSM解密算法key引用；
+   | TcpIpTlsCipherCsmDecryptKeyRef: CSM decrypt algorithm key reference.
+
+#. | TcpIpTlsCipherCsmEncryptJobRef: CSM加密算法job引用；
+   | TcpIpTlsCipherCsmEncryptJobRef: CSM encrypt algorithm job reference.
+
+#. | TcpIpTlsCipherCsmEncryptKeyRef: CSM加密算法key引用；
+   | TcpIpTlsCipherCsmEncryptKeyRef: CSM encrypt algorithm key reference.
+
+#. | TcpIpTlsCipherCsmMacGenerateJobRef: CSM MAC生成算法job引用；
+   | TcpIpTlsCipherCsmMacGenerateJobRef: CSM MAC generation job reference.
+
+#. | TcpIpTlsCipherCsmMacGenerateKeyRef: CSM MAC生成算法key引用；
+   | TcpIpTlsCipherCsmMacGenerateKeyRef: CSM MAC generation key reference.
+
+#. | TcpIpTlsCipherCsmMacVerifyJobRef: CSM MAC校验算法job引用；
+   | TcpIpTlsCipherCsmMacVerifyJobRef: CSM MAC verification job reference.
+
+#. | TcpIpTlsCipherCsmMacVerifyKeyRef: CSM MAC校验算法key引用；
+   | TcpIpTlsCipherCsmMacVerifyKeyRef: CSM MAC verification key reference.
+
+#. | TcpIpTlsCiphersuiteDefinitionRef: TLS加密套件引用；
+   | TcpIpTlsCiphersuiteDefinitionRef: Reference to the TLS cipher suite.
+
+#. | TcpIpTlsConnectionHandshakeRef: TLS连接握手阶段任务引用。
+   | TcpIpTlsConnectionHandshakeRef: Reference to the TLS connection handshake tasks.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image12.png
+   :name: TcpIp_TcpIpTlsHandshakeConfig
+   :align: center
+
+   TcpIpTlsHandshakeConfig
+
+#. | TcpIpTlsCsmPRFSupportType：CSM job对PRF算法支持的情况；
+   | TcpIpTlsCsmPRFSupportType: PRF support capability of the CSM job.
+
+#. | TcpIpTlsCsmHashVerifyJobRef: CSM hash校验算法job引用；
+   | TcpIpTlsCsmHashVerifyJobRef: CSM hash verification job reference.
+
+#. | TcpIpTlsCsmKeyExchangeCalcPubValJobRef: CSM 秘钥交换公钥计算算法job引用；
+   | TcpIpTlsCsmKeyExchangeCalcPubValJobRef: CSM key exchange public value calculation job reference.
+
+#. | TcpIpTlsCsmKeyExchangeCalcSecretJobRef: CSM 秘钥交换共享秘钥计算算法job引用；
+   | TcpIpTlsCsmKeyExchangeCalcSecretJobRef: CSM shared secret calculation job reference.
+
+#. | TcpIpTlsCsmKeyExchangeDecryptJobRef: CSM 秘钥交换解密算法job引用；
+   | TcpIpTlsCsmKeyExchangeDecryptJobRef: CSM key exchange decryption job reference.
+
+#. | TcpIpTlsCsmKeyExchangeDecryptKeyRef: CSM 秘钥交换解密算法key引用；
+   | TcpIpTlsCsmKeyExchangeDecryptKeyRef: CSM key exchange decryption key reference.
+
+#. | TcpIpTlsCsmKeyExchangeEncryptJobRef: CSM 秘钥交换加密算法job引用；
+   | TcpIpTlsCsmKeyExchangeEncryptJobRef: CSM key exchange encryption job reference.
+
+#. | TcpIpTlsCsmKeyExchangeEncryptKeyRef: CSM 秘钥交换加密算法key引用；
+   | TcpIpTlsCsmKeyExchangeEncryptKeyRef: CSM key exchange encryption key reference.
+
+#. | TcpIpTlsCsmKeyExchangeKeyRef: CSM 秘钥交换key引用；
+   | TcpIpTlsCsmKeyExchangeKeyRef: CSM key exchange key reference.
+
+#. | TcpIpTlsCsmKeyExchangeSignatureGenerateJobRef:CSM 签名生成算法job引用；
+   | TcpIpTlsCsmKeyExchangeSignatureGenerateJobRef: CSM signature generation job reference.
+
+#. | TcpIpTlsCsmKeyExchangeSignatureGenerateKeyRef:CSM 签名生成算法key引用；
+   | TcpIpTlsCsmKeyExchangeSignatureGenerateKeyRef: CSM signature generation key reference.
+
+#. | TcpIpTlsCsmKeyExchangeSignatureVerifyJobRef:CSM 签名校验算法job引用；
+   | TcpIpTlsCsmKeyExchangeSignatureVerifyJobRef: CSM signature verification job reference.
+
+#. | TcpIpTlsCsmKeyExchangeSignatureVerifyKeyRef:CSM 签名校验算法key引用；
+   | TcpIpTlsCsmKeyExchangeSignatureVerifyKeyRef: CSM signature verification key reference.
+
+#. | TcpIpTlsCsmMasterSecretKeyRef: 会话主密钥引用；
+   | TcpIpTlsCsmMasterSecretKeyRef: Reference to the session master secret.
+
+#. | TcpIpTlsCsmPrfMacJobRef: PRF算法所需CSM MAC算法job引用；
+   | TcpIpTlsCsmPrfMacJobRef: CSM MAC job reference required by the PRF algorithm.
+
+#. | TcpIpTlsCsmPrfMacKeyRef: PRF算法所需CSM MAC算法key引用；
+   | TcpIpTlsCsmPrfMacKeyRef: CSM MAC key reference required by the PRF algorithm.
+
+IKE与IpSec功能 IKE and IpSec Function
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image13.png
+   :name: IKEConnections
+   :align: center
+
+   IKEConnections
+
+#. | IKEConnection: IKEConnection基础配置；
+   | IKEConnection: Basic configuration of the IKE connection.
+
+#. | IKEChildSaProposal: child SA基础配置；
+   | IKEChildSaProposal: Basic configuration of the child SA.
+
+#. | IKEIkeSaProposal: IKE SA算法配置；
+   | IKEIkeSaProposal: Algorithm configuration of the IKE SA.
+
+#. | IKESignatureAuthenticationVariants: IKE 签名配置；
+   | IKESignatureAuthenticationVariants: IKE signature configuration.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image14.png
+   :name: IKETransforms
+   :align: center
+
+   IKETransforms
+
+#. | IKEDhTransform: IKE秘钥交换的Transform id和key引用；
+   | IKEDhTransform: Transform ID and key reference for IKE key exchange.
+
+#. | IKEEncrTransform: IKE加密的秘钥长度，Transform id，加解密job引用；
+   | IKEEncrTransform: Key length, transform ID, and encryption/decryption job reference for IKE encryption.
+
+#. | IKEIntegTransform: IKE完整性校验Transform id，加解密job引用；
+   | IKEIntegTransform: Transform ID and encryption/decryption job reference for IKE integrity verification.
+
+#. | IKEPrfTransform: IKE秘钥推导Transform id，加解密job引用；
+   | IKEPrfTransform: Transform ID and encryption/decryption job reference for IKE key derivation.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/TcpIp/image15.png
+   :name: TcpIpIpSecConfigSet
+   :align: center
+
+   TcpIpIpSecConfigSet
+
+#. | TcpIpIntegrityAlgorithm: IpSec完整性校验Transform id；
+   | TcpIpIntegrityAlgorithm: Transform ID for IPsec integrity verification.
+
+#. | TcpIpIntegrityTransformJobPair: IpSec完整性校验生成和校验job引用；
+   | TcpIpIntegrityTransformJobPair: Job references for IPsec integrity generation and verification.
+
+#. | TcpIpSpdEntry: SPD入口；
+   | TcpIpSpdEntry: SPD entry.
+
+#. | TcpIpIpSecHeaderType: IpSec头部类型，AH还是ESP；
+   | TcpIpIpSecHeaderType: IPsec header type, AH or ESP.
+
+#. | TcpIpIpSecPolicy: IpSec策略，protect/bypass/discard/optional；
+   | TcpIpIpSecPolicy: IPsec policy, such as protect, bypass, discard, or optional.
+
+#. | TcpIpIpSecPriority: 优先级；
+   | TcpIpIpSecPriority: Priority.
+
+#. | TcpIpLocalIpAddrStart TcpIpLocalIpAddrEnd: 本地ip地址范围；
+   | TcpIpLocalIpAddrStart TcpIpLocalIpAddrEnd: Local IP address range.
+
+#. | TcpIpLocalPortRangeStart TcpIpLocalPortRangeEnd: 本地端口范围；
+   | TcpIpLocalPortRangeStart TcpIpLocalPortRangeEnd: Local port range.
+
+#. | TcpIpProtocol: 需要处理的协议类型，TCP/UDP/ICMP/ANY；
+   | TcpIpProtocol: Protocol type to be processed, such as TCP, UDP, ICMP, or ANY.
+
+#. | TcpIpRemIpAddrStart TcpIpRemIpAddrEnd: 远端ip地址范围；
+   | TcpIpRemIpAddrStart TcpIpRemIpAddrEnd: Remote IP address range.
+
+#. | TcpIpRemPortRangeStart TcpIpRemPortRangeEnd: 远端端口范围；
+   | TcpIpRemPortRangeStart TcpIpRemPortRangeEnd: Remote port range.

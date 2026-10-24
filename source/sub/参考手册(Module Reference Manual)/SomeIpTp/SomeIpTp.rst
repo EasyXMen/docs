@@ -114,16 +114,23 @@ SomeIpTp
 简介 Introduction
 ==================================
 
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp.png
+   :alt: SomeIpTp模块层次图 (SomeIpTp Module Layer Diagram)
+   :name: SomeIpTp_fig_archLayer
+   :align: center
+
+   SomeIpTp模块层次图 (SomeIpTp Module Layer Diagram)
+
 SOME/IP TP为使用UDP发送长度大于1400字节的SOME/IP报文提供了可能。在发送端，SOME/IP TP将原始数据进行分段，插入TP报头后分段发送出去。在接收端，SOME/IP TP利用TP报头将接收的分段进行重组，传递给上层用户。
 
 SOME/IP TP makes it possible to send SOME/IP messages with a length greater than 1400 bytes using UDP. On the sending end, SOME/IP TP segments the original data, inserts a TP header, and then sends the segments. On the receiving end, SOME/IP TP uses the TP header to reassemble the received segments and delivers them to upper-layer users.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_layer.png
-   :alt: SomeIpTp模块层次图 (SomeIpTp Module Layer Diagram)
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_layer.png
+   :alt: SomeIpTp模块层次图 (SomeIpTp Module Interaction Diagram)
    :name: SomeIpTp_fig_arch
    :align: center
 
-   SomeIpTp模块层次图 (SomeIpTp Module Layer Diagram)
+   SomeIpTp模块交互图 (SomeIpTp Module Interaction Diagram)
 
 
 如图 :ref:`SomeIpTp_fig_arch`  SomeIpTp模块通过和PduR模块进行交互，进行数据的接收和发送。
@@ -136,18 +143,68 @@ As shown in Figure :ref:`SomeIpTp_fig_arch`  , the SomeIpTp module interacts wit
 ==========================================================
 
 
+
+公共特性(Public Features)
+------------------------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- SomeIpTp模块支持多核与多分区部署,具体的分区信息由Pdu配置项EcucPduDefaultPartitionRef决定。
+
+  The SomeIpTp supports multi-core and multi-partition deployment, with specific partition information determined by the Pdu configuration parameter EcucPduDefaultPartitionRef.
+
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+   - 模块支持PBS
+          
+     The module supports PBS.
+
+   - SomeIpTpChannel支持属性变体与数量变体
+          
+     SomeIpTpChannel supports attribute variants and quantity variants
+
+   - SomeIpTpRxNSdu支持属性变体与数量变体
+          
+     SomeIpTpRxNSdu supports attribute variants and quantity variants
+
+   - SomeIpTpRxNPdu支持属性变体与数量变体
+
+     SomeIpTpRxNPdu supports attribute variants and quantity variants
+
+   - SomeIpTpTxNSdu支持属性变体与数量变体
+
+     SomeIpTpTxNSdu supports attribute variants and quantity variants
+
+   - SomeIpTpTxNPdu支持属性变体与数量变体
+
+     SomeIpTpTxNPdu supports attribute variants and quantity variants
+  
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。包含这些名称的标签段 SOMEIPTP_CODE、SOMEIPTP_CODE、SOMEIPTP_CODE_FAST、SOMEIPTP_VAR_INIT_PTR、SOMEIPTP_CONST_PTR、SOMEIPTP_CONFIG_DATA_PTR、SOMEIPTP_CONFIG_DATA_8、SOMEIPTP_CONFIG_DATA_16、SOMEIPTP_CONFIG_DATA_UNSPECIFIED、SOMEIPTP_VAR_INIT_UNSPECIFIED、SOMEIPTP_VAR_CLEARED_[iPartition]_UNSPECIFIED、SOMEIPTP_VAR_CLEARED_UNSPECIFIED、SOMEIPTP_VAR_CLEARED_GLOBAL_BOOLEAN、SOMEIPTP_CODE、SOMEIPTP_VAR_CLEARED_PTR、其中[iParition]为SomeIpTp所部署的分区名称。
+
+The memmap file is dynamic.There are IPDUM_VAR_INIT_PTR、IPDUM_CONST_PTR、IPDUM_CONFIG_DATA_8、IPDUM_CONFIG_DATA_PTR、IPDUM_CONFIG_DATA_16、IPDUM_CONFIG_DATA_UNSPECIFIED、IPDUM_VAR_CLEARED_GLOBAL_8、IPDUM_VAR_CLEARED_PTR、IPDUM_VAR_CLEARED_[iParition]_8、IPDUM_VAR_CLEARED_[iParition]_UNSPECIFIED.Among them [iParition] is the name of the partition deployed for SomeIpTp. If there is no partition name. 
+
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+
+模块特性(Module Features)
+----------------------------
+
+
 特性 Features
 ----------------------------------------------------------------------------------------------
 .. _my_anchor_someIpTp_feature:
 
-.. only:: doc_pbs
-
-  变体 Variant
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  模块不支持变体
-
-  The module does not support variants
 
 
 SOME/IP TP 怎么工作 How SOME/IP TP Works
@@ -160,7 +217,7 @@ SOME/IP TP为使用UDP发送长度大于1400字节的SOME/IP报文提供了可�
 
 SOME/IP TP makes it possible to send SOME/IP messages with a length greater than 1400 bytes using UDP. On the sending end, SOME/IP TP segments the original data, inserts a TP header, and then sends the segments. On the receiving end, SOME/IP TP uses the TP header to reassemble the received segments and delivers them to upper-layer users.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_segment.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_segment.png
    :alt: SomeIpTp分片 (SomeIpTp Fragmentation)
    :name: SomeIpTp_segment_fig_arch
    :align: center
@@ -172,7 +229,7 @@ SOMEIP-TP协议在原有的SOMEIP协议中改造了MessageType区域的构造(�
 
 The SOMEIP-TP protocol modifies the structure of the MessageType field in the original SOMEIP protocol (adding a TP-Flag bit) and extends 4 bytes (divided into Offset, Res, and M fields) to control the transmission of TP messages. The SomeIpTp module completes the filling and parsing of TP-related bits to support large data transmission.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_header.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_header.png
    :alt: SomeIpTp报文格式 (SomeIpTp Message Format)
    :name: SomeIpTp_header_fig_arch
    :align: center
@@ -318,7 +375,7 @@ SomeIpTpRxNSdu及其子容器用于配置SomIpTp模块对接收到的分片进�
 
 SomeIpTpRxNSdu and its sub-containers are used to configure the SomIpTp module for the assembly of received fragments.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_Rx.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_Rx.png
    :alt: SomeIpTp接收端 (SomeIpTp Receiver)
    :name: SomeIpTp_rx_fig_arch
    :align: center
@@ -332,7 +389,7 @@ SomeIpTpTxNSdu及其子容器用于配置SomIpTp模块对收到的上层的NSdu�
 
 SomeIpTpTxNSdu and its sub-containers are used to configure the SomIpTp module to process the NSdu transmission requests received from the upper layer, fragment the NSdu, and then send the fragments.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_Tx.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/SomeIpTp/SomeIpTp_Tx.png
    :alt: SomeIpTp发送端 (SomeIpTp Transmitter)
    :name: SomeIpTp_tx_fig_arch
    :align: center

@@ -49,7 +49,7 @@ EcuM_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -81,7 +81,7 @@ EcuM_GoDownHaltPoll
 Instructs the ECU State Manager module to go into a sleep mode, reset, or off depending on the previously selected shutdown target.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -125,7 +125,7 @@ EcuM_Init
 Initializes the ECU state manager and carries out the startup procedure. The function will never return (it calls StartOS).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -145,7 +145,7 @@ EcuM_StartupTwo
 Implements the STARTUP II state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -165,7 +165,7 @@ EcuM_Shutdown
 Typically called from the shutdown hook, this function takes over execution control and carries out GO OFF II activities.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -185,7 +185,7 @@ EcuM_SetState
 Function called by BswM to notify about a state switch.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -217,7 +217,7 @@ EcuM_RequestRUN
 Places a request for the RUN state. Requests can be placed by every user made known to the state manager at configuration time.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -261,7 +261,7 @@ EcuM_ReleaseRUN
 Releases a RUN request previously done with a call to EcuM_RequestRUN. The service is intended for implementing AUTOSAR ports.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -305,7 +305,7 @@ EcuM_RequestPOST_RUN
 Places a request for the POST RUN state. Requests can be placed by every user made known to the state manager at configuration time. Requests for RUN and POST RUN must be tracked independently (i.e., using two independent variables). The service is intended for implementing AUTOSAR ports.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -349,7 +349,7 @@ EcuM_ReleasePOST_RUN
 Releases a POST RUN request previously done with a call to EcuM_RequestPOST_RUN. The service is intended for implementing AUTOSAR ports.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -393,7 +393,7 @@ EcuM_SelectShutdownTarget
 Selects the shutdown target. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -440,7 +440,7 @@ EcuM_GetShutdownTarget
 Returns the currently selected shutdown target as set by EcuM_SelectShutdownTarget. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -487,7 +487,7 @@ EcuM_GetLastShutdownTarget
 Returns the shutdown target of the previous shutdown process. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -534,7 +534,7 @@ EcuM_SelectShutdownCause
 Elects the cause for a shutdown. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -578,7 +578,7 @@ EcuM_GetShutdownCause
 Returns the selected shutdown cause as set by EcuM_SelectShutdownCause. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -622,7 +622,7 @@ EcuM_GetPendingWakeupEvents
 Gets pending wakeup events.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -642,7 +642,7 @@ EcuM_ClearWakeupEvent
 Clears wakeup events.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -674,7 +674,7 @@ EcuM_GetValidatedWakeupEvents
 Gets validated wakeup events.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -694,7 +694,7 @@ EcuM_GetExpiredWakeupEvents
 Gets expired wakeup events.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -714,7 +714,7 @@ EcuM_SetRelWakeupAlarm
 Sets a user's wakeup alarm relative to the current point in time. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -763,7 +763,7 @@ EcuM_SetAbsWakeupAlarm
 Sets the user's wakeup alarm to an absolute point in time. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -814,7 +814,7 @@ EcuM_AbortWakeupAlarm
 Aborts the wakeup alarm previously set by this user. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -860,7 +860,7 @@ EcuM_GetCurrentTime
 Returns the current value of the EcuM clock (i.e., the time since battery connect). This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -904,7 +904,7 @@ EcuM_GetWakeupTime
 Returns the current value of the master alarm clock (the minimum absolute time of all user alarm clocks). This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -948,7 +948,7 @@ EcuM_SetClock
 Sets the EcuM clock time to the provided value. This API is useful for testing the alarm services; Alarms that take days to expire can be tested. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -995,7 +995,7 @@ EcuM_SelectBootTarget
 Selects a boot target. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1039,7 +1039,7 @@ EcuM_GetBootTarget
 Returns the current boot target. This function is part of the ECU Manager Module port interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1081,7 +1081,7 @@ EcuM_SetWakeupEvent
 Sets the wakeup event. Sets (OR-operation) all events passed as a bit set in the
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1113,7 +1113,7 @@ EcuM_ValidateWakeupEvent
 After wakeup, the ECU State Manager will stop the process during the WAKEUP VALIDATION state/sequence to wait for validation of the wakeup event. This API service is used to indicate to the ECU Manager module that the wakeup events indicated in the
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1145,7 +1145,7 @@ EcuM_CheckWakeup
 This function can be called to check the given wakeup sources. It will pass the argument to the integrator function EcuM_CheckWakeupHook. It can also be called by the ISR of a wakeup source to set up the PLL and check other wakeup sources that may be connected to the same interrupt.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1177,7 +1177,7 @@ EcuM_AL_DriverInitBswM
 This callback shall provide BSW module initializations to be called by the BSW Mode Manager.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

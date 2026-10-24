@@ -4,10 +4,10 @@ Ea
 
 
 
-文档信息 Document Information
+文档信息（Document Information）
 ========================================================================
 
-版本历史 Version History
+版本历史（Version History）
 ----------------------------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -32,7 +32,26 @@ Ea
      - 发布(Release)
      - 正式发布(Official release)
 
-参考文档 References
+   * - 2025/09/30
+     - haibin.shao
+     - V1.1
+     - 修正(Modify)
+     - 追加MemAcc适配，Buffer对齐等功能(Add functions such as MemAcc adaptation and Buffer alignment)
+
+   * - 2025/11/28
+     - peng.wu
+     - V1.2
+     - 修正(Modify)
+     - 增加多分区功能的集成描述(Add an integrated description of multi-partition)
+
+   * - 2025/12/11
+     - peng.wu
+     - V1.3
+     - 修正(Modify)
+     - 调整文档架构(Modify the document structure)
+
+
+参考文档（References）
 ----------------------------------------------------------------------------------------------------------------------------
 
 .. list-table::
@@ -51,11 +70,20 @@ Ea
      - Autosar
      - AUTOSAR_CP_SWS_EEPROMAbstraction.pdf
      - R23-11
+   * - 3
+     - Autosar
+     - AUTOSAR_CP_SWS_MemoryAccess.pdf
+     - R23-11 
+   * - 4
+     - Autosar
+     - AUTOSAR_CP_SWS_NVRAMManager.pdf
+     - R23-11 
 
-术语与简写 Terms and Abbreviations
+
+术语与简写（Terms and Abbreviations）
 ========================================================================
 
-术语 Terms
+术语（Terms）
 ----------------------------------------------------------------------------------------------------------------------------
 .. :align: center   表格内容居中(Table contents are centered)
 
@@ -84,7 +112,7 @@ Ea
    * - Redundant copy
      - 非易失性内存管理器(NVRAM manager)中的概念：将相同信息存储两次，以提高数据存储的可靠性。(A concept in the NVRAM (Non-Volatile RAM) Manager: storing the same information twice to improve the reliability of data storage.)
 
-简写 Abbreviations
+简写（Abbreviations）
 --------------------------------------------------------------
 
 .. list-table::
@@ -116,29 +144,73 @@ Ea
      - AUTOSAR基本软件模块存储器访问.
 
 
-简介 Introduction
+简介（Introduction）
 ====================================
 
 EA模块是对设备特定地址结构和分段的抽象，它为上层提供虚拟的地址结构和分段，并提供无限的擦除周期；ECU抽象层中的EA模块是对底层EEPROM设备的抽象。用户能访问到的存储器API都是针对EEPROM的；EA不直接操作硬件，所有硬件操作由EEPROM驱动模块完成。
 
 The EA module is an abstraction of the device-specific address structure and segmentation. It provides a virtual address structure and segmentation for the upper layer, and offers unlimited erasure cycles; The EA module in the ECU Abstraction Layer is an abstraction of the underlying EEPROM device. All memory APIs accessible to users are for EEPROM; The EA module does not directly operate the hardware. All hardware operations are performed by the EEPROM driver module.
 
+在Autosar架构中属于存储硬件抽象层
 
-功能描述 Functional Description
+The Ea module belongs to the memory hardware abstraction layer in the Autosar architecture.
+
+模块架构如图 :ref:`Ea_AUTOSAR_Arch` 所示。
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/Ea_AUTOSAR_Architecture.png
+   :alt: Ea模块层次图(Ea module hierarchy diagram)
+   :name: Ea_AUTOSAR_Arch
+   :align: center
+
+   Ea AUTOSAR Architecture
+
+
+功能描述（Functional Description）
 ========================================================================
 
-特性 Features
+公共特性（Public Features）
 --------------------------------------------------------------
 
-模块初始化 Module initialization
+多核多分区功能（Multi-core and Multi-partition Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ea多分区场景下，必须保持与上层NvM模块在同一分区。
+
+In the Ea multi-partition scenario, it is necessary to remain in the same partition as the upper-level NvM module.
+
+
+.. only:: doc_pbs
+
+   PBS功能（PBS Features）
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   无配置项，不支持。
+
+   No configurations, not supported.
+
+
+Memmap功能（Memmap Features）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Memmap文件是静态的。存在EA_START_SEC_CODE、EA_STOP_SEC_CODE、EA_START_SEC_VAR_INIT_8、EA_STOP_SEC_VAR_INIT_8、EA_START_SEC_VAR_CLEARED_8、EA_STOP_SEC_VAR_CLEARED_8、EA_START_SEC_VAR_CLEARED_UNSPECIFIED、EA_STOP_SEC_VAR_CLEARED_UNSPECIFIED、EA_START_SEC_CONST_PTR、EA_STOP_SEC_CONST_PTR、EA_START_SEC_CONFIG_DATA_UNSPECIFIED、EA_STOP_SEC_CONFIG_DATA_UNSPECIFIED字段。
+
+The memmap file is static.There are EA_START_SEC_CODE、EA_STOP_SEC_CODE、EA_START_SEC_VAR_INIT_8、EA_STOP_SEC_VAR_INIT_8、EA_START_SEC_VAR_CLEARED_8、EA_STOP_SEC_VAR_CLEARED_8、EA_START_SEC_VAR_CLEARED_UNSPECIFIED、EA_STOP_SEC_VAR_CLEARED_UNSPECIFIED、EA_START_SEC_CONST_PTR、EA_STOP_SEC_CONST_PTR、EA_START_SEC_CONFIG_DATA_UNSPECIFIED、EA_STOP_SEC_CONFIG_DATA_UNSPECIFIED fields.
+
+
+独占区功能（Exclusive Area Features）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+
+模块特性（Module Features）
+--------------------------------------------------------------
+
+模块初始化（Module initialization）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ea模块必须在初始化接口调用后才能开始运行。在初始化阶段，Ea不需要读取数据，只需要初始化相关的变量即可，所以Ea初始化采用了同步方式。
 
 The Ea module can only start running after the initialization interface is called. During the initialization phase, the Ea module does not need to read data, but only needs to initialize relevant variables. Therefore, the Ea module uses a synchronous method for initialization.
 
 
-任务处理 Task Processing
+任务处理（Task Processing）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 EA的主要工作是对EEPROM内存块进行逻辑块的划分(逻辑块的大小根据配置可能不同)，以及地址映射。EA的读取、写入、擦除的最小单位为逻辑块。
 
@@ -149,35 +221,35 @@ EA模块一次只能接受一个作业任务，即模块不能为挂起的作业
 The EA module can only accept one job task at a time, which means the module cannot provide a queue for pending jobs.
 
 
-数据存储管理 Data Storage Management
+数据存储管理（Data Storage Management）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 管理EEPROM中的逻辑块(Logical Blocks)，每个逻辑块可以存储一定量的数据。支持对逻辑块的读写、擦除操作。
 
 Manages logical blocks in the EEPROM. Each logical block can store a certain amount of data. Supports read, write, and erase operations on logical blocks.
 
 
-错误检测与处理 Error Detection and Handling
+错误检测与处理（Error Detection and Handling）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 检测EEPROM操作中的错误(如写入失败、读取失败等)。提供错误通知机制，将错误信息传递给上层模块。
 
 Detects errors during EEPROM operations (such as write failure, read failure, etc.). Provides an error notification mechanism to pass error information to the upper layer modules.
 
 
-擦除周期限制 Erasure Cycle Limitation
+擦除周期限制（Erasure Cycle Limitation）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 如果下层EEPROM设备或者设备驱动不提供配置每个物理存储单元的最小擦除/写入周期数，EA模块的配置必须在配置参数EaNumberOfWriteCycles中定义每个逻辑块所期望的擦擦/写入操作周期。
 
 If the underlying EEPROM device or device driver does not provide the configuration of the minimum number of erasure/write cycles for each physical storage unit, the configuration of the EA module must define the expected erasure/write operation cycles for each logical block in the configuration parameter EaNumberOfWriteCycles.
 
 
-管理逻辑块信息 Managing Logical Block Information
+管理逻辑块信息（Managing Logical Block Information）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Ea模块应该从EA模块的角度来管理每个块的信息，即该块是否为“有效”。该一致性信息仅涉及块的内部处理，而不涉及块的内容；当块写入操作启动时，Ea模块将相应的块标记为不一致。在块写入操作成功结束后，Ea模块应将块标记为一致(再次)。
 
 The Ea module shall manage the information of each block from the perspective of the EA module, i.e., whether the block is "valid". This consistency information is only related to the internal processing of the block, not the content of the block; when a block write operation starts, the Ea module marks the corresponding block as inconsistent. After the block write operation ends successfully, the Ea module shall mark the block as consistent (again).
 
 
-偏差 Deviation
+偏差 （Deviation）
 --------------------------------------------------------------
 
 1. 初始化的同步方式
@@ -188,17 +260,19 @@ Ea的初始化可以分为异步和同步两种方式，但是由于Ea初始化�
 
 The initialization of Ea can be divided into asynchronous and synchronous methods. However, since the Ea initialization does not need to read data temporarily, the current implementation adopts the synchronous method, and the asynchronous method has not been implemented yet.
 
-扩展 Extension
+
+扩展（Extension）
 --------------------------------------------------------------
 None
 
-集成 Integration
+
+集成（Integration）
 ====================================
 
-文件列表 File List
+文件列表（File List）
 --------------------------------------------------------------
 
-静态文件 Static Files
+静态文件（Static Files）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -221,7 +295,7 @@ None
      - API declaration and macro definition of Ea module; including macro definition, type definition, and configuration structure declaration that need to be used.
 
 
-动态文件 Dynamic Files
+动态文件（Dynamic Files）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -241,10 +315,10 @@ None
      - Link time declaration of Ea; Contains macro definitions, version information.
 
 
-错误处理 Error Handling
+错误处理（Error Handling）
 --------------------------------------------------------------
 
-开发错误 Development Errors
+开发错误（Development Errors）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
@@ -280,7 +354,12 @@ None
      - API service called with invalid block length information
 
 
-运行时错误 Runtime Errors
+产品错误（Product Errors）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None
+
+
+运行时错误（Runtime Errors）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
@@ -300,21 +379,16 @@ None
      - Ea_Cancel called while no job was pending
 
 
-产品错误 Product Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-无 None
-
-接口描述 Interface Description
+接口描述（Interface Description）
 ====================================
 
 .. include:: Ea_api.rst
 
 
-依赖的服务 Applicable Services
+依赖的服务（Applicable Services）
 --------------------------------------------------------------
 
-可选接口 Optional Interface
+可选接口（Optional Interface）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
@@ -330,7 +404,7 @@ None
      - Service to report development errors
 
 
-强制接口 Compulsory interface
+强制接口（Compulsory interface）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 
@@ -346,37 +420,29 @@ None
      - Det.h
      - Service to report runtime errors.If a callout has been configured then this callout shall be called.
 
-   * - Eep_Cancel
-     - Eep.h
-     - Cancels a running job
-
-   * - Eep_Erase
-     - Eep.h
-     - Service for erasing EEPROM sections
-
-   * - Eep_GetJobResult
-     - Eep.h
-     - This service returns the result of the last job
-
    * - Eep_GetStatus
      - Eep.h
      - Returns the EEPROM status
 
-   * - Eep_Read
-     - Eep.h
+   * - MemAcc_Erase
+     - MemAcc.h
+     - Service for erasing EEPROM sections
+
+   * - MemAcc_GetJobResult
+     - MemAcc.h
+     - This service returns the result of the last job
+
+   * - MemAcc_Read
+     - MemAcc.h
      - Reads from EEPROM
 
-   * - Eep_SetMode
-     - Eep.h
-     - Sets the mode
-
-   * - Eep_Write
-     - Eep.h
-     - Writes to EEPROM
+   * - MemAcc_Write
+     - MemAcc.h
+     - Triggers a write job to store the passed data to the provided address area with given address and length. The result of this service can be retrieved using the MemAcc_GetJobResult API. If the write operation was successful, the job result is MEMACC_OK. If there was an issue writing the data, the result is MEMACC_FAILED.
 
 
-配置接口 Configuration Interfaces
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+配置接口（Configuration Interfaces）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. 可选的章节，根据模块实际情况确定
 .. 格式同强制接口
 
@@ -397,10 +463,10 @@ None
      - Function to be used by the underlying memory abstraction to signal end of job with error
 
 
-配置 Configuration
+配置（Configuration）
 ====================================
 
-头文件包含 Header File Including
+头文件包含（Header File Including）
 --------------------------------------------------------------
 在Ea模块使用过程中，需要使用到下层EEPROM Driver模块，由于MCAL厂商的文件命名差异，可能会涉及文件名和类型名字不匹配的问题，所以在Ea模块中，需要在配置中包含EEPROM Driver的头文件xxx.h。
 
@@ -410,7 +476,7 @@ During the use of the Ea module, the underlying EEPROM Driver module needs to be
 
 As shown in Figure :ref:`EaHeaderFile`.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaHeaderFile.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/EaHeaderFile.png
    :alt: EaHeaderFile配置图 (EaHeaderFile Configuration Diagram)
    :name: EaHeaderFile
    :align: center
@@ -424,7 +490,7 @@ EaVirtualPageSize
 
 As shown in Figure :ref:`EaVirtualPageSize`,
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaVirtualPageSize.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/EaVirtualPageSize.png
    :alt: EaVirtualPageSize配置图 (EaVirtualPageSize Configuration Diagram)
    :name: EaVirtualPageSize
    :align: center
@@ -439,7 +505,7 @@ In the Ea module, the size of the configured virtual page EaVirtualPageSize must
 
 That is, (EaBlockSize + EaBlockOverhead) % EaVirtualPageSize != 0 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaBlockSize.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/EaBlockSize.png
    :alt: EaBlockSize配置图 (EaBlockSize Configuration Diagram)
    :name: EaBlockSize
    :align: center
@@ -447,7 +513,7 @@ That is, (EaBlockSize + EaBlockOverhead) % EaVirtualPageSize != 0
    EaBlockSize Including
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EaBlockOverhead.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/EaBlockOverhead.png
    :alt: EaBlockOverhead配置图 (EaBlockOverhead Configuration Diagram)
    :name: EaBlockOverhead
    :align: center
@@ -455,18 +521,31 @@ That is, (EaBlockSize + EaBlockOverhead) % EaVirtualPageSize != 0
    EaBlockOverhead Including
 
 
-EepApi
+Ea_EepApi
 --------------------------------------------------------------
 
-如图 :ref:`EepApi` 所示，可以关联底层Eep模块，并设置底层Eep模块对应的接口。
+如图 :ref:`EepApi` 所示，可以关联底层Eep/MemAcc模块，并设置底层Eep模块对应的接口。
 
-As shown in Figure :ref:`EepApi`, the underlying Eep module can be associated, and the corresponding interface of the underlying Eep module can be set.
+As shown in Figure :ref:`EepApi`, the underlying Eep/MemAcc module can be associated, and the corresponding interface of the underlying Eep/MemAcc module can be set.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Ea/EepApi.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/EepApi.png
    :alt: EepApi配置图 (EepApi Configuration Diagram)
    :name: EepApi
    :align: center
 
    EepApi Including
 
+
+EaEepDriverName
+--------------------------------------------------------------
+
+如图 :ref:`EaEepDriverName` 所示，可以关联底层Eep/MemAcc模块，并设置底层Eep/MemAcc模块对应的接口。
+对底层驱动的使用，需要设置对应的驱动名称，如使用Eep，则设置为Eep的驱动名称，若使用MemAcc，则设置为MemAcc
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Ea/EaEepDriverName.png
+   :alt: Ea模块接口关系图 (EaEepDriverName Configuration Diagram)
+   :name: EaEepDriverName
+   :align: center
+
+   Ea Eep Driver Name
 

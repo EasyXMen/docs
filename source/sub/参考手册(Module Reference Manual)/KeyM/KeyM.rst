@@ -30,6 +30,12 @@ KeyM
      - 发布(Release)
      - 正式发布(Official release)
 
+   * - 2025/12/30
+     - jie.gu
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
+
 参考文档 References
 ------------------------------------------------------------------------------------------
 
@@ -121,13 +127,45 @@ KeyM
 
 The functions of keys and certificates account for a large proportion in encryption function. Firstly, key is a kind of parameter that is input into algorithm converting plaintext to ciphertext or vice versa. Key is required in many encryption algorithms; therefore, a keyM module is required to manage keys. The management of keyM for key is mainly reflected in key updating and generating. Certificate can ensure the integrity and security of information and data exchanged by network users by either encryption or decryption. The KeyM module can save and verify the configuration of certificate chains, which enhances the security of information and data in the network. 
 
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/CP_Arch_KeyM.png
+   :alt: Architecture描述(Architecture Description)
+   :name: KeyM_fig_Architecture
+   :align: center
+
+   KeyM模块架构图(KeyM module architecture figure).
+
+如图 :ref:`KeyM_fig_Architecture` 所示，KeyM模块处于AUTOSAR架构中的服务层。
 
 功能描述 Functional Description
 ====================================================
 
+公共特性(Public Features)
+--------------------------------------------
 
-特性 Features
-------------------------------------------------------------------------------------------
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   None
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
 
 1.KeyM功能介绍
 
@@ -177,7 +215,7 @@ None
 文件列表 File List
 ------------------------------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/Filelist.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/Filelist.png
    :alt: KeyM组件文件组织结构描述(Description of KeyM component file organization structure)
    :name: fig_KeyMFilelist
    :align: center
@@ -237,12 +275,12 @@ As shown in the figure  :ref:`fig_KeyMFilelist` , the file reference relationshi
      - KeyM 的配置类型结构 (Configuration type structure of KeyM) 
   
 
-错误处理 Error Handling
-----------------------------------------------------------------------------
+错误处理(Error Handling)
+----------------------------------
 
+开发错误(Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-开发错误 Development Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. list-table:: 
   :widths: 20 10 30
   :header-rows: 1
@@ -271,12 +309,14 @@ As shown in the figure  :ref:`fig_KeyMFilelist` , the file reference relationshi
     - 0x05
     - KeyM configuration failure 
 
-产品错误 Product Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 None
 
-运行时错误 Runtime Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 None
 
 
@@ -290,6 +330,10 @@ None
 
 The configuration of KeyM module requires time reference provided by STBM in the project as well as encryption services provided by the CSM module, which is the lower level module
    
+
+
+
+.. 引用接口描述。来自于code->doxygen->latex->rst
 .. include:: KeyM_h_api.rst
 .. include:: KeyM_Internal_h_api.rst
 
@@ -304,12 +348,12 @@ KeyMGeneral通用配置 General Configuration of KeyMGeneral
 
 Provide some basic functions, such as certificate function, key function and handler function. In the first step, make configuration based on project needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMGeneral.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMGeneral.png
    :alt:  KeyMGeneral通用配置图 (KeyMGeneralGeneral Configuration Diagram)
    :name: fig_KeyM_General
    :align: center
 
-   fig_KeyM_General
+   KeyMGeneral通用配置图 (KeyMGeneralGeneral Configuration Diagram).
 
 
 
@@ -320,12 +364,12 @@ KeyMCertificate配置 Configuration of KeyMCertificate
 
 Provide some basic configuration for certificates, including certificate length and fields, as well as the algorithms and key types used for some verification operations on the certificate.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificate.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificate.png
    :alt: KeyMCertificate通用配置图 (KeyMCertificate General Configuration Diagram)
    :name: fig_KeyMCertificate
    :align: center
 
-   fig_KeyMCertificate
+   KeyMCertificate通用配置图 (KeyMCertificate General Configuration Diagram).
 
 
 
@@ -336,12 +380,12 @@ KeyMCertificateElement配置 Configuration of KeyMCertificateElement
 
 Configure each field in the certificate in detail to ensure its compliance with the certificate specification.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElement.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElement.png
    :alt: KeyMCertificateElement通用配置图 (KeyMCertificateElement General Configuration Diagram)
    :name: fig_KeyMCertificateElement
    :align: center
 
-   fig_KeyMCertificateElement
+   KeyMCertificateElement通用配置图 (KeyMCertificateElement General Configuration Diagram).
 
 
 
@@ -352,12 +396,12 @@ KeyMCertificateElementRule配置 Configuration of KeyMCertificateElementRule
 
 Configure some rules for the elements in the certificate. In general, these rules are not necessary and can be designed based on actual needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementRule.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementRule.png
    :alt: KeyMCertificateElementRule通用配置图 (KeyMCertificateElementRule General Configuration Diagram)
    :name: fig_KeyMCertificateElementRule
    :align: center
 
-   fig_KeyMCertificateElementRule
+   KeyMCertificateElementRule通用配置图 (KeyMCertificateElementRule General Configuration Diagram).
    
 KeyMCertificateElementCondition配置 Configuration of KeyMCertificateElementCondition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -366,14 +410,23 @@ KeyMCertificateElementCondition配置 Configuration of KeyMCertificateElementCon
 
 Configure some rules for the elements in the certificate. In general, these rules are not necessary and can be designed based on actual needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementCondition.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementCondition.png
    :alt: KeyMCertificateElementCondition通用配置图 (KeyMCertificateElementCondition General Configuration Diagram)
    :name: fig_KeyMCertificateElementCondition
    :align: center
 
-   fig_KeyMCertificateElementCondition
+   KeyMCertificateElementCondition通用配置图 (KeyMCertificateElementCondition General Configuration Diagram).
 
-   
+要比较的KeyElement，KeyMCertificateElementConditionValue里面可以选择四种比较类型中的一种，如图 :ref:`fig_KeyMCertificateElementCondition_KeyElementSelect` 所示.
+
+To compare the KeyElement, KeyMCertificateElementConditionValue inside can choose one of the four types of comparison, As shown in figure :ref:`fig_KeyMCertificateElementCondition_KeyElementSelect` shown below.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionValue_KeyElementSelect.png
+   :alt: KeyMCertificateElementCondition KeyElement的比较类型选择 (Select the comparison type of KeyMCertificateElementCondition KeyElement).
+   :name: fig_KeyMCertificateElementCondition_KeyElementSelect
+   :align: center
+
+   KeyMCertificateElementCondition KeyElement的比较类型选择 (Select the comparison type of KeyMCertificateElementCondition KeyElement).
 
 KeyMCertificateElementConditionArrayElement配置 Configuration of KeyMCertificateElementConditionArrayElement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -382,28 +435,28 @@ KeyMCertificateElementConditionArrayElement配置 Configuration of KeyMCertifica
 
 Configure some rules for the elements in the certificate. In general, these rules are not necessary and can be designed based on actual needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionArrayElement.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionArrayElement.png
    :alt: KeyMCertificateElementConditionArrayElement通用配置图 (KeyMCertificateElementConditionArrayElement General Configuration Diagram)
    :name: fig_KeyMCertificateElementConditionArrayElement
    :align: center
 
-   fig_KeyMCertificateElementConditionArrayElement
+   KeyMCertificateElementConditionArrayElement通用配置图 (KeyMCertificateElementConditionArrayElement General Configuration Diagram).
 
 
 
-KeyMCertificateElementConditionArray配置 Configuration of KeyMCertificateElementConditionArray
+KeyMCertificateElementConditionCerificateElement配置 Configuration of KeyMCertificateElementConditionCerificateElement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 对于证书里面的元素可以配置一些规则，通常这些规则是用不上的可以不配置，可以根据实际需要进行设计。
 
 Configure some rules for the elements in the certificate. In general, these rules are not necessary and can be designed based on actual needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionArray.png
-   :alt: KeyMCertificateElementConditionArray通用配置图 (KeyMCertificateElementConditionArray General Configuration Diagram)
-   :name: fig_KeyMCertificateElementConditionArray
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionCerificateElement.png
+   :alt: KeyMCertificateElementConditionCerificateElement通用配置图 (KeyMCertificateElementConditionCerificateElement General Configuration Diagram)
+   :name: KeyMCertificateElementConditionCerificateElement
    :align: center
 
-   fig_KeyMCertificateElementConditionArray
+   KeyMCertificateElementConditionCerificateElement通用配置图 (KeyMCertificateElementConditionCerificateElement General Configuration Diagram).
 
 
 KeyMCertificateElementConditionPrimitive配置 Configuration of KeyMCertificateElementConditionPrimitive
@@ -413,12 +466,12 @@ KeyMCertificateElementConditionPrimitive配置 Configuration of KeyMCertificateE
 
 Configure some rules for the elements in the certificate. In general, these rules are not necessary and can be designed based on actual needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionPrimitive.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionPrimitive.png
    :alt: KeyMCertificateElementConditionPrimitive通用配置图 (KeyMCertificateElementConditionPrimitive General Configuration Diagram)
    :name: fig_KeyMCertificateElementConditionPrimitive
    :align: center
 
-   fig_KeyMCertificateElementConditionPrimitive
+   KeyMCertificateElementConditionPrimitive通用配置图 (KeyMCertificateElementConditionPrimitive General Configuration Diagram).
 
 
 KeyMCertificateElementConditionSenderReceiver配置 Configuration of KeyMCertificateElementConditionSenderReceiver
@@ -428,12 +481,12 @@ KeyMCertificateElementConditionSenderReceiver配置 Configuration of KeyMCertifi
 
 Configure some rules for the elements in the certificate. In general, these rules are not necessary and can be designed based on actual needs.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionSenderReceiver.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCertificateElementConditionSenderReceiver.png
    :alt: KeyMCertificateElementConditionSenderReceiver通用配置图 (KeyMCertificateElementConditionSenderReceiver General Configuration Diagram)
    :name: fig_KeyMCertificateElementConditionSenderReceiver
    :align: center
 
-   fig_KeyMCertificateElementConditionSenderReceiver
+   KeyMCertificateElementConditionSenderReceiver通用配置图 (KeyMCertificateElementConditionSenderReceiver General Configuration Diagram).
 
 KeyMCryptoKey配置 Configuration of KeyMCryptoKey
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -442,12 +495,12 @@ KeyMCryptoKey配置 Configuration of KeyMCryptoKey
 
 Configuration requiring key, type of configuration storage or configuration of linked lower level, etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCryptoKey.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMCryptoKey.png
    :alt: KeyMCryptoKey通用配置图 (KeyMCryptoKey General Configuration Diagram)
    :name: fig_KeyMCryptoKey
    :align: center
 
-   fig_KeyMCryptoKey
+   KeyMCryptoKey通用配置图 (KeyMCryptoKey General Configuration Diagram).
 
 
 KeyMNvmBlock配置 Configuration of KeyMNvmBlock
@@ -457,11 +510,11 @@ KeyMNvmBlock配置 Configuration of KeyMNvmBlock
 
 The certificate can be saved in NVM or RAM. However, it will be lost before the next power-on. Decide whether NVM support is needed based on the configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/KeyM/KeyMNvmBlock.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/KeyM/KeyMNvmBlock.png
    :alt: KeyMNvmBlock通用配置图 (KeyMNvmBlock General Configuration Diagram)
    :name: fig_KeyMNvmBlock
    :align: center
 
-   fig_KeyMNvmBlock
+   KeyMNvmBlock通用配置图 (KeyMNvmBlock General Configuration Diagram).
 
 

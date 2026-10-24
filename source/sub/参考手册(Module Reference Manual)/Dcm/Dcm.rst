@@ -27,7 +27,16 @@ Dcm
       - V1.0
       - 发布(Release)
       - 正式发布(Official release)
-
+    * - 2025/12/15
+      - chao.sun
+      - V1.1
+      - 发布(Release)
+      - 正式发布(Official release)
+    * - 2026/03/30
+      - li.feng
+      - V1.2
+      - 发布(Release)
+      - 添加NvM同步信息
 
 参考文档(References)
 ----------------------------------
@@ -264,7 +273,7 @@ Dcm分成三大功能主题DSL, DSD和DSP。
 
 Dcm is divided into three major functional themes: DSL, DSD, and DSP.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmInAutosarLayer.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmInAutosarLayer.png
     :alt: Dcm模块层次图 (Dcm Module Hierarchy Diagram)
     :name: Dcm模块层次图 (Dcm Module Hierarchy Diagram)
     :align: center
@@ -279,8 +288,62 @@ As shown in the Dcm Module Hierarchy Diagram, the Dcm module resides in the comm
 功能描述(Functional Description)
 ==========================================
 
-特性(Features)
--------------------------
+公共特性(Public Features)
+-----------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+多核系统中，Dcm主要分布在一个分区，仅在涉及到不同总线发送报文时会需要部署卫星在其他分区来执行发送，因此在多核场景下需要分配主星到指定分区中。
+
+In multi-core systems, Dcm is mainly distributed within one partition, and satellite deployment in other partitions is only needed when sending messages across different buses. Therefore, in multi-core scenarios, the master node needs to be assigned to a designated partition.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   支持以下功能的开关，指定当前变体下需要的内容，关闭后视为未配置该内容：
+
+   Supports enabling/disabling the following functions, specifying the content required under the current variant. When disabled, it is considered as not configured:
+
+   - DcmDsdServiceUsed：开关服务(Toggle service)
+
+   - DcmDsdSubServiceUsed：开关子服务(Toggle sub-service)
+
+   - DcmDslProtocolRowUsed：开关协议(Toggle protocol)
+
+   - DcmDspComControlAllChannelUsed：开关AllChannel类型的通信控制(Toggle AllChannel type communication control)
+
+   - DcmDspComControlSpecificChannelUsed：开关SpecificChannel类型的通信控制(Toggle SpecificChannel type communication control)
+
+   - DcmDspComControlSubNodeUsed：开关SubNode类型的通信控制(Toggle SubNode type communication control)
+
+   - DcmDspDidUsed：开关DID(Toggle DID)
+
+   - DcmDspPidUsed：开关PID(Toggle PID)
+
+   - DcmDspRoutineUsed：开关Routine(Toggle Routine)
+
+   - DcmDsdServiceUsed：开关服务
+
+     DcmDsdServiceUsed: Toggle service
+
+   - DcmDsdSubServiceUsed：开关子服务
+
+     DcmDsdSubServiceUsed: Toggle sub-service
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+memmap文件是动态的。存在DCM_START_SEC_CODE、DCM_STOP_SEC_CODE、DCM_START_SEC_CODE_FAST、DCM_STOP_SEC_CODE_FAST、DCM_START_SEC_CALLOUT_CODE、DCM_STOP_SEC_CALLOUT_CODE、DCM_START_SEC_VAR_CLEARED_16、DCM_STOP_SEC_VAR_CLEARED_16、DCM_START_SEC_VAR_CLEARED_32、DCM_STOP_SEC_VAR_CLEARED_32、DCM_START_SEC_VAR_CLEARED_8、DCM_STOP_SEC_VAR_CLEARED_8、DCM_START_SEC_VAR_CLEARED_BOOLEAN、DCM_STOP_SEC_VAR_CLEARED_BOOLEAN、DCM_START_SEC_VAR_CLEARED_UNSPECIFIED、DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、DCM_START_SEC_VAR_INIT_8、DCM_STOP_SEC_VAR_INIT_8、DCM_START_SEC_VAR_INIT_16、DCM_STOP_SEC_VAR_INIT_16、DCM_START_SEC_VAR_INIT_BOOLEAN、DCM_STOP_SEC_VAR_INIT_BOOLEAN、DCM_START_SEC_VAR_INIT_PTR、DCM_STOP_SEC_VAR_INIT_PTR、DCM_START_SEC_CONFIG_DATA_8、DCM_STOP_SEC_CONFIG_DATA_8、DCM_START_SEC_CONFIG_DATA_16、DCM_STOP_SEC_CONFIG_DATA_16、DCM_START_SEC_CONFIG_DATA_UNSPECIFIED、DCM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、DCM_START_SEC_CONFIG_DATA_BOOLEAN、DCM_STOP_SEC_CONFIG_DATA_BOOLEAN字段。
+
+The memmap file is dynamic.There are DCM_START_SEC_CODE、DCM_STOP_SEC_CODE、DCM_START_SEC_CODE_FAST、DCM_STOP_SEC_CODE_FAST、DCM_START_SEC_CALLOUT_CODE、DCM_STOP_SEC_CALLOUT_CODE、DCM_START_SEC_VAR_CLEARED_16、DCM_STOP_SEC_VAR_CLEARED_16、DCM_START_SEC_VAR_CLEARED_32、DCM_STOP_SEC_VAR_CLEARED_32、DCM_START_SEC_VAR_CLEARED_8、DCM_STOP_SEC_VAR_CLEARED_8、DCM_START_SEC_VAR_CLEARED_BOOLEAN、DCM_STOP_SEC_VAR_CLEARED_BOOLEAN、DCM_START_SEC_VAR_CLEARED_UNSPECIFIED、DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED、DCM_START_SEC_VAR_INIT_8、DCM_STOP_SEC_VAR_INIT_8、DCM_START_SEC_VAR_INIT_16、DCM_STOP_SEC_VAR_INIT_16、DCM_START_SEC_VAR_INIT_BOOLEAN、DCM_STOP_SEC_VAR_INIT_BOOLEAN、DCM_START_SEC_VAR_INIT_PTR、DCM_STOP_SEC_VAR_INIT_PTR、DCM_START_SEC_CONFIG_DATA_8、DCM_STOP_SEC_CONFIG_DATA_8、DCM_START_SEC_CONFIG_DATA_16、DCM_STOP_SEC_CONFIG_DATA_16、DCM_START_SEC_CONFIG_DATA_UNSPECIFIED、DCM_STOP_SEC_CONFIG_DATA_UNSPECIFIED、DCM_START_SEC_CONFIG_DATA_BOOLEAN、DCM_STOP_SEC_CONFIG_DATA_BOOLEAN fields. 
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+None.
+
+模块特性(Module Features)
+---------------------------
 
 Diagnostic Session Layer(DSL)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -527,7 +590,7 @@ The following UDS services are internally implemented in accordance with the AUT
 
     * - 0x86
       - ResponseOnEvent
-      - 0x00, 0x01, 0x03, 0x04, 0x05, 0x06, 0x08, 0x09
+      - 0x00, 0x01, 0x03, 0x04, 0x05, 0x06, 0x08
 
 OBD服务(OBD Services)
 ******************************
@@ -597,30 +660,7 @@ DcmSecureCoding
 
 This function allows specifying certain DIDs and a specific RID. Before initiating writes to these DIDs, the 29 04 service must be executed first to send certificates. When executing the 2E service for writing, the data will not be written directly, but temporarily stored. Later, when executing the startRoutine of the specified RID, certificate verification will be performed. After successful verification, these DIDs will be written.
 
-.. only:: doc_pbs
 
-  变体(Variants)
-  ~~~~~~~~~~~~~~~~~
-
-  支持以下功能的开关，指定当前变体下需要的内容，关闭后视为未配置该内容：
-  Supports enabling/disabling the following functions, specifying the content required under the current variant. When disabled, it is considered as not configured:
-  - DcmDsdServiceUsed：开关服务(Toggle service)
-  - DcmDsdSubServiceUsed：开关子服务(Toggle sub-service)
-  - DcmDslProtocolRowUsed：开关协议(Toggle protocol)
-  - DcmDspComControlAllChannelUsed：开关AllChannel类型的通信控制(Toggle AllChannel type communication control)
-  - DcmDspComControlSpecificChannelUsed：开关SpecificChannel类型的通信控制(Toggle SpecificChannel type communication control)
-  - DcmDspComControlSubNodeUsed：开关SubNode类型的通信控制(Toggle SubNode type communication control)
-  - DcmDspDidUsed：开关DID(Toggle DID)
-  - DcmDspPidUsed：开关PID(Toggle PID)
-  - DcmDspRoutineUsed：开关Routine(Toggle Routine)
-
-  - DcmDsdServiceUsed：开关服务
- 
-    DcmDsdServiceUsed: Toggle service
- 
-  - DcmDsdSubServiceUsed：开关子服务
- 
-    DcmDsdSubServiceUsed: Toggle sub-service
 
 
 偏差(Deviation)
@@ -2087,6 +2127,79 @@ Based on the specifications, the following configuration items have been modifie
     | Scope / Dependency       | scope: ECU                                                  |
     +--------------------------+-------------------------------------------------------------+
 
+NvM同步(NvM Synchronization)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Dcm 与 NvM Block 的同步功能 (Synchronization Function between Dcm and NvM Block)
+
+诊断数据与 DID 存储相关的同步功能指 Dcm 根据配置条件，在对应引用节点下自动建立 reference 关联，同时在 NvM 模块生成符合长度规则的 NvMBlockDescriptor。同步功能会根据 Dcm 的使能状态与参数配置，自动计算 NvM Block 所需长度并完成块创建与绑定。选择同步功能后，工具将按条件自动创建并关联 Dcm 诊断数据、DDDID、认证状态、ROE 事件所需的 NvM Block，确保 Dcm 非易失性存储可用且长度合规。
+
+The synchronization function related to diagnostic data and DID storage means that Dcm automatically establishes a reference association under the corresponding reference node according to the configuration conditions, and generates NvMBlockDescriptor that complies with the length rules in the NvM module. The synchronization function automatically calculates the required length of the NvM Block based on the enable state and parameter configuration of Dcm, and completes block creation and binding. After the synchronization function is selected, the tool will automatically create and bind the NvM Blocks required by Dcm diagnostic data, DDDID, authentication status, and ROE events according to the conditions, ensuring that the Dcm non-volatile storage is available and the length is compliant.
+
+Dcm 相关 NvM Block 引用与长度校验严格按照以下规则执行：
+
+The Dcm related NvM Block reference and length verification are executed in strict accordance with the following rules:
+
+.. list-table::
+   :widths: 5 25 35 35
+   :header-rows: 1
+
+   * - 存储块类型 (Block Type)
+     - 触发 / 关联条件 (Condition)
+     - 引用节点 (Reference Path)
+     - 长度校验规则 (Length Validation Rule)
+   * - DcmDDDIDStorage Block
+     - DcmDDDIDStorage = True
+     - DcmGeneral / DcmDDDIDStorageBlockIdRef
+     - NvMNvBlockLength = (4 + 24 × DcmDspDDDIDMaxElementMax) × DCM_DDDID_NUM
+       DCM_DDDID_NUM 为使能 DynamicallyDefined 的 DID 数量；未配置则按 0 计算 (DCM_DDDID_NUM is the number of enabled DynamicallyDefined DIDs; 0 if not configured)
+   * - DcmDspData Block
+     - DcmDspDataUsePort = USE_BLOCK_ID
+     - DcmDspData / DcmDspDataBlockIdRef
+     - NvMNvBlockLength = DcmDspDataByteSize
+       且禁止使能 NvMSelectBlockForWriteAll (and NvMSelectBlockForWriteAll shall not be enabled)
+   * - DcmDspAuthentication PersistState Block
+     - 已配置 DcmDspAuthentication 且已配置 DcmDspAuthenticationPersistStateModeRuleRef (DcmDspAuthentication configured and DcmDspAuthenticationPersistStateModeRuleRef configured)
+     - DcmDspAuthentication / DcmDspAuthenticationPersistStateBlockIdRef
+     - NvMNvBlockLength = ((3 + DcmDspAuthenticationWhiteListDIDMaxSize + DcmDspAuthenticationWhiteListRIDMaxSize + DcmDspAuthenticationWhiteListServicesMaxSize×2) rounded up to multiple of 4 + 12) × mainConnection count
+       未配置参数按 0 计算 (Unconfigured parameters are treated as 0)
+   * - DcmDspRoe Event Block
+     - 配置 DcmDspRoe 并指定存储块引用 (DcmDspRoe configured and storage block reference specified)
+     - DcmDspRoe / DcmDspRoeBlockIdRef
+     - NvMNvBlockLength = 18 × (DcmDspRoeMaxNumberOfStoredDTCStatusChangedEvents + DcmDspRoeMaxNumChangeOfDataIdentfierEvents)
+       单条 ROE 事件固定占 18 字节 (Each ROE event occupies fixed 18 bytes)
+
+.. note::
+
+   **注 1**：当工程包含 NvM 模块且对应条件满足、但未配置关联 Block 时，工具将自动创建 NvMBlockDescriptor 并完成关联。
+
+   Note 1: When the project contains the NvM module and the corresponding conditions are met but the associated Block is not configured, the tool will automatically create NvMBlockDescriptor and complete the association.
+
+.. note::
+
+   **注 2**：本同步逻辑为推荐弱逻辑，非强制约束；用户可在同步后手动修改，并需根据项目规范额外校验配置合法性。
+
+   Note 2: This synchronization logic is recommended weak logic and not mandatory constraints; users can modify it manually after synchronization and need to additionally verify the configuration legitimacy according to project specifications.
+
+#. 同步方法 (Synchronization Method)
+如图 :ref:`synchronization_nvm1`，符合上图的触发 / 关联条件后右键点击 Dcm 模块 (As shown in :ref:`synchronization_nvm1`, right-click the Dcm module after the trigger/association conditions in the figure above are met.)
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/synchronization_nvm1.png
+   :alt: NvM同步步骤1 (NvM Synchronization Step 1)
+   :name: synchronization_nvm1
+   :align: center
+
+   synchronization_nvm1
+
+会弹出 :ref:`synchronization_nvm2` 信息框，选择 NVM，点击 Finish 按钮即可自动生成并创建 NvMBlockDescriptor (The :ref:`synchronization_nvm2` message box will pop up. Select NVM and click the Finish button to automatically generate and create the NvMBlockDescriptor.)
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/synchronization_nvm2.png
+   :alt: NvM同步步骤2 (NvM Synchronization Step 2)
+   :name: synchronization_nvm2
+   :align: center
+
+   synchronization_nvm2
+
 集成(Integration)
 =============================
 
@@ -2370,7 +2483,7 @@ Configures general information such as main function cycle. Some configuration i
 
    DcmMasterEcucPartitionRef: The partition where the Dcm master core resides in a multi-core system.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmGeneral.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmGeneral.png
     :alt: DcmGeneral
     :name: DcmGeneral
     :align: center
@@ -2383,7 +2496,7 @@ Configures general information such as main function cycle. Some configuration i
 
 When using user-defined Callout interfaces, function declarations are typically located in other files and need to be included in Dcm_Cfg.c. These can be added in DcmGeneral/DcmHeaderFileInclusion, as shown in the figure. Use the + sign to add corresponding files and directly enter the file names.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmHeaderFileInclusion.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmHeaderFileInclusion.png
     :alt: DcmHeaderFileInclusion
     :name: DcmHeaderFileInclusion
     :align: center
@@ -2396,7 +2509,7 @@ When using user-defined Callout interfaces, function declarations are typically 
 
 In a multi-core system, Dcm is primarily distributed in one partition. Satellites are only deployed in other partitions when messages need to be sent via different buses. Therefore, in multi-core scenarios, the master core must be assigned to a specified partition, as shown in the figure. Simply select the corresponding partition.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmMasterEcucPartitionRef.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmMasterEcucPartitionRef.png
     :alt: DcmMasterEcucPartitionRef
     :name: DcmMasterEcucPartitionRef
     :align: center
@@ -2409,14 +2522,14 @@ IdsM报告(IdsM Reporting)
 
 Enable IdsM reporting to report errors to specified IdsM events under corresponding circumstances. As shown in the figure, first enable the DcmEnableSecurityEventReporting switch, then configure DcmSecurityEventRefs with the required events.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/IdsMReport-1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/IdsMReport-1.png
     :alt: IdsMReport-1
     :name: IdsMReport-1
     :align: center
 
     IdsMReport-1
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/IdsMReport-2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/IdsMReport-2.png
     :alt: IdsMReport-2
     :name: IdsMReport-2
     :align: center
@@ -2485,28 +2598,28 @@ Enable IdsM reporting to report errors to specified IdsM events under correspond
 
    For protocols requiring responses, configure one DcmDslProtocolTx. Select corresponding TxPdu via DcmDslProtocolTxPduRef, which associates with IF module PDUs through PduR routing.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRow.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRow.png
     :alt: DcmDslProtocolRow
     :name: DcmDslProtocolRow
     :align: center
 
     DcmDslProtocolRow
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRx_Phy.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRx_Phy.png
     :alt: DcmDslProtocolRx_Phy
     :name: DcmDslProtocolRx_Phy
     :align: center
 
     DcmDslProtocolRx_Phy
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRx_Func.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRx_Func.png
     :alt: DcmDslProtocolRx_Func
     :name: DcmDslProtocolRx_Func
     :align: center
 
     DcmDslProtocolRx_Func
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolTx.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolTx.png
     :alt: DcmDslProtocolTx
     :name: DcmDslProtocolTx
     :align: center
@@ -2519,7 +2632,7 @@ Queue队列请求配置(Queue Request Configuration)
 
 Simply enable this switch.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRequestQueued.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslProtocolRequestQueued.png
     :alt: DcmDslProtocolRequestQueued
     :name: DcmDslProtocolRequestQueued
     :align: center
@@ -2532,7 +2645,7 @@ DcmDslCallbackDCMRequestService
 
 When configured, outputs interfaces to encapsulation files for SWC under standard RTE; serves as callout interfaces under non-RTE. Used to request permission when starting and stopping protocols. Multiple can be configured and will be called sequentially.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslCallbackDCMRequestService.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDslCallbackDCMRequestService.png
     :alt: DcmDslCallbackDCMRequestService
     :name: DcmDslCallbackDCMRequestService
     :align: center
@@ -2552,7 +2665,7 @@ DcmDsdServiceRequestManufacturerNotification and DcmDsdServiceRequestSupplierNot
 
 Used to call indication interface when receiving requests to check service request acceptance, and call Confirmation interface after request processing completion to notify service processing results.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/Notification.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/Notification.png
     :alt: Notification
     :name: Notification
     :align: center
@@ -2606,21 +2719,21 @@ Used to call indication interface when receiving requests to check service reque
    Similarly, select required conditions via DcmDsdSubServiceRoleRef/DcmDsdSubServiceSecurityLevelRef/DcmDsdSubServiceSessionLevelRef.
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsdServiceTable.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsdServiceTable.png
     :alt: DcmDsdServiceTable
     :name: DcmDsdServiceTable
     :align: center
 
     DcmDsdServiceTable
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsdService.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsdService.png
     :alt: DcmDsdService
     :name: DcmDsdService
     :align: center
 
     DcmDsdService
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsdSubService.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsdSubService.png
     :alt: DcmDsdSubService
     :name: DcmDsdSubService
     :align: center
@@ -2637,21 +2750,21 @@ Endianness can be configured in DID, PID, and Routine via DcmDspDataEndianness, 
 
 If not configured, determined by DcmDspDataDefaultEndianness configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataDefaultEndianness.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataDefaultEndianness.png
     :alt: DcmDspDataDefaultEndianness
     :name: DcmDspDataDefaultEndianness
     :align: center
 
     DcmDspDataDefaultEndianness
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPidDataEndianness.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPidDataEndianness.png
     :alt: DcmDspPidDataEndianness
     :name: DcmDspPidDataEndianness
     :align: center
 
     DcmDspPidDataEndianness
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRoutineSignalEndianness.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRoutineSignalEndianness.png
     :alt: DcmDspRoutineSignalEndianness
     :name: DcmDspRoutineSignalEndianness
     :align: center
@@ -2664,7 +2777,7 @@ DSP通用配置(DSP General Configuration)
 
 Besides default endianness, DSP has other general configurations. Specific content can be referenced in each configuration item's detailed description.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsp.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDsp.png
     :alt: DcmDsp
     :name: DcmDsp
     :align: center
@@ -2681,7 +2794,7 @@ When configuring UDS 0x10 and corresponding sub-services, configure correspondin
 
 Additionally, configure the session's P2Server and P2StarServer timing, and the session's relationship with boot. Regular sessions select DCM_NO_BOOT; boot-related options for boot transitions; RESPAPP-related for APP responses.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspSessionRow.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspSessionRow.png
     :alt: DcmDspSessionRow
     :name: DcmDspSessionRow
     :align: center
@@ -2706,7 +2819,7 @@ Also interface-related configurations; select interface implementation via DcmDs
 
 Control read/write counting via DcmDspSecurityAttemptCounterEnabled. Determine AccessDataRecord requirement and length by configuring DcmDspSecurityADRSize.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspSecurityRow.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspSecurityRow.png
     :alt: DcmDspSecurityRow
     :name: DcmDspSecurityRow
     :align: center
@@ -2723,7 +2836,7 @@ When configuring UDS 0x11 and corresponding sub-services, configure correspondin
 
 Also configure DcmResponseToEcuReset to determine whether reset service response occurs before or after reset.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspEcuResetRow.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspEcuResetRow.png
     :alt: DcmDspEcuResetRow
     :name: DcmDspEcuResetRow
     :align: center
@@ -2756,7 +2869,7 @@ DID还需要关联一个DcmDspDidInfo，其提供了该DID读取/写入/控制�
 
 DID also needs association with a DcmDspDidInfo, which provides read/write/control permissions for the DID, described in detail later.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDid.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDid.png
     :alt: DcmDspDid
     :name: DcmDspDid
     :align: center
@@ -2767,7 +2880,7 @@ DID also needs association with a DcmDspDidInfo, which provides read/write/contr
 
 A DID can be configured with multiple DcmDspDidSignals. Each Signal must provide its Offset and associated DcmDspData, described later.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidSignal.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidSignal.png
     :alt: DcmDspDidSignal
     :name: DcmDspDidSignal
     :align: center
@@ -2830,7 +2943,7 @@ Interface type (DcmDspDataUsePort) provides the following configurations:
 
     Some interfaces carry OpStatus and ErrorCode regardless of synchronous/asynchronous/error selection. Please refer to encapsulation requirements in the specification for details.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspData.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspData.png
     :alt: DcmDspData
     :name: DcmDspData
     :align: center
@@ -2847,7 +2960,7 @@ These UDS services perform read operations on configured DIDs. The corresponding
 
 Required permissions for reading (session/security level/security authentication/mode rules) can be adjusted through configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidRead.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidRead.png
     :alt: DcmDspDidRead
     :name: DcmDspDidRead
     :align: center
@@ -2882,14 +2995,14 @@ The following interfaces will be used:
 
    If DcmDspDataInfoRef is configured and has DcmDspDataScalingInfoSize set, DcmDspDataGetScalingInfoFnc will be used.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataForRead.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataForRead.png
     :alt: DcmDspDataForRead
     :name: DcmDspDataForRead
     :align: center
 
     DcmDspDataForRead
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataInfo.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataInfo.png
     :alt: DcmDspDataInfo
     :name: DcmDspDataInfo
     :align: center
@@ -2906,7 +3019,7 @@ UDS 0x2E service performs write operations on configured DIDs. The corresponding
 
 Required permissions for writing (session/security level/security authentication/mode rules) can be adjusted through configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidWrite.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidWrite.png
     :alt: DcmDspDidWrite
     :name: DcmDspDidWrite
     :align: center
@@ -2921,7 +3034,7 @@ Configure DcmDspDidUsePort as needed. If configured as USE_DATA_ELEMENT_SPECIFIC
 
 The DcmDspDataWriteFnc interface will be used.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataForWrite.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataForWrite.png
     :alt: DcmDspDataForWrite
     :name: DcmDspDataForWrite
     :align: center
@@ -2942,7 +3055,7 @@ Required permissions for writing (session/security level/security authentication
 
 DcmDspDidControlMask, its size, and support status for various control modes can also be configured.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidControl.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidControl.png
     :alt: DcmDspDidControl
     :name: DcmDspDidControl
     :align: center
@@ -2969,7 +3082,7 @@ The following interface will be used:
 
  - DcmDspDataShortTermAdjustmentFnc
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataForControl.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDataForControl.png
     :alt: DcmDspDataForControl
     :name: DcmDspDataForControl
     :align: center
@@ -3018,7 +3131,7 @@ When configuring UDS 0x29 service, DcmDspAuthentication must be configured with 
 
    DcmDspAuthenticationPersistStateBlockIdRef: NvMBlock used for storing authentication state.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthentication.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthentication.png
     :alt: DcmDspAuthentication
     :name: DcmDspAuthentication
     :align: center
@@ -3049,7 +3162,7 @@ For each DcmDslMainConnection, a corresponding DcmDspAuthenticationConnection mu
 
    DcmDspAuthenticationWhiteListDIDElementRef/DcmDspAuthenticationWhiteListRIDElementRef: Must be configured if DID and RID whitelisting is required.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthenticationConnection.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthenticationConnection.png
     :alt: DcmDspAuthenticationConnection
     :name: DcmDspAuthenticationConnection
     :align: center
@@ -3064,7 +3177,7 @@ Roles for unauthenticated state and roles required by services/DIDs/RIDs are sel
 
 Each Row must be configured with DcmDspAuthenticationRoleBitPosition to represent its corresponding bit position.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthenticationRow.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthenticationRow.png
     :alt: DcmDspAuthenticationRow
     :name: DcmDspAuthenticationRow
     :align: center
@@ -3097,7 +3210,7 @@ The SecureCoding function requires certificate authentication process for writin
 
      DcmDspAuthenticationTransmitCertificateRef: Corresponds to KeyM target certificate, used to store sent certificate information.
 
-    .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthenticationTransmitCertificate.png
+    .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAuthenticationTransmitCertificate.png
         :alt: DcmDspAuthenticationTransmitCertificate
         :name: DcmDspAuthenticationTransmitCertificate
         :align: center
@@ -3128,7 +3241,7 @@ The SecureCoding function requires certificate authentication process for writin
 
      Configure corresponding CsmJob for verification execution in DcmSecureCodingAuthenticationJobRef.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmSecureCoding.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmSecureCoding.png
     :alt: DcmSecureCoding
     :name: DcmSecureCoding
     :align: center
@@ -3145,7 +3258,7 @@ Optional configuration DcmDspClearDTCCheckFnc. When configured, calls this callo
 
 Optional configuration DcmDspClearDTCModeRuleRef. Clearing is permitted only when relevant mode rules are satisfied.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspClearDTC.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspClearDTC.png
     :alt: DcmDspClearDTC
     :name: DcmDspClearDTC
     :align: center
@@ -3162,7 +3275,7 @@ Can configure associated ComM channels and mode rule conditions for communicatio
 
    DcmDspComControlAllChannel: Corresponds to this configuration when subnetNumber is 0, controls all connected networks, polls all configured AllChannels.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlAllChannel.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlAllChannel.png
     :alt: DcmDspComControlAllChannel
     :name: DcmDspComControlAllChannel
     :align: center
@@ -3173,7 +3286,7 @@ Can configure associated ComM channels and mode rule conditions for communicatio
 
    DcmDspComControlSpecificChannel: Corresponds to this configuration when subnetNumber is 1-0xE. Controls specified network by matching requested subnetNumber with configured DcmDspSubnetNumber. When subnetNumber is 0xF, controls network currently receiving request.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlSpecificChannel.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlSpecificChannel.png
     :alt: DcmDspComControlSpecificChannel
     :name: DcmDspComControlSpecificChannel
     :align: center
@@ -3184,7 +3297,7 @@ Can configure associated ComM channels and mode rule conditions for communicatio
 
    DcmDspComControlSubNode: Corresponds when processing sub-services 04/05. Controls specified network by matching requested nodeIdentificationNumber with configured DcmDspComControlSubNodeId.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlSubNode.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlSubNode.png
     :alt: DcmDspComControlSubNode
     :name: DcmDspComControlSubNode
     :align: center
@@ -3195,7 +3308,7 @@ Can configure associated ComM channels and mode rule conditions for communicatio
 
    DcmDspComControlSetting: When configuring DcmDspComControlCommunicationReEnableModeRuleRef, restores previously closed networks only when associated mode rules are satisfied.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlSetting.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspComControlSetting.png
     :alt: DcmDspComControlSetting
     :name: DcmDspComControlSetting
     :align: center
@@ -3208,7 +3321,7 @@ DcmDspCommonAuthorization (UDS 0x31)
 
 Can configure required session level/security level/mode rules. Currently only referencable in routines; subsequent specifications may expand usage scope.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspCommonAuthorization.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspCommonAuthorization.png
     :alt: DcmDspCommonAuthorization
     :name: DcmDspCommonAuthorization
     :align: center
@@ -3225,7 +3338,7 @@ DcmDspControlDTCSetting (UDS 0x85)
 
    DcmDspControlDTCSettingReEnableModeRuleRef: When configured, allows stopping DTC recording only when corresponding mode rules are satisfied. If rules are no longer satisfied, DTC recording resumes.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspControlDTCSetting.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspControlDTCSetting.png
     :alt: DcmDspControlDTCSetting
     :name: DcmDspControlDTCSetting
     :align: center
@@ -3278,7 +3391,7 @@ The following contents can be configured:
 
    DcmDspDidRangeInfoRef: Associates DcmDspDidInfo to check read/write permissions.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidRange.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspDidRange.png
     :alt: DcmDspDidRange
     :name: DcmDspDidRange
     :align: center
@@ -3299,7 +3412,7 @@ UDS 0x23 service performs memory reading based on this configuration; 0x3D perfo
 
    DcmDspAddressAndLengthFormatIdentifier: Can configure supported AddressAndLengthFormatIdentifier. If not configured, all are considered supported; otherwise, only those in the list are supported.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAddressAndLengthFormatIdentifier.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspAddressAndLengthFormatIdentifier.png
     :alt: DcmDspAddressAndLengthFormatIdentifier
     :name: DcmDspAddressAndLengthFormatIdentifier
     :align: center
@@ -3310,7 +3423,7 @@ UDS 0x23 service performs memory reading based on this configuration; 0x3D perfo
 
    DcmDspMemoryIdInfo: Can configure DcmDspMemoryIdValue, provided to relevant memory read/write interfaces as parameter (0 if not configured). Provides upper/lower limits for memory read/write and required session level, security level, mode rules. Multiple groups can be configured.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspMemoryIdInfo.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspMemoryIdInfo.png
     :alt: DcmDspMemoryIdInfo
     :name: DcmDspMemoryIdInfo
     :align: center
@@ -3321,14 +3434,14 @@ UDS 0x23 service performs memory reading based on this configuration; 0x3D perfo
 
    DcmDspReadMemoryRangeInfo/DcmDspWriteMemoryRangeInfo: Configured under DcmDspMemoryIdInfo, multiple groups possible. Must provide memory upper/lower limits and required session level, security level, mode rules. Respectively represent read/write information; multiple groups configurable.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspReadMemoryRangeInfo.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspReadMemoryRangeInfo.png
     :alt: DcmDspReadMemoryRangeInfo
     :name: DcmDspReadMemoryRangeInfo
     :align: center
 
     DcmDspReadMemoryRangeInfo
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspWriteMemoryRangeInfo.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspWriteMemoryRangeInfo.png
     :alt: DcmDspWriteMemoryRangeInfo
     :name: DcmDspWriteMemoryRangeInfo
     :align: center
@@ -3364,7 +3477,7 @@ Used for UDS 0x2A service periodic transmission. Can configure maximum simultane
 
    DcmDspPeriodicTransmissionSchedulerType: Configured as type 1: if Dcm is waiting for previous PDID transmission confirmation when transmission is needed, retries in next main function cycle. Configured as type 2: waits until next transmission cycle.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPeriodicTransmission.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPeriodicTransmission.png
     :alt: DcmDspPeriodicTransmission
     :name: DcmDspPeriodicTransmission
     :align: center
@@ -3393,7 +3506,7 @@ DcmDspPid specifically configurable with following contents:
 
    DcmDspPidSize: PID data length.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPid.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPid.png
     :alt: DcmDspPid
     :name: DcmDspPid
     :align: center
@@ -3412,7 +3525,7 @@ DcmDspPidData is specifically configurable with following contents:
 
    DcmDspPidDataByteSize: The length of this data segment
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPidData.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPidData.png
     :alt: DcmDspPidData
     :name: DcmDspPidData
     :align: center
@@ -3439,7 +3552,7 @@ If it belongs to service 01, DcmDspPidService01 needs to be configured:
 
    DcmDspPidDataUsePort: Data reading interface type. If not USE_DATA_SYNCH_FNC, DcmDspPidDataReadFnc not required, uses RTE directly; otherwise requires configuration.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPidService01.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPidService01.png
     :alt: DcmDspPidService01
     :name: DcmDspPidService01
     :align: center
@@ -3452,7 +3565,7 @@ DcmDspReadDTCInformationSupportedObdUdsDtcSeparation：开启后在调用Dem_Sel
 
 DcmDspReadDTCInformationSupportedObdUdsDtcSeparation: When enabled, sets DTCFormat to DEM_DTC_FORMAT_OBD_3BYTE when calling Dem_SelectDTC interface.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspReadDTCInformation.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspReadDTCInformation.png
     :alt: DcmDspReadDTCInformation
     :name: DcmDspReadDTCInformation
     :align: center
@@ -3481,7 +3594,7 @@ It must be configured when setting up the OBD 0x08 service, providing data lengt
 
    DcmDspRequestControlTestId: Matches tid in request.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRequestControl.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRequestControl.png
     :alt: DcmDspRequestControl
     :name: DcmDspRequestControl
     :align: center
@@ -3510,7 +3623,7 @@ It must be configured when setting up the UDS 0x38 service, providing data lengt
 
    DcmRequestFileTransferUsePort: Determines whether corresponding callout interface uses RTE.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRequestFileTransfer.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRequestFileTransfer.png
     :alt: DcmDspRequestFileTransfer
     :name: DcmDspRequestFileTransfer
     :align: center
@@ -3547,7 +3660,7 @@ It must be configured when setting up the UDS 0x86 service, providing maximum si
 
    DcmDspRoeBlockIdRef: NvMBlockId used when storing Events.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRoe.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRoe.png
     :alt: DcmDspRoe
     :name: DcmDspRoe
     :align: center
@@ -3584,7 +3697,7 @@ DcmDspRoutine configuration:
 
    DcmDspRoutineP4ServerMax: P4 processing time for this Routine. If exceeded, service processing stops. This configuration item has higher priority than service P4ServerMax configuration.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRoutine.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspRoutine.png
     :alt: DcmDspRoutine
     :name: DcmDspRoutine
     :align: center
@@ -3613,7 +3726,7 @@ DcmDspStartRoutine configuration:
 
    DcmDspStartRoutineRoleRef: Security authentication requirements for requesting this Routine.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspStartRoutine.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspStartRoutine.png
     :alt: DcmDspStartRoutine
     :name: DcmDspStartRoutine
     :align: center
@@ -3644,7 +3757,7 @@ DcmDspStartRoutineInSignal configuration:
 
    DcmDspRoutineSignalType: Data type corresponding to this Signal.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspStartRoutineInSignal.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspStartRoutineInSignal.png
     :alt: DcmDspStartRoutineInSignal
     :name: DcmDspStartRoutineInSignal
     :align: center
@@ -3667,7 +3780,7 @@ DcmDspVehInfo:
 
    DcmDspVehInfoNODIProvResp: When enabled, Callout determines NODI population; otherwise Dcm determines.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspVehInfo.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspVehInfo.png
     :alt: DcmDspVehInfo
     :name: DcmDspVehInfo
     :align: center
@@ -3688,7 +3801,7 @@ DcmDspVehInfoData:
 
    DcmDspVehInfoDataUsePort: Determines whether Read interface uses Rte CS interface.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspVehInfoData.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspVehInfoData.png
     :alt: DcmDspVehInfoData
     :name: DcmDspVehInfoData
     :align: center
@@ -3705,7 +3818,7 @@ Choose whether to enable paged transmission function.
 
    DcmPagedBufferEnabled: When enabled, activates paged transmission function. Requires DcmDslProtocolMaximumResponseSize configuration.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPageBufferCfg.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmDspPageBufferCfg.png
     :alt: DcmDspPageBufferCfg
     :name: DcmDspPageBufferCfg
     :align: center
@@ -3746,21 +3859,21 @@ DcmModeCondition: Conditions that must be met. Can set conditions like equal or 
 
 Note: Only one of DcmBswModeRef/DcmSwcModeRef/DcmSwcSRDataElementRef can be selected.
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmModeCondition.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmModeCondition.png
     :alt: DcmModeCondition
     :name: DcmModeCondition
     :align: center
 
     DcmModeCondition
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmSwcDataElementPrimitive.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmSwcDataElementPrimitive.png
     :alt: DcmSwcDataElementPrimitive
     :name: DcmSwcDataElementPrimitive
     :align: center
 
     DcmSwcDataElementPrimitive
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmSwcDataElementArrayElement.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmSwcDataElementArrayElement.png
     :alt: DcmSwcDataElementArrayElement
     :name: DcmSwcDataElementArrayElement
     :align: center
@@ -3787,7 +3900,7 @@ DcmModeRule: Configure rules. Can set AND/OR logicalOperator, corresponding Nrc 
 
  Note: Through reasonable configuration, can achieve effects like ((A == 2) AND (B == 3 OR C == 4)) OR (D == 5).
 
- .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Dcm/DcmModeRule.png
+ .. figure:: /_static/参考手册(Module_Reference_Manual)/Dcm/DcmModeRule.png
     :alt: DcmModeRule
     :name: DcmModeRule
     :align: center

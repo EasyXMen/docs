@@ -8,7 +8,7 @@
 
   The CanNmGlobalConfig requires configuration of the CanNmMainFunctionPeriod in milliseconds (ms). This period defines the execution cycle of the CanNm main function, during which all managed timers are decremented once.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmGlobalConfig基础配置.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmGlobalConfig基础配置.png
    :alt: CanNmGlobalConfig基础配置(CanNmGlobalConfig Basic Configuration)
    :align: center
    
@@ -20,7 +20,7 @@
 
   The CanNmChannelConfig configures basic channel parameters, including the message transmission period, the duration for automatic state transitions, and a reference to the ComM Channel configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmChannelConfig基础配置.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmChannelConfig基础配置.png
    :alt: CanNmChannelConfig基础配置(CanNmChannelConfig Basic Configuration)
    :align: center
    
@@ -32,7 +32,7 @@
 
   Each CanNmChannelConfig must define one CanNmTxPdu and may define multiple CanNmRxPdus.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmPdu基础配置.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmPdu基础配置.png
    :alt: CanNmPdu基础配置(CanNmPdu Basic Configuration)
    :align: center
    
@@ -44,7 +44,7 @@
 
   Each container's referenced PDU must be bound to the CanIf module. Based on its transmission or reception direction, it is then defined in either CanIfInitCfg/CanIfTxPduCfg or CanIfInitCfg/CanIfRxPduCfg.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanIfPdu基础配置.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanIfPdu基础配置.png
    :alt: CanIfPdu基础配置(CanIfPdu Basic Configuration)
    :align: center
    
@@ -59,7 +59,7 @@ UserData
 
   To enable the CanNm UserData feature, select NmGlobalFeature/NmUserDataEnabled in the Nm module. This action automatically enables all corresponding <Bus>NmUserDataEnabled configurations by default.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/NmUserDataEnabled.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/NmUserDataEnabled.png
    :alt: NmUserDataEnabled
    :align: center
    
@@ -69,7 +69,7 @@ UserData
 
   If CanNmComUserDataSupport is disabled, the API method is used to directly set the NM PDU's UserData field through the Nm module via pass-through.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmUserData.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmUserData.png
    :alt: CanNmUserData
    :align: center
    
@@ -79,7 +79,7 @@ UserData
 
   If CanNmComUserDataSupport is enabled, the API method is disabled and the ComSignal mechanism is used to set the NM PDU's UserData field. This requires configuration of a CanNmUserDataTxPdu container (limited to one per channel). In PduR, configure a PduRRoutingPath to route this PDU to a PduRDestPdu, and map the corresponding ComSignal and its source PDU to a PduRSrcPdu.
   
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmUserDataTxPdu.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmUserDataTxPdu.png
    :alt: CanNmUserDataTxPdu
    :align: center
    
@@ -92,7 +92,7 @@ UserData
 
 The fast transmission mechanism first requires configuring CanNmImmediateNmTransmission to determine the maximum count of fast transmissions. CanNmImmediateNmTransmission > 0 is the prequisite for configuring the fast transmission cycle of CanNmImmediateNmCycleTime messages.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmImmediateNmTransmission.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmImmediateNmTransmission.png
    :alt: CanNmImmediateNmTransmission
    :align: center
    
@@ -105,7 +105,7 @@ The fast transmission mechanism first requires configuring CanNmImmediateNmTrans
    
   To enable the bus load reduction mechanism, first ensure that CanNmBusLoadReductionEnabled is selected in the CanNmGlobalConfig.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmGlobalConfig负载降低.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmGlobalConfig负载降低.png
    :alt: CanNmGlobalConfig负载降低(CanNmGlobalConfig load reduction)
    :align: center
    
@@ -117,7 +117,7 @@ The fast transmission mechanism first requires configuring CanNmImmediateNmTrans
 
   Then enable CanNmBusLoadReductionActive in CanNmChannelConfig and configure CanNmMsgReducedTime
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmChannelConfig负载降低.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmChannelConfig负载降低.png
    :alt: CanNmChannelConfig负载降低(CanNmChannelConfig load reduction)
    :align: center
    
@@ -140,8 +140,54 @@ First, enable CanNmChannelConfig/CanNmCarWakeUpRxEnabled; then set the values fo
 
 To enable the filtering function, enable CanNmChannelConfig/CanNmCarWakeUpFilterNodeId, and fill in the specified NodeId into CanNmCarWakeUpFilterNodeId.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/CanNm/CanNmCarWakeUp.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/CanNm/CanNmCarWakeUp.png
    :alt: CanNmCarWakeUp
    :align: center
    
    CanNmCarWakeUp
+
+配置约束(Configuration Constraints)
+--------------------------------------
+
+- 当CanNmMsgCycleOffset > 0时，Nm_StateChangeNotification触发的状态变化不能通过TRIGGERED/DIRECT路径触发CanNm_Transmit，否则NM报文会在CanNmMsgCycleOffset延迟期间内发送，违反SWS_CanNm_00005。
+
+  When CanNmMsgCycleOffset > 0, NM state changes triggered by Nm_StateChangeNotification must not trigger CanNm_Transmit through a TRIGGERED/DIRECT path. Otherwise, NM messages will be transmitted during the CanNmMsgCycleOffset delay period, violating SWS_CanNm_00005.
+
+- 上述冲突是由以下配置组合引起的，这些配置不应同时启用：
+
+  The above conflict is caused by the following configuration combination, which should not be configured simultaneously:
+
+  - Nm模块：NmStateReportEnabled = TRUE 且 NmComHandleId指向NM User Data I-PDU中的Signal
+
+    Nm module: NmStateReportEnabled = TRUE and NmComHandleId points to a Signal in the NM User Data I-PDU
+
+  - Com模块：该Signal的ComTransferProperty为TRIGGERED或TRIGGERED_ON_CHANGE，且I-PDU的ComTxModeMode为DIRECT或MIXED
+
+    Com module: The Signal's ComTransferProperty is TRIGGERED or TRIGGERED_ON_CHANGE, and the I-PDU's ComTxModeMode is DIRECT or MIXED
+
+  - PduR模块：该Com I-PDU到CanNm UserDataTxPdu的If Tx路由PduRDestPduDataProvision = DIRECT
+
+    PduR module: The If Tx route from this Com I-PDU to CanNm UserDataTxPdu has PduRDestPduDataProvision = DIRECT
+
+  - CanNm模块：CanNmMsgCycleOffset > 0
+
+    CanNm module: CanNmMsgCycleOffset > 0
+
+OsTask内执行顺序配置建议 (Execution order configuration within OsTask)
+----------------------------------------------------------------------------------------------------
+
+配置 BSW MainFunction 对应的 BswSchedulableEntity 到 OsTask 的映射关系时，建议通过 RteBswEventToTaskMapping/RteBswPositionInTask 等配置，确保在每两次 CanNm_MainFunction 执行之间，至少依次执行一次 ComM_MainFunction 和 CanSM_MainFunction，即执行顺序应满足：
+
+When configuring the mapping of BSW MainFunction-related BswSchedulableEntitys to OsTask, it is recommended to use RteBswEventToTaskMapping/RteBswPositionInTask or equivalent execution-order configuration to ensure that ComM_MainFunction and CanSM_MainFunction are executed at least once in sequence between two consecutive CanNm_MainFunction executions. The execution order should be:
+
+::
+
+   CanNm_MainFunction -> ComM_MainFunction -> CanSM_MainFunction -> CanNm_MainFunction
+
+AUTOSAR BSW 网络状态切换基于异步处理机制。当网络由休眠唤醒或产生本地通信请求时，底层 Tx Path 的开启不能通过 API 调用同步完成，而是依赖各模块主函数逐级推进：由 CanNm 或外部事件触发 ComM，ComM_MainFunction 完成通信状态仲裁，CanSM_MainFunction 执行状态切换并最终调用 CanIf 打开物理发送通道。
+
+The AUTOSAR BSW network state transition is based on an asynchronous processing mechanism. When the network is woken up from sleep or a local communication request is generated, the lower-layer Tx Path cannot be enabled synchronously through an API call. Instead, it depends on the step-by-step processing of module MainFunctions: CanNm or an external event triggers ComM, ComM_MainFunction arbitrates the communication state, and CanSM_MainFunction performs the state transition and finally calls CanIf to enable the physical transmission channel.
+
+如果在下一次 CanNm_MainFunction 到来前，未能按照“先 ComM_MainFunction，后 CanSM_MainFunction”的顺序完成状态机刷新，则 CanNm 尝试发送网络管理报文时，底层发送通道可能尚未开启，导致该报文被 CanIf 拦截并发送失败。因此，建议在 OsTask 内 BswSchedulableEntity 的执行顺序配置中保证上述执行顺序，使网络状态切换在下一个网络管理发送周期前完成闭环。
+
+If the state machines are not refreshed in the order of ComM_MainFunction first and CanSM_MainFunction second before the next CanNm_MainFunction call, the lower-layer transmission channel may still be disabled when CanNm attempts to transmit an NM message. In this case, the message can be blocked by CanIf and transmission can fail. Therefore, it is recommended to guarantee the execution order above in the BswSchedulableEntity execution-order configuration within OsTask, so that the network state transition can be completed before the next network management transmission cycle.

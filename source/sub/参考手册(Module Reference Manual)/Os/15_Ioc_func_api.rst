@@ -1,12 +1,12 @@
 IOC(Functions)
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 IOC负责Os-Application之间的通信，特别是跨越核心或存储器保护边界的通信。 其内部功能与操作系统密切相关。IOC 支持 1:1、N:1 和 N:M 通信。同时支持队列和非队列通信。
 
 The IOC is responsible for communication between OS-Applications, particularly across core or memory protection boundaries. Its internal functionality is closely tied to the operating system. The IOC supports 1:1, N:1, and N:M communication, as well as both queued and non-queued communication.
 
 
 IocSend_<IocId>[_<SenderId>]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -15,7 +15,7 @@ IocSend_<IocId>[_<SenderId>]
 Send data to implement 1:1 or N:1 queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    This function is generated individually for each sender. A single function is not reentrant (if called from different runnable entities belonging to the same sender), but different functions can be called in parallel.
@@ -100,7 +100,7 @@ Send data to implement 1:1 or N:1 queue communication between Os-Applications lo
 
 
 IocWrite_<IocId>[_<SenderId>]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -109,7 +109,7 @@ IocWrite_<IocId>[_<SenderId>]
 Send data to implement 1:1 or N:1 non-queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    This function is generated individually for each sender. A single function is not reentrant (if called from different runnable entities belonging to the same sender), but different functions can be called in parallel.
@@ -190,7 +190,7 @@ Send data to implement 1:1 or N:1 non-queue communication between Os-Application
 
 
 IocSendGroup_<IocId>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -199,7 +199,7 @@ IocSendGroup_<IocId>
 Send a set of data to implement 1:1 or N:1 queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    This function is generated individually for each sender. A single function is not reentrant (if called from different runnable entities belonging to the same sender), but different functions can be called in parallel.
@@ -290,7 +290,7 @@ Send a set of data to implement 1:1 or N:1 queue communication between Os-Applic
 
 
 IocWriteGroup_<IocId>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -299,7 +299,7 @@ IocWriteGroup_<IocId>
 Send a set of data to achieve 1:1 or N:1 non-queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    This function is generated individually for each sender. A single function is not reentrant (if called from different runnable entities belonging to the same sender), but different functions can be called in parallel.
@@ -390,7 +390,7 @@ Send a set of data to achieve 1:1 or N:1 non-queue communication between Os-Appl
 
 
 IocReceive_<IocId>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -399,7 +399,7 @@ IocReceive_<IocId>
 Receive data and implement 1:1 or N:1 queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    The function is generated individually for each receiver. A single function is not reentrant (if called from different runnable entities belonging to the same receiver), but different functions can be called in parallel.
@@ -483,7 +483,7 @@ Receive data and implement 1:1 or N:1 queue communication between Os-Application
 
 
 IocRead_<IocId>[_<ReceiverId>]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -492,7 +492,7 @@ IocRead_<IocId>[_<ReceiverId>]
 Receive data to implement 1:1 or N:1 non-queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    The function is generated individually for each receiver. A single function is not reentrant (if called from different runnable entities belonging to the same receiver), but different functions can be called in parallel.
@@ -572,7 +572,7 @@ Receive data to implement 1:1 or N:1 non-queue communication between Os-Applicat
 
 
 IocReceiveGroup_<IocId>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -581,7 +581,7 @@ IocReceiveGroup_<IocId>
 Receive a set of data to implement 1:1 or N:1 queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    The function is generated individually for each receiver. A single function is not reentrant (if called from different runnable entities belonging to the same receiver), but different functions can be called in parallel.
@@ -672,7 +672,7 @@ Receive a set of data to implement 1:1 or N:1 queue communication between Os-App
 
 
 IocReadGroup_<IocId>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -681,7 +681,7 @@ IocReadGroup_<IocId>
 Receives a set of data to implement 1:1 or N:1 non-queue communication between Os-Applications located on the same or different cores.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    The function is generated individually for each receiver. A single function is not reentrant (if called from different runnable entities belonging to the same receiver), but different functions can be called in parallel.
@@ -769,7 +769,7 @@ Receives a set of data to implement 1:1 or N:1 non-queue communication between O
 
 
 IocEmptyQueue_<IocId>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+******************************************************************
 
 .. code::
 
@@ -778,7 +778,7 @@ IocEmptyQueue_<IocId>
 If the <IocId> in the function name identifies queued communication, this interface can be called to delete the contents of the IOC internal communication queue.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

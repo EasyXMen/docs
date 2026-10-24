@@ -43,10 +43,10 @@ E2E_P07mProtect
 Protects the array/buffer to be transmitted using the E2E profile 7m. This includes checksum calculation, handling of counter and Data ID.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -109,10 +109,10 @@ E2E_P07mProtectInit
 Initializes the protection state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -153,10 +153,10 @@ E2E_P07mSourceCheck
 Checks the Data received using the E2E profile 7m. This includes CRC calculation, handling of Counter, Data ID, Message Type, Message Result, and Source ID.This function is intended for usage at the data source.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -215,10 +215,10 @@ E2E_P07mSinkCheck
 Checks the Data received using the E2E profile 7m. This includes CRC calculation, handling of Counter, Data ID, Message Type, Message Result, and Source ID.This function is intended for usage at the data source.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -277,10 +277,10 @@ E2E_P07mCheckInit
 Initializes the check state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 
@@ -321,10 +321,10 @@ E2E_P07mMapStatusToSM
 The function maps the check status of profile 7m to a generic check status, which can be used by E2E state machine check function. The E2E profile 7m delivers a more fine-granular status, but this is not relevant for the E2E state machine.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
-   Non Reentrant
+   Reentrant
 
 **Parameters**
 

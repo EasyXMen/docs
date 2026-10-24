@@ -8,7 +8,7 @@ LinTp_Init
 Initializes the LIN Transport Layer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -40,7 +40,7 @@ LinTp_Transmit
 Requests the transfer of segmented data.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -75,7 +75,7 @@ LinTp_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -107,7 +107,7 @@ LinTp_Shutdown
 Shutdowns the LIN TP.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -127,7 +127,7 @@ LinTp_ChangeParameter
 A dummy method introduced for interface compatibility.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant

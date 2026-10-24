@@ -10,7 +10,7 @@ BswM_EthIf_PortGroupLinkStateChg
 Function called by EthIf to indicate the link state change of a certain Ethernet switch port group.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

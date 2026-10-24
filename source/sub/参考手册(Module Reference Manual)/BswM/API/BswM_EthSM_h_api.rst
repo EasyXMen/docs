@@ -10,7 +10,7 @@ BswM_EthSM_CurrentState
 Function called by EthSM to indicate its current state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

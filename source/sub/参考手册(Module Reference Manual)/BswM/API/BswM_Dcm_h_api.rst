@@ -10,7 +10,7 @@ BswM_Dcm_ApplicationUpdated
 This function is called by the DCM to report an updated application.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -30,7 +30,7 @@ BswM_Dcm_CommunicationMode_CurrentState
 Function called by DCM to inform the BswM about the current state of the communication mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

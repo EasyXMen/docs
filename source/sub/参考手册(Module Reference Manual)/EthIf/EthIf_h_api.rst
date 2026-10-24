@@ -12,7 +12,7 @@ EthIf_Init
 Initializes the Ethernet Interface.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -44,7 +44,7 @@ EthIf_SetControllerMode
 Enables / disables the indexed controller.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -91,7 +91,7 @@ EthIf_GetControllerMode
 Enables / disables the indexed controller.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -138,7 +138,7 @@ EthIf_GetTransceiverMode
 Obtain state of the indexed transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -185,7 +185,7 @@ EthIf_CheckWakeup
 This API request the affected Ethernet hardware to check for a signaled wake-up.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -217,7 +217,7 @@ EthIf_GetPhyWakeupReason
 obtains the wake up reasons of the indexed Ethernet Transceiver (PHY).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -252,7 +252,7 @@ EthIf_GetSwitchPortWakeupReason
 This function obtains the wake up reasons of the indexed Ethernet switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -290,7 +290,7 @@ EthIf_GetPhysAddr
 Obtains the physical source address used by the indexed controller.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -325,7 +325,7 @@ EthIf_SetPhysAddr
 Sets the physical source address used by the indexed controller.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant for the same CtrlIdx, reentrant for different
@@ -360,7 +360,7 @@ EthIf_UpdatePhysAddrFilter
 Update the physical source address to/from the indexed controller filter.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -418,7 +418,7 @@ EthIf_GetCurrentTimeTuple
 Reads the current time of the timestamp clock and the current time of the PHC in an atomic operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -468,7 +468,7 @@ EthIf_SetPhcTime
 Sets the absolute time of the PHC.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -518,7 +518,7 @@ EthIf_SetPhcCorrection
 Sets the absolute time of the PHC.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -571,7 +571,7 @@ EthIf_GetPhcTime
 Returns the current time value out of the HW registers of the PHC.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -624,7 +624,7 @@ EthIf_SetPpsSignalMode
 Enables/disables the generation of a PPS signal.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -674,7 +674,7 @@ EthIf_EnableEgressTimeStamp
 Activates egress time stamping on a dedicated message object.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -709,7 +709,7 @@ EthIf_GetEgressTimeStamp
 Reads back the egress time stamp on a dedicated message object.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -762,7 +762,7 @@ EthIf_GetIngressTimeStamp
 Reads back the ingress time stamp on a dedicated message object.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -815,7 +815,7 @@ EthIf_ProvideTxBuffer
 Provides access to a transmit buffer of the specified Ethernet controller.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -878,7 +878,7 @@ EthIf_Transmit
 Triggers transmission of a previously filled transmit buffer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different buffer indexes and Ctrl indexes
@@ -937,7 +937,7 @@ EthIf_GetVersionInfo
 Returns the version information of this module.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -969,7 +969,7 @@ EthIf_GetCtrlIdxList
 Returns the number and index of all active Ethernet controllers..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1016,7 +1016,7 @@ EthIf_MainFunctionRx
 The function checks for new received frames and issues reception indications in polling mode..
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1048,7 +1048,7 @@ EthIf_MainFunctionTx
 The function issues transmission confirmations in polling mode.It checks also for transceiver state changes.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1080,7 +1080,7 @@ EthIf_MainFunctionState
 The function is polling different communication hardware (Ethernet transceiver, Ethernet switch ports) related information, e.g. link state,signal quality.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1112,7 +1112,7 @@ EthIf_GetVlanId
 Returns the VLAN identifier of the requested Ethernet controller..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1159,7 +1159,7 @@ EthIf_GetAndResetMeasurementData
 Returns the VLAN identifier of the requested Ethernet controller..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1209,7 +1209,7 @@ EthIf_GetPortMacAddr
 Obtains the port over which this MAC-address can be reached.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1259,7 +1259,7 @@ EthIf_GetArlTable
 Obtains the address resolution table of a switch and copies the list into a user provided buffer.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1309,7 +1309,7 @@ EthIf_StoreConfiguration
 Trigger the storage/reset of the configuration of the learned MAC/Port tables of a switch in a persistent manner and will be used by e.g. CDD.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1353,7 +1353,7 @@ EthIf_ResetConfiguration
 The function shall request to reset the configuration of the learned MAC/Port tables of a Ethernet switch in a persistent manner.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1397,7 +1397,7 @@ EthIf_SwitchPortGroupRequestMode
 Request a mode for the EthIfSwtPortGroup.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1444,7 +1444,7 @@ EthIf_StartAllPorts
 Request to set all configured and affected EthSwtPorts to ETH_MODE_ACTIVE.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1476,7 +1476,7 @@ EthIf_SetSwitchMgmtInfo
 Provides additional management information along to an Ethernet frame that requires special treatment within the Switch.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1526,7 +1526,7 @@ EthIf_GetRxMgmtObject
 Request the MgmtObject of the (in this context) unique DataPtr.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1576,7 +1576,7 @@ EthIf_GetTxMgmtObject
 Request the MgmtObject of the (in this context) unique BufIdx.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -1626,7 +1626,7 @@ EthIf_SwitchEnableTimeStamping
 Activates egress time stamping on a dedicated message object, addressed by CtrlIdx and BufIdx.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1676,7 +1676,7 @@ EthIf_VerifyConfig
 Forwarded to EthSwt_VerifyConfig. EthSwt_VerifyConfig verifies the Switch Configuration depending on the HW-Architecture, HW-capability and the intended accuracy of this verification.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1723,7 +1723,7 @@ EthIf_SetForwardingMode
 Control of switch frame forwarding.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -1770,7 +1770,7 @@ EthIf_GetTrcvSignalQuality
 Retrieves the signal quality of the link of the given Ethernet transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -1817,7 +1817,7 @@ EthIf_GetSwitchPortSignalQuality
 Retrieves the signal quality of the link of the given Ethernet switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -1867,7 +1867,7 @@ EthIf_ClearTrcvSignalQuality
 Clear the stored signal quality of the link of the given Ethernet transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -1911,7 +1911,7 @@ EthIf_ClearSwitchPortSignalQuality
 Clear the stored signal quality of the link of the given Ethernet switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different Ethernet switch indexes and Ethernet Switch port indexes. Non reentrant for the same SwitchPortIdx.
@@ -1958,7 +1958,7 @@ EthIf_SetPhyTestMode
 Activates a given test mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -2005,7 +2005,7 @@ EthIf_SetPhyLoopbackMode
 Activates a given loopback mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -2052,7 +2052,7 @@ EthIf_SetPhyTxMode
 Activates a given transmission mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -2099,7 +2099,7 @@ EthIf_GetCableDiagnosticsResult
 Retrieves the cable diagnostics result of a given transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -2146,7 +2146,7 @@ EthIf_GetPhyIdentifier
 Obtains the PHY identifier of the Ethernet Interface according to IEEE 802.3-2015.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx.
@@ -2199,7 +2199,7 @@ EthIf_GetSwitchPortMode
 Obtains the mode of the indexed switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2249,7 +2249,7 @@ EthIf_SwitchPortGetLinkState
 Obtains the link state of the indexed switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2299,7 +2299,7 @@ EthIf_TransceiverGetLinkState
 Obtains the link state of the indexed transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2346,7 +2346,7 @@ EthIf_SwitchPortGetBaudRate
 Obtains the baud rate of the indexed switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2396,7 +2396,7 @@ EthIf_TransceiverGetBaudRate
 Obtains the baud rate of the indexed transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2443,7 +2443,7 @@ EthIf_SwitchPortGetDuplexMode
 Obtains the duplex mode of the indexed switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2493,7 +2493,7 @@ EthIf_TransceiverGetDuplexMode
 Obtains the duplex mode of the indexed transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2540,7 +2540,7 @@ EthIf_SwitchPortGetCounterValues
 Reads a list with drop counter values of the corresponding port of the switch.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2610,7 +2610,7 @@ EthIf_SwitchPortGetRxStats
 Returns a list of statistic counters defined with Eth_RxTatsType.The majority of these Counters are derived from the IETF RFC2819.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2660,7 +2660,7 @@ EthIf_SwitchPortGetTxStats
 List of values to read statistic values for transmission.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2710,7 +2710,7 @@ EthIf_SwitchPortGetTxErrorCounterValues
 List of values to read statistic error counter values for transmission from.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2760,7 +2760,7 @@ EthIf_SwitchPortGetMacLearningMode
 Returns the MAC learning mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2810,7 +2810,7 @@ EthIf_GetSwitchPortIdentifier
 Returns the MAC learning mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2866,7 +2866,7 @@ EthIf_GetSwitchIdentifier
 Obtain the Organizationally Unique Identifier that is given by the IEEE of the indexed Ethernet switch.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2913,7 +2913,7 @@ EthIf_WritePortMirrorConfiguration
 Store the given port mirror configuration in a shadow buffer in the Ethernet switch driver for the given MirroredSwitchIdx.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -2960,7 +2960,7 @@ EthIf_ReadPortMirrorConfiguration
 Obtain the port mirror configuration of the given Ethernet switch.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3007,7 +3007,7 @@ EthIf_DeletePortMirrorConfiguration
 Delete the stored port mirror configuration of the given MirroredSwitchIdx.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant Reentrant for different MirroredSwitchIdx. Non reentrant for the same SwitchIdx.
@@ -3051,7 +3051,7 @@ EthIf_GetPortMirrorState
 Obtain the current status of the port mirroring for the indexed Ethernet switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3101,7 +3101,7 @@ EthIf_SetPortMirrorState
 Request to set the given port mirroring state of the port mirror configuration for the given Ethernet switch.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3151,7 +3151,7 @@ EthIf_SetPortTestMode
 Activates a given test mode of the indexed Ethernet switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3201,7 +3201,7 @@ EthIf_SetPortLoopbackMode
 Activates a given test loop-back mode of the indexed Ethernet switch port..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3251,7 +3251,7 @@ EthIf_SetPortTxMode
 Activates a given transmission mode of the indexed Ethernet switch port.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3301,7 +3301,7 @@ EthIf_GetPortCableDiagnosticsResult
 Retrieves the cable diagnostics result of the indexed Ethernet switch port respectively the referenced Ethernet Transceiver Driver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3351,7 +3351,7 @@ EthIf_RunPortCableDiagnostic
 Trigger the cable diagnostics of the given Ethernet Switch port (PortIdx) by calling EthTrcv_Run CableDiagnostic of the referenced Ethernet transceiver.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant Reentrant for different SwitchIdx and PortIdx. Non reentrant for the same SwitchIdx and PortIdx.
@@ -3398,7 +3398,7 @@ EthIf_RunCableDiagnostic
 Trigger the cable diagnostics for the given Ethernet transceiver..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant Reentrant for different TrcvIdx. Non reentrant for the same TrcvIdx..
@@ -3442,7 +3442,7 @@ EthIf_SwitchGetCfgDataRaw
 Retrieves the data in memory of the indexed Ethernet switch in variable length.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3495,7 +3495,7 @@ EthIf_SwitchGetCfgDataInfo
 Retrieves the data in memory of the indexed Ethernet switch in variable length.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant
@@ -3545,7 +3545,7 @@ EthIf_SwitchPortGetMaxFIFOBufferFillLevel
 The function retrieves the maximum amount of allocated FIFO buffer of the indexed Ethernet switch egress port.If the Ethernet switch hardware does not support Ethernet switch port based maximal FIFO buffer level, the content of SwitchPortEgressFifoBufferLevelPtr shall be set to 0xFFFFFFFF.This API may be called by e.g. a CDD.
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Reentrant Reentrant for different SwitchIdx and PortIdx. Non reentrant for the same SwitchIdx and PortIdx.
@@ -3598,7 +3598,7 @@ EthIf_TransceiverGetMacMethod
 Obtains the media access mode of the transceiver..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3645,7 +3645,7 @@ EthIf_EthGetSpiStatus
 When MACPHY controller are used, obtains the SPI interface status..
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3692,7 +3692,7 @@ EthIf_RxIndication
 Receive indication of an Ethernet frame which was received by the indexed controller.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3745,7 +3745,7 @@ EthIf_TxConfirmation
 Confirms frame transmission by the indexed controller.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3783,7 +3783,7 @@ EthIf_CtrlModeIndication
 Called asynchronously when mode has been read out.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant for the same CtrlIdx, reentrant for different
@@ -3818,7 +3818,7 @@ EthIf_TrcvModeIndication
 Called asynchronously when a mode change has been read out.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Non Reentrant for the same CtrlIdx, reentrant for different
@@ -3853,7 +3853,7 @@ EthIf_SwitchPortModeIndication
 The EthIf shall determine the expected notifications based on the EthSwtPort configuration.In case the EthSwtPort references an EthTrcv the EthIf expects a notification from the EthTrcv via API
 
 **Sync/Async**
-   FALSE
+   Asynchronous
 
 **Reentrancy**
    Non Reentrant
@@ -3891,7 +3891,7 @@ EthIf_SleepIndication
 This API is called by the corresponding EthTrcv, if a sleep indication was detected on the network.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

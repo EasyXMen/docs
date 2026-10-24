@@ -29,6 +29,11 @@ Rte
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2025/12/29
+     - Haiyun.Lian、Enjing.Cui、Lianru.Hong、Chunhui.Wang
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
 
 参考文档(References)
 ----------------------------------
@@ -238,13 +243,16 @@ SchM
 SchM
 serves as a simplified "Rte", implementing BSW C/S communication, scheduling BswEntities, and providing exclusive area interfaces for BSW data consistency protection.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_1_1.png
-   :name: RTE_architecture
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/AD_Rte.png
+   :name: fig_RteMArch
    :align: center
    :width: 800
 
-   图 1-1 AUTOSAR 体系结构(Figure 1-1 AUTOSAR Architecture)
+   图 1-1 Rte Architecture in AUTOSAR
 
+如图 :ref:`fig_RteMArch` 所示，Rte处于Application Layer与Bsw模块之间，为整个AUTOSAR基础软件的接口层,提供运行时环境。
+
+As shown in  :ref:`fig_RteMArch` ,Rte resides between the Application Layer and the Bsw modules, serving as the interface layer of the entire AUTOSAR basic software and providing a runtime environment.
 
 功能描述(Functional Description)
 ==========================================
@@ -253,7 +261,103 @@ serves as a simplified "Rte", implementing BSW C/S communication, scheduling Bsw
 
 Describes Rte functions for the application layer in detail, and briefly outlines SchM functions adapted to BSW requirements.
 
-Rte特性(Rte Features)
+公共特性(Public Features)
+---------------------------------------
+
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rte支持组件间、组件与信号间等场景的跨核、跨分区通信。
+
+Rte支持按分区启动、关闭。
+
+Rte supports inter-core and inter-partition communication scenarios such as between components, and between components and signals.
+
+Rte supports partition-based startup and shutdown.
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~
+   Rte不支持SWC的变体，可适配BSW模块的PBS变体，主要涉及Com及LdCom的部分变体。
+
+   Rte does not support SWC variants but adapts to BSW module PBS variants, primarily involving certain Com and LdCom variants.
+
+.. only:: doc_pbs
+
+   PBS支持约束(PBS Support Constraints)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. list-table::
+     :widths: 10 20 
+     :header-rows: 0
+
+     * - 支持Com、LdCom变体，不支持属性变体
+       - Supports Com and LdCom variants; does not support attribute variants
+     * - 信号/信号组/LdComIPdu在所有变体下唯一
+       - Signals/signal groups/LdComIPdu must be unique across all variants  
+     * - 同一个信号/信号组在不同变体下分区需一致
+       - Partitions for identical signals/signal groups must be consistent across variants 
+     * - ISignalToIPduMapping在不同变体下映射的Pdu分区需一致，PduLength需相同
+       - ISignalToIPduMapping must have consistent Pdu partitions and identical PduLength across variants
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+memmap文件是动态的，主要存在以下定义：
+
+RTE_START_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_VAR_FAST_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_VAR_FAST_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_INTERNAL_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_INTERNAL_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_CONST_{ALIGNMENT}、RTE_STOP_SEC_CONST_{ALIGNMENT}
+
+RTE_START_SEC_CONFIG_DATA_{ALIGNMENT}、RTE_STOP_SEC_CONFIG_DATA_{ALIGNMENT}
+
+RTE_START_SEC_CALIB_{ALIGNMENT}、RTE_STOP_SEC_CALIB_{ALIGNMENT}
+
+RTE_START_SEC_CODE{_coreScope*}、RTE_STOP_SEC_CODE{_coreScope*}
+
+RTE_START_SEC_CODE_FAST{_coreScope*}、RTE_STOP_SEC_CODE_FAST{_coreScope*}
+
+RTE_START_SEC_CALLOUT_CODE{_coreScope*}、RTE_STOP_SEC_CALLOUT_CODE{_coreScope*}
+
+The memmap file is dynamic. It contains the following fields:
+
+RTE_START_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_VAR_FAST_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_VAR_FAST_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_INTERNAL_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}、RTE_STOP_SEC_INTERNAL_VAR_{INIT_POLICY}{_coreScope*}_{ALIGNMENT}
+
+RTE_START_SEC_CONST_{ALIGNMENT}、RTE_STOP_SEC_CONST_{ALIGNMENT}
+
+RTE_START_SEC_CONFIG_DATA_{ALIGNMENT}、RTE_STOP_SEC_CONFIG_DATA_{ALIGNMENT}
+
+RTE_START_SEC_CALIB_{ALIGNMENT}、RTE_STOP_SEC_CALIB_{ALIGNMENT}
+
+RTE_START_SEC_CODE{_coreScope*}、RTE_STOP_SEC_CODE{_coreScope*}
+
+RTE_START_SEC_CODE_FAST{_coreScope*}、RTE_STOP_SEC_CODE_FAST{_coreScope*}
+
+RTE_START_SEC_CALLOUT_CODE{_coreScope*}、RTE_STOP_SEC_CALLOUT_CODE{_coreScope*}
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rte为Application RunnableEntity、BswEntities提供独占区保护接口、支持多种独占区实现方式、独占区检测等功能。详见
+
+ :ref:`exclusive_area` 
+
+ :ref:`schm_exclusive_area` 
+
+Rte provides exclusive area protection interfaces for Application RunnableEntity/BswEntities, supports multiple implementation methods of exclusive areas, and offers exclusive area detection and other functions. See details in
+
+ :ref:`exclusive_area` 
+
+ :ref:`schm_exclusive_area` 
+
+模块特性(Module Features)
 ---------------------------------------
 Rte实现Application RunnableEntity的调度，SWC内部通信，SWC与SWC间基于Port的通信，SWC与BSW服务间基于Port的通信。
 Rte功能描述分为通用功能和具体功能点(如SR通信、CS通信等)，具体功能点为面向Application直接使用的功能描述，通用功能为支撑具体功能点实现的基础功能。
@@ -515,13 +619,14 @@ The serialization function only supports inter-ECU communication (CS and SR).
 |                      | SomeIpXf+E2EXf                                                                                    |
 +----------------------+---------------------------------------------------------------------------------------------------+
 |                      |                                                                                                   |
-| E2E profile类型      | PROFILE_01、PROFILE_02、PROFILE_04、PROFILE_05、PROFILE_06、PROFILE_07、PROFILE_11、PROFILE_22    |
+| E2E profile类型      | PROFILE_01、PROFILE_02、PROFILE_04、PROFILE_05、PROFILE_06、PROFILE_07、PROFILE_11、PROFILE_22、  |
+|                      | PROFILE_08、PROFILE_44、PROFILE_04m、PROFILE_07m、PROFILE_08m、PROFILE_44m                        |
 +----------------------+---------------------------------------------------------------------------------------------------+
 |                      |                                                                                                   |
 | placeType            | 支持inpalce和outOfPlace                                                                           |
 +----------------------+---------------------------------------------------------------------------------------------------+
 |                      |                                                                                                   |
-| SomeIpXf消息类型     | 支持REQUEST和RESPONSE                                                                             |
+| SomeIpXf消息类型     | 支持REQUEST、RESPONSE、NOTIFICATION和REQUEST-NO-RETURN                                            |
 +----------------------+---------------------------------------------------------------------------------------------------+
 
 +-------------------------+---------------------------------------------------------------------------------------------------+
@@ -538,10 +643,11 @@ The serialization function only supports inter-ECU communication (CS and SR).
 |                         | SomeIpXf+E2EXf                                                                                    |
 +-------------------------+---------------------------------------------------------------------------------------------------+
 | E2E profile Types       | PROFILE_01, PROFILE_02, PROFILE_04, PROFILE_05, PROFILE_06, PROFILE_07, PROFILE_11, PROFILE_22    |
+|                         | PROFILE_08, PROFILE_44, PROFILE_04m, PROFILE_07m, PROFILE_08m, PROFILE_44m                        |
 +-------------------------+---------------------------------------------------------------------------------------------------+
 | placeType               | Supports inplace and outOfPlace                                                                   |
 +-------------------------+---------------------------------------------------------------------------------------------------+
-| SomeIpXf Message Types  | Supports REQUEST and RESPONSE                                                                     |
+| SomeIpXf Message Types  | Supports REQUEST, RESPONSE, NOTIFICATION and REQUEST-NO-RETURN                                    |
 +-------------------------+---------------------------------------------------------------------------------------------------+
 
 
@@ -871,6 +977,10 @@ CS communication is responsible for function calls between component instances b
 |                             |                                                               |
 |                             | 支持void参数                                                  |
 +-----------------------------+---------------------------------------------------------------+
+| MetaData转发                | 支持ECU间MetaData转发功能                                     |
++-----------------------------+---------------------------------------------------------------+
+| ClientIdDefinition          | 支持Client端自定义ClientId                                    |
++-----------------------------+---------------------------------------------------------------+
 
 +-----------------------------+---------------------------------------------------------------+
 | Function Category           | Function Point Description                                    |
@@ -923,6 +1033,10 @@ CS communication is responsible for function calls between component instances b
 |                             +---------------------------------------------------------------+
 |                             | Supports void parameters                                      |
 +-----------------------------+---------------------------------------------------------------+
+| Metadata                    | Support the function of forwarding MetaData in InterEcu       |
++-----------------------------+---------------------------------------------------------------+
+| ClientIdDefinition          | Supports custom ClientId for the client                       |
++-----------------------------+---------------------------------------------------------------+
 
 
 模式管理(Mode Management)
@@ -932,70 +1046,67 @@ CS communication is responsible for function calls between component instances b
 
 Implement notification of mode switches between Mode Manager and Mode User based on Port.
 
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 功能分类                           | 功能点描述                                                         |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 收发通信组数目                     | 支持1：N（一个Mode Manager，多个Mode   User）                      |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 通信域划分                         | 分区内通信                                                         |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | 分区间通信（同核/不同核，可信/不可信）                             |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 同步模式切换                       | on-exit   ExecutableEntity                                         |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | on-transition   ExecutableEntity                                   |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | on-entry   ExecutableEntity                                        |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | ModeSwitchAck   ExecutableEntity                                   |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | 支持队列通信，非队列通信                                           |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 模式切换确认                       | 模式切换完成                                                       |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | 模式切换超时                                                       |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | 阻塞模式时，支持独占区检测                                         |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| WaitPoint机制                      | ModeSwitchedAckEvent                                               |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 模式获取                           | Mode Manager、Mode User均支持模式获取                              |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | 支持普通模式和增强模式                                             |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 模式禁用                           | RunnableEntity支持模式禁用                                         |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| 初始化模式                         | 激活初始化模式的Mode disablings                                    |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | 基于初始化模式的on-entry ExecutableEntity触发                      |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| Port连接                           | 支持Port连接，也支持Port不连接                                     |
-+------------------------------------+--------------------------------------------------------------------+
-|                                    |                                                                    |
-| ModeDeclarationGroup定义类型       | ALPHABETIC_ORDER                                                   |
-|                                    +--------------------------------------------------------------------+
-|                                    |                                                                    |
-|                                    | EXPLICIT_ORDER                                                     |
-+------------------------------------+--------------------------------------------------------------------+
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 功能分类                        | 功能点描述                                       |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 收发通信组数目                  | 支持1：N（一个Mode Manager，多个Mode User）      |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 通信域划分                      | 分区内通信                                       |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | 分区间通信（同核/不同核，可信/不可信）           |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 同步/异步模式切换               | on-exit ExecutableEntity                         |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | on-transition ExecutableEntity                   |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | on-entry ExecutableEntity                        |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | ModeSwitchAck ExecutableEntity                   |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | 支持队列通信，非队列通信                         |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 模式切换确认                    | 模式切换完成                                     |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | 模式切换超时                                     |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | 阻塞模式时，支持独占区检测                       |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| WaitPoint机制                   | ModeSwitchedAckEvent                             |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 模式获取                        | Mode Manager、Mode User均支持模式获取            |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | 支持普通模式和增强模式                           |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| 初始化模式                      | 激活初始化模式的Mode   disablings                |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | 基于初始化模式的on-entry ExecutableEntity触发    |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| Port连接                        | 支持Port连接，也支持Port不连接                   |
++---------------------------------+--------------------------------------------------+
+|                                 |                                                  |
+| ModeDeclarationGroup定义类型    | ALPHABETIC_ORDER                                 |
+|                                 +--------------------------------------------------+
+|                                 |                                                  |
+|                                 | EXPLICIT_ORDER                                   |
++---------------------------------+--------------------------------------------------+
 
 +------------------------------------+--------------------------------------------------------------------+
 | Function Category                  | Function Point Description                                         |
@@ -1008,8 +1119,8 @@ Implement notification of mode switches between Mode Manager and Mode User based
 |                                    | Inter-partition communication (same core/different cores,          |
 |                                    | trusted/untrusted)                                                 |
 +------------------------------------+--------------------------------------------------------------------+
-| Synchronous Mode Switch            | on-exit ExecutableEntity                                           |
-|                                    +--------------------------------------------------------------------+
+| Synchronous/Asynchronous           | on-exit ExecutableEntity                                           |
+| Mode Switch                        +--------------------------------------------------------------------+
 |                                    | on-transition ExecutableEntity                                     |
 |                                    +--------------------------------------------------------------------+
 |                                    | on-entry ExecutableEntity                                          |
@@ -1271,6 +1382,7 @@ Implements the triggering of RunnableEntities inside/outside the component insta
 |                | None                                                |
 +----------------+-----------------------------------------------------+
 
+.. _exclusive_area:
 
 独占区Rte(API Exclusive Area Rte API)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1383,6 +1495,172 @@ Provides the internal memory space address of the component instance for the App
 |                   | PerInstanceMemory           |
 +-------------------+-----------------------------+
 
+VFBTracing
+~~~~~~~~~~~~~~~~~~~~~
+
+RTE的VFB跟踪功能通过在系统规定的追踪点插入Hook函数，实现对AUTOSAR信号在VFB中发送与接收过程的监测。当相应的RTE事件发生时，RTE会自动调用这些Hook函数。
+RTE在Rte_Hook_<client>.h中提供Hook函数的声明，用户需对这些Hook函数进行实现。其中，<client>为RteVfbTraceClient的ShortName。此外，Rte_Hook.h中还提供了匿名Client对应的Hook函数声明。
+
+The RTE VFB tracing functionality monitors the transmission and reception of AUTOSAR signals within the VFB by inserting Hook functions at system-defined tracing points. When the corresponding RTE events occur, the RTE automatically invokes these Hook functions.
+The RTE provides the declarations of the Hook functions in `Rte_Hook_<client>.h`, and the user is responsible for implementing these Hook functions. Here, `<client>` represents the `ShortName` of the `RteVfbTraceClient`. In addition, `Rte_Hook.h` provides the Hook function declarations for the anonymous client.
+
++----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                        |                                                                                                                                                                                                                                                                              |
+| 功能分类                               | 功能点描述                                                                                                                                                                                                                                                                   |
++----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                        |                                                                                                                                                                                                                                                                              |
+| 自定义Hook函数的client                 | VFB 跟踪功能支持client自定义，同一个hook函数可以拥有不同的client版本，方便用户生成多套Hook函数互不影响。在同一个Hook函数的调用点，用户可自定义多个client版本的Hook函数的调用顺序，也可以按照client的名字来排序。                                                             |
++----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                        |                                                                                                                                                                                                                                                                              |
+| 匿名Client                             | VFB 跟踪功能支持不带Client名称的Hook函数的全量生成，当匿名Client配置(RteVfbTraceAnonymousClientEnabled)有效时，会在所有追踪点插入不带Client名称的Hook函数。                                                                                                                  |
++----------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+| Rte接口追踪                            | SR 与 CS 通信接口追踪、      | RTE支持在接口函数的开始与返回两个节点插入Hook函数，方便用户观测 API的运行情况。在开始处插入Start函数，在返回处插入Return函数。            | 函数原型：                                                                                        |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        | IRV 接口追踪、               |                                                                                                                                           | void   Rte_[<client>_]<api>Hook_<cts>_[<reName>_]<ap>_Start([const   Rte_CDS_<cts>*, ]<param>)    |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        | 模式管理接口追踪、           |                                                                                                                                           | void   Rte_[<client>_]<api>Hook_<cts>_[<reName>_]<ap>_Return([const   Rte_CDS_<cts>*, ]<param>)   |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        | Trigger接口追踪、            |                                                                                                                                           | (reName字段仅在隐式SR通信相关API中存在)                                                           |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        | Xcp接口追踪、                |                                                                                                                                           |                                                                                                   |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        | 独占区接口追踪               |                                                                                                                                           |                                                                                                   |
++----------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+| SchM 接口追踪                          | SchM CS通信接口追踪          | RTE支持在SchM接口函数的开始与返回两个节点插入Hook函数，方便用户观测API的运行情况。在开始处插入Start函数，在返回处插入Return函数。         | 函数原型：                                                                                        |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        | SchM独占区接口追踪           |                                                                                                                                           | void SchM_[<client>_]<api>Hook_<bsnp>_   <name>_Start(<param>)                                    |
+|                                        |                              |                                                                                                                                           |                                                                                                   |
+|                                        |                              |                                                                                                                                           | void SchM_[<client>_]<api>Hook_<bsnp>_<name>_Return(<param>)                                      |
++----------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+| 模式管理追踪                           | Rte模式切换追踪              | RTE支持在一组模式切换完毕后插入Hook函数，方便用户观测                                                                                     | 函数原型：                                                                                 |      |
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+|                                        |                              |                                                                                                                                           | void   Rte_[<client>_]<api>Hook_<cts>_<md>_Terminate([const   Rte_CDS_<cts>*, ]<param>)    |      |
++----------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+| Com接口追踪                            | Com收发接口追踪              | RTE支持在Com信号收发相关的接口调用前后插入Hook函数，以便观测相应接口的运 行情况。                                                         | 函数原型：                                                                                 |      |
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+|                                        |                              |                                                                                                                                           | void Rte_[<client>_]ComHook_<signalName>_SigTx(<data>)                                     |      |
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+|                                        |                              |                                                                                                                                           | void Rte_[<client>_]ComHook_<signalName>_SigRx(<data>)                                     |      |
+|                                        +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+|                                        | Com回调接口追踪              | RTE支持在Com回调接口进入后插入Hook函数，以便观测相应回调的运行情况。                                                                      | 函数原型：                                                                                 |      |
+|                                        |                              |                                                                                                                                           |                                                                                            |      |
+|                                        |                              |                                                                                                                                           | void   Rte_[<client>_]ComHook<Event>_<signalName>(void)                                    |      |
++----------------------------------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                        |                                                                                                                                                                          |                                                                                                   |
+| OsTask 跟踪                            | Rte支持在Task相关的三个节点插入Hook函数，分别是Activate，Dispatch和   Termination，以便用户观察Task三个重要节点的运行情况。                                              | 函数原型：                                                                                        |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void   Rte_[<client>_]Task_Activate_<application>_<task>(void)                                    |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void Rte_[<client>_]Task_Dispatch_<task>(void)                                                    |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void Rte_[<client>_]Task_Terminate_<task>(void)                                                   |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                        |                                                                                                                                                                          |                                                                                                   |
+| OsEvent 跟踪                           | RTE支持插入OS Event相关Hook函数实现跟踪，以便用户观测各OS Event的运行情 况。其中包含三个Hook函数，分别在SetEvent调用之前、WaitEvent调用之前和 WaitEvent调用结束之后。    | 函数原型：                                                                                        |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void   Rte_[<client>_]Task_SetEvent_<application>_<task>(EventMaskType   ev)                      |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void Rte_[<client>_]Task_WaitEvent_<task>(EventMaskType   ev)                                     |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void Rte_[<client>_]Task_WaitEventRet_<task>(EventMaskType   ev)                                  |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                        |                                                                                                                                                                          |                                                                                                   |
+| Runnable与 BswSchedulableEntity跟踪    | RTE支持在Task里调用Runnable实体与BswSchedulableEntity前后插入跟踪事件，方 便用户观测可运行实体的启动和结束。                                                             | 函数原型：                                                                                        |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void   Rte_[<client>_]Runnable_<cts>_<reName>_Start([const   Rte_CDS_<cts>*])                     |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void   Rte_[<client>_]Runnable_<cts>_<reName>_Return([const   Rte_CDS_<cts>*])                    |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void SchM_[<client>_]Schedulable_<bsnp>   _<entityName>_Start(void)                               |
+|                                        |                                                                                                                                                                          |                                                                                                   |
+|                                        |                                                                                                                                                                          | void SchM_[<client>_]Schedulable_<bsnp>_<entityName>_Return(void)                                 |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+
++----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Feature Category                             | Feature Description                                                                                                                                                                                                                                                                                                                                                                                                                                           |
++----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Custom Hook Function Client                  | The VFB tracing functionality supports client   customization. A single Hook function may have multiple client-specific   variants, allowing users to generate multiple independent sets of Hook   functions without mutual interference.                                                                                                                                                                                                                     |
+|                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                                              | At the same Hook invocation point, users can define the   invocation order of multiple client-specific Hook functions or specify the   order based on the client name.                                                                                                                                                                                                                                                                                        |
++----------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Anonymous Client                             | The VFB tracing functionality supports the generation of   Hook functions without a client name. When the anonymous client configuration   (RteVfbTraceAnonymousClientEnabled) is enabled, Hook functions without a   client name are inserted at all tracing points.                                                                                                                                                                                         |
++----------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+| Rte Interface Tracing                        | SR and CS communication interface tracing                  | The RTE supports inserting Hook functions at both the entry   and return points of interface functions, enabling users to observe the runtime   behavior of APIs. A Start Hook function is inserted at the function entry,   and a Return Hook function is inserted at the function exit.    | Function prototypes:                                                                              |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              | IRV interface tracing                                      |                                                                                                                                                                                                                                                                                              | void   Rte_[<client>_]<api>Hook_<cts>_[<reName>_]<ap>_Start([const   Rte_CDS_<cts>*, ]<param>)    |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              | Mode management interface tracing                          |                                                                                                                                                                                                                                                                                              | void Rte_[<client>_]<api>Hook_<cts>_[<reName>_]<ap>_Return([const   Rte_CDS_<cts>*, ]<param>)     |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              | Trigger interface tracing                                  |                                                                                                                                                                                                                                                                                              | (The reName field exists only for APIs related to implicit   SR communication.)                   |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              | XCP interface tracing                                      |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              | Exclusive area interface tracing                           |                                                                                                                                                                                                                                                                                              |                                                                                                   |
++----------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+| SchM Interface Tracing                       | SchM CS communication interface tracing                    | The RTE supports inserting Hook functions at both the entry   and return points of SchM interface functions to facilitate observation of   API execution behavior.                                                                                                                           | Function prototypes:                                                                              |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              | SchM exclusive area interface tracing                      |                                                                                                                                                                                                                                                                                              | void SchM_[<client>_]<api>Hook_<bsnp>_   <name>_Start(<param>)                                    |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                                   |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              | void   SchM_[<client>_]<api>Hook_<bsnp>_<name>_Return(<param>)                                    |
++----------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+| Mode Management Tracing                      | RTE mode switch tracing                                    | The RTE supports inserting Hook functions after a group of   mode switches has completed, enabling users to observe mode transition   behavior.                                                                                                                                              | Function prototype:                                                                        |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              | void   Rte_[<client>_]<api>Hook_<cts>_<md>_Terminate([const   Rte_CDS_<cts>*, ]<param>)    |      |
++----------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+| Com Interface Tracing                        | Com signal transmission and reception interface tracing    | The RTE supports inserting Hook functions before and after   Com signal transmission and reception related interface calls, allowing users   to observe the execution behavior of the corresponding interfaces.                                                                              | Function prototypes:                                                                       |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              | void   Rte_[<client>_]ComHook_<signalName>_SigTx(<data>)                                   |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              | void   Rte_[<client>_]ComHook_<signalName>_SigRx(<data>)                                   |      |
+|                                              +------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+|                                              | Com callback interface tracing                             | The RTE supports inserting Hook functions upon entry to Com   callback interfaces to observe the runtime behavior of the corresponding   callbacks.                                                                                                                                          | Function prototype:                                                                        |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              |                                                                                            |      |
+|                                              |                                                            |                                                                                                                                                                                                                                                                                              | void Rte_[<client>_]ComHook<Event>_<signalName>(void)                                      |      |
++----------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+------+
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+| OsTask Tracing                               | The RTE supports inserting Hook functions at three   task-related points: Activate, Dispatch, and Termination, enabling users to   observe the execution status of tasks at these key points.                                                                                                                                                             | Function prototypes:                                                                              |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void   Rte_[<client>_]Task_Activate_<application>_<task>(void)                                    |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void Rte_[<client>_]Task_Dispatch_<task>(void)                                                    |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void Rte_[<client>_]Task_Terminate_<task>(void)                                                   |
++----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+| OsEvent Tracing                              | The RTE supports inserting Hook functions related to OS   Events to enable observation of OS Event behavior. Three Hook functions are   provided: before SetEvent is called, before WaitEvent is called, and after   WaitEvent returns.                                                                                                                   | Function prototypes:                                                                              |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void Rte_[<client>_]Task_SetEvent_<application>_<task>(EventMaskType   ev)                        |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void   Rte_[<client>_]Task_WaitEvent_<task>(EventMaskType ev)                                     |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void   Rte_[<client>_]Task_WaitEventRet_<task>(EventMaskType ev)                                  |
++----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+| Runnable and BswSchedulableEntity Tracing    | The RTE supports inserting tracing events before and after   the invocation of Runnable entities and BswSchedulableEntities within tasks,   enabling users to observe the start and completion of executable entities.                                                                                                                                    | Function prototypes:                                                                              |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void   Rte_[<client>_]Runnable_<cts>_<reName>_Start([const   Rte_CDS_<cts>*])                     |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void   Rte_[<client>_]Runnable_<cts>_<reName>_Return([const   Rte_CDS_<cts>*])                    |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void SchM_[<client>_]Schedulable_<bsnp>   _<entityName>_Start(void)                               |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           |                                                                                                   |
+|                                              |                                                                                                                                                                                                                                                                                                                                                           | void   SchM_[<client>_]Schedulable_<bsnp>_<entityName>_Return(void)                               |
++----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+
+.. _schm_exclusive_area:
 
 SchM特性(SchM Features)
 -------------------------------
@@ -1411,6 +1689,12 @@ The SchM supports the implementation of BSW, has no interaction with application
 |                       | 支持CS同步/异步通信                                                       |
 +-----------------------+---------------------------------------------------------------------------+
 |                       |                                                                           |
+| 模式管理              | 通信域：同分区，同核不同分区，不同核不同分区                              |
+|                       +---------------------------------------------------------------------------+
+|                       |                                                                           |
+|                       | 为BSW提供模式管理接口，用于模式切换                                       |
++-----------------------+---------------------------------------------------------------------------+
+|                       |                                                                           |
 | MainFunction的调度    | 支持周期TASK，按各BSW模块MainFunction的配置周期进行调度                   |
 +-----------------------+---------------------------------------------------------------------------+
 
@@ -1429,6 +1713,11 @@ The SchM supports the implementation of BSW, has no interaction with application
 |                       +---------------------------------------------------------------------------+
 |                       | Supports synchronous/asynchronous CS communication                        |
 +-----------------------+---------------------------------------------------------------------------+
+| Mode Management       |  Communication domains: same partition, different partitions on the same  |
+|                       |  core, different partitions on different cores                            |
+|                       +---------------------------------------------------------------------------+
+|                       |  Provides interfaces for BSW to be used for mode switching                |
++-----------------------+---------------------------------------------------------------------------+
 | Scheduling of         | Supports periodic TASK, scheduled according to the period of              |
 | MainFunction          | each BSW module's MainFunction                                            |
 +-----------------------+---------------------------------------------------------------------------+
@@ -1436,19 +1725,6 @@ The SchM supports the implementation of BSW, has no interaction with application
 
 偏差(Deviation)
 ------------------------------
-外部队列触发(External Queue Trigger)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-外部队列触发时，同组Trigger sink需要在同一分区。
-
-When external queue triggering occurs, trigger sinks within the same group must reside in the same partition.
-
-配置 configuration
-****************************
-None
-
-接口(Interface)
-******************************
-None
 
 SchM的实现对模型有所简化(SchM Implementation Model Simplification)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1491,19 +1767,49 @@ None
      - 描述(Description)
    
    * - Rte.c
-     - 包含如下内容：(Contains the following contents:)
+     - 单分区系统包含如下内容：(Contains the following contents on Single-Partiton System :)
 
-       - 生命周期函数定义(Rte_Start、Rte_Stop、SchM_Init等)；(Lifecycle function definitions (Rte_Start, Rte_Stop, SchM_Init, etc.))
-
-       - 定义多实例变量(Rte_Instance)、公用状态变量(类似Rte_State等)；(Multi-instance variable definitions (Rte_Instance), common state variables (e.g., Rte_State))
+       - 生命周期函数定义(Rte_Start、Rte_Stop等)；(Lifecycle function definitions (Rte_Start, Rte_Stop, SchM_Init, etc.))
 
        - 定义OsTask，填充其内容；(OsTask definitions and task body implementations)
 
-       - 定义临界区访问函数；(Rte_Enter/Rte_Exit等)；(Exclusive area access function definitions (Rte_Enter/Rte_Exit, etc.))
+       多分区系统包含如下内容：(Contains the following contents on Multi-Partiton System :)
 
-       - 定义Com/LdCom通信的回调函数，如Rte_Cbkxxx等；(Callback function definitions for Com/LdCom communication (e.g., Rte_Cbkxxx))
+       - 生命周期函数定义(Rte_Start、Rte_Stop等)；(Lifecycle function definitions (Rte_Start, Rte_Stop, SchM_Init, etc.))
 
-       - 定义与关联SWC有关的接口，如Rte_Write/Rte_Read等；(Interface definitions for associated SWCs (e.g., Rte_Write/Rte_Read))
+       - 公用状态变量(Rte_State等)；(Public state variables(Rte_State,etc.))
+
+       - 公用内部函数；(Public internal functions)
+
+   * - Rte_<OsApplication>.c
+     - 多分区系统包含如下内容：(Contains the following contents on Multi-Partition System :)
+
+       - 分区生命周期内部函数定义；(Partition-related lifecycle function definitions)
+
+       - 分区相关公用状态变量；(Partition-related public state variables)
+
+       - 分区内OsTask实现；(Partition-related OsTask definitions)
+
+   * - Rte_<Swc>.c
+     - 包含如下内容：(Contains the following contents :)
+
+       - SWC实例变量(Rte_Instance_<cts inst>)；(Definition of the Component Data Structure(Rte_Instance_<cts inst>))
+
+       - SWC关联的Rte接口定义；(Swc-related RTE API definitions)
+
+       - SWC相关的Com/LdCom/Ioc回调函数；(Swc-related Com/LdCom/Ioc callback functions)
+
+       - SWC相关的序列化串函数；(Swc-related transformer chain functions)
+
+   * - Rte_Cbk_User.c
+     - 包含如下内容：(Contains the following contents :)
+
+       - CallBack桩函数；(Callback stub functions)
+
+   * - Rte_Cbk.c
+     - 包含如下内容：(Contains the following contents :)
+
+       - 定义通信相关的Com/LdCom/Ioc回调函数；(Com/LdCom/Ioc callback functions)
 
    * - Rte_<Swc>.h
      - 包含如下内容：(Contains the following contents:)
@@ -1528,6 +1834,16 @@ None
        - 定义Range Data Types (5.5.5)；(Range Data Types definition (5.5.5))
 
        - 重定义定义Implementation Data Type symbols；(Implementation Data Type symbols redefinition)
+
+   * - Rte_<OsApplication>.h
+     - 包含如下内容：(Contains the following contents :)
+    
+       - 分区内部函数声明；(Declaration of partition-related functions)
+
+   * - Rte_Internal.h
+     - 包含如下内容：(Contains the following contents :)
+    
+       - 模块内公共函数定义、数据类型定义、宏定义等；(Internal functions,datatypes and macro definitions of RTE)
 
    * - Rte_Cbk.h
      - 包含如下内容：(Contains the following contents:)
@@ -1754,7 +2070,7 @@ ORIENTAIS工具开发流程概述(Overview of ORIENTAIS Development Process)
 导入ECU萃取arxml文件(Import ECU extracted arxml files)
 -----------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_13.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_13.png
    :name: RTE_4_13
    :align: center
  
@@ -1766,7 +2082,7 @@ ORIENTAIS工具开发流程概述(Overview of ORIENTAIS Development Process)
 RTE同步(RTE Synchronization)
 ---------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_15.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_15.png
    :name: RTE_4_15
    :align: center
 
@@ -1775,7 +2091,7 @@ RTE同步(RTE Synchronization)
 
 
  
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_14.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_14.png
    :name: RTE_4_14
    :align: center
    
@@ -1798,7 +2114,7 @@ Bswmd文件更新(Bswmd File Update)
 
 Based on BSW module design, ORIENTAIS can update all or individual description files to describe BSW module requirements at the interface level, BswEntity scheduling, and memory mapping information.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_3.png
    :name: RTE_4_3
    :align: center
    
@@ -1807,7 +2123,7 @@ Based on BSW module design, ORIENTAIS can update all or individual description f
 
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_4.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_4.png
    :name: RTE_4_4
    :align: center
    
@@ -1882,7 +2198,7 @@ Automatically configures the OS module based on model requirements using ECU ext
 
   Partial OsTask configuration, including runnable entity scheduling order and priority.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_1.png
    :name: RTE_4_1
    :align: center
   
@@ -1891,7 +2207,7 @@ Automatically configures the OS module based on model requirements using ECU ext
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_2.png
    :name: RTE_4_2
    :align: center
  
@@ -1899,7 +2215,7 @@ Automatically configures the OS module based on model requirements using ECU ext
    RTE-OS自动同步配置 (Synchronized RTE-OS Configuration)
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_11.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_11.png
    :name: RTE_4_11
    :align: center
  
@@ -1931,7 +2247,7 @@ Semi-automatic configuration integration primarily utilizes the drag-and-drop fu
 
 Manually create OS configurations according to actual scenarios, such as creating OsTasks.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_12.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_12.png
    :name: RTE_4_12
    :align: center
  
@@ -1946,7 +2262,7 @@ ORIENTAIS支持将执行实体拖入目标OsTask中，同时根据执行实体�
 
 ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the runnable entities' periodic attributes, it automatically creates and associates related configurations including OsAlarm/OsScheduleTable and RteOsInteraction.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_6.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_6.png
    :name: RTE_4_6
    :align: center
    
@@ -1955,7 +2271,7 @@ ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the 
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_7.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_7.png
    :name: RTE_4_7
    :align: center
   
@@ -1964,7 +2280,7 @@ ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the 
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_8.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_8.png
    :name: RTE_4_8
    :align: center
  
@@ -1973,7 +2289,7 @@ ORIENTAIS supports dragging runnable entities into target OsTasks. Based on the 
 
 Dragging a runnable entity to an OsTask in the corresponding partition; if it is a periodic runnable entity, an activation method selection window pops up
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_9.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_9.png
    :name: RTE_4_9
    :align: center
   
@@ -1982,7 +2298,7 @@ Dragging a runnable entity to an OsTask in the corresponding partition; if it is
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_10.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_10.png
    :name: RTE_4_10
    :align: center
    
@@ -2004,7 +2320,7 @@ Application RunnableEntity桩代码生成(Application RunnableEntity Stub Code G
 
 Optional operation. If application development is not completed, ORIENTAIS can generate stub code for Application RunnableEntity.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_5.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_5.png
    :name: RTE_4_5
    :align: center
    
@@ -2019,7 +2335,7 @@ RTE及Application RunnableEntity桩代码同时生成(Simultaneous Generation of
 
 Optional operation. ORIENTAIS can generate both RTE and Application RunnableEntity stub code simultaneously.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_16.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_4_16.png
    :name: RTE_4_16
    :align: center
   
@@ -2065,7 +2381,7 @@ Common scenarios:
 
 RTE激活OsTask(RTE Activating OsTask)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_1.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_1.png
    :name: RTE_5_1
    :align: center
    
@@ -2076,7 +2392,7 @@ RTE激活OsTask(RTE Activating OsTask)
 
 RTE激活OsAlarm(RTE Activating OsAlarm)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_2.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_2.png
    :name: RTE_5_2
    :align: center
   
@@ -2087,7 +2403,7 @@ RTE激活OsAlarm(RTE Activating OsAlarm)
 
 RTE激活OsScheduleTable(RTE Activating OsScheduleTable)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_3.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_3.png
    :name: RTE_5_3
    :align: center
   
@@ -2102,7 +2418,7 @@ Swc在Ecu中的配置(Configuration of SWC in ECU)
 
 The RteSwcComponentInstance configuration associates SWC instances with RteSoftwareComponentInstanceRef.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_4.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_4.png
    :name: RTE_5_4
    :align: center
   
@@ -2123,7 +2439,7 @@ Maps RteEvent to OsTask, defines Runnable position within OsTask, enabling Task 
 
 映射至Basic(Task Mapping to Basic Task)
 *********************************************
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_5.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_5.png
    :name: RTE_5_5
    :align: center
    
@@ -2140,7 +2456,7 @@ Maps RteEvent to OsTask, defines Runnable position within OsTask, enabling Task 
 
 映射至Extended(Task Mapping to Extended Task)
 **************************************************
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_6.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_6.png
    :name: RTE_5_6
    :align: center
   
@@ -2172,7 +2488,7 @@ After RTE activation, Background Task reactivates itself using ChainTask upon te
 Supports mapping initialization Runnables (triggered by InitEvent) to custom Initialization Task (Basic Task).
 If not mapped to Initialization Task, initialization Runnables are called by Rte_Start. RtePositionInTask in RteEventToTaskMapping determines calling order in Rte_Start; unmapped Runnables are called last by default.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_7.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_7.png
    :name: RTE_5_7
    :align: center
   
@@ -2181,7 +2497,7 @@ If not mapped to Initialization Task, initialization Runnables are called by Rte
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_8.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_8.png
    :name: RTE_5_8
    :align: center
   
@@ -2190,7 +2506,7 @@ If not mapped to Initialization Task, initialization Runnables are called by Rte
 
    Example of initialization Task configuration
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_24.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_24.png
    :name: RTE_5_24
    :align: center
    
@@ -2222,7 +2538,7 @@ OsAlarm触发Basic(Task OsAlarm Triggering Basic Task)
 
 Requires Basic Task to map RunnableEntities with the same period, and set OsAlarm period to match the RunnableEntity period.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_9.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_9.png
    :name: RTE_5_9
    :align: center
    
@@ -2237,7 +2553,7 @@ OsAlarm触发Extended(Task OsAlarm Triggering Extended Task)
 
 Supports a Task mapping RunnableEntities with different periods.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_10.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_10.png
    :name: RTE_5_10
    :align: center
    
@@ -2252,7 +2568,7 @@ OsScheduleTable触发周期RunnableEntity(OsScheduleTable Triggering Periodic Ru
 
 Using schedule tables with expiry points to set activation offsets can achieve load balancing to some extent.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_11.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_11.png
    :name: RTE_5_11
    :align: center
    
@@ -2261,7 +2577,7 @@ Using schedule tables with expiry points to set activation offsets can achieve l
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_12.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_12.png
    :name: RTE_5_12
    :align: center
 
@@ -2270,7 +2586,7 @@ Using schedule tables with expiry points to set activation offsets can achieve l
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_13.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_13.png
    :name: RTE_5_13
    :align: center
    
@@ -2279,7 +2595,7 @@ Using schedule tables with expiry points to set activation offsets can achieve l
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_14.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_14.png
    :name: RTE_5_14
    :align: center
    
@@ -2301,7 +2617,7 @@ RTE provides four configuration options for SWC exclusive areas:
 - OS_RESOURCE
 - NONE
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_22.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_22.png
    :name: RTE_5_22
    :align: center
    
@@ -2320,7 +2636,7 @@ Relevant configuration RteExternalTriggerConfig/RteInternalTriggerConfig.
 RTE supports internal and external queue triggering, with ECUC queue length (≥1) configuration taking priority over SWC-side configuration. Even if SWC Trigger swImplPolicy is "QUEUED", unconfigured queue length in ECUC results in "STANDARD" treatment.
 Currently, queued trigger sinks must reside in the same partition. Configuring internal/external trigger queues is not recommended.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_25.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_25.png
    :name: RTE_5_25
    :align: center
    
@@ -2329,7 +2645,7 @@ Currently, queued trigger sinks must reside in the same partition. Configuring i
 
    
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_26.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_26.png
    :name: RTE_5_26
    :align: center
   
@@ -2347,7 +2663,7 @@ NvM分配(NvM Allocation)
 
 RteNvRamAllocation under corresponding NvMSwC instances must map NvMSwC RteSwNvBlockDescriptor to NvM module NvBlockDescriptor.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_27.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_27.png
    :name: RTE_5_27
    :align: center
   
@@ -2364,7 +2680,7 @@ Bsw模块在Ecu中的配置依赖各Bsw模块的模块描述文件作为输入�
 BSW module configuration in ECU relies on BSW module description files as input.
 Relevant configuration RteBswModuleInstance associates BswImplementation (defined in BSW module description file) with RteBswImplementationRef.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_19.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_19.png
    :name: RTE_5_19
    :align: center
    
@@ -2386,7 +2702,7 @@ Maps BswEvent to OsTask, enabling Task to schedule corresponding BswSchduleEntit
 映射至Basic(Task Mapping to Basic Task)
 ********************************************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_20.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_20.png
    :name: RTE_5_20
    :align: center
    
@@ -2405,7 +2721,7 @@ Maps BswEvent to OsTask, enabling Task to schedule corresponding BswSchduleEntit
 映射至Extended(Task Mapping to Extended Task)
 ***************************************************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_21.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_21.png
    :name: RTE_5_21
    :align: center
    
@@ -2452,7 +2768,7 @@ RTE provides five configuration options for BSW module exclusive areas:
 - OS_SPINLOCK
 - NONE
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_23.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_23.png
    :name: RTE_5_23
    :align: center
 
@@ -2477,7 +2793,7 @@ API示例 API examples：
 
     Rte_Call, Rte_Result, Rte_Feedback, Rte_SwitchAck, Rte_Receive, etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_29.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_29.png
    :name: RTE_5_29
    :align: center
   
@@ -2502,7 +2818,7 @@ Atomic data consistency protection is enabled when RteAtomicDataProtection is se
 
     Variables mapped to primitive implementation data types, etc.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_31.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_31.png
    :name: RTE_5_31
    :align: center
    
@@ -2521,7 +2837,7 @@ RTE的多核支持 Multi-Core(Support of RTE)
 Core(Definition)
 ********************
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_15.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_15.png
    :name: RTE_5_15
    :align: center
 
@@ -2538,7 +2854,7 @@ Swc与Bsw模块需要映射至EcucPartition，表示被划分在该分区。
 EcucPartition must be mapped to a Core, and a default partition must be established.
 SWC and BSW modules must be mapped to EcucPartition, indicating assignment to that partition.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_16.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_16.png
    :name: RTE_5_16
    :align: center
   
@@ -2561,7 +2877,7 @@ OsTask、OsAlarm、OsResource等系统对象需要映射至OsApplication，表�
 OsApplication is a logical module grouping system objects (e.g., OsTask, OsAlarm, OsResource) and must be created in 1:1 correspondence with EcucPartition to host partition system resources.
 System objects like OsTask, OsAlarm, and OsResource must be mapped to OsApplication, indicating assignment to that partition.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_17.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_17.png
    :name: RTE_5_17
    :align: center
   
@@ -2582,7 +2898,7 @@ Rte_Start
 
 Trusted partitions/non-partitioned systems call Rte_Start via BswM. The "Rte_Start" Action must be added for trusted partitions in BswM configuration.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_30.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_30.png
    :name: RTE_5_30
    :align: center
    
@@ -2614,33 +2930,77 @@ RTE识别EcuM配置中的分区，以该分区的初始化Task中启动EcuM_Star
 RTE identifies partitions in EcuM configuration and starts EcuM_StartupTwo within each partition's initialization Task.
 One trusted partition per core is selected for EcuMFlexConfiguration, so EcuM_StartupTwo starts match core count.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_18.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_18.png
    :name: RTE_5_18
    :align: center
    
 
    EcuMFlexConfiguration配置示例 (Example of EcuMFlexConfiguration configuration)
 
-   
 
-RTE的PBS支持(PBS Support of RTE)
---------------------------------------
-RTE不支持SWC的变体，可适配BSW模块的PBS变体，主要涉及Com及LdCom的部分变体。
+RTE的VFBTracing功能配置(RTE VFB Tracing Configuration)
+----------------------------------------------------------------------
+RteVfbTraceEnabled 勾选时开启VFBTrace功能。RteVfbTraceAnonymousClientEnabled勾选时候开启匿名Client功能。
+开启匿名Client功能后会在所有追踪点插入不带Client名称的Hook函数。
 
-RTE does not support SWC variants but adapts to BSW module PBS variants, primarily involving certain Com and LdCom variants.
+RteVfbTraceEnabled enables the VFB Tracing function when selected. RteVfbTraceAnonymousClientEnabled enables the anonymous Client function when selected.
+After the anonymous Client function is enabled, Hook functions without a Client name are inserted at all tracing points.
 
-PBS支持约束(PBS Support Constraints)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_32.png
+   :name: RTE_5_32
+   :align: center
+   :width: 800
 
-.. list-table::
-   :widths: 10 20 
-   :header-rows: 0
+在RTE配置完毕后：
 
-   * - 支持Com、LdCom变体，不支持属性变体
-     - Supports Com and LdCom variants; does not support attribute variants
-   * - 信号/信号组/LdComIPdu在所有变体下唯一
-     - Signals/signal groups/LdComIPdu must be unique across all variants  
-   * - 同一个信号/信号组在不同变体下分区需一致
-     - Partitions for identical signals/signal groups must be consistent across variants 
-   * - ISignalToIPduMapping在不同变体下映射的Pdu分区需一致，PduLength需相同
-     - ISignalToIPduMapping must have consistent Pdu partitions and identical PduLength across variants
+①右键Rte模块选择Update Bswmd来更新模块描述文件.此时会读取配置识别可追踪点，生成可追踪点的Hook函数前缀至模块描述文件中供Client选择关注。
+
+②随后可在RteGeneration下新建RteVfbTraceClient。
+
+After the RTE configuration is completed:
+
+① Right-click the RTE module and select Update Bswmd to update the module description file. During this step, the configuration is read to identify traceable points, and the Hook function prefixes of the traceable points are generated and written into the module description file for Client selection.
+
+② Then, a new RteVfbTraceClient can be created under RteGeneration.
+After the RteVfbTraceClient is created, the Client configuration items can be configured.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_33.png
+   :name: RTE_5_33
+   :align: center
+   :width: 800
+
+RteVfbTraceClient建立完成后，可对Client各配置项进行配置:
+
+①可通过右键Client重命名修改其名称。
+
+②可配置RteVfbTraceClientPosition，此配置项决定了当不同Client关注了同一追踪点时的Hook函数执行顺序。
+
+RteVfbTraceClientPosition为非必配项，如果未配置，则执行顺序会按照Client名称排序。配置了该项的Client执行顺序会先于未配置的Client。
+例如下图中的client1和client2都配置了同一个追踪点的Hook函数。
+
+After the RteVfbTraceClient is created:
+
+① The Client name can be modified by right-clicking the Client and selecting Rename.
+
+② RteVfbTraceClientPosition can be configured. This parameter determines the execution order of Hook functions when different Clients subscribe to the same tracing point.
+
+RteVfbTraceClientPosition is optional. If it is not configured, the execution order is determined by sorting the Client names. Clients with this parameter configured are executed before those without it.
+For example, in the figure below, client1 and client2 both configure Hook functions for the same tracing point.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_35.png
+   :name: RTE_5_35
+   :align: center
+   :width: 300
+
+③可在RteVfbTraceFunction下配置当前Client关注的追踪点。点击加号可从列举出的Hook函数前缀列表中选择关注项。
+
+③ Under RteVfbTraceFunction, the tracing points of interest for the current Client can be configured. By clicking the plus icon, items can be selected from the listed Hook function prefix list.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Rte/RTE_5_34.png
+   :name: RTE_5_34
+   :align: center
+   :width: 800
+
+配置完毕即可生成Rte代码。用户还需自行提供Hook函数的实现文件，函数声明可查看Rte_Hook_<Client>.h和Rte_Hook.h（仅当开启了匿名Client功能后生成）头文件。
+
+After the configuration is completed, the RTE code can be generated. The user must also provide the implementation files for the Hook functions. The Hook function declarations can be found in Rte_Hook_<Client>.h and Rte_Hook.h (the latter is generated only when the anonymous Client function is enabled).

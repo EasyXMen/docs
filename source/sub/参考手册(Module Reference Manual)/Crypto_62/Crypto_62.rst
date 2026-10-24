@@ -28,6 +28,11 @@ Crypto_62
      - V1.0
      - 发布(Release)
      - 正式发布(Official release)
+   * - 2025/12/30
+     - jie.gu
+     - V2.0
+     - 发布(Release)
+     - 正式发布(Official release)
 
 参考文档 References
 --------------------------------------------------------------------------------------------------------
@@ -158,18 +163,45 @@ Crypto Driver能够向上层提供多种加密算法，如散列算法SHA、对�
 
 Crypto Driver can provide several encryption algorithms for the upper layer, such as hash algorithm SHA, symmetric encryption AES, asymmetric encryption RSA, and random number generation.
 
-    .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/Architecture.png
-        :alt: Architecture描述(Architecture Description)
-        :name: fig_Architecture
-        :align: center
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CP_Arch_Crypto_62.png
+   :alt: Architecture描述(Architecture Description)
+   :name: Crypto_62_fig_Architecture
+   :align: center
 
+   crypto_62模块架构图(Crypto_62 module architecture figure).
+
+如图 :ref:`Crypto_62_fig_Architecture` 所示，Crypto_62模块处于AUTOSAR架构中的微控制器抽象层。
 
 功能描述 Functional Description
 ==========================================================
 
+公共特性(Public Features)
+--------------------------------------------
 
-特性 Features
-----------------------------------------------------------------------------------------------------
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   None
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
 
 1.密钥管理
 
@@ -183,7 +215,7 @@ The key function mainly includes the storage and retrieval of keys, including th
 
 To realize key function, first, configure CryptoKeys in Crypto, and then configure CryptoKeys->CryptoKeyTypes->CryptoKeyElements. Key Elements required for different algorithms are different (please refer to the [WS_Csm-01022] specification, as shown in the following figure:)
    
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/KeyElement.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/KeyElement.png
     :alt: KeyElement描述(KeyElement Description)
     :name: fig_KeyElement
     :align: center
@@ -206,7 +238,7 @@ HASH(哈希)算法为不需要秘钥的算法，哈希算法又称杂凑算法�
 
 The HASH algorithm requires no secret key. It can calculate a fixed length string (also known as message digest) from a certain length of message. SHA includes 11 algorithms, including SHA-1, SHA2-224, SHA2-256, SHA2-384,SHA2-512，SHA3-224, SHA3-256, SHA3-384, SHA3-512,SM3 and RIPEMD160. With a maximum plaintext length of 2^64 bits, SHA-1 belongs to the group algorithm. The group length is 512 bits, and the generated information digest length is 160 bits or 20 bytes.
    
-       .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/Hash.png
+       .. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/Hash.png
         :alt: Hash描述(Hash Description)
         :name: fig_Hash
         :align: center
@@ -229,7 +261,7 @@ AES的处理单位是字节，128位的输入明文分组P和输入密钥K都被
 
 The processing unit of AES is byte. The 128 bit input plaintext packet P and input key K are divided into 16 bytes, which are recorded as P=P0 P1... P15 and K=K0 K1... K15, respectively. For example, the plaintext is grouped as P = abcdefghijklmnop, where the character a corresponds to P0 and p corresponds to P15. General speaking, the plaintext grouping is described by a square matrix, the unit of which is byte, which is called state matrix. In each round of the algorithm, the content of the state matrix constantly changes, and the final result is output as ciphertext.
    
-      .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/AES.png
+      .. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/AES.png
         :alt: AES描述(AES Description)
         :name: fig_AES
         :align: center
@@ -278,7 +310,7 @@ None
 文件列表 File List
 --------------------------------------------------------------------
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/filelist.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/filelist.png
    :alt: Crypto_62组件文件组织结构描述(Description of Crypto_62 organization file organization structure)
    :name: fig_Crypto_62Filelist
    :align: center
@@ -332,66 +364,68 @@ None
         - 包含了Crypto_62模块中密钥管理部分API函数的实现。(Contains the realization of API functions for key management in the Crypto_62 module.)
 
 
-错误处理 Error Handling
-------------------------------------------------------------------------
+错误处理(Error Handling)
+----------------------------------
 
-开发错误 Development Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+开发错误(Development Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    .. list-table:: 
-      :widths: 20 10 30
-      :header-rows: 1
+.. list-table:: 
+  :widths: 20 10 30
+  :header-rows: 1
 
-      * - Error code
-        - Value[hex]
-        - Description
+  * - Error code
+    - Value[hex]
+    - Description
 
-      * - CRYPTO_E_UNINIT 
-        - 0x00
-        - API request called before initialization of CryptoDriver.
+  * - CRYPTO_E_UNINIT 
+    - 0x00
+    - API request called before initialization of CryptoDriver.
 
-      * - CRYPTO_E_INIT_FAILED 
-        - 0x01
-        - Initialization of Crypto Driver failed 
+  * - CRYPTO_E_INIT_FAILED 
+    - 0x01
+    - Initialization of Crypto Driver failed 
 
-      * - CRYPTO_E_PARAM_POINTER  
-        - 0x02
-        - API request called with invalid parameter(Nullpointer without redirection).
+  * - CRYPTO_E_PARAM_POINTER  
+    - 0x02
+    - API request called with invalid parameter(Nullpointer without redirection).
 
-      * - CRYPTO_E_PARAM_HANDLE
-        - 0x04
-        - API request called with invalid parameter (out ofrange).
+  * - CRYPTO_E_PARAM_HANDLE
+    - 0x04
+    - API request called with invalid parameter (out ofrange).
 
-      * - CRYPTO_E_PARAM_VALUE 
-        - 0x05
-        - API request called with invalid parameter (invalidvalue).
+  * - CRYPTO_E_PARAM_VALUE 
+    - 0x05
+    - API request called with invalid parameter (invalidvalue).
 
-      * - CRYPTO_E_SMALL_BUFFER 
-        - 0x06
-        - Buffer is too small for operation 
+  * - CRYPTO_E_SMALL_BUFFER 
+    - 0x06
+    - Buffer is too small for operation 
 
-产品错误 Product Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+产品错误(Product Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 None
 
 
-运行时错误 Runtime Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    .. list-table:: 
-      :widths: 20 10 30
-      :header-rows: 1
+运行时错误(Runtime Errors)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      * - Error code
-        - Value[hex]
-        - Description
+.. list-table:: 
+  :widths: 20 10 30
+  :header-rows: 1
 
-      * - CRYPTO_E_RE_ENTROPY_EXHAUSTED 
-        - 0x03
-        - Entropy is too low 
+  * - Error code
+    - Value[hex]
+    - Description
 
-      * - CRYPTO_E_RE_NVM_ACCESS_FAILED 
-        - 0x04
-        - NVM access has failed 
+  * - CRYPTO_E_RE_ENTROPY_EXHAUSTED 
+    - 0x03
+    - Entropy is too low 
+
+  * - CRYPTO_E_RE_NVM_ACCESS_FAILED 
+    - 0x04
+    - NVM access has failed 
     
 
 
@@ -422,7 +456,7 @@ CryptoDriver is the lowest underlying driver module, whose dependency modules ca
 
 In the CryptoGeneral configuration interface, perform some configurations similar to DET switches, version number switches, partition information, etc. It is recommended to prioritize the configuration here.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoGeneral.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoGeneral.png
    :alt:  CryptoGeneral配置图 (CryptoGeneral Configuration Diagram)
    :name: fig_CryptoGeneral
    :align: center
@@ -473,7 +507,7 @@ In the CryptoGeneral configuration interface, perform some configurations simila
 
 Key is required by a majority of encryption algorithms. In the first step, configure the key: Create key elements, and then combine them into a key group, which is keytype. Configure key according to the use method of the key group. Multiple key elements can be configured for one keytype. If the key needs securely storing to NVM, configure block via NVM module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoKeyElements.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoKeyElements.png
    :alt:  CryptoKeyElements配置图 (CryptoKeyElements Configuration Diagram)
    :name: fig_CryptoKeyElements
    :align: center
@@ -548,7 +582,7 @@ Key is required by a majority of encryption algorithms. In the first step, confi
 |                                    | 依赖关系（Dependence）            | 无（None）                                                                                                                                                                                                                                         |
 +------------------------------------+-----------------------------------+-------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoKeyTypes.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoKeyTypes.png
    :alt:  CryptoKeyTypes配置图 (CryptoKeyTypes Configuration Diagram)
    :name: fig_CryptoKeyTypes
    :align: center
@@ -569,7 +603,7 @@ Key is required by a majority of encryption algorithms. In the first step, confi
 +---------------------+-----------------------------------+--------------------------------------------------------------+---------------------------------+-----------------+
 
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoKey.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoKey.png
    :alt:  CryptoKey配置图 (CryptoKey Configuration Diagram)
    :name: fig_CryptoKey
    :align: center
@@ -601,7 +635,7 @@ Key is required by a majority of encryption algorithms. In the first step, confi
 |                     | 依赖关系（Dependence）            | 无（None）                                                                                        |
 +---------------------+-----------------------------------+------------------------------------------------------+-----------------------------+--------------+
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoNvStorage.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoNvStorage.png
    :alt:  CryptoNvStorage配置图 (CryptoNvStorage Configuration Diagram)
    :name: fig_CryptoNvStorage
    :align: center
@@ -640,7 +674,7 @@ Key is required by a majority of encryption algorithms. In the first step, confi
 
 The type and mode of encryption algorithm need configuring here, such as the ECB mode under the AES type of encryption service, in order to generate the macro defined switches.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoPrimitives.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoPrimitives.png
    :alt:  CryptoPrimitives配置图 (CryptoPrimitives Configuration Diagram)
    :name: fig_CryptoPrimitives
    :align: center
@@ -687,7 +721,7 @@ The type and mode of encryption algorithm need configuring here, such as the ECB
 The encryption driver takes Object as the unit and can configure several objects, each of which can be configured with several services to process tasks in a queue format.
 
 
-  .. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoDriverObject.png
+  .. figure:: /_static/参考手册(Module_Reference_Manual)/Crypto_62/CryptoDriverObject.png
     :alt:  CryptoDriverObject配置图 (CryptoDriverObject Configuration Diagram)
     :name: fig_CryptoDriverObject
     :align: center

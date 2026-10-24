@@ -10,7 +10,7 @@ Crypto_62_Encrypt_Process
 Processes an encryption operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -65,7 +65,7 @@ Crypto_62_Decrypt_Process
 Processes a decryption operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -120,7 +120,7 @@ Crypto_62_AeadEncrypt_Process
 Processes an AEAD (Authenticated Encryption with Associated Data) encryption operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -175,7 +175,7 @@ Crypto_62_AeadDecrypt_Process
 Processes an AEAD (Authenticated Encryption with Associated Data) decryption operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -230,7 +230,7 @@ Crypto_62_SignatureGenerate_Process
 Processes a signature generation operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -283,7 +283,7 @@ Crypto_62_SignatureVerify_Process
 Processes a signature verification operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -336,7 +336,7 @@ Crypto_62_RandomGenerate_Process
 Processes a random number generation operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -391,7 +391,7 @@ Crypto_62_RandomSeed_Process
 Processes a random number generator (RNG) seeding operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -441,7 +441,7 @@ Crypto_62_KeyGenerate_Process
 Processes a key generation operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -491,7 +491,7 @@ Crypto_62_KeyDerive_Process
 Processes a key derivation operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -541,7 +541,7 @@ Crypto_62_KeyExchangeCalcPubval_Process
 Processes a key exchange operation to calculate the public value.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -591,7 +591,7 @@ Crypto_62_KeyExchangeCalcSecret_Process
 Processes a key exchange operation to calculate the shared secret.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -641,7 +641,7 @@ Custom_Service_Process
 Processes a custom cryptographic service.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -691,7 +691,7 @@ Crypto_AesDecryptProcess
 Processes an AES decryption operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -740,7 +740,7 @@ Crypto_AesEncryptProcess
 Processes an AES encryption operation.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -789,7 +789,7 @@ Crypto_62_ProcessAsyncJob_NonQueue
 Processes an asynchronous cryptographic job without queuing.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Not reentrant for the same object ID
@@ -836,7 +836,7 @@ Crypto_ProcessAlgorithm
 Processes the specified cryptographic algorithm based on the given object ID and operation mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same object ID
@@ -883,7 +883,7 @@ Crypto_62_ProcessJob_Internal
 Processes a cryptographic job internally based on the specified operation mode.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same object ID and job
@@ -933,7 +933,7 @@ Crypto_62_QueueInJob
 Enqueues a cryptographic job into the job queue based on its priority.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant but not for the same object ID and job

@@ -14,21 +14,35 @@ Tm
    :widths: 10 10 10 10 20
    :header-rows: 1
 
-   * - 日期(Date)
-     - 作者(Author)
-     - 版本(Version)
-     - 状态(Status)
-     - 说明(Description)
+   * - 日期
+     - 作者
+     - 版本
+     - 状态
+     - 说明
+
    * - 2025/01/24
      - xudong.guan
      - V0.1
-     - 发布(Release)
-     - 首次发布(First release)
+     - 发布
+     - 首次发布
+
    * - 2025/04/04
      - xudong.guan
      - V1.0
-     - 发布(Release)
-     - 正式发布(Official release)
+     - 发布
+     - 正式发布
+     
+   * - 2025/07/30
+     - xudong.guan
+     - V1.1
+     - 发布
+     - 版本升级R24-11
+
+   * - 2025/12/30
+     - xudong.guan
+     - V2.0
+     - 发布
+     - 正式发布
 
 参考文档(References)
 ----------------------------------
@@ -44,11 +58,11 @@ Tm
    * - 1
      - Autosar
      - AUTOSAR_CP_SRS_TimeService.pdf
-     - R23-11
+     - R24-11
    * - 2
      - Autosar
      - AUTOSAR_CP_SWS_TimeService.pdf
-     - R23-11 
+     - R24-11 
 
 术语与简写(Terms and Abbreviations)
 ========================================
@@ -97,34 +111,59 @@ Tm
      - 无操作。
 
 
-简介(Introduction)
-==============================
-如图所示Tm模块位于系统服务，所有层都可以使用系统服务。Tm模块可以越过一个软件层来访问GPT，而GPT不能与其他MCAL模块直接产生交互。
-
-As shown in the figure, the Tm module is located in system services accessible to all layers. The Tm module can access GPT across a software layer, while GPT cannot directly interact with other MCAL modules.
+简介
+====
+如图所示Tm模块位于系统服务，BSW和Application都可以使用。Tm模块可以越过一个软件层来访问GPT，而GPT不能与其他MCAL模块直接产生交互。
 
 复杂驱动和ECU抽象层与GPT存在交互，但不受Tm模块影响。
 
 Complex drivers and the ECU Abstraction Layer interact with GPT but remain unaffected by the Tm module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_ArchitectureFig.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Tm/CP_Arch_Tm.png
    :alt: Tm架构层次图 (Tm Architecture Hierarchy Diagram)
-   :name: fig_arch
+   :name: Tm_fig_Architecture
    :align: center
 
    Tm架构层次图 (Tm Architecture Hierarchy Diagram)
 
    Tm Architecture Hierarchy Diagram
 
+如 :ref:`Tm_fig_Architecture` 所示，Tm模块处于AUTOSAR架构中的系统服务层。
+
 功能描述(Functional Description)
 ==========================================
 
-特性(Features)
--------------------------
+公共特性(Public Features)
+--------------------------------------------
 
-Tm功能介绍(Introduction to Tm Functions)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Tm模块通过直接访问GPT硬件，经过一定转换后给其他BSW模块提供接口从而可以初始化一个时钟，随时获取其经过时间，或者可以主动忙碌等待一段时间，并可以对时钟进行偏移等操作。
+多核多分区功能(Multi-core and Multi-partition Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+.. only:: doc_pbs
+
+   PBS功能(PBS Features)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   None
+
+Memmap功能(Memmap Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+独占区功能(Exclusive Area Features)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+None
+
+模块特性(Module Features)
+--------------------------------------------
+
+Tm功能介绍
+~~~~~~~~~~~~~~~~~~~
+Tm模块通过直接访问GPT硬件，经过一定转换后为其他BSW模块或者Application提供接口从而可以初始化一个时钟，随时获取其经过时间，或者可以主动忙碌等待一段时间，并可以对时钟进行偏移等操作。
 
 The Tm module directly accesses GPT hardware and, after conversions, provides interfaces for other BSW modules to initialize timers, retrieve elapsed time, perform busy waits, and apply clock offsets.
 
@@ -132,11 +171,9 @@ The Tm module directly accesses GPT hardware and, after conversions, provides in
 
 Various timer types, termed "Tm predefined timers", are available with hardware and configuration support. Each predefined timer has a predefined tick duration (minimum time unit) and bit width (physical range). These predefined timers are based on GPT predefined timers - free-running hardware counters provided by the GPT driver.
 
-共有以下四种预定义时钟：Tm_PredefTimer1us16bitType，Tm_PredefTimer1us24bitType，Tm_PredefTimer1us32bitType，Tm_PredefTimer100us32bitType。(前一项为tick duration，后一项为字节大小)。
+共有以下四种预定义时钟：1us16bit，1us24bit，1us32bit，100us32bit，其中us代表分辨率，bit代表最大宽度。
 
-Four predefined timers are available: Tm_PredefTimer1us16bitType, Tm_PredefTimer1us24bitType, Tm_PredefTimer1us32bitType, and Tm_PredefTimer100us32bitType. (First value indicates tick duration, second indicates bit width).
-
-那么，Tm提供的服务也都支持这四种时钟。相关服务有：Tm_ResetTimer…, Tm_GetTimeSpan…, Tm_ShiftTimer…, Tm_SyncTimer…, Tm_BusyWait…。注意100us不支持BusyWait。
+那么，Tm提供的服务也都支持这四种时钟。相关服务有：Tm_ResetTimer, Tm_GetTimeSpan, Tm_ShiftTimer, Tm_SyncTimer, Tm_BusyWait，注意100us不支持BusyWait。
 
 Tm services support all four timer types. Related services include: Tm_ResetTimer..., Tm_GetTimeSpan..., Tm_ShiftTimer..., Tm_SyncTimer..., Tm_BusyWait... Note: 100us timers do not support BusyWait.
 
@@ -178,13 +215,14 @@ Tm services support all four timer types. Related services include: Tm_ResetTime
    * - 文件(File)
      - 描述(Description)
 
-   * - Tm_Cfg.h
-     - Tm模块配置头文件，包含配置宏定义。(Configuration header file of the Tm module, containing configuration macro definitions.)
-       
-       
+   * - Tm_Cfg.c
+     - Tm模块配置源码文件，包含需要使用的宏定义，结构体定义等。
+
+   * - Tm_Cfg.c
+     - Tm模块配置头文件，包含需要使用的宏定义。
 
 错误处理(Error Handling)
---------------------------------
+----------------------------------
 
 开发错误(Development Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -202,19 +240,35 @@ Tm services support all four timer types. Related services include: Tm_ResetTime
 
    * - TM_E_PARAM_VALUE
      - 0x02
-     - 调用API服务的时候传入了非法的参数。(Invalid parameter passed during API service call.)
+     - 调用API服务的时候传入了非法的参数。
+
+   * - TM_E_PARAM_SYNC
+     - 0x03
+     - 调用API服务Tm_SyncTime的计时器实例不兼容
+
+   * - TM_E_STATE
+     - 0x04
+     - 调用Tm_ResetTimer时对应的定时器未经过初始化。
 
 产品错误(Product Errors)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 None
 
 运行时错误(Runtime Errors)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   - TM_E_HARDWARE_TIMER
-   - 0x03
-   - 访问底层硬件计时器(GPT Predef Timer)失败。(Failed to access the underlying hardware timer (GPT Predef Timer).)
 
+.. list-table:: 
+   :widths: 20 10 30
+   :header-rows: 1
+
+   * - Error code
+     - Value[hex]
+     - Description
+
+   * - TM_E_HARDWARE_TIMER
+     - 0x03
+     - 访问底层硬件计时器(GPT Predef Timer)失败。
 
 
 接口描述(Interface Description)
@@ -260,15 +314,72 @@ None
      - Det.h
      - Service to report development errors
 
-服务封装(Service Encapsulation)
------------------------------------------------------
-Tm无服务封装接口。
+服务封装
+----------------------
+Tm通过TmTimerUser配置项来决定是否对该定时器提供基于C/S的服务封装端口，当配置为PORT时，Tm将提供封装服务，否则不提供。
 
-Tm module has no service encapsulation interfaces.
+服务封装PORT
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-配置(Configuration)
-============================
+.. list-table::
+   :widths: 10 5 30 30
+   :header-rows: 1
 
+   * - Port Name
+     - Kind
+     - Interface
+     - Description
+
+   * - TmPreDefTimer_{Name}
+     - ProvidedPort
+     - TmPreDefTimerService
+     - Tm模块的预置定时器服务封装端口
+  
+服务封装Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 10 5 30
+   :header-rows: 1
+
+   * - Interface Name
+     - Operations
+     - Description
+
+   * - TmPreDefTimerService
+     - GetTimeSpan, ResetTimer, ShiftTimer
+     - Tm模块的预置定时器服务封装接口和包含的操作
+
+TmPreDefTimerService接口操作
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tm提供的Interface包含三种操作：GetTimeSpan, ResetTimer, ShiftTimer，分别用于获取时间间隔，重置定时器和偏移定时器。以下是Operation对应的函数接口。
+
+.. list-table::
+   :widths: 10 5 30 30
+   :header-rows: 1
+
+   * - Operation
+     - API
+     - Return
+     - Description
+
+   * - GetTimeSpan
+     - Tm_GetTimeSpan
+     - E_OK/E_NOT_OK
+     - 用于获取时间间隔
+     
+   * - ResetTimer
+     - Tm_ResetTimer
+     - E_OK/E_NOT_OK
+     - 用于重置定时器时间
+     
+   * - ShiftTimer
+     - Tm_ShiftTimer
+     - E_OK/E_NOT_OK
+     - 用于偏移定时器时间
+
+配置
+========
 
 基础配置说明(Basic Configuration Description)
 -----------------------------------------------------
@@ -279,7 +390,7 @@ Tm模块提供TmDevErrorDetection开关，用于控制是否开启Tm模块的开
 
 The Tm module provides the TmDevErrorDetection switch, which is used to control whether to enable the development error detection function of the Tm module.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_det.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_det.png
    :alt: Tm配置-开发错误检测开关(Tm Configuration - Development Error Detection Switch)
    :name: fig_cfg_det
    :align: center
@@ -287,30 +398,13 @@ The Tm module provides the TmDevErrorDetection switch, which is used to control 
    Tm配置图-开发错误检测(Tm Configuration Diagram - Development Error Detection)
 
    
-
-
-预定时器接口使能开关(Predefined Timer Interface Enable Switches)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Tm模块支持4种预定时器，分别是1us16bit，1us24bit,1us32bit和100us32bit，并提供相应的开关来控制是否使能相应的定时器接口。
-
-The Tm module supports 4 types of predefined timers, namely 1us16bit, 1us24bit, 1us32bit, and 100us32bit, and provides corresponding switches to control whether to enable the corresponding timer interfaces.
-
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_predefTimer.png
-   :alt: Tm配置-预定时器接口使能开关 (Tm Configuration - Predefined Timer Interface Enable Switches)
-   :name: fig_cfg_predefTimer
-   :align: center
-
-   Tm配置图-预定时器接口使能开关 (Tm Configuration Diagram - Predefined Timer Interface Enable Switches)
-
-   
-
 版本获取开关(Version Acquisition Switch)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Tm模块提供版本获取开关，用于控制是否获取版本号。
 
 The Tm module provides a version acquisition switch to control version number retrieval.
 
-.. figure:: ../../../_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_version.png
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_version.png
    :alt: Tm配置-版本获取开关 (Tm Configuration - Version Acquisition Switch)
    :name: fig_cfg_version
    :align: center
@@ -318,4 +412,35 @@ The Tm module provides a version acquisition switch to control version number re
    Tm配置图-版本获取开关 (Tm Configuration Diagram - Version Acquisition Switch)
 
 
+预定时器实例(Predefined Timer Instance)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+用户可以根据定时器的用途，创建多个预定时器实例，每个实例有唯一的标识符（TmPreDefTimerInstanceId）、定时器类型（TmPreDefTimerType）和调用方式（TmTimerUser）。
+标识符自动生成，无需手动配置。
+定时器类型支持4种预定时器，分别是1us16bit，1us24bit,1us32bit和100us32bit。
+调用方式存在CAPI和PORT两种类型，CAPI表示直接调用，供BSW模块使用，而PORT表示服务调用，为SWC提供基于时间的服务。其中CAPI方式不限制定时器类型，PORT方式只允许使用1us32bit定时器类型。
+
+Users can create multiple predefined timer instances based on the intended use of the timer. Each instance has a unique identifier (TmPreDefTimerInstanceId), a timer type (TmPreDefTimerType), and a calling method (TmTimerUser).
+The identifier is generated automatically and requires no manual configuration.
+Four predefined timer types are supported: 1us16bit, 1us24bit, 1us32bit, and 100us32bit.
+Two calling methods are available: CAPI and PORT:
+CAPI (Direct Call): Used by BSW modules, with no restrictions on timer type.
+PORT (Service Call): Provides time-based services for SWCs, and only supports the 1us32bit timer type.
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Tm/Tm_cfg_predefTimer.png
+   :alt: Tm配置-预定时器实例 (Tm Configuration - Predefined Timer Instance)
+   :name: fig_cfg_predefTimer
+   :align: center
+
+   Tm配置图-预定时器实例 (Tm Configuration Diagram - Predefined Timer Instance)
+
+服务实例(Service Instance)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+在预定时器实例配置章节中，当存在定时器实例的类型为1us32bit，且调用方式为PORT时，Tm模块将生成服务实例，此时提供该定时器实例的相关Port和interface供SWC使用。
+
+.. figure:: /_static/参考手册(Module_Reference_Manual)/Tm/Tm_ServiceInstance.png
+   :alt: Tm配置-服务实例 (Tm ServiceInstance)
+   :name: Tm_ServiceInstance
+   :align: center
+
+   Tm配置图-服务实例 (Tm ServiceInstance)
 

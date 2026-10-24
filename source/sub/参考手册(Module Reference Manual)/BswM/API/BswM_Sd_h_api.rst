@@ -10,7 +10,7 @@ BswM_Sd_ClientServiceCurrentState
 Function called by Service Discovery to indicate the current state of the Client Service (available/down).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -45,7 +45,7 @@ BswM_Sd_ConsumedEventGroupCurrentState
 Function called by Service Discovery to indicate the current status of the Consumed Eventgroup (available/down).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -80,7 +80,7 @@ BswM_Sd_EventHandlerCurrentState
 Function called by Service Discovery to indicate the current status of the EventHandler (requested/released).
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant

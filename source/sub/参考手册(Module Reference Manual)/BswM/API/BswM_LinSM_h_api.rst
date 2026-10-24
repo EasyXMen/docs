@@ -10,7 +10,7 @@ BswM_LinSM_CurrentSchedule
 Function called by LinSM to indicate the currently active schedule table for a specific LIN channel.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
@@ -45,7 +45,7 @@ BswM_LinSM_CurrentState
 Function called by LinSM to indicate its current state.
 
 **Sync/Async**
-   TRUE
+   Synchronous
 
 **Reentrancy**
    Reentrant
